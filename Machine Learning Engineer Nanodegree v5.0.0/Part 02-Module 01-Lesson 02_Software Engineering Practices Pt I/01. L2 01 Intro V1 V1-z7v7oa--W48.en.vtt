@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.280 --> 00:00:09.190
+Welcome to part one of Software Engineering Practices.
+
+00:00:09.189 --> 00:00:13.709
+Here, we will go over a few techniques that we can adopt as
+
+00:00:13.710 --> 00:00:19.214
+data scientists to be better developers and prepare for production level code.
+
+00:00:19.214 --> 00:00:23.714
+You will learn how to write clean and modular code,
+
+00:00:23.714 --> 00:00:26.539
+improve your code's efficiency,
+
+00:00:26.539 --> 00:00:31.554
+document effectively, and use version control.
+
+00:00:31.554 --> 00:00:34.909
+These are all essential skills to develop as
+
+00:00:34.909 --> 00:00:40.199
+a programmer and will really help you when implementing production solutions.
+
+00:00:40.200 --> 00:00:46.330
+In addition, data scientists often work side-by-side with software engineers,
+
+00:00:46.329 --> 00:00:48.824
+and it's important you work well together.
+
+00:00:48.825 --> 00:00:52.670
+This means being familiar with standard practices
+
+00:00:52.670 --> 00:00:57.594
+and being able to collaborate effectively with others on code.
+
+00:00:57.594 --> 00:01:00.710
+Let's walk through each of these practices and
+
+00:01:00.710 --> 00:01:04.560
+learn how they're applied as a data scientist.
+

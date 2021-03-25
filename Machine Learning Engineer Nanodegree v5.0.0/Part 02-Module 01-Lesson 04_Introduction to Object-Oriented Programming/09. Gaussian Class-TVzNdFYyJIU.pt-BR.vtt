@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.933 --> 00:00:04.779
+CLASSE GAUSSIAN
+
+00:00:05.316 --> 00:00:08.739
+Agora que você treinou trabalhar
+com toda essa sintaxe nova,
+
+00:00:08.773 --> 00:00:10.916
+vamos à parte empolgante.
+
+00:00:10.950 --> 00:00:13.372
+No resto desta aula,
+você vai aprender mais
+
+00:00:13.406 --> 00:00:15.364
+sobre programação
+orientada a objetos
+
+00:00:15.398 --> 00:00:19.337
+e usar essas habilidades
+para construir um pacote Python.
+
+00:00:20.209 --> 00:00:24.401
+O pacote contém código para analisar
+distribuições gaussianas.
+
+00:00:24.435 --> 00:00:27.176
+Você pode usar o pacote
+para ler dados
+
+00:00:27.210 --> 00:00:30.712
+e calcular os desvios
+médio e padrão.
+
+00:00:30.746 --> 00:00:32.297
+Também incluirá o código
+
+00:00:32.331 --> 00:00:34.212
+para diagramar um histograma
+dos dados
+
+00:00:34.246 --> 00:00:38.681
+e a função de densidade
+de uma distribuição gaussiana.
+
+00:00:38.715 --> 00:00:43.885
+Por fim, esse pacote vai poder
+somar duas distribuições gaussianas.
+
+00:00:44.717 --> 00:00:50.492
+Vou começar mostrando
+como é o código e como ele funciona.
+
+00:00:50.526 --> 00:00:53.405
+Depois você criará
+o seu próprio código.
+
+00:00:53.439 --> 00:00:56.197
+No fim da aula,
+vai estender o pacote
+
+00:00:56.231 --> 00:00:59.212
+para também tratar
+de distribuições binomiais.
+
+00:01:00.133 --> 00:01:01.901
+A melhor parte desta aula
+
+00:01:01.935 --> 00:01:05.549
+é que você terá
+um pacote Python funcional
+
+00:01:05.583 --> 00:01:08.404
+que pode instalar
+usando o terminal.
+
+00:01:08.438 --> 00:01:11.924
+Se quiser, pode carregar
+o pacote no PyPI,
+
+00:01:11.958 --> 00:01:14.053
+onde pacotes Python
+são armazenados
+
+00:01:14.087 --> 00:01:17.745
+para o público geral
+baixar e instalar.
+
+00:01:17.778 --> 00:01:21.346
+Esta aula presume que você
+conhece distribuições gaussianas,
+
+00:01:21.380 --> 00:01:23.332
+também conhecidas
+como "normais",
+
+00:01:23.366 --> 00:01:25.795
+assim como
+distribuições binomiais.
+
+00:01:25.829 --> 00:01:30.084
+Vou colocar alguns recursos abaixo
+caso queira revisá-las.
+
+00:01:30.118 --> 00:01:32.526
+Agora vamos começar
+a analisar o código.
+

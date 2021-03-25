@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.070 --> 00:00:07.065
+Before you can deploy your code,
+
+00:00:07.065 --> 00:00:08.910
+it will need to be tested.
+
+00:00:08.910 --> 00:00:13.134
+Writing tests is standard practice in software engineering.
+
+00:00:13.134 --> 00:00:15.824
+However, testing is often a practice
+
+00:00:15.824 --> 00:00:20.664
+many data scientists aren't familiar with when they first start in industry.
+
+00:00:20.664 --> 00:00:24.969
+In fact, sometimes the insights data scientists come up with,
+
+00:00:24.969 --> 00:00:29.269
+which are supposed to be used for business decisions and company products,
+
+00:00:29.269 --> 00:00:32.359
+are based on the results of untested code.
+
+00:00:32.359 --> 00:00:35.435
+This lack of testing is a common complaint
+
+00:00:35.435 --> 00:00:39.190
+from other software developers working with data scientists.
+
+00:00:39.189 --> 00:00:42.439
+Without testing, not only do you run into
+
+00:00:42.439 --> 00:00:46.009
+execution errors in code due to software issues,
+
+00:00:46.009 --> 00:00:49.159
+you could also be dictating business decisions and
+
+00:00:49.159 --> 00:00:52.804
+affect products based on faulty conclusions.
+
+00:00:52.804 --> 00:00:56.570
+Today, employers are looking for data scientists with
+
+00:00:56.570 --> 00:01:00.494
+the skills to properly prepare their code for an industry setting,
+
+00:01:00.494 --> 00:01:02.659
+which means tested code.
+

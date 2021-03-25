@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.280 --> 00:00:07.905
+Imagine you're part of a data science team
+
+00:00:07.905 --> 00:00:11.294
+that's responsible for building a company's recommendation engine.
+
+00:00:11.294 --> 00:00:13.995
+You're sitting at your desk working on a feature
+
+00:00:13.994 --> 00:00:16.994
+that incorporates demographic data like age,
+
+00:00:16.995 --> 00:00:21.330
+gender, and relationship status to improve recommendations to users.
+
+00:00:21.329 --> 00:00:24.329
+You're midway through this implementation when
+
+00:00:24.329 --> 00:00:28.154
+your boss comes over to notify you that the business intelligence team
+
+00:00:28.155 --> 00:00:30.900
+predicts that a user's friend groups will produce
+
+00:00:30.899 --> 00:00:36.073
+the best recommendations in the short-term and wanted to prioritize this immediately.
+
+00:00:36.073 --> 00:00:40.199
+Looking at the recommendation engine code you have on your screen,
+
+00:00:40.200 --> 00:00:41.429
+you can see there's a bunch of
+
+00:00:41.429 --> 00:00:46.789
+unfinished non-working code that you've added while working on the demographic feature.
+
+00:00:46.789 --> 00:00:49.674
+Running this code right now would break.
+
+00:00:49.674 --> 00:00:53.864
+If you want to get started on this new friend groups feature now,
+
+00:00:53.865 --> 00:00:57.650
+you'd have to undo all of this work maybe by editing
+
+00:00:57.649 --> 00:01:01.664
+back lines you've modified and committing out lines of code you added.
+
+00:01:01.664 --> 00:01:04.995
+This would be a very messy and risky route,
+
+00:01:04.995 --> 00:01:09.200
+or say you're using a version control system like Git.
+
+00:01:09.200 --> 00:01:14.719
+You can simply commit your changes and create another branch for this new feature.
+
+00:01:14.719 --> 00:01:16.819
+Here's what I mean.
+
+00:01:16.819 --> 00:01:23.209
+Your company has a Git repository for its recommendation engine and has a master branch,
+
+00:01:23.209 --> 00:01:27.169
+which holds the code used in production and the develop branch
+
+00:01:27.170 --> 00:01:32.075
+which holds the latest stable version of code with changes for the next release.
+
+00:01:32.075 --> 00:01:36.704
+You have a local version of this repository on your laptop,
+
+00:01:36.704 --> 00:01:41.150
+and to get the latest stable version you pull from the develop branch.
+
+00:01:41.150 --> 00:01:44.780
+When you start working on this demographic feature,
+
+00:01:44.780 --> 00:01:46.835
+you create a new branch for this called
+
+00:01:46.834 --> 00:01:51.239
+"Demographic" and start working on your code in this branch.
+
+00:01:51.239 --> 00:01:53.424
+However, in the middle of your work,
+
+00:01:53.424 --> 00:01:55.584
+you need to work on another feature.
+
+00:01:55.584 --> 00:01:57.469
+So, you commit your changes on
+
+00:01:57.469 --> 00:02:01.620
+this demographic branch and switch back to the develop branch.
+
+00:02:01.620 --> 00:02:04.185
+From the stable develop branch,
+
+00:02:04.185 --> 00:02:08.560
+you create another branch for a new feature called friend groups.
+
+00:02:08.560 --> 00:02:11.965
+After you finish your work on the friend groups branch,
+
+00:02:11.965 --> 00:02:13.465
+you commit your changes,
+
+00:02:13.465 --> 00:02:15.865
+switch back to development branch,
+
+00:02:15.865 --> 00:02:18.330
+merge it with the friend groups branch,
+
+00:02:18.330 --> 00:02:22.265
+and push this to the remote repository's develop branch.
+
+00:02:22.264 --> 00:02:24.799
+Now, you can switch back to
+
+00:02:24.800 --> 00:02:29.040
+the demographic branch to continue your progress on that feature.
+
+00:02:29.039 --> 00:02:31.000
+As you can see here,
+
+00:02:31.000 --> 00:02:35.014
+proper use of Git commits and branches can help you work
+
+00:02:35.014 --> 00:02:39.039
+on multiple features at once and switch between them with ease.
+

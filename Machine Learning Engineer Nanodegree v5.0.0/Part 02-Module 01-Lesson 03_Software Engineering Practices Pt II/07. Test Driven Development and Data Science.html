@@ -1,0 +1,306 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Test Driven Development and Data Science
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Software Engineering Practices Pt II
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Testing.html">
+       02. Testing
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Testing and Data Science.html">
+       03. Testing and Data Science
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Unit Tests.html">
+       04. Unit Tests
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Unit Testing Tools.html">
+       05. Unit Testing Tools
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Quiz Unit Tests.html">
+       06. Quiz: Unit Tests
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Test Driven Development and Data Science.html">
+       07. Test Driven Development and Data Science
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Logging.html">
+       08. Logging
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Log Messages.html">
+       09. Log Messages
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Logging.html">
+       10. Logging
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Code Review.html">
+       11. Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Questions to Ask Yourself When Conducting a Code Review.html">
+       12. Questions to Ask Yourself When Conducting a Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Tips for Conducting a Code Review.html">
+       13. Tips for Conducting a Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Conclusion.html">
+       14. Conclusion
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. Test Driven Development and Data Science
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L2 2 09 Test Driven Development DS V1 V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. L2 2 09 Test Driven Development DS V1 V2-M-eskssLcQM.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="07. L2 2 09 Test Driven Development DS V1 V2-M-eskssLcQM.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="07. L2 2 09 Test Driven Development DS V1 V2-M-eskssLcQM.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="07. L2 2 09 Test Driven Development DS V1 V2-M-eskssLcQM.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="test-driven-development-and-data-science">
+          Test Driven Development and Data Science
+         </h1>
+         <ul>
+          <li>
+           <strong>
+            TEST DRIVEN DEVELOPMENT:
+           </strong>
+           writing tests before you write the code that’s being tested. Your test would fail at first, and you’ll know you’ve finished implementing a task when this test passes.
+          </li>
+          <li>
+           Tests can check for all the different scenarios and edge cases you can think of, before even starting to write your function. This way, when you do start implementing your function, you can run this test to get immediate feedback on whether it works or not in all the ways you can think of, as you tweak your function.
+          </li>
+          <li>
+           When refactoring or adding to your code, tests help you rest assured that the rest of your code didn't break while you were making those changes. Tests also helps ensure that your function behavior is repeatable, regardless of external parameters, such as hardware and time.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Test driven development for data science is relatively new and has a lot of experimentation and breakthroughs appearing, which you can learn more about in the resources below.
+         </p>
+         <ul>
+          <li>
+           <a href="https://www.linkedin.com/pulse/data-science-test-driven-development-sam-savage/" rel="noopener noreferrer" target="_blank">
+            Data Science TDD
+           </a>
+          </li>
+          <li>
+           <a href="http://engineering.pivotal.io/post/test-driven-development-for-data-science/" rel="noopener noreferrer" target="_blank">
+            TDD for Data Science
+           </a>
+          </li>
+          <li>
+           <a href="https://medium.com/@karijdempsey/test-driven-development-is-essential-for-good-data-science-heres-why-db7975a03a44" rel="noopener noreferrer" target="_blank">
+            TDD is Essential for Good Data Science Here's Why
+           </a>
+          </li>
+          <li>
+           <a href="http://docs.python-guide.org/en/latest/writing/tests/" rel="noopener noreferrer" target="_blank">
+            Testing Your Code
+           </a>
+           (general python TDD)
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. Logging.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Test Driven Development and Data Science')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

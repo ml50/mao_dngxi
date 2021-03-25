@@ -1,0 +1,28 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.070 --> 00:00:09.015
+Welcome to part two of Software Engineering Practices.
+
+00:00:09.015 --> 00:00:10.540
+In the last lesson,
+
+00:00:10.539 --> 00:00:13.774
+you learned how to write good code that's clean,
+
+00:00:13.775 --> 00:00:19.460
+modular, efficient, well documented, and version controlled.
+
+00:00:19.460 --> 00:00:25.815
+Here, we will go a step further and add robustness to your code with testing,
+
+00:00:25.815 --> 00:00:28.260
+logging, and code reviews.
+
+00:00:28.260 --> 00:00:34.575
+These practices help you ensure reliability and easier maintenance of your code,
+
+00:00:34.575 --> 00:00:36.960
+which is crucial in industry.
+

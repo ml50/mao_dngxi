@@ -1,0 +1,301 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.269
+Let's get right into it and see how to write a class in Python.
+
+00:00:04.269 --> 00:00:07.048
+If you haven't worked with classes before,
+
+00:00:07.049 --> 00:00:09.493
+the syntax might be a bit confusing,
+
+00:00:09.493 --> 00:00:12.564
+but we'll go through some code step-by-step.
+
+00:00:12.564 --> 00:00:16.559
+For now, I'm going to show code using Jupyter Notebooks,
+
+00:00:16.559 --> 00:00:21.750
+but later in the lesson you'll be modularizing code into Python scripts.
+
+00:00:21.750 --> 00:00:23.125
+In the top cell,
+
+00:00:23.125 --> 00:00:25.338
+I've written a Shirt class,
+
+00:00:25.338 --> 00:00:28.648
+like what we were just talking about in the previous video.
+
+00:00:28.649 --> 00:00:30.320
+The class has color,
+
+00:00:30.320 --> 00:00:34.170
+size, style, and price attributes.
+
+00:00:34.170 --> 00:00:37.454
+I also wrote a method to change the price,
+
+00:00:37.454 --> 00:00:41.474
+as well as a method to output a discounted price.
+
+00:00:41.475 --> 00:00:44.840
+The code cells that come after this first one shows
+
+00:00:44.840 --> 00:00:48.300
+some examples of how to instantiate shirt objects,
+
+00:00:48.298 --> 00:00:51.484
+so that you can see how to use a class in a program.
+
+00:00:51.484 --> 00:00:54.630
+I'll start at the top of the file and work down.
+
+00:00:54.630 --> 00:00:59.179
+The very first line tells Python that I'm going to write a class,
+
+00:00:59.179 --> 00:01:01.054
+and then I name the class shirt.
+
+00:01:01.054 --> 00:01:06.319
+Good coding practice says to capitalize the first letter in a class name,
+
+00:01:06.319 --> 00:01:09.444
+but your code will still work even if you don't do this.
+
+00:01:09.444 --> 00:01:12.659
+You can put parentheses after shirt or not,
+
+00:01:12.659 --> 00:01:14.599
+the code will run either way.
+
+00:01:14.599 --> 00:01:16.399
+The next line takes care of
+
+00:01:16.400 --> 00:01:20.350
+initializing all of the attributes with the appropriate values.
+
+00:01:20.349 --> 00:01:23.174
+Remember, that a class represents a blueprint,
+
+00:01:23.174 --> 00:01:25.420
+hence I'm setting up the color,
+
+00:01:25.420 --> 00:01:29.239
+size, style, and price of a generic shirt.
+
+00:01:29.239 --> 00:01:33.649
+You'll see how the initialization of a specific shirt object works in a minute.
+
+00:01:33.650 --> 00:01:38.520
+There are two things about this that might look a bit funny, the underscore, underscore,
+
+00:01:38.519 --> 00:01:44.099
+init, underscore function, and also the self variable.
+
+00:01:44.099 --> 00:01:47.000
+The init function is built into Python.
+
+00:01:47.000 --> 00:01:51.935
+Python knows to use this function to create a specific shirt object.
+
+00:01:51.935 --> 00:01:54.140
+Again, bear with me for now,
+
+00:01:54.140 --> 00:01:55.805
+I'll go back to this in a minute.
+
+00:01:55.805 --> 00:01:59.674
+The self variable can be tricky to understand at first.
+
+00:01:59.674 --> 00:02:03.140
+Self stores your attributes like color, size,
+
+00:02:03.140 --> 00:02:08.104
+et cetera, and makes those attributes available throughout your class.
+
+00:02:08.104 --> 00:02:11.269
+Self is essentially a dictionary that
+
+00:02:11.270 --> 00:02:15.250
+holds all of your attributes and the attribute values.
+
+00:02:15.250 --> 00:02:19.128
+Checkout the change price method to see how self works.
+
+00:02:19.128 --> 00:02:24.918
+I pass in self as the first method input so that I can have access to the price.
+
+00:02:24.919 --> 00:02:28.280
+Self has the price stored inside it as well as
+
+00:02:28.280 --> 00:02:32.015
+the other attributes like color, size, and style.
+
+00:02:32.014 --> 00:02:34.849
+Self is always going to be the first input to
+
+00:02:34.848 --> 00:02:38.054
+your methods if you want to access the attributes.
+
+00:02:38.055 --> 00:02:40.490
+Note as well that the change price and
+
+00:02:40.490 --> 00:02:43.975
+the discount methods are like regular Python functions.
+
+00:02:43.973 --> 00:02:48.543
+For example, Python functions do not have to return anything,
+
+00:02:48.544 --> 00:02:52.489
+so like in the change price method it doesn't return anything,
+
+00:02:52.490 --> 00:02:55.280
+it only changes the value of the price attribute.
+
+00:02:55.280 --> 00:02:57.770
+The discount method on the other hand does return
+
+00:02:57.770 --> 00:03:00.564
+something it returns the discounted price.
+
+00:03:00.563 --> 00:03:03.125
+Again, the shirt class is just a blueprint.
+
+00:03:03.125 --> 00:03:06.788
+I'm going to run this first cell and then move on to the second cell.
+
+00:03:06.788 --> 00:03:09.033
+Let's see how to actually use this class.
+
+00:03:09.033 --> 00:03:10.853
+The following are some examples.
+
+00:03:10.854 --> 00:03:15.649
+If I want to create an actual shirt object I use this syntax here,
+
+00:03:15.650 --> 00:03:17.944
+this is called instantiating an object.
+
+00:03:17.943 --> 00:03:22.218
+Notice that the syntax in order matches the init function,
+
+00:03:22.218 --> 00:03:25.424
+I'm initializing this specific shirt with the color,
+
+00:03:25.425 --> 00:03:27.469
+size, style, and price,
+
+00:03:27.468 --> 00:03:29.329
+just like in the init function.
+
+00:03:29.330 --> 00:03:34.690
+Python is going to call the init function to initialize this t-shirt object.
+
+00:03:34.688 --> 00:03:36.108
+I'm going to run the code cell.
+
+00:03:36.110 --> 00:03:41.510
+Okay, the output here is a shirt object and then all of those funny numbers and
+
+00:03:41.508 --> 00:03:47.178
+letters at the end is Python giving the location in memory where the object is stored,
+
+00:03:47.180 --> 00:03:51.665
+but this isn't very useful unless we actually store the object in a variable.
+
+00:03:51.663 --> 00:03:53.048
+So in the next code cell,
+
+00:03:53.050 --> 00:03:54.800
+I'm doing exactly that,
+
+00:03:54.800 --> 00:03:57.410
+I'm going to run this code cell and now I've stored
+
+00:03:57.408 --> 00:04:01.120
+this shirt object in the variable new shirt.
+
+00:04:01.120 --> 00:04:03.610
+The new shirt variable has a color,
+
+00:04:03.610 --> 00:04:06.710
+size, style, and price associated with it.
+
+00:04:06.710 --> 00:04:11.335
+You can access these attributes this.syntax.
+
+00:04:11.335 --> 00:04:15.754
+So, I'm going to run this next code cell and you'll see the output.
+
+00:04:15.753 --> 00:04:21.199
+Scrolling down, you use same.syntax to access the methods as well,
+
+00:04:21.199 --> 00:04:25.978
+except you also need to specify any inputs that these methods require.
+
+00:04:25.980 --> 00:04:28.360
+For example, to change the price,
+
+00:04:28.360 --> 00:04:31.430
+I call the change price method with a value of 10.
+
+00:04:31.430 --> 00:04:32.740
+Running this code cell,
+
+00:04:32.740 --> 00:04:36.935
+you now see that the price attribute has changed from 15 to 10.
+
+00:04:36.935 --> 00:04:39.329
+The same goes for the discount method.
+
+00:04:39.329 --> 00:04:43.918
+I input 0.2 to the discount method and it returns a value of eight,
+
+00:04:43.920 --> 00:04:46.939
+because that's a 20 percent discount off the price.
+
+00:04:46.939 --> 00:04:48.410
+In this last part,
+
+00:04:48.410 --> 00:04:52.814
+I instantiate three shirt objects and then store those objects in a list.
+
+00:04:52.814 --> 00:04:55.759
+The reason I'm showing you this is to emphasize that
+
+00:04:55.759 --> 00:04:58.750
+these variables are like any other Python variable.
+
+00:04:58.750 --> 00:05:00.230
+Here are the results.
+
+00:05:00.230 --> 00:05:04.730
+Once I've stored the shirts into the T-shirt collection list,
+
+00:05:04.730 --> 00:05:08.879
+I then run a for loop and print out the color of each shirt.
+
+00:05:08.879 --> 00:05:11.709
+If you're new to object oriented programming,
+
+00:05:11.709 --> 00:05:13.759
+all of this might feel overwhelming.
+
+00:05:13.759 --> 00:05:18.110
+My suggestion is to watch this video again and then move on to the next part
+
+00:05:18.110 --> 00:05:22.485
+of the lesson where you can play around with this code and write your own class.
+
+00:05:22.485 --> 00:05:26.074
+The most important thing you can do is practice.
+
+00:05:26.074 --> 00:05:28.805
+Write your own class, run the code,
+
+00:05:28.805 --> 00:05:31.730
+and debug any error messages you get.
+

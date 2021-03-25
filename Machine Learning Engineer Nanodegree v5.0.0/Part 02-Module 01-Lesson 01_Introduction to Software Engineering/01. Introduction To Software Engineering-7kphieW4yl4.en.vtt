@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.919 --> 00:00:09.554
+Hi. Welcome to this course on software engineering. I'm Juno.
+
+00:00:09.554 --> 00:00:14.080
+I'm Andrew and we are very excited to be guiding you through this course.
+
+00:00:14.080 --> 00:00:18.780
+Wait. Juno, why are we talking about software engineering?
+
+00:00:18.780 --> 00:00:23.635
+You told me that I was here to teach a course for the Data Scientist Nanodegree program.
+
+00:00:23.635 --> 00:00:29.775
+Okay. I admit data scientists and software engineers have quite different roles.
+
+00:00:29.774 --> 00:00:35.164
+Data scientists are like the researchers or thinkers who explore and model data.
+
+00:00:35.164 --> 00:00:38.784
+For data scientists, code is a means to an end.
+
+00:00:38.784 --> 00:00:40.559
+On the other hand,
+
+00:00:40.560 --> 00:00:43.370
+software engineers are like the builders and
+
+00:00:43.369 --> 00:00:47.909
+well engineers who make products and write code for production.
+
+00:00:47.909 --> 00:00:50.899
+Software engineers need to write efficient,
+
+00:00:50.899 --> 00:00:53.379
+robust, and maintainable code.
+
+00:00:53.380 --> 00:00:58.770
+But, both data scientists and software engineers code and write programs.
+
+00:00:58.770 --> 00:01:02.155
+I think I see where you're going with this.
+
+00:01:02.155 --> 00:01:04.540
+We as data scientists write a lot of code,
+
+00:01:04.540 --> 00:01:10.475
+but we don't always pay attention to things like code structure and maintainability.
+
+00:01:10.474 --> 00:01:13.099
+For example, a good software engineer spends
+
+00:01:13.099 --> 00:01:16.149
+the time to write clean and well-tested code.
+
+00:01:16.150 --> 00:01:18.865
+We have a thing or two to learn from them.
+
+00:01:18.864 --> 00:01:21.479
+Yes. As a data scientist,
+
+00:01:21.480 --> 00:01:26.510
+you most likely be working in teams and share code across your organization.
+
+00:01:26.510 --> 00:01:29.750
+Your insights could influence important business decisions
+
+00:01:29.750 --> 00:01:33.594
+or you may be building models to use in their product.
+
+00:01:33.594 --> 00:01:35.929
+This makes it crucial that you follow
+
+00:01:35.930 --> 00:01:41.300
+a few software engineering practices that ensure your code is clean and reliable.
+
+00:01:41.299 --> 00:01:44.469
+You'll improve the efficiency of your workflow,
+
+00:01:44.469 --> 00:01:49.174
+collaboration in teams, and communication with software developers.
+
+00:01:49.174 --> 00:01:52.789
+It's true. Software engineering skills will help you
+
+00:01:52.790 --> 00:01:56.750
+stand out against the competition when applying for data science positions.
+
+00:01:56.750 --> 00:01:59.495
+Employers want and often expect
+
+00:01:59.495 --> 00:02:03.280
+good software engineering skills from their data scientists.
+
+00:02:03.280 --> 00:02:06.170
+I'm glad I convinced you because we've got
+
+00:02:06.170 --> 00:02:09.275
+some awesome projects and exercises in this course.
+
+00:02:09.275 --> 00:02:14.498
+By the end, you will have applied a number of useful software engineering practices,
+
+00:02:14.498 --> 00:02:16.289
+built a Python package,
+
+00:02:16.289 --> 00:02:18.509
+and created a Web application.
+
+00:02:18.509 --> 00:02:21.719
+Let's take a closer look at what you'll be building.
+

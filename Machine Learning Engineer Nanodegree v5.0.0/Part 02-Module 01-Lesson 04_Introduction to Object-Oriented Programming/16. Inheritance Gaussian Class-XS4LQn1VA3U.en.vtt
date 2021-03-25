@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.209
+To reinforce how inheritance works,
+
+00:00:03.209 --> 00:00:06.459
+I've added an example to the Gaussian class code.
+
+00:00:06.459 --> 00:00:11.125
+I've written a new Python class called distribution.
+
+00:00:11.125 --> 00:00:13.830
+This class is going to be the parent class of
+
+00:00:13.830 --> 00:00:15.779
+both the Gaussian class and
+
+00:00:15.779 --> 00:00:19.619
+the binomial class that you're going to code at the end of the lesson.
+
+00:00:19.620 --> 00:00:22.035
+A lot of the codes should look familiar.
+
+00:00:22.035 --> 00:00:26.609
+The init function was the same as the Gaussian init.
+
+00:00:26.609 --> 00:00:33.869
+I've simplified the read data file function so that it only reads in a data set,
+
+00:00:33.869 --> 00:00:39.729
+whereas before this function also calculated the mean and standard deviation of the data.
+
+00:00:39.729 --> 00:00:43.848
+The Gaussian class code has changed slightly.
+
+00:00:43.848 --> 00:00:48.104
+Now the Gaussian class inherits from the distribution class.
+
+00:00:48.104 --> 00:00:52.234
+The init function uses the distributions init function.
+
+00:00:52.234 --> 00:00:57.539
+Scrolling down the read data file method is still in the Gaussian class.
+
+00:00:57.539 --> 00:01:01.640
+This is because I wanted to override the read data file method from
+
+00:01:01.640 --> 00:01:06.260
+the distribution class in order to calculate the mean and standard deviation.
+
+00:01:06.260 --> 00:01:09.859
+Even though the code looks a little bit different than before,
+
+00:01:09.859 --> 00:01:13.454
+the Gaussian class works exactly the same way as it did before.
+
+00:01:13.454 --> 00:01:18.259
+It might seem like the changes in the code are superficial and I'd agree with that.
+
+00:01:18.260 --> 00:01:22.770
+I mostly wanted to introduce inheritance so that you could recognize the syntax.
+
+00:01:22.769 --> 00:01:24.424
+Near the end of the lesson,
+
+00:01:24.424 --> 00:01:27.254
+we're going to look at the source code for scikit-learn.
+
+00:01:27.254 --> 00:01:32.019
+A package like scikit-learn contains many classes that use inheritance.
+
+00:01:32.019 --> 00:01:34.250
+You'll have an easier time understanding
+
+00:01:34.250 --> 00:01:37.579
+the syntax now that you've seen how inheritance works.
+
+00:01:37.579 --> 00:01:40.069
+I've provided this distribution and
+
+00:01:40.069 --> 00:01:44.339
+Gaussian code for you in the next section so that you can play around with it.
+
+00:01:44.340 --> 00:01:46.760
+We're getting close to the end of the lesson,
+
+00:01:46.760 --> 00:01:49.700
+the next step is to modularize all of this code into
+
+00:01:49.700 --> 00:01:53.930
+separate Python files then you will see how to make a Python package.
+
+00:01:53.930 --> 00:01:57.305
+The last steps will include extending the code to include
+
+00:01:57.305 --> 00:02:01.265
+a binomial distribution and uploading the code to Pi Pi.
+
+00:02:01.265 --> 00:02:03.930
+So, let's start by modularizing this code.
+

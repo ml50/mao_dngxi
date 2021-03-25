@@ -1,0 +1,173 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.829 --> 00:00:04.852
+INTRODUÇÃO
+À ENGENHARIA DE SOFTWARE
+
+00:00:04.885 --> 00:00:08.292
+Oi! Bem-vindo ao curso
+de engenharia de software.
+
+00:00:08.325 --> 00:00:10.590
+-Eu sou a Juno.
+-Eu sou o Andrew,
+
+00:00:10.623 --> 00:00:14.315
+e estamos muito animados
+em guiá-lo neste curso...
+
+00:00:14.348 --> 00:00:18.797
+Espere. Juno, por que estamos
+falando de engenharia de software?
+
+00:00:18.830 --> 00:00:23.603
+Você me disse que era
+um Nanodegree Data Scientist.
+
+00:00:23.636 --> 00:00:27.972
+Está bem, admito que cientistas
+de dados e engenheiros de software
+
+00:00:28.005 --> 00:00:29.988
+têm papéis bem diferentes.
+
+00:00:30.021 --> 00:00:33.139
+Os cientistas de dados são
+os pesquisadores ou pensadores
+
+00:00:33.172 --> 00:00:35.365
+que exploram e modelam dados.
+
+00:00:35.398 --> 00:00:39.099
+Para os cientistas de dados,
+o código é um meio para um fim.
+
+00:00:39.132 --> 00:00:40.542
+Por outro lado,
+
+00:00:40.575 --> 00:00:44.548
+engenheiros de software são como
+os construtores ou engenheiros
+
+00:00:44.581 --> 00:00:47.860
+que fazem produtos
+e escrevem o código para produção.
+
+00:00:47.893 --> 00:00:50.875
+Os engenheiros de software
+escrevem códigos eficientes,
+
+00:00:50.908 --> 00:00:53.410
+sólidos e sustentáveis.
+
+00:00:53.443 --> 00:00:56.667
+Tanto os cientistas de dados
+quanto os engenheiros de software
+
+00:00:56.700 --> 00:00:58.780
+codificam
+e escrevem programas.
+
+00:00:58.813 --> 00:01:02.101
+Acho que sei
+aonde você quer chegar.
+
+00:01:02.134 --> 00:01:04.980
+Nós, como cientistas de dados,
+escrevemos muito código,
+
+00:01:05.013 --> 00:01:08.932
+mas nem sempre prestamos atenção
+em coisas como estrutura de código
+
+00:01:08.965 --> 00:01:10.491
+e manutenção.
+
+00:01:10.524 --> 00:01:14.043
+Por exemplo, um bom engenheiro
+de software busca compor
+
+00:01:14.076 --> 00:01:16.246
+um código limpo
+e bem testado.
+
+00:01:16.279 --> 00:01:18.852
+Nós temos o que aprender
+com eles.
+
+00:01:18.885 --> 00:01:21.307
+Isso. Como cientista de dados,
+
+00:01:21.340 --> 00:01:23.635
+você trabalhará em equipes,
+
+00:01:23.668 --> 00:01:26.440
+compartilhando códigos
+com toda a organização.
+
+00:01:26.473 --> 00:01:29.759
+Suas ideias podem influenciar
+decisões de negócios importantes
+
+00:01:29.792 --> 00:01:33.771
+ou podem construir modelos
+para usar nos produtos.
+
+00:01:33.804 --> 00:01:38.356
+Isso torna crucial seguir
+práticas de engenharia de software
+
+00:01:38.389 --> 00:01:41.636
+que garantem que o código
+seja limpo e confiável.
+
+00:01:41.669 --> 00:01:44.460
+Você melhorará a eficiência
+do seu fluxo de trabalho,
+
+00:01:44.493 --> 00:01:46.395
+da colaboração em equipes
+
+00:01:46.428 --> 00:01:49.435
+e da comunicação
+com desenvolvedores de software.
+
+00:01:49.468 --> 00:01:53.171
+As habilidades de engenharia
+de software ajudarão você
+
+00:01:53.204 --> 00:01:56.915
+a se diferenciar da concorrência
+ao se candidatar para uma vaga.
+
+00:01:56.948 --> 00:01:59.398
+Os empregadores querem,
+e geralmente esperam,
+
+00:01:59.431 --> 00:02:03.439
+boas habilidades de engenharia
+de software dos cientistas de dados.
+
+00:02:03.472 --> 00:02:05.183
+Que bom que convenci você,
+
+00:02:05.216 --> 00:02:09.272
+porque temos alguns projetos
+e exercícios incríveis neste curso.
+
+00:02:09.305 --> 00:02:14.447
+No final, você terá aplicado várias
+práticas de engenharia de software,
+
+00:02:14.480 --> 00:02:16.378
+terá construído
+um pacote Python,
+
+00:02:16.411 --> 00:02:18.760
+e criado um aplicativo da web.
+
+00:02:18.793 --> 00:02:21.307
+Vejamos o que você construirá.
+

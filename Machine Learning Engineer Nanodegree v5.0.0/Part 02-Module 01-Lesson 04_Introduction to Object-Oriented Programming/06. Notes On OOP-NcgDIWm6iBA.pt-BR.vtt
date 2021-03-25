@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.090 --> 00:00:02.387
+Eu queria fazer algumas notas
+
+00:00:02.421 --> 00:00:04.626
+sobre programação
+orientada a objetos.
+
+00:00:04.660 --> 00:00:06.529
+Na primeira parte da aula,
+
+00:00:06.563 --> 00:00:09.547
+você fará exercícios de código
+em notebooks Jupyter,
+
+00:00:09.581 --> 00:00:13.185
+mas, quando escrevemos softwares,
+geralmente não escrevemos
+
+00:00:13.219 --> 00:00:16.393
+programas orientados
+a objetos no Jupyter.
+
+00:00:16.427 --> 00:00:21.145
+Em vez isso, modularizamos o código
+em scripts Python separados.
+
+00:00:21.179 --> 00:00:24.769
+Na segunda metade da aula,
+você vai modularizar código,
+
+00:00:24.803 --> 00:00:29.435
+então vou dar uma prévia
+do que virá mais tarde.
+
+00:00:29.469 --> 00:00:31.906
+Se você nunca viu
+esta interface
+
+00:00:31.940 --> 00:00:34.345
+em outros cursos
+ou aulas da Udacity,
+
+00:00:34.379 --> 00:00:36.337
+este é o Espaço de Trabalho.
+
+00:00:36.371 --> 00:00:40.065
+Está incorporado à sala de aula,
+e você poderá usá-lo mais tarde.
+
+00:00:40.099 --> 00:00:42.305
+É um ambiente Linux Ubuntu
+
+00:00:42.339 --> 00:00:45.273
+onde você pode escrever
+e executar código Python.
+
+00:00:45.307 --> 00:00:47.794
+Em um arquivo, coloquei o código
+da classe Shirt
+
+00:00:47.828 --> 00:00:50.403
+e o nomeei como "shirt.py".
+
+00:00:50.437 --> 00:00:53.545
+Agora vou escrever
+um script Python separado
+
+00:00:53.579 --> 00:00:55.785
+que usa a classe Shirt.
+
+00:00:55.819 --> 00:01:01.787
+Na mesma pasta,
+criei outro arquivo, example.py.
+
+00:01:01.821 --> 00:01:05.841
+Dentro dele,
+quero usar a classe Shirt.
+
+00:01:05.875 --> 00:01:09.178
+Primeiro preciso importar
+a classe, digitando:
+
+00:01:09.212 --> 00:01:12.665
+from shirt import Shirt.
+
+00:01:12.699 --> 00:01:16.313
+O shirt em caixa-baixa
+se refere ao arquivo shirt.py,
+
+00:01:16.347 --> 00:01:18.944
+o Shirt em caixa-alta
+se refere à classe
+
+00:01:18.978 --> 00:01:21.002
+que está dentro do arquivo.
+
+00:01:21.036 --> 00:01:24.178
+Posso dar o nome que eu quiser
+à classe e ao arquivo.
+
+00:01:24.212 --> 00:01:28.000
+Não precisam ser iguais.
+Só fiz isso por conveniência.
+
+00:01:28.034 --> 00:01:32.321
+Agora, em example.py,
+posso usar a classe Shirt
+
+00:01:32.355 --> 00:01:35.306
+como fizemos
+no exercício anterior.
+
+00:01:35.340 --> 00:01:38.258
+A diferença é que o código
+agora está modularizado.
+
+00:01:38.292 --> 00:01:40.985
+Vou escrever um código
+que usa a classe Shirt.
+
+00:01:41.019 --> 00:01:44.450
+Por fim, vou executar o código
+no terminal.
+
+00:01:44.484 --> 00:01:47.050
+Primeiro vou mudar
+o diretório em que estou
+
+00:01:47.084 --> 00:01:49.873
+para o diretório
+onde estão os arquivos Python.
+
+00:01:49.907 --> 00:01:54.281
+Depois digito
+python example.py.
+
+00:01:54.315 --> 00:01:58.194
+O output são as instruções print
+que tenho no código.
+
+00:01:58.228 --> 00:02:01.615
+Mudando de assunto,
+quero dizer como acessar
+
+00:02:01.649 --> 00:02:05.712
+e mudar valores de atributos
+no Python.
+
+00:02:05.746 --> 00:02:09.728
+A classe Shirt tem um método
+para trocar o preço da camiseta.
+
+00:02:09.762 --> 00:02:13.456
+Você pode ver na linha 9
+de example.py:
+
+00:02:13.490 --> 00:02:17.920
+shirt_two.change_price(45).
+
+00:02:17.954 --> 00:02:21.647
+No Python também podemos mudar
+os valores do atributo
+
+00:02:21.681 --> 00:02:23.640
+com a seguinte sintaxe:
+
+00:02:23.674 --> 00:02:29.039
+shirt_one.color = 'red'.
+
+00:02:29.073 --> 00:02:33.606
+E shirt_one.size = 'L'.
+
+00:02:33.640 --> 00:02:37.559
+Vou voltar. A shirt_one já está
+com "red", então digito "yellow".
+
+00:02:37.593 --> 00:02:42.432
+E shirt_one.price = 43.
+
+00:02:42.466 --> 00:02:46.105
+Há algumas desvantagens
+em acessar atributos diretamente
+
+00:02:46.139 --> 00:02:50.762
+em vez de escrever um método
+para acessar e mostrar atributos.
+
+00:02:50.796 --> 00:02:53.184
+Na programação
+orientada a objetos,
+
+00:02:53.218 --> 00:02:55.633
+as regras do Python
+são mais tranquilas
+
+00:02:55.667 --> 00:02:58.296
+que em outras linguagens
+de programação.
+
+00:02:58.330 --> 00:03:00.623
+Em algumas, como C++,
+
+00:03:00.657 --> 00:03:04.262
+é possível dizer explicitamente
+se um objeto tem permissão ou não
+
+00:03:04.296 --> 00:03:07.974
+de mudar ou acessar
+os valores do atributo diretamente.
+
+00:03:08.008 --> 00:03:10.711
+Python não tem essa opção.
+
+00:03:10.745 --> 00:03:13.902
+Por que seria melhor mudar
+um valor com um método
+
+00:03:13.936 --> 00:03:16.640
+em vez de mudá-lo diretamente?
+
+00:03:16.674 --> 00:03:21.352
+Mudando por meio do método
+dá mais flexibilidade a longo prazo.
+
+00:03:21.386 --> 00:03:23.526
+E se as unidades
+de medida mudarem?
+
+00:03:23.560 --> 00:03:27.015
+Tipo, a loja foi criada
+com dólares americanos
+
+00:03:27.049 --> 00:03:29.765
+e agora tem que funcionar
+em euro.
+
+00:03:29.799 --> 00:03:33.975
+Veja só.
+Se mudar o atributo diretamente,
+
+00:03:34.009 --> 00:03:35.982
+como na linha 14,
+
+00:03:36.016 --> 00:03:39.656
+se eu tiver que usar euros,
+vou ter que mudar manualmente
+
+00:03:39.690 --> 00:03:42.406
+para, por exemplo, 38.
+
+00:03:42.440 --> 00:03:43.839
+Você terá que fazer isso
+
+00:03:43.873 --> 00:03:47.046
+sempre que acessar
+o atributo price diretamente.
+
+00:03:47.080 --> 00:03:51.790
+Mas, se usar um método,
+como change_price,
+
+00:03:51.824 --> 00:03:55.295
+só precisará ir à classe Shirt
+
+00:03:55.329 --> 00:03:58.142
+e mudar o método
+original uma vez.
+
+00:03:58.176 --> 00:04:01.309
+Vou multiplicar por .81
+
+00:04:01.343 --> 00:04:04.951
+para converter tudo
+de dólares para euros.
+
+00:04:04.985 --> 00:04:07.723
+Se voltar a example.py,
+
+00:04:07.757 --> 00:04:09.840
+na linha 9,
+
+00:04:09.874 --> 00:04:13.891
+não precisamos mudar
+manualmente o preço,
+
+00:04:13.925 --> 00:04:18.661
+porque a conversão
+vai dar um jeito nisso.
+
+00:04:19.253 --> 00:04:23.052
+Nesta introdução
+à programação orientada a objetos,
+
+00:04:23.086 --> 00:04:26.541
+você não precisa se preocupar
+com atualizar atributos diretamente
+
+00:04:26.575 --> 00:04:28.581
+em vez de usar um método.
+
+00:04:28.615 --> 00:04:32.998
+No entanto,
+se decidir se aprofundar,
+
+00:04:33.032 --> 00:04:36.510
+ainda mais em outra linguagem,
+como C++ ou Java,
+
+00:04:36.544 --> 00:04:38.833
+terá que levar isto
+em consideração.
+

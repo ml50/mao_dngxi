@@ -1,0 +1,496 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Clean and Modular Code
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Software Engineering Practices Pt I
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clean and Modular Code.html">
+       02. Clean and Modular Code
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Refactoring Code.html">
+       03. Refactoring Code
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Writing Clean Code.html">
+       04. Writing Clean Code
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Quiz Clean Code.html">
+       05. Quiz: Clean Code
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Writing Modular Code.html">
+       06. Writing Modular Code
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Quiz Refactoring - Wine Quality.html">
+       07. Quiz: Refactoring - Wine Quality
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Solution Refactoring - Wine Quality.html">
+       08. Solution: Refactoring - Wine Quality
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Efficient Code.html">
+       09. Efficient Code
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Optimizing - Common Books.html">
+       10. Optimizing - Common Books
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Quiz Optimizing - Common Books.html">
+       11. Quiz: Optimizing - Common Books
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Solution Optimizing - Common Books.html">
+       12. Solution: Optimizing - Common Books
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Quiz Optimizing - Holiday Gifts.html">
+       13. Quiz: Optimizing - Holiday Gifts
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Solution Optimizing - Holiday Gifts.html">
+       14. Solution: Optimizing - Holiday Gifts
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Documentation.html">
+       15. Documentation
+      </a>
+     </li>
+     <li class="">
+      <a href="16. In-line Comments.html">
+       16. In-line Comments
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Docstrings.html">
+       17. Docstrings
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Project Documentation.html">
+       18. Project Documentation
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Documentation.html">
+       19. Documentation
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Version Control in Data Science.html">
+       20. Version Control in Data Science
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Scenario #1.html">
+       21. Scenario #1
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Scenario #2.html">
+       22. Scenario #2
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Scenario #3.html">
+       23. Scenario #3
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Model Versioning.html">
+       24. Model Versioning
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Conclusion.html">
+       25. Conclusion
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Clean and Modular Code
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="clean-and-modular-code">
+          Clean and Modular Code
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L2 02 Clean   Mod Code Vid 1 V1 V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L2 02 Clean   Mod Code Vid 1 V1 V2-RjHV8kRpVbA.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="02. L2 02 Clean   Mod Code Vid 1 V1 V2-RjHV8kRpVbA.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="02. L2 02 Clean   Mod Code Vid 1 V1 V2-RjHV8kRpVbA.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="02. L2 02 Clean   Mod Code Vid 1 V1 V2-RjHV8kRpVbA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ul>
+          <li>
+           <strong>
+            PRODUCTION CODE:
+           </strong>
+           software running on production servers to handle live users and data of the intended audience. Note this is different from
+           <em>
+            production quality code
+           </em>
+           , which describes code that meets expectations in reliability, efficiency, etc., for production. Ideally, all code in production meets these expectations, but this is not always the case.
+          </li>
+          <li>
+           <strong>
+            CLEAN:
+           </strong>
+           readable, simple, and concise. A characteristic of production quality code that is crucial for collaboration and maintainability in software development.
+          </li>
+          <li>
+           <strong>
+            MODULAR:
+           </strong>
+           logically broken up into functions and modules. Also an important characteristic of production quality code that makes your code more organized, efficient, and reusable.
+          </li>
+          <li>
+           <strong>
+            MODULE:
+           </strong>
+           a file. Modules allow code to be reused by encapsulating them into files that can be imported into other files.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the following describes code that is CLEAN?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1528759869203" name="645323" type="checkbox" value="a1528759869203"/>
+           <label for="a1528759869203">
+            <p>
+             Repetitive
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1528759906182" name="645323" type="checkbox" value="a1528759906182"/>
+           <label for="a1528759906182">
+            <p>
+             Simple
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1528759907086" name="645323" type="checkbox" value="a1528759907086"/>
+           <label for="a1528759907086">
+            <p>
+             Readable
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1528760080125" name="645323" type="checkbox" value="a1528760080125"/>
+           <label for="a1528760080125">
+            <p>
+             Vague
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1528760121731" name="645323" type="checkbox" value="a1528760121731"/>
+           <label for="a1528760121731">
+            <p>
+             Concise
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            Simple
+           </li>
+           <li>
+            Readable
+           </li>
+           <li>
+            Concise
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Making your code MODULAR makes it easier to
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1529580391843" name="663131" type="checkbox" value="a1529580391843"/>
+           <label for="a1529580391843">
+            <p>
+             Reuse your code
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1529580410645" name="663131" type="checkbox" value="a1529580410645"/>
+           <label for="a1529580410645">
+            <p>
+             Write less code
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1529580414240" name="663131" type="checkbox" value="a1529580414240"/>
+           <label for="a1529580414240">
+            <p>
+             Read your code
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1529580455758" name="663131" type="checkbox" value="a1529580455758"/>
+           <label for="a1529580455758">
+            <p>
+             Collaborate on code
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            Reuse your code
+           </li>
+           <li>
+            Write less code
+           </li>
+           <li>
+            Read your code
+           </li>
+           <li>
+            Collaborate on code
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Refactoring Code.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Clean and Modular Code')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

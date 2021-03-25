@@ -1,0 +1,253 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.086 --> 00:00:01.766
+A partir deste ponto da aula,
+
+00:00:01.799 --> 00:00:04.870
+usaremos um ambiente Linux
+com scripts Python,
+
+00:00:04.903 --> 00:00:06.789
+em vez de um notebook Jupyter,
+
+00:00:06.822 --> 00:00:09.440
+que é ótimo
+para a Ciência de Dados,
+
+00:00:09.473 --> 00:00:13.611
+mas não é a melhor ferramenta
+para escrever um software modular.
+
+00:00:13.644 --> 00:00:14.944
+Na próxima seção,
+
+00:00:14.977 --> 00:00:17.414
+veremos um espaço de trabalho
+como este
+
+00:00:17.447 --> 00:00:20.045
+contendo o código
+que estou prestes a mostrar.
+
+00:00:20.078 --> 00:00:21.460
+Do lado esquerdo,
+
+00:00:21.493 --> 00:00:24.206
+vemos uma lista de diretórios
+que podemos acessar.
+
+00:00:24.239 --> 00:00:28.214
+Cada seção, no restante da aula,
+terá sua pasta própria.
+
+00:00:28.247 --> 00:00:33.547
+Esta parte da aula está discutindo
+a pasta modularized_code.
+
+00:00:33.580 --> 00:00:36.388
+Vejamos como modularizar
+a Distribution
+
+00:00:36.421 --> 00:00:40.074
+e as classes Gaussian
+com as quais trabalharemos.
+
+00:00:40.107 --> 00:00:43.699
+No Python, um módulo
+é um arquivo único Python
+
+00:00:43.732 --> 00:00:46.548
+que contém
+uma coleção de funções, classes
+
+00:00:46.581 --> 00:00:48.588
+e/ou variáveis globais.
+
+00:00:48.621 --> 00:00:51.893
+Eles são chamados de módulos
+porque são modulares,
+
+00:00:51.926 --> 00:00:55.508
+e podemos reutilizar esses arquivos
+em diferentes aplicativos.
+
+00:00:55.541 --> 00:01:00.380
+Um pacote é uma coleção de módulos
+em um diretório.
+
+00:01:00.413 --> 00:01:03.876
+Se eu clicar duas vezes na pasta
+que contém o código modularizado,
+
+00:01:03.909 --> 00:01:05.739
+existirá três arquivos,
+
+00:01:05.772 --> 00:01:07.948
+mas estes dois
+são os mais importantes:
+
+00:01:07.981 --> 00:01:12.692
+Gaussiandistribution.py
+e Generaldistribution.py.
+
+00:01:12.725 --> 00:01:16.731
+Eles contêm o mesmo código
+da seção sobre herança.
+
+00:01:16.764 --> 00:01:19.652
+Esta pasta ainda não é
+oficialmente um pacote,
+
+00:01:19.685 --> 00:01:22.252
+mas colocar esses arquivos
+na mesma pasta
+
+00:01:22.285 --> 00:01:24.707
+é o primeiro passo
+para criar um pacote.
+
+00:01:24.740 --> 00:01:28.452
+No arquivo
+Generaldistribution.py,
+
+00:01:28.485 --> 00:01:32.780
+o código da classe Distribution
+é o mesmo do notebook Jupyter.
+
+00:01:32.813 --> 00:01:36.468
+No arquivo
+Gaussiandistribution.py,
+
+00:01:36.501 --> 00:01:40.020
+veremos que há
+uma classe Gaussian.
+
+00:01:40.053 --> 00:01:44.292
+O código aqui é quase o mesmo
+que no notebook Jupyter,
+
+00:01:44.325 --> 00:01:47.547
+no entanto, observe
+que o arquivo Gaussiandistribution
+
+00:01:47.580 --> 00:01:50.379
+importa a classe Distribution.
+
+00:01:50.412 --> 00:01:54.979
+Esta linha diz: "Vá ao arquivo
+Generaldistribution.py
+
+00:01:55.012 --> 00:01:58.299
+e me dê acesso
+à classe Distribution."
+
+00:01:58.332 --> 00:02:01.570
+Quero salientar que também
+podemos usar a mesma sintaxe
+
+00:02:01.603 --> 00:02:05.325
+para importar uma função
+de um módulo, não apenas uma classe,
+
+00:02:05.358 --> 00:02:09.266
+mas, aqui, nos concentramos
+em programação orientada a objetos,
+
+00:02:09.299 --> 00:02:11.978
+então tudo foi codificado
+dentro de uma classe.
+
+00:02:12.011 --> 00:02:15.104
+Como posso usar este módulo
+Gaussiandistribution
+
+00:02:15.137 --> 00:02:17.058
+em um aplicativo Python?
+
+00:02:17.091 --> 00:02:20.745
+Vemos um exemplo no arquivo
+example_code.py.
+
+00:02:20.778 --> 00:02:23.452
+Ele importa a classe Gaussian,
+
+00:02:23.485 --> 00:02:26.882
+e, em seguida,
+instancia um objeto Gaussian.
+
+00:02:26.915 --> 00:02:29.486
+Observe também que os arquivos
+example_code
+
+00:02:29.519 --> 00:02:33.687
+e Gaussiandistribution.py
+estão no mesmo diretório.
+
+00:02:34.327 --> 00:02:37.574
+Veremos mais adiante
+que pacotes e aplicativos
+
+00:02:37.607 --> 00:02:39.907
+não precisam estar
+no mesmo diretório,
+
+00:02:39.940 --> 00:02:43.125
+desde que o Python saiba
+onde procurar pelo pacote.
+
+00:02:43.158 --> 00:02:45.653
+Em seguida, abrimos
+uma janela do terminal
+
+00:02:45.686 --> 00:02:48.478
+e executamos o arquivo
+example_code.py.
+
+00:02:48.511 --> 00:02:50.806
+Se não estiver familiarizado
+com o terminal,
+
+00:02:50.839 --> 00:02:52.286
+não se preocupe.
+
+00:02:52.319 --> 00:02:55.871
+Cada seção desta aula
+vem com um arquivo de instrução
+
+00:02:55.904 --> 00:02:58.566
+explicando como executar
+comandos no terminal.
+
+00:02:58.599 --> 00:03:03.438
+Digitando
+"python 2_modularized
+
+00:03:03.471 --> 00:03:05.137
+_code
+
+00:03:05.170 --> 00:03:11.096
+/example_code.py"
+
+00:03:11.129 --> 00:03:12.473
+e dando enter,
+
+00:03:12.506 --> 00:03:16.298
+executamos o módulo Python
+example_code.py.
+
+00:03:16.331 --> 00:03:18.313
+Esse código imprime a média
+
+00:03:18.346 --> 00:03:22.470
+do objeto Gaussiandistribution
+instanciado, que é 22.
+
+00:03:22.503 --> 00:03:23.771
+Na próxima seção,
+
+00:03:23.804 --> 00:03:26.266
+poderemos ver este código
+mais detalhadamente.
+

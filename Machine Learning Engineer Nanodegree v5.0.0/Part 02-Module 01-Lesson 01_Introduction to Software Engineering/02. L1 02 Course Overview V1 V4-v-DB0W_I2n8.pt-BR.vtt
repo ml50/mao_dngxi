@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.867 --> 00:00:05.026
+PLANO DO CURSO
+
+00:00:05.059 --> 00:00:08.050
+Dividimos este curso
+em três partes.
+
+00:00:08.083 --> 00:00:09.979
+A primeira parte é uma revisão
+
+00:00:10.012 --> 00:00:12.612
+das práticas gerais
+de engenharia de software -
+
+00:00:12.645 --> 00:00:16.178
+como o uso do controle de versão
+e a documentação do código.
+
+00:00:16.211 --> 00:00:17.514
+Na segunda parte,
+
+00:00:17.547 --> 00:00:19.874
+construiremos um pacote Python
+
+00:00:19.907 --> 00:00:22.539
+usando programação
+orientada a objetos.
+
+00:00:22.572 --> 00:00:27.493
+Se você já se perguntou como
+a Pandas e a scikit-learn funcionam,
+
+00:00:27.526 --> 00:00:29.829
+é isso que veremos nesta aula.
+
+00:00:29.862 --> 00:00:31.829
+Por fim, a última parte
+
+00:00:31.862 --> 00:00:34.469
+será uma introdução
+ao desenvolvimento web.
+
+00:00:34.502 --> 00:00:37.597
+Criaremos um aplicativo web
+de visualização de dados
+
+00:00:37.630 --> 00:00:40.621
+que poderá ser colocado on-line
+e compartilhado.
+
+00:00:40.654 --> 00:00:42.046
+Em todas as aulas,
+
+00:00:42.079 --> 00:00:46.144
+você ganhará habilidades práticas
+e produzirá alguns aplicativos
+
+00:00:46.177 --> 00:00:47.832
+que poderão ser personalizados
+
+00:00:47.865 --> 00:00:51.160
+e usados como parte
+do seu portfólio profissional.
+
+00:00:51.193 --> 00:00:54.713
+Antes de mergulharmos em práticas
+de engenharia de software,
+
+00:00:54.746 --> 00:00:57.423
+queremos contar um pouco
+sobre nossas experiências.
+

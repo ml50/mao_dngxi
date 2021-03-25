@@ -1,0 +1,90 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.731 --> 00:00:04.704
+ENGENHARIA DE SOFTWARE
+TESTES
+
+00:00:04.737 --> 00:00:07.080
+Antes de implementar
+seu código,
+
+00:00:07.113 --> 00:00:09.009
+ele precisa ser testado.
+
+00:00:09.042 --> 00:00:13.274
+Escrever testes é uma prática padrão
+em engenharia de software.
+
+00:00:13.307 --> 00:00:15.783
+No entanto,
+testes costumam ser uma prática
+
+00:00:15.816 --> 00:00:18.599
+com que muitos cientistas de dados
+não tem familiaridade
+
+00:00:18.632 --> 00:00:20.945
+quando entram na área.
+
+00:00:20.978 --> 00:00:25.022
+Na verdade, às vezes as ideias
+dos cientistas de dados,
+
+00:00:25.055 --> 00:00:27.691
+que devem ser usadas
+para decisões de negócios
+
+00:00:27.724 --> 00:00:29.315
+e produtos de empresas,
+
+00:00:29.348 --> 00:00:32.484
+são baseadas nos resultados
+de códigos não testados.
+
+00:00:32.517 --> 00:00:35.280
+Essa falta de testes
+é uma reclamação comum
+
+00:00:35.313 --> 00:00:37.252
+de desenvolvedores de software
+
+00:00:37.285 --> 00:00:39.463
+que trabalham
+com cientistas de dados.
+
+00:00:39.496 --> 00:00:41.056
+Sem testes,
+
+00:00:41.089 --> 00:00:44.357
+você não apenas se depara
+com erros de execução no código
+
+00:00:44.390 --> 00:00:46.051
+por conta de questões
+no software
+
+00:00:46.084 --> 00:00:48.856
+como você também pode estar
+impondo decisões de negócios
+
+00:00:48.889 --> 00:00:53.061
+e afetando produtos
+baseado em conclusões falhas.
+
+00:00:53.094 --> 00:00:54.978
+Hoje os empregadores
+estão procurando
+
+00:00:55.011 --> 00:00:56.919
+por cientistas de dados
+com habilidades
+
+00:00:56.952 --> 00:01:00.444
+para preparar corretamente códigos
+para o ambiente corporativo,
+
+00:01:00.477 --> 00:01:02.194
+ou seja, códigos testados.
+

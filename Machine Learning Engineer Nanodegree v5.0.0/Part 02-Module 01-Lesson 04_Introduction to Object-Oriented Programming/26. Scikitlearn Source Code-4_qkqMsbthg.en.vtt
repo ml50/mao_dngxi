@@ -1,0 +1,208 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.859
+Let's go on a tour of the Scikit Learn source code.
+
+00:00:03.859 --> 00:00:06.599
+This is really why I wanted you to learn
+
+00:00:06.599 --> 00:00:10.699
+object oriented programming and how to make a Python package.
+
+00:00:10.699 --> 00:00:15.515
+If you want to understand what packages like Pandas, SciPy,
+
+00:00:15.515 --> 00:00:18.445
+NumPy or Scikit-learn are doing,
+
+00:00:18.445 --> 00:00:23.160
+you need to understand at least the basics of object oriented programming.
+
+00:00:23.160 --> 00:00:26.375
+As we go through the Scikit Learn source code,
+
+00:00:26.375 --> 00:00:31.339
+you'll see some things that are familiar based on what you've done in this lesson,
+
+00:00:31.339 --> 00:00:36.079
+including import statements, classes, and inheritance.
+
+00:00:36.079 --> 00:00:41.724
+You'll also notice syntax that we didn't cover such as the at symbol, mixins,
+
+00:00:41.725 --> 00:00:43.895
+and cases of multiple inheritance,
+
+00:00:43.895 --> 00:00:47.970
+where class inherits from two or more parent classes.
+
+00:00:47.969 --> 00:00:52.129
+Object oriented programming is a big topic and
+
+00:00:52.130 --> 00:00:56.260
+Python has a lot more functionality than what you've seen so far.
+
+00:00:56.259 --> 00:01:01.704
+I'm going to open Google and search for Scikit-learn source code.
+
+00:01:01.704 --> 00:01:05.284
+It turns out that the code is hosted on GitHub.
+
+00:01:05.284 --> 00:01:07.009
+Here's the repository.
+
+00:01:07.010 --> 00:01:11.695
+Let's go into the sklearn folder and see what we can find.
+
+00:01:11.694 --> 00:01:14.869
+Okay. I see the linear model folder,
+
+00:01:14.870 --> 00:01:19.265
+which I'm guessing holds code for things like linear regression.
+
+00:01:19.265 --> 00:01:22.674
+At the very top is a tests folder.
+
+00:01:22.674 --> 00:01:25.849
+You can see that writing test code is
+
+00:01:25.849 --> 00:01:31.034
+an important part of developing a Python package or really any program.
+
+00:01:31.034 --> 00:01:32.840
+Opening up the test folder,
+
+00:01:32.840 --> 00:01:34.865
+you can explore all the different tests
+
+00:01:34.864 --> 00:01:37.295
+that have been written for different functionality.
+
+00:01:37.295 --> 00:01:40.564
+Let's go back up to the linear model folder.
+
+00:01:40.564 --> 00:01:43.549
+Since there's an init file,
+
+00:01:43.549 --> 00:01:47.349
+you know that linear model is actually a package.
+
+00:01:47.349 --> 00:01:51.579
+Opening that file, this code should be somewhat familiar.
+
+00:01:51.579 --> 00:01:56.444
+The init file is importing the classes contained in each of the package modules.
+
+00:01:56.444 --> 00:02:00.349
+This is equivalent to the init file in your distributions package where you
+
+00:02:00.349 --> 00:02:04.469
+were creating shortcuts to the class names. We can go back.
+
+00:02:04.469 --> 00:02:06.689
+Now, I'll open based.py,
+
+00:02:06.689 --> 00:02:08.319
+and see what's inside.
+
+00:02:08.319 --> 00:02:14.900
+It starts off with a few comments and then there are a lot of import statements.
+
+00:02:14.900 --> 00:02:20.680
+So the base.py file is using a lot of other Python modules or packages.
+
+00:02:20.680 --> 00:02:24.870
+Next, there's a variable called sparse intercepts decay,
+
+00:02:24.870 --> 00:02:28.504
+and a function called make dataset.
+
+00:02:28.504 --> 00:02:31.069
+As I mentioned in the beginning of the lesson,
+
+00:02:31.069 --> 00:02:37.180
+a Python module can contain any combination of variables, functions, or classes.
+
+00:02:37.180 --> 00:02:42.064
+Scrolling down, this is where things get a little more advanced.
+
+00:02:42.064 --> 00:02:46.359
+The at symbol is called a decorator,
+
+00:02:46.360 --> 00:02:48.700
+and you might not have seen this before.
+
+00:02:48.699 --> 00:02:53.149
+I'll put a resource below the video if you want to learn about decorators.
+
+00:02:53.150 --> 00:02:55.520
+I'm going to scroll down a bit more.
+
+00:02:55.520 --> 00:02:58.920
+Here we are with the first class in the module,
+
+00:02:58.919 --> 00:03:01.514
+it's called Linear Model,
+
+00:03:01.514 --> 00:03:07.839
+and the class inherits from two parent classes ABCmeta and BaseEstimato.
+
+00:03:07.840 --> 00:03:11.795
+Then, you can see the linear model class has a few methods.
+
+00:03:11.794 --> 00:03:17.299
+The dash before the decision function is just a convention that usually indicates that
+
+00:03:17.300 --> 00:03:20.165
+the function is only meant to be used internally
+
+00:03:20.164 --> 00:03:23.854
+inside the class and not by an instantiated object.
+
+00:03:23.854 --> 00:03:27.905
+If you want to get involved with contributing to a library like this,
+
+00:03:27.905 --> 00:03:29.860
+check out the issues page,
+
+00:03:29.860 --> 00:03:32.195
+it's at the top of a GitHub page.
+
+00:03:32.194 --> 00:03:34.289
+Here's issues, I'm going to click on it.
+
+00:03:34.289 --> 00:03:39.169
+You can read about the issues and see if there's something that you could contribute to.
+
+00:03:39.169 --> 00:03:41.899
+I'll also put a few links below giving
+
+00:03:41.900 --> 00:03:45.135
+guidelines about how to contribute to a GitHub project.
+
+00:03:45.134 --> 00:03:50.000
+Scikit Learn is a large package with a lot of code,
+
+00:03:50.000 --> 00:03:52.490
+but don't get too overwhelmed.
+
+00:03:52.490 --> 00:03:55.520
+Realize that a package like this was built over
+
+00:03:55.520 --> 00:03:59.490
+time with various people contributing to different parts,
+
+00:03:59.490 --> 00:04:02.555
+but the basic package you coded in this lesson
+
+00:04:02.555 --> 00:04:05.575
+is essentially how a much larger package works.
+
+00:04:05.574 --> 00:04:09.589
+You start small with just a few modules and over time,
+
+00:04:09.590 --> 00:04:12.400
+you add more and more functionality.
+

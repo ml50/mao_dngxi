@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.993 --> 00:00:05.079
+BINOMINAL
+
+00:00:05.112 --> 00:00:06.607
+Agora é sua vez.
+
+00:00:06.640 --> 00:00:10.221
+Praticamos o básico da programação
+orientada a objetos no Python.
+
+00:00:10.254 --> 00:00:12.264
+É hora de mostrar
+suas habilidades.
+
+00:00:12.297 --> 00:00:16.032
+Na próxima seção, você encontrará
+o código para o pacote Distribution,
+
+00:00:16.065 --> 00:00:19.737
+mas também há um novo arquivo
+contendo uma classe Binomial.
+
+00:00:19.770 --> 00:00:24.152
+Sua tarefa é escrever o código
+para os métodos da classe Binomial.
+
+00:00:24.185 --> 00:00:26.833
+Também deverá usar
+as habilidades vistas até agora,
+
+00:00:26.866 --> 00:00:29.979
+incluindo a herança
+e a escrita de métodos mágicos.
+
+00:00:30.012 --> 00:00:32.718
+Você precisará codificar
+um método de inicialização,
+
+00:00:32.751 --> 00:00:34.839
+calcular a média
+e desvio padrão,
+
+00:00:34.872 --> 00:00:38.944
+e preencher métodos semelhantes
+aos da classe Gaussian.
+
+00:00:38.977 --> 00:00:41.979
+Quando terminar
+de codificar a classe Binomial,
+
+00:00:42.012 --> 00:00:44.296
+faremos algumas
+atividades divertidas,
+
+00:00:44.329 --> 00:00:47.663
+incluindo a observação
+do código-fonte do scikit-learn
+
+00:00:47.696 --> 00:00:51.216
+e das instruções
+de como colocar o pacote no PyPI.
+
+00:00:51.249 --> 00:00:53.453
+Está bem, é hora
+de escrever algum código.
+

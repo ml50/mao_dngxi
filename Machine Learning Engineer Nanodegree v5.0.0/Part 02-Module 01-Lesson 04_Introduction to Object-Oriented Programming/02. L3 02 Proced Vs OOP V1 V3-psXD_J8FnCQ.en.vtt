@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.339 --> 00:00:07.094
+When you first learn a program,
+
+00:00:07.094 --> 00:00:11.019
+you are probably using a style called procedural programming.
+
+00:00:11.019 --> 00:00:15.119
+A procedural program is essentially a list of instructions that
+
+00:00:15.119 --> 00:00:20.070
+execute one after the other starting from the top of a file and working down.
+
+00:00:20.070 --> 00:00:23.234
+Object oriented programs on the other hand,
+
+00:00:23.234 --> 00:00:26.530
+are built around well objects.
+
+00:00:26.530 --> 00:00:30.780
+You can think about objects as things that exist in the real world.
+
+00:00:30.780 --> 00:00:34.050
+Like if you were going to build a clothing store,
+
+00:00:34.049 --> 00:00:36.309
+the store itself would be an object.
+
+00:00:36.310 --> 00:00:41.390
+The items in the store like shirts and jeans would also be objects.
+
+00:00:41.390 --> 00:00:46.655
+The cash register would be an object and even a salesperson would be an object.
+
+00:00:46.655 --> 00:00:49.789
+An object oriented program would focus on
+
+00:00:49.789 --> 00:00:54.644
+the individual characteristics of each object and what each object can do.
+
+00:00:54.645 --> 00:01:01.345
+So, an object has two essential parts, characteristics and actions.
+
+00:01:01.344 --> 00:01:07.254
+For example, a few characteristics of a salesperson would include the person's name,
+
+00:01:07.254 --> 00:01:11.229
+address, phone number, and an hourly pay.
+
+00:01:11.230 --> 00:01:14.390
+In terms of what a salesperson could do,
+
+00:01:14.390 --> 00:01:19.435
+that might include selling an item or taking an item from a warehouse.
+
+00:01:19.435 --> 00:01:24.835
+As another example, a shirts characteristics could be the color,
+
+00:01:24.834 --> 00:01:27.515
+size, style, and price.
+
+00:01:27.515 --> 00:01:29.870
+What actions could shirt take?
+
+00:01:29.870 --> 00:01:35.240
+It might sound silly to ask a question like that since a shirt is an inanimate object,
+
+00:01:35.239 --> 00:01:39.454
+but a shirt could for example change its price.
+
+00:01:39.454 --> 00:01:43.269
+As you gain experience writing object oriented programs,
+
+00:01:43.269 --> 00:01:45.289
+keep this idea in mind.
+
+00:01:45.290 --> 00:01:49.255
+An object has characteristics and actions.
+
+00:01:49.254 --> 00:01:51.194
+Before you start coding,
+
+00:01:51.194 --> 00:01:54.759
+let's get a better sense for what an object really is.
+

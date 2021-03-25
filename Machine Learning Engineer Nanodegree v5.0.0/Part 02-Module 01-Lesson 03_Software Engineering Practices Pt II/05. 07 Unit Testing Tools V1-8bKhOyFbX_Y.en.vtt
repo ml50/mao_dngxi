@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.835
+Pytest is a great tool that lets you start testing quickly without any boilerplate code.
+
+00:00:05.835 --> 00:00:09.719
+To install it, pip install pytest like this in your terminal.
+
+00:00:09.720 --> 00:00:12.985
+Once you have pytest installed, all you have to do,
+
+00:00:12.984 --> 00:00:14.664
+is create a test file,
+
+00:00:14.664 --> 00:00:16.835
+and write a function for your unit test.
+
+00:00:16.835 --> 00:00:20.940
+Then, enter pytest in a directory of your test file.
+
+00:00:20.940 --> 00:00:25.679
+Each dot next to the name of the test file represents a successful test.
+
+00:00:25.679 --> 00:00:28.184
+If you made a mistake in your function,
+
+00:00:28.184 --> 00:00:30.059
+and one of your tests fail,
+
+00:00:30.059 --> 00:00:34.689
+the dot will be replaced by an F and the error will be shown below.
+
+00:00:34.689 --> 00:00:38.659
+Notice, your tests won't be stopped by failed assert statements.
+
+00:00:38.659 --> 00:00:42.274
+It'll continue to run the test after this failed one,
+
+00:00:42.274 --> 00:00:45.539
+but it will stop if you do have syntax errors.
+
+00:00:45.539 --> 00:00:49.534
+It's wise to have only one assert statement per test.
+
+00:00:49.534 --> 00:00:54.844
+Otherwise, you wouldn't know exactly how many tests failed and which tests failed.
+
+00:00:54.844 --> 00:00:57.935
+Since all you see is what test functions failed.
+
+00:00:57.935 --> 00:01:03.350
+Another important note, is that you have to start your test files, with test underscore,
+
+00:01:03.350 --> 00:01:06.290
+and your test functions with test underscore as
+
+00:01:06.290 --> 00:01:09.810
+well for pytest to recognize and run them.
+
+00:01:09.810 --> 00:01:11.600
+This is the default.
+
+00:01:11.599 --> 00:01:13.214
+If you wish to change this,
+
+00:01:13.215 --> 00:01:18.200
+you can do so by learning about the pytest configuration in the link below.
+

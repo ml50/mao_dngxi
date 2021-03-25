@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.410
+There are a couple of notes I wanted to mention about object-oriented programming.
+
+00:00:04.410 --> 00:00:06.190
+In the first part of the lesson,
+
+00:00:06.190 --> 00:00:09.355
+you'll be doing coding exercises in Jupiter Notebooks.
+
+00:00:09.355 --> 00:00:11.665
+When writing software however,
+
+00:00:11.664 --> 00:00:16.210
+you generally wouldn't write object-oriented programs in a Jupiter Notebook.
+
+00:00:16.210 --> 00:00:20.969
+Instead, you would modularize the code into separate Python scripts.
+
+00:00:20.969 --> 00:00:22.919
+In the the second half of the lesson,
+
+00:00:22.920 --> 00:00:24.640
+you'll be modularizing code.
+
+00:00:24.640 --> 00:00:29.265
+So here, I'm going to give a preview of what's to come later in the lesson.
+
+00:00:29.265 --> 00:00:34.500
+If you haven't seen this particular interface and other Udacity courses or lessons,
+
+00:00:34.500 --> 00:00:36.155
+this is called a workspace.
+
+00:00:36.155 --> 00:00:39.929
+It's imbedded in the classroom and you'll use it later in the lesson.
+
+00:00:39.929 --> 00:00:45.090
+This is a Linux Ubuntu environment where you can write and execute Python code.
+
+00:00:45.090 --> 00:00:50.255
+In one file, I've put the shirt class code and called the file shirt.py.
+
+00:00:50.255 --> 00:00:55.635
+Now, I'm going to write a separate Python script that uses the shirt class code.
+
+00:00:55.634 --> 00:00:57.284
+In the same folder,
+
+00:00:57.284 --> 00:01:01.654
+I've created another file called example.py.
+
+00:01:01.655 --> 00:01:05.685
+Inside example.py, I want to use the shirt class.
+
+00:01:05.685 --> 00:01:12.469
+First, I need to import the shirt class typing from shirt import shirt.
+
+00:01:12.469 --> 00:01:16.209
+The lowercase shirt refers to the shirt.py file.
+
+00:01:16.209 --> 00:01:21.019
+The uppercase shirt refers to the class defined inside this file.
+
+00:01:21.019 --> 00:01:23.959
+I could name the file and class anything I wanted to.
+
+00:01:23.959 --> 00:01:25.819
+They don't have to be the same.
+
+00:01:25.819 --> 00:01:27.899
+I just did this for convenience.
+
+00:01:27.900 --> 00:01:31.400
+Now, in example.py, I can use
+
+00:01:31.400 --> 00:01:35.090
+the shirt class just like what you did in the previous exercise.
+
+00:01:35.090 --> 00:01:38.180
+The difference is that the code is now modularized.
+
+00:01:38.180 --> 00:01:40.925
+I'll write some code that uses the shirt class.
+
+00:01:40.924 --> 00:01:44.299
+Finally, I'm going to run the code in the terminal.
+
+00:01:44.299 --> 00:01:46.879
+First, I'm going to change the directory I'm in to
+
+00:01:46.879 --> 00:01:49.709
+make sure I'm in the directory with the Python files,
+
+00:01:49.709 --> 00:01:54.129
+and then I'm going to type Python example.py.
+
+00:01:54.129 --> 00:01:58.069
+Okay. So, the output or the print statements I had in the code.
+
+00:01:58.069 --> 00:01:59.664
+On a separate topic,
+
+00:01:59.665 --> 00:02:05.540
+I wanted to mention how to access attribute values and change attribute values in Python.
+
+00:02:05.540 --> 00:02:09.480
+The shirt class has a method to change the price of the shirt.
+
+00:02:09.479 --> 00:02:17.780
+You can see in line nine in example.py, shirt_two.changeprice 45.
+
+00:02:17.780 --> 00:02:24.180
+In Python, you can also change the values of an attribute with the following syntax,
+
+00:02:25.810 --> 00:02:33.525
+shirt_one.color equals red, shirt_one.size equals large.
+
+00:02:33.525 --> 00:02:37.099
+Let me go back. Shirt one is already red so let's say yellow
+
+00:02:37.099 --> 00:02:42.289
+and shirt_one.price equals 43.
+
+00:02:42.289 --> 00:02:46.114
+There are some drawbacks to accessing attributes directly
+
+00:02:46.115 --> 00:02:50.645
+versus writing a method for accessing and displaying attributes.
+
+00:02:50.645 --> 00:02:53.225
+In terms of object oriented programming,
+
+00:02:53.224 --> 00:02:58.004
+the rules in Python are a bit looser than in other programming languages.
+
+00:02:58.004 --> 00:03:00.604
+In some languages like C++,
+
+00:03:00.604 --> 00:03:03.859
+you can explicitly state whether or not an object should be
+
+00:03:03.860 --> 00:03:07.940
+allowed to change or access an attribute values directly.
+
+00:03:07.939 --> 00:03:10.609
+Python does not have this option.
+
+00:03:10.610 --> 00:03:13.250
+Why might it be better to change a value with
+
+00:03:13.250 --> 00:03:16.574
+a method instead of changing a value directly?
+
+00:03:16.574 --> 00:03:21.194
+Changing values via a method gives you more flexibility in the long-term.
+
+00:03:21.194 --> 00:03:24.709
+But if the units of measurement changed like the store was
+
+00:03:24.710 --> 00:03:29.415
+originally meant to work in US dollars and now has to work in euros.
+
+00:03:29.414 --> 00:03:35.689
+Here's what I mean, if you've changed an attribute directly like in line 14,
+
+00:03:35.689 --> 00:03:37.789
+if all of a sudden I have to use euros,
+
+00:03:37.789 --> 00:03:42.090
+I'm going to have to manually change this to say 38.
+
+00:03:42.090 --> 00:03:46.805
+You're going to have to do this wherever you access the price attribute directly.
+
+00:03:46.805 --> 00:03:51.625
+If on the other hand you would use a method like the change price method,
+
+00:03:51.625 --> 00:03:53.889
+then all you have to do is go into
+
+00:03:53.889 --> 00:03:57.904
+the shirt class and change the original method one time.
+
+00:03:57.905 --> 00:04:04.594
+I'm just going to multiply by 0.81 to convert everything from dollars to euros.
+
+00:04:04.594 --> 00:04:07.639
+Now, if you go back to example.py,
+
+00:04:07.639 --> 00:04:09.829
+a line like number 9,
+
+00:04:09.830 --> 00:04:13.844
+you don't have to manually change the price from dollars to euros
+
+00:04:13.844 --> 00:04:18.839
+because the conversion is going to take care of that for you in the shirt class.
+
+00:04:18.839 --> 00:04:22.989
+For the purposes of this introduction to object-oriented programming,
+
+00:04:22.990 --> 00:04:28.350
+you will not need to worry about updating attributes directly versus using a method.
+
+00:04:28.350 --> 00:04:32.814
+However, if you decide to further your studies of object oriented programming,
+
+00:04:32.814 --> 00:04:36.500
+especially in another language such as C++ or Java,
+
+00:04:36.500 --> 00:04:39.269
+you'll have to take this into consideration.
+

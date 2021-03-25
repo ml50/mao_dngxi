@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.895
+Besides the methods shown in the previous video,
+
+00:00:02.895 --> 00:00:05.894
+I've added two more methods to the Gaussian class.
+
+00:00:05.894 --> 00:00:11.279
+These are the add method and the repr or representation method.
+
+00:00:11.279 --> 00:00:14.109
+These are both called magic methods.
+
+00:00:14.109 --> 00:00:16.859
+The syntax might look somewhat familiar
+
+00:00:16.859 --> 00:00:20.094
+because you've actually already worked with a magic method.
+
+00:00:20.094 --> 00:00:25.404
+The init function which initializes a new object is a magic method.
+
+00:00:25.405 --> 00:00:31.035
+Magic methods let you override and customize default Python behavior.
+
+00:00:31.035 --> 00:00:37.475
+For example, the init method lets you customize how Python instantiates an object.
+
+00:00:37.475 --> 00:00:41.385
+The add method overrides the behavior of the plus sign.
+
+00:00:41.384 --> 00:00:45.174
+I'm going to execute the code cell with the Gaussian class.
+
+00:00:45.174 --> 00:00:49.074
+Below, I've instantiated two Gaussian objects,
+
+00:00:49.075 --> 00:00:50.554
+and then I add them together.
+
+00:00:50.554 --> 00:00:55.090
+Python knows how to add two floats together or two integers together.
+
+00:00:55.090 --> 00:00:58.940
+These operations are defined as part of a Python installation.
+
+00:00:58.939 --> 00:01:01.994
+Adding a Gaussian to a Gaussian, however,
+
+00:01:01.994 --> 00:01:03.835
+has no meaning in Python,
+
+00:01:03.835 --> 00:01:07.349
+so this code should produce an error. I'm going to run it.
+
+00:01:07.349 --> 00:01:10.244
+Well, the code didn't produce an error.
+
+00:01:10.245 --> 00:01:14.530
+That's because I've defined the behavior of adding two Gaussian together.
+
+00:01:14.530 --> 00:01:18.075
+Scrolling back up to the add magic method,
+
+00:01:18.075 --> 00:01:19.620
+you can see how this works.
+
+00:01:19.620 --> 00:01:23.650
+The function has two inputs, self and other.
+
+00:01:23.650 --> 00:01:27.320
+Self refers to the object to the left of the plus sign.
+
+00:01:27.319 --> 00:01:30.829
+Other refers to the object on the right side of the plus sign.
+
+00:01:30.829 --> 00:01:34.745
+I can then define what it means to add these two objects together.
+
+00:01:34.745 --> 00:01:38.510
+Adding two Gaussian together sums the means together and
+
+00:01:38.510 --> 00:01:42.484
+takes the square root of the squares of the standard deviations.
+
+00:01:42.484 --> 00:01:44.435
+Then the code instantiates
+
+00:01:44.435 --> 00:01:49.120
+a new Gaussian object with the new mean and the new standard deviation,
+
+00:01:49.120 --> 00:01:50.660
+and returns the new object.
+
+00:01:50.659 --> 00:01:54.884
+For another example, consider the representation method.
+
+00:01:54.885 --> 00:02:00.609
+In Python, do you remember what happens when the only code on a line is a variable?
+
+00:02:00.609 --> 00:02:04.409
+Python will print out the value of the variable.
+
+00:02:04.409 --> 00:02:07.064
+So, if I say x=5,
+
+00:02:07.064 --> 00:02:11.609
+and then just execute x. Python prints out the value of five.
+
+00:02:11.610 --> 00:02:15.735
+The representation magic method controls what gets printed out.
+
+00:02:15.735 --> 00:02:17.840
+So here, the code overrides
+
+00:02:17.840 --> 00:02:20.360
+the default representation behavior to print out
+
+00:02:20.360 --> 00:02:23.660
+the mean and standard deviation of the Gaussian object.
+
+00:02:23.659 --> 00:02:27.155
+Here, I'm going to run this line of code so you can see the results.
+
+00:02:27.155 --> 00:02:30.175
+Python has dozens of magic methods.
+
+00:02:30.175 --> 00:02:34.300
+You can override the plus sign, minus sign, division,
+
+00:02:34.300 --> 00:02:39.990
+multiplication, greater than, and less than symbols just to give a few more examples.
+
+00:02:39.990 --> 00:02:42.270
+To get practice with magic methods,
+
+00:02:42.270 --> 00:02:46.445
+you'll go back to the Gaussian method and rewrite the code you've just seen.
+
+00:02:46.444 --> 00:02:49.805
+If you're getting tired of rewriting code, not to worry.
+
+00:02:49.805 --> 00:02:52.909
+Soon, you'll be converting this Gaussian module into
+
+00:02:52.909 --> 00:02:56.400
+an actual package and then adding more functionality.
+

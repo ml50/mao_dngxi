@@ -1,0 +1,425 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.223 --> 00:00:02.872
+Se você lembra
+do início desta aula,
+
+00:00:02.905 --> 00:00:06.095
+escrever códigos modulares
+é uma prática necessária
+
+00:00:06.128 --> 00:00:07.748
+para o desenvolvimento
+de software,
+
+00:00:07.781 --> 00:00:11.602
+em que você divide o seu programa
+em funções lógicas e em módulos.
+
+00:00:11.955 --> 00:00:14.676
+Vamos examinar algumas instruções
+para ajudá-lo com isso.
+
+00:00:14.709 --> 00:00:17.136
+Primeiro, não se repita.
+
+00:00:17.169 --> 00:00:21.020
+A modularização permite que você
+reutilize partes do seu código.
+
+00:00:21.053 --> 00:00:24.763
+Vamos voltar ao exemplo
+das notas de um teste.
+
+00:00:24.796 --> 00:00:29.795
+Aqui, temos uma lista de notas
+que curvamos de 3 formas diferentes.
+
+00:00:29.828 --> 00:00:33.475
+Digamos que você seja um professor
+que aplicou um teste muito difícil
+
+00:00:33.508 --> 00:00:36.260
+ou fez uma pergunta
+um pouco injusta.
+
+00:00:36.293 --> 00:00:38.000
+Então, você decide
+encontrar uma forma
+
+00:00:38.033 --> 00:00:40.195
+de aumentar as notas
+dos seus alunos.
+
+00:00:40.228 --> 00:00:42.746
+Nos primeiros 2 métodos,
+adicionamos uma curva plana
+
+00:00:42.779 --> 00:00:44.819
+de 5 pontos para cada nota
+
+00:00:45.284 --> 00:00:46.819
+e de 10 pontos para cada nota.
+
+00:00:47.220 --> 00:00:49.892
+No 3º método, aplicamos
+uma função raiz,
+
+00:00:49.925 --> 00:00:52.316
+em que encontramos
+a raiz quadrada de cada nota
+
+00:00:52.349 --> 00:00:54.187
+e a multiplicamos por 10.
+
+00:00:54.580 --> 00:00:57.891
+Por ora, é difícil entender
+a utilidade desse código,
+
+00:00:57.924 --> 00:00:59.979
+e ele parece muito repetitivo.
+
+00:01:00.012 --> 00:01:02.923
+Isso é um exemplo
+de código espaguete,
+
+00:01:02.956 --> 00:01:05.171
+o que é comum
+entre cientistas de dados
+
+00:01:05.503 --> 00:01:07.570
+e que não é algo
+que queremos fazer.
+
+00:01:07.603 --> 00:01:11.324
+Vamos usar as dicas que aprendemos
+antes para escrever códigos limpos
+
+00:01:11.357 --> 00:01:14.819
+e melhorar esse código com nomes
+melhores e funções legíveis.
+
+00:01:15.715 --> 00:01:19.803
+Podemos representar essa lista
+de notas melhor com algo descritivo,
+
+00:01:19.836 --> 00:01:23.675
+como "test_scores", e usar o NumPy
+para obter a média de cada lista.
+
+00:01:24.555 --> 00:01:26.467
+Também podemos usar
+compressões de listas
+
+00:01:26.500 --> 00:01:28.596
+para deixá-los mais concisos
+e legíveis,
+
+00:01:28.629 --> 00:01:31.724
+além de usar mais nomes descritivos
+para "nota"
+
+00:01:31.757 --> 00:01:32.947
+e para a "lista resultante".
+
+00:01:32.980 --> 00:01:34.794
+Nosso código
+está mais limpo agora,
+
+00:01:34.827 --> 00:01:36.779
+mas ainda precisa
+de mais refatoração.
+
+00:01:37.259 --> 00:01:41.875
+Primeiro, essas linhas que aplicam
+uma curva plana de 5 e 10
+
+00:01:41.908 --> 00:01:43.699
+são parecidas demais.
+
+00:01:44.123 --> 00:01:46.708
+Podemos generalizá-las
+em uma função
+
+00:01:46.741 --> 00:01:49.668
+e também podemos consolidar
+todas essas instruções print
+
+00:01:49.701 --> 00:01:51.292
+em um loop for.
+
+00:01:51.987 --> 00:01:54.259
+Isso já é uma demonstração
+da próxima dica:
+
+00:01:54.836 --> 00:01:57.675
+resuma a lógica
+para melhorar a legibilidade.
+
+00:01:58.155 --> 00:02:01.324
+Note como resumir
+um código em uma função
+
+00:02:01.357 --> 00:02:05.883
+deixa-o menos repetitivo
+e também melhora a legibilidade
+
+00:02:05.916 --> 00:02:07.715
+com nomes de funções
+descritivos.
+
+00:02:08.427 --> 00:02:10.627
+Você consegue facilmente
+supor que esta linha
+
+00:02:10.660 --> 00:02:14.427
+está aplicando uma curva plana de 5
+na lista de notas
+
+00:02:14.460 --> 00:02:18.306
+e que esta linha está fazendo
+a mesma coisa com 10.
+
+00:02:18.836 --> 00:02:22.171
+Já esta linha aplica uma curva
+diferente usando a raiz quadrada.
+
+00:02:22.978 --> 00:02:27.323
+E, com este loop for, não apenas
+removemos linhas repetitivas,
+
+00:02:27.356 --> 00:02:30.507
+como também tornamos o processo
+mais fácil de ser acompanhado.
+
+00:02:30.540 --> 00:02:33.043
+Estamos claramente iterando
+através de 4 listas
+
+00:02:33.076 --> 00:02:34.794
+e imprimindo
+a média de cada uma.
+
+00:02:35.347 --> 00:02:38.155
+Note que, apesar do seu código
+poder se tornar mais legível
+
+00:02:38.188 --> 00:02:40.883
+quando você resume
+a lógica em funções,
+
+00:02:40.916 --> 00:02:45.563
+é possível exagerar na engenharia
+e acabar com funções demais,
+
+00:02:45.596 --> 00:02:47.275
+então faça bom julgamento.
+
+00:02:47.308 --> 00:02:49.459
+Isso nos leva
+à nossa próxima dica:
+
+00:02:49.906 --> 00:02:54.379
+minimize o número de entidades,
+como funções, classes e módulos.
+
+00:02:54.412 --> 00:02:57.179
+Podemos usar alternativas
+de chamados de função
+
+00:02:57.212 --> 00:02:58.827
+em vez de lógica inline.
+
+00:02:58.860 --> 00:03:01.962
+Se você dividiu o seu código
+em uma quantidade desnecessária
+
+00:03:01.995 --> 00:03:05.857
+de funções e módulos,
+não precisa se afobar.
+
+00:03:05.890 --> 00:03:08.314
+Se você quiser visualizar
+os detalhes de implementação
+
+00:03:08.347 --> 00:03:11.466
+de algo que talvez seja pequeno
+demais para valer a pena,
+
+00:03:11.499 --> 00:03:14.411
+é praticamente o mesmo
+que nomear variáveis.
+
+00:03:14.444 --> 00:03:16.156
+Um nome de variável
+mais longo
+
+00:03:16.189 --> 00:03:19.490
+não significa necessariamente
+melhor legibilidade.
+
+00:03:19.523 --> 00:03:21.587
+Da mesma forma
+que criar mais módulos
+
+00:03:21.620 --> 00:03:25.675
+não resulta necessariamente
+em uma modularização eficaz.
+
+00:03:26.619 --> 00:03:28.795
+Vamos seguir
+para a próxima dica.
+
+00:03:28.828 --> 00:03:30.882
+Certifique-se de que toda função
+que você escrever
+
+00:03:30.915 --> 00:03:33.217
+seja focada
+em fazer uma coisa.
+
+00:03:33.691 --> 00:03:36.362
+Por exemplo, você não gostaria
+de ter algo assim.
+
+00:03:37.178 --> 00:03:39.755
+Isso é o mesmo
+que tínhamos antes,
+
+00:03:39.788 --> 00:03:41.675
+exceto que, agora,
+cada função curva
+
+00:03:41.708 --> 00:03:46.075
+também imprime a média
+além de retornar a lista ajustada.
+
+00:03:46.714 --> 00:03:49.706
+Evite obter efeitos colaterais
+desnecessários nas funções
+
+00:03:49.739 --> 00:03:51.402
+mantendo-as focadas.
+
+00:03:51.435 --> 00:03:53.891
+Mesmo que você
+as renomeie dessa forma
+
+00:03:53.924 --> 00:03:56.083
+para indicar que elas estão
+imprimindo a média,
+
+00:03:56.116 --> 00:03:58.619
+as funções, ainda assim,
+realizam múltiplas tarefas
+
+00:03:58.652 --> 00:04:01.842
+e se tornam mais difíceis de ser
+generalizadas e reutilizadas.
+
+00:04:02.666 --> 00:04:06.002
+Geralmente, se há um "end"
+no nome da sua função,
+
+00:04:06.035 --> 00:04:07.834
+considere refatorar.
+
+00:04:08.458 --> 00:04:11.419
+Uma outra dica é
+que nomes arbitrários de variáveis
+
+00:04:11.452 --> 00:04:14.315
+podem ser mais eficientes
+em certas funções.
+
+00:04:14.348 --> 00:04:17.306
+Note que, nestas funções,
+quebramos algumas regras
+
+00:04:17.339 --> 00:04:20.082
+da utilização
+de nomes descritivos.
+
+00:04:20.115 --> 00:04:23.842
+Isso porque nomes de variáveis
+arbitrários em funções genéricas,
+
+00:04:23.875 --> 00:04:27.147
+como esta, podem tornar
+o código mais legível.
+
+00:04:27.651 --> 00:04:30.946
+Essa "flat_curve" não se aplica
+necessariamente a notas de testes.
+
+00:04:30.979 --> 00:04:34.147
+Ela pode ser usada em qualquer
+iterável que você queira curvar
+
+00:04:34.180 --> 00:04:35.715
+por um certo valor inteiro.
+
+00:04:35.748 --> 00:04:39.754
+Como ainda estamos falando sobre
+escrever funções simples e focadas,
+
+00:04:39.787 --> 00:04:44.594
+outra dica é certificar-se de não
+usar mais do que 3 argumentos,
+
+00:04:44.627 --> 00:04:45.727
+se possível.
+
+00:04:45.760 --> 00:04:47.802
+É claro que esta
+não é uma regra inviolável,
+
+00:04:47.835 --> 00:04:51.482
+e há momentos em que é mais
+apropriado usar vários parâmetros.
+
+00:04:51.515 --> 00:04:56.282
+Mas, na grande maioria dos casos, é
+mais eficaz usar poucos argumentos.
+
+00:04:56.867 --> 00:05:00.283
+Lembre-se de que modularizamos
+para simplificar o código
+
+00:05:00.316 --> 00:05:02.778
+e para torná-lo melhor
+de ser trabalhado.
+
+00:05:02.811 --> 00:05:05.209
+Se a sua função
+tiver muitos parâmetros,
+
+00:05:05.242 --> 00:05:08.362
+talvez seja bom repensar
+como você a está dividindo.
+
+00:05:09.699 --> 00:05:13.338
+Com este pequeno exemplo,
+você viu como podemos usar funções
+
+00:05:13.371 --> 00:05:15.177
+para resumir partes
+de um programa
+
+00:05:15.210 --> 00:05:18.602
+para torná-lo mais legível,
+claro e reutilizável.
+
+00:05:19.050 --> 00:05:21.610
+Isso se torna mais essencial
+quanto mais complexos
+
+00:05:21.643 --> 00:05:22.866
+forem os seus algoritmos,
+
+00:05:22.899 --> 00:05:24.666
+especialmente em trabalhos
+com Ciência de Dados.
+

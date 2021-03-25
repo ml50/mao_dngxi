@@ -1,0 +1,531 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.214 --> 00:00:04.726
+PyPI, acrônimo de "Índice
+de Pacotes Python", em inglês,
+
+00:00:04.759 --> 00:00:08.608
+é um repositório onde os pacotes
+Python são armazenados.
+
+00:00:08.641 --> 00:00:14.581
+A instalação pip de um pacote
+baixa e instala arquivos do PyPI.
+
+00:00:14.614 --> 00:00:17.252
+Qualquer um pode enviar
+um pacote para o PyPI.
+
+00:00:17.285 --> 00:00:20.373
+Mostrarei o básico
+de como fazer isso.
+
+00:00:20.406 --> 00:00:24.308
+O site PyPI, na verdade,
+tem um repositório de teste
+
+00:00:24.341 --> 00:00:26.685
+e outro regular.
+
+00:00:26.718 --> 00:00:29.198
+Este é o site
+do repositório de teste.
+
+00:00:29.815 --> 00:00:33.725
+Eu sugiro primeiro fazer carregar
+seu pacote no repositório de teste
+
+00:00:33.758 --> 00:00:36.444
+para garantir que tudo funcione
+conforme o esperado,
+
+00:00:36.477 --> 00:00:42.156
+depois faça o mesmo
+no repositório regular, neste site.
+
+00:00:42.189 --> 00:00:45.972
+Lembre-se de que qualquer um
+pode baixar e instalar um pacote
+
+00:00:46.005 --> 00:00:48.566
+se ele estiver
+no repositório regular.
+
+00:00:48.599 --> 00:00:52.045
+O primeiro passo
+é criar uma conta no PyPI
+
+00:00:52.078 --> 00:00:54.901
+e no repositório
+de teste PyPI.
+
+00:00:54.934 --> 00:00:56.741
+Se formos a cada site,
+
+00:00:56.774 --> 00:01:00.860
+podemos clicar em Register
+para criar uma conta.
+
+00:01:00.893 --> 00:01:04.347
+Eu já fiz isso,
+então vou pular essa etapa.
+
+00:01:04.380 --> 00:01:06.628
+Em seguida, vá no terminal
+
+00:01:06.661 --> 00:01:09.882
+e digite o diretório
+com seus arquivos de pacote.
+
+00:01:09.915 --> 00:01:13.828
+Vamos abrir a pasta
+dsnd_probability,
+
+00:01:13.861 --> 00:01:16.123
+onde o pacote está localizado.
+
+00:01:16.156 --> 00:01:19.332
+Veremos que existem
+alguns arquivos a mais
+
+00:01:19.365 --> 00:01:23.916
+do que havia no pacote
+com o qual estávamos trabalhando.
+
+00:01:23.949 --> 00:01:26.596
+Precisamos adicionar
+esses arquivos a mais.
+
+00:01:26.629 --> 00:01:31.205
+O primeiro
+é um arquivo chamado "license.txt".
+
+00:01:31.238 --> 00:01:35.406
+É aqui que colocamos
+as informações de direitos autorais.
+
+00:01:35.439 --> 00:01:38.403
+Eu usei a linguagem MIT
+de licença,
+
+00:01:38.436 --> 00:01:42.420
+que copiei e colei
+do site opensource.org.
+
+00:01:42.453 --> 00:01:46.828
+Em seguida, também precisaremos
+adicionar um arquivo README.md.
+
+00:01:46.861 --> 00:01:50.190
+Não preenchi este arquivo
+com detalhes suficientes,
+
+00:01:50.223 --> 00:01:53.530
+mas é aqui que documentamos
+o funcionamento do pacote.
+
+00:01:53.563 --> 00:01:57.427
+Finalmente, crie um arquivo
+chamado "setup.cfg".
+
+00:01:57.460 --> 00:02:02.187
+Precisaremos colocar os dados
+sobre o nome do arquivo README.
+
+00:02:02.220 --> 00:02:06.892
+Vamos voltar um nível
+e abrir o arquivo setup.py.
+
+00:02:06.925 --> 00:02:11.979
+Vemos que nomeei o pacote
+como "dsnd_probability".
+
+00:02:12.012 --> 00:02:17.819
+A pasta com os arquivos do pacote
+também tem esse nome.
+
+00:02:17.852 --> 00:02:20.578
+Se quisermos enviar este código
+para o PyPI,
+
+00:02:20.611 --> 00:02:23.339
+precisaremos criar
+um nome diferente.
+
+00:02:23.372 --> 00:02:27.329
+Todo pacote no PyPI
+precisa de um nome único.
+
+00:02:27.362 --> 00:02:30.618
+No arquivo setup.py,
+na variável packages,
+
+00:02:30.651 --> 00:02:34.408
+use o mesmo nome
+que colocamos na variável name.
+
+00:02:34.441 --> 00:02:37.361
+Eu estou mantendo
+zip_safe como false
+
+00:02:37.394 --> 00:02:40.147
+porque o pacote não pode
+ser executado diretamente
+
+00:02:40.180 --> 00:02:42.015
+de um arquivo zip.
+
+00:02:42.048 --> 00:02:45.545
+Isso é especialmente importante
+se for um pacote que dependa
+
+00:02:45.578 --> 00:02:46.841
+dos arquivos de dados
+
+00:02:46.874 --> 00:02:49.578
+que precisam permanecer
+descompactados para uso.
+
+00:02:49.611 --> 00:02:52.845
+Mais uma vez, note que eu mudei
+o nome da pasta package
+
+00:02:52.878 --> 00:02:56.670
+para corresponder
+à dsnd_probability.
+
+00:02:56.703 --> 00:02:59.293
+Darei uma breve
+explicação aqui,
+
+00:02:59.326 --> 00:03:02.533
+porém, se quiser saber mais
+sobre como carregar o PyPI,
+
+00:03:02.566 --> 00:03:05.396
+incluirei um link
+da documentação.
+
+00:03:05.429 --> 00:03:09.014
+Vá para a janela do seu terminal,
+certifique-se
+
+00:03:09.047 --> 00:03:12.349
+de que você esteja na pasta
+com os arquivos de pacote
+
+00:03:12.382 --> 00:03:17.741
+e digite
+"python setup.py sdist".
+
+00:03:17.774 --> 00:03:19.845
+Se observarmos
+a pasta package,
+
+00:03:19.878 --> 00:03:23.339
+haverá algumas novas pastas.
+
+00:03:23.372 --> 00:03:26.851
+Dentro da pasta dist,
+existe um arquivo tar.gz
+
+00:03:26.884 --> 00:03:30.923
+que acabaremos carregando
+para o repositório PyPI.
+
+00:03:30.956 --> 00:03:34.946
+Em seguida, volte ao terminal
+e instale o pacote twine
+
+00:03:34.979 --> 00:03:40.163
+com "pip install twine"
+e digite o seguinte comando
+
+00:03:40.196 --> 00:03:44.978
+para carregar o pacote
+no repositório de teste do PyPI:
+
+00:03:45.011 --> 00:03:50.763
+"twine upload
+--repository-url"
+
+00:03:50.796 --> 00:03:56.653
+e "https://test.pypi.org
+
+00:03:56.686 --> 00:04:02.134
+/legacy/ dist/*".
+
+00:04:02.167 --> 00:04:04.914
+Ele ficará assim.
+Pressione enter.
+
+00:04:04.947 --> 00:04:06.810
+Ele solicita
+o nome de usuário,
+
+00:04:06.843 --> 00:04:10.666
+que é o nome de usuário
+do repositório teste PyPI,
+
+00:04:10.699 --> 00:04:12.475
+e a senha.
+
+00:04:12.508 --> 00:04:15.346
+Vemos um erro que diz
+
+00:04:15.379 --> 00:04:18.065
+que estou usando a mesma versão
+que enviei antes.
+
+00:04:18.098 --> 00:04:23.590
+Vamos mudar isso de 1.2
+para 1.3.
+
+00:04:23.623 --> 00:04:26.726
+Você pode acabar vendo
+esse erro também
+
+00:04:26.759 --> 00:04:29.413
+e terá que fazer
+a mesma coisa.
+
+00:04:29.446 --> 00:04:33.014
+Isso é porque já tentei carregar
+este pacote antes
+
+00:04:33.047 --> 00:04:34.724
+com a mesma versão.
+
+00:04:34.757 --> 00:04:38.263
+Vamos retornar e excluir
+esta pasta dist
+
+00:04:38.296 --> 00:04:42.317
+e esta pasta de informações extras
+que foram criadas antes.
+
+00:04:42.350 --> 00:04:44.912
+Agora vamos repetir
+os mesmos passos.
+
+00:04:44.945 --> 00:04:49.103
+"Python setup.py sdist."
+
+00:04:49.856 --> 00:04:52.592
+Vamos tentar novamente.
+
+00:04:52.625 --> 00:04:54.837
+"twine upload
+
+00:04:54.870 --> 00:04:58.908
+--repository-url."
+
+00:04:58.941 --> 00:05:02.405
+Digitamos o nome de usuário
+e a senha.
+
+00:05:02.438 --> 00:05:04.325
+Desta vez
+parece que funcionou.
+
+00:05:04.358 --> 00:05:07.225
+Vamos ao site do teste PyPI.
+
+00:05:07.258 --> 00:05:09.211
+Vou fazer login da conta...
+
+00:05:10.346 --> 00:05:13.927
+Parece que tudo foi enviado
+corretamente.
+
+00:05:13.960 --> 00:05:16.390
+Vamos retornar ao terminal
+por um segundo.
+
+00:05:16.423 --> 00:05:18.902
+Podemos usar a instalação pip
+neste pacote
+
+00:05:18.935 --> 00:05:20.910
+usando o seguinte comando:
+
+00:05:20.943 --> 00:05:26.447
+"pip install --index-url
+
+00:05:27.191 --> 00:05:33.158
+https://test.pypi.org/
+
+00:05:33.191 --> 00:05:37.552
+simple/ dsnd_probability."
+
+00:05:37.585 --> 00:05:43.527
+Isto diz para instalar o pacote
+do site do repositório de teste.
+
+00:05:43.560 --> 00:05:47.069
+Parece que foi instalado
+com sucesso.
+
+00:05:47.102 --> 00:05:50.014
+Assumindo que tudo corra bem
+e que estejamos pronto
+
+00:05:50.047 --> 00:05:53.534
+para carregar o pacote
+no repositório regular do PyPI,
+
+00:05:53.567 --> 00:05:55.502
+veremos como podemos
+fazer isso.
+
+00:05:55.535 --> 00:06:00.887
+Digite
+"twine upload dist/*"
+
+00:06:00.920 --> 00:06:04.622
+e o nome de usuário
+e a senha...
+
+00:06:04.655 --> 00:06:09.797
+Vejamos no site do repositório
+regular PyPI se tudo foi carregado.
+
+00:06:09.830 --> 00:06:11.430
+Faremos o login.
+
+00:06:11.463 --> 00:06:15.142
+Parece que tudo
+foi enviado aqui também.
+
+00:06:15.175 --> 00:06:18.734
+Lembre-se, já instalamos
+o pacote no site de teste,
+
+00:06:18.767 --> 00:06:20.736
+então vamos desinstalar.
+
+00:06:21.352 --> 00:06:24.511
+Como o pacote também está
+no repositório regular,
+
+00:06:24.544 --> 00:06:26.633
+podemos instalar diretamente.
+
+00:06:26.666 --> 00:06:30.513
+Basta escrever "pip install"
+e o nome do pacote.
+
+00:06:30.546 --> 00:06:33.141
+Parece que tudo
+foi instalado corretamente.
+
+00:06:33.798 --> 00:06:38.181
+Podemos usar isso
+em um programa Python.
+
+00:06:38.214 --> 00:06:43.508
+Abrimos uma nova janela de terminal
+e o interpretador Python.
+
+00:06:43.541 --> 00:06:45.509
+Agora digitamos
+
+00:06:45.542 --> 00:06:49.900
+"from dsnd_probability
+
+00:06:49.933 --> 00:06:55.684
+import Gaussian" e "Binomial".
+
+00:06:55.717 --> 00:06:57.485
+Por enquanto, tudo bem.
+
+00:06:57.518 --> 00:07:02.613
+Se eu digitar
+"Gaussian (10, 7)"
+
+00:07:02.646 --> 00:07:04.005
+e der enter,
+
+00:07:04.038 --> 00:07:09.222
+isso criará um objeto Gaussian
+com média 10 e desvio padrão 7.
+
+00:07:09.255 --> 00:07:13.854
+Se eu digitar
+"Binomial (0,4, 25)"
+
+00:07:13.887 --> 00:07:15.277
+e der enter
+
+00:07:15.310 --> 00:07:18.819
+isso me dará a probabilidade
+do desvio padrão médio
+
+00:07:18.852 --> 00:07:20.764
+e o número de amostras.
+
+00:07:20.797 --> 00:07:22.700
+Parece que funcionou.
+
+00:07:22.733 --> 00:07:28.412
+Mostrei o básico para fazer
+algo funcionar com o PyPI.
+
+00:07:28.445 --> 00:07:31.621
+Se você for carregar o pacote
+feito nesta aula,
+
+00:07:31.654 --> 00:07:37.308
+use um nome de pacote diferente
+de dsnd_probability,
+
+00:07:37.341 --> 00:07:39.964
+ou você não conseguirá
+carregar o pacote,
+
+00:07:39.997 --> 00:07:43.716
+porque o nome entrará em conflito
+com o pacote que acabei de enviar.
+
+00:07:43.749 --> 00:07:47.782
+Perceba que usei underscore
+para criar o pacote,
+
+00:07:47.815 --> 00:07:50.341
+mas, se voltarmos
+ao site do PyPI,
+
+00:07:50.374 --> 00:07:52.547
+o pacote será nomeado
+com um traço.
+
+00:07:52.580 --> 00:07:54.857
+Isso é algo
+a que devemos atentar.
+
+00:07:54.890 --> 00:07:57.808
+Quando usamos a instalação pip,
+devemos usar o traço,
+
+00:07:57.841 --> 00:08:01.920
+mas quando usamos
+no interpretador Python
+
+00:08:01.953 --> 00:08:03.520
+ou no programa,
+
+00:08:03.553 --> 00:08:05.951
+devemos usar o underscore.
+
+00:08:05.984 --> 00:08:07.641
+Agora é sua vez.
+
+00:08:08.286 --> 00:08:10.263
+Siga as instruções deste vídeo
+
+00:08:10.296 --> 00:08:13.000
+e tente enviar seu pacote
+para o PyPI.
+

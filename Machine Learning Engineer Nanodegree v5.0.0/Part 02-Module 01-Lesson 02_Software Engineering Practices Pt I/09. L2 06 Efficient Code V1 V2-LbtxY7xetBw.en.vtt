@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.429 --> 00:00:09.059
+When you refactor, it's important to improve the efficiency
+
+00:00:09.060 --> 00:00:13.170
+of your code in addition to making it clean and modular.
+
+00:00:13.169 --> 00:00:19.490
+There are two parts to making code efficient: reducing the time it takes to run,
+
+00:00:19.489 --> 00:00:23.640
+and reducing the amount of space it takes up and memory.
+
+00:00:23.640 --> 00:00:28.559
+Both can have a significant impact on a company or products performance.
+
+00:00:28.559 --> 00:00:30.975
+So, it's important to practice this.
+
+00:00:30.975 --> 00:00:36.100
+It's especially important if you will be working in a production environment.
+
+00:00:36.100 --> 00:00:40.189
+However, it should be noted that how important
+
+00:00:40.189 --> 00:00:44.344
+it is to improve efficiency is context dependent.
+
+00:00:44.344 --> 00:00:50.054
+Slow code, might be possible in one case and not another.
+
+00:00:50.054 --> 00:00:54.269
+For example, some batch data preparation processes,
+
+00:00:54.270 --> 00:00:57.680
+might not need to be optimized right away if
+
+00:00:57.679 --> 00:01:01.369
+it runs once every three days, for a few minutes.
+
+00:01:01.369 --> 00:01:03.125
+On the other hand,
+
+00:01:03.125 --> 00:01:09.829
+code used to generate posts to show on a social media feed needs to be relatively fast,
+
+00:01:09.829 --> 00:01:13.054
+since updates happen instantaneously.
+
+00:01:13.055 --> 00:01:17.000
+Again, you may spend a lot of time refactoring to
+
+00:01:17.000 --> 00:01:21.519
+clean or optimize your code after you already have something working.
+
+00:01:21.519 --> 00:01:24.409
+It's important to understand how valuable this
+
+00:01:24.409 --> 00:01:28.390
+is for your work and yourself as a developer.
+
+00:01:28.390 --> 00:01:30.950
+Each time you optimize your code,
+
+00:01:30.950 --> 00:01:33.560
+you'll pick up new knowledge and skills which will
+
+00:01:33.560 --> 00:01:36.885
+make you a more efficient programmer over time.
+
+00:01:36.885 --> 00:01:40.370
+Let's see a few examples of inefficient code,
+
+00:01:40.370 --> 00:01:44.680
+and practice refactoring to optimize their performance.
+

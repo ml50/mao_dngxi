@@ -1,0 +1,125 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.989 --> 00:00:04.241
+CÓDIGO EFICIENTE
+
+00:00:05.278 --> 00:00:09.953
+Ao refatorar, é importante melhorar
+a eficiência do seu código,
+
+00:00:09.986 --> 00:00:13.065
+além de deixá-lo
+limpo e modular.
+
+00:00:13.520 --> 00:00:16.457
+Há duas etapas para tornar
+um código eficiente.
+
+00:00:16.490 --> 00:00:19.362
+Reduzir o tempo
+que ele leva para rodar
+
+00:00:19.395 --> 00:00:23.251
+e reduzir a quantidade de espaço
+que ele ocupa na memória.
+
+00:00:23.841 --> 00:00:26.305
+Ambas podem
+ter um impacto significativo
+
+00:00:26.338 --> 00:00:28.816
+no desempenho
+de uma companhia ou produto.
+
+00:00:28.849 --> 00:00:31.153
+Então, praticar isso
+é importante.
+
+00:00:31.186 --> 00:00:33.897
+É especialmente importante
+se você for trabalhar
+
+00:00:33.930 --> 00:00:35.993
+em um ambiente de produção.
+
+00:00:36.594 --> 00:00:42.352
+Contudo, o tamanho da importância
+de melhorar o desempenho
+
+00:00:42.385 --> 00:00:44.465
+depende do contexto.
+
+00:00:44.912 --> 00:00:50.097
+Codificação lenta pode ser aceitável
+em um caso, mas não em outro.
+
+00:00:50.537 --> 00:00:54.464
+Por exemplo, alguns processos
+de preparo de dados em lotes
+
+00:00:54.497 --> 00:00:57.264
+podem não precisar ser
+otimizados logo de início
+
+00:00:57.297 --> 00:01:01.584
+se forem executados uma vez
+a cada 3 dias, por poucos minutos.
+
+00:01:01.617 --> 00:01:05.385
+Por outro lado,
+códigos usados para gerar posts
+
+00:01:05.418 --> 00:01:07.577
+que serão exibidos no feed
+de uma rede social
+
+00:01:07.610 --> 00:01:09.904
+precisam
+ser relativamente rápidos,
+
+00:01:09.937 --> 00:01:12.609
+já que as atualizações
+ocorrem instantaneamente.
+
+00:01:13.616 --> 00:01:16.808
+Repito: você pode passar
+muito tempo refatorando
+
+00:01:16.841 --> 00:01:18.896
+para limpar ou otimizar
+o seu código,
+
+00:01:18.929 --> 00:01:21.706
+depois de já ter
+algo funcionando.
+
+00:01:21.739 --> 00:01:24.761
+É importante entender
+o quanto isso é valioso
+
+00:01:24.794 --> 00:01:28.249
+para o seu trabalho
+e para você como desenvolvedor.
+
+00:01:28.849 --> 00:01:30.865
+Cada vez que você otimiza
+o seu código,
+
+00:01:30.898 --> 00:01:33.009
+você obtém novos conhecimentos
+e habilidades,
+
+00:01:33.042 --> 00:01:36.481
+que vão torná-lo um programador
+mais eficiente ao longo do tempo.
+
+00:01:37.162 --> 00:01:40.056
+Vamos ver alguns exemplos
+de códigos ineficientes
+
+00:01:40.089 --> 00:01:43.992
+e praticar a refatoração
+para otimizar o desempenho deles.
+

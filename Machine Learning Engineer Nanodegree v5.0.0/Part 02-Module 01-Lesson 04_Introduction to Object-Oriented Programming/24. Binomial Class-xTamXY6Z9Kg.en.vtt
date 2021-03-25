@@ -1,0 +1,127 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.430
+Before you get started writing code,
+
+00:00:02.430 --> 00:00:06.144
+here's a quick overview of the binomial class exercise.
+
+00:00:06.144 --> 00:00:12.105
+The exercise is contained inside this 4a binomial package folder.
+
+00:00:12.105 --> 00:00:17.510
+Inside this folder, are quite a few files and a distributions directory.
+
+00:00:17.510 --> 00:00:19.335
+Out of all these files,
+
+00:00:19.335 --> 00:00:22.390
+there are two that you're going to need to modify.
+
+00:00:22.390 --> 00:00:28.085
+First, is the init Python file inside the distributions directory here.
+
+00:00:28.085 --> 00:00:33.259
+Currently, the init file only imports the Gaussian class.
+
+00:00:33.259 --> 00:00:38.159
+You'll first need to modify this file to also import the binomial class.
+
+00:00:38.159 --> 00:00:43.509
+Going back, take a look at the binomial distribution file.
+
+00:00:43.509 --> 00:00:47.414
+You'll see that I've put in a bunch of to-do sections,
+
+00:00:47.414 --> 00:00:49.490
+to help guide you along.
+
+00:00:49.490 --> 00:00:51.560
+Make sure to read the to-dos,
+
+00:00:51.560 --> 00:00:54.344
+so that you understand what the code should look like.
+
+00:00:54.344 --> 00:01:00.543
+Each method also contains a docstring explaining the expected inputs and outputs.
+
+00:01:00.543 --> 00:01:05.185
+You'll see as well that I've included a file called test.py.
+
+00:01:05.185 --> 00:01:08.750
+This file contains unit tests that
+
+00:01:08.750 --> 00:01:12.515
+you can run to help you determine if your code is working properly.
+
+00:01:12.515 --> 00:01:14.569
+Here's how to use this workspace.
+
+00:01:14.569 --> 00:01:17.540
+First, you'll need to open a terminal and go into
+
+00:01:17.540 --> 00:01:24.660
+the package directory with the command cd 4a_binomial_package.
+
+00:01:25.239 --> 00:01:28.964
+Then you can type pip install.
+
+00:01:28.965 --> 00:01:32.475
+which will install the distributions package.
+
+00:01:32.474 --> 00:01:36.554
+The unit tests are in the tests.py file.
+
+00:01:36.555 --> 00:01:42.785
+You can run the unit tests by typing Python test.py.
+
+00:01:42.784 --> 00:01:44.784
+As you modify your code,
+
+00:01:44.784 --> 00:01:48.924
+you can run the test.py file to see if your code is working.
+
+00:01:48.924 --> 00:01:52.369
+In this case, it tells me that from distributions,
+
+00:01:52.370 --> 00:01:55.395
+import binomial in the test file doesn't work.
+
+00:01:55.394 --> 00:01:59.444
+That's because I never put it in the init file inside the package.
+
+00:01:59.444 --> 00:02:01.259
+As you modify your code,
+
+00:02:01.260 --> 00:02:04.885
+you can run the test.py file to see if your code is working.
+
+00:02:04.885 --> 00:02:08.045
+However, whenever you update the package code,
+
+00:02:08.044 --> 00:02:10.539
+you need to reinstall the package.
+
+00:02:10.539 --> 00:02:14.174
+Otherwise, Python won't be able to see the changes you've made.
+
+00:02:14.175 --> 00:02:18.010
+You can reinstall the package by going to the terminal.
+
+00:02:18.009 --> 00:02:21.979
+Again, making sure you're in the package directory and typing
+
+00:02:21.979 --> 00:02:26.484
+pip install dash dash upgrade, dot.
+
+00:02:26.485 --> 00:02:31.480
+You'll see that it uninstalls the package and then reinstalls it. That's it.
+
+00:02:31.479 --> 00:02:33.209
+Have fun with this exercise,
+
+00:02:33.210 --> 00:02:37.270
+it really reinforces everything you've been practicing throughout this lesson.
+

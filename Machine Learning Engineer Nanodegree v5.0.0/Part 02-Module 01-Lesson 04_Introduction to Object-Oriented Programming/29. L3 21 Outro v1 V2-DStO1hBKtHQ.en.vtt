@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.950 --> 00:00:06.974
+This has been quite a journey.
+
+00:00:06.974 --> 00:00:10.484
+You started out learning the basics of object-oriented programming
+
+00:00:10.484 --> 00:00:14.410
+and you ended up with a Python package that you can share with the world.
+
+00:00:14.410 --> 00:00:17.585
+Let's review all the concepts from this lesson.
+
+00:00:17.585 --> 00:00:22.195
+First, you wrote some basic object-oriented programs using clothing.
+
+00:00:22.195 --> 00:00:25.664
+You coded a few classes and instantiated objects.
+
+00:00:25.664 --> 00:00:28.484
+These objects had a set of characteristics called
+
+00:00:28.484 --> 00:00:31.864
+attributes and a set of actions called methods.
+
+00:00:31.864 --> 00:00:37.464
+Then, you started working with a more complex class representing Gaussian distributions.
+
+00:00:37.465 --> 00:00:42.885
+You practiced writing magic methods and writing programs that included inheritance.
+
+00:00:42.884 --> 00:00:47.579
+Next, you converted the Gaussian class into a Python package,
+
+00:00:47.579 --> 00:00:50.954
+and then you added another class called binomial.
+
+00:00:50.954 --> 00:00:53.515
+Once all of this code was ready,
+
+00:00:53.515 --> 00:00:56.000
+you uploaded this package to PyPi.
+
+00:00:56.000 --> 00:00:59.109
+That's a lot of work for one lesson.
+
+00:00:59.109 --> 00:01:01.155
+You should be really proud because,
+
+00:01:01.155 --> 00:01:02.429
+as I said in the beginning,
+
+00:01:02.429 --> 00:01:07.894
+I don't think too many people know how to write a Python package and upload it to PyPi.
+
+00:01:07.894 --> 00:01:10.899
+This object-oriented programming lesson,
+
+00:01:10.900 --> 00:01:14.750
+however, is not the end of the software development class.
+
+00:01:14.750 --> 00:01:19.623
+In the next lesson, you are going to make a web app containing a data dashboard.
+
+00:01:19.623 --> 00:01:22.759
+This is going to expand your software engineering skills and
+
+00:01:22.760 --> 00:01:26.370
+gives you another tool for telling stories with data.
+
+00:01:26.370 --> 00:01:28.030
+I hope you enjoyed writing
+
+00:01:28.030 --> 00:01:31.879
+object-oriented programs and I'll see you in the web development lesson.
+

@@ -1,0 +1,116 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.984 --> 00:00:04.794
+RESUMO DA AULA
+
+00:00:04.828 --> 00:00:07.280
+Foi uma jornada e tanto.
+
+00:00:07.314 --> 00:00:10.640
+Você começou aprendendo o básico
+da programação orientada a objetos
+
+00:00:10.674 --> 00:00:14.824
+e acabou com um pacote Python
+que pode compartilhar com o mundo.
+
+00:00:14.858 --> 00:00:17.877
+Vamos rever
+todos os conceitos desta aula.
+
+00:00:17.911 --> 00:00:22.439
+Primeiro, você escreveu programas
+orientados a objetos usando roupas.
+
+00:00:22.473 --> 00:00:25.905
+Você codificou algumas classes
+e instanciou objetos.
+
+00:00:25.939 --> 00:00:29.432
+Os objetos tinham um conjunto de
+características chamado "atributos",
+
+00:00:29.466 --> 00:00:32.302
+e um grupo de ações
+chamado de "métodos".
+
+00:00:32.336 --> 00:00:35.412
+Depois, você começou a trabalhar
+com uma classe mais complexa,
+
+00:00:35.446 --> 00:00:37.739
+representando
+distribuições gaussianas.
+
+00:00:37.773 --> 00:00:39.778
+Você praticou escrever
+métodos mágicos
+
+00:00:39.812 --> 00:00:43.410
+e programas
+que incluíam herança.
+
+00:00:43.444 --> 00:00:47.767
+Depois, você converteu a classe
+Gaussian em um pacote Python,
+
+00:00:47.801 --> 00:00:51.474
+e, em seguida, adicionou
+outra classe chamada "binomial".
+
+00:00:51.508 --> 00:00:53.603
+Quando todo esse código
+ficou pronto,
+
+00:00:53.637 --> 00:00:56.627
+você fez upload do pacote
+no PyPI.
+
+00:00:56.661 --> 00:01:00.484
+É muito trabalho para uma aula.
+Você devia se orgulhar,
+
+00:01:00.518 --> 00:01:02.526
+porque, como eu disse
+no começo,
+
+00:01:02.560 --> 00:01:05.848
+não acho que muitas pessoas saibam
+escrever um pacote Python
+
+00:01:05.882 --> 00:01:08.711
+e fazer upload dele no PyPI.
+
+00:01:08.745 --> 00:01:11.696
+Porém, esta aula
+de programação orientada a objetos
+
+00:01:11.730 --> 00:01:15.143
+não é o fim da classe
+de desenvolvimento de software.
+
+00:01:15.177 --> 00:01:16.418
+Na próxima aula,
+
+00:01:16.452 --> 00:01:19.860
+você vai fazer um aplicativo web
+que contenha um painel de dados.
+
+00:01:19.894 --> 00:01:22.854
+Isso vai expandir suas habilidades
+de engenharia de software
+
+00:01:22.888 --> 00:01:26.827
+e lhe dar outra ferramenta
+para contar histórias com dados.
+
+00:01:26.861 --> 00:01:29.465
+Espero que tenha gostado
+de escrever esses programas,
+
+00:01:29.499 --> 00:01:31.657
+e nos vemos na aula
+de desenvolvimento web.
+

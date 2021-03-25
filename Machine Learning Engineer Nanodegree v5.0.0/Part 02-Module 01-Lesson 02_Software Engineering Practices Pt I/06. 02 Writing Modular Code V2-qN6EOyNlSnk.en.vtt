@@ -1,0 +1,280 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.919
+If you recall from earlier in the lesson,
+
+00:00:02.919 --> 00:00:07.745
+writing Modular Code is a necessary practice in software development,
+
+00:00:07.745 --> 00:00:11.660
+where you split your program into logical functions and modules.
+
+00:00:11.660 --> 00:00:14.574
+Let's go over some guidelines to help you with this.
+
+00:00:14.574 --> 00:00:17.074
+First, Don't Repeat Yourself,
+
+00:00:17.074 --> 00:00:20.954
+modularization allows you to reuse parts of your code.
+
+00:00:20.954 --> 00:00:24.574
+Let's go back to the example earlier on grading test scores.
+
+00:00:24.574 --> 00:00:29.744
+Here, we have a list of test scores that we curve in three different ways,
+
+00:00:29.745 --> 00:00:32.670
+say you're an educator who gave out a test that was too
+
+00:00:32.670 --> 00:00:35.929
+difficult or gave a question that was a little unfair.
+
+00:00:35.929 --> 00:00:40.024
+So, you decide to figure out a way to boost your students' scores.
+
+00:00:40.024 --> 00:00:41.640
+For the first two methods,
+
+00:00:41.640 --> 00:00:46.969
+out of flat curve a 5 points to each score and 10 points to each score.
+
+00:00:46.969 --> 00:00:48.199
+In the third method,
+
+00:00:48.200 --> 00:00:49.925
+we apply a square root curve,
+
+00:00:49.924 --> 00:00:52.414
+where we find the square root of each score,
+
+00:00:52.414 --> 00:00:54.295
+and multiply it by 10.
+
+00:00:54.295 --> 00:00:56.929
+Right now, it's difficult to understand what
+
+00:00:56.929 --> 00:01:00.018
+this code is for and looks pretty repetitive.
+
+00:01:00.018 --> 00:01:03.019
+This is an example of spaghetti code,
+
+00:01:03.020 --> 00:01:07.594
+which is common in data scientists and is not something we want to follow.
+
+00:01:07.594 --> 00:01:10.370
+Let's use the tips we learned earlier on writing
+
+00:01:10.370 --> 00:01:15.140
+clean code and improve this with better naming and readable functions.
+
+00:01:15.140 --> 00:01:19.710
+We can represent this list of scores better with something descriptive,
+
+00:01:19.709 --> 00:01:24.149
+like test scores, and use numpy to get the mean of each list.
+
+00:01:24.150 --> 00:01:28.880
+We can also use list comprehensions to make this more concise and readable,
+
+00:01:28.879 --> 00:01:32.935
+and use more descriptive names for the score and resulting list,
+
+00:01:32.935 --> 00:01:34.790
+our code is clear now,
+
+00:01:34.790 --> 00:01:36.859
+but still needs more refactoring.
+
+00:01:36.859 --> 00:01:43.750
+First of all, these lines applying a flat curve of 5 and 10 look awfully similar.
+
+00:01:43.750 --> 00:01:47.569
+We can generalize this in one function and we can also
+
+00:01:47.569 --> 00:01:51.489
+consolidate all of these print statements into a four loop.
+
+00:01:51.489 --> 00:01:54.405
+This actually demonstrates the next tip,
+
+00:01:54.405 --> 00:01:57.974
+abstract that logic to improve readability.
+
+00:01:57.974 --> 00:02:03.719
+Notice how abstracting out code into a function not only makes it less repetitive,
+
+00:02:03.719 --> 00:02:07.935
+but also improves the readability with descriptive function names.
+
+00:02:07.935 --> 00:02:13.090
+You can easily guess that this line is applying a flat curve of 5 on the
+
+00:02:13.090 --> 00:02:18.545
+test scores list and that this line is doing the same thing with 10,
+
+00:02:18.544 --> 00:02:24.189
+and this line applies a different curve using square root and with this four loop
+
+00:02:24.189 --> 00:02:26.770
+not only are we removing repeated lines of
+
+00:02:26.770 --> 00:02:30.400
+code it's also easier to follow what's happening,
+
+00:02:30.400 --> 00:02:35.000
+we're clearly iterating through four lists and printing the mean of each.
+
+00:02:35.000 --> 00:02:37.599
+Note that although your code can become more
+
+00:02:37.599 --> 00:02:40.954
+readable when you abstract out logic into functions,
+
+00:02:40.955 --> 00:02:45.630
+it's possible to over-engineer this and have way too many functions.
+
+00:02:45.629 --> 00:02:47.359
+So, use your judgment,
+
+00:02:47.360 --> 00:02:49.460
+this leads us to the next tip.
+
+00:02:49.460 --> 00:02:54.465
+Minimize the number of entities like functions, classes, and modules.
+
+00:02:54.465 --> 00:02:58.664
+There are trade-offs to having function calls instead of in-line logic.
+
+00:02:58.664 --> 00:03:03.819
+If you've broken up your code into an unnecessary amount of functions and modules,
+
+00:03:03.819 --> 00:03:05.794
+you'll have to jump around everywhere.
+
+00:03:05.794 --> 00:03:08.449
+If you want to view the implementation details
+
+00:03:08.449 --> 00:03:11.514
+for something that may be too small to be worth it,
+
+00:03:11.514 --> 00:03:14.244
+it's kind of the same as naming variables.
+
+00:03:14.245 --> 00:03:19.340
+A longer variable name doesn't necessarily equate to increased readability,
+
+00:03:19.340 --> 00:03:22.229
+the same way creating more modules doesn't
+
+00:03:22.229 --> 00:03:25.875
+necessarily result in effective modularization.
+
+00:03:25.875 --> 00:03:28.530
+Moving on to the next tip,
+
+00:03:28.530 --> 00:03:31.004
+make sure that each function you write,
+
+00:03:31.004 --> 00:03:33.299
+is focused on doing one thing,
+
+00:03:33.300 --> 00:03:36.835
+for example you wouldn't want something like this,
+
+00:03:36.835 --> 00:03:40.629
+this is the same thing we had before except now
+
+00:03:40.629 --> 00:03:46.435
+each curve function also prints the mean in addition to returning the adjusted list.
+
+00:03:46.435 --> 00:03:51.229
+Avoid having unnecessary side effects and functions and keep them focused.
+
+00:03:51.229 --> 00:03:56.169
+Even if you rename them this way to indicate that they're printing the mean,
+
+00:03:56.169 --> 00:03:58.929
+the functions are still doing multiple things and
+
+00:03:58.930 --> 00:04:02.188
+become more difficult to generalize and reuse.
+
+00:04:02.188 --> 00:04:08.125
+Generally, if there's an and in your function name, consider refactoring.
+
+00:04:08.125 --> 00:04:14.243
+Another tip is that arbitrary variable names can be more effective in certain functions.
+
+00:04:14.243 --> 00:04:16.360
+Notice that in these functions,
+
+00:04:16.360 --> 00:04:19.759
+we broke some rules on using descriptive variable names.
+
+00:04:19.759 --> 00:04:24.879
+This is because arbitrary variable names in general functions such as this,
+
+00:04:24.879 --> 00:04:27.335
+can actually make the code more readable.
+
+00:04:27.334 --> 00:04:30.689
+Flat curve doesn't actually have to be for test scores,
+
+00:04:30.689 --> 00:04:35.634
+it can be used on any iterable that you want to curve up by a certain integer.
+
+00:04:35.634 --> 00:04:39.839
+While we're on the topic of writing simple and focused functions,
+
+00:04:39.839 --> 00:04:42.579
+another useful tip is to make sure that you
+
+00:04:42.579 --> 00:04:45.594
+use no more than three arguments when possible.
+
+00:04:45.595 --> 00:04:48.280
+Of course, this is not a hard rule and there are
+
+00:04:48.279 --> 00:04:51.414
+times it's more appropriate to use many parameters,
+
+00:04:51.415 --> 00:04:53.860
+but in the vast majority of cases,
+
+00:04:53.860 --> 00:04:56.525
+it's more effective to use fewer arguments.
+
+00:04:56.524 --> 00:04:59.019
+Remember, we are modularizing to
+
+00:04:59.019 --> 00:05:02.524
+simplify our code and make it more efficient to work with.
+
+00:05:02.524 --> 00:05:05.354
+If your function has a lot of parameters,
+
+00:05:05.355 --> 00:05:09.020
+you may want to rethink how you're splitting this up.
+
+00:05:09.019 --> 00:05:11.334
+With this small example,
+
+00:05:11.334 --> 00:05:14.509
+you saw how functions can be used to abstract out parts of
+
+00:05:14.509 --> 00:05:18.784
+a program to make it more readable, clear, and reusable.
+
+00:05:18.785 --> 00:05:20.720
+This becomes more essential,
+
+00:05:20.720 --> 00:05:22.795
+the more complex your algorithms are,
+
+00:05:22.795 --> 00:05:25.270
+especially in data science work.
+

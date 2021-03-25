@@ -1,0 +1,199 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.745
+I'm here with Timo from Arvato.
+
+00:00:02.745 --> 00:00:05.810
+You saw him in the first term of this program.
+
+00:00:05.809 --> 00:00:10.934
+But you're back again for another project where we're working with the same data,
+
+00:00:10.935 --> 00:00:15.109
+but we left a lot of the complexity this time,
+
+00:00:15.109 --> 00:00:16.554
+that we removed the first time.
+
+00:00:16.554 --> 00:00:19.519
+Can you talk about the third data set that's introduced as well
+
+00:00:19.519 --> 00:00:22.504
+as what's the ending goal that Arvato uses this data for?
+
+00:00:22.504 --> 00:00:29.210
+Sure. Firstly, welcome back and thank you for working on another project with our data.
+
+00:00:29.210 --> 00:00:31.789
+I hope you liked the initial one.
+
+00:00:31.789 --> 00:00:38.579
+Now, we're introducing a third data set that you can use to actually evaluate your model,
+
+00:00:38.579 --> 00:00:45.129
+and test your recommendations you would be giving to our client with that model.
+
+00:00:45.130 --> 00:00:48.109
+The project you have been working on is a real-life project.
+
+00:00:48.109 --> 00:00:53.274
+It's a project you would be working on as a data scientist at Bertelsmann Arvato.
+
+00:00:53.274 --> 00:00:55.479
+We have similar projects like this,
+
+00:00:55.479 --> 00:00:58.669
+where you would be analyzing attributes,
+
+00:00:58.670 --> 00:01:02.195
+customers, for example, to recommend credit scores.
+
+00:01:02.195 --> 00:01:05.530
+We're looking at several of these attributes you have been working
+
+00:01:05.530 --> 00:01:10.439
+on to identify payment behavior,
+
+00:01:10.439 --> 00:01:17.564
+predict payment behavior, recommend credit scores, calculate credit scores.
+
+00:01:17.564 --> 00:01:20.810
+Can you talk a little bit about what you
+
+00:01:20.810 --> 00:01:24.579
+want as an ending goal from a business perspective?
+
+00:01:24.579 --> 00:01:29.689
+So, this whole new third data set that's come into play,
+
+00:01:29.689 --> 00:01:34.799
+now opens up a world of different questions and how we might be able to answer them.
+
+00:01:34.799 --> 00:01:41.614
+Absolutely. The underlying business question or the kind of problem statement is,
+
+00:01:41.614 --> 00:01:44.699
+"How can our client,
+
+00:01:44.700 --> 00:01:49.840
+the mail-order company acquire new clients more efficiently?"
+
+00:01:49.840 --> 00:01:52.814
+What we're asking you to do is essentially,
+
+00:01:52.814 --> 00:01:59.280
+you have the attributes and the demographic information of the existing clients,
+
+00:01:59.280 --> 00:02:05.245
+we would like you to analyze the attributes of these existing clients,
+
+00:02:05.245 --> 00:02:06.829
+match them against a second,
+
+00:02:06.829 --> 00:02:12.560
+the bigger data set that includes attributes for people in Germany,
+
+00:02:12.560 --> 00:02:16.990
+and essentially figure out which people in Germany are
+
+00:02:16.990 --> 00:02:21.485
+most likely new customers for our client,
+
+00:02:21.485 --> 00:02:25.695
+the mail-order company selling organic products.
+
+00:02:25.694 --> 00:02:28.109
+From our kind of view,
+
+00:02:28.110 --> 00:02:29.955
+it's a real-life project.
+
+00:02:29.955 --> 00:02:32.500
+So essntially, what it has to do is increase
+
+00:02:32.500 --> 00:02:36.254
+efficiency in the customer acquisition process.
+
+00:02:36.254 --> 00:02:40.329
+So, instead of the mail order company reaching out to all people
+
+00:02:40.330 --> 00:02:44.735
+in Germany and targeting them with a marketing campaign,
+
+00:02:44.735 --> 00:02:48.240
+we would just then be reaching out to
+
+00:02:48.240 --> 00:02:55.830
+the people we identified as becoming most likely new customers,
+
+00:02:55.830 --> 00:03:00.680
+and then do targeted advertising. That what it is.
+
+00:03:00.680 --> 00:03:03.580
+Great. Right now, they have a culture where they make
+
+00:03:03.580 --> 00:03:07.825
+decisions based on past experiences,
+
+00:03:07.824 --> 00:03:12.244
+intuition, and a lot of that is okay.
+
+00:03:12.245 --> 00:03:16.935
+But if they can infuse those decisions by also backing them up with data,
+
+00:03:16.935 --> 00:03:18.449
+or even showing like,
+
+00:03:18.449 --> 00:03:23.439
+we can go even further with this decision in x direction or y direction,
+
+00:03:23.439 --> 00:03:25.419
+that's where you guys come in. Is that true?
+
+00:03:25.419 --> 00:03:27.939
+Absolutely. That's what we're doing.
+
+00:03:27.939 --> 00:03:32.340
+The mission of our engagement is make decisions based on data instead of gut feel.
+
+00:03:32.340 --> 00:03:35.180
+Of course, we are dealing with senior finance managers,
+
+00:03:35.180 --> 00:03:37.319
+and they do have a lot of experience,
+
+00:03:37.319 --> 00:03:42.669
+but our client is really conscious that they are using data points,
+
+00:03:42.669 --> 00:03:49.979
+through to proofs, and show the rationale behind their decisions.
+
+00:03:49.979 --> 00:03:54.500
+So, we would like to have them use more reports,
+
+00:03:54.500 --> 00:03:56.685
+use reports more often,
+
+00:03:56.685 --> 00:04:01.620
+request more reports, and actually use the data we are providing.
+
+00:04:01.620 --> 00:04:04.545
+Timo, thanks so much for some insights into the data set.
+
+00:04:04.544 --> 00:04:09.369
+Sure. Thank you very much for participating in this project.
+
+00:04:09.370 --> 00:04:11.545
+I hope you find it insightful.
+
+00:04:11.544 --> 00:04:14.949
+As I mentioned, it's data we're using.
+
+00:04:14.949 --> 00:04:18.009
+It's a real data science project.
+
+00:04:18.009 --> 00:04:20.039
+So, thank you very much for that.
+

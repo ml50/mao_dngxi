@@ -1,0 +1,371 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.661 --> 00:00:02.822
+Agora que você entende
+a importância
+
+00:00:02.855 --> 00:00:05.813
+de desenvolvermos de forma
+limpa e modular,
+
+00:00:05.846 --> 00:00:08.581
+vamos detalhar o que isso
+significa no código.
+
+00:00:09.124 --> 00:00:11.677
+A 1ª dica para escrevermos
+códigos limpos
+
+00:00:11.710 --> 00:00:14.453
+é usar nomes descritivos
+e com significado
+
+00:00:14.486 --> 00:00:16.460
+para as suas variáveis
+e funções.
+
+00:00:17.057 --> 00:00:20.424
+Isso pode ajudá-lo a explicar grande
+parte do seu código sem comentários.
+
+00:00:20.997 --> 00:00:25.710
+Observe este código que inicializa
+uma lista de notas de estudantes,
+
+00:00:26.185 --> 00:00:27.301
+imprime a média,
+
+00:00:28.045 --> 00:00:31.789
+curva cada nota multiplicando
+a raiz quadrada delas por 10
+
+00:00:32.413 --> 00:00:35.325
+e, depois, imprime a média
+das novas médias curvadas.
+
+00:00:36.724 --> 00:00:40.333
+Com este código, você não saberia
+logo de cara o que está acontecendo
+
+00:00:40.366 --> 00:00:41.870
+sem estes comentários.
+
+00:00:42.630 --> 00:00:45.709
+Vamos compará-lo
+a este código mais limpo,
+
+00:00:45.742 --> 00:00:48.756
+que apresenta o mesmo objetivo
+sem os comentários.
+
+00:00:49.717 --> 00:00:54.005
+Agora sabemos o que ambas as listas
+significam sem os comentários,
+
+00:00:54.486 --> 00:00:56.467
+o que vai nos ajudar
+ao longo do programa,
+
+00:00:56.500 --> 00:00:58.501
+sempre que essas variáveis
+forem usadas.
+
+00:00:59.358 --> 00:01:03.269
+Também usamos uma função
+com um nome descritivo, "média",
+
+00:01:03.302 --> 00:01:05.917
+em vez de realizar um cálculo
+todas as vezes.
+
+00:01:06.389 --> 00:01:08.460
+Isso não só ajuda
+na legibilidade,
+
+00:01:08.493 --> 00:01:10.653
+como também segue
+o princípio DRY,
+
+00:01:10.686 --> 00:01:12.397
+ou "não repita a si mesmo".
+
+00:01:12.430 --> 00:01:15.213
+Isso é importante
+para escrever códigos modulares,
+
+00:01:15.246 --> 00:01:17.150
+dos quais vamos falar
+mais à frente.
+
+00:01:17.183 --> 00:01:20.381
+Além disso, imputamos
+o módulo "math"
+
+00:01:20.414 --> 00:01:22.741
+para usarmos o método
+de raiz quadrada dele,
+
+00:01:22.774 --> 00:01:27.557
+em vez de aumentar cada nota
+para 0,5 com dois asteriscos,
+
+00:01:27.590 --> 00:01:31.796
+o que é mais legível
+e também mais rápido no Python 3.
+
+00:01:32.444 --> 00:01:34.853
+Tente testar se seus nomes
+são efetivos
+
+00:01:34.886 --> 00:01:36.797
+perguntando
+a um colega programador
+
+00:01:36.830 --> 00:01:39.963
+se ele consegue adivinhar o objetivo
+de uma função ou de uma variável
+
+00:01:39.996 --> 00:01:43.173
+baseando-se no nome delas
+sem olhar o seu código.
+
+00:01:44.070 --> 00:01:47.581
+Criar nomes significativos
+corretamente pode requerer esforço.
+
+00:01:47.614 --> 00:01:49.324
+Aqui estão algumas dicas.
+
+00:01:49.357 --> 00:01:51.621
+Vamos começar com a primeira:
+
+00:01:51.654 --> 00:01:54.206
+seja descritivo
+e, quando apropriado,
+
+00:01:54.239 --> 00:01:57.525
+tente indicar o tipo
+do que você está nomeando.
+
+00:01:58.092 --> 00:02:02.284
+Note como nomeamos essa lista
+de "age_list" em vez de "ages",
+
+00:02:02.317 --> 00:02:05.862
+o que nos ajuda a evitar confundir
+a idade inteira
+
+00:02:05.895 --> 00:02:08.524
+e a lista de idades
+mais à frente no código.
+
+00:02:09.036 --> 00:02:12.229
+Para valores booleanos,
+costuma ser útil usar prefixos
+
+00:02:12.262 --> 00:02:17.100
+como "é" ou "tem" para deixar claro
+que se trata de uma condição.
+
+00:02:17.706 --> 00:02:20.549
+Também podemos usar partes
+do discurso para indicar tipos,
+
+00:02:20.582 --> 00:02:24.867
+usando verbos para funções
+e substantivos para variáveis.
+
+00:02:25.436 --> 00:02:28.310
+Normalmente,
+não é bom usar abreviações
+
+00:02:28.343 --> 00:02:31.380
+a não ser que a palavra
+seja usada muitas vezes.
+
+00:02:31.860 --> 00:02:34.693
+E é bom evitar especialmente
+nomes com uma só letra.
+
+00:02:34.726 --> 00:02:38.285
+Contudo, há exceções,
+como nomes de counters,
+
+00:02:38.318 --> 00:02:40.637
+como "i", neste exemplo,
+
+00:02:40.670 --> 00:02:43.605
+assim como nomes de variáveis
+comuns usadas em Matemática,
+
+00:02:43.638 --> 00:02:46.875
+como "x", "y", "t",
+e por aí vai.
+
+00:02:46.908 --> 00:02:50.533
+A escolha dessas exceções
+pode ser determinada
+
+00:02:50.567 --> 00:02:52.645
+considerando a audiência
+do seu código.
+
+00:02:52.678 --> 00:02:55.020
+Se você trabalha com outros
+cientistas de dados,
+
+00:02:55.053 --> 00:02:57.668
+algumas variáveis
+talvez sejam senso comum.
+
+00:02:57.701 --> 00:03:00.349
+Mas, se você trabalhar
+com engenheiros full stack,
+
+00:03:00.382 --> 00:03:03.580
+pode ser necessário fornecer
+nomes mais descritivos
+
+00:03:03.613 --> 00:03:05.140
+nesses casos também.
+
+00:03:05.173 --> 00:03:09.749
+Contudo, nomes longos nem sempre
+significam nomes significativos.
+
+00:03:10.645 --> 00:03:15.124
+Você deve ser descritivo evitando
+mais caracteres do que o necessário.
+
+00:03:15.157 --> 00:03:19.053
+Este 1º exemplo
+é muito prolixo.
+
+00:03:19.086 --> 00:03:22.685
+Essa função calcula o número
+de valores únicos em uma lista
+
+00:03:22.718 --> 00:03:25.005
+independentemente
+do que se trate essa lista,
+
+00:03:25.038 --> 00:03:28.397
+então podemos generalizar
+e remover "of_names_list"
+
+00:03:28.430 --> 00:03:29.788
+do nome da função
+
+00:03:29.821 --> 00:03:32.979
+e substituir o nome
+do argumento com "arr",
+
+00:03:33.012 --> 00:03:36.044
+que é um padrão para representar
+um array arbitrário.
+
+00:03:36.077 --> 00:03:39.373
+Além disso, incluir detalhes
+de implementação é desnecessário
+
+00:03:39.406 --> 00:03:40.932
+em nomes de função.
+
+00:03:40.965 --> 00:03:44.723
+Então também podemos remover
+"with_set" do nome da função.
+
+00:03:44.756 --> 00:03:48.564
+A função resultante
+é muito mais limpa e concisa,
+
+00:03:48.597 --> 00:03:50.388
+embora ainda seja descritiva.
+
+00:03:50.836 --> 00:03:55.892
+Outra dica para escrever códigos
+limpos é usar whitespace direito.
+
+00:03:55.925 --> 00:03:59.845
+Códigos com espaços mal usados
+ou inconsistentes são os piores.
+
+00:04:00.331 --> 00:04:02.092
+Veja esta bagunça.
+
+00:04:02.125 --> 00:04:04.964
+Se você recebesse este código,
+como desenvolvedor,
+
+00:04:04.997 --> 00:04:08.707
+a 1ª coisa a se fazer
+seria ajustar o whitespace
+
+00:04:08.740 --> 00:04:10.412
+e torná-lo consistente.
+
+00:04:10.445 --> 00:04:13.629
+Isso é muito melhor
+de ser lido e trabalhado.
+
+00:04:13.662 --> 00:04:16.933
+Organize o seu código
+com uma indentação consistente.
+
+00:04:17.516 --> 00:04:22.237
+O padrão no Python são 4 espaços
+para cada recuo,
+
+00:04:22.757 --> 00:04:24.323
+diferentemente
+do que temos aqui.
+
+00:04:24.988 --> 00:04:28.029
+Certifique-se também de separar
+seções com linhas em branco
+
+00:04:28.062 --> 00:04:30.555
+para torná-las mais fáceis
+de ser organizadas e lidas.
+
+00:04:30.980 --> 00:04:35.589
+Por fim, tente limitar suas linhas
+a cerca de 79 caracteres.
+
+00:04:36.068 --> 00:04:40.140
+79 é a instrução dada
+pelo Guia de Estilo PEP8.
+
+00:04:40.595 --> 00:04:43.484
+Em muitos editores de texto bons,
+há uma configuração
+
+00:04:43.517 --> 00:04:48.413
+para exibir uma linha sutil
+indicando o limite de 79 caracteres.
+
+00:04:49.085 --> 00:04:53.373
+Note como a leitura dessa consulta
+no Mongo é muito mais clara
+
+00:04:53.406 --> 00:04:57.740
+neste código com linhas mais curtas
+e indentação correta.
+
+00:04:58.228 --> 00:05:02.116
+Note também como essa parte final
+do código está muito mais limpa,
+
+00:05:02.149 --> 00:05:04.245
+onde chamamos "create_plot".
+
+00:05:04.772 --> 00:05:06.580
+Para mais diretrizes
+sobre isso,
+
+00:05:06.613 --> 00:05:10.516
+consulte a seção "Code Layout"
+do PEP8 nas notas abaixo.
+

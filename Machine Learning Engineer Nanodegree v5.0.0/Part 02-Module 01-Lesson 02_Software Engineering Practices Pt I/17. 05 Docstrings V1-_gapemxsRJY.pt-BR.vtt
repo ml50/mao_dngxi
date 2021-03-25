@@ -1,0 +1,101 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.206 --> 00:00:03.092
+"Docstrings"
+ou "strings de documentação"
+
+00:00:03.125 --> 00:00:07.567
+são porções valiosas de documentação
+que explicam a funcionalidade
+
+00:00:07.600 --> 00:00:10.253
+de qualquer função
+ou módulo no seu código.
+
+00:00:10.286 --> 00:00:14.068
+Idealmente, todas as suas funções
+devem ter docstrings.
+
+00:00:14.101 --> 00:00:16.732
+Esta é uma função
+para densidade demográfica.
+
+00:00:17.000 --> 00:00:20.028
+Uma docstring sempre estará
+entre aspas triplas.
+
+00:00:20.772 --> 00:00:24.620
+Se você achar que esta única linha
+de documentação é o suficiente
+
+00:00:24.653 --> 00:00:26.940
+para você encerrar
+a docstring neste ponto,
+
+00:00:26.973 --> 00:00:29.931
+docstrings de uma única linha
+são perfeitamente aceitáveis.
+
+00:00:29.964 --> 00:00:33.767
+Mas, se você achar
+que a função é complicada
+
+00:00:33.800 --> 00:00:36.060
+a ponto de justificar
+uma descrição mais longa,
+
+00:00:36.093 --> 00:00:37.900
+você pode
+adicionar mais detalhes
+
+00:00:37.933 --> 00:00:39.893
+após o resumo de uma linha.
+
+00:00:39.926 --> 00:00:43.373
+O outro elemento de uma docstring
+é uma explicação
+
+00:00:43.406 --> 00:00:45.315
+dos argumentos da função.
+
+00:00:45.348 --> 00:00:49.600
+Aqui, você lista os argumentos,
+declara o objetivo deles
+
+00:00:49.633 --> 00:00:52.484
+e declara de que tipo
+eles devem ser.
+
+00:00:52.941 --> 00:00:55.557
+Por fim, é comum fornecer
+uma descrição
+
+00:00:55.590 --> 00:00:57.531
+para o output da função.
+
+00:00:57.564 --> 00:01:00.092
+Todas as partes
+da docstring são opcionais.
+
+00:01:00.125 --> 00:01:03.668
+Contudo, as docstrings são parte
+de uma boa conduta de codificação.
+
+00:01:03.701 --> 00:01:06.652
+Elas ajudam você
+e futuros usuários do seu código
+
+00:01:06.685 --> 00:01:09.078
+a entenderem o código
+que você está produzindo.
+
+00:01:09.111 --> 00:01:11.438
+Você pode ler uma explicação
+mais detalhada
+
+00:01:11.471 --> 00:01:13.995
+sobre convenções de docstrings
+no link abaixo.
+

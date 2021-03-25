@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:01.002 --> 00:00:04.680
+CLASSE, OBJETO,
+MÉTODO, ATRIBUTO
+
+00:00:05.697 --> 00:00:07.921
+Já começaremos
+a escrever o código,
+
+00:00:07.955 --> 00:00:10.001
+mas antes quero esclarecer
+alguns termos
+
+00:00:10.035 --> 00:00:13.032
+associados à programação
+orientada a objetos.
+
+00:00:13.066 --> 00:00:17.928
+Eu falei que um objeto
+tem características e ações.
+
+00:00:17.962 --> 00:00:20.728
+Essas características têm
+um nome específico.
+
+00:00:20.762 --> 00:00:22.545
+São chamadas de "atributos",
+
+00:00:22.579 --> 00:00:25.319
+e as ações são chamadas
+de "métodos".
+
+00:00:25.353 --> 00:00:29.104
+Voltando ao exemplo da camiseta,
+a cor, o tamanho,
+
+00:00:29.138 --> 00:00:32.375
+o estilo e o preço
+seriam atributos.
+
+00:00:32.409 --> 00:00:35.872
+A ação de mudar o preço
+seria um método.
+
+00:00:36.448 --> 00:00:40.153
+Há mais dois termos
+que quero diferenciar:
+
+00:00:40.187 --> 00:00:42.595
+objeto e classe.
+
+00:00:42.629 --> 00:00:45.832
+Este é um lembrete
+do significado do objeto.
+
+00:00:46.551 --> 00:00:48.809
+Mantendo o exemplo
+da camiseta,
+
+00:00:48.843 --> 00:00:51.026
+um objeto seria
+uma camiseta específica,
+
+00:00:51.060 --> 00:00:53.929
+como de cor amarela,
+tamanho M,
+
+00:00:53.963 --> 00:00:58.337
+mangas curtas
+e preço de US$ 15.
+
+00:00:58.371 --> 00:01:01.426
+A camiseta amarela
+pode mudar de preço.
+
+00:01:01.460 --> 00:01:04.270
+Uma camiseta diferente
+seria outro objeto,
+
+00:01:04.304 --> 00:01:09.710
+por exemplo: verde, P,
+de manga longa, que custa US$ 20.
+
+00:01:10.775 --> 00:01:14.102
+A camiseta verde também pode
+mudar de preço.
+
+00:01:14.965 --> 00:01:19.389
+Notaram algo especial
+na camiseta amarela e na verde?
+
+00:01:19.423 --> 00:01:22.622
+As duas têm
+os mesmos atributos,
+
+00:01:22.656 --> 00:01:25.306
+ou seja, têm uma cor,
+
+00:01:25.340 --> 00:01:28.703
+um tamanho, um estilo
+e um preço.
+
+00:01:28.737 --> 00:01:31.231
+Têm também o mesmo método.
+
+00:01:31.265 --> 00:01:34.528
+É como se viessem
+de uma base genérica
+
+00:01:34.562 --> 00:01:38.512
+que contém esses atributos
+e métodos.
+
+00:01:38.546 --> 00:01:42.656
+Essa versão genérica do objeto
+é chamada de "classe".
+
+00:01:43.378 --> 00:01:47.985
+Esse é o poder da programação
+orientada a objetos.
+
+00:01:48.019 --> 00:01:53.064
+Só é preciso definir essa base,
+conhecida como "classe", uma vez.
+
+00:01:53.098 --> 00:01:58.129
+Então poderá criar
+objetos específicos a partir dela.
+
+00:01:58.163 --> 00:02:00.976
+Em outras palavras,
+pode usar a base da camiseta
+
+00:02:01.010 --> 00:02:03.808
+para criar quantos objetos
+da camiseta quiser,
+
+00:02:03.842 --> 00:02:08.792
+de tamanho, cor, estilo
+e preço diferentes.
+
+00:02:09.679 --> 00:02:12.048
+Lembre-se sempre
+de como as palavras
+
+00:02:12.082 --> 00:02:16.962
+classe, objeto, atributo
+e método se relacionam.
+
+00:02:16.996 --> 00:02:20.738
+São termos fundamentais
+na programação orientada a objetos,
+
+00:02:20.772 --> 00:02:23.648
+e eu vou usá-las
+durante a aula.
+
+00:02:23.985 --> 00:02:27.552
+Vamos ver como é isso
+em Python.
+
+00:02:28.081 --> 00:02:32.399
+Primeiro vou resumir a sintaxe
+da programação orientada a objetos.
+
+00:02:32.433 --> 00:02:35.033
+Depois você poderá brincar
+com o meu código
+
+00:02:35.067 --> 00:02:36.657
+e escrever uma classe.
+

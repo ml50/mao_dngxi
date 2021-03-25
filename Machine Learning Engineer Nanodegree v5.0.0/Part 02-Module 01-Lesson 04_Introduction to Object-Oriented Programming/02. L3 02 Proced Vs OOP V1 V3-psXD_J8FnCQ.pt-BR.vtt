@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:01.085 --> 00:00:05.014
+PROGRAMAÇÃO PROCEDURAL
+VERSUS ORIENTADA A OBJETOS
+
+00:00:05.246 --> 00:00:07.110
+Quando você aprende
+a programar,
+
+00:00:07.144 --> 00:00:11.164
+provavelmente usa um estilo
+chamado "programação procedural".
+
+00:00:11.198 --> 00:00:14.005
+Um programa procedural
+é essencialmente uma lista
+
+00:00:14.039 --> 00:00:16.868
+de instruções que são executadas
+uma atrás da outra,
+
+00:00:16.902 --> 00:00:20.045
+começando do topo
+até o fim do arquivo.
+
+00:00:20.645 --> 00:00:23.172
+Programas orientados a objetos,
+por outro lado,
+
+00:00:23.206 --> 00:00:26.756
+são construídos ao redor de...
+Bem, objetos.
+
+00:00:26.790 --> 00:00:30.667
+Pense em objetos como coisas
+que existem no mundo real.
+
+00:00:31.236 --> 00:00:34.196
+Se você vai construir
+uma loja de roupas,
+
+00:00:34.230 --> 00:00:36.652
+a loja em si seria um objeto.
+
+00:00:36.686 --> 00:00:39.643
+Os itens da loja,
+como camisetas e calças,
+
+00:00:39.677 --> 00:00:41.589
+também seriam.
+
+00:00:41.623 --> 00:00:46.573
+O caixa e até uma vendedora
+seriam objetos.
+
+00:00:47.093 --> 00:00:49.726
+Um programa orientado
+a objetos se concentra
+
+00:00:49.760 --> 00:00:52.509
+nas características individuais
+de cada objeto
+
+00:00:52.543 --> 00:00:54.876
+e no que cada um faz.
+
+00:00:54.910 --> 00:00:58.302
+Um objeto tem
+duas partes essenciais:
+
+00:00:58.336 --> 00:01:01.707
+características e ações.
+
+00:01:01.741 --> 00:01:05.741
+Por exemplo, algumas características
+de uma vendedora incluiriam
+
+00:01:05.775 --> 00:01:11.645
+o nome, o endereço, o telefone
+e o salário dela.
+
+00:01:11.679 --> 00:01:16.076
+As funções dela incluiriam
+vender alguma coisa
+
+00:01:16.110 --> 00:01:19.044
+ou pegar alguma coisa
+no estoque.
+
+00:01:20.253 --> 00:01:23.268
+Como outro exemplo,
+as características de uma camiseta
+
+00:01:23.302 --> 00:01:27.765
+seriam a cor, o tamanho,
+o estilo e o preço.
+
+00:01:27.799 --> 00:01:30.084
+Que ações ela tomaria?
+
+00:01:30.118 --> 00:01:32.741
+Pode parecer bobo
+perguntar isso,
+
+00:01:32.775 --> 00:01:35.444
+uma vez que é
+um objeto inanimado,
+
+00:01:35.478 --> 00:01:39.365
+mas ela poderia, por exemplo,
+mudar de preço.
+
+00:01:39.924 --> 00:01:43.278
+Enquanto estiver aprendendo
+programação orientada a objetos,
+
+00:01:43.312 --> 00:01:45.476
+mantenha isto em mente:
+
+00:01:45.510 --> 00:01:49.548
+um objeto tem
+características e ações.
+
+00:01:49.582 --> 00:01:51.173
+Antes de começar a programar,
+
+00:01:51.207 --> 00:01:54.381
+vamos entender melhor
+os objetos.
+

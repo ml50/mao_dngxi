@@ -1,0 +1,301 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.084 --> 00:00:02.371
+Estou aqui com Timo,
+da Arvato.
+
+00:00:02.414 --> 00:00:05.827
+Você já o viu no 1º período
+deste programa.
+
+00:00:05.870 --> 00:00:08.788
+Mas você voltou
+para outro projeto
+
+00:00:08.831 --> 00:00:11.096
+em que vamos trabalhar
+com os mesmos dados,
+
+00:00:11.139 --> 00:00:15.052
+mas mantivemos muito
+da complexidade desta vez
+
+00:00:15.095 --> 00:00:16.703
+que havíamos removido
+na 1ª vez.
+
+00:00:16.746 --> 00:00:19.260
+Pode falar sobre
+o 3º conjunto de dados introduzido
+
+00:00:19.303 --> 00:00:22.503
+e o objetivo final para o qual
+a Arvato usa esses dados?
+
+00:00:22.546 --> 00:00:25.382
+Claro. Primeiro,
+bem-vindo de volta
+
+00:00:25.425 --> 00:00:29.460
+e obrigado por trabalhar em outro
+projeto com os nossos dados.
+
+00:00:29.503 --> 00:00:31.866
+Espero que tenha gostado
+do primeiro.
+
+00:00:31.909 --> 00:00:34.117
+Vamos introduzir
+um 3º conjunto de dados
+
+00:00:34.160 --> 00:00:38.438
+que você pode usar
+para avaliar seu modelo
+
+00:00:38.481 --> 00:00:43.034
+e testar as recomendações
+que você daria
+
+00:00:43.077 --> 00:00:45.223
+ao nosso cliente
+com esse modelo.
+
+00:00:45.266 --> 00:00:47.997
+Você está trabalhando
+em um projeto da vida real.
+
+00:00:48.040 --> 00:00:50.299
+É um projeto
+em que você trabalharia
+
+00:00:50.342 --> 00:00:53.657
+como cientista de dados
+na Bertelsmann Arvato.
+
+00:00:53.700 --> 00:00:56.025
+Temos projetos
+parecidos com esse,
+
+00:00:56.068 --> 00:00:59.548
+em que você analisaria
+atributos, clientes,
+
+00:00:59.591 --> 00:01:02.385
+por exemplo, para recomendar
+pontuações de crédito.
+
+00:01:02.428 --> 00:01:05.975
+Analisamos atributos parecidos
+com os que você está trabalhando
+
+00:01:06.018 --> 00:01:10.877
+para identificar
+comportamentos de pagamento,
+
+00:01:10.920 --> 00:01:13.486
+prever comportamentos
+de pagamento,
+
+00:01:13.529 --> 00:01:17.642
+recomendar pontuações de crédito,
+calcular pontuações de crédito.
+
+00:01:17.685 --> 00:01:21.462
+Pode falar um pouco
+sobre o que você quer
+
+00:01:21.505 --> 00:01:24.615
+como objetivo final,
+de uma perspectiva de negócio?
+
+00:01:24.658 --> 00:01:29.656
+Com esse novo conjunto de dados
+entrando em jogo,
+
+00:01:29.699 --> 00:01:33.067
+surge um mundo
+de perguntas diferentes
+
+00:01:33.110 --> 00:01:35.755
+-e formas de respondê-las.
+-Com certeza.
+
+00:01:35.798 --> 00:01:38.693
+A questão subjacente,
+
+00:01:38.736 --> 00:01:41.795
+ou a enunciação
+do problema, é:
+
+00:01:41.838 --> 00:01:46.620
+"Como o nosso cliente,
+a empresa de vendas por encomenda,
+
+00:01:46.663 --> 00:01:49.874
+pode adquirir novos clientes
+de forma mais eficiente?"
+
+00:01:49.917 --> 00:01:53.016
+Essencialmente,
+o que estamos pedindo é:
+
+00:01:53.059 --> 00:01:57.313
+você tem os atributos
+e as informações demográficas
+
+00:01:57.356 --> 00:01:59.492
+dos clientes existentes,
+
+00:01:59.535 --> 00:02:05.348
+queremos que analise
+os atributos desses clientes,
+
+00:02:05.391 --> 00:02:08.301
+compare-os
+a um 2º conjunto de dados maior,
+
+00:02:08.344 --> 00:02:12.648
+que inclui atributos
+da população da Alemanha,
+
+00:02:12.691 --> 00:02:16.736
+e, essencialmente, defina
+quais pessoas na Alemanha
+
+00:02:16.779 --> 00:02:21.495
+são clientes potenciais
+do nosso cliente,
+
+00:02:21.538 --> 00:02:25.405
+a empresa de encomendas
+que vende produtos orgânicos.
+
+00:02:25.448 --> 00:02:30.317
+Do nosso ponto de vista,
+é um projeto da vida real.
+
+00:02:30.360 --> 00:02:33.600
+Essencialmente, o que precisa
+fazer é aumentar a eficiência
+
+00:02:33.643 --> 00:02:36.239
+do processo de aquisição
+de clientes,
+
+00:02:36.282 --> 00:02:39.353
+de modo que a empresa,
+em vez de tentar atingir
+
+00:02:39.396 --> 00:02:41.356
+toda a população da Alemanha
+
+00:02:41.399 --> 00:02:44.647
+com uma campanha de marketing
+direcionada a todos,
+
+00:02:44.690 --> 00:02:47.238
+só tente atingir
+
+00:02:47.281 --> 00:02:51.697
+as pessoas que identificamos
+
+00:02:51.740 --> 00:02:55.905
+como clientes potenciais,
+
+00:02:55.948 --> 00:03:00.810
+essencialmente, fazendo
+publicidade direcionada. É isso.
+
+00:03:01.929 --> 00:03:05.191
+Hoje, essas empresas
+tomam decisões com base
+
+00:03:05.234 --> 00:03:08.285
+em experiências passadas,
+
+00:03:08.328 --> 00:03:12.108
+intuição, e muito disso
+funciona.
+
+00:03:12.151 --> 00:03:15.249
+Mas, se for possível
+administrar essas decisões
+
+00:03:15.292 --> 00:03:18.985
+corroborando-as também
+com dados, ou mostrando
+
+00:03:19.028 --> 00:03:23.370
+que pode ser bom levar uma decisão
+adiante na direção x ou y,
+
+00:03:23.413 --> 00:03:27.723
+-é aí que vocês entram, certo?
+-Exato. É isso que fazemos.
+
+00:03:27.766 --> 00:03:30.476
+O nosso compromisso
+é tomar decisões
+
+00:03:30.519 --> 00:03:32.564
+baseadas em dados
+em vez de intuição.
+
+00:03:32.607 --> 00:03:35.106
+Claro, lidamos
+com gerentes financeiros seniores,
+
+00:03:35.149 --> 00:03:37.483
+e eles têm muita experiência,
+
+00:03:37.526 --> 00:03:42.717
+mas nossos clientes estão muito
+cientes de usar pontos de dados
+
+00:03:42.760 --> 00:03:44.510
+como comprovação
+
+00:03:44.553 --> 00:03:50.011
+e mostrar o raciocínio
+por trás de suas decisões.
+
+00:03:50.054 --> 00:03:52.427
+Então gostaríamos
+
+00:03:52.470 --> 00:03:54.570
+que eles usassem
+mais relatórios,
+
+00:03:54.613 --> 00:03:56.984
+usassem relatórios
+com mais frequência,
+
+00:03:57.027 --> 00:03:58.858
+solicitassem mais relatórios
+
+00:03:58.901 --> 00:04:01.883
+e usassem os dados
+que nós fornecemos.
+
+00:04:01.926 --> 00:04:04.636
+Timo, obrigado pela introdução
+ao conjunto de dados.
+
+00:04:04.679 --> 00:04:09.283
+Claro. Muito obrigado
+por participar deste projeto.
+
+00:04:09.326 --> 00:04:11.393
+Espero que você o ache
+perspicaz.
+
+00:04:11.436 --> 00:04:15.134
+Como mencionei,
+são dados que estamos usando.
+
+00:04:15.177 --> 00:04:19.307
+É um projeto real de Ciência
+de Dados. Muito obrigado por isso.
+

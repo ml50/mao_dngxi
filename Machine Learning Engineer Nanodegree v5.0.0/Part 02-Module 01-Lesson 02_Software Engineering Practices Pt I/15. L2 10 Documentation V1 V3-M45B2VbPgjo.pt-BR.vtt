@@ -1,0 +1,86 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:01.075 --> 00:00:04.420
+DOCUMENTAÇÃO
+
+00:00:04.979 --> 00:00:07.603
+Documentação
+são textos adicionais
+
+00:00:07.636 --> 00:00:12.178
+ou informações ilustradas
+que vêm junto ou embutidas
+
+00:00:12.211 --> 00:00:13.579
+no código do software.
+
+00:00:14.283 --> 00:00:19.003
+Documentação é útil para esclarecer
+partes complexas do seu programa,
+
+00:00:19.514 --> 00:00:23.867
+tornando a navegação pelo seu código
+fácil para você e para outros
+
+00:00:23.900 --> 00:00:26.369
+e esclarecendo rapidamente
+como e por que
+
+00:00:26.402 --> 00:00:29.170
+diferentes componentes
+do seu programa são usados.
+
+00:00:30.106 --> 00:00:33.306
+Há vários tipos de documentação
+que você pode adicionar
+
+00:00:33.339 --> 00:00:35.587
+em diferentes níveis
+do seu programa.
+
+00:00:36.323 --> 00:00:40.235
+Primeiro, você pode adicioná-la
+no nível das linhas,
+
+00:00:40.268 --> 00:00:43.626
+usando comentários inline
+para deixar o seu código claro.
+
+00:00:44.386 --> 00:00:49.690
+Segundo, você pode adicioná-la
+no nível de função ou modular,
+
+00:00:49.723 --> 00:00:53.380
+usando docstrings para descrever
+seus objetivos e detalhes.
+
+00:00:54.338 --> 00:00:58.379
+Por fim, você pode adicioná-la
+no nível do projeto,
+
+00:00:58.412 --> 00:01:01.338
+usando várias ferramentas,
+como um arquivo README
+
+00:01:01.371 --> 00:01:04.490
+para documentar detalhes
+sobre o projeto como um todo
+
+00:01:04.523 --> 00:01:07.155
+e como todos os arquivos
+funcionam juntos.
+
+00:01:07.938 --> 00:01:11.777
+Nas próximas seções, vamos praticar
+o uso de diferentes tipos
+
+00:01:11.810 --> 00:01:15.146
+de documentação
+e aprender as melhores condutas
+
+00:01:15.179 --> 00:01:19.354
+para nos certificar de que a nossa
+documentação é eficaz e útil.
+

@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.620
+Docstrings or documentation strings are valuable pieces of
+
+00:00:04.620 --> 00:00:10.050
+documentation that explain the functionality of any function or module in your code.
+
+00:00:10.050 --> 00:00:13.975
+Ideally, all of your functions should have docstrings.
+
+00:00:13.974 --> 00:00:16.745
+Here's a function for population density.
+
+00:00:16.745 --> 00:00:20.519
+A docstring is always surrounded by triple quotes.
+
+00:00:20.519 --> 00:00:22.739
+If you feel that this one line of
+
+00:00:22.739 --> 00:00:26.779
+documentation is sufficient for you to end the docstring at this point,
+
+00:00:26.780 --> 00:00:29.845
+single line docstrings are perfectly acceptable.
+
+00:00:29.844 --> 00:00:32.490
+If however, you think that the function is
+
+00:00:32.490 --> 00:00:35.460
+complicated enough to warrant a longer description,
+
+00:00:35.460 --> 00:00:39.829
+you can add a more thorough paragraph after the one line summary.
+
+00:00:39.829 --> 00:00:45.239
+The next element of a docstring is an explanation of the function's arguments.
+
+00:00:45.240 --> 00:00:47.685
+Here, you list the arguments,
+
+00:00:47.685 --> 00:00:52.480
+state their purpose, and state what types the arguments should be.
+
+00:00:52.479 --> 00:00:57.344
+Finally, it's common to provide some description of the output of the function.
+
+00:00:57.344 --> 00:01:00.100
+Every piece of the docstring is optional.
+
+00:01:00.100 --> 00:01:03.664
+However, docstrings are part of good coding practice.
+
+00:01:03.664 --> 00:01:09.094
+They assist you and future users of your code in understanding the code you produce.
+
+00:01:09.094 --> 00:01:14.530
+You can read a more thorough explanation of docstring conventions in the link below.
+

@@ -1,0 +1,271 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.940
+As you might have done before,
+
+00:00:01.940 --> 00:00:05.120
+you install Python packages using pip install.
+
+00:00:05.120 --> 00:00:09.419
+For example, if you want to install the scikit-learn package you go into
+
+00:00:09.419 --> 00:00:15.714
+a terminal and type pip install scikit-learn.
+
+00:00:15.714 --> 00:00:21.920
+This pip install command downloads packages from an online repository called PyPy.
+
+00:00:21.920 --> 00:00:26.385
+In this case, scikit-learn is already installed so it's just letting you know.
+
+00:00:26.385 --> 00:00:28.554
+In the remaining parts of this lesson,
+
+00:00:28.554 --> 00:00:33.015
+you're going to set up a Python package and then upload the package to PyPy.
+
+00:00:33.015 --> 00:00:36.079
+The first step is to get the package ready so that it
+
+00:00:36.079 --> 00:00:39.184
+can be pip installed locally on your computer.
+
+00:00:39.185 --> 00:00:43.615
+I'm going to show you how to set up your files so that they can be pip installed.
+
+00:00:43.615 --> 00:00:45.469
+On the left-hand side of the screen,
+
+00:00:45.469 --> 00:00:48.619
+you can see I'm in a directory containing a folder called
+
+00:00:48.619 --> 00:00:52.969
+Distributions and a file called setup.py.
+
+00:00:52.969 --> 00:00:56.174
+Let's talk about the distributions folder first.
+
+00:00:56.174 --> 00:00:59.689
+Double-clicking, this folder contains
+
+00:00:59.689 --> 00:01:04.414
+the Gaussian and general distribution classes that you've already been working with.
+
+00:01:04.415 --> 00:01:07.460
+The difference is that this folder is now officially
+
+00:01:07.459 --> 00:01:11.509
+a Python package because the folder contains an init file.
+
+00:01:11.510 --> 00:01:13.885
+A package needs an init file.
+
+00:01:13.885 --> 00:01:18.830
+There's nothing new or different about the Gaussian and general distribution files except
+
+00:01:18.829 --> 00:01:24.004
+for one line, opening Gaussian distributions.py.
+
+00:01:24.004 --> 00:01:26.659
+You can see the third line where I import
+
+00:01:26.659 --> 00:01:31.379
+the distribution class from the general distribution.py file.
+
+00:01:31.379 --> 00:01:34.569
+There's a dot in front of general distribution.
+
+00:01:34.569 --> 00:01:37.609
+This.is required in Python three but
+
+00:01:37.609 --> 00:01:40.599
+if you're working in Python two you shouldn't need it.
+
+00:01:40.599 --> 00:01:44.299
+The init Python file on the other hand is new.
+
+00:01:44.299 --> 00:01:49.060
+The init file is telling Python that this folder contains a package.
+
+00:01:49.060 --> 00:01:54.435
+A package always needs to have an init file even if the file is completely empty.
+
+00:01:54.435 --> 00:01:57.019
+The code inside the init file gets run
+
+00:01:57.019 --> 00:02:00.700
+whenever you import a package inside a Python program.
+
+00:02:00.700 --> 00:02:03.725
+In this case, the init file is importing
+
+00:02:03.724 --> 00:02:07.314
+the Gaussian class from the Gaussian distribution module.
+
+00:02:07.314 --> 00:02:12.034
+The reason I added this line is because I want to be able to import the Gaussian class
+
+00:02:12.034 --> 00:02:16.924
+directly writing from distributions import Gaussian.
+
+00:02:16.925 --> 00:02:18.920
+You'll see what I mean in a bit.
+
+00:02:18.919 --> 00:02:22.219
+If I didn't include any code in the init file,
+
+00:02:22.219 --> 00:02:24.919
+the package would still work but any program that
+
+00:02:24.919 --> 00:02:28.309
+uses the package would have to import the Gaussian class more
+
+00:02:28.310 --> 00:02:34.594
+indirectly with the line from distributions.Gaussian distribution import Gaussian.
+
+00:02:34.594 --> 00:02:39.284
+It's like I'm making a shortcut for importing the Gaussian class directly.
+
+00:02:39.284 --> 00:02:42.724
+Going back up one level in the directory,
+
+00:02:42.724 --> 00:02:47.930
+there's a setup.py file at the same level as the distribution folder.
+
+00:02:47.930 --> 00:02:50.915
+This file is necessary for pip installing.
+
+00:02:50.914 --> 00:02:53.590
+Pip will automatically look for this file.
+
+00:02:53.590 --> 00:02:57.110
+Opening this file, you can see the setup file
+
+00:02:57.110 --> 00:03:00.860
+contains information or metadata about the package,
+
+00:03:00.860 --> 00:03:02.565
+like the package name,
+
+00:03:02.564 --> 00:03:06.185
+version, description, et cetera.
+
+00:03:06.185 --> 00:03:08.504
+Let's install the package.
+
+00:03:08.504 --> 00:03:10.115
+To install the package,
+
+00:03:10.115 --> 00:03:14.775
+go into a terminal and make sure you're in the directory with the setup.py file.
+
+00:03:14.775 --> 00:03:22.550
+In this case, I'm going to have to change directories and type python package example.
+
+00:03:22.550 --> 00:03:28.740
+Now I'm in the directory containing the distributions package and the setup.py file.
+
+00:03:28.740 --> 00:03:32.300
+In the terminal, type pip install.
+
+00:03:32.300 --> 00:03:37.770
+and then hit enter. The dot tells pip to look for the setup file in the current folder.
+
+00:03:37.770 --> 00:03:41.060
+That's it. The Python package is installed.
+
+00:03:41.060 --> 00:03:45.500
+Now I can use the package in my Python code like so.
+
+00:03:45.500 --> 00:03:47.735
+I'm going to open a new terminal.
+
+00:03:47.735 --> 00:03:50.210
+Notice that I'm no longer in
+
+00:03:50.210 --> 00:03:52.790
+the Python package example folder and it doesn't
+
+00:03:52.789 --> 00:03:56.030
+matter because we've already installed the package.
+
+00:03:56.030 --> 00:03:58.610
+So, I'm going type Python to start
+
+00:03:58.610 --> 00:04:03.385
+the Python interpreter and then I'm going to import the Gaussian class saying,
+
+00:04:03.384 --> 00:04:09.409
+from distributions import Gaussian, and hitting enter.
+
+00:04:09.409 --> 00:04:13.009
+Now, I have access to the Gaussian class so I can write something like,
+
+00:04:13.009 --> 00:04:17.584
+gaussian_one equals gaussian class
+
+00:04:17.584 --> 00:04:21.589
+and initialize it with a mean of 10 and a standard deviation of five.
+
+00:04:21.589 --> 00:04:23.709
+Hit Enter and now look,
+
+00:04:23.709 --> 00:04:27.394
+I can use the Gaussian class just like
+
+00:04:27.394 --> 00:04:32.024
+we were using it before and you have access to all the methods as well.
+
+00:04:32.024 --> 00:04:34.219
+So, you might ask yourself,
+
+00:04:34.220 --> 00:04:37.485
+where exactly did the package get installed to?
+
+00:04:37.485 --> 00:04:41.110
+The answer is wherever pip installs packages on your system.
+
+00:04:41.110 --> 00:04:43.790
+If you're still in a Python interpreter and
+
+00:04:43.790 --> 00:04:49.450
+type import package like, import distributions,
+
+00:04:49.449 --> 00:04:55.909
+you can then type distributions to underscore underscore file underscore underscore,
+
+00:04:55.910 --> 00:04:59.900
+hit enter and that'll tell you where the package is installed.
+
+00:04:59.899 --> 00:05:04.214
+That's all it takes to create and install a Python package locally.
+
+00:05:04.214 --> 00:05:05.964
+In the last part of the course,
+
+00:05:05.964 --> 00:05:10.199
+you're going to expand this package creating a binomial distribution class.
+
+00:05:10.199 --> 00:05:12.949
+Then you can upload the package to PyPy so
+
+00:05:12.949 --> 00:05:15.814
+that anybody can download and install your package.
+
+00:05:15.814 --> 00:05:19.610
+If you decide to install this package on your local computer,
+
+00:05:19.610 --> 00:05:23.220
+you might want to create something called a virtual environment first.
+
+00:05:23.220 --> 00:05:28.425
+A virtual environment is like a silo for installing Python packages.
+
+00:05:28.425 --> 00:05:33.740
+That way you won't be messing around with your computer's default Python installation.
+
+00:05:33.740 --> 00:05:38.199
+I'll put instructions on the next page for setting up a virtual environment.
+

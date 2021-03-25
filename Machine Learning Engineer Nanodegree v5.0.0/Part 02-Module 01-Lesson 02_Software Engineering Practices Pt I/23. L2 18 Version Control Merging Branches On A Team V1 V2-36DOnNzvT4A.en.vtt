@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.309 --> 00:00:09.899
+While you were working on these changes, your co-worker, Andrew,
+
+00:00:09.900 --> 00:00:13.290
+has been working on improvements to the documentation of
+
+00:00:13.289 --> 00:00:18.570
+the same recommendation engine on a different branch called Documentation.
+
+00:00:18.570 --> 00:00:23.129
+Andrew commits his changes to the documentation branch,
+
+00:00:23.129 --> 00:00:26.579
+switches to the development branch and pulls down
+
+00:00:26.579 --> 00:00:30.479
+the latest changes from the remote repository on this branch,
+
+00:00:30.480 --> 00:00:35.329
+which includes the change I previously merged for the friend groups feature.
+
+00:00:35.329 --> 00:00:38.864
+Then, Andrew merges his documentation branch
+
+00:00:38.865 --> 00:00:42.414
+to the develop branch on his local repository,
+
+00:00:42.414 --> 00:00:48.625
+and then pushes his changes up to update the develop branch on the remote repository.
+
+00:00:48.625 --> 00:00:51.909
+After the team reviewed both of your work,
+
+00:00:51.909 --> 00:00:56.979
+they merged update from the develop branch to the master branch.
+
+00:00:56.979 --> 00:01:02.354
+Now, they pushed the changes to the master branch on the remote repository.
+
+00:01:02.354 --> 00:01:05.594
+These changes are now in production.
+
+00:01:05.594 --> 00:01:08.334
+Using branches, commit messages,
+
+00:01:08.334 --> 00:01:12.259
+and merging demonstrate just a few ways version control
+
+00:01:12.260 --> 00:01:14.895
+can be used in data science on a team,
+
+00:01:14.894 --> 00:01:18.170
+but the process will vary based on your team
+

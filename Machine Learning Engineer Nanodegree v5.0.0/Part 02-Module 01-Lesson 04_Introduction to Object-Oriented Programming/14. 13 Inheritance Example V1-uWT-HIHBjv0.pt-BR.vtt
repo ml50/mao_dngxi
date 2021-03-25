@@ -1,0 +1,99 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.067 --> 00:00:04.153
+Aqui você pode ver
+a classe mãe Clothing.
+
+00:00:04.187 --> 00:00:09.265
+Parece muito com as classes Shirt
+e Pants que criamos antes.
+
+00:00:09.299 --> 00:00:13.146
+As classes Shirt e Pants são
+herdeiras da classe Clothing.
+
+00:00:13.180 --> 00:00:16.177
+Por isso a declaração de classe
+de Shirt e Pants
+
+00:00:16.211 --> 00:00:18.505
+tem "Clothing"
+entre parênteses.
+
+00:00:18.539 --> 00:00:21.841
+Isso diz ao Python
+que as classes Shirt e Pants
+
+00:00:21.875 --> 00:00:26.481
+devem herdar todos os atributos
+e as funções da classe Clothing.
+
+00:00:26.515 --> 00:00:29.106
+No método init de Shirt,
+
+00:00:29.140 --> 00:00:33.345
+há uma nova sintaxe que chama
+Clothing.__init__.
+
+00:00:33.379 --> 00:00:37.233
+Isso significa que o objeto shirt
+se inicia sozinho
+
+00:00:37.267 --> 00:00:39.617
+usando o método init
+de Clothing.
+
+00:00:39.651 --> 00:00:41.978
+Então você pode adicionar
+outros atributos,
+
+00:00:42.012 --> 00:00:45.760
+como manga longa ou curta
+na classe Shirt
+
+00:00:45.794 --> 00:00:47.977
+ou cintura na classe Pants.
+
+00:00:48.011 --> 00:00:50.769
+Você também pode estender
+as classes Pants e Shirt
+
+00:00:50.803 --> 00:00:52.664
+adicionando mais métodos.
+
+00:00:52.698 --> 00:00:55.978
+Por exemplo, posso adicionar
+um método double_price
+
+00:00:56.012 --> 00:00:57.688
+só à classe Shirt.
+
+00:00:57.722 --> 00:01:01.090
+Pode-se também anular qualquer um
+dos métodos de Clothing.
+
+00:01:01.124 --> 00:01:06.250
+Por exemplo, a classe Pants anula
+o método calculate_discount.
+
+00:01:06.284 --> 00:01:09.113
+Um dos principais benefícios
+da herança
+
+00:01:09.147 --> 00:01:13.009
+é poder adicionar atributos
+e métodos à classe Clothing,
+
+00:01:13.043 --> 00:01:17.977
+e então as classes Shirt e Pants
+também os receberão.
+
+00:01:18.011 --> 00:01:19.244
+Estude todo o código
+
+00:01:19.278 --> 00:01:21.533
+para se acostumar
+à sintaxe da herança.
+

@@ -1,0 +1,407 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.157 --> 00:00:01.922
+Como já deve ter feito antes,
+
+00:00:01.955 --> 00:00:05.267
+instalamos os pacotes Python
+usando a instalação pip.
+
+00:00:05.300 --> 00:00:08.688
+Por exemplo, se quisermos instalar
+o pacote scikit-learn,
+
+00:00:08.721 --> 00:00:11.107
+vamos no terminal e digitamos
+
+00:00:11.140 --> 00:00:15.813
+"pip install scikit-learn".
+
+00:00:15.846 --> 00:00:18.654
+O comando pip install
+baixa os pacotes
+
+00:00:18.687 --> 00:00:22.159
+de um repositório on-line
+chamado "PyPI".
+
+00:00:22.192 --> 00:00:24.807
+Neste caso,
+o scikit-learn já está instalado,
+
+00:00:24.840 --> 00:00:26.559
+só estou mostrando.
+
+00:00:26.592 --> 00:00:28.537
+No resto desta aula,
+
+00:00:28.570 --> 00:00:33.206
+configuraremos um pacote Python
+e o carregaremos no PyPI.
+
+00:00:33.239 --> 00:00:35.537
+O primeiro passo
+é preparar o pacote
+
+00:00:35.570 --> 00:00:39.349
+para que ele possa ser instalado
+localmente no computador.
+
+00:00:39.382 --> 00:00:41.768
+Mostrarei como configurar
+seus arquivos
+
+00:00:41.801 --> 00:00:43.784
+para a instalação pip.
+
+00:00:43.817 --> 00:00:45.377
+À esquerda da tela,
+
+00:00:45.410 --> 00:00:49.721
+vemos que estou em um diretório
+contendo a pasta distributions
+
+00:00:49.754 --> 00:00:53.257
+e um arquivo
+chamado "setup.py".
+
+00:00:53.290 --> 00:00:56.409
+Vamos falar sobre
+a pasta distributions primeiro.
+
+00:00:56.442 --> 00:00:58.137
+Dando um clique dublo...
+
+00:00:58.170 --> 00:01:02.512
+A pasta contém as classes
+Gaussian e Generaldistribution
+
+00:01:02.545 --> 00:01:04.544
+que já vimos.
+
+00:01:04.577 --> 00:01:08.849
+A diferença é que esta pasta agora
+é oficialmente um pacote Python,
+
+00:01:08.882 --> 00:01:11.560
+porque a pasta
+contém um arquivo init.
+
+00:01:11.593 --> 00:01:13.816
+Um pacote precisa
+de um arquivo init.
+
+00:01:13.849 --> 00:01:18.503
+Não há nada de novo
+ou diferente nesses arquivos,
+
+00:01:18.536 --> 00:01:20.422
+exceto por uma linha.
+
+00:01:20.455 --> 00:01:23.965
+Abrindo
+Gaussiandistributions.py,
+
+00:01:23.998 --> 00:01:28.045
+vemos a terceira linha na qual
+importamos a classe Distribution
+
+00:01:28.078 --> 00:01:31.597
+do arquivo
+Generaldistribution.py.
+
+00:01:31.630 --> 00:01:34.735
+Há um ponto na frente
+de Generaldistribution.
+
+00:01:34.768 --> 00:01:37.277
+Isso é necessário no Python 3,
+
+00:01:37.310 --> 00:01:40.757
+mas, se estiver trabalhando
+no Python 2, isso não é necessário.
+
+00:01:40.790 --> 00:01:44.518
+O arquivo init Python,
+por outro lado, é novo.
+
+00:01:44.551 --> 00:01:49.078
+O arquivo init informa ao Python
+que esta pasta contém um pacote.
+
+00:01:49.111 --> 00:01:51.847
+Um pacote sempre precisa ter
+um arquivo init,
+
+00:01:51.880 --> 00:01:54.566
+mesmo que o arquivo esteja
+completamente vazio.
+
+00:01:54.599 --> 00:01:56.972
+O código dentro
+do arquivo init é executado
+
+00:01:57.005 --> 00:02:00.359
+sempre que importarmos um pacote
+em um programa Python.
+
+00:02:01.024 --> 00:02:04.598
+Neste caso, o arquivo init
+importa a classe Gaussian
+
+00:02:04.631 --> 00:02:07.518
+do módulo
+Gaussiandistribution.
+
+00:02:07.551 --> 00:02:09.560
+A razão para adicionar
+esta linha
+
+00:02:09.593 --> 00:02:12.925
+é porque eu quero poder importar
+a classe Gaussian diretamente,
+
+00:02:12.958 --> 00:02:17.126
+escrevendo "from .distributions
+import Gaussian".
+
+00:02:17.159 --> 00:02:19.116
+Mostrarei isso em instantes.
+
+00:02:19.149 --> 00:02:22.148
+Se não incluirmos
+nenhum código no arquivo init,
+
+00:02:22.181 --> 00:02:23.797
+o pacote ainda funcionaria,
+
+00:02:23.830 --> 00:02:25.854
+mas qualquer programa
+que usa o pacote
+
+00:02:25.887 --> 00:02:27.981
+teria que importar
+a classe Gaussian
+
+00:02:28.014 --> 00:02:29.854
+de forma indireta com a linha
+
+00:02:29.887 --> 00:02:34.683
+"from .Gaussiandistribution
+import Gaussian".
+
+00:02:34.716 --> 00:02:39.442
+É como criar um atalho para importar
+a classe Gaussian diretamente.
+
+00:02:39.475 --> 00:02:42.914
+Um nível acima no diretório,
+
+00:02:42.947 --> 00:02:45.041
+há um arquivo setup.py
+
+00:02:45.074 --> 00:02:47.898
+no mesmo nível
+da pasta distributions.
+
+00:02:47.931 --> 00:02:51.018
+Ele é necessário
+para a instalação pip.
+
+00:02:51.051 --> 00:02:53.735
+Pip vai procurar automaticamente
+por esse arquivo.
+
+00:02:53.768 --> 00:02:55.305
+Ao abrir o arquivo,
+
+00:02:55.338 --> 00:02:58.433
+vemos que ele contém
+informações
+
+00:02:58.466 --> 00:03:00.810
+ou metadados sobre o pacote,
+
+00:03:00.843 --> 00:03:02.488
+como o nome do pacote,
+
+00:03:02.521 --> 00:03:05.898
+a versão, a descrição etc.
+
+00:03:05.931 --> 00:03:08.674
+Vamos instalar o pacote.
+
+00:03:08.707 --> 00:03:10.130
+Para instalar o pacote,
+
+00:03:10.163 --> 00:03:11.410
+vá ao terminal
+
+00:03:11.443 --> 00:03:14.910
+e verifique se está no diretório
+com o arquivo setup.py.
+
+00:03:14.943 --> 00:03:17.298
+Nesse caso, terei que alterar
+os diretórios
+
+00:03:17.331 --> 00:03:21.907
+e digitar
+"python_package_example".
+
+00:03:22.584 --> 00:03:26.802
+Agora estou no diretório que contém
+o pacote distributions
+
+00:03:26.835 --> 00:03:28.922
+e o arquivo setup.py.
+
+00:03:28.955 --> 00:03:34.046
+No terminal, digite "pip install ."
+e dê enter.
+
+00:03:34.079 --> 00:03:37.831
+O ponto pede ao pip para procurar
+pelo arquivo setup na pasta atual.
+
+00:03:37.864 --> 00:03:41.133
+Pronto. O pacote do Python
+está instalado.
+
+00:03:41.166 --> 00:03:45.541
+Agora podemos usar o pacote
+no código Python assim.
+
+00:03:45.574 --> 00:03:47.982
+Abrimos um novo terminal...
+
+00:03:48.015 --> 00:03:52.140
+Observe que não estou mais na pasta
+example do pacote Python,
+
+00:03:52.173 --> 00:03:53.873
+e isso não importa,
+
+00:03:53.906 --> 00:03:56.274
+pois já instalamos o pacote.
+
+00:03:56.307 --> 00:03:59.947
+Digitamos "python" para iniciar
+o interpretador Python
+
+00:03:59.980 --> 00:04:03.305
+e importamos
+a classe Gaussian digitando
+
+00:04:03.338 --> 00:04:08.376
+"from distributions
+import Gaussian",
+
+00:04:08.409 --> 00:04:09.641
+e damos enter.
+
+00:04:09.674 --> 00:04:12.999
+Agora temos acesso à classe Gaussian
+e podemos digitar algo
+
+00:04:13.032 --> 00:04:17.542
+como "gaussian_one = Gaussian"
+
+00:04:17.575 --> 00:04:21.766
+para inicializá-lo com uma média
+de 10 e um desvio padrão de 5.
+
+00:04:21.799 --> 00:04:23.886
+Damos enter. Veja.
+
+00:04:23.919 --> 00:04:26.356
+Podemos usar
+a classe Gaussian,
+
+00:04:26.389 --> 00:04:29.100
+assim como estávamos usando,
+
+00:04:29.133 --> 00:04:32.204
+e também temos acesso
+a todos os métodos.
+
+00:04:32.237 --> 00:04:34.205
+Você pode estar se perguntando
+
+00:04:34.238 --> 00:04:37.733
+onde exatamente
+o pacote foi instalado.
+
+00:04:37.766 --> 00:04:41.241
+Onde o pip instala pacotes
+no seu sistema.
+
+00:04:41.274 --> 00:04:43.719
+Se você ainda estiver
+no interpretador Python
+
+00:04:43.752 --> 00:04:49.597
+e digitar "import" e o pacote,
+como "import distributions",
+
+00:04:49.630 --> 00:04:50.784
+pode digitar
+
+00:04:50.817 --> 00:04:55.873
+"distributions.__file__",
+
+00:04:55.906 --> 00:04:57.168
+dar enter,
+
+00:04:57.201 --> 00:05:00.073
+e isso informará onde o pacote
+está instalado.
+
+00:05:00.106 --> 00:05:04.428
+É isso que é necessário para criar
+e instalar um pacote Python.
+
+00:05:04.461 --> 00:05:05.892
+Na última parte do curso,
+
+00:05:05.925 --> 00:05:07.475
+expandiremos esse pacote
+
+00:05:07.508 --> 00:05:10.203
+criando uma classe Binomial
+de distribuição,
+
+00:05:10.236 --> 00:05:12.588
+que poderá ser enviada
+para o PyPI,
+
+00:05:12.621 --> 00:05:15.835
+assim qualquer um poderá
+baixar e instalar seu pacote.
+
+00:05:15.868 --> 00:05:19.298
+Se decidir instalar este pacote
+em seu computador,
+
+00:05:19.331 --> 00:05:23.299
+crie um ambiente
+virtual antes,
+
+00:05:23.332 --> 00:05:28.083
+que é como um silo
+para instalar pacotes Python.
+
+00:05:28.804 --> 00:05:33.633
+Assim, você não mexerá
+na instalação padrão do Python.
+
+00:05:33.666 --> 00:05:35.817
+Colocarei as instruções
+na próxima página
+
+00:05:35.850 --> 00:05:38.062
+sobre como configurar
+um ambiente virtual.
+

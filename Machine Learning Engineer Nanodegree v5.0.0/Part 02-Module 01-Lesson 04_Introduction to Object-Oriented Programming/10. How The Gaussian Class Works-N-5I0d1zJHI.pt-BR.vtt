@@ -1,0 +1,253 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.997
+Vamos começar vendo
+uma classe Python
+
+00:00:03.031 --> 00:00:05.172
+que escrevi,
+chamada "Gaussian".
+
+00:00:05.206 --> 00:00:07.844
+Depois você vai criar
+esse código sozinho.
+
+00:00:07.878 --> 00:00:10.525
+Veja que a classe
+tem um método init
+
+00:00:10.559 --> 00:00:12.637
+para instanciar o objeto.
+
+00:00:12.671 --> 00:00:16.660
+Há três atributos: mean, stdev
+
+00:00:16.694 --> 00:00:19.398
+e uma lista vazia
+para armazenar dados.
+
+00:00:19.432 --> 00:00:24.236
+Veja que a função init inclui
+um valor padrão 0 para mean
+
+00:00:24.270 --> 00:00:26.317
+e 1 para stdev.
+
+00:00:26.351 --> 00:00:28.709
+É como qualquer outra função
+em Python,
+
+00:00:28.743 --> 00:00:32.014
+em que podemos especificar
+valores padrão para os inputs.
+
+00:00:32.048 --> 00:00:36.397
+Vejam também que não há input
+para o atributo dos dados.
+
+00:00:36.431 --> 00:00:39.436
+Um atributo de classe
+não precisa ser incluído
+
+00:00:39.470 --> 00:00:41.628
+nas variáveis de input
+em init.
+
+00:00:41.662 --> 00:00:47.485
+Depois defini outros métodos
+para calcular a média dos dados.
+
+00:00:47.519 --> 00:00:52.158
+Por exemplo,
+o desvio padrão do dado aqui
+
+00:00:52.192 --> 00:00:57.877
+e um método para ler o arquivo
+de dados, o read_data_file.
+
+00:00:57.911 --> 00:01:00.965
+Há outros métodos
+de que já falaremos.
+
+00:01:00.999 --> 00:01:02.877
+Veja o método read_data_file.
+
+00:01:02.911 --> 00:01:07.157
+Esse método lê dados
+de um arquivo
+
+00:01:07.191 --> 00:01:09.925
+e os armazena
+no atributo data.
+
+00:01:09.959 --> 00:01:14.836
+Há algo interessante
+no método read_data_file.
+
+00:01:14.870 --> 00:01:17.868
+Esse código chama os métodos
+calculate_mean
+
+00:01:17.902 --> 00:01:21.780
+e calculate_stdev
+da variável Self
+
+00:01:21.814 --> 00:01:26.919
+e armazena os resultados
+nos atributos mean e stdev.
+
+00:01:26.953 --> 00:01:30.845
+A variável Self não só dá acesso
+aos atributos da classe,
+
+00:01:30.879 --> 00:01:32.886
+mas também aos métodos.
+
+00:01:32.920 --> 00:01:36.534
+A classe Gaussian tem
+alguns outros métodos.
+
+00:01:36.568 --> 00:01:40.469
+Um diagrama um histograma
+usando um pacote Matplotlib.
+
+00:01:40.503 --> 00:01:43.429
+Também incluí uma função
+para lançar os resultados
+
+00:01:43.463 --> 00:01:45.886
+de uma função de densidade
+
+00:01:45.920 --> 00:01:48.437
+e um gráfico
+de um histograma normalizado
+
+00:01:48.471 --> 00:01:52.749
+com a função densidade
+na mesma faixa do valor X.
+
+00:01:52.783 --> 00:01:57.134
+Esse são só alguns exemplos
+de como usar métodos de classe.
+
+00:01:57.168 --> 00:02:01.093
+Em seguida, uso a classe
+criando instâncias de um objeto
+
+00:02:01.127 --> 00:02:02.934
+chamado "gaussian_one".
+
+00:02:02.968 --> 00:02:05.783
+Vou executar o código.
+
+00:02:05.817 --> 00:02:08.230
+Como não especifiquei
+parâmetros,
+
+00:02:08.264 --> 00:02:11.823
+uso os valores padrão
+de mean e stdev.
+
+00:02:11.857 --> 00:02:15.478
+Há um arquivo de dados
+chamado "numbers.txt"
+
+00:02:15.512 --> 00:02:18.639
+na mesma pasta
+desse notebook Jupyter,
+
+00:02:18.673 --> 00:02:20.799
+então leio os dados
+desse arquivo
+
+00:02:20.833 --> 00:02:24.813
+e uso os outros métodos
+para criar alguns gráficos.
+
+00:02:24.847 --> 00:02:28.134
+Na próxima parte da aula,
+vou dar um esqueleto
+
+00:02:28.168 --> 00:02:31.789
+da classe Gaussian
+com algumas partes vazias.
+
+00:02:31.823 --> 00:02:33.542
+Dessa forma.
+
+00:02:33.576 --> 00:02:35.663
+A sua tarefa é preencher
+o código.
+
+00:02:35.697 --> 00:02:39.020
+Ele já está no vídeo,
+como vimos agora,
+
+00:02:39.054 --> 00:02:41.428
+mas tente não colar.
+
+00:02:41.462 --> 00:02:43.585
+Siga os comentários
+escritos no código
+
+00:02:43.619 --> 00:02:46.665
+e veja se consegue escrever
+a classe Gaussian sozinho.
+
+00:02:46.699 --> 00:02:49.945
+O arquivo com que vai trabalhar
+também tem testes de unidade,
+
+00:02:49.979 --> 00:02:52.545
+que você pode executar
+para verificar o trabalho.
+
+00:02:52.579 --> 00:02:56.186
+Ficam no fim do arquivo.
+Vou mostrar como funcionam.
+
+00:02:56.220 --> 00:03:01.211
+Se executar a primeira célula,
+poderá executar a segunda,
+
+00:03:01.245 --> 00:03:04.698
+e aqui encontrará os resultados
+dos testes de unidade.
+
+00:03:04.732 --> 00:03:08.904
+Tenho alguns erros,
+alguns testes falhos,
+
+00:03:08.938 --> 00:03:12.881
+então preciso voltar
+e trabalhar no código.
+
+00:03:12.915 --> 00:03:16.930
+Escrever código que você já viu
+pode parecer um exercício bobo,
+
+00:03:16.964 --> 00:03:19.138
+mas deve ajudar
+no entendimento
+
+00:03:19.172 --> 00:03:22.569
+de como programação orientada
+a objetos funciona no Python.
+
+00:03:22.603 --> 00:03:26.499
+Você vai trabalhar num código
+mais difícil no fim da aula.
+
+00:03:26.533 --> 00:03:31.097
+Por enquanto, veja quanto consegue
+reescrever da classe Gaussian,
+
+00:03:31.131 --> 00:03:32.370
+mas não se preocupe,
+
+00:03:32.404 --> 00:03:36.133
+também incluí um arquivo
+de resposta no código.
+

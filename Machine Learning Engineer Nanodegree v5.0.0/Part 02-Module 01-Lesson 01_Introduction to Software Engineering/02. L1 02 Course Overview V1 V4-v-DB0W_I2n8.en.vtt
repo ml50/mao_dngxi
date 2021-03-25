@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.190 --> 00:00:08.005
+We've divided this course into three parts.
+
+00:00:08.005 --> 00:00:12.515
+The first part is a review of general software engineering practices,
+
+00:00:12.515 --> 00:00:15.964
+like using version control and documenting your code.
+
+00:00:15.964 --> 00:00:17.565
+In the second part,
+
+00:00:17.565 --> 00:00:22.440
+you're going to build your own Python package using object oriented programming.
+
+00:00:22.440 --> 00:00:27.625
+If you've ever wondered how pandas or the scikit-learn packages work under the hood,
+
+00:00:27.625 --> 00:00:29.835
+that's what this lesson is all about.
+
+00:00:29.835 --> 00:00:34.515
+Finally, the last part will be an introduction to web development.
+
+00:00:34.515 --> 00:00:40.375
+You're going to build a data visualization web app that you can put online and share.
+
+00:00:40.375 --> 00:00:42.104
+In all of these lessons,
+
+00:00:42.104 --> 00:00:46.279
+you will gain practical skills and produce a couple of applications
+
+00:00:46.280 --> 00:00:51.030
+that you can customize and use as a part of your professional portfolio.
+
+00:00:51.030 --> 00:00:54.645
+But before diving into software engineering practices,
+
+00:00:54.645 --> 00:00:57.840
+we want to tell you a bit about our experiences.
+

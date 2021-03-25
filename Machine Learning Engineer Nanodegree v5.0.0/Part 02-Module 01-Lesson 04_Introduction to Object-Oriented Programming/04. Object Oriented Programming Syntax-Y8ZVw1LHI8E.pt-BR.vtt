@@ -1,0 +1,387 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.276 --> 00:00:04.413
+Vamos ver como escrever
+uma classe em Python.
+
+00:00:04.447 --> 00:00:06.917
+Se você nunca trabalhou
+com classes,
+
+00:00:06.951 --> 00:00:09.676
+a sintaxe pode ser
+um pouco confusa,
+
+00:00:09.710 --> 00:00:12.981
+mas vamos escrever o código
+passo a passo.
+
+00:00:13.015 --> 00:00:16.462
+Agora vou mostrar o código
+usando notebooks Jupyter,
+
+00:00:16.496 --> 00:00:21.885
+mas, depois, você vai modularizar
+código em scripts Python.
+
+00:00:21.919 --> 00:00:25.455
+Na célula superior,
+escrevi uma classe Shirt,
+
+00:00:25.489 --> 00:00:28.760
+como a que falamos
+no vídeo anterior.
+
+00:00:28.794 --> 00:00:34.167
+A classe tem atributos de cor,
+tamanho, estilo e preço.
+
+00:00:34.201 --> 00:00:37.312
+Também escrevi um método
+para mudar o preço,
+
+00:00:37.346 --> 00:00:41.663
+além de um método
+para dar um desconto no preço.
+
+00:00:41.697 --> 00:00:45.648
+As células que vêm depois desta
+mostram alguns exemplos
+
+00:00:45.682 --> 00:00:48.368
+de como instanciar
+objetos de camisetas,
+
+00:00:48.402 --> 00:00:51.624
+para que você veja como usar
+uma classe no programa.
+
+00:00:51.658 --> 00:00:54.815
+Vou começar no topo do arquivo
+e descer.
+
+00:00:54.849 --> 00:00:59.071
+A primeira linha diz ao Python
+que vou escrever uma classe,
+
+00:00:59.105 --> 00:01:01.216
+e depois eu chamo
+a classe de "Shirt".
+
+00:01:01.250 --> 00:01:06.192
+É de praxe deixar a primeira letra
+do nome da classe em caixa-alta,
+
+00:01:06.226 --> 00:01:09.631
+mas o código também funciona
+mesmo se não fizer isso.
+
+00:01:09.665 --> 00:01:12.791
+Pode colocar ou não
+parênteses após "Shirt",
+
+00:01:12.825 --> 00:01:14.736
+o código funcionará
+de qualquer forma.
+
+00:01:14.770 --> 00:01:17.273
+A linha seguinte inicializa
+
+00:01:17.307 --> 00:01:20.383
+todos os atributos
+com valores apropriados.
+
+00:01:20.417 --> 00:01:23.225
+Lembre que uma classe
+é como uma base,
+
+00:01:23.259 --> 00:01:26.895
+portanto estabeleço uma cor,
+um tamanho, um estilo
+
+00:01:26.929 --> 00:01:29.328
+e um preço
+de uma camiseta genérica.
+
+00:01:29.362 --> 00:01:33.710
+Você já verá como é a inicialização
+de uma camiseta específica.
+
+00:01:33.744 --> 00:01:36.935
+Há duas coisas que podem
+parecer um pouco esquisitas,
+
+00:01:36.969 --> 00:01:41.166
+a função __init__
+
+00:01:41.200 --> 00:01:44.247
+e a variável self.
+
+00:01:44.281 --> 00:01:46.950
+A função init
+faz parte do Python.
+
+00:01:46.984 --> 00:01:51.937
+Ele sabe usar essa função para criar
+um objeto de camiseta específica.
+
+00:01:51.971 --> 00:01:55.912
+Por enquanto, me acompanhe.
+Já falo disso.
+
+00:01:55.946 --> 00:01:59.760
+A variável self pode ser difícil
+de se entender de primeira.
+
+00:01:59.794 --> 00:02:03.874
+Self armazena atributos
+como cor, tamanho etc.
+
+00:02:03.908 --> 00:02:08.162
+e os torna disponíveis
+através da classe.
+
+00:02:08.196 --> 00:02:10.915
+Self é essencialmente
+um dicionário
+
+00:02:10.949 --> 00:02:15.483
+que contém todos os atributos
+e os valores dos atributos.
+
+00:02:15.517 --> 00:02:19.355
+Veja o método change_price
+para ver como self funciona.
+
+00:02:19.389 --> 00:02:22.539
+Eu uso self
+como o primeiro input de método
+
+00:02:22.573 --> 00:02:25.082
+para que eu tenha acesso
+ao preço.
+
+00:02:25.116 --> 00:02:29.419
+Self armazena o preço,
+além de outros atributos,
+
+00:02:29.453 --> 00:02:32.138
+como cor, tamanho e estilo.
+
+00:02:32.172 --> 00:02:35.539
+Self será sempre
+o primeiro input dos métodos
+
+00:02:35.573 --> 00:02:38.267
+se quiser acessar
+os atributos.
+
+00:02:38.301 --> 00:02:41.811
+Veja também que os métodos
+change_price e discount
+
+00:02:41.845 --> 00:02:44.154
+são como funções normais
+do Python.
+
+00:02:44.188 --> 00:02:48.651
+Por exemplo, funções Python
+não têm que devolver nada,
+
+00:02:48.685 --> 00:02:52.364
+então, como no método change_price,
+não devolve nada.
+
+00:02:52.398 --> 00:02:55.476
+Só muda o valor
+do atributo de preço.
+
+00:02:55.510 --> 00:03:00.651
+Já o método discount devolve algo:
+o preço com desconto.
+
+00:03:00.685 --> 00:03:03.316
+Repetindo, a classe Shirt
+é só uma base.
+
+00:03:03.350 --> 00:03:06.876
+Vou executar a primeira célula
+e seguir para a segunda.
+
+00:03:06.910 --> 00:03:09.188
+Vamos ver como usar
+essa classe.
+
+00:03:09.222 --> 00:03:10.963
+Vou dar alguns exemplos.
+
+00:03:10.997 --> 00:03:15.562
+Se eu quiser criar um objeto
+de camiseta, uso esta sintaxe.
+
+00:03:15.596 --> 00:03:17.979
+Isso é instanciar um objeto.
+
+00:03:18.013 --> 00:03:22.298
+Veja que a sintaxe tem
+a mesma ordem da função init.
+
+00:03:22.332 --> 00:03:24.634
+Vou inicializar
+essa camiseta específica
+
+00:03:24.668 --> 00:03:29.267
+com cor, tamanho, estilo e preço,
+na mesma ordem da init.
+
+00:03:29.301 --> 00:03:34.635
+Python vai chamar a função init
+para iniciar o objeto.
+
+00:03:34.669 --> 00:03:36.235
+Vou executar o código.
+
+00:03:36.269 --> 00:03:39.891
+Certo, o output
+é um objeto de camiseta.
+
+00:03:39.925 --> 00:03:42.699
+Esses números e letras no fim
+
+00:03:42.733 --> 00:03:47.131
+são o Python dando a localização
+e a memória do objeto.
+
+00:03:47.165 --> 00:03:51.731
+Mas isso não é útil se não
+armazenarmos o objeto na variável,
+
+00:03:51.765 --> 00:03:54.690
+então é isso que vou fazer
+na próxima célula.
+
+00:03:54.724 --> 00:03:58.026
+Vou executar esta célula,
+e agora armazenei
+
+00:03:58.060 --> 00:04:01.411
+esse objeto de camiseta
+na variável new_shirt.
+
+00:04:01.445 --> 00:04:04.963
+A variável tem uma cor,
+um tamanho, um estilo
+
+00:04:04.997 --> 00:04:06.882
+e um preço associados a ela.
+
+00:04:06.916 --> 00:04:11.386
+Você pode acessar esses atributos
+usando .sintax.
+
+00:04:11.420 --> 00:04:16.065
+Então vou executar esta célula,
+e você verá o output.
+
+00:04:16.099 --> 00:04:21.250
+Abaixo, use o mesmo .sintax
+para acessar os métodos,
+
+00:04:21.284 --> 00:04:23.088
+só que também
+precisa especificar
+
+00:04:23.122 --> 00:04:26.082
+qualquer input exigido
+por esses métodos.
+
+00:04:26.116 --> 00:04:28.353
+Por exemplo,
+para mudar o preço,
+
+00:04:28.387 --> 00:04:31.574
+usei o método change_price
+com o valor de 10.
+
+00:04:31.608 --> 00:04:32.968
+Executando a célula,
+
+00:04:33.002 --> 00:04:37.089
+vemos que o atributo de preço
+mudou de 15 para 10.
+
+00:04:37.123 --> 00:04:39.240
+O mesmo acontece
+no método discount.
+
+00:04:39.274 --> 00:04:42.295
+Pus o input "0.2"
+no método discount,
+
+00:04:42.329 --> 00:04:47.080
+e ele devolveu o valor "8",
+porque foram 20% de desconto.
+
+00:04:47.114 --> 00:04:50.560
+Na última parte, crio uma instância
+de três objetos de camiseta
+
+00:04:50.594 --> 00:04:52.961
+e os armazeno em uma lista.
+
+00:04:52.995 --> 00:04:55.489
+Estou mostrando isso
+para enfatizar
+
+00:04:55.523 --> 00:04:58.872
+que essas são como
+qualquer outra variável do Python.
+
+00:04:58.906 --> 00:05:00.440
+Eis os resultados.
+
+00:05:00.474 --> 00:05:04.617
+Depois que armazenei as camisetas
+na lista "tshirt_collection",
+
+00:05:04.651 --> 00:05:09.120
+eu executo um loop for
+e imprimo a cor de cada camiseta.
+
+00:05:09.154 --> 00:05:11.793
+Se programação orientada
+a objetos for novidade,
+
+00:05:11.827 --> 00:05:13.848
+isso tudo
+pode parecer difícil.
+
+00:05:13.882 --> 00:05:16.481
+Sugiro assistir
+ao vídeo de novo
+
+00:05:16.515 --> 00:05:18.865
+e seguir para a próxima parte
+da aula,
+
+00:05:18.899 --> 00:05:20.937
+onde poderá brincar
+com este código
+
+00:05:20.971 --> 00:05:22.640
+e escrever a própria classe.
+
+00:05:22.674 --> 00:05:26.344
+O mais importante a se fazer
+é treinar.
+
+00:05:26.378 --> 00:05:28.776
+Escreva a sua própria classe,
+execute o código
+
+00:05:28.810 --> 00:05:31.300
+e depure qualquer
+mensagem de erro que receber.
+

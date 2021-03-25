@@ -1,0 +1,196 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.094
+To start off, you're going to look at a Python class I've written called Gaussian.
+
+00:00:05.094 --> 00:00:07.664
+Then, you're going to code this on your own.
+
+00:00:07.665 --> 00:00:12.484
+You can see that the class has an init method for instantiating an object.
+
+00:00:12.484 --> 00:00:15.029
+There are three attributes, mean,
+
+00:00:15.029 --> 00:00:19.160
+standard deviation, and an empty list for storing data.
+
+00:00:19.160 --> 00:00:22.740
+Notice that the init function includes a default value of
+
+00:00:22.739 --> 00:00:26.264
+0 for the mean and one for the standard deviation.
+
+00:00:26.265 --> 00:00:28.980
+This is like any other Python function where you
+
+00:00:28.980 --> 00:00:31.875
+can specify default values for the inputs.
+
+00:00:31.875 --> 00:00:36.509
+Notice as well the init has no input for the data attribute,
+
+00:00:36.509 --> 00:00:41.384
+a class attribute does not need to be included in the init input variables.
+
+00:00:41.384 --> 00:00:44.449
+Then, I've defined a handful of
+
+00:00:44.450 --> 00:00:48.950
+other methods to calculate the mean of the data for example here,
+
+00:00:48.950 --> 00:00:52.255
+the standard deviation of the data here,
+
+00:00:52.255 --> 00:00:57.665
+and a method to read in a data file called read data file.
+
+00:00:57.664 --> 00:01:00.875
+There are a few other methods as well that we'll get to in a minute.
+
+00:01:00.875 --> 00:01:03.649
+Looking at the read data file method,
+
+00:01:03.649 --> 00:01:06.409
+you can see that this method reads data from
+
+00:01:06.409 --> 00:01:09.829
+a file and then stores the data in the data attribute.
+
+00:01:09.829 --> 00:01:14.420
+There's something particularly interesting about the read data file method.
+
+00:01:14.420 --> 00:01:20.510
+This code actually calls the calculate mean and calculate standard deviation methods from
+
+00:01:20.510 --> 00:01:22.940
+the self variable and then stores
+
+00:01:22.939 --> 00:01:26.804
+the results in the mean and standard deviation attributes.
+
+00:01:26.805 --> 00:01:30.845
+The self variable not only gives you access to the class attributes,
+
+00:01:30.844 --> 00:01:32.715
+but also to the class methods.
+
+00:01:32.715 --> 00:01:36.415
+The Gaussian class has a couple of other methods as well.
+
+00:01:36.415 --> 00:01:40.325
+One plots a histogram using the matplotlib package.
+
+00:01:40.325 --> 00:01:42.980
+I've also included a function for outputting
+
+00:01:42.980 --> 00:01:46.400
+the results of a probability density function and
+
+00:01:46.400 --> 00:01:48.800
+a plot of a normalized histogram with
+
+00:01:48.799 --> 00:01:52.664
+the probability density function in the same x value range.
+
+00:01:52.665 --> 00:01:56.915
+These are just to give more examples of how you can use class methods.
+
+00:01:56.915 --> 00:02:02.810
+Next, I actually use the class by instantiating an object called Gaussian one.
+
+00:02:02.810 --> 00:02:05.594
+Here I'm going to run that code cell.
+
+00:02:05.594 --> 00:02:08.224
+Because I haven't specified any parameters,
+
+00:02:08.224 --> 00:02:11.674
+the default mean and standard deviation are used.
+
+00:02:11.675 --> 00:02:18.360
+There's a data file called numbers.txt in the same folder as this Jupyter Notebook.
+
+00:02:18.360 --> 00:02:21.470
+So, I read in the data from that file and then use
+
+00:02:21.469 --> 00:02:24.460
+the other methods to output a couple of plots.
+
+00:02:24.460 --> 00:02:26.265
+In this next part of the lesson,
+
+00:02:26.264 --> 00:02:28.489
+I'm going to give you a skeleton version of
+
+00:02:28.490 --> 00:02:31.629
+this Gaussian class with a few sections marked to do.
+
+00:02:31.629 --> 00:02:33.289
+This is what it looks like.
+
+00:02:33.289 --> 00:02:35.544
+Your task is to fill out the code.
+
+00:02:35.544 --> 00:02:39.109
+The code is already in this video you just went through,
+
+00:02:39.110 --> 00:02:41.310
+but try not to peep back at this video.
+
+00:02:41.310 --> 00:02:43.789
+Follow the comments in the to-do sections
+
+00:02:43.789 --> 00:02:46.489
+and see if you can code the Gaussian class on your own.
+
+00:02:46.490 --> 00:02:48.890
+The file you're going to work with also contains
+
+00:02:48.889 --> 00:02:52.424
+unit tests that you can run to help check your work.
+
+00:02:52.425 --> 00:02:54.370
+There at the bottom of the file,
+
+00:02:54.370 --> 00:02:56.090
+let me show you how that works.
+
+00:02:56.090 --> 00:02:58.819
+So, if you run this first code cell up here,
+
+00:02:58.819 --> 00:03:01.250
+then you can execute this second code cell
+
+00:03:01.250 --> 00:03:04.625
+and it'll show you the results of all the unit tests.
+
+00:03:04.625 --> 00:03:07.004
+It says that I have a few errors,
+
+00:03:07.004 --> 00:03:08.835
+a few failed tests,
+
+00:03:08.835 --> 00:03:12.594
+so, I need to go back and work on the code.
+
+00:03:12.594 --> 00:03:16.930
+Writing code that you've already seen might seem like a silly exercise,
+
+00:03:16.930 --> 00:03:19.460
+but it should help solidify your understanding of
+
+00:03:19.460 --> 00:03:22.415
+how object-oriented programming works in Python.
+
+00:03:22.414 --> 00:03:26.299
+You'll work on a more challenging coding assignment at the end of the lesson.
+
+00:03:26.300 --> 00:03:31.085
+For now, see how much of the Gaussian class you can rewrite on your own.
+
+00:03:31.085 --> 00:03:36.599
+But don't worry, I've also included an answer file as part of the code.
+

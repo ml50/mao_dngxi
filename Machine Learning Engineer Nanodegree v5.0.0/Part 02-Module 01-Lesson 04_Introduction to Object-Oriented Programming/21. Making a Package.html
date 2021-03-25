@@ -1,0 +1,402 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Making a Package
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Object-Oriented Programming
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Procedural vs. Object-Oriented Programming.html">
+       02. Procedural vs. Object-Oriented Programming
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Class, Object, Method and Attribute.html">
+       03. Class, Object, Method and Attribute
+      </a>
+     </li>
+     <li class="">
+      <a href="04. OOP Syntax.html">
+       04. OOP Syntax
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Exercise OOP Syntax Practice - Part 1.html">
+       05. Exercise: OOP Syntax Practice - Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. A Couple of Notes about OOP.html">
+       06. A Couple of Notes about OOP
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise OOP Syntax Practice - Part 2.html">
+       07. Exercise: OOP Syntax Practice - Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Commenting Object-Oriented Code.html">
+       08. Commenting Object-Oriented Code
+      </a>
+     </li>
+     <li class="">
+      <a href="09. A Gaussian Class.html">
+       09. A Gaussian Class
+      </a>
+     </li>
+     <li class="">
+      <a href="10. How the Gaussian Class Works.html">
+       10. How the Gaussian Class Works
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Exercise Code the Gaussian Class.html">
+       11. Exercise: Code the Gaussian Class
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Magic Methods.html">
+       12. Magic Methods
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Exercise Code Magic Methods.html">
+       13. Exercise: Code Magic Methods
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Inheritance.html">
+       14. Inheritance
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Exercise Inheritance with Clothing.html">
+       15. Exercise: Inheritance with Clothing
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Inheritance Probability Distribution.html">
+       16. Inheritance: Probability Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Demo Inheritance Probability Distributions.html">
+       17. Demo: Inheritance Probability Distributions
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Advanced OOP Topics.html">
+       18. Advanced OOP Topics
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Organizing into Modules.html">
+       19. Organizing into Modules
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Demo Modularized Code.html">
+       20. Demo: Modularized Code
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Making a Package.html">
+       21. Making a Package
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Virtual Environments.html">
+       22. Virtual Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Exercise Making a Package and Pip Installing.html">
+       23. Exercise: Making a Package and Pip Installing
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Binomial Class.html">
+       24. Binomial Class
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Exercise Binomial Class.html">
+       25. Exercise: Binomial Class
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Scikit-learn Source Code.html">
+       26. Scikit-learn Source Code
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Putting Code on PyPi.html">
+       27. Putting Code on PyPi
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Exercise Upload to PyPi.html">
+       28. Exercise: Upload to PyPi
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Lesson Summary.html">
+       29. Lesson Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          21. Making a Package
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="making-a-package">
+          Making a Package
+         </h1>
+         <p>
+          In the previous section, the Distribution and Gaussian code was refactored into individual modules. A Python module is just a Python file containing code.
+         </p>
+         <p>
+          In this next section, you'll convert the Distributions code into a Python package. A package is a collection of Python modules. Although the previous code might already seem like it was a Python package because it contained multiple files, a Python package also needs an
+          <code>
+           __init__.py
+          </code>
+          file. In this section, you'll learn how to create this
+          <code>
+           __init__.py
+          </code>
+          file and then pip install the package into your local Python installation.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          15 Making a Package v2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="21. 15 Making a Package v2-Hj2OBr1CGZM.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="21. 15 Making a Package v2-Hj2OBr1CGZM.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="21. 15 Making a Package v2-Hj2OBr1CGZM.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="21. 15 Making a Package v2-Hj2OBr1CGZM.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="what-is-pip">
+          What is pip?
+         </h1>
+         <p>
+          Pip is a
+          <a href="https://pip.pypa.io/en/stable/" rel="noopener noreferrer" target="_blank">
+           Python package manager
+          </a>
+          that helps with installing and uninstalling Python packages. You might have used pip to install packages using the command line:
+          <code>
+           pip install numpy
+          </code>
+          .  When you execute a command like
+          <code>
+           pip install numpy
+          </code>
+          , pip will download the package from a Python package repository called
+          <a href="https://pypi.org/" rel="noopener noreferrer" target="_blank">
+           PyPi
+          </a>
+          . However, for this next exercise, you'll use pip to install a Python package from a local folder on your computer. The last part of the lesson will focus on uploading packages to PyPi so that you can share your package with the world.
+         </p>
+         <p>
+          You can complete this entire lesson within the classroom using the provided workspaces; however, if you want to develop a package locally on your computer, you should consider setting up a virtual environment. That way if you install your package on your computer, the package won't install into your main Python installation. Before starting the next exercise, the next part of the lesson will discuss what virtual environments are and how to use them.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="object-oriented-programming-and-python-packages">
+          Object-Oriented Programming and Python Packages
+         </h1>
+         <p>
+          A Python package does not need to use object-oriented programming. You could simply have a Python module with a set of functions. However, most if not all of the popular Python packages take advantage of object-oriented programming for a few reasons:
+         </p>
+         <ol>
+          <li>
+           Object-oriented programs are relatively easy to expand especially because of inheritance
+          </li>
+          <li>
+           Object-oriented programs obscure functionality from the user. Consider scipy packages. You don't need to know how the actual code works in order to use its classes and methods.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="22. Virtual Environments.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('21. Making a Package')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

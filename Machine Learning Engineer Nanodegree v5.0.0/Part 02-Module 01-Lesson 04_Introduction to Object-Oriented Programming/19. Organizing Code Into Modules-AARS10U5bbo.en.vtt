@@ -1,0 +1,172 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.725
+From this point in the lesson,
+
+00:00:01.725 --> 00:00:03.825
+you're going to use a Linux environment with
+
+00:00:03.825 --> 00:00:06.630
+Python scripts rather than a Jupyter notebook.
+
+00:00:06.629 --> 00:00:09.509
+Jupyter notebooks are great for data science,
+
+00:00:09.509 --> 00:00:13.474
+but they're not necessarily the best tool for writing modular software.
+
+00:00:13.474 --> 00:00:15.054
+In the next section,
+
+00:00:15.054 --> 00:00:19.804
+you'll see a classroom workspace like this one containing the code I'm about to show you.
+
+00:00:19.804 --> 00:00:21.429
+On the left-hand side,
+
+00:00:21.429 --> 00:00:24.004
+you'll see a list of directories that you can access.
+
+00:00:24.004 --> 00:00:28.030
+Each section in the rest of the lesson has its own folder.
+
+00:00:28.030 --> 00:00:33.445
+This part of the lesson is discussing the modularized code folder.
+
+00:00:33.445 --> 00:00:36.560
+Let's talk about how to modularize the Distribution
+
+00:00:36.560 --> 00:00:39.900
+and Gaussian classes with which you've just been working.
+
+00:00:39.899 --> 00:00:45.789
+In Python, a module is a single Python file that contains a collection of functions,
+
+00:00:45.789 --> 00:00:48.604
+classes, and or global variables.
+
+00:00:48.604 --> 00:00:51.864
+They're called modules because well, they're modular.
+
+00:00:51.865 --> 00:00:55.525
+Meaning that you can reuse these files in different applications.
+
+00:00:55.524 --> 00:01:00.229
+A package is essentially a collection of modules placed into a directory.
+
+00:01:00.229 --> 00:01:03.909
+If I double-click the folder containing the modularized code,
+
+00:01:03.909 --> 00:01:05.769
+there are three files.
+
+00:01:05.769 --> 00:01:12.579
+But these two are the most important, Gaussiandistribution.py and Generaldistribution.py.
+
+00:01:12.579 --> 00:01:16.765
+These files contain the same code from the section on inheritance.
+
+00:01:16.765 --> 00:01:19.879
+This folder isn't quite officially a package yet,
+
+00:01:19.879 --> 00:01:24.569
+but putting these files into the same folder is the first step to making a package.
+
+00:01:24.569 --> 00:01:28.614
+Opening the Generaldistribution.py file,
+
+00:01:28.614 --> 00:01:32.640
+the Distribution class code is the same as it was in the Jupyter notebook.
+
+00:01:32.640 --> 00:01:36.530
+Opening the Gaussiandistribution.py file,
+
+00:01:36.530 --> 00:01:39.995
+you can see that it contains the Gaussian class.
+
+00:01:39.995 --> 00:01:44.240
+The code here is almost the same as the code from the Jupyter notebook.
+
+00:01:44.239 --> 00:01:50.334
+However, notice that the Gaussian distribution file imports the Distribution class.
+
+00:01:50.334 --> 00:01:54.994
+This line says, go into the Generaldistribution.py file,
+
+00:01:54.995 --> 00:01:58.109
+and give me access to the Distribution class.
+
+00:01:58.109 --> 00:02:01.640
+I want to point out that you can also use the same syntax
+
+00:02:01.640 --> 00:02:05.180
+to import a function from a module not just a class.
+
+00:02:05.180 --> 00:02:09.140
+But for this lesson, we are focusing on object-oriented programming.
+
+00:02:09.139 --> 00:02:11.844
+So, I coded everything inside a class.
+
+00:02:11.844 --> 00:02:16.905
+How can I actually use this Gaussian distribution module in a Python application?
+
+00:02:16.905 --> 00:02:20.640
+You can see an example in the example code.py file.
+
+00:02:20.639 --> 00:02:23.579
+This file imports the Gaussian class,
+
+00:02:23.580 --> 00:02:26.765
+and then instantiates a Gaussian object.
+
+00:02:26.764 --> 00:02:29.809
+Note as well that my example code file and the
+
+00:02:29.810 --> 00:02:33.960
+Gaussiandistribution.py file are in the same directory.
+
+00:02:33.960 --> 00:02:38.540
+You'll see later in the lesson that packages and applications do not need to
+
+00:02:38.539 --> 00:02:42.984
+be in the same directory as long as Python knows where to look for a package.
+
+00:02:42.985 --> 00:02:48.385
+Next, I'm going to open a terminal window and run the example_code.py file.
+
+00:02:48.384 --> 00:02:51.019
+If you're not familiar with using the terminal,
+
+00:02:51.020 --> 00:02:52.400
+don't worry too much.
+
+00:02:52.400 --> 00:02:54.680
+Each section of this lesson comes with
+
+00:02:54.680 --> 00:02:58.460
+an instruction file discussing how to run commands in the terminal.
+
+00:02:58.460 --> 00:03:02.849
+Typing Python2_modularized_code/example_
+
+00:03:08.300 --> 00:03:12.320
+code.py and hitting enter,
+
+00:03:12.319 --> 00:03:15.969
+runs the Python module, example_code.py.
+
+00:03:15.969 --> 00:03:18.590
+This code prints out the mean of
+
+00:03:18.590 --> 00:03:22.349
+the instantiated Gaussian distribution object, which is 22.
+
+00:03:22.349 --> 00:03:23.699
+In the next section,
+
+00:03:23.699 --> 00:03:26.729
+you'll have the chance to look at this code in more detail.
+

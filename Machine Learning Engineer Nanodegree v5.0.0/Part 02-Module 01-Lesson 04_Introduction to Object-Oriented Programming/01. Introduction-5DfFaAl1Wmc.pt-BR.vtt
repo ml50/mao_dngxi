@@ -1,0 +1,93 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.822 --> 00:00:04.621
+INTRODUÇÃO
+
+00:00:04.989 --> 00:00:09.628
+Olá, bem-vindo à aula sobre
+programação orientada a objetos.
+
+00:00:09.662 --> 00:00:11.421
+Você vai fazer algo que aposto
+
+00:00:11.455 --> 00:00:14.766
+que muitos cientistas
+de dados nunca fizeram:
+
+00:00:14.800 --> 00:00:17.957
+construir um pacote Python
+do zero.
+
+00:00:17.991 --> 00:00:21.101
+Já pensou em como os pacotes
+scikit-learn, Pandas
+
+00:00:21.135 --> 00:00:24.041
+e SciPy funcionam?
+
+00:00:24.075 --> 00:00:26.024
+No caso, sob a superfície.
+
+00:00:26.058 --> 00:00:28.767
+O que significa exatamente
+quando o código diz:
+
+00:00:28.801 --> 00:00:34.423
+"import pandas as pd
+pd.read_csv()"?
+
+00:00:34.457 --> 00:00:35.777
+Talvez você não saiba,
+
+00:00:35.811 --> 00:00:38.776
+mas estava usando
+programação orientada a objetos.
+
+00:00:38.810 --> 00:00:44.153
+Na verdade, todos esses pacotes
+são construídos usando isso.
+
+00:00:45.343 --> 00:00:48.165
+A programação orientada
+a objetos permite criar
+
+00:00:48.199 --> 00:00:51.021
+programas modulares
+grandes e complexos,
+
+00:00:51.055 --> 00:00:53.974
+como o pacote scikit-learn.
+
+00:00:54.008 --> 00:00:56.590
+Esta lição tem duas partes.
+
+00:00:56.624 --> 00:01:01.487
+Primeiro você vai se familiarizar
+com a sintaxe da programação.
+
+00:01:01.521 --> 00:01:03.815
+Depois vai construir
+um pacote Python
+
+00:01:03.849 --> 00:01:06.598
+para analisar
+distribuições de probabilidade.
+
+00:01:06.632 --> 00:01:09.495
+No fim da lição, você terá
+um pacote Python
+
+00:01:09.529 --> 00:01:13.295
+que pode usar
+no seu portfólio profissional.
+
+00:01:13.329 --> 00:01:17.678
+Também vai ver como funcionam
+os pacotes Python.
+
+00:01:17.712 --> 00:01:20.547
+Vamos começar a aprender
+programação orientada a objetos.
+

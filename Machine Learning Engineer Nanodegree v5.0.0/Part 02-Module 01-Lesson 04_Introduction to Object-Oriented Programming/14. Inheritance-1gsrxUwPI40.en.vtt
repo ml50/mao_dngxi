@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.370 --> 00:00:10.125
+There's one more object oriented topic to cover in this lesson, inheritance.
+
+00:00:10.125 --> 00:00:13.275
+I think inheritance is easier to understand using
+
+00:00:13.275 --> 00:00:17.385
+a real world object like the shirt example from earlier in the lesson.
+
+00:00:17.385 --> 00:00:19.640
+The shirt had four attributes,
+
+00:00:19.640 --> 00:00:23.234
+a color, size, style, and price.
+
+00:00:23.234 --> 00:00:25.494
+The shirt also had two methods.
+
+00:00:25.495 --> 00:00:27.350
+A method to change the price,
+
+00:00:27.350 --> 00:00:30.455
+and a method for calculating a discounted price.
+
+00:00:30.454 --> 00:00:32.214
+As the store expands,
+
+00:00:32.215 --> 00:00:37.290
+it might stock other types of clothing like pants, socks, and dresses.
+
+00:00:37.289 --> 00:00:42.909
+These garments have a few attributes and methods in common with the shirt object.
+
+00:00:42.909 --> 00:00:47.269
+They probably all have a color, size, style,
+
+00:00:47.270 --> 00:00:53.440
+and price and, they could all use functions to change the price and calculate a discount.
+
+00:00:53.439 --> 00:00:59.549
+Why code separate classes for each new garment when they all have so much in common?
+
+00:00:59.549 --> 00:01:03.024
+Instead, you could code apparent clothing class,
+
+00:01:03.024 --> 00:01:05.429
+and then the pants, socks,
+
+00:01:05.430 --> 00:01:07.675
+dresses, and shirts classes,
+
+00:01:07.674 --> 00:01:12.250
+could inherit the attributes and methods of the clothing class.
+
+00:01:12.250 --> 00:01:16.165
+This looks like a family tree where clothing is the parent,
+
+00:01:16.165 --> 00:01:19.355
+and pants, socks, dresses,
+
+00:01:19.355 --> 00:01:21.579
+and shirts, are the children.
+
+00:01:21.579 --> 00:01:23.329
+One benefit is that,
+
+00:01:23.329 --> 00:01:26.510
+as you add more clothing types like blouses,
+
+00:01:26.510 --> 00:01:31.245
+you can easily add a new class that inherits from the clothing class as well.
+
+00:01:31.245 --> 00:01:33.995
+What if you wanted to add a new attribute like
+
+00:01:33.995 --> 00:01:37.525
+material to represent if the garment is made of cotton,
+
+00:01:37.525 --> 00:01:40.140
+nylon, or some other fabric?
+
+00:01:40.140 --> 00:01:42.174
+Now, all you have to do is,
+
+00:01:42.174 --> 00:01:44.825
+add a material attribute to the clothing class,
+
+00:01:44.825 --> 00:01:48.939
+and all the children classes automatically inherit the new attribute.
+
+00:01:48.939 --> 00:01:53.245
+Your code becomes more efficient to write and maintain.
+
+00:01:53.245 --> 00:01:57.100
+Next, I'll go through the Python syntax, for inheritance.
+
+00:01:57.099 --> 00:02:00.799
+Then, you'll add inheritance to the Gaussian class.
+

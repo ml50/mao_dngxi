@@ -1,0 +1,110 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.112 --> 00:00:04.023
+Pytest é uma ótima ferramenta,
+e permite que você comece a testar
+
+00:00:04.056 --> 00:00:06.190
+sem nenhum código boilerplate.
+
+00:00:06.223 --> 00:00:09.868
+Para instalar, faça um pip install
+desse jeito no seu terminal.
+
+00:00:09.901 --> 00:00:11.709
+Assim que o pytest
+estiver instalado,
+
+00:00:11.742 --> 00:00:14.524
+você só vai precisar criar
+um arquivo de teste
+
+00:00:14.557 --> 00:00:17.025
+e escrever uma função
+para o seu teste de unidade.
+
+00:00:17.058 --> 00:00:20.976
+Então insira pytest em um diretório
+do seu arquivo de teste.
+
+00:00:21.009 --> 00:00:23.271
+Cada ponto ao lado do nome
+do arquivo de teste
+
+00:00:23.304 --> 00:00:26.057
+representa um teste
+bem-sucedido.
+
+00:00:26.090 --> 00:00:28.331
+Se você tiver cometido
+um erro na função,
+
+00:00:28.364 --> 00:00:30.334
+e um dos testes falhar,
+
+00:00:30.367 --> 00:00:32.854
+o ponto será substituído
+por um F,
+
+00:00:32.887 --> 00:00:35.096
+e o erro será exibido abaixo.
+
+00:00:35.129 --> 00:00:37.297
+Seus testes
+não serão interrompidos
+
+00:00:37.330 --> 00:00:39.436
+por uma instrução assert
+que tenha falhado.
+
+00:00:39.469 --> 00:00:42.473
+Ele vai continuar a rodar o teste
+depois do que falhou,
+
+00:00:42.506 --> 00:00:45.893
+mas vai parar
+se houver erros de sintaxe.
+
+00:00:45.926 --> 00:00:49.759
+É bom ter apenas
+uma instrução assert por teste.
+
+00:00:49.792 --> 00:00:50.955
+Caso contrário,
+
+00:00:50.988 --> 00:00:54.955
+você não saberia exatamente
+quantos e quais testes falharam,
+
+00:00:54.988 --> 00:00:58.143
+já que só vemos
+quais funções de teste falharam.
+
+00:00:58.176 --> 00:00:59.746
+Outra observação importante
+
+00:00:59.779 --> 00:01:03.407
+é que você precisa iniciar
+seus arquivos de teste com test_
+
+00:01:03.440 --> 00:01:06.986
+e suas funções de teste
+com test_ também,
+
+00:01:07.019 --> 00:01:10.113
+para o pytest
+reconhecê-los e rodá-los.
+
+00:01:10.146 --> 00:01:11.817
+Isso é o padrão.
+
+00:01:11.850 --> 00:01:14.170
+Se quiser mudar,
+você pode fazer isso
+
+00:01:14.203 --> 00:01:17.633
+aprendendo sobre as configurações
+do pytest no link abaixo.
+

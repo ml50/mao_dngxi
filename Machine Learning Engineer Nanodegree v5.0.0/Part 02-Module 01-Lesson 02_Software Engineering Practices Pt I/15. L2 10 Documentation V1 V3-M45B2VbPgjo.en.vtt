@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.009 --> 00:00:10.750
+Documentation is additional text or illustrated information that comes with,
+
+00:00:10.750 --> 00:00:12.134
+or is embedded in,
+
+00:00:12.134 --> 00:00:14.050
+the code of software.
+
+00:00:14.050 --> 00:00:19.375
+Documentation is helpful for clarifying complex parts of your program,
+
+00:00:19.375 --> 00:00:24.240
+making your code easy for yourself and others to navigate and
+
+00:00:24.239 --> 00:00:29.614
+quickly conveying how and why different components of your program are used.
+
+00:00:29.614 --> 00:00:36.054
+There are several types of documentation you can add at different levels of your program.
+
+00:00:36.054 --> 00:00:39.179
+First, you can add documentation at
+
+00:00:39.179 --> 00:00:43.929
+the line level using in-line comments to clarify your code.
+
+00:00:43.929 --> 00:00:48.409
+Second, you can add documentation at the function or
+
+00:00:48.409 --> 00:00:53.929
+module level using docstrings to describe its purpose and details.
+
+00:00:53.929 --> 00:01:00.229
+Finally, you can add documentation at the project level using various tools such as
+
+00:01:00.229 --> 00:01:03.484
+a readme file to document details about the project
+
+00:01:03.484 --> 00:01:07.385
+as a whole and how all the files work together.
+
+00:01:07.385 --> 00:01:09.395
+In the next few sections,
+
+00:01:09.394 --> 00:01:13.969
+we will practice using these different modes of documentation and learn
+
+00:01:13.969 --> 00:01:19.959
+best practices to make sure our documentation is effective and useful.
+

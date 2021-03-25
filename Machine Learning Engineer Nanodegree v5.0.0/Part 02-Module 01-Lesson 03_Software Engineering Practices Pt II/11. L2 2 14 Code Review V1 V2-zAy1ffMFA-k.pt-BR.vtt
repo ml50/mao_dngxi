@@ -1,0 +1,66 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.856 --> 00:00:04.734
+REVISÃO DE CÓDIGO
+
+00:00:04.767 --> 00:00:07.654
+Revisões de código são
+uma prática comum no trabalho,
+
+00:00:07.687 --> 00:00:09.415
+e por uma boa razão.
+
+00:00:09.448 --> 00:00:12.645
+Revisar o código um do outro
+pode ajudar a pegar erros,
+
+00:00:12.678 --> 00:00:14.246
+garantir legibilidade,
+
+00:00:14.279 --> 00:00:16.336
+verificar se os padrões
+foram respeitados
+
+00:00:16.369 --> 00:00:18.058
+para o código
+de nível de produção
+
+00:00:18.091 --> 00:00:20.335
+e compartilhar conhecimento
+entre a equipe.
+
+00:00:20.368 --> 00:00:22.412
+É bom para o revisor,
+
+00:00:22.445 --> 00:00:25.561
+para o revisado
+e para a equipe.
+
+00:00:25.594 --> 00:00:29.087
+Idealmente, o código
+de um cientista de dados é revisado
+
+00:00:29.120 --> 00:00:31.165
+por outro cientista de dados,
+
+00:00:31.198 --> 00:00:36.410
+já que há certos erros e padrões
+específicos em ciência de dados.
+
+00:00:36.443 --> 00:00:38.602
+Por exemplo,
+vazamento de dados,
+
+00:00:38.635 --> 00:00:40.705
+má interpretação de recursos
+
+00:00:40.738 --> 00:00:43.911
+ou métodos de avaliação
+inapropriados.
+
+00:00:43.944 --> 00:00:46.880
+Vamos ver um exemplo
+de revisão de código.
+

@@ -1,0 +1,206 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.132 --> 00:00:02.819
+Digamos que você
+queira testar uma função
+
+00:00:02.852 --> 00:00:05.379
+para encontrar o quadrado
+perfeito mais próximo
+
+00:00:05.412 --> 00:00:08.118
+menor ou igual
+a um certo número.
+
+00:00:08.151 --> 00:00:11.677
+O 1º passo seria testá-la
+interativamente em um terminal
+
+00:00:11.710 --> 00:00:14.315
+ou notebook Jupyter, assim.
+
+00:00:14.348 --> 00:00:17.850
+Primeiro vamos importar
+a função do arquivo
+
+00:00:17.883 --> 00:00:20.544
+e agora vamos começar testando
+com diferentes valores.
+
+00:00:20.577 --> 00:00:23.207
+Vamos tentar 5,
+que deve retornar 4,
+
+00:00:23.240 --> 00:00:26.985
+já que é o quadrado perfeito
+mais próximo menor ou igual a ele.
+
+00:00:27.018 --> 00:00:29.146
+Vamos tentar
+um número negativo,
+
+00:00:29.179 --> 00:00:32.726
+que deve retornar 0,
+o que de fato acontece.
+
+00:00:32.759 --> 00:00:35.076
+Agora vamos tentar
+um quadrado perfeito,
+
+00:00:35.109 --> 00:00:38.443
+9, que deve retornar 9.
+
+00:00:38.476 --> 00:00:42.175
+E vamos tentar mais um,
+23, que retorna 16.
+
+00:00:42.208 --> 00:00:43.742
+Ótimo.
+
+00:00:44.506 --> 00:00:46.403
+Mesmo testando a função,
+
+00:00:46.436 --> 00:00:49.747
+ainda é uma maneira ruim,
+porque não é repetível,
+
+00:00:49.780 --> 00:00:52.351
+exige que você digite tudo
+manualmente
+
+00:00:52.384 --> 00:00:56.193
+e não diz se retorna
+as respostas corretas.
+
+00:00:56.226 --> 00:01:00.183
+Imagine ter centenas de funções
+para testar, e testar repetidamente,
+
+00:01:00.216 --> 00:01:02.472
+enquanto elas iteram
+no seu projeto.
+
+00:01:02.505 --> 00:01:07.991
+É claro que seria um método
+ineficaz e não confiável.
+
+00:01:08.024 --> 00:01:11.279
+Depois disso, considere colocar
+o código de teste em um arquivo
+
+00:01:11.312 --> 00:01:12.813
+para torná-lo repetível.
+
+00:01:12.846 --> 00:01:14.598
+Você vai acabar
+escrevendo isso.
+
+00:01:14.631 --> 00:01:17.675
+Bem melhor, porque o código teste
+está em um arquivo
+
+00:01:17.708 --> 00:01:21.644
+que você pode rodar para repetir
+os mesmos testes sem muito trabalho,
+
+00:01:21.677 --> 00:01:24.591
+mas ainda não diz
+se as respostas estão corretas.
+
+00:01:24.624 --> 00:01:26.305
+Você ainda terá que verificar:
+
+00:01:26.338 --> 00:01:28.239
+5, o resultado é 4,
+está correto.
+
+00:01:28.272 --> 00:01:30.214
+E -12, isso mesmo, é 0.
+
+00:01:30.247 --> 00:01:32.165
+Isso ainda é bem lento.
+
+00:01:32.198 --> 00:01:36.131
+Se imprimirmos os resultados
+corretos com cada resposta,
+
+00:01:36.164 --> 00:01:39.339
+aí sim teremos uma maneira clara
+de verificar os resultados.
+
+00:01:39.372 --> 00:01:42.567
+No entanto, ainda precisamos
+verificar os resultados manualmente
+
+00:01:42.600 --> 00:01:46.063
+para comparar o que eles retornaram
+e as respostas corretas.
+
+00:01:46.096 --> 00:01:50.234
+Não é ideal quando rodamos
+muitos testes de unidade.
+
+00:01:50.267 --> 00:01:53.195
+Podemos usar assert para garantir
+que todos os resultados
+
+00:01:53.228 --> 00:01:56.253
+sejam idênticos
+às respostas corretas.
+
+00:01:56.286 --> 00:02:00.077
+É bem melhor, já que verifica
+os resultados automaticamente.
+
+00:02:00.110 --> 00:02:03.432
+No entanto, veja o que acontece
+quando algo falha.
+
+00:02:03.465 --> 00:02:06.072
+Digamos que eu não tenha colocado
+esse sinal de igual
+
+00:02:06.105 --> 00:02:08.547
+e só tenha colocado
+um sinal de menor que.
+
+00:02:08.580 --> 00:02:11.702
+O resultado é bagunçado
+e interrompe o programa.
+
+00:02:11.735 --> 00:02:14.693
+Rodar um teste deveria rodar
+todos os testes de unidade
+
+00:02:14.726 --> 00:02:18.253
+e avisar quais falharam
+e quais funcionaram.
+
+00:02:18.286 --> 00:02:21.325
+Isso não pode acontecer
+se for interrompido a cada falha.
+
+00:02:21.358 --> 00:02:23.846
+Qualquer teste que acontecer
+depois dessa falha
+
+00:02:23.879 --> 00:02:26.051
+não apresentará os resultados.
+
+00:02:26.084 --> 00:02:27.192
+Além disso,
+
+00:02:27.225 --> 00:02:30.078
+a mensagem de falha
+é mais bagunçada do que deveria ser.
+
+00:02:30.111 --> 00:02:33.145
+Felizmente, há ótimas ferramentas
+disponíveis no Python
+
+00:02:33.178 --> 00:02:35.766
+que usaremos para criar
+testes de unidade eficazes.
+

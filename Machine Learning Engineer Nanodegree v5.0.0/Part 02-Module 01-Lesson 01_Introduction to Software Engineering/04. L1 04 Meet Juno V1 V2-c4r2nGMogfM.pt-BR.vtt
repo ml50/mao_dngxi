@@ -1,0 +1,230 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.267 --> 00:00:03.036
+Quero falar
+sobre duas experiências
+
+00:00:03.070 --> 00:00:05.973
+que demonstram como
+a engenharia de software
+
+00:00:06.006 --> 00:00:10.043
+sempre foi uma ferramenta essencial
+no trabalho com ciência de dados.
+
+00:00:10.077 --> 00:00:13.413
+Minha primeira experiência
+foi no meu trabalho anterior,
+
+00:00:13.447 --> 00:00:17.451
+no qual trabalhei como cientista
+de dados em uma pequena startup.
+
+00:00:17.484 --> 00:00:21.755
+Eu realizava projetos de aprendizado
+de máquina e de deep learning,
+
+00:00:21.788 --> 00:00:25.058
+nos quais personalizava
+experiências de compra
+
+00:00:25.092 --> 00:00:28.295
+e construía ferramentas analíticas
+para o negócio.
+
+00:00:28.328 --> 00:00:33.367
+Embora eu gostasse de abordar
+muitas áreas da ciência de dados,
+
+00:00:33.400 --> 00:00:35.135
+uma surpresa
+
+00:00:35.169 --> 00:00:39.039
+foi a quantidade de engenharia
+de software que aprendi e apliquei.
+
+00:00:39.072 --> 00:00:42.743
+Quase todo mundo
+era engenheiro de software,
+
+00:00:42.776 --> 00:00:47.814
+desde desenvolvedores web
+e móveis a arquitetos de sistemas.
+
+00:00:47.848 --> 00:00:52.286
+Para implementar e produzir
+minhas ideias de ciência de dados,
+
+00:00:52.319 --> 00:00:54.688
+tive que usar
+práticas adequadas
+
+00:00:54.721 --> 00:00:57.724
+e ferramentas utilizadas
+no desenvolvimento de software.
+
+00:00:57.758 --> 00:01:02.296
+Essas práticas me permitiram
+colaborar efetivamente
+
+00:01:02.329 --> 00:01:03.830
+com outros desenvolvedores
+
+00:01:03.864 --> 00:01:06.099
+e configurar
+meu código de ciência de dados
+
+00:01:06.132 --> 00:01:08.101
+para funcionar bem
+na produção.
+
+00:01:08.135 --> 00:01:11.171
+Como esse trabalho específico
+era em uma startup,
+
+00:01:11.205 --> 00:01:14.975
+eu me envolvi mais
+com a engenharia de software
+
+00:01:15.008 --> 00:01:17.544
+do que me envolveria
+em uma empresa maior.
+
+00:01:17.578 --> 00:01:21.481
+Como mencionamos anteriormente,
+existem benefícios significativos
+
+00:01:21.515 --> 00:01:26.520
+em praticar a engenharia de software
+como cientista de dados.
+
+00:01:27.354 --> 00:01:29.857
+Isso me leva
+à minha segunda experiência,
+
+00:01:29.890 --> 00:01:32.025
+sobre o meu primeiro
+grande projeto,
+
+00:01:32.059 --> 00:01:35.863
+antes mesmo de conseguir
+um emprego em ciência de dados.
+
+00:01:35.896 --> 00:01:37.831
+Havia um aplicativo
+de calendário
+
+00:01:37.865 --> 00:01:41.134
+com o qual eu organizava
+a minha vida e amava.
+
+00:01:41.168 --> 00:01:44.438
+Quando soube que estava sendo
+retirado da App Store,
+
+00:01:44.471 --> 00:01:46.607
+decidi construir
+minha própria versão.
+
+00:01:47.441 --> 00:01:51.178
+Eu queria dar um passo adiante
+e construir um Chatbot,
+
+00:01:51.211 --> 00:01:54.348
+que criaria automaticamente
+entradas de calendário para mim,
+
+00:01:54.381 --> 00:01:57.751
+e responderia às perguntas
+sobre a minha agenda.
+
+00:01:57.784 --> 00:02:00.120
+Usei minhas habilidades
+com ciência de dados
+
+00:02:00.153 --> 00:02:03.223
+para criar um Chatbot
+que classificava mensagens
+
+00:02:03.257 --> 00:02:06.059
+e gerava
+respostas apropriadas,
+
+00:02:06.093 --> 00:02:08.729
+mas eu não sabia nada
+sobre desenvolvimento web,
+
+00:02:08.762 --> 00:02:10.831
+e não sabia por onde começar.
+
+00:02:10.864 --> 00:02:13.967
+Então fiz um curso on-line
+sobre desenvolvimento web
+
+00:02:14.001 --> 00:02:16.470
+e descobri como construir
+um aplicativo da web
+
+00:02:16.503 --> 00:02:20.607
+que se integrava ao Chatbot
+e à API do calendário do Google,
+
+00:02:20.641 --> 00:02:23.577
+e configurava servidores
+para hospedá-lo on-line.
+
+00:02:23.610 --> 00:02:26.747
+No final, usei habilidades
+em ciência de dados
+
+00:02:26.780 --> 00:02:29.149
+e de engenharia de software
+
+00:02:29.183 --> 00:02:31.218
+para construir meu aplicativo.
+
+00:02:31.251 --> 00:02:34.521
+Valeu a pena, porque consegui
+transformar minha visão
+
+00:02:34.555 --> 00:02:38.792
+em realidade com essa poderosa
+combinação de habilidades.
+
+00:02:38.825 --> 00:02:43.430
+Pode parecer intimidador aprender
+sobre engenharia de software
+
+00:02:43.463 --> 00:02:46.400
+e aplicar isso ao trabalho
+de ciência de dados,
+
+00:02:46.433 --> 00:02:49.403
+mas é por isso que estamos aqui,
+para guiá-lo.
+
+00:02:49.436 --> 00:02:52.005
+Ganhei conhecimento
+e habilidades valiosas
+
+00:02:52.039 --> 00:02:55.275
+com recursos on-line
+e no trabalho,
+
+00:02:55.309 --> 00:02:57.945
+e sei que você
+também conseguirá.
+
+00:02:57.978 --> 00:03:01.348
+Andrew e eu mostraremos
+alguns truques que aprendemos
+
+00:03:01.381 --> 00:03:03.450
+para que você possa incorporar
+
+00:03:03.483 --> 00:03:07.354
+práticas úteis de engenharia
+de software como cientista de dados.
+

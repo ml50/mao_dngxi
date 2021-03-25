@@ -1,0 +1,69 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.951 --> 00:00:06.524
+LOG DE DADOS
+
+00:00:06.557 --> 00:00:08.688
+Ser capaz de fazer um bom log
+
+00:00:08.721 --> 00:00:11.704
+é uma prática muito útil
+em engenharia de software
+
+00:00:11.737 --> 00:00:14.528
+e especialmente útil
+em ciência de dados.
+
+00:00:14.561 --> 00:00:17.133
+Imagine que você esteja rodando
+um modelo toda noite
+
+00:00:17.166 --> 00:00:19.282
+e, quando você chega
+uma manhã no trabalho,
+
+00:00:19.315 --> 00:00:23.234
+você vê que ele travou
+ou começou a gerar resultados ruins.
+
+00:00:23.267 --> 00:00:26.002
+Você quer verificar a causa,
+o contexto
+
+00:00:26.035 --> 00:00:28.977
+e entender
+como ajustar o problema.
+
+00:00:29.010 --> 00:00:30.724
+Como você
+não estava fisicamente lá
+
+00:00:30.757 --> 00:00:33.840
+para ver e depurar
+quando o problema ocorreu,
+
+00:00:33.873 --> 00:00:37.071
+é importante imprimir
+mensagens de log descritivas
+
+00:00:37.104 --> 00:00:39.063
+para ajudar você
+a rastrear o problema
+
+00:00:39.096 --> 00:00:42.365
+e entender o que está
+acontecendo no código.
+
+00:00:42.398 --> 00:00:43.681
+No próximo vídeo,
+
+00:00:43.714 --> 00:00:46.591
+veremos exemplos
+de boas mensagens de log
+
+00:00:46.624 --> 00:00:49.583
+e boas ferramentas de log
+disponíveis para nós.
+

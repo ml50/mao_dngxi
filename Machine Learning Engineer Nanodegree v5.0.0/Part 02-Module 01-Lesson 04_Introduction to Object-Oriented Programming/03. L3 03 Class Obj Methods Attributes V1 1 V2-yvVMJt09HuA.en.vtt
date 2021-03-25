@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.849 --> 00:00:08.039
+We're getting close to writing some code,
+
+00:00:08.039 --> 00:00:12.799
+but I first want to clarify some terms associated with object oriented programming.
+
+00:00:12.800 --> 00:00:17.600
+I said that an object has characteristics and actions.
+
+00:00:17.600 --> 00:00:20.679
+These characteristics have a specific name.
+
+00:00:20.679 --> 00:00:25.050
+They're called attributes, and the actions are called methods.
+
+00:00:25.050 --> 00:00:28.295
+Going back to the shirt example, the color,
+
+00:00:28.295 --> 00:00:32.195
+size, style, and price would be attributes.
+
+00:00:32.195 --> 00:00:35.884
+The action of changing the price, would be a method.
+
+00:00:35.884 --> 00:00:42.484
+There are two more terms I want to differentiate for you, object versus class.
+
+00:00:42.484 --> 00:00:46.045
+Here's a reminder of what I mean by object.
+
+00:00:46.045 --> 00:00:48.774
+To continue with the shirt example,
+
+00:00:48.774 --> 00:00:51.070
+an object would be a specific shirt,
+
+00:00:51.070 --> 00:00:53.963
+like a yellow shirt, size: medium,
+
+00:00:53.963 --> 00:00:58.060
+short sleeves style with a price of $15.
+
+00:00:58.060 --> 00:01:01.310
+The yellow shirt could change its price.
+
+00:01:01.310 --> 00:01:05.299
+Another object would be a different shirt, like a green,
+
+00:01:05.299 --> 00:01:10.000
+small, long-sleeved shirt that costs $20.
+
+00:01:10.000 --> 00:01:14.245
+The green shirt could change its own price as well.
+
+00:01:14.245 --> 00:01:19.170
+Do you notice anything special about the yellow shirt and green shirt?
+
+00:01:19.170 --> 00:01:22.480
+They both have the exact same attributes.
+
+00:01:22.480 --> 00:01:25.100
+In other words, they both have a color,
+
+00:01:25.099 --> 00:01:28.444
+size, style, and price.
+
+00:01:28.444 --> 00:01:30.875
+They also have the same method,
+
+00:01:30.875 --> 00:01:33.415
+it's like they came from a blueprint,
+
+00:01:33.415 --> 00:01:38.245
+a generic shirt consisting of all the attributes and methods.
+
+00:01:38.245 --> 00:01:42.875
+This generic version of an object is called a class.
+
+00:01:42.875 --> 00:01:47.734
+You've just hit on the power of object-oriented programming.
+
+00:01:47.734 --> 00:01:52.924
+You only need to define this blueprint known as class one time,
+
+00:01:52.924 --> 00:01:58.009
+and then you can create specific objects from the class over and over again.
+
+00:01:58.010 --> 00:02:00.980
+In other words, you can use the shirt blueprint,
+
+00:02:00.980 --> 00:02:03.755
+to make as many shirt objects as you want,
+
+00:02:03.754 --> 00:02:06.155
+in any size, shape,
+
+00:02:06.155 --> 00:02:09.390
+color, style, and price.
+
+00:02:09.389 --> 00:02:12.979
+Keep this picture in your head of how the words class,
+
+00:02:12.979 --> 00:02:16.849
+object, attribute, and method relate to each other.
+
+00:02:16.849 --> 00:02:20.739
+These are fundamental terms in object-oriented programming,
+
+00:02:20.740 --> 00:02:23.555
+and I'll be using them throughout the lesson.
+
+00:02:23.555 --> 00:02:27.620
+We're going to see what all of this looks like with Python code.
+
+00:02:27.620 --> 00:02:32.349
+First, I'll give you an overview of object-oriented programming syntax.
+
+00:02:32.349 --> 00:02:37.039
+Then you can play around with my code and you'll write your own class.
+

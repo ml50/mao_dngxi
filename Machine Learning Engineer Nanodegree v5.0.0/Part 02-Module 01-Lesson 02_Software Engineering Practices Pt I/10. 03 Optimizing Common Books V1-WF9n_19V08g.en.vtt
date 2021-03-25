@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.490
+Let's go through an example scenario where we optimize some code to be more efficient.
+
+00:00:06.490 --> 00:00:10.919
+Say we're managing books for a store and we want to find
+
+00:00:10.919 --> 00:00:15.070
+all the books published within the last two years about code.
+
+00:00:15.070 --> 00:00:20.740
+We have a file that lists all the IDs of books published in the last two years,
+
+00:00:20.739 --> 00:00:24.854
+called the books published last two years.txt.
+
+00:00:24.855 --> 00:00:29.940
+As well as a file for all Coding books, all_coding_books.txt.
+
+00:00:29.940 --> 00:00:35.120
+Since we want to find all the coding books published within the last two years,
+
+00:00:35.119 --> 00:00:39.640
+we'd want to find the book IDs included in both of these files.
+
+00:00:39.640 --> 00:00:42.530
+Your coworker came up with one approach and
+
+00:00:42.530 --> 00:00:46.175
+shows you this code to find the books and both files.
+
+00:00:46.174 --> 00:00:48.059
+After reading in the files,
+
+00:00:48.060 --> 00:00:52.775
+their strategy is to loop through each book in the first file,
+
+00:00:52.774 --> 00:00:55.734
+check if it's contained in the second file,
+
+00:00:55.734 --> 00:00:58.899
+and if so, add it to the final list.
+
+00:00:58.899 --> 00:01:02.509
+This makes sense and is an intuitive first approach.
+
+00:01:02.509 --> 00:01:04.924
+Let's see how long it takes to run.
+
+00:01:04.924 --> 00:01:08.494
+So that took about 13.6 seconds.
+
+00:01:08.495 --> 00:01:12.290
+There are several things we can do to make this more efficient.
+
+00:01:12.290 --> 00:01:18.150
+Here's some tips. First, use vector operations over loops when possible.
+
+00:01:18.150 --> 00:01:21.405
+Numpy and Pandas are your best friends for this.
+
+00:01:21.405 --> 00:01:26.299
+There are many cases in which you can replace loops with NumPy and Pandas
+
+00:01:26.299 --> 00:01:31.700
+functions that use vector operations to make your computations a lot faster.
+
+00:01:31.700 --> 00:01:34.965
+Sometimes there's a method that does exactly what you need.
+
+00:01:34.965 --> 00:01:37.835
+Other times, you need to be a little creative.
+
+00:01:37.834 --> 00:01:41.719
+This example in particular has a useful method you can use.
+
+00:01:41.719 --> 00:01:44.179
+Let me show you how I would approach this.
+
+00:01:44.180 --> 00:01:46.415
+No joke, I google.
+
+00:01:46.415 --> 00:01:49.580
+How to find common elements in two NumPy arrays,
+
+00:01:49.579 --> 00:01:51.329
+and here are the results I get.
+
+00:01:51.329 --> 00:01:54.530
+Used NumPy's intersect 1d method to get
+
+00:01:54.530 --> 00:01:59.329
+the intersection of the recent books including books arrays.
+
+00:01:59.329 --> 00:02:02.420
+I'll give you the same notebook and I'll put a cell right
+
+00:02:02.420 --> 00:02:05.689
+here with code to record the time it takes to run.
+
+00:02:05.689 --> 00:02:08.564
+Write your line of code in this line.
+
+00:02:08.564 --> 00:02:13.634
+The second tip is to know your data structures and which methods are faster.
+
+00:02:13.634 --> 00:02:16.409
+In addition to relying on Numpy and Pandas,
+
+00:02:16.409 --> 00:02:20.539
+it's often good to double-check whether there is a data structure or method
+
+00:02:20.539 --> 00:02:24.729
+in Python that you can use to accomplish your task more effectively.
+
+00:02:24.729 --> 00:02:26.669
+For example, in this case,
+
+00:02:26.669 --> 00:02:30.349
+do you recall a data structure in Python that stores a group of
+
+00:02:30.349 --> 00:02:35.299
+unique elements and can quickly compute intersections and unions of different groups?
+
+00:02:35.300 --> 00:02:38.870
+Sets. You can read more about why sets are more
+
+00:02:38.870 --> 00:02:43.064
+efficient than lists for this task in the link at the bottom of this page.
+
+00:02:43.064 --> 00:02:46.294
+Also, remember how I said I Googled everything?
+
+00:02:46.294 --> 00:02:52.034
+Last time, I was Googling how to find common elements in specifically Numpy arrays.
+
+00:02:52.034 --> 00:02:56.270
+But you can go even more general and Google something like,
+
+00:02:56.270 --> 00:02:59.450
+how to find common elements into lists Python and you'll
+
+00:02:59.449 --> 00:03:03.099
+see posts like this that share and compare different answers.
+
+00:03:03.099 --> 00:03:06.174
+You can see the set being introduced here.
+
+00:03:06.175 --> 00:03:09.649
+This seems to have a lot of votes but ultimately,
+
+00:03:09.649 --> 00:03:13.985
+we should try different methods and compare their efficiency for our example.
+
+00:03:13.985 --> 00:03:18.050
+Because different methods perform differently in different contexts,
+
+00:03:18.050 --> 00:03:20.730
+it's smart to always test for yourself.
+
+00:03:20.729 --> 00:03:23.224
+In the next cell of the Jupyter notebook,
+
+00:03:23.224 --> 00:03:26.989
+find out how long it takes to compute the common elements of
+
+00:03:26.990 --> 00:03:32.070
+recent books and coding books using the Python sets intersection method.
+
+00:03:32.069 --> 00:03:35.000
+Here again is some code to measure how long it takes.
+

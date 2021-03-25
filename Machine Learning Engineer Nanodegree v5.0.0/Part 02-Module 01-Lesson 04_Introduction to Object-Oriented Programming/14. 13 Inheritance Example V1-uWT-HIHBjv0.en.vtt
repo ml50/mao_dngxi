@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.935
+Here, you can see the Clothing class that I was just talking about.
+
+00:00:03.935 --> 00:00:05.400
+It looks a lot like
+
+00:00:05.400 --> 00:00:09.100
+the Shirt and Pants class that you quoted at the beginning of the lesson.
+
+00:00:09.099 --> 00:00:12.974
+The Shirt and Pants classes inherit from the Clothing class,
+
+00:00:12.974 --> 00:00:18.324
+that's why the class declaration of Shirt and Pants have Clothing in parentheses.
+
+00:00:18.324 --> 00:00:22.199
+This tells Python that the Shirt class and Pants class should
+
+00:00:22.199 --> 00:00:26.335
+inherit all of the attributes and functions of the Clothing class.
+
+00:00:26.335 --> 00:00:29.080
+Looking inside the Shirt's init method,
+
+00:00:29.079 --> 00:00:33.164
+there's this new syntax where clothing.init gets called.
+
+00:00:33.164 --> 00:00:35.685
+All that means is that a Shirt object
+
+00:00:35.685 --> 00:00:39.410
+initializes itself using the Clothing's init method.
+
+00:00:39.409 --> 00:00:42.424
+Then, you can add any extra attributes like
+
+00:00:42.424 --> 00:00:47.765
+the long or short attribute in the Shirt class or waist in the Pants class.
+
+00:00:47.765 --> 00:00:52.384
+You could also extend the Shirt or Pants class by adding more methods.
+
+00:00:52.384 --> 00:00:57.500
+To give an example, I could add a double price method just to the Shirt class.
+
+00:00:57.500 --> 00:01:00.924
+You could also override any of the Clothing methods.
+
+00:01:00.924 --> 00:01:06.019
+For example, the Pants class is overriding the calculate_discount method.
+
+00:01:06.019 --> 00:01:09.469
+Remember, one of the main benefits of inheritance is that
+
+00:01:09.469 --> 00:01:12.920
+you can add attributes and methods to the Clothing class,
+
+00:01:12.920 --> 00:01:17.745
+and then both the Shirt and Pants class will have those attributes and methods as well.
+
+00:01:17.745 --> 00:01:22.000
+Study all of this is code to get used to the syntax of inheritance.
+

@@ -1,0 +1,71 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.762 --> 00:00:04.983
+PRÁTICAS DE ENGENHARIA DE SOFTWARE
+PARTE 1
+
+00:00:05.016 --> 00:00:09.177
+Bem-vindo à 1ª parte das práticas
+de engenharia de software.
+
+00:00:09.210 --> 00:00:12.263
+Falaremos
+sobre algumas técnicas
+
+00:00:12.296 --> 00:00:14.743
+que adotamos
+como cientistas de dados
+
+00:00:14.776 --> 00:00:19.408
+para sermos desenvolvedores
+e nos prepararmos para o código.
+
+00:00:19.441 --> 00:00:23.824
+Veremos como escrever
+um código limpo e modular,
+
+00:00:23.857 --> 00:00:26.672
+como melhorar
+a eficiência do código,
+
+00:00:26.705 --> 00:00:31.886
+como documentar de forma eficaz
+e como usar o controle de versão.
+
+00:00:31.919 --> 00:00:35.934
+Estas são habilidades essenciais
+para um programador
+
+00:00:35.967 --> 00:00:40.438
+e ajudarão muito na implementação
+de soluções de produção.
+
+00:00:40.471 --> 00:00:44.640
+Além disso, cientistas de dados
+trabalham lado a lado
+
+00:00:44.673 --> 00:00:46.415
+com engenheiros de software,
+
+00:00:46.448 --> 00:00:49.023
+e é importante
+que vocês trabalhem juntos.
+
+00:00:49.056 --> 00:00:52.655
+Isso significa estar familiarizado
+com as práticas padrão,
+
+00:00:52.688 --> 00:00:58.016
+para poder colaborar efetivamente
+com outras pessoas no código.
+
+00:00:58.049 --> 00:01:00.322
+Vejamos cada uma
+dessas práticas
+
+00:01:00.355 --> 00:01:04.122
+para ver como se aplicam
+aos cientistas de dados.
+

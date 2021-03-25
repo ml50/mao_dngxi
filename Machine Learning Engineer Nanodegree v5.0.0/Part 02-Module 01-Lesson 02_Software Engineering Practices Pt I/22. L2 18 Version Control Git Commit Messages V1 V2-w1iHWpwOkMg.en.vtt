@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.129 --> 00:00:08.419
+After working on this recommendation feature for a while,
+
+00:00:08.419 --> 00:00:12.745
+you've created a model to produce recommendations based on friend groups.
+
+00:00:12.744 --> 00:00:16.899
+The model is scored pretty well on your validation set,
+
+00:00:16.899 --> 00:00:20.744
+but you remember it did even better just a few hours ago.
+
+00:00:20.745 --> 00:00:23.970
+You've been experimenting with tweaks to this model,
+
+00:00:23.969 --> 00:00:26.759
+and you're not sure what combination of parameters
+
+00:00:26.759 --> 00:00:30.265
+and tweaks were in place when your model scored the highest.
+
+00:00:30.265 --> 00:00:35.460
+Luckily, you've been including a message with each commit noting what
+
+00:00:35.460 --> 00:00:40.689
+you did as well as the training and cross-validation scores for each commit.
+
+00:00:40.689 --> 00:00:44.869
+Instead of spending a bunch of time trying to retrace your steps from
+
+00:00:44.869 --> 00:00:49.649
+memory or testing a bunch of tweaks again to try and get the same score,
+
+00:00:49.649 --> 00:00:52.804
+you can check your commit history seeing messages
+
+00:00:52.804 --> 00:00:56.799
+of the changes you need and how well it performed.
+
+00:00:56.799 --> 00:01:01.140
+The model at this commit seem to be scoring the highest,
+
+00:01:01.140 --> 00:01:03.295
+so you decide to take a look.
+
+00:01:03.295 --> 00:01:05.260
+After inspecting your code,
+
+00:01:05.260 --> 00:01:11.460
+you've realized what modifications made this perform well and use those for your model.
+
+00:01:11.459 --> 00:01:15.574
+Now, you're pretty confident merging this back
+
+00:01:15.575 --> 00:01:19.280
+to the develop branch and pushing the updated recommendation engine.
+

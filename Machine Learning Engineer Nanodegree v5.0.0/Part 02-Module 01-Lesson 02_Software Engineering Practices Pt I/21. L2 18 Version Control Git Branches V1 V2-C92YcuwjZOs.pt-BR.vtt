@@ -1,0 +1,225 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.807 --> 00:00:04.802
+CONTROLE DE VERSÃO
+BRANCHES GIT
+
+00:00:04.835 --> 00:00:07.905
+Imagine que você é parte
+de uma equipe de ciência de dados
+
+00:00:07.938 --> 00:00:11.507
+responsável por construir
+um sistema de recomendação.
+
+00:00:11.540 --> 00:00:12.968
+Você está sentado à mesa,
+
+00:00:13.001 --> 00:00:16.035
+trabalhando em um recurso
+que incorpora dados demográficos -
+
+00:00:16.068 --> 00:00:19.087
+como idade, gênero
+e estado civil -
+
+00:00:19.120 --> 00:00:21.923
+para aperfeiçoar
+recomendações aos usuários.
+
+00:00:21.956 --> 00:00:26.255
+Você está no meio da implementação,
+quando sua chefe avisa
+
+00:00:26.288 --> 00:00:28.251
+que a equipe
+de inteligência de negócios
+
+00:00:28.284 --> 00:00:30.385
+prevê que os grupos de amigos
+do usuário
+
+00:00:30.418 --> 00:00:33.448
+produzem as melhores recomendações
+a curto prazo,
+
+00:00:33.481 --> 00:00:36.389
+e quer priorizar isso
+imediatamente.
+
+00:00:36.422 --> 00:00:40.139
+Olhando para o sistema
+de recomendação na sua tela,
+
+00:00:40.172 --> 00:00:43.539
+vemos códigos não finalizados
+e que não funcionam,
+
+00:00:43.572 --> 00:00:47.016
+adicionados enquanto você trabalhava
+no recurso demográfico.
+
+00:00:47.049 --> 00:00:50.015
+Rodar esse código agora
+não funcionaria.
+
+00:00:50.048 --> 00:00:53.831
+Para fazer esse novo recurso
+de grupos de amigos agora,
+
+00:00:53.864 --> 00:00:56.218
+você teria que desfazer
+todo esse trabalho,
+
+00:00:56.251 --> 00:00:59.135
+talvez apagando
+as linhas modificadas
+
+00:00:59.168 --> 00:01:01.921
+e retirando os commits
+dos códigos adicionados.
+
+00:01:01.954 --> 00:01:05.326
+Esse seria um caminho
+bem bagunçado e arriscado.
+
+00:01:05.359 --> 00:01:07.461
+Ou digamos que você
+esteja usando
+
+00:01:07.494 --> 00:01:10.007
+um sistema
+de controle de versão, como Git.
+
+00:01:10.040 --> 00:01:12.257
+Você pode apenas fazer
+um commit das mudanças
+
+00:01:12.290 --> 00:01:15.062
+e criar um novo branch
+para o novo recurso.
+
+00:01:15.095 --> 00:01:17.099
+Aqui está o que quero dizer.
+
+00:01:17.132 --> 00:01:21.354
+Sua empresa tem um repositório Git
+para seu sistema de recomendação
+
+00:01:21.387 --> 00:01:23.080
+e um branch master,
+
+00:01:23.113 --> 00:01:25.556
+com o código
+usado na produção,
+
+00:01:25.589 --> 00:01:27.253
+e o branch de desenvolvimento,
+
+00:01:27.286 --> 00:01:29.696
+com a última versão
+estável do código
+
+00:01:29.729 --> 00:01:32.387
+com as mudanças
+para o próximo lançamento.
+
+00:01:32.420 --> 00:01:36.733
+Você tem uma versão local
+desse repositório no seu laptop.
+
+00:01:36.766 --> 00:01:38.902
+Para conseguir
+a última versão estável,
+
+00:01:38.935 --> 00:01:41.443
+é só puxá-la do branch
+de desenvolvimento.
+
+00:01:41.476 --> 00:01:44.619
+Ao começar a trabalhar
+no recurso demográfico,
+
+00:01:44.652 --> 00:01:48.061
+você vai criar um novo branch
+chamado "demográfico"
+
+00:01:48.094 --> 00:01:51.386
+e vai começar a trabalhar
+no seu código nesse branch.
+
+00:01:51.419 --> 00:01:53.348
+No entanto,
+no meio do trabalho,
+
+00:01:53.381 --> 00:01:55.629
+você vai precisar trabalhar
+em outro recurso.
+
+00:01:55.662 --> 00:01:58.858
+Você vai fazer um commit
+das mudanças no branch demográfico
+
+00:01:58.891 --> 00:02:01.803
+e vai voltar para o branch
+de desenvolvimento.
+
+00:02:01.836 --> 00:02:04.114
+No branch de desenvolvimento
+estável,
+
+00:02:04.147 --> 00:02:06.913
+você vai criar outro branch
+para um novo recurso,
+
+00:02:06.946 --> 00:02:08.840
+chamado "grupos de amigos".
+
+00:02:08.873 --> 00:02:11.845
+Ao terminar seu trabalho
+no branch de grupos de amigos,
+
+00:02:11.878 --> 00:02:13.730
+você vai fazer um commit
+das mudanças,
+
+00:02:13.763 --> 00:02:16.060
+vai voltar para o branch
+de desenvolvimento,
+
+00:02:16.093 --> 00:02:18.371
+vai fundi-lo com o branch
+de grupos de amigos
+
+00:02:18.404 --> 00:02:20.869
+e levá-lo para o branch
+de desenvolvimento
+
+00:02:20.902 --> 00:02:22.441
+do repositório remoto.
+
+00:02:22.474 --> 00:02:26.025
+Agora você pode voltar
+para o branch demográfico
+
+00:02:26.058 --> 00:02:29.371
+para continuar
+com o andamento do recurso.
+
+00:02:29.404 --> 00:02:31.035
+Como pode ver aqui,
+
+00:02:31.068 --> 00:02:33.856
+o uso correto dos commits
+e branches do Git
+
+00:02:33.889 --> 00:02:36.908
+pode ajudar você a trabalhar
+em múltiplos recursos de uma vez
+
+00:02:36.941 --> 00:02:38.755
+e alternar entre eles
+com facilidade.
+

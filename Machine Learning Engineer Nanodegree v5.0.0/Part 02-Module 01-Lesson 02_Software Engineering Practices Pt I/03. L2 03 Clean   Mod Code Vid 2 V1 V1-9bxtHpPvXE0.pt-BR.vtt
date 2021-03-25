@@ -1,0 +1,143 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.847 --> 00:00:04.827
+CÓDIGO LIMPO E MODULAR
+REFATORAÇÃO
+
+00:00:04.860 --> 00:00:07.724
+Quando paramos para começar
+a escrever o código
+
+00:00:07.757 --> 00:00:09.822
+para uma nova ideia ou tarefa,
+
+00:00:09.855 --> 00:00:13.478
+é fácil não prestarmos atenção
+na escrita de um bom código
+
+00:00:13.511 --> 00:00:16.862
+e nos concentrarmos mais
+em fazê-lo funcionar.
+
+00:00:16.895 --> 00:00:20.693
+O código normalmente fica
+um pouco confuso e repetitivo
+
+00:00:20.726 --> 00:00:22.870
+nesse estágio
+de desenvolvimento.
+
+00:00:22.903 --> 00:00:24.730
+Tudo bem,
+
+00:00:24.763 --> 00:00:27.886
+é difícil saber qual é a melhor
+maneira de escrever o código
+
+00:00:27.919 --> 00:00:29.503
+antes de terminá-lo.
+
+00:00:29.536 --> 00:00:33.909
+Por exemplo, pode ser difícil
+saber exatamente quais funções
+
+00:00:33.942 --> 00:00:37.221
+modularizariam melhor
+os passos do código
+
+00:00:37.254 --> 00:00:40.046
+se ainda não experimentamos
+com ele
+
+00:00:40.079 --> 00:00:43.229
+para entender
+quais são esses passos.
+
+00:00:43.262 --> 00:00:45.757
+É por isso que devemos
+sempre voltar
+
+00:00:45.790 --> 00:00:47.572
+e fazer uma refatoração
+
+00:00:47.605 --> 00:00:50.709
+depois de conseguir
+um modelo que funciona.
+
+00:00:50.742 --> 00:00:55.229
+A refatoração do código é um termo
+de reestruturação do código
+
+00:00:55.262 --> 00:00:57.822
+que melhora
+a estrutura interna
+
+00:00:57.855 --> 00:01:02.035
+sem alterar
+sua funcionalidade externa.
+
+00:01:02.068 --> 00:01:07.690
+A refatoração possibilita limpar
+e modularizar o código
+
+00:01:07.723 --> 00:01:11.139
+depois de termos um código
+que funciona.
+
+00:01:11.172 --> 00:01:14.772
+A curto prazo, podemos ver isso
+como uma perda de tempo,
+
+00:01:14.805 --> 00:01:18.011
+pois poderíamos nos concentrar
+no próximo recurso,
+
+00:01:18.044 --> 00:01:22.100
+no entanto, reservar um tempo
+para refatorar o código
+
+00:01:22.133 --> 00:01:25.966
+acelera o tempo que levará
+para que você e sua equipe
+
+00:01:25.999 --> 00:01:28.079
+desenvolvam o código
+a longo prazo.
+
+00:01:28.719 --> 00:01:31.214
+Refatorar o código
+de forma consistente,
+
+00:01:31.247 --> 00:01:35.085
+além de facilitar
+na hora de revisá-lo,
+
+00:01:35.118 --> 00:01:38.814
+também permite reutilizar partes
+em tarefas diferentes
+
+00:01:38.847 --> 00:01:42.926
+e aprender técnicas de programação
+fortes ao longo do caminho.
+
+00:01:42.959 --> 00:01:45.638
+Quanto mais praticamos
+a refatoração do código,
+
+00:01:45.671 --> 00:01:48.115
+mais intuitivo ele se torna.
+
+00:01:48.148 --> 00:01:52.667
+Você começará a escrever códigos
+mais organizados
+
+00:01:52.700 --> 00:01:56.228
+com menos coisas para reorganizar
+na hora da revisão.
+
+00:01:56.261 --> 00:02:00.181
+Vamos ver alguns exemplos
+e praticar um pouco.
+

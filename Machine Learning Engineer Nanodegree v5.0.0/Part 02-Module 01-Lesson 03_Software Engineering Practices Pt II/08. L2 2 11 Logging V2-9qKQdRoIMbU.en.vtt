@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.870 --> 00:00:08.759
+Being able to log well,
+
+00:00:08.759 --> 00:00:14.429
+is a very useful practice in software engineering and especially useful in data science.
+
+00:00:14.429 --> 00:00:18.390
+Imagine you're running a model every night and when you come into work
+
+00:00:18.390 --> 00:00:23.005
+one morning you see that it crashed or started creating poor results.
+
+00:00:23.004 --> 00:00:25.129
+You want to check the cause,
+
+00:00:25.129 --> 00:00:28.529
+the context, and figure out how to address the issue.
+
+00:00:28.530 --> 00:00:33.695
+Since you weren't physically there to see and debug when the issue occurred,
+
+00:00:33.695 --> 00:00:37.770
+it's important to print out descriptive log messages to help you
+
+00:00:37.770 --> 00:00:42.080
+trace back your issue and understand what's happening in your code.
+
+00:00:42.079 --> 00:00:43.729
+In the next video,
+
+00:00:43.729 --> 00:00:45.364
+we will look at some examples of
+
+00:00:45.365 --> 00:00:50.160
+good log messages and see useful logging tools available to us.
+

@@ -1,0 +1,355 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+PyPi also known as
+
+00:00:02.279 --> 00:00:08.400
+the Python Package Index is a repository where Python packages are stored.
+
+00:00:08.400 --> 00:00:14.289
+When you pip install a package you are downloading and installing files from PyPi.
+
+00:00:14.289 --> 00:00:17.044
+Anyone can upload a package to PyPi.
+
+00:00:17.045 --> 00:00:20.015
+I'm going to show you the basics of how to do it.
+
+00:00:20.015 --> 00:00:26.625
+The PyPi website actually has a test repository as well as the regular repository.
+
+00:00:26.625 --> 00:00:29.490
+This is the test repository website.
+
+00:00:29.489 --> 00:00:32.460
+I'd suggest first uploading your package to
+
+00:00:32.460 --> 00:00:35.399
+the test repository to make sure everything works as
+
+00:00:35.399 --> 00:00:42.070
+expected then you can upload the package to the regular repository on this website.
+
+00:00:42.070 --> 00:00:44.840
+Remember that anybody can download and
+
+00:00:44.840 --> 00:00:48.365
+install your package if it's in the regular repository.
+
+00:00:48.365 --> 00:00:54.765
+The first step is to create an account on PyPi and the TestPyPi repositories.
+
+00:00:54.765 --> 00:00:56.810
+If you go to each website,
+
+00:00:56.810 --> 00:01:00.490
+you can click on Register and make an account.
+
+00:01:00.490 --> 00:01:03.910
+I've already done this so I'm going to skip this step.
+
+00:01:03.909 --> 00:01:09.649
+Next, go to your terminal and enter the directory with your package files.
+
+00:01:09.650 --> 00:01:15.844
+Let's open this dsnd probability folder where the package is located.
+
+00:01:15.844 --> 00:01:19.670
+You'll see that there are a few extra files than
+
+00:01:19.670 --> 00:01:23.590
+what was originally in the package you are working with before.
+
+00:01:23.590 --> 00:01:26.505
+You'll need to add these extra files.
+
+00:01:26.504 --> 00:01:30.949
+The first one is a file called license.txt.
+
+00:01:30.950 --> 00:01:35.090
+Opening that file, this is where you put copyright information.
+
+00:01:35.090 --> 00:01:38.659
+I've used the language for the MIT license which
+
+00:01:38.659 --> 00:01:42.265
+I copied and pasted from the opensource.org website.
+
+00:01:42.265 --> 00:01:46.590
+Next, you'll also need to add a README.md MD file.
+
+00:01:46.590 --> 00:01:49.490
+I haven't filled out this file with enough detail
+
+00:01:49.489 --> 00:01:53.489
+yet but this is where you would document how your package works.
+
+00:01:53.489 --> 00:01:57.324
+Finally, create a file called setup.cfg.
+
+00:01:57.325 --> 00:02:01.909
+All you need to put in here is some data about the name of your README file.
+
+00:02:01.909 --> 00:02:06.545
+Let's go back up one level and open the setup.py file.
+
+00:02:06.545 --> 00:02:11.754
+You can see I've named my package dsnd_probability.
+
+00:02:11.754 --> 00:02:17.414
+The folder with all the package files is also called dsnd_probability.
+
+00:02:17.414 --> 00:02:20.709
+If you want to upload this code to PyPi,
+
+00:02:20.710 --> 00:02:23.159
+you'll need to come up with a different name.
+
+00:02:23.159 --> 00:02:27.125
+Every package on PyPi needs a unique name.
+
+00:02:27.125 --> 00:02:29.270
+In the setup.py file in
+
+00:02:29.270 --> 00:02:34.110
+the package's variable use the same name that you put in the name variable.
+
+00:02:34.110 --> 00:02:37.390
+I'm keeping zip_safe to false
+
+00:02:37.389 --> 00:02:41.569
+because it means that the package can't be run directly from a zip file.
+
+00:02:41.569 --> 00:02:44.799
+This is especially important if you're packages
+
+00:02:44.800 --> 00:02:49.265
+rely on data files that need to remain unzipped for use.
+
+00:02:49.264 --> 00:02:51.859
+Again, note as well that I've changed the name of
+
+00:02:51.860 --> 00:02:56.540
+the package folder to match dsnd_probability.
+
+00:02:56.539 --> 00:02:59.379
+I'm going to do a bit of hand-waving here.
+
+00:02:59.379 --> 00:03:02.579
+Though, if you want to read more about how to upload a PyPi,
+
+00:03:02.580 --> 00:03:05.285
+I'll include a link to the documentation.
+
+00:03:05.284 --> 00:03:08.419
+Go to your terminal window and make sure that within
+
+00:03:08.419 --> 00:03:12.089
+terminal you're inside the folder with your package files,
+
+00:03:12.090 --> 00:03:16.995
+then type python setup.py sdist.
+
+00:03:16.995 --> 00:03:19.865
+If you look at the package folder,
+
+00:03:19.865 --> 00:03:23.150
+there are now a couple of new folders that appeared.
+
+00:03:23.150 --> 00:03:26.450
+Inside the dist folder is a tar.gz
+
+00:03:26.449 --> 00:03:30.694
+file that you're going to end up uploading to the PyPi repository.
+
+00:03:30.694 --> 00:03:36.753
+Next, go back to the terminal and install the twine package with pip install
+
+00:03:36.753 --> 00:03:40.370
+twine and then type the following command
+
+00:03:40.370 --> 00:03:44.849
+to upload the package to the PyPi test repository.
+
+00:03:44.849 --> 00:03:49.109
+It's twine upload --repository-url
+
+00:03:49.110 --> 00:04:01.885
+then https:// test.pypi.org/legacy/ dist/*.
+
+00:04:01.884 --> 00:04:05.039
+This is what it looks like. Hit Enter.
+
+00:04:05.039 --> 00:04:06.804
+That's for my username.
+
+00:04:06.805 --> 00:04:12.525
+This is the username for the TestPyPi repository and my password.
+
+00:04:12.525 --> 00:04:17.954
+So, it's giving me an error that says I'm using the same version that I uploaded before.
+
+00:04:17.954 --> 00:04:23.524
+So, I'm just going to change this from 1.2 to say 1.3.
+
+00:04:23.524 --> 00:04:29.264
+You might end up having this error as well and having to do the same thing.
+
+00:04:29.264 --> 00:04:34.419
+This is because I've already tried to upload this package before with the same version.
+
+00:04:34.420 --> 00:04:36.620
+So, I'm going to go back and I'm going to delete
+
+00:04:36.620 --> 00:04:41.269
+this dist folder and this extra info folder that were created
+
+00:04:41.269 --> 00:04:49.799
+before and now I'm going to repeat the same steps, python setup.py sdist.
+
+00:04:49.959 --> 00:04:57.689
+I'm going to try again. Twine upload --repository-url.
+
+00:04:58.240 --> 00:05:02.350
+Enter my username and my password.
+
+00:05:02.350 --> 00:05:04.285
+This time it looks like it worked.
+
+00:05:04.285 --> 00:05:07.220
+I'm going to go to the TestPyPi website for a second.
+
+00:05:07.220 --> 00:05:13.790
+I'm going to log into my account and it looks like everything uploaded correctly.
+
+00:05:13.790 --> 00:05:16.185
+Let's go back to terminal for a second.
+
+00:05:16.185 --> 00:05:19.514
+I can now actually pip install this package using
+
+00:05:19.514 --> 00:05:25.110
+the following command; pip install --index-url
+
+00:05:34.160 --> 00:05:37.450
+https://test.pypi.org/simple dsnd_probability.
+
+00:05:37.449 --> 00:05:42.300
+This says to pip install the package from the test repository website.
+
+00:05:42.300 --> 00:05:46.675
+It looks like it installed successfully.
+
+00:05:46.675 --> 00:05:50.050
+Assuming that everything goes well and you're ready to
+
+00:05:50.050 --> 00:05:53.435
+upload the package to the regular PyPi repository,
+
+00:05:53.435 --> 00:05:55.144
+here's how you can do that.
+
+00:05:55.144 --> 00:05:59.649
+Type twine upload dist/*,
+
+00:06:00.089 --> 00:06:04.614
+enter your username, your password.
+
+00:06:04.615 --> 00:06:09.600
+Now, let's check on the regular PyPi repository website if everything uploaded.
+
+00:06:09.600 --> 00:06:14.840
+I'm going to login. It looks like everything uploaded here as well.
+
+00:06:14.839 --> 00:06:18.709
+Remember, we already installed the package from the test website.
+
+00:06:18.709 --> 00:06:20.759
+So, I'm going to uninstall it.
+
+00:06:20.759 --> 00:06:24.490
+Since the package is now also on the regular repository,
+
+00:06:24.490 --> 00:06:26.030
+I can pip install directly.
+
+00:06:26.029 --> 00:06:30.354
+I just write pip install and then the name of the package.
+
+00:06:30.355 --> 00:06:33.395
+It looks like everything installed correctly.
+
+00:06:33.394 --> 00:06:37.995
+Now, I'm going to see if I can use it in a Python program.
+
+00:06:37.995 --> 00:06:43.189
+I'm going to open a new terminal window and I'm going to open a Python interpreter,
+
+00:06:43.189 --> 00:06:46.129
+and now I'm going to say from
+
+00:06:46.129 --> 00:06:55.264
+dsnd_probability import Gaussian and import Binomial.
+
+00:06:55.264 --> 00:07:02.389
+So far so good. If I say Gaussian(10,7),
+
+00:07:02.389 --> 00:07:08.935
+hit Enter then it's made a Gaussian object with mean 10 and standard deviation seven.
+
+00:07:08.935 --> 00:07:13.730
+If I type Binomial(0.4, 25),
+
+00:07:13.730 --> 00:07:17.439
+hit Enter it gives me the mean standard deviation,
+
+00:07:17.439 --> 00:07:20.509
+probability, and number of samples.
+
+00:07:20.509 --> 00:07:22.569
+So, it looks like it worked.
+
+00:07:22.569 --> 00:07:27.954
+What I've shown you is the very basics for getting something up and running with PyPi.
+
+00:07:27.954 --> 00:07:31.699
+If you're going to upload the package made in this lesson,
+
+00:07:31.699 --> 00:07:37.094
+make sure you use a different package name than dsnd_probability,
+
+00:07:37.095 --> 00:07:39.995
+otherwise, you won't be able to upload the package
+
+00:07:39.995 --> 00:07:43.189
+because the name will conflict with the package I just uploaded.
+
+00:07:43.189 --> 00:07:46.615
+Also, realize that in the package name I used
+
+00:07:46.615 --> 00:07:52.490
+underscore but if you go back to the PyPi website the package gets named with a dash.
+
+00:07:52.490 --> 00:07:54.600
+So that's something to be aware of as well.
+
+00:07:54.600 --> 00:07:56.260
+When you're pip installing,
+
+00:07:56.259 --> 00:07:57.754
+you'll have to use the dash.
+
+00:07:57.754 --> 00:08:03.444
+But then, when you're using it in the Python interpreter or in your program,
+
+00:08:03.444 --> 00:08:05.680
+you'd use the underscore.
+
+00:08:05.680 --> 00:08:07.939
+Now, it's your turn.
+
+00:08:07.939 --> 00:08:13.469
+Follow the instructions in this video and try uploading your own package to PyPi.
+

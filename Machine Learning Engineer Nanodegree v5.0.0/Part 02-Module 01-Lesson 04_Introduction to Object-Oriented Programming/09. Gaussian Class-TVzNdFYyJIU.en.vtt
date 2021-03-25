@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.370 --> 00:00:08.655
+Now that you've practice working with all of this new syntax,
+
+00:00:08.654 --> 00:00:10.625
+let's get to the exciting part.
+
+00:00:10.625 --> 00:00:12.330
+In the rest of this lesson,
+
+00:00:12.330 --> 00:00:15.460
+you're going to learn more about object oriented programming and
+
+00:00:15.460 --> 00:00:19.545
+then use those skills to build a Python package.
+
+00:00:19.545 --> 00:00:24.225
+The package will contain code to analyze Gaussian distributions.
+
+00:00:24.225 --> 00:00:26.500
+You can use the package to read in
+
+00:00:26.500 --> 00:00:30.339
+a data set and calculate the mean and standard deviation.
+
+00:00:30.339 --> 00:00:34.090
+You will also include code to plot a histogram of the data set,
+
+00:00:34.090 --> 00:00:38.455
+as well as a probability density function of a Gaussian distribution.
+
+00:00:38.454 --> 00:00:44.280
+Finally, this package will be able to add two Gaussian distributions together.
+
+00:00:44.280 --> 00:00:47.390
+I'm going to start by giving you a tour of what
+
+00:00:47.390 --> 00:00:50.304
+the code looks like and how the code works.
+
+00:00:50.304 --> 00:00:53.009
+Then, you'll build up the code yourself.
+
+00:00:53.009 --> 00:00:54.629
+At the end of the lesson,
+
+00:00:54.630 --> 00:00:59.400
+you are going to extend the package to also handle binomial distributions.
+
+00:00:59.399 --> 00:01:02.750
+The best part about this lesson is that you will have
+
+00:01:02.750 --> 00:01:08.239
+an actual functioning Python Package that you can pip install using the terminal.
+
+00:01:08.239 --> 00:01:12.170
+If you want, you can even upload the package to PyPI where
+
+00:01:12.170 --> 00:01:17.500
+Python Packages are stored for the general public to download and install.
+
+00:01:17.500 --> 00:01:20.340
+This lesson assumes that you're familiar with
+
+00:01:20.340 --> 00:01:23.375
+Gaussian also known as normal distributions,
+
+00:01:23.375 --> 00:01:25.745
+as well as binomial distributions.
+
+00:01:25.745 --> 00:01:29.939
+I'll put some resources below if you feel like you need to review them.
+
+00:01:29.939 --> 00:01:32.920
+With that, let's start looking at some code.
+

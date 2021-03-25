@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.899 --> 00:00:09.734
+When you first sit down to start writing code for a new idea or task,
+
+00:00:09.734 --> 00:00:12.639
+it's easy to pay little attention to writing
+
+00:00:12.640 --> 00:00:16.570
+good code and focus more on just getting it to work.
+
+00:00:16.570 --> 00:00:22.719
+So, your code typically gets a little messy and repetitive at this stage of development.
+
+00:00:22.719 --> 00:00:24.769
+This is okay.
+
+00:00:24.769 --> 00:00:29.304
+It's hard to know what's the best way to write your code before it's finished.
+
+00:00:29.304 --> 00:00:35.570
+For example, it could be difficult to know exactly what functions would best modularize
+
+00:00:35.570 --> 00:00:38.859
+the steps in your code if you haven't experimented
+
+00:00:38.859 --> 00:00:42.905
+enough with your code to understand what these steps are.
+
+00:00:42.905 --> 00:00:46.300
+That's why you should always go back to do
+
+00:00:46.299 --> 00:00:50.399
+some refactoring after you've achieved a working model.
+
+00:00:50.399 --> 00:00:55.600
+Code refactoring is a term for restructuring your code to
+
+00:00:55.600 --> 00:01:01.550
+improve its internal structure without changing its external functionality.
+
+00:01:01.549 --> 00:01:06.069
+Refactoring gives you an opportunity to clean and
+
+00:01:06.069 --> 00:01:10.754
+modularize your code after you've produced code that works.
+
+00:01:10.754 --> 00:01:14.670
+In the short-term, you might see this as a waste of time,
+
+00:01:14.670 --> 00:01:17.715
+since you could be moving on to the next feature.
+
+00:01:17.715 --> 00:01:22.840
+However, allocating time to refactoring your code really
+
+00:01:22.840 --> 00:01:28.335
+speeds up the time it will take you and your team to develop code in the long run.
+
+00:01:28.334 --> 00:01:31.579
+Refactoring your code consistently not
+
+00:01:31.579 --> 00:01:34.829
+only makes it much easier to come back to it later,
+
+00:01:34.829 --> 00:01:37.819
+it also allows you to reuse parts for
+
+00:01:37.819 --> 00:01:42.434
+different tasks and learn strong programming techniques along the way.
+
+00:01:42.435 --> 00:01:45.769
+The more you practice refactoring your code,
+
+00:01:45.769 --> 00:01:48.034
+the more intuitive it becomes.
+
+00:01:48.034 --> 00:01:52.939
+You'll start to find yourself writing more organized code on your first pass,
+
+00:01:52.939 --> 00:01:55.894
+with less to reorganize when you go back.
+
+00:01:55.894 --> 00:02:00.640
+Let's take a look at a couple of examples and get some practice.
+

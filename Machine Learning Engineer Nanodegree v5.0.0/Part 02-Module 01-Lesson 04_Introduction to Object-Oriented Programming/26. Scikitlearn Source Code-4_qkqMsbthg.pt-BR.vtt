@@ -1,0 +1,282 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.183 --> 00:00:04.088
+Vamos fazer um tour
+pelo código-fonte do scikit-learn.
+
+00:00:04.121 --> 00:00:06.455
+Por isso que eu queria
+que você aprendesse
+
+00:00:06.488 --> 00:00:10.954
+programação orientada a objetos
+e como fazer um pacote Python.
+
+00:00:10.987 --> 00:00:15.525
+Se quisermos entender
+o que pacotes como Pandas, SciPy,
+
+00:00:15.558 --> 00:00:18.412
+NumPy ou scikit-learn
+estão fazendo,
+
+00:00:18.445 --> 00:00:23.373
+precisamos entender o básico
+da programação orientada a objetos.
+
+00:00:23.406 --> 00:00:26.453
+À medida que passamos
+pelo código-fonte do scikit-learn,
+
+00:00:26.486 --> 00:00:31.336
+veremos coisas que serão familiares
+a partir do que já fizemos,
+
+00:00:31.369 --> 00:00:36.165
+incluindo instruções import,
+classes e herança.
+
+00:00:36.198 --> 00:00:39.017
+Também veremos a sintaxe
+de que não falamos,
+
+00:00:39.050 --> 00:00:43.828
+como a do símbolo "@", dos mixins
+e dos casos de herança múltipla,
+
+00:00:43.861 --> 00:00:48.002
+nas quais a classe herda
+de duas ou mais classes pai.
+
+00:00:48.035 --> 00:00:51.693
+A programação orientada a objetos
+é um grande tema,
+
+00:00:51.726 --> 00:00:54.587
+e o Python tem muito mais
+funcionalidade
+
+00:00:54.620 --> 00:00:56.403
+do que vimos até agora.
+
+00:00:56.436 --> 00:00:57.804
+Abrirei o Google
+
+00:00:58.548 --> 00:01:01.844
+e pesquisarei
+o código-fonte do scikit-learn.
+
+00:01:01.877 --> 00:01:05.315
+Acontece que o código
+está hospedado no GitHub.
+
+00:01:05.348 --> 00:01:07.058
+Aqui está o repositório.
+
+00:01:07.091 --> 00:01:11.698
+Vamos para a pasta sklearn
+para ver o que encontramos.
+
+00:01:11.731 --> 00:01:14.802
+Vejo a pasta linear model,
+
+00:01:14.835 --> 00:01:19.339
+que deve conter o código
+para coisas como regressão linear.
+
+00:01:19.372 --> 00:01:22.633
+No topo está a pasta tests.
+
+00:01:22.666 --> 00:01:25.605
+Vemos que escrever
+o código de teste
+
+00:01:25.638 --> 00:01:28.586
+é fundamental para o desenvolvimento
+de um pacote Python
+
+00:01:28.619 --> 00:01:31.134
+ou para qualquer programa.
+
+00:01:31.167 --> 00:01:32.735
+Abrindo a pasta tests,
+
+00:01:32.768 --> 00:01:37.439
+podemos explorar todos os testes
+para diferentes funcionalidades.
+
+00:01:37.472 --> 00:01:40.671
+Vamos voltar
+para a pasta linear model.
+
+00:01:40.704 --> 00:01:43.797
+Como há um arquivo init,
+
+00:01:43.830 --> 00:01:47.551
+sabemos que o modelo linear
+é, na verdade, um pacote.
+
+00:01:47.584 --> 00:01:51.623
+Abrindo o arquivo, esse código
+deve ser um pouco familiar.
+
+00:01:51.656 --> 00:01:56.487
+O arquivo init importa as classes
+de cada um dos módulos do pacote.
+
+00:01:56.520 --> 00:01:59.870
+Isso é o mesmo que o arquivo init
+no pacote distributions,
+
+00:01:59.903 --> 00:02:03.015
+no qual criamos atalhos
+para os nomes das classes.
+
+00:02:03.048 --> 00:02:04.776
+Vamos retornar.
+
+00:02:04.809 --> 00:02:08.136
+Agora abrimos based.py
+para ver o que tem dentro.
+
+00:02:08.776 --> 00:02:11.343
+Começa com alguns comentários
+
+00:02:11.376 --> 00:02:14.977
+e, em seguida, há muitas
+instruções import.
+
+00:02:15.010 --> 00:02:20.932
+O arquivo base.py usa muitos
+outros módulos ou pacotes do Python.
+
+00:02:20.965 --> 00:02:25.104
+Em seguida, há uma variável
+chamada "SPARCE_INTERCEPT_DELAY"
+
+00:02:25.137 --> 00:02:28.559
+e uma função chamada
+"make_dataset".
+
+00:02:28.592 --> 00:02:31.062
+Como mencionei
+no começo da aula,
+
+00:02:31.095 --> 00:02:33.155
+um módulo Python pode conter
+
+00:02:33.188 --> 00:02:37.226
+qualquer combinação de variáveis,
+funções ou classes.
+
+00:02:37.259 --> 00:02:42.329
+É aqui embaixo que as coisas
+ficam um pouco mais avançadas.
+
+00:02:42.362 --> 00:02:46.356
+O símbolo @
+é chamado de "decorador",
+
+00:02:46.389 --> 00:02:48.882
+e você pode não ter visto
+isso antes.
+
+00:02:48.915 --> 00:02:50.842
+Colocarei um recurso
+abaixo do vídeo
+
+00:02:50.875 --> 00:02:53.338
+se quiser saber
+sobre os decoradores.
+
+00:02:53.371 --> 00:02:55.731
+Descerei um pouco mais.
+
+00:02:55.764 --> 00:02:59.154
+Aqui estamos
+com a primeira classe do módulo,
+
+00:02:59.187 --> 00:03:01.635
+que se chama "linearmodule".
+
+00:03:01.668 --> 00:03:04.790
+Ela herda de duas classes pai,
+
+00:03:04.823 --> 00:03:07.975
+a ABCMeta e a BaseEstimator.
+
+00:03:08.008 --> 00:03:11.974
+Vemos que a classe linearmodule
+tem alguns métodos.
+
+00:03:12.007 --> 00:03:15.576
+O traço antes da função decision
+é uma convenção
+
+00:03:15.609 --> 00:03:20.086
+que geralmente indica que a função
+só deve ser usada internamente
+
+00:03:20.119 --> 00:03:24.015
+dentro da classe,
+e não por um objeto instanciado.
+
+00:03:24.048 --> 00:03:27.814
+Se quiser se envolver e contribuir
+para uma biblioteca como essa,
+
+00:03:27.847 --> 00:03:29.907
+confira a página Issues,
+
+00:03:29.940 --> 00:03:32.398
+que fica no topo
+de uma página do GitHub.
+
+00:03:32.431 --> 00:03:34.502
+Aqui está, vou clicar nela.
+
+00:03:34.535 --> 00:03:39.439
+Podemos ler sobre as questões e ver
+se podemos contribuir com algo.
+
+00:03:39.472 --> 00:03:41.335
+Também colocarei
+alguns links abaixo
+
+00:03:41.368 --> 00:03:45.374
+dando diretrizes de como contribuir
+para um projeto do GitHub.
+
+00:03:45.407 --> 00:03:50.110
+O scikit-learn é um pacote grande
+com muito código,
+
+00:03:50.143 --> 00:03:52.661
+mas não se assuste,
+
+00:03:52.694 --> 00:03:56.002
+perceba que um pacote como este
+foi construído com o tempo
+
+00:03:56.035 --> 00:03:59.687
+e com várias pessoas contribuindo
+em diferentes partes,
+
+00:03:59.720 --> 00:04:02.496
+mas o pacote básico
+que codificamos nesta aula
+
+00:04:02.529 --> 00:04:05.615
+é essencialmente como um pacote
+muito maior funciona.
+
+00:04:05.648 --> 00:04:08.610
+Começamos pequeno
+com apenas alguns módulos
+
+00:04:08.643 --> 00:04:11.899
+e, com o tempo, adicionamos mais
+e mais funcionalidades.
+

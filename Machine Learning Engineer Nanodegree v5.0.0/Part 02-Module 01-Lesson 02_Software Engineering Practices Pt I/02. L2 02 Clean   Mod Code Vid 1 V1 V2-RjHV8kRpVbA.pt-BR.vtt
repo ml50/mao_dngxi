@@ -1,0 +1,284 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.981 --> 00:00:04.705
+CÓDIGO MODULAR E LIMPO
+INTRODUÇÃO
+
+00:00:05.101 --> 00:00:07.620
+A primeira prática
+sobre a qual falaremos
+
+00:00:07.653 --> 00:00:12.494
+será a de escrever o código
+de maneira limpa e modular.
+
+00:00:12.527 --> 00:00:15.213
+Os cientistas de dados
+têm dificuldade com isso
+
+00:00:15.246 --> 00:00:17.035
+quando começam a codificar,
+
+00:00:17.068 --> 00:00:19.540
+ou mesmo codificando há anos
+
+00:00:19.573 --> 00:00:22.475
+em um ambiente
+mais acadêmico ou de pesquisa.
+
+00:00:22.508 --> 00:00:24.604
+Quando trabalhamos na área,
+
+00:00:24.637 --> 00:00:28.343
+o código pode ser usado
+na produção.
+
+00:00:28.376 --> 00:00:31.132
+O código de produção
+significa apenas o código
+
+00:00:31.165 --> 00:00:34.211
+que é executado
+em servidores de produção.
+
+00:00:34.244 --> 00:00:36.892
+Por exemplo,
+quando estamos no laptop
+
+00:00:36.925 --> 00:00:39.304
+usando produtos de software
+como o da Udacity,
+
+00:00:39.337 --> 00:00:41.131
+do Google ou da Amazon,
+
+00:00:41.164 --> 00:00:45.485
+o código que executa
+o serviço utilizado é o de produção.
+
+00:00:45.518 --> 00:00:49.100
+Idealmente,
+o código usado na produção
+
+00:00:49.133 --> 00:00:51.332
+deve atender
+a vários critérios
+
+00:00:51.365 --> 00:00:54.668
+para garantir confiabilidade
+e eficiência
+
+00:00:54.701 --> 00:00:57.052
+antes de se tornar público.
+
+00:00:57.085 --> 00:01:01.004
+Por um lado,
+o código precisa ser limpo.
+
+00:01:01.037 --> 00:01:06.309
+O código é limpo quando é legível,
+simples e conciso.
+
+00:01:07.037 --> 00:01:13.028
+Aqui está um exemplo, em inglês,
+de uma frase que não está limpa.
+
+00:01:13.061 --> 00:01:16.635
+"Pode-se observar
+que sua camisa foi suja,
+
+00:01:16.668 --> 00:01:21.363
+devido à cor laranja da camisa,
+que parece semelhante
+
+00:01:21.396 --> 00:01:24.588
+à cor de um determinado
+tipo de suco."
+
+00:01:24.621 --> 00:01:29.284
+Esta frase é terrivelmente
+redundante e complicada.
+
+00:01:29.317 --> 00:01:31.685
+Ler isso me deixa frustrada.
+
+00:01:32.566 --> 00:01:34.731
+Isso pode ser reescrito assim:
+
+00:01:34.764 --> 00:01:38.204
+"Parece que você derramou
+suco de laranja na camisa."
+
+00:01:38.237 --> 00:01:40.661
+O resultado é o mesmo,
+
+00:01:40.694 --> 00:01:45.062
+mas esta frase é muito mais
+concisa e clara.
+
+00:01:45.749 --> 00:01:50.188
+Escrever códigos limpos
+é muito importante em um ambiente
+
+00:01:50.221 --> 00:01:54.876
+no qual a equipe itera
+constantemente o trabalho.
+
+00:01:54.909 --> 00:01:59.570
+Isso facilita o entendimento
+de todos
+
+00:01:59.603 --> 00:02:01.628
+e a reutilização do código.
+
+00:02:02.331 --> 00:02:04.443
+Além de estar limpo,
+
+00:02:04.476 --> 00:02:06.971
+o código deve ser modular.
+
+00:02:07.004 --> 00:02:10.338
+Ou seja, o programa deve ser
+logicamente dividido
+
+00:02:10.371 --> 00:02:13.236
+em funções e módulos.
+
+00:02:13.269 --> 00:02:17.012
+Na programação,
+um módulo é apenas um arquivo.
+
+00:02:17.045 --> 00:02:21.643
+Assim como encapsulamos
+o código em uma função
+
+00:02:21.676 --> 00:02:25.402
+e o reutilizamos chamando
+a função em diferentes lugares,
+
+00:02:25.435 --> 00:02:29.650
+podemos encapsular o código
+em um módulo ou arquivo
+
+00:02:29.683 --> 00:02:33.330
+e reutilizá-lo,
+importando-o em outros arquivos.
+
+00:02:33.363 --> 00:02:36.028
+Veremos exemplos disso depois.
+
+00:02:36.788 --> 00:02:40.690
+Para você entender melhor
+o que é o código modular,
+
+00:02:40.723 --> 00:02:44.402
+tente pensar nele
+como guardar suas roupas.
+
+00:02:44.435 --> 00:02:48.310
+Poderíamos colocar todas
+em uma única gaveta,
+
+00:02:48.343 --> 00:02:51.337
+mas não seria muito fácil
+encontrar alguma coisa.
+
+00:02:51.370 --> 00:02:54.498
+E justamente
+por não encontramos nada,
+
+00:02:54.531 --> 00:02:58.539
+teremos várias reversões
+da mesma camisa ou meias,
+
+00:02:58.572 --> 00:03:01.867
+porque compraremos novamente
+quando não as encontrarmos.
+
+00:03:02.571 --> 00:03:05.022
+Seria muito melhor se,
+em vez disso,
+
+00:03:05.055 --> 00:03:07.294
+tivéssemos uma gaveta
+para camisetas,
+
+00:03:07.327 --> 00:03:09.256
+outra para camisas,
+
+00:03:09.289 --> 00:03:12.343
+outra para meias
+e assim por diante.
+
+00:03:12.376 --> 00:03:13.774
+Com esse design,
+
+00:03:13.807 --> 00:03:16.296
+se precisarmos de uma roupa
+para uma entrevista,
+
+00:03:16.329 --> 00:03:21.784
+não precisaremos comprar uma
+porque não a encontramos antes.
+
+00:03:21.817 --> 00:03:26.246
+Se precisarmos dizer a outra pessoa
+como encontrar a camisa certa,
+
+00:03:26.279 --> 00:03:28.350
+as calças e o par de meias,
+
+00:03:28.383 --> 00:03:31.072
+será muito mais fácil
+com este design.
+
+00:03:31.730 --> 00:03:35.343
+O mesmo acontece
+ao escrevermos códigos modulares.
+
+00:03:35.376 --> 00:03:38.989
+Dividir um código
+em funções e módulos lógicos
+
+00:03:39.022 --> 00:03:42.814
+permite encontrar rapidamente
+partes relevantes do código.
+
+00:03:42.847 --> 00:03:46.046
+Podemos generalizar
+esses pedaços de código
+
+00:03:46.079 --> 00:03:48.701
+para serem reutilizados
+em lugares diferentes,
+
+00:03:48.734 --> 00:03:53.279
+evitando escrever linhas de código
+extras desnecessárias.
+
+00:03:53.312 --> 00:03:57.741
+Separar esses detalhes
+nessas funções e módulos
+
+00:03:57.774 --> 00:04:02.359
+pode ajudar a melhorar
+a legibilidade do código.
+
+00:04:02.392 --> 00:04:06.429
+Programar de forma
+que facilite para a equipe
+
+00:04:06.462 --> 00:04:11.101
+entender e iterar
+é crucial para a produção.
+
+00:04:11.134 --> 00:04:14.637
+Nesta aula, praticaremos
+a escrita de um código
+
+00:04:14.670 --> 00:04:18.480
+limpo e modular
+para ajudá-lo a realizar isso.
+

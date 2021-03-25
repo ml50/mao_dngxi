@@ -1,0 +1,582 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Procedural vs. Object-Oriented Programming
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Object-Oriented Programming
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Procedural vs. Object-Oriented Programming.html">
+       02. Procedural vs. Object-Oriented Programming
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Class, Object, Method and Attribute.html">
+       03. Class, Object, Method and Attribute
+      </a>
+     </li>
+     <li class="">
+      <a href="04. OOP Syntax.html">
+       04. OOP Syntax
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Exercise OOP Syntax Practice - Part 1.html">
+       05. Exercise: OOP Syntax Practice - Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. A Couple of Notes about OOP.html">
+       06. A Couple of Notes about OOP
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise OOP Syntax Practice - Part 2.html">
+       07. Exercise: OOP Syntax Practice - Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Commenting Object-Oriented Code.html">
+       08. Commenting Object-Oriented Code
+      </a>
+     </li>
+     <li class="">
+      <a href="09. A Gaussian Class.html">
+       09. A Gaussian Class
+      </a>
+     </li>
+     <li class="">
+      <a href="10. How the Gaussian Class Works.html">
+       10. How the Gaussian Class Works
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Exercise Code the Gaussian Class.html">
+       11. Exercise: Code the Gaussian Class
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Magic Methods.html">
+       12. Magic Methods
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Exercise Code Magic Methods.html">
+       13. Exercise: Code Magic Methods
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Inheritance.html">
+       14. Inheritance
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Exercise Inheritance with Clothing.html">
+       15. Exercise: Inheritance with Clothing
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Inheritance Probability Distribution.html">
+       16. Inheritance: Probability Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Demo Inheritance Probability Distributions.html">
+       17. Demo: Inheritance Probability Distributions
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Advanced OOP Topics.html">
+       18. Advanced OOP Topics
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Organizing into Modules.html">
+       19. Organizing into Modules
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Demo Modularized Code.html">
+       20. Demo: Modularized Code
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Making a Package.html">
+       21. Making a Package
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Virtual Environments.html">
+       22. Virtual Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Exercise Making a Package and Pip Installing.html">
+       23. Exercise: Making a Package and Pip Installing
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Binomial Class.html">
+       24. Binomial Class
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Exercise Binomial Class.html">
+       25. Exercise: Binomial Class
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Scikit-learn Source Code.html">
+       26. Scikit-learn Source Code
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Putting Code on PyPi.html">
+       27. Putting Code on PyPi
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Exercise Upload to PyPi.html">
+       28. Exercise: Upload to PyPi
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Lesson Summary.html">
+       29. Lesson Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Procedural vs. Object-Oriented Programming
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="procedural-vs-object-oriented-programming">
+          Procedural vs Object-Oriented Programming
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L3 02 Proced Vs OOP V1 V3
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L3 02 Proced Vs OOP V1 V3-psXD_J8FnCQ.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="02. L3 02 Proced Vs OOP V1 V3-psXD_J8FnCQ.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="02. L3 02 Proced Vs OOP V1 V3-psXD_J8FnCQ.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="02. L3 02 Proced Vs OOP V1 V3-psXD_J8FnCQ.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="objects-are-defined-by-characteristics-and-actions">
+          Objects are defined by characteristics and actions
+         </h1>
+         <p>
+          Here is a reminder of what is a characteristic and what is an action.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Objects are defined by their characteristics and their actions" class="img img-fluid" src="img/screen-shot-2018-07-19-at-4.05.25-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Objects are defined by their characteristics and their actions
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="characteristics-and-actions-in-english-grammar">
+          Characteristics and Actions in English Grammar
+         </h1>
+         <p>
+          Another way to think about characteristics and actions is in terms of English grammar. A characteristic would be a noun. On the other hand, an action would be a verb.
+         </p>
+         <p>
+          Let's pick something from the real-world: a dog. A few characteristics could be the dog's weight, color, breed, and height. These are all nouns. What actions would a dog take? A dog can bark, run, bite and eat. These are all verbs.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="quizzes---characteristics-versus-actions">
+          Quizzes - Characteristics versus Actions
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Characteristics of an Object
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the following would you consider to be characteristics of a tree object?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1523649290619" name="598841" type="checkbox" value="a1523649290619"/>
+           <label for="a1523649290619">
+            <p>
+             height
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523649345982" name="598841" type="checkbox" value="a1523649345982"/>
+           <label for="a1523649345982">
+            <p>
+             color
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523649346454" name="598841" type="checkbox" value="a1523649346454"/>
+           <label for="a1523649346454">
+            <p>
+             to grow
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523649347215" name="598841" type="checkbox" value="a1523649347215"/>
+           <label for="a1523649347215">
+            <p>
+             width
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523649381575" name="598841" type="checkbox" value="a1523649381575"/>
+           <label for="a1523649381575">
+            <p>
+             to fall down
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523649389063" name="598841" type="checkbox" value="a1523649389063"/>
+           <label for="a1523649389063">
+            <p>
+             species
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            height
+           </li>
+           <li>
+            color
+           </li>
+           <li>
+            width
+           </li>
+           <li>
+            species
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Identify the Actions
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the following would be considered actions for a laptop computer object?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1523649619299" name="598843" type="checkbox" value="a1523649619299"/>
+           <label for="a1523649619299">
+            <p>
+             memory
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650248622" name="598843" type="checkbox" value="a1523650248622"/>
+           <label for="a1523650248622">
+            <p>
+             width
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650249160" name="598843" type="checkbox" value="a1523650249160"/>
+           <label for="a1523650249160">
+            <p>
+             to turn on
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650249912" name="598843" type="checkbox" value="a1523650249912"/>
+           <label for="a1523650249912">
+            <p>
+             operating system
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650250656" name="598843" type="checkbox" value="a1523650250656"/>
+           <label for="a1523650250656">
+            <p>
+             to turn off
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650254710" name="598843" type="checkbox" value="a1523650254710"/>
+           <label for="a1523650254710">
+            <p>
+             thickness
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650273208" name="598843" type="checkbox" value="a1523650273208"/>
+           <label for="a1523650273208">
+            <p>
+             weight
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1523650274301" name="598843" type="checkbox" value="a1523650274301"/>
+           <label for="a1523650274301">
+            <p>
+             to erase
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            to turn on
+           </li>
+           <li>
+            to turn off
+           </li>
+           <li>
+            to erase
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Class, Object, Method and Attribute.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Procedural vs. Object-Oriented Programming')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

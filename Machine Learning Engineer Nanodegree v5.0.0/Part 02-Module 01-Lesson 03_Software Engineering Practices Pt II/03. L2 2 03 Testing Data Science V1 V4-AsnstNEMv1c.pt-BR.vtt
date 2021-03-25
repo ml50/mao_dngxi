@@ -1,0 +1,146 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.767 --> 00:00:04.635
+TESTES E CIÊNCIA DE DADOS
+
+00:00:05.103 --> 00:00:08.502
+É bem óbvio quando
+um software trava.
+
+00:00:08.535 --> 00:00:11.801
+Você recebe um erro,
+e o programa para de rodar.
+
+00:00:11.834 --> 00:00:14.468
+No entanto, há muitos problemas
+que podem acontecer
+
+00:00:14.501 --> 00:00:16.226
+no processo
+de ciência de dados
+
+00:00:16.259 --> 00:00:18.309
+que não são detectados
+tão facilmente
+
+00:00:18.342 --> 00:00:21.669
+quanto um erro funcional
+que trava seu programa.
+
+00:00:21.702 --> 00:00:24.439
+Seu código pode parecer
+rodar bem
+
+00:00:24.472 --> 00:00:29.532
+sem você perceber que certos valores
+foram codificados incorretamente,
+
+00:00:29.565 --> 00:00:32.153
+recursos foram usados
+inapropriadamente
+
+00:00:32.186 --> 00:00:35.477
+ou dados inesperados
+negaram premissas
+
+00:00:35.510 --> 00:00:38.687
+nas quais seus modelos
+estatísticos se basearam.
+
+00:00:38.720 --> 00:00:41.287
+Estes erros são mais difíceis
+de encontrar,
+
+00:00:41.320 --> 00:00:42.800
+porque você precisa verificar
+
+00:00:42.833 --> 00:00:45.853
+a qualidade e a precisão
+da sua análise,
+
+00:00:45.886 --> 00:00:48.809
+além da qualidade
+do seu código.
+
+00:00:48.842 --> 00:00:52.905
+Portanto, é essencial que você
+tenha testado o código corretamente
+
+00:00:52.938 --> 00:00:58.183
+para evitar surpresas
+e confiar nos seus resultados.
+
+00:00:58.216 --> 00:01:02.296
+Na verdade,
+testes trazem tantos benefícios
+
+00:01:02.329 --> 00:01:05.952
+que há um processo
+de desenvolvimento baseado nisso,
+
+00:01:05.985 --> 00:01:08.331
+chamado "desenvolvimento
+guiado por teste".
+
+00:01:08.364 --> 00:01:10.409
+É um processo
+de desenvolvimento
+
+00:01:10.442 --> 00:01:12.920
+em que você escreve testes
+para tarefas
+
+00:01:12.953 --> 00:01:16.838
+antes mesmo de escrever o código
+para implementar essas tarefas.
+
+00:01:16.871 --> 00:01:19.211
+Falaremos mais sobre isso
+mais tarde.
+
+00:01:19.244 --> 00:01:22.819
+Por enquanto,
+vamos praticar escrever testes,
+
+00:01:22.852 --> 00:01:25.748
+principalmente
+o teste de unidade.
+
+00:01:25.781 --> 00:01:27.825
+O teste de unidade
+é um tipo de teste
+
+00:01:27.858 --> 00:01:30.044
+que envolve
+uma unidade de código,
+
+00:01:30.077 --> 00:01:31.896
+normalmente uma função única
+
+00:01:31.929 --> 00:01:35.235
+independente
+do resto do programa.
+
+00:01:35.268 --> 00:01:36.369
+Primeiro,
+
+00:01:36.402 --> 00:01:39.476
+você vai aprender a escrever
+testes de unidade no Python
+
+00:01:39.509 --> 00:01:42.257
+e depois a como usar
+ferramentas adicionais
+
+00:01:42.290 --> 00:01:43.710
+para torná-los melhores.
+
+00:01:44.323 --> 00:01:47.574
+Por fim, você vai ver exemplos
+de tipos de testes
+
+00:01:47.607 --> 00:01:49.476
+em ciência de dados.
+

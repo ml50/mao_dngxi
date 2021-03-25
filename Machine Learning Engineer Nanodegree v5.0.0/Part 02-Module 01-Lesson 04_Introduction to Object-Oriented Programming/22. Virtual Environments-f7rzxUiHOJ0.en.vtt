@@ -1,0 +1,121 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.830
+I want to show you how virtual environments work in Python.
+
+00:00:03.830 --> 00:00:06.900
+Unfortunately, you might run into different issues
+
+00:00:06.900 --> 00:00:10.615
+depending on your operating system and Python installation.
+
+00:00:10.615 --> 00:00:12.720
+The classroom workspace uses
+
+00:00:12.720 --> 00:00:19.005
+an Ubuntu Linux operating system and a special Python installation known as Anaconda.
+
+00:00:19.004 --> 00:00:20.779
+In this particular case,
+
+00:00:20.780 --> 00:00:24.150
+there are some issues with the virtual environment package,
+
+00:00:24.149 --> 00:00:31.004
+and the quick fix is to run conda update Python and then hit Enter.
+
+00:00:31.004 --> 00:00:32.899
+Running this command takes a while,
+
+00:00:32.899 --> 00:00:35.234
+so I've already done it before recording.
+
+00:00:35.234 --> 00:00:38.460
+If you're not using Ubuntu or Anaconda,
+
+00:00:38.460 --> 00:00:40.859
+you shouldn't need to run this command first.
+
+00:00:40.859 --> 00:00:45.085
+If everything is working correctly and you're using Python three,
+
+00:00:45.085 --> 00:00:48.439
+the virtual environment package should already be installed.
+
+00:00:48.439 --> 00:00:53.204
+You can type Python -m venv
+
+00:00:53.204 --> 00:00:58.379
+and then your virtual environment name and hit Enter in the terminal.
+
+00:00:59.109 --> 00:01:03.109
+Venv_name is the name you want to give to your virtual environment.
+
+00:01:03.109 --> 00:01:04.719
+You can name it anything you want.
+
+00:01:04.719 --> 00:01:07.909
+If you go over here into the workspace area,
+
+00:01:07.909 --> 00:01:12.575
+you'll see there's a new folder called venv_name.
+
+00:01:12.575 --> 00:01:15.364
+Inside of that is a Python installation.
+
+00:01:15.364 --> 00:01:21.645
+Now you can type source venv_name/bin/activate,
+
+00:01:21.644 --> 00:01:27.659
+hit Enter, and you'll see that the virtual environment is now activated.
+
+00:01:27.659 --> 00:01:30.590
+So, anything you install now will get installed into
+
+00:01:30.590 --> 00:01:34.865
+the virtual environment instead of your default Python installation.
+
+00:01:34.864 --> 00:01:38.434
+You'll notice that the command line now shows in parentheses
+
+00:01:38.435 --> 00:01:40.820
+the virtual environment name at the beginning of
+
+00:01:40.819 --> 00:01:45.019
+the line indicating that you're using that virtual environment.
+
+00:01:45.019 --> 00:01:52.215
+Now I'm going to change to the directory where I have my Python package and setup file,
+
+00:01:52.215 --> 00:01:54.585
+and then I say pip install.
+
+00:01:54.584 --> 00:02:00.439
+like before. Now I've installed the distributions package
+
+00:02:00.439 --> 00:02:02.750
+into the virtual environment instead of
+
+00:02:02.750 --> 00:02:06.944
+the default Python environment that's installed on the computer.
+
+00:02:06.944 --> 00:02:09.219
+That's really it for virtual environments.
+
+00:02:09.219 --> 00:02:12.034
+The benefit is that you can experiment with Python
+
+00:02:12.034 --> 00:02:15.025
+without affecting your default Python installation.
+
+00:02:15.025 --> 00:02:19.265
+You can always just delete the virtual environment folder from your computer,
+
+00:02:19.264 --> 00:02:21.649
+and there shouldn't be really any consequences
+
+00:02:21.650 --> 00:02:24.129
+in terms of your default Python installation.
+

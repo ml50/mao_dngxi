@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.710 --> 00:00:06.479
+Now, it's your turn.
+
+00:00:06.480 --> 00:00:10.210
+You've practiced the basics of object-oriented programming in Python.
+
+00:00:10.210 --> 00:00:11.990
+Time show off your skills.
+
+00:00:11.990 --> 00:00:16.199
+In the next section, you'll find the code for the distribution package,
+
+00:00:16.199 --> 00:00:19.609
+but there's also a new file containing a binomial class.
+
+00:00:19.609 --> 00:00:23.954
+Your task is to write the code for the binomial class methods.
+
+00:00:23.954 --> 00:00:26.709
+You also have to use all the skills seen so far,
+
+00:00:26.710 --> 00:00:29.900
+including inheritance and writing magic methods.
+
+00:00:29.899 --> 00:00:32.568
+You'll need to code an initialization method,
+
+00:00:32.569 --> 00:00:34.910
+calculate the mean and standard deviation,
+
+00:00:34.909 --> 00:00:38.764
+and fill out other methods similar to the ones in the Gaussian class.
+
+00:00:38.765 --> 00:00:42.079
+Once you've finished coding the binomial class,
+
+00:00:42.079 --> 00:00:46.324
+I've got a few more fun activities in store including looking at the source code
+
+00:00:46.325 --> 00:00:51.050
+of scikit-learn and instructions for how to put your package on PyPI.
+
+00:00:51.049 --> 00:00:53.839
+Okay, time to write some code.
+

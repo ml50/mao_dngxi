@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.639
+The first mode of documentation we'll talk about are in-line comments.
+
+00:00:04.639 --> 00:00:07.750
+By now, you've probably seen this many times,
+
+00:00:07.750 --> 00:00:11.085
+texts following a hash symbol throughout your code.
+
+00:00:11.085 --> 00:00:14.010
+They're used to explain parts of your code and
+
+00:00:14.009 --> 00:00:16.579
+really help future contributors understand your work.
+
+00:00:16.579 --> 00:00:19.039
+There are different ways comments are used
+
+00:00:19.039 --> 00:00:22.184
+and definitely differences among great comments,
+
+00:00:22.184 --> 00:00:25.154
+okay comments, and even users' comments.
+
+00:00:25.155 --> 00:00:27.710
+One way comments are used is to document
+
+00:00:27.710 --> 00:00:31.455
+the major steps of complex code to help readers follow.
+
+00:00:31.454 --> 00:00:35.199
+For example, with the guiding comments in this function,
+
+00:00:35.200 --> 00:00:39.330
+you don't really need to understand the code to follow what this function does.
+
+00:00:39.329 --> 00:00:41.585
+If I was seeing this for the first time
+
+00:00:41.585 --> 00:00:44.605
+and I had no idea what these functions or tools were,
+
+00:00:44.604 --> 00:00:49.399
+these comments really help me understand the purpose of each block of code,
+
+00:00:49.399 --> 00:00:53.509
+and even help me figure out individual lines of code or methods.
+
+00:00:53.509 --> 00:00:58.809
+However, others would argue that this is using comments to justify bad code,
+
+00:00:58.810 --> 00:01:01.770
+and that if code requires comments to follow,
+
+00:01:01.770 --> 00:01:04.130
+it's a sign refactoring is needed.
+
+00:01:04.129 --> 00:01:08.140
+Comments are valuable for explaining where code cannot.
+
+00:01:08.140 --> 00:01:13.974
+For example, the history behind why a certain method was implemented in a specific way.
+
+00:01:13.974 --> 00:01:18.034
+Sometimes an unconventional or seemingly arbitrary approach
+
+00:01:18.034 --> 00:01:22.604
+may be used because of some obscure external variable causing side effects.
+
+00:01:22.605 --> 00:01:25.340
+These things are difficult to explain with code.
+
+00:01:25.340 --> 00:01:30.139
+These numbers for detecting edge levels in an image may seem arbitrary,
+
+00:01:30.138 --> 00:01:33.560
+but the programmer experimented with different numbers and
+
+00:01:33.560 --> 00:01:38.269
+realized that this was the one that worked for this specific use case.
+

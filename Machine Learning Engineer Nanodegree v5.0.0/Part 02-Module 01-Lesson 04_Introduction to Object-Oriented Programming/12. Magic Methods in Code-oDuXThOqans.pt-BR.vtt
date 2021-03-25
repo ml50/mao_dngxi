@@ -1,0 +1,197 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.082 --> 00:00:02.984
+Além dos métodos mostrados
+no vídeo anterior,
+
+00:00:03.018 --> 00:00:06.059
+adicionei mais dois
+à classe Gaussian:
+
+00:00:06.093 --> 00:00:11.394
+"add" e "repr",
+ou representação.
+
+00:00:11.428 --> 00:00:14.283
+Os dois são chamados
+de "métodos mágicos".
+
+00:00:14.317 --> 00:00:16.793
+A sintaxe pode
+parecer familiar,
+
+00:00:16.827 --> 00:00:20.370
+porque você já trabalhou
+com um método mágico.
+
+00:00:20.404 --> 00:00:25.513
+A função init, que inicia
+um novo objeto, é um método mágico.
+
+00:00:25.547 --> 00:00:29.067
+Métodos mágicos permitem
+que você anule e customize
+
+00:00:29.101 --> 00:00:31.386
+o comportamento padrão
+do Python.
+
+00:00:31.420 --> 00:00:34.570
+Por exemplo, o método init
+permite customizar
+
+00:00:34.604 --> 00:00:37.683
+como o Python
+cria instâncias de um objeto.
+
+00:00:37.717 --> 00:00:41.499
+O método add anula
+o comportamento do sinal de mais.
+
+00:00:41.533 --> 00:00:45.410
+Vou executar o código
+com a classe Gaussian.
+
+00:00:45.444 --> 00:00:49.049
+Abaixo, criei instâncias
+de dois objetos gaussian
+
+00:00:49.083 --> 00:00:50.739
+e os somei.
+
+00:00:50.773 --> 00:00:55.162
+O Python sabe como somar dois floats
+ou dois inteiros.
+
+00:00:55.196 --> 00:00:59.018
+Essas operações são definidas
+como parte de uma instalação Python.
+
+00:00:59.052 --> 00:01:03.818
+Mas somar dois gaussian
+não têm significado em Python,
+
+00:01:03.852 --> 00:01:07.659
+então o código deve produzir
+um erro. Vou executar.
+
+00:01:07.693 --> 00:01:10.370
+Bem, o código
+não produziu erro.
+
+00:01:10.404 --> 00:01:14.699
+É porque eu defini o comportamento
+de somar dois gaussian.
+
+00:01:14.733 --> 00:01:19.964
+Voltando ao método add,
+vemos como funciona.
+
+00:01:19.998 --> 00:01:23.763
+A função tem dois inputs,
+self e other.
+
+00:01:23.797 --> 00:01:27.500
+"Self" se refere ao objeto
+à esquerda do sinal de mais.
+
+00:01:27.534 --> 00:01:30.791
+"Other" se refere
+ao objeto à direita.
+
+00:01:30.825 --> 00:01:34.840
+Então posso definir o que significa
+somar os dois objetos.
+
+00:01:34.874 --> 00:01:38.150
+Somar dois gaussian
+soma as médias
+
+00:01:38.184 --> 00:01:42.543
+e calcula a raiz quadrada
+dos quadrados dos desvios padrão.
+
+00:01:42.577 --> 00:01:46.023
+Então o código instancia
+um novo objeto gaussian
+
+00:01:46.057 --> 00:01:49.287
+com uma nova média
+e um novo desvio padrão,
+
+00:01:49.321 --> 00:01:51.247
+originando um novo objeto.
+
+00:01:51.281 --> 00:01:55.080
+Outro exemplo:
+considere o método repr.
+
+00:01:55.114 --> 00:01:57.688
+Se lembra do que acontece
+no Python
+
+00:01:57.722 --> 00:02:00.751
+quando o único código
+na linha é uma variável?
+
+00:02:00.785 --> 00:02:04.649
+O Python imprime o valor
+da variável.
+
+00:02:04.683 --> 00:02:09.319
+Se eu disser x=5 e executar x,
+
+00:02:09.353 --> 00:02:11.792
+o Python vai imprimir
+o valor "5".
+
+00:02:11.826 --> 00:02:15.847
+O método mágico repr controla
+o que é impresso.
+
+00:02:15.881 --> 00:02:19.688
+Aqui, o código anula
+o comportamento padrão
+
+00:02:19.722 --> 00:02:23.863
+e imprime a média e o desvio
+padrão do objeto gaussian.
+
+00:02:23.897 --> 00:02:27.375
+Vou executar o código
+para ver o resultado.
+
+00:02:27.409 --> 00:02:30.422
+O Python tem dezenas
+de métodos mágicos.
+
+00:02:30.456 --> 00:02:34.287
+É possível anular os sinais
+de mais, menos, divisão,
+
+00:02:34.321 --> 00:02:40.271
+multiplicação, maior e menor,
+por exemplo.
+
+00:02:40.305 --> 00:02:42.240
+Para treinar
+com métodos mágicos,
+
+00:02:42.274 --> 00:02:46.480
+volte ao método Gaussian
+e reescreva o código que viu.
+
+00:02:46.514 --> 00:02:49.831
+Se estiver cansado de reescrever
+o código, não se preocupe.
+
+00:02:49.865 --> 00:02:52.535
+Em breve você vai converter
+o módulo Gaussian
+
+00:02:52.569 --> 00:02:55.967
+em um pacote de verdade
+e adicionar mais funcionalidade.
+

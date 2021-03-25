@@ -1,0 +1,188 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.871 --> 00:00:04.859
+DESENVOLVIMENTO
+GUIADO POR TESTE
+
+00:00:04.892 --> 00:00:07.973
+Desenvolvimento guiado por teste
+é quando você escreve o teste
+
+00:00:08.006 --> 00:00:10.468
+antes de escrever o código
+que está sendo testado.
+
+00:00:10.501 --> 00:00:13.064
+Isso significa que o seu teste
+falharia de primeira,
+
+00:00:13.097 --> 00:00:15.851
+e você saberia que terminou
+de implementar uma tarefa
+
+00:00:15.884 --> 00:00:17.473
+quando o teste passasse.
+
+00:00:17.506 --> 00:00:19.393
+Esse tipo
+de desenvolvimento de código
+
+00:00:19.426 --> 00:00:20.876
+traz uma série de benefícios
+
+00:00:20.909 --> 00:00:24.361
+e já é uma prática padrão
+em engenharia de software.
+
+00:00:24.394 --> 00:00:28.072
+Digamos que você tenha
+que escrever uma função
+
+00:00:28.105 --> 00:00:31.939
+que verifique se uma string
+é um endereço de e-mail válido.
+
+00:00:31.972 --> 00:00:34.445
+Você pensa em alguns fatores
+a serem considerados,
+
+00:00:34.478 --> 00:00:38.161
+como se a string contém
+o símbolo "@" e um ponto,
+
+00:00:38.194 --> 00:00:41.081
+e escreve uma função
+que se refira a eles.
+
+00:00:41.114 --> 00:00:43.797
+E depois a testa manualmente
+no seu terminal.
+
+00:00:43.830 --> 00:00:47.254
+Você introduz
+um e-mail válido e um inválido
+
+00:00:47.287 --> 00:00:49.418
+para garantir
+que ela funciona direito,
+
+00:00:49.451 --> 00:00:50.937
+e ela funciona.
+
+00:00:50.970 --> 00:00:54.850
+Você tenta mais alguns e-mails
+válidos e inválidos,
+
+00:00:54.883 --> 00:00:58.187
+e um deles devolve
+um resultado incorreto.
+
+00:00:58.220 --> 00:01:00.288
+Você percebe que se esqueceu
+de considerar
+
+00:01:00.321 --> 00:01:04.591
+um caso de borda na sua função
+e volta para adicioná-lo.
+
+00:01:04.624 --> 00:01:07.690
+Então você testa a função
+com outro caso de borda
+
+00:01:07.723 --> 00:01:09.389
+que você se esqueceu
+de considerar
+
+00:01:09.422 --> 00:01:13.124
+e edita sua função de novo
+para consertar isso.
+
+00:01:13.157 --> 00:01:15.873
+Em vez de fazer isso
+toda hora,
+
+00:01:15.906 --> 00:01:19.808
+você pode tentar criar um teste
+que verifique todas as situações
+
+00:01:19.841 --> 00:01:21.814
+e casos de borda
+que você possa imaginar
+
+00:01:21.847 --> 00:01:25.068
+antes de escrever a função.
+
+00:01:25.101 --> 00:01:28.541
+Dessa forma, quando você começar
+a implementar sua função,
+
+00:01:28.574 --> 00:01:31.648
+você poderá rodar o teste
+para saber na hora
+
+00:01:31.681 --> 00:01:35.704
+se ela funciona ou não
+de todas as maneiras imagináveis
+
+00:01:35.737 --> 00:01:37.869
+à medida que você altera
+sua função.
+
+00:01:37.902 --> 00:01:39.608
+Se o seu teste passar,
+
+00:01:39.641 --> 00:01:42.980
+você saberá
+que sua implementação está pronta.
+
+00:01:43.013 --> 00:01:45.772
+No futuro,
+quando você refatorar essa função
+
+00:01:45.805 --> 00:01:48.669
+ou fizer mudanças
+em outras partes do seu programa,
+
+00:01:48.702 --> 00:01:51.668
+você poderá rodar esse teste
+para garantir que sua função
+
+00:01:51.701 --> 00:01:54.585
+ainda se comporta
+como esperado.
+
+00:01:54.618 --> 00:01:57.717
+Isso também ajuda a garantir
+que o comportamento da sua função
+
+00:01:57.750 --> 00:02:01.033
+seja repetível
+independente de parâmetros externos,
+
+00:02:01.066 --> 00:02:03.410
+como hardware e tempo.
+
+00:02:03.443 --> 00:02:07.356
+Ao começar a escrever testes,
+você será lento
+
+00:02:07.389 --> 00:02:10.274
+e ficará tentado a escrever
+o código de implementação
+
+00:02:10.307 --> 00:02:12.433
+antes de escrever os testes.
+
+00:02:12.466 --> 00:02:16.826
+Aguente firme e, com a prática,
+você será mais rápido.
+
+00:02:16.859 --> 00:02:20.095
+Por fim, você será capaz
+de escrever todo tipo de teste
+
+00:02:20.128 --> 00:02:22.042
+em pouquíssimo tempo.
+

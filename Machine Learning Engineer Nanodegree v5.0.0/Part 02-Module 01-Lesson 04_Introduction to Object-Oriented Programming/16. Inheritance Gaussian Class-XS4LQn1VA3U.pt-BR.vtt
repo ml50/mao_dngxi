@@ -1,0 +1,147 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.067 --> 00:00:03.033
+Para reforçar
+como funciona a herança,
+
+00:00:03.067 --> 00:00:06.733
+adicionei um exemplo
+ao código da classe Gaussian.
+
+00:00:06.767 --> 00:00:11.200
+Escrevi uma nova classe Python
+chamada "Distribution",
+
+00:00:11.233 --> 00:00:15.433
+que será a classe pai
+tanto da classe Gaussian
+
+00:00:15.467 --> 00:00:19.733
+como da Binomial que codificaremos
+no fim da aula.
+
+00:00:19.767 --> 00:00:22.100
+Muitos dos códigos
+parecerão familiares.
+
+00:00:22.133 --> 00:00:26.433
+A função init
+foi a mesma do init Gaussian.
+
+00:00:26.467 --> 00:00:30.033
+Eu simplifiquei
+a função read_data_file
+
+00:00:30.067 --> 00:00:33.933
+para que ela leia apenas
+em um conjunto de dados,
+
+00:00:33.967 --> 00:00:35.667
+pois, antes, essa função
+
+00:00:35.700 --> 00:00:40.067
+também calculava a média
+e o desvio padrão dos dados.
+
+00:00:40.100 --> 00:00:43.933
+O código da classe Gaussian
+mudou ligeiramente.
+
+00:00:43.967 --> 00:00:48.200
+Agora ela é herdada
+da classe Distribution.
+
+00:00:48.233 --> 00:00:52.367
+A função init
+usa a função init da Distribution.
+
+00:00:52.400 --> 00:00:57.700
+Abaixo, o método read_data_file
+ainda está na classe Gaussian.
+
+00:00:57.733 --> 00:01:01.367
+Isso porque eu queria sobrescrever
+o método read_data_file
+
+00:01:01.400 --> 00:01:06.267
+da classe Distribution para calcular
+a média e o desvio padrão.
+
+00:01:06.300 --> 00:01:09.733
+Mesmo que o código pareça
+um pouco diferente,
+
+00:01:09.767 --> 00:01:13.633
+a classe Gaussian funciona
+exatamente da mesma maneira.
+
+00:01:13.667 --> 00:01:16.600
+Pode parecer que as mudanças
+no código são superficiais,
+
+00:01:16.633 --> 00:01:18.033
+e eu concordo.
+
+00:01:18.067 --> 00:01:22.833
+Eu quis introduzir a herança
+para você reconhecer a sintaxe.
+
+00:01:22.867 --> 00:01:24.300
+Perto do final da aula,
+
+00:01:24.333 --> 00:01:27.300
+veremos o código-fonte
+para o scikit-learn.
+
+00:01:27.333 --> 00:01:30.600
+Um pacote como o scikit-learn
+contém muitas classes
+
+00:01:30.633 --> 00:01:32.100
+que usam a herança.
+
+00:01:32.133 --> 00:01:34.867
+Será mais fácil compreender
+a sintaxe
+
+00:01:34.900 --> 00:01:37.600
+depois de ver
+como a herança funciona.
+
+00:01:37.633 --> 00:01:42.200
+O código Distribution e Gaussian
+estão na próxima seção,
+
+00:01:42.233 --> 00:01:44.400
+assim você poderá
+brincar com ele.
+
+00:01:44.433 --> 00:01:46.900
+Estamos nos aproximando
+do fim da aula.
+
+00:01:46.933 --> 00:01:49.367
+O próximo passo
+será modularizar o código
+
+00:01:49.400 --> 00:01:51.333
+em arquivos Python distintos,
+
+00:01:51.367 --> 00:01:53.967
+depois, veremos
+como criar um pacote Python.
+
+00:01:54.000 --> 00:01:57.233
+Nos últimos passos, estenderemos
+o código para incluir
+
+00:01:57.267 --> 00:02:01.367
+uma distribuição binomial
+para carregarmos no PyPI.
+
+00:02:01.400 --> 00:02:03.433
+Vamos começar
+modularizando o código.
+

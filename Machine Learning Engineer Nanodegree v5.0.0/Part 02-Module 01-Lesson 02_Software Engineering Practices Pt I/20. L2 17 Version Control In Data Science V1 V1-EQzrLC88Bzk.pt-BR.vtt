@@ -1,0 +1,51 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:01.002 --> 00:00:04.816
+CONTROLE DE VERSÃO
+EM CIÊNCIA DE DADOS
+
+00:00:05.179 --> 00:00:07.768
+Como pré-requisito
+deste curso,
+
+00:00:07.801 --> 00:00:10.485
+você já deve ter aprendido
+a usar Git
+
+00:00:10.518 --> 00:00:12.428
+para controle de versão.
+
+00:00:12.461 --> 00:00:15.101
+Se, no entanto,
+você precisar relembrar,
+
+00:00:15.134 --> 00:00:18.655
+dê uma olhada no link do curso
+no material extracurricular.
+
+00:00:18.688 --> 00:00:23.140
+Para você se familiarizar com o uso
+do controle de versão no trabalho,
+
+00:00:23.173 --> 00:00:26.081
+vamos primeiro ver
+um exemplo de situação
+
+00:00:26.114 --> 00:00:30.097
+em que você é um cientista de dados
+usando Git no trabalho.
+
+00:00:30.130 --> 00:00:34.050
+Vamos praticar os comandos usados
+nesse tipo de situação
+
+00:00:34.083 --> 00:00:38.216
+e depois vamos dar uma olhada
+nos desafios e técnicas
+
+00:00:38.249 --> 00:00:40.570
+no trabalho da ciência
+de controle de versão.
+

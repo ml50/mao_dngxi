@@ -1,0 +1,328 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Tips for Conducting a Code Review
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Software Engineering Practices Pt II
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Testing.html">
+       02. Testing
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Testing and Data Science.html">
+       03. Testing and Data Science
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Unit Tests.html">
+       04. Unit Tests
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Unit Testing Tools.html">
+       05. Unit Testing Tools
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Quiz Unit Tests.html">
+       06. Quiz: Unit Tests
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Test Driven Development and Data Science.html">
+       07. Test Driven Development and Data Science
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Logging.html">
+       08. Logging
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Log Messages.html">
+       09. Log Messages
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Logging.html">
+       10. Logging
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Code Review.html">
+       11. Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Questions to Ask Yourself When Conducting a Code Review.html">
+       12. Questions to Ask Yourself When Conducting a Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Tips for Conducting a Code Review.html">
+       13. Tips for Conducting a Code Review
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Conclusion.html">
+       14. Conclusion
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          13. Tips for Conducting a Code Review
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="tips-for-conducting-a-code-review">
+          Tips for Conducting a Code Review
+         </h1>
+         <p>
+          Now that we know what we are looking for, let's go over some tips on how to actually write your code review. When your coworker finishes up some code that they want to merge to the team's code base, they might send it to you for review. You provide feedback and suggestions, and then they may make changes and send it back to you. When you are happy with the code, you approve and it gets merged to the team's code base.
+         </p>
+         <p>
+          As you may have noticed, with code reviews you are now dealing with people, not just computers. So it's important to be thoughtful of their ideas and efforts. You are in a team and there will be differences in preferences. The goal of code review isn't to make all code follow your personal preferences, but a standard of quality for the whole team.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <blockquote>
+          <h4 id="tip-use-a-code-linter">
+           Tip: Use a code linter
+          </h4>
+         </blockquote>
+         <p>
+          This isn't really a tip for code review, but can save you lots of time from code review! Using a Python code linter  like
+          <a href="https://www.pylint.org/" rel="noopener noreferrer" target="_blank">
+           pylint
+          </a>
+          can automatically check for coding standards and PEP 8 guidelines for you! It's also a good idea to agree on a style guide as a team to handle disagreements on code style, whether that's an existing style guide or one you create together incrementally as a team.
+         </p>
+         <blockquote>
+          <h4 id="tip-explain-issues-and-make-suggestions">
+           Tip: Explain issues and make suggestions
+          </h4>
+         </blockquote>
+         <p>
+          Rather than commanding people to change their code a specific way because it's better, it will go a long way to explain to them the consequences of the current code and
+          <em>
+           suggest
+          </em>
+          changes to improve it. They will be much more receptive to your feedback if they understand your thought process and are accepting recommendations, rather than following commands. They also may have done it a certain way intentionally, and framing it as a suggestion promotes a constructive discussion, rather than opposition.
+         </p>
+         <pre><code class="txt language-txt">BAD: Make model evaluation code its own module - too repetitive.
+
+BETTER: Make the model evaluation code its own module. This will simplify models.py to be less repetitive and focus primarily on building models.
+
+GOOD: How about we consider making the model evaluation code its own module? This would simplify models.py to only include code for building models. Organizing these evaluations methods into separate functions would also allow us to reuse them with different models without repeating code.</code></pre>
+         <blockquote>
+          <h4 id="tip-keep-your-comments-objective">
+           Tip: Keep your comments objective
+          </h4>
+         </blockquote>
+         <p>
+          Try to avoid using the words "I" and "you" in your comments. You want to avoid comments that sound personal to bring the attention of the review to the code and not to themselves.
+         </p>
+         <pre><code class="txt language-txt">BAD: I wouldn't groupby genre twice like you did here... Just compute it once and use that for your aggregations.
+
+BAD: You create this groupby dataframe twice here. Just compute it once, save it as groupby_genre and then use that to get your average prices and views.
+
+GOOD: Can we group by genre at the beginning of the function and then save that as a groupby object? We could then reference that object to get the average prices and views without computing groupby twice.</code></pre>
+         <blockquote>
+          <h4 id="tip-provide-code-examples">
+           Tip: Provide code examples
+          </h4>
+         </blockquote>
+         <p>
+          When providing a code review,  you can save the author time and make it easy for them to act on your feedback by writing out your code suggestions. This shows you are willing to spend some extra time to review their code and help them out. It can also just be much quicker for you to demonstrate concepts through code rather than explanations.
+         </p>
+         <p>
+          Let's say you were reviewing code that included the following lines:
+         </p>
+         <pre><code class="python language-python">first_names = []
+last_names = []
+
+for name in enumerate(df.name):
+    first, last = name.split(' ')
+    first_names.append(first)
+    last_names.append(last)
+
+df['first_name'] = first_names
+df['last_names'] = last_names</code></pre>
+         <pre><code class="txt language-txt">BAD: You can do this all in one step by using the pandas str.split method.</code></pre>
+         <pre><code class="txt language-txt">GOOD: We can actually simplify this step to the line below using the pandas str.split method. Found this on this stack overflow post: https://stackoverflow.com/questions/14745022/how-to-split-a-column-into-two-columns</code></pre>
+         <p>
+          <code>
+           python
+df['first_name'], df['last_name'] = df['name'].str.split(' ', 1).str
+          </code>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="14. Conclusion.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('13. Tips for Conducting a Code Review')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

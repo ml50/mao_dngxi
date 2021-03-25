@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.859 --> 00:00:04.681
+CONTROLE DE VERSÃO
+FUNDINDO BRANCHES EM EQUIPE
+
+00:00:05.187 --> 00:00:07.966
+Enquanto você trabalhava
+nessas mudanças,
+
+00:00:07.999 --> 00:00:10.726
+seu colega, Andrew,
+estava trabalhando
+
+00:00:10.759 --> 00:00:15.098
+em melhorias na documentação
+do mesmo sistema de recomendação
+
+00:00:15.131 --> 00:00:18.727
+em um branch diferente,
+chamado "documentação".
+
+00:00:18.760 --> 00:00:22.775
+Andrew faz um commit das mudanças
+no branch de documentação,
+
+00:00:22.808 --> 00:00:25.459
+muda para o branch
+de desenvolvimento
+
+00:00:25.492 --> 00:00:30.441
+e puxa as últimas mudanças
+do repositório remoto neste branch,
+
+00:00:30.474 --> 00:00:33.300
+que inclui a mudança
+que eu fundi mais cedo
+
+00:00:33.333 --> 00:00:35.564
+para o recurso
+de grupos de amigos.
+
+00:00:35.597 --> 00:00:38.782
+Então Andrew funde
+o branch de documentação
+
+00:00:38.815 --> 00:00:42.424
+com o branch de desenvolvimento
+no repositório local dele
+
+00:00:42.457 --> 00:00:44.518
+e passa as mudanças dele
+
+00:00:44.551 --> 00:00:48.806
+para atualizar o desenvolvimento
+no repositório remoto.
+
+00:00:48.839 --> 00:00:51.953
+Depois de a equipe revisar
+o trabalho dos dois,
+
+00:00:51.986 --> 00:00:54.876
+eles fundem as atualizações
+do branch de desenvolvimento
+
+00:00:54.909 --> 00:00:57.174
+com o branch master.
+
+00:00:57.207 --> 00:01:00.199
+Agora eles passam as mudanças
+para o branch master
+
+00:01:00.232 --> 00:01:02.629
+no repositório remoto.
+
+00:01:02.662 --> 00:01:05.814
+As mudanças estão agora
+em produção.
+
+00:01:05.847 --> 00:01:09.236
+Usar branches,
+mensagens de commit e fundições
+
+00:01:09.269 --> 00:01:12.020
+são algumas das maneiras
+de como o controle de versão
+
+00:01:12.053 --> 00:01:14.821
+pode ser usado
+na ciência de dados em equipe,
+
+00:01:14.854 --> 00:01:18.040
+mas o processo pode variar
+dependendo da sua equipe.
+

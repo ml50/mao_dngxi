@@ -1,0 +1,146 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.218 --> 00:00:02.904
+O 1º tipo de documentação
+do qual vamos falar
+
+00:00:02.937 --> 00:00:04.490
+são os comentários inline.
+
+00:00:04.729 --> 00:00:07.585
+Você já deve ter visto isso
+várias vezes:
+
+00:00:08.002 --> 00:00:10.882
+um texto após um símbolo "#"
+no seu código.
+
+00:00:11.269 --> 00:00:13.602
+Eles são usados para explicar
+parte do seu código
+
+00:00:13.635 --> 00:00:16.754
+e ajudam futuros colaboradores
+a entenderem o seu trabalho.
+
+00:00:16.787 --> 00:00:18.961
+Comentários são usados
+de diferentes formas,
+
+00:00:18.994 --> 00:00:22.170
+e há muita diferença
+entre comentários ótimos,
+
+00:00:22.203 --> 00:00:25.049
+razoáveis e até inúteis.
+
+00:00:25.082 --> 00:00:26.785
+Uma das formas
+de usarmos comentários
+
+00:00:26.818 --> 00:00:29.778
+é para documentar os passos
+principais de códigos complexos
+
+00:00:29.811 --> 00:00:31.618
+para ajudar
+o entendimento de leitores.
+
+00:00:31.651 --> 00:00:35.042
+Por exemplo, com os comentários
+de orientação nesta função,
+
+00:00:35.075 --> 00:00:38.129
+você não precisa entender
+o código para acompanhar
+
+00:00:38.162 --> 00:00:39.594
+o que esta função faz.
+
+00:00:39.627 --> 00:00:41.449
+Se eu estivesse vendo
+isso pela 1ª vez
+
+00:00:41.482 --> 00:00:44.610
+e não tivesse ideia do que são
+essas funções ou ferramentas,
+
+00:00:44.643 --> 00:00:46.978
+esses comentários me ajudariam
+muito a entender
+
+00:00:47.011 --> 00:00:49.096
+o objetivo
+de cada bloco de código
+
+00:00:49.129 --> 00:00:51.765
+e até me ajudariam a distinguir
+linhas individuais
+
+00:00:51.798 --> 00:00:53.354
+de códigos ou métodos.
+
+00:00:53.757 --> 00:00:56.969
+Contudo, alguns argumentariam
+que fazer isso é usar comentários
+
+00:00:57.002 --> 00:00:58.938
+para justificar
+uma codificação ruim
+
+00:00:58.971 --> 00:01:01.722
+e que, se um código precisa
+de comentários para ser lido,
+
+00:01:01.755 --> 00:01:04.361
+é um sinal de que é preciso
+fazer uma refatoração.
+
+00:01:04.394 --> 00:01:08.321
+Comentários valem para explicar
+o que o código não consegue.
+
+00:01:08.354 --> 00:01:11.737
+Por exemplo, a história
+de por que um certo método
+
+00:01:11.770 --> 00:01:14.145
+foi implementado
+de uma determinada maneira.
+
+00:01:14.178 --> 00:01:15.841
+Uma abordagem
+não convencional
+
+00:01:15.874 --> 00:01:18.984
+ou aparentemente arbitrária
+pode ser sido usada
+
+00:01:19.017 --> 00:01:22.785
+porque uma variável externa obscura
+estava causando efeitos colaterais.
+
+00:01:22.818 --> 00:01:25.394
+Essas coisas são difíceis
+de explicar com código.
+
+00:01:25.427 --> 00:01:28.794
+Esses números para detectar
+níveis de bordas em uma imagem
+
+00:01:28.827 --> 00:01:30.090
+podem parecer arbitrários,
+
+00:01:30.123 --> 00:01:33.041
+mas o programador experimentou
+vários números
+
+00:01:33.074 --> 00:01:35.690
+e percebeu que eram esses
+que funcionavam
+
+00:01:36.328 --> 00:01:37.798
+para este caso específico.
+

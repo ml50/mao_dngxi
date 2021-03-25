@@ -1,0 +1,187 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.190 --> 00:00:07.620
+The first practice we'll talk about,
+
+00:00:07.620 --> 00:00:12.254
+is writing code in a way that is clean and modular.
+
+00:00:12.255 --> 00:00:17.100
+Data scientists often struggle with this when they first start coding,
+
+00:00:17.100 --> 00:00:22.200
+or even if they've been coding for years in a more research or academic setting.
+
+00:00:22.199 --> 00:00:24.559
+When you're working in industry,
+
+00:00:24.559 --> 00:00:28.314
+your code could potentially be used in production.
+
+00:00:28.315 --> 00:00:33.895
+Production code just means code that is run on production servers.
+
+00:00:33.895 --> 00:00:39.260
+For example, when you're on your laptop using software products like Udacity,
+
+00:00:39.259 --> 00:00:45.454
+Google, or Amazon, the code that's running the service you're using is production code.
+
+00:00:45.454 --> 00:00:50.420
+Ideally, code that's being used in production should meet a number of
+
+00:00:50.420 --> 00:00:56.660
+criteria to ensure reliability and efficiency before it becomes public.
+
+00:00:56.659 --> 00:01:00.654
+For one, the code needs to be clean.
+
+00:01:00.655 --> 00:01:06.540
+Code is clean when it's readable, simple and concise.
+
+00:01:06.540 --> 00:01:12.635
+Here's an example in plain English of a sentence that is not clean.
+
+00:01:12.635 --> 00:01:16.730
+"One could observe that your shirt has been sullied,
+
+00:01:16.730 --> 00:01:20.359
+due to the orange color of your shirt that appears
+
+00:01:20.359 --> 00:01:24.275
+to be similar to the color of a certain kind of juice."
+
+00:01:24.275 --> 00:01:28.984
+This sentence is terribly redundant and convoluted.
+
+00:01:28.984 --> 00:01:31.989
+Just reading this makes me frustrated.
+
+00:01:31.989 --> 00:01:34.765
+This can be rewritten as,
+
+00:01:34.765 --> 00:01:40.394
+"It looks like you spilled orange juice on your shirt," and accomplish the same thing.
+
+00:01:40.394 --> 00:01:45.179
+But this sentence is much more concise and clear.
+
+00:01:45.180 --> 00:01:49.340
+Writing clean code is very important in an industry
+
+00:01:49.340 --> 00:01:54.510
+setting where on a team that's constantly iterating over its work.
+
+00:01:54.510 --> 00:02:01.710
+This makes it much easier for yourself and others to understand and reuse your code.
+
+00:02:01.709 --> 00:02:04.375
+In addition to being clean,
+
+00:02:04.375 --> 00:02:06.894
+your code should be modular.
+
+00:02:06.894 --> 00:02:12.824
+Meaning, your program is logically broken up into functions and modules.
+
+00:02:12.824 --> 00:02:16.639
+In programming, a module is just a file.
+
+00:02:16.639 --> 00:02:20.689
+Similarly to how you can encapsulate code in
+
+00:02:20.689 --> 00:02:25.099
+a function and reuse it by calling the function in different places,
+
+00:02:25.099 --> 00:02:28.819
+you can encapsulate code within a module or
+
+00:02:28.819 --> 00:02:33.159
+file and reuse it by importing it in other files.
+
+00:02:33.159 --> 00:02:36.280
+We will see examples of this later.
+
+00:02:36.280 --> 00:02:40.680
+To you get a better understanding of what modular code is,
+
+00:02:40.680 --> 00:02:43.944
+try to think of it as putting your clothes away.
+
+00:02:43.944 --> 00:02:48.139
+Sure, you could just put all of your clothes in a single jar,
+
+00:02:48.139 --> 00:02:51.269
+but it wouldn't be very easy to find anything.
+
+00:02:51.270 --> 00:02:54.490
+Maybe because you can't ever find anything,
+
+00:02:54.490 --> 00:02:57.590
+you have multiple reversions of the same shirt or
+
+00:02:57.590 --> 00:03:02.069
+socks because you repurchased them when he couldn't find them.
+
+00:03:02.069 --> 00:03:05.079
+It will be much better if instead,
+
+00:03:05.080 --> 00:03:07.245
+you had a drawer for tee-shirts,
+
+00:03:07.245 --> 00:03:09.224
+another one for just shirts,
+
+00:03:09.224 --> 00:03:12.114
+another for socks, and so on.
+
+00:03:12.115 --> 00:03:16.225
+With this design, if you need a nice outfit for an interview,
+
+00:03:16.224 --> 00:03:21.644
+you don't need to worry about buying one just because he couldn't find the right clothes.
+
+00:03:21.645 --> 00:03:26.255
+If you need to tell someone else how to find the right shirt,
+
+00:03:26.254 --> 00:03:28.284
+pants, and pair of socks,
+
+00:03:28.284 --> 00:03:31.299
+it will be much easier with this design.
+
+00:03:31.300 --> 00:03:34.925
+The same is true in writing modular code.
+
+00:03:34.925 --> 00:03:38.990
+Splitting a code into logical functions and modules,
+
+00:03:38.990 --> 00:03:42.645
+allows you to quickly find a relevant pieces of code.
+
+00:03:42.645 --> 00:03:48.550
+You can often generalize these pieces of code to be reused in different places,
+
+00:03:48.550 --> 00:03:53.000
+to prevent yourself from writing extra unnecessary lines of code,.
+
+00:03:53.000 --> 00:03:56.960
+Abstracting out these details into these functions and
+
+00:03:56.960 --> 00:04:01.865
+modules can really help in improving the readability of your code.
+
+00:04:01.865 --> 00:04:06.500
+Again, programming in a way that makes it easier for a team
+
+00:04:06.500 --> 00:04:11.069
+to understand and iterate on is crucial for production.
+
+00:04:11.069 --> 00:04:12.979
+In this lesson, you will get
+
+00:04:12.979 --> 00:04:18.879
+practice writing code that is clean and modular to help you accomplish this.
+

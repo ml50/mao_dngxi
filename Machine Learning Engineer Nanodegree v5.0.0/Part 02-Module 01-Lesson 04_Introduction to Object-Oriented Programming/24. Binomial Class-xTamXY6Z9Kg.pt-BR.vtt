@@ -1,0 +1,171 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.211 --> 00:00:02.409
+Antes de começarmos
+a escrever o código,
+
+00:00:02.442 --> 00:00:06.275
+vejamos o exercício
+da classe Binomial.
+
+00:00:06.308 --> 00:00:12.272
+O exercício está nesta pasta
+4a_binomial_package.
+
+00:00:12.305 --> 00:00:17.633
+Na pasta, existem alguns arquivos
+em um diretório distributions.
+
+00:00:17.666 --> 00:00:19.329
+De todos esses arquivos,
+
+00:00:19.362 --> 00:00:22.465
+precisaremos modificar dois.
+
+00:00:22.498 --> 00:00:24.961
+Primeiro, é o arquivo
+init python
+
+00:00:24.994 --> 00:00:28.107
+dentro do diretório
+distributions.
+
+00:00:28.140 --> 00:00:33.330
+Atualmente, o arquivo init
+importa apenas a classe Gaussian.
+
+00:00:33.363 --> 00:00:38.296
+Precisamos modificar para que
+também importe a classe Binomial.
+
+00:00:38.329 --> 00:00:43.779
+Voltando, dê uma olhada
+no arquivo Binomialdistribution.
+
+00:00:43.812 --> 00:00:47.562
+Eu coloquei um monte
+de seções TODOs
+
+00:00:47.595 --> 00:00:49.882
+para ajudar a guiá-lo.
+
+00:00:49.915 --> 00:00:51.501
+Leia os TODOs
+
+00:00:51.534 --> 00:00:54.659
+para entender
+como o código deve ser.
+
+00:00:54.692 --> 00:00:57.266
+Cada método também contém
+uma documentação
+
+00:00:57.299 --> 00:01:00.650
+explicando os inputs
+e outputs esperados.
+
+00:01:00.683 --> 00:01:05.322
+Eu incluí um arquivo
+chamado "test.py",
+
+00:01:05.355 --> 00:01:08.553
+que contém testes de unidade
+
+00:01:08.586 --> 00:01:12.438
+que executaremos para determinar
+se o código está funcionando.
+
+00:01:12.471 --> 00:01:14.847
+É assim que usaremos
+este espaço de trabalho.
+
+00:01:14.880 --> 00:01:18.816
+Primeiro, abrimos um terminal
+e vamos para o diretório package
+
+00:01:18.849 --> 00:01:20.839
+usando o comando
+
+00:01:20.872 --> 00:01:25.904
+cd 4a_binomial_package.
+
+00:01:25.937 --> 00:01:29.392
+Depois digitamos
+"pip install .",
+
+00:01:29.425 --> 00:01:32.623
+que instalará
+o pacote distributions.
+
+00:01:32.656 --> 00:01:36.799
+Os testes de unidade
+estão no arquivo tests.py.
+
+00:01:36.832 --> 00:01:39.587
+Podemos executá-los digitando
+
+00:01:39.620 --> 00:01:42.995
+"python test.py".
+
+00:01:43.028 --> 00:01:44.851
+Conforme modificamos o código,
+
+00:01:44.884 --> 00:01:48.676
+executamos o arquivo test.py
+para ver se ele está funcionando.
+
+00:01:49.364 --> 00:01:53.507
+Neste caso, isso me diz que
+o Binomialdistributions importado
+
+00:01:53.540 --> 00:01:55.594
+não funciona.
+
+00:01:55.627 --> 00:01:59.715
+Isso porque não coloquei
+o arquivo init dentro do pacote.
+
+00:01:59.748 --> 00:02:01.340
+Conforme modificamos o código,
+
+00:02:01.373 --> 00:02:05.027
+podemos executar o arquivo test.py
+para ver se ele está funcionando.
+
+00:02:05.060 --> 00:02:08.043
+No entanto, sempre
+que atualizarmos o código do pacote,
+
+00:02:08.076 --> 00:02:10.651
+precisaremos
+reinstalar o pacote,
+
+00:02:10.684 --> 00:02:14.577
+caso contrário, o Python não verá
+as alterações feitas.
+
+00:02:14.610 --> 00:02:18.018
+Podemos reinstalar o pacote
+indo até o terminal.
+
+00:02:18.051 --> 00:02:21.098
+Certifique-se de que está
+no diretório package
+
+00:02:21.131 --> 00:02:26.789
+e digite
+"pip install --upgrade ."
+
+00:02:26.822 --> 00:02:31.358
+Isso desinstalará o pacote
+e o reinstalará. É só isso.
+
+00:02:31.391 --> 00:02:33.063
+Divirta-se com este exercício,
+
+00:02:33.096 --> 00:02:36.799
+ele reforça tudo o que praticamos
+ao longo desta aula.
+
