@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.620
+So we've loaded in our transaction data and split it into training and test sets.
+
+00:00:04.620 --> 00:00:07.650
+Now, it's time to define the model that we want to train.
+
+00:00:07.650 --> 00:00:11.220
+In this exercise, we'll utilize siege makers linear learner,
+
+00:00:11.220 --> 00:00:13.335
+which has two main applications.
+
+00:00:13.335 --> 00:00:18.285
+One is for regression tasks in which a linear line is fit to some data points.
+
+00:00:18.285 --> 00:00:22.560
+In this case, you want a model that can produce a predicted output value given
+
+00:00:22.559 --> 00:00:26.919
+some data point such as predicting the price of a house given its square size.
+
+00:00:26.920 --> 00:00:29.945
+The second use is to do binary classification,
+
+00:00:29.945 --> 00:00:34.640
+in which the linear learner basically learns a line to separate two classes of data.
+
+00:00:34.640 --> 00:00:36.890
+It effectively outputs labels,
+
+00:00:36.890 --> 00:00:39.469
+either the class label one for data that falls above
+
+00:00:39.469 --> 00:00:43.054
+the line or zero for points that fall on or below the line.
+
+00:00:43.054 --> 00:00:45.079
+This is a simple two-dimensional case,
+
+00:00:45.079 --> 00:00:49.804
+but you can think of this as a plane or multi-dimensional line for multiple features.
+
+00:00:49.804 --> 00:00:53.719
+In our case, we'll want to use this as a binary classifier and use it to
+
+00:00:53.719 --> 00:00:58.519
+predict our two transaction classes valid zero, or fraudulent one.
+
+00:00:58.520 --> 00:01:00.410
+As with any machine learning method,
+
+00:01:00.409 --> 00:01:02.599
+we'll first train our linear learner on
+
+00:01:02.600 --> 00:01:06.515
+some existing training data so it can learn a good separation line.
+
+00:01:06.515 --> 00:01:11.394
+Then we'll apply it to some new test data to see how it generalizes and performs.
+
+00:01:11.394 --> 00:01:15.739
+You can instantiate a linear learner in the same way that we've been doing other models,
+
+00:01:15.739 --> 00:01:18.424
+parsing in some constructor hyper-parameters,
+
+00:01:18.424 --> 00:01:22.729
+the role and output location in addition to specific model hyper-parameters.
+
+00:01:22.730 --> 00:01:24.170
+For your next exercise,
+
+00:01:24.170 --> 00:01:26.989
+I've given you a link to the linear learner documentation,
+
+00:01:26.989 --> 00:01:30.724
+that should give you enough information to create a linear learner estimator.
+
+00:01:30.724 --> 00:01:32.089
+When you click on this link,
+
+00:01:32.090 --> 00:01:35.165
+you'll see that there are a lot of parameters you can parse in.
+
+00:01:35.165 --> 00:01:37.490
+But I'd suggest only parsing in a few,
+
+00:01:37.489 --> 00:01:39.890
+like the rule and training instance types,
+
+00:01:39.890 --> 00:01:43.325
+as well as specifying that we do indeed want a binary classifier.
+
+00:01:43.325 --> 00:01:46.400
+You can leave most of the parameters as the default value.
+
+00:01:46.400 --> 00:01:47.719
+If we complete this step,
+
+00:01:47.719 --> 00:01:50.390
+you're welcome to move on to converting our training data,
+
+00:01:50.390 --> 00:01:53.224
+training an estimator, and even deploying it.
+
+00:01:53.224 --> 00:01:57.655
+In the next video, I'll go over one solution to creating a LinearLearner model.
+
+00:01:57.655 --> 00:01:59.000
+Then later, we'll go over
+
+00:01:59.000 --> 00:02:03.959
+a few specific parameters and improve this model one step at a time.
+

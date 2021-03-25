@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.769
+In this module, you learned a little bit about deployment, and in particular,
+
+00:00:04.769 --> 00:00:07.139
+you learned how you can use SageMaker to
+
+00:00:07.139 --> 00:00:10.004
+create and deploy your own machine learning projects.
+
+00:00:10.005 --> 00:00:14.130
+Before you go, let's talk a little bit about the different things that we learned about,
+
+00:00:14.130 --> 00:00:16.679
+starting with the notebook instances.
+
+00:00:16.679 --> 00:00:18.434
+For the most part, we've been using
+
+00:00:18.434 --> 00:00:21.779
+the notebook instance as our primary touchpoint for SageMaker,
+
+00:00:21.780 --> 00:00:23.609
+and it will likely be the case that this is
+
+00:00:23.609 --> 00:00:26.504
+your main method of interacting with SageMaker as well.
+
+00:00:26.504 --> 00:00:29.489
+It provides a convenient place to do some data processing,
+
+00:00:29.489 --> 00:00:34.929
+and then ask SageMaker to perform various computations to help you train and test models.
+
+00:00:34.929 --> 00:00:37.354
+We also talked about training jobs,
+
+00:00:37.354 --> 00:00:40.774
+we perform training jobs using the high-level approach
+
+00:00:40.774 --> 00:00:44.420
+by letting SageMaker take care of setting up the job specifics.
+
+00:00:44.420 --> 00:00:48.939
+Later on, we looked at how we can define those job specifics ourselves.
+
+00:00:48.939 --> 00:00:54.094
+Then, when we wanted to train a bunch of training jobs to test various hyperparameters,
+
+00:00:54.094 --> 00:00:58.339
+we learned that we could use SageMaker's hyperparameter tuning jobs to do that.
+
+00:00:58.340 --> 00:01:00.665
+We also learned how to create models,
+
+00:01:00.664 --> 00:01:03.789
+which in SageMaker is a collection of data.
+
+00:01:03.789 --> 00:01:05.840
+Essentially, it is a pairing of
+
+00:01:05.840 --> 00:01:09.335
+model artifacts that were created during a training process,
+
+00:01:09.334 --> 00:01:15.889
+and a container that contains code that uses those model artifacts to perform inference.
+
+00:01:15.890 --> 00:01:18.829
+We also talked about endpoint configurations,
+
+00:01:18.829 --> 00:01:23.359
+these described to SageMaker how a specific endpoint should be set up,
+
+00:01:23.359 --> 00:01:25.310
+so that when data is sent to it,
+
+00:01:25.310 --> 00:01:28.000
+it gets forwarded on to the correct model.
+
+00:01:28.000 --> 00:01:32.750
+In some cases, you may even want to have an endpoint send data to multiple models.
+
+00:01:32.750 --> 00:01:36.829
+In addition, we saw how once we have an endpoint configuration,
+
+00:01:36.829 --> 00:01:39.834
+we can ask SageMaker to create an endpoint.
+
+00:01:39.834 --> 00:01:44.179
+Currently, I don't have any endpoints running because as I've mentioned many times,
+
+00:01:44.180 --> 00:01:47.600
+you are charged for the length of time that an endpoint is running,
+
+00:01:47.599 --> 00:01:50.649
+so if you don't have no use for it, you should shut it down.
+
+00:01:50.650 --> 00:01:55.440
+A very useful functionality that we also discussed is a batch transform job.
+
+00:01:55.439 --> 00:02:01.564
+What this allows us to do is to perform inference on a whole bunch of data all at once,
+
+00:02:01.564 --> 00:02:04.099
+and it provides a very convenient way of doing so,
+
+00:02:04.099 --> 00:02:09.319
+so that we don't have to first deploy the model and then send our datapoints bit-by-bit,
+
+00:02:09.319 --> 00:02:11.344
+making sure to shut it down at the end.
+
+00:02:11.344 --> 00:02:13.639
+SageMaker takes care of all of that for us,
+
+00:02:13.639 --> 00:02:15.949
+launching the instance that performs inference,
+
+00:02:15.949 --> 00:02:18.464
+sending all the data to that model,
+
+00:02:18.465 --> 00:02:21.254
+and then shutting down the completed since once it's finished.
+
+00:02:21.254 --> 00:02:23.750
+I personally think that SageMaker is a great tool
+
+00:02:23.750 --> 00:02:26.599
+for quickly developing machine learning jobs,
+
+00:02:26.599 --> 00:02:29.854
+and then being able to start putting those things into production.
+
+00:02:29.854 --> 00:02:33.289
+I hope that you have a great time using SageMaker in your own projects,
+
+00:02:33.289 --> 00:02:35.400
+and I look forward to see what you make.
+

@@ -1,0 +1,307 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.485
+In the last video,
+
+00:00:01.485 --> 00:00:06.120
+we trained our PCA model and applied it to our original normalized training data to
+
+00:00:06.120 --> 00:00:11.339
+reduce the dimensionality of that data from 34 dimensions to seven components.
+
+00:00:11.339 --> 00:00:12.855
+Using this transformed data,
+
+00:00:12.855 --> 00:00:15.525
+we're now ready to implement k-means clustering.
+
+00:00:15.525 --> 00:00:20.130
+The steps to create a k-means estimator and deploy it will look very familiar.
+
+00:00:20.129 --> 00:00:21.929
+So I'll go over the model creation,
+
+00:00:21.929 --> 00:00:23.714
+training, and deployment fairly quickly.
+
+00:00:23.714 --> 00:00:26.295
+Now, our first step is to define a k-means model.
+
+00:00:26.295 --> 00:00:28.455
+If I click on the k-means documentation,
+
+00:00:28.454 --> 00:00:30.719
+I can see exactly what parameters this takes in.
+
+00:00:30.719 --> 00:00:34.274
+I can see I have to import this k-means estimator and pass in
+
+00:00:34.274 --> 00:00:38.009
+a role and details about the train instance count and type,
+
+00:00:38.009 --> 00:00:40.019
+I can also see a hyper-parameter here,
+
+00:00:40.020 --> 00:00:43.070
+k. If I look at the documentation below,
+
+00:00:43.070 --> 00:00:46.850
+I can see that this is the number of clusters I want this algorithm to produce.
+
+00:00:46.850 --> 00:00:49.579
+In this notebook, I gave you some advice on choosing a
+
+00:00:49.579 --> 00:00:52.504
+good k. This is based on collected empirical data.
+
+00:00:52.505 --> 00:00:55.640
+Essentially, I gave you some information looking at how
+
+00:00:55.640 --> 00:00:58.789
+close our data points are to each cluster center for
+
+00:00:58.789 --> 00:01:02.420
+various values for k. A bad value for k would be
+
+00:01:02.420 --> 00:01:06.575
+one so high that only one or two very close datapoints are near it,
+
+00:01:06.575 --> 00:01:09.409
+and another bad k would be one so small
+
+00:01:09.409 --> 00:01:12.409
+that datapoints are really far away from the centers.
+
+00:01:12.409 --> 00:01:15.229
+I wrote a bit about the elbow selection method,
+
+00:01:15.230 --> 00:01:17.780
+basically looking for a distance elbow that
+
+00:01:17.780 --> 00:01:21.260
+indicates that there's enough separation to distinguish the data points in
+
+00:01:21.260 --> 00:01:23.525
+each cluster but also include
+
+00:01:23.525 --> 00:01:27.560
+enough clusters so that the data points aren't extremely far away from each cluster.
+
+00:01:27.560 --> 00:01:30.590
+The elbow method takes a value for k and looks at
+
+00:01:30.590 --> 00:01:34.564
+the average distance of each of your data points to the cluster centers.
+
+00:01:34.564 --> 00:01:38.855
+It looks at how this value decreases as k increases,
+
+00:01:38.855 --> 00:01:41.570
+and it says if you see an elbow or a place
+
+00:01:41.569 --> 00:01:44.419
+where this stops decreasing and at a significant rate,
+
+00:01:44.420 --> 00:01:48.905
+then you should choose that k. I tried out some code for various values of k,
+
+00:01:48.905 --> 00:01:52.460
+and I think 8 is probably a good number of clusters to use here.
+
+00:01:52.459 --> 00:01:56.479
+We can see that the average distance is decreasing up until about this point.
+
+00:01:56.480 --> 00:02:00.825
+Okay. So when I defined a k-means estimator I passed in a role,
+
+00:02:00.825 --> 00:02:02.560
+details about the instance type,
+
+00:02:02.560 --> 00:02:05.750
+and output path which I'm just using the same one that I used for
+
+00:02:05.750 --> 00:02:10.370
+our PCA model and a number of clusters which I've specified to be 8.
+
+00:02:10.370 --> 00:02:11.795
+After creating this model,
+
+00:02:11.794 --> 00:02:13.389
+and I'm calling it k-means,
+
+00:02:13.389 --> 00:02:17.494
+this now expects to be trained on a particular kind of formatted training data.
+
+00:02:17.495 --> 00:02:20.450
+These are the same steps we took to train our PCA model.
+
+00:02:20.449 --> 00:02:23.464
+I'm taking our counties_transformed dataframe,
+
+00:02:23.465 --> 00:02:26.659
+and I'm converting it into a NumPy array of float values.
+
+00:02:26.659 --> 00:02:29.074
+Then I'm calling kmeans.record_set,
+
+00:02:29.074 --> 00:02:30.979
+passing in this NumPy data,
+
+00:02:30.979 --> 00:02:34.259
+and this returns record set formatted data.
+
+00:02:34.259 --> 00:02:35.719
+Then I can call fit, passing in
+
+00:02:35.719 --> 00:02:39.289
+this formatted data and creating a training job with this name.
+
+00:02:39.289 --> 00:02:41.509
+This is something you'll be able to refer to later
+
+00:02:41.509 --> 00:02:44.030
+if you want to take a look at the model attributes.
+
+00:02:44.030 --> 00:02:45.985
+After the training job completed,
+
+00:02:45.985 --> 00:02:49.400
+I then deploy this model and created a k-means predictor.
+
+00:02:49.400 --> 00:02:52.969
+Again, I'm using the same arguments as for our PCA model,
+
+00:02:52.969 --> 00:02:56.965
+and they can see that a k-means model and endpoint were created here.
+
+00:02:56.965 --> 00:03:01.444
+Then I can use this predictor to generate cluster labels for all of our data points.
+
+00:03:01.444 --> 00:03:04.009
+Here, I'm getting that predictor by name and calling predict.
+
+00:03:04.009 --> 00:03:07.909
+Then I want to get our Numpy formatted data and pass it into our predictor.
+
+00:03:07.909 --> 00:03:11.539
+So this predictor should take in our component training data,
+
+00:03:11.539 --> 00:03:14.014
+and return some information about the clusters.
+
+00:03:14.014 --> 00:03:15.919
+In this next cell, I'm going to print out what
+
+00:03:15.919 --> 00:03:19.039
+that cluster info is for our first data point,
+
+00:03:19.039 --> 00:03:20.614
+the first county in our list.
+
+00:03:20.615 --> 00:03:22.860
+So for our county, Alabama-Autauga,
+
+00:03:22.860 --> 00:03:26.370
+I can see that its closest cluster is cluster number 3,
+
+00:03:26.370 --> 00:03:29.480
+and we also have the Euclidean distance to that cluster.
+
+00:03:29.479 --> 00:03:33.519
+Now, each of our data points is in seven-dimensional components space.
+
+00:03:33.520 --> 00:03:35.795
+When we talk about distance to a cluster,
+
+00:03:35.794 --> 00:03:38.659
+we're actually looking at distance in seven dimensions
+
+00:03:38.659 --> 00:03:42.365
+between our data point and the center of its closest cluster.
+
+00:03:42.365 --> 00:03:44.120
+In the next few cells, I'm going to do
+
+00:03:44.120 --> 00:03:48.980
+some quick visualization and look at how many of our data points fall into each cluster.
+
+00:03:48.979 --> 00:03:51.739
+So here, I'm looking at the label closest_cluster,
+
+00:03:51.740 --> 00:03:54.170
+and I expect this to be a value like 3.
+
+00:03:54.169 --> 00:03:56.419
+I'm getting that cluster label for each point in
+
+00:03:56.419 --> 00:03:59.244
+our cluster info and storing it as cluster labels.
+
+00:03:59.245 --> 00:04:03.330
+Then I'm going to count up how many of our data points fall into each cluster,
+
+00:04:03.330 --> 00:04:04.969
+and I'll print out those counts.
+
+00:04:04.969 --> 00:04:08.009
+So these are in order from basically most popular at least,
+
+00:04:08.009 --> 00:04:11.664
+and I can see that most of our data points fall into cluster number 1.
+
+00:04:11.664 --> 00:04:14.729
+It's important to note that these are also indexed by 0,
+
+00:04:14.729 --> 00:04:17.329
+so there's a cluster 0 up to a cluster 7.
+
+00:04:17.329 --> 00:04:19.925
+Here's just another way to visualize these counts,
+
+00:04:19.925 --> 00:04:22.240
+which is just displaying them as a histogram.
+
+00:04:22.240 --> 00:04:26.180
+If I see that my data is wildly unevenly clustered here,
+
+00:04:26.180 --> 00:04:30.709
+it may be an indicator that my choice of k was not a great separator for the data.
+
+00:04:30.709 --> 00:04:34.310
+But this looks fairly evenly distributed among clusters.
+
+00:04:34.310 --> 00:04:36.625
+Now, I've stored all my cluster labels,
+
+00:04:36.625 --> 00:04:39.485
+and I'm actually done with the model endpoint,
+
+00:04:39.485 --> 00:04:41.120
+so as a last step here,
+
+00:04:41.120 --> 00:04:43.925
+I'm going to delete my k-means predictor endpoint.
+
+00:04:43.925 --> 00:04:46.939
+Next, I'll challenge you to extract the trained model
+
+00:04:46.939 --> 00:04:50.314
+attributes so you can look at the data and cluster centroids.
+
+00:04:50.314 --> 00:04:52.774
+I've also included some visualization code.
+
+00:04:52.774 --> 00:04:55.519
+The best part of this is really getting to learn something about
+
+00:04:55.519 --> 00:04:58.954
+this data and show how counties are naturally grouped together.
+
+00:04:58.954 --> 00:05:01.144
+So next, try to do this on your own,
+
+00:05:01.144 --> 00:05:04.409
+and if you'd like, you can consult my solution.
+

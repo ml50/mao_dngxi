@@ -1,0 +1,163 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.779
+Optimizing according to a specific metric is called model tuning,
+
+00:00:03.779 --> 00:00:07.890
+and SageMaker provides a number of ways to automatically tune a Linear Learner.
+
+00:00:07.889 --> 00:00:12.089
+In this example, I'm considering a scenario in which a bank has asked me to build
+
+00:00:12.089 --> 00:00:16.469
+a model that detects cases of fraud with an accuracy of about 85 percent.
+
+00:00:16.469 --> 00:00:18.644
+In this case, I want to build a model that has
+
+00:00:18.644 --> 00:00:22.320
+as many true positives and as few false negatives as possible.
+
+00:00:22.320 --> 00:00:25.230
+This corresponds to a model with high recall,
+
+00:00:25.230 --> 00:00:27.510
+which is the number of true positives over
+
+00:00:27.510 --> 00:00:30.045
+the number of true positives plus false negatives.
+
+00:00:30.045 --> 00:00:33.270
+So it's going to be highest when the number of false negatives is zero.
+
+00:00:33.270 --> 00:00:34.785
+To aim for a specific metric,
+
+00:00:34.784 --> 00:00:37.079
+Linear Learner offers the hyperparameter,
+
+00:00:37.079 --> 00:00:39.960
+binary_classifier_model_selection_criteria,
+
+00:00:39.960 --> 00:00:43.370
+which is the model evaluation criteria for the training dataset.
+
+00:00:43.369 --> 00:00:45.679
+If I look at the details of the parameter here,
+
+00:00:45.679 --> 00:00:48.619
+I can see that by default this is set to accuracy,
+
+00:00:48.619 --> 00:00:50.479
+but I want to change this to be recall.
+
+00:00:50.479 --> 00:00:54.064
+A reference to this parameter is in Linear Learners documentation.
+
+00:00:54.064 --> 00:00:57.699
+If I scroll down, I can see binary_classifier_model_selection_criteria,
+
+00:00:57.700 --> 00:01:00.135
+and I have to select a string, accuracy,
+
+00:01:00.134 --> 00:01:03.320
+f1, f_beta, or a number of these other targets.
+
+00:01:03.320 --> 00:01:06.575
+In this case, I know I want to set a target value for recall,
+
+00:01:06.575 --> 00:01:10.549
+and so I'll set my model_selection_criteria to precision_at_target_recall,
+
+00:01:10.549 --> 00:01:13.039
+and I'll also set a value for my target_recall.
+
+00:01:13.040 --> 00:01:14.975
+So here, I've created my model as usual,
+
+00:01:14.974 --> 00:01:16.164
+passing in a role,
+
+00:01:16.165 --> 00:01:18.015
+some details about the train_instance,
+
+00:01:18.015 --> 00:01:20.204
+and output_path and my sagemaker_session.
+
+00:01:20.204 --> 00:01:24.254
+I've also set the model_selection_criteria to precision_at_target_recall,
+
+00:01:24.254 --> 00:01:27.314
+and I've set my target_recall to a value of 0.9.
+
+00:01:27.314 --> 00:01:30.245
+In this case, I'm assuming that the performance on the training set
+
+00:01:30.245 --> 00:01:33.395
+will be within about five percent of the performance on a test set.
+
+00:01:33.394 --> 00:01:35.854
+So for recall of about 85 percent,
+
+00:01:35.855 --> 00:01:38.165
+I'll aim for a bit higher, 90 percent.
+
+00:01:38.165 --> 00:01:40.505
+Next, I've done the same steps as before,
+
+00:01:40.504 --> 00:01:45.109
+training our recall model on our formatted_train_data and deploying the model.
+
+00:01:45.109 --> 00:01:48.109
+Then, I'm evaluating my deployed prediction endpoint,
+
+00:01:48.109 --> 00:01:50.944
+recall_predictor and printing out the metrics.
+
+00:01:50.944 --> 00:01:55.104
+I can see in this case that I have a much higher recall and a much lower precision.
+
+00:01:55.105 --> 00:02:00.034
+Specifically, I can see that I'm only misclassifying 10 of our fraudulent cases.
+
+00:02:00.034 --> 00:02:03.289
+But I am misclassifying a lot more of our valid cases,
+
+00:02:03.290 --> 00:02:05.285
+misclassifying them as fraudulent.
+
+00:02:05.284 --> 00:02:09.469
+So now, I'm done evaluating this endpoint and I'm going to delete my recall_predictor.
+
+00:02:09.469 --> 00:02:11.330
+So we have a model that's tuned to get
+
+00:02:11.330 --> 00:02:14.900
+a higher recall which aims to reduce the number of false negatives.
+
+00:02:14.900 --> 00:02:18.110
+But earlier, we also discussed how class imbalance may actually
+
+00:02:18.110 --> 00:02:21.710
+bias our model towards predicting that all transactions are valid,
+
+00:02:21.710 --> 00:02:24.305
+resulting in a higher number of false negatives.
+
+00:02:24.305 --> 00:02:26.060
+It stands to reason that this model can be
+
+00:02:26.060 --> 00:02:28.340
+further improved if we account for this imbalance.
+
+00:02:28.340 --> 00:02:31.495
+So next, we'll discuss one more way you might improve this model,
+
+00:02:31.495 --> 00:02:33.920
+and your task will be to train and deploy a model that's
+
+00:02:33.919 --> 00:02:37.639
+both tuned and accounts for class imbalance.
+

@@ -1,0 +1,292 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.219 --> 00:00:05.819
+The field of Machine Learning and Deep Learning is changing pretty rapidly.
+
+00:00:05.820 --> 00:00:07.560
+It's like a lot of research,
+
+00:00:07.559 --> 00:00:10.244
+a lot of applications in industry,
+
+00:00:10.244 --> 00:00:12.914
+and I wonder SageMaker is part of that.
+
+00:00:12.914 --> 00:00:15.509
+There's new features that are released pretty often,
+
+00:00:15.509 --> 00:00:17.460
+very often as a matter of fact.
+
+00:00:17.460 --> 00:00:21.065
+I wonder within an internal team,
+
+00:00:21.065 --> 00:00:25.200
+how do you decide on what features to work on?
+
+00:00:25.199 --> 00:00:28.019
+Traditionally at Amazon overall, Amazon Web Services,
+
+00:00:28.019 --> 00:00:33.509
+we aggressively listen to our customers.
+
+00:00:33.509 --> 00:00:39.739
+So we worked with customers and in essentially work backwards from what they need,
+
+00:00:39.740 --> 00:00:42.770
+and we've done that very successfully with different other products.
+
+00:00:42.770 --> 00:00:45.625
+If you think about what we've done with databases,
+
+00:00:45.625 --> 00:00:49.700
+or if you think about what we've done with compute with Amazon EC2,
+
+00:00:49.700 --> 00:00:52.609
+or if you think about what we've done with the Hadoop ecosystem,
+
+00:00:52.609 --> 00:00:56.750
+making Spark available on top of Amazon Elastic MapReduce.
+
+00:00:56.750 --> 00:01:02.280
+The guiding principle behind all of these products was to listen to the market,
+
+00:01:02.280 --> 00:01:05.224
+listen to customers internally and externally,
+
+00:01:05.224 --> 00:01:08.689
+and trying to find out what would customers need or
+
+00:01:08.689 --> 00:01:12.439
+what would add the most value to customers at a specific point in time.
+
+00:01:12.439 --> 00:01:16.155
+So that's really how the road map is identified.
+
+00:01:16.155 --> 00:01:20.790
+Ninety to 95 percent of a road map is identified by talking to customers,
+
+00:01:20.790 --> 00:01:21.820
+and that's part of my job,
+
+00:01:21.819 --> 00:01:24.529
+and understanding what they want at a certain point in time,
+
+00:01:24.530 --> 00:01:26.215
+and then bring that back to the product.
+
+00:01:26.215 --> 00:01:29.240
+We also do have some insights from working with internal customers
+
+00:01:29.239 --> 00:01:32.209
+like Alexa, or Amazon.com.
+
+00:01:32.209 --> 00:01:34.179
+So we learn a lot from their needs,
+
+00:01:34.180 --> 00:01:38.090
+and then base on those needs and combining that with our external customers needs,
+
+00:01:38.090 --> 00:01:40.234
+we can come up with a healthy road map.
+
+00:01:40.234 --> 00:01:44.179
+In the back end, SageMaker has a very very large team.
+
+00:01:44.180 --> 00:01:50.415
+We do have engineers that are focusing on optimizing TensorFlow, for example.
+
+00:01:50.415 --> 00:01:54.080
+We do have engineers that are focusing on optimizing Pytorch,
+
+00:01:54.079 --> 00:01:56.719
+and then these folks work directly with
+
+00:01:56.719 --> 00:02:01.170
+the open source community and they contribute back to the code base of TensorFlow,
+
+00:02:01.170 --> 00:02:02.879
+or Pytorch, or MXnet,
+
+00:02:02.879 --> 00:02:05.254
+or all these Deep Learning Machine Learning frameworks.
+
+00:02:05.254 --> 00:02:09.759
+So there are large teams with very clear focuses,
+
+00:02:09.759 --> 00:02:13.659
+and some of them are focusing on platform and infrastructure automation.
+
+00:02:13.659 --> 00:02:15.789
+Some of them are focusing on Deep Learning algorithms,
+
+00:02:15.789 --> 00:02:18.590
+some of them are focusing on workflow and integration.
+
+00:02:18.590 --> 00:02:22.849
+So it's a very large ecosystem of people that
+
+00:02:22.849 --> 00:02:24.859
+are aggressively listening to customers and trying to
+
+00:02:24.860 --> 00:02:27.455
+find out what to build to meet the demand.
+
+00:02:27.455 --> 00:02:32.210
+Is there a feature among all of these that you find the most exciting right now,
+
+00:02:32.210 --> 00:02:35.150
+or maybe something you'd like to see in the future?
+
+00:02:35.150 --> 00:02:42.530
+Yeah. So if you think about the process that we just went through,
+
+00:02:42.530 --> 00:02:46.219
+I think when people talk about Machine Learning nowadays,
+
+00:02:46.219 --> 00:02:50.750
+one thing that we get to talk a lot about is the algorithm,
+
+00:02:50.750 --> 00:02:53.810
+the Jupyter notebooks, and then training Machine Learning model.
+
+00:02:53.810 --> 00:02:55.599
+But where's the data coming from?
+
+00:02:55.599 --> 00:03:00.479
+How does the data get ready for Machine Learning model?
+
+00:03:00.479 --> 00:03:01.629
+The very first step, yeah.
+
+00:03:01.629 --> 00:03:03.680
+Right. So, I mean,
+
+00:03:03.680 --> 00:03:06.319
+in the industry there's this joke that goes about what is a data
+
+00:03:06.319 --> 00:03:09.709
+scientists spend 80 percent of their time cleaning the data,
+
+00:03:09.710 --> 00:03:11.770
+and 20 percent of their time.
+
+00:03:11.770 --> 00:03:13.920
+Modeling and training a model, yeah.
+
+00:03:13.919 --> 00:03:15.449
+Complaining about the data.
+
+00:03:15.449 --> 00:03:17.310
+Complaining about data.
+
+00:03:17.310 --> 00:03:19.890
+So the idea really is to facilitate.
+
+00:03:19.889 --> 00:03:22.099
+So one of the things that we spent a lot of energy on
+
+00:03:22.099 --> 00:03:24.694
+last year was to facilitate the process
+
+00:03:24.694 --> 00:03:30.819
+of collecting the data and then creating real features,
+
+00:03:30.819 --> 00:03:35.194
+or label training data out of raw data.
+
+00:03:35.194 --> 00:03:40.849
+So if you want to create a computer vision algorithm for object detection,
+
+00:03:40.849 --> 00:03:45.620
+or a sentiment analysis like a classification on text algorithm,
+
+00:03:45.620 --> 00:03:52.800
+you probably want to have an initial set of clean data that real humans have looked at.
+
+00:03:52.800 --> 00:03:54.104
+In the case of images,
+
+00:03:54.104 --> 00:03:58.160
+they would put bounding boxes around birds and then label that as birds,
+
+00:03:58.159 --> 00:04:00.620
+around cars and label that as cars.
+
+00:04:00.620 --> 00:04:04.460
+So that ecosystem could be improved.
+
+00:04:04.460 --> 00:04:09.754
+So we did release a product at the end of last year called Amazon SageMaker Ground Truth,
+
+00:04:09.754 --> 00:04:13.324
+that really helps with collecting real data,
+
+00:04:13.324 --> 00:04:15.834
+raw dataset from the real-world,
+
+00:04:15.835 --> 00:04:21.759
+and creating a distributed task that goes out
+
+00:04:21.759 --> 00:04:27.993
+to either a public workforce of real humans that can help you create your features,
+
+00:04:27.994 --> 00:04:33.280
+or a private workforce of potentially your staff or people with specialized skill set,
+
+00:04:33.279 --> 00:04:35.229
+like medical doctors that would be able to
+
+00:04:35.230 --> 00:04:41.140
+recognize medical images and then annotate that accurately.
+
+00:04:41.139 --> 00:04:49.284
+Really automate that entire ecosystem of targeting real people with raw data,
+
+00:04:49.285 --> 00:04:53.050
+getting their help about with labeling the data,
+
+00:04:53.050 --> 00:04:59.629
+and eventually creating cleaned-up labeled data for the process of Machine Learning,
+
+00:04:59.629 --> 00:05:01.399
+and that's really the beginning.
+
+00:05:01.399 --> 00:05:04.219
+Because before you start looking at the algorithms,
+
+00:05:04.220 --> 00:05:06.965
+the Jupyter notebook, you really need to have a clean dataset.
+
+00:05:06.964 --> 00:05:09.709
+So we innovated towards the end of last year,
+
+00:05:09.709 --> 00:05:11.914
+created Amazon SageMaker Ground Truth.
+
+00:05:11.915 --> 00:05:13.580
+I'm not allowed to have a favorite,
+
+00:05:13.579 --> 00:05:17.675
+but that's one of my favorite products part of that entire ecosystem.
+
+00:05:17.675 --> 00:05:20.995
+So you could as a user take
+
+00:05:20.995 --> 00:05:23.930
+personal photos or something and then send
+
+00:05:23.930 --> 00:05:26.689
+them out to your family to label like what is your favorite thing,
+
+00:05:26.689 --> 00:05:29.149
+and then maybe try to learn where to
+
+00:05:29.149 --> 00:05:31.609
+plan like the next best vacation. There's something in there?
+
+00:05:31.610 --> 00:05:33.060
+Yeah. You could do that.
+

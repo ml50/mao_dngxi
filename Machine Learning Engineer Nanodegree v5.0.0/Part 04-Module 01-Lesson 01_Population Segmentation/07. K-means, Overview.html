@@ -1,0 +1,401 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   K-means, Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Population Segmentation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Cezanne &amp; Dan.html">
+       01. Introducing Cezanne &amp; Dan
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Interview Segment What is SageMaker and Why Learn It.html">
+       02. Interview Segment: What is SageMaker and Why Learn It?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Course Outline, Case Studies.html">
+       03. Course Outline, Case Studies
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Unsupervised v Supervised Learning.html">
+       04. Unsupervised v Supervised Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Model Design.html">
+       05. Model Design
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Population Segmentation.html">
+       06. Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="07. K-means, Overview.html">
+       07. K-means, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Creating a Notebook Instance.html">
+       08. Creating a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Create a SageMaker Notebook Instance.html">
+       09. Create a SageMaker Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Pre-Notebook Population Segmentation.html">
+       10. Pre-Notebook: Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Exercise Data Loading &amp; Processing.html">
+       11. Exercise: Data Loading &amp; Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Solution Data Pre-Processing.html">
+       12. Solution: Data Pre-Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Exercise Normalization.html">
+       13. Exercise: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Solution Normalization.html">
+       14. Solution: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="15. PCA, Overview.html">
+       15. PCA, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="16. PCA Estimator &amp; Training.html">
+       16. PCA Estimator &amp; Training
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Exercise PCA Model Attributes &amp; Variance.html">
+       17. Exercise: PCA Model Attributes &amp; Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Solution Variance.html">
+       18. Solution: Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Component Makeup.html">
+       19. Component Makeup
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Exercise PCA Deployment &amp; Data Transformation.html">
+       20. Exercise: PCA Deployment &amp; Data Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Solution Creating Transformed Data.html">
+       21. Solution: Creating Transformed Data
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Exercise K-means Estimator &amp; Selecting K.html">
+       22. Exercise: K-means Estimator &amp; Selecting K
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Exercise K-means Predictions (clusters).html">
+       23. Exercise: K-means Predictions (clusters)
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Solution K-means Predictor.html">
+       24. Solution: K-means Predictor
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Exercise Get the Model Attributes.html">
+       25. Exercise: Get the Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Solution Model Attributes.html">
+       26. Solution: Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Clean Up All Resources.html">
+       27. Clean Up: All Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="28. AWS Workflow &amp; Summary.html">
+       28. AWS Workflow &amp; Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. K-means, Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="k-means-clustering">
+          K-Means Clustering
+         </h1>
+         <p>
+          To perform population segmentation, one of our strategies will be to use k-means clustering to group data into similar clusters. To review, the k-means clustering algorithm can be broken down into a few steps; the following steps assume that you have n-dimensional data, which is to say, data with a discrete number of features associated with it. In the case of housing price data, these features include traits like house size, location, etc.
+          <strong>
+           features
+          </strong>
+          are just measurable components of a data point. K-means works as follows:
+         </p>
+         <p>
+          You select
+          <code>
+           k
+          </code>
+          , a predetermined number of clusters that you want to form. Then
+          <code>
+           k
+          </code>
+          points (centroids for k clusters) are selected at random locations in feature space.
+          <br/>
+          For each point in your training dataset:
+         </p>
+         <ol>
+          <li>
+           You find the centroid that the point is closest to
+          </li>
+          <li>
+           And assign that point to that cluster
+          </li>
+          <li>
+           Then, for each cluster centroid, you move that point such that it is in the center of
+           <em>
+            all
+           </em>
+           the points that are were assigned to that cluster in step 2.
+          </li>
+          <li>
+           Repeat steps 2 and 3 until you’ve either reached convergence and points no longer change cluster membership
+           <em>
+            or
+           </em>
+           until some specified number of iterations have been reached.
+          </li>
+         </ol>
+         <p>
+          This algorithm can be applied to any kind of unlabelled data. You can watch a video explanation of the k-means algorithm, as applied to color image segmentation, below. In this case, the k-means algorithm looks at R, G, and B values as features, and uses those features to cluster individual pixels in an image!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="color-image-segmentation">
+          Color Image Segmentation
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          K-means Clustering
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. K-means Clustering-Cf_LSDCEBzk.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="07. K-means Clustering-Cf_LSDCEBzk.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="07. K-means Clustering-Cf_LSDCEBzk.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="data-dimensionality">
+          Data Dimensionality
+         </h2>
+         <p>
+          One thing to note is that it’s often easiest to form clusters when you have low-dimensional data. For example, it can be difficult, and often noisy, to get good clusters from data that has over 100 features. In high-dimensional cases, there is often a dimensionality reduction step that takes place
+          <em>
+           before
+          </em>
+          data is analyzed by a clustering algorithm. We’ll discuss PCA as a dimensionality reduction technique in the practical code example, later.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. Creating a Notebook Instance.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. K-means, Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

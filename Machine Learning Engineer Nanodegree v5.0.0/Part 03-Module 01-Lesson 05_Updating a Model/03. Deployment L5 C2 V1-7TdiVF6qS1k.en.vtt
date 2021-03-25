@@ -1,0 +1,193 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.149
+So, we've created an XGBoost model and it's
+
+00:00:03.149 --> 00:00:06.285
+deployed and being used somewhere in an application.
+
+00:00:06.285 --> 00:00:08.984
+But, it turns out that for some reason,
+
+00:00:08.984 --> 00:00:12.114
+our XGBoost model is too complicated.
+
+00:00:12.115 --> 00:00:16.789
+Maybe it's taking up too many resources at inference time or
+
+00:00:16.789 --> 00:00:19.040
+we're just having to use it too often or
+
+00:00:19.039 --> 00:00:21.549
+maybe we can't explain the way it works very well.
+
+00:00:21.550 --> 00:00:23.210
+So, what we'd really like,
+
+00:00:23.210 --> 00:00:26.094
+is a much simpler model that we can explain.
+
+00:00:26.094 --> 00:00:31.279
+In any case, suppose that now what we'd like to do is create a linear model.
+
+00:00:31.280 --> 00:00:35.649
+We can create a linear model in much the same way as we created an XGBoost model.
+
+00:00:35.649 --> 00:00:40.049
+We will start by using the high-level approach to create the model artifacts,
+
+00:00:40.049 --> 00:00:43.204
+which can be done by first creating an estimator object,
+
+00:00:43.204 --> 00:00:47.299
+making sure that the container that we use during training is
+
+00:00:47.299 --> 00:00:51.894
+the linear learner container and just like in the XGBoost case,
+
+00:00:51.895 --> 00:00:55.790
+we need to set some hyperparameters specific to this algorithm.
+
+00:00:55.789 --> 00:00:59.119
+In this case our data has 13 features and
+
+00:00:59.119 --> 00:01:02.689
+so we need to make sure to set the feature dimension to 13.
+
+00:01:02.689 --> 00:01:06.500
+We are doing a regression because we are trying to
+
+00:01:06.500 --> 00:01:11.555
+estimate a real number and the Linear Learner algorithm,
+
+00:01:11.555 --> 00:01:13.775
+while creating a linear model,
+
+00:01:13.775 --> 00:01:16.640
+does so by looking at mini-batches.
+
+00:01:16.640 --> 00:01:22.174
+In particular it uses the Gradient Descent Algorithm in order to fit the model.
+
+00:01:22.174 --> 00:01:27.453
+So, we can set here the number of rows that are used in each mini-batch.
+
+00:01:27.453 --> 00:01:29.159
+Once we've set the hyperparameters,
+
+00:01:29.159 --> 00:01:32.989
+we can then call the fit method and SageMaker will take care of
+
+00:01:32.989 --> 00:01:37.625
+creating the model artifacts for our linear learner model.
+
+00:01:37.625 --> 00:01:40.040
+Now, that we've finished fitting our linear model,
+
+00:01:40.040 --> 00:01:42.140
+we can go ahead and deploy that model
+
+00:01:42.140 --> 00:01:44.810
+much in the same way as we did with the XGBoost model.
+
+00:01:44.810 --> 00:01:50.480
+First, we create a model object inside of SageMaker by describing where
+
+00:01:50.480 --> 00:01:53.435
+the model artifacts are being stored and
+
+00:01:53.435 --> 00:01:56.510
+which container should be used to perform inference.
+
+00:01:56.510 --> 00:01:59.315
+Once that's done, we can create an endpoint configuration.
+
+00:01:59.314 --> 00:02:01.474
+Much like the XGBoost example,
+
+00:02:01.474 --> 00:02:04.280
+we have only a single production variant and
+
+00:02:04.280 --> 00:02:07.105
+we call that production variant the linear model.
+
+00:02:07.105 --> 00:02:11.000
+Now, that we have an endpoint configuration that uses our newly trained model,
+
+00:02:11.000 --> 00:02:15.185
+we can ask SageMaker to create an endpoint with those properties.
+
+00:02:15.185 --> 00:02:17.194
+Once our endpoint has been set up,
+
+00:02:17.194 --> 00:02:19.699
+we can go ahead and try and test here our model to make
+
+00:02:19.699 --> 00:02:22.474
+sure that everything is working the way we expect it to.
+
+00:02:22.474 --> 00:02:25.280
+Just like with the XGBoost endpoint,
+
+00:02:25.280 --> 00:02:27.319
+we're going to send the first row of our test data,
+
+00:02:27.319 --> 00:02:30.199
+which we do by first serializing it and then sending it off
+
+00:02:30.199 --> 00:02:33.139
+to our endpoint and just like in the XGBoost case,
+
+00:02:33.139 --> 00:02:36.049
+we get a JSON object as a response,
+
+00:02:36.050 --> 00:02:39.905
+which in this case it tells us that our return type is
+
+00:02:39.905 --> 00:02:44.590
+JSON data and that the variant that was used was the linear model.
+
+00:02:44.590 --> 00:02:46.640
+Of course, we expect that the variant used was
+
+00:02:46.639 --> 00:02:49.639
+a linear model since we only have one production variant listed.
+
+00:02:49.639 --> 00:02:54.619
+So now, if we read in the body object and turn it back into a string,
+
+00:02:54.620 --> 00:03:00.875
+what we get as described in the response variable is a JSON return.
+
+00:03:00.875 --> 00:03:03.280
+In this case, it is a JSON object,
+
+00:03:03.280 --> 00:03:06.574
+which contains the score of 35.8.
+
+00:03:06.574 --> 00:03:09.319
+So, if we compare that again with the true value,
+
+00:03:09.319 --> 00:03:11.120
+we can see that in this particular case
+
+00:03:11.120 --> 00:03:14.840
+the linear model is actually doing a little bit better than our XGBoost model.
+
+00:03:14.840 --> 00:03:17.360
+Of course, looking at a single data point is not
+
+00:03:17.360 --> 00:03:20.600
+a very good way of determining how good a model is behaving,
+
+00:03:20.599 --> 00:03:23.579
+but it at least gives us something to look at.
+
+00:03:23.580 --> 00:03:26.765
+Next, since we're not going to use the linear model all by itself,
+
+00:03:26.764 --> 00:03:29.039
+we're going to shut down the endpoint.
+

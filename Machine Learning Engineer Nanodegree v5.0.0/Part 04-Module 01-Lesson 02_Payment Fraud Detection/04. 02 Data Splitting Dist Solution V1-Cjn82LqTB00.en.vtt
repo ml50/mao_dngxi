@@ -1,0 +1,196 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.560
+We loaded in our data,
+
+00:00:01.560 --> 00:00:05.790
+and here's my first solution for calculating the percentage of fraudulent data.
+
+00:00:05.790 --> 00:00:08.384
+First, from our transaction dataframe,
+
+00:00:08.384 --> 00:00:14.054
+I'm counting up the occurrences of data points in each class using.value_counts.
+
+00:00:14.054 --> 00:00:15.990
+This gives me back an array of counts.
+
+00:00:15.990 --> 00:00:20.579
+I can get the fraudulent counts from counts[1] and the valid counts from counts[0].
+
+00:00:20.579 --> 00:00:22.274
+Then, to get the fraction that I want,
+
+00:00:22.274 --> 00:00:25.515
+I just divide the fraudulent count by the total count here.
+
+00:00:25.515 --> 00:00:29.580
+Then, I'm returning that fraudulent percentage and running my test cell below.
+
+00:00:29.579 --> 00:00:33.299
+I can see that out of about 285,000 data points,
+
+00:00:33.299 --> 00:00:38.924
+about 500 are fraudulent which makes up about 0.17 percent of the data.
+
+00:00:38.924 --> 00:00:42.184
+So this is not even a whole percent that's labeled as fraudulent.
+
+00:00:42.185 --> 00:00:44.240
+Now, on the one hand, this is good.
+
+00:00:44.240 --> 00:00:48.365
+We don't want this person to have experienced many fraudulent transactions,
+
+00:00:48.365 --> 00:00:50.995
+but it will be challenging data to learn from.
+
+00:00:50.994 --> 00:00:53.224
+Many algorithms assume that we have
+
+00:00:53.225 --> 00:00:56.300
+a relatively even distribution of data among the classes.
+
+00:00:56.299 --> 00:01:00.229
+We'll get into ways to manage a class imbalance like this later on.
+
+00:01:00.229 --> 00:01:05.959
+Next, I wanted to split this data into a training set and test set for evaluation later.
+
+00:01:05.959 --> 00:01:10.369
+So here's my solution for splitting the data according to a past in train_frac.
+
+00:01:10.370 --> 00:01:13.520
+First, I'm grabbing my dataframe of transaction data
+
+00:01:13.519 --> 00:01:17.685
+and converting it into a matrix using df.as_matrix.
+
+00:01:17.685 --> 00:01:22.310
+This will make it easier for me to use Numpy functions to shuffle and split this data.
+
+00:01:22.310 --> 00:01:25.189
+Next, according to my past in random seed,
+
+00:01:25.189 --> 00:01:28.390
+I'm randomly shuffling all of the data in this matrix.
+
+00:01:28.390 --> 00:01:30.445
+Here, I'm getting the train size,
+
+00:01:30.444 --> 00:01:32.750
+the amount of training data that I want to keep.
+
+00:01:32.750 --> 00:01:35.129
+This is going to be the number of rows of data in
+
+00:01:35.129 --> 00:01:38.134
+our matrix times the train fraction that's passed in.
+
+00:01:38.135 --> 00:01:40.310
+Since this fraction is a decimal value,
+
+00:01:40.310 --> 00:01:43.040
+I'll actually want to cast this to be an integer type.
+
+00:01:43.040 --> 00:01:46.280
+So I'm casting it to an int because our data is discrete,
+
+00:01:46.280 --> 00:01:48.454
+that is I can't have half a datapoint.
+
+00:01:48.454 --> 00:01:50.000
+So this is going to round down
+
+00:01:50.000 --> 00:01:53.890
+any float value and this is okay behavior for such a division.
+
+00:01:53.890 --> 00:01:56.070
+Now, these train size will be the index of
+
+00:01:56.069 --> 00:01:58.609
+the row that I want to split my matrix data at.
+
+00:01:58.609 --> 00:02:03.265
+So here, I'm getting my train features up until that index, train size.
+
+00:02:03.265 --> 00:02:06.515
+I know my class labels are in the last column of the dataframe,
+
+00:02:06.515 --> 00:02:09.800
+so I am not including that in the features here with negative one,
+
+00:02:09.800 --> 00:02:11.135
+not the last column.
+
+00:02:11.134 --> 00:02:15.324
+Then, here, I am getting that last value to save as my class labels.
+
+00:02:15.324 --> 00:02:18.919
+Then, I'm doing something similar with the test features and labels.
+
+00:02:18.919 --> 00:02:20.780
+I'm getting the remaining rows of data.
+
+00:02:20.780 --> 00:02:24.020
+Notice the placement of train size before the colon, here, and after,
+
+00:02:24.020 --> 00:02:25.370
+here, and then, here,
+
+00:02:25.370 --> 00:02:27.640
+getting the last column of test labels.
+
+00:02:27.639 --> 00:02:31.625
+Finally, I'm just returning all of these in a specified return order,
+
+00:02:31.625 --> 00:02:33.185
+training features and labels,
+
+00:02:33.185 --> 00:02:36.395
+and test features and labels in separate tuples.
+
+00:02:36.395 --> 00:02:38.255
+So this completes my function.
+
+00:02:38.254 --> 00:02:42.680
+Now, I can call this function in the next cell and test out the shape.
+
+00:02:42.680 --> 00:02:45.040
+I'm leaving a default split of 0.7 for
+
+00:02:45.039 --> 00:02:48.409
+my training data so 30 percent of my data should go to test data.
+
+00:02:48.409 --> 00:02:51.770
+Then, I have a few tests down here that check that I have the correct shape for each of
+
+00:02:51.770 --> 00:02:55.760
+these features and that all my labels are indeed zeros and ones.
+
+00:02:55.759 --> 00:02:58.798
+This cell prints up the number of training points that I generated,
+
+00:02:58.799 --> 00:03:01.900
+about 200,000, the number of test points,
+
+00:03:01.900 --> 00:03:03.965
+and a test first item and label.
+
+00:03:03.965 --> 00:03:08.335
+I should see 30 features in this first item and a single class label.
+
+00:03:08.335 --> 00:03:10.790
+Zero indicates a valid transaction.
+
+00:03:10.789 --> 00:03:13.729
+So now that we have our train data and test data,
+
+00:03:13.729 --> 00:03:16.144
+these are almost ready to be fed into a model.
+
+00:03:16.145 --> 00:03:21.060
+So next, I'll outline how to build and train a binary classification model.
+

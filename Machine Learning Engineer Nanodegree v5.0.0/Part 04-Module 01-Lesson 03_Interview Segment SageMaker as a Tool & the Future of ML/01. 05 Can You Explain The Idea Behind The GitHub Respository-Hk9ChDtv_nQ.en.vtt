@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.750 --> 00:00:06.750
+One thing I really like about SageMaker is, especially,
+
+00:00:06.750 --> 00:00:08.970
+with the built-in algorithms that are coming out,
+
+00:00:08.970 --> 00:00:11.130
+there's a really big repository,
+
+00:00:11.130 --> 00:00:15.030
+GitHub repository that has like a Jupyter Notebook that walks through,
+
+00:00:15.029 --> 00:00:16.890
+and has some example data,
+
+00:00:16.890 --> 00:00:20.760
+and it walks through how to train and deploy each of these algorithms.
+
+00:00:20.760 --> 00:00:23.880
+I was wondering if you could speak to the decision to
+
+00:00:23.879 --> 00:00:27.855
+create this really big repository in addition to documentation.
+
+00:00:27.855 --> 00:00:32.770
+Right. The idea behind the repository came,
+
+00:00:33.649 --> 00:00:38.504
+our mission really is to put machine learning in the hands of every developer.
+
+00:00:38.505 --> 00:00:43.730
+So that's our mission. To do that we really thought
+
+00:00:43.729 --> 00:00:49.199
+about reorganizing the way we build technology around machine learning.
+
+00:00:49.200 --> 00:00:52.720
+So we built an entire staff that has three main layers.
+
+00:00:52.719 --> 00:00:53.990
+At the bottom layer,
+
+00:00:53.990 --> 00:00:59.480
+we make machine learning and deep learning frameworks available,
+
+00:00:59.479 --> 00:01:00.889
+though those are the TensorFlow,
+
+00:01:00.890 --> 00:01:02.329
+the MXNet, the Phython,
+
+00:01:02.329 --> 00:01:05.780
+[inaudible] , all these good programming languages of machine learning,
+
+00:01:05.780 --> 00:01:08.540
+that deep developers, data scientists,
+
+00:01:08.540 --> 00:01:12.180
+research scientists, would be very knowledgeable in,
+
+00:01:12.180 --> 00:01:16.185
+and they'll be a able to play around with that naturally.
+
+00:01:16.185 --> 00:01:17.400
+But that's not for everyone.
+
+00:01:17.400 --> 00:01:18.840
+So if you know exactly what to do,
+
+00:01:18.840 --> 00:01:23.100
+if you can play with GPUs and recompile GPU libraries,
+
+00:01:23.099 --> 00:01:25.084
+then, yes, you'll be very comfortable there.
+
+00:01:25.084 --> 00:01:30.280
+But then, at the middle layer we also built a lot of automation, like I said earlier,
+
+00:01:30.280 --> 00:01:33.349
+for building, training, and deploying machine learning algorithms,
+
+00:01:33.349 --> 00:01:36.140
+and that's really where SageMaker fits in.
+
+00:01:36.140 --> 00:01:37.670
+At the top layer there's a bunch of
+
+00:01:37.670 --> 00:01:41.090
+applications services for computer vision and all this other stuff.
+
+00:01:41.090 --> 00:01:45.185
+But because we want to talk about SageMaker for now, I'll focus on that.
+
+00:01:45.185 --> 00:01:51.155
+Now, automating the infrastructure was not the whole job.
+
+00:01:51.155 --> 00:01:53.899
+Like the job is not done if you just automating infrastructure,
+
+00:01:53.899 --> 00:01:56.150
+because you still have people that are not
+
+00:01:56.150 --> 00:01:59.465
+particularly very familiar with machine learning algorithms.
+
+00:01:59.465 --> 00:02:04.159
+So what we decided to do is to bring in the most popular, the most common,
+
+00:02:04.159 --> 00:02:08.659
+the most useful machine learning algorithms that exist out there [inaudible] is one
+
+00:02:08.659 --> 00:02:13.884
+of the competitions winning machine learning algorithm nowadays,
+
+00:02:13.884 --> 00:02:16.289
+some computer vision algorithms,
+
+00:02:16.289 --> 00:02:18.599
+principal component analysis, KMeans,
+
+00:02:18.599 --> 00:02:20.579
+k nearest neighbor, linear regression,
+
+00:02:20.580 --> 00:02:23.400
+logistic regression, Multiclass classification.
+
+00:02:23.400 --> 00:02:25.724
+So you're probably your familiar with these names,
+
+00:02:25.724 --> 00:02:27.469
+if you've played around with machine learning.
+
+00:02:27.469 --> 00:02:33.104
+So what we set off to do as a challenge is to essentially take these algorithms,
+
+00:02:33.104 --> 00:02:35.114
+optimize them for large-scale,
+
+00:02:35.115 --> 00:02:40.900
+for large datasets, and then make them available in Amazon SageMaker.
+
+00:02:40.900 --> 00:02:43.310
+The other thing that we decided to do,
+
+00:02:43.310 --> 00:02:46.189
+is to go to our internal team at Amazon and say, hey,
+
+00:02:46.189 --> 00:02:51.319
+what are the cool algorithms that you guys are working on at the moment?
+
+00:02:51.319 --> 00:02:54.590
+So we got some nuggets from there an algorithm like BlazingText,
+
+00:02:54.590 --> 00:02:59.205
+which is an improvement on Word2vec that essentially,
+
+00:02:59.205 --> 00:03:02.535
+we use that internal Amazon to build word embeddings,
+
+00:03:02.534 --> 00:03:04.169
+like to build embeddings of products,
+
+00:03:04.169 --> 00:03:07.155
+ad items, of user comments, and things like that.
+
+00:03:07.155 --> 00:03:12.060
+So we get that from the team and then package that put that in SageMaker.
+
+00:03:12.060 --> 00:03:15.903
+So when you embark on a journey of not just making
+
+00:03:15.903 --> 00:03:20.019
+platforms and services but also algorithms available to people,
+
+00:03:20.020 --> 00:03:22.760
+I think a very natural thing to do is to
+
+00:03:22.759 --> 00:03:25.759
+also put examples around those algorithms to make sure that
+
+00:03:25.759 --> 00:03:31.370
+people can use these algorithms with lower friction of of entry.
+
+00:03:31.370 --> 00:03:36.240
+So then we decided to build a lot of examples around, initially,
+
+00:03:36.240 --> 00:03:38.980
+these algorithms, but also people got super excited,
+
+00:03:38.979 --> 00:03:41.479
+and then it just started contributing to this example.
+
+00:03:41.479 --> 00:03:42.949
+So we ended up eventually,
+
+00:03:42.949 --> 00:03:45.379
+with more than 30,
+
+00:03:45.379 --> 00:03:49.055
+and it's probably a lot more now Jupyter Notebooks that we open source,
+
+00:03:49.055 --> 00:03:51.240
+and that are also available within SageMaker.
+
+00:03:51.240 --> 00:03:53.990
+So the idea there was to make sure that if
+
+00:03:53.990 --> 00:03:57.905
+a data scientist and/or developer wants to use SageMaker,
+
+00:03:57.905 --> 00:04:00.250
+they can jump on the platform,
+
+00:04:00.250 --> 00:04:03.289
+not just have access to the infrastructure and all the automation,
+
+00:04:03.289 --> 00:04:05.060
+but also have access to,
+
+00:04:05.060 --> 00:04:11.780
+essentially an example that can get them through building, training, deploying, hosting,
+
+00:04:11.780 --> 00:04:14.563
+tuning machine learning models end-to-end,
+
+00:04:14.563 --> 00:04:19.069
+and we wanted to make sure that everything is available there including some sample data.
+
+00:04:19.069 --> 00:04:20.719
+So that was the entire idea.
+
+00:04:20.720 --> 00:04:25.330
+It started as a small project and it grew because people started contributing,
+
+00:04:25.329 --> 00:04:27.740
+and we also enable our external customers to
+
+00:04:27.740 --> 00:04:30.610
+contribute to that library which is available on GitHub.
+
+00:04:30.610 --> 00:04:35.060
+It's an ecosystem that is growing pretty large around that,
+
+00:04:35.060 --> 00:04:37.254
+and that's one of the things I'm also very proud of
+
+00:04:37.254 --> 00:04:39.180
+Yes. I think it's an amazing resource,
+
+00:04:39.180 --> 00:04:40.694
+and I was thinking like,
+
+00:04:40.694 --> 00:04:43.019
+with especially the use of Jupyter Notebooks,
+
+00:04:43.019 --> 00:04:46.625
+it really ties into what we try to do at Udacity with education.
+
+00:04:46.625 --> 00:04:49.639
+it's like, a question of how do you make this the
+
+00:04:49.639 --> 00:04:52.550
+most accessible by creating a sort of framing,
+
+00:04:52.550 --> 00:04:54.290
+that allows people to really focus on
+
+00:04:54.290 --> 00:04:56.080
+whatever machine learning problem they're trying to solve,
+
+00:04:56.079 --> 00:04:59.120
+whether it's something data or something with an algorithm,
+
+00:04:59.120 --> 00:05:02.340
+reducing any extraneous information there,
+
+00:05:02.339 --> 00:05:05.750
+and allowing them to explore and play around with these.
+
+00:05:05.750 --> 00:05:07.834
+I think there's something really powerful.
+
+00:05:07.834 --> 00:05:10.159
+Yes. People learn by doing.
+
+00:05:10.160 --> 00:05:13.620
+So if it is possible for you to,
+
+00:05:13.620 --> 00:05:18.074
+after learning about KMeans or k nearest neighbor algorithms,
+
+00:05:18.074 --> 00:05:22.170
+find a way to implement that right away, in a matter of,
+
+00:05:22.170 --> 00:05:27.390
+I don't know, 10-15 minutes by just following instructions, it becomes real.
+
+00:05:27.389 --> 00:05:32.819
+Then you can eventually, deploy that in web surveys or something like that,
+
+00:05:32.819 --> 00:05:34.469
+and then you use the product.
+
+00:05:34.470 --> 00:05:38.240
+So I think the ability to bring that association with
+
+00:05:38.240 --> 00:05:42.110
+an example that guides the learners is very useful,
+
+00:05:42.110 --> 00:05:46.110
+and yes, we're seeing a lot of momentum around that capability.
+

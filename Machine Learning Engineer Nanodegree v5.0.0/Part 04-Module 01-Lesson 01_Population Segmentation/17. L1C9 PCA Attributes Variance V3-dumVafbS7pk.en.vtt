@@ -1,0 +1,382 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.339
+We've just trained the PCA model and now we can access the underlying model parameters.
+
+00:00:05.339 --> 00:00:08.669
+One thing that we'll need is the name of the training job.
+
+00:00:08.669 --> 00:00:09.765
+I'm going to copy it from here,
+
+00:00:09.765 --> 00:00:12.630
+we could also get it from the AWS console.
+
+00:00:12.630 --> 00:00:17.100
+Saved model artifacts are stored in S3 as a TAR file.
+
+00:00:17.100 --> 00:00:19.770
+This is a compressed file in the output path that we
+
+00:00:19.769 --> 00:00:22.364
+specified in the location output path,
+
+00:00:22.364 --> 00:00:27.015
+and it will also be saved in this output/model.tar.gz extension.
+
+00:00:27.015 --> 00:00:31.289
+We can explore the artifacts that are stored here and use them to deploy a trained model.
+
+00:00:31.289 --> 00:00:34.339
+So in here, I'm going to copy and paste my training job name,
+
+00:00:34.340 --> 00:00:38.484
+and then the model key is going to be the prefix counties that we specified earlier,
+
+00:00:38.484 --> 00:00:41.054
+this job name, and the output extension.
+
+00:00:41.054 --> 00:00:43.850
+Then similar to how we downloaded the CSV file before,
+
+00:00:43.850 --> 00:00:46.535
+we're going to pass in that model key, the bucket name,
+
+00:00:46.534 --> 00:00:49.654
+and call download file on our boto3 resource.
+
+00:00:49.655 --> 00:00:52.175
+Then I actually have a couple more lines of code that will
+
+00:00:52.174 --> 00:00:56.029
+unzip this compressed file and store it as model_algo-1,
+
+00:00:56.030 --> 00:00:59.390
+this name is consistent across models.
+
+00:00:59.390 --> 00:01:01.310
+So if this so executed,
+
+00:01:01.310 --> 00:01:04.475
+this should print out the model key and some confirmation code.
+
+00:01:04.474 --> 00:01:08.719
+Now built-in SageMaker models are built on something called MXNet.
+
+00:01:08.719 --> 00:01:11.420
+So I'm importing this as a library mx,
+
+00:01:11.420 --> 00:01:13.504
+and this gives us certain tools to use.
+
+00:01:13.504 --> 00:01:18.030
+I'm going to load in the parameters of our model by name, which is model_algo-1.
+
+00:01:19.299 --> 00:01:23.390
+The mx library allows me to load this in as an ndarray.
+
+00:01:23.390 --> 00:01:27.079
+I'm saving all of these as the PCA model parameters and printing them out here.
+
+00:01:27.079 --> 00:01:31.609
+I can see that this array holds three main values, s,
+
+00:01:31.609 --> 00:01:34.545
+v, and down here a mean value,
+
+00:01:34.545 --> 00:01:36.939
+and I'll be able to access these arrays by name.
+
+00:01:36.939 --> 00:01:39.364
+I have some explanations of what each of these is here.
+
+00:01:39.364 --> 00:01:43.419
+The mean is the mean that's subtracted from a component in order to center it,
+
+00:01:43.420 --> 00:01:45.835
+this is part of the PCA calculation.
+
+00:01:45.834 --> 00:01:48.918
+v is the makeup of the principal components,
+
+00:01:48.918 --> 00:01:53.840
+so which linear combinations of original features make up each principal component?
+
+00:01:53.840 --> 00:01:57.310
+s are the singular values of the components.
+
+00:01:57.310 --> 00:02:01.990
+Now, we talked about getting components that will cause the most variance in our dataset.
+
+00:02:01.989 --> 00:02:05.629
+s will not give us the exact percentage data variants,
+
+00:02:05.629 --> 00:02:08.719
+but it can help us calculate a good approximation,
+
+00:02:08.719 --> 00:02:11.590
+according to this approximate explained variance formula,
+
+00:02:11.590 --> 00:02:12.784
+which I'll go over in a bit.
+
+00:02:12.784 --> 00:02:14.329
+The important thing to note is that,
+
+00:02:14.330 --> 00:02:17.390
+for looking at the principal components and the data variance,
+
+00:02:17.389 --> 00:02:20.139
+we'll be interested in v and s only.
+
+00:02:20.139 --> 00:02:23.359
+I'm actually going to load the specific parameters calling them by name,
+
+00:02:23.360 --> 00:02:26.570
+and loading them in as DataFrames s and v here.
+
+00:02:26.569 --> 00:02:29.734
+So first, let's talk about s and the data variance.
+
+00:02:29.735 --> 00:02:31.250
+I mentioned that from s,
+
+00:02:31.250 --> 00:02:34.294
+we can get an approximation of the data variance that is
+
+00:02:34.294 --> 00:02:37.504
+explained in the first and principal components.
+
+00:02:37.504 --> 00:02:41.014
+The approximate explained variance is given by this formula.
+
+00:02:41.014 --> 00:02:45.554
+This is the sum of s squared for all selected top_n components,
+
+00:02:45.555 --> 00:02:48.875
+over the sum of squares for all components.
+
+00:02:48.875 --> 00:02:51.349
+Why are we interested in variants in the first place?
+
+00:02:51.349 --> 00:02:53.614
+Why is variants so important?
+
+00:02:53.615 --> 00:02:57.469
+Well, the challenging part of doing dimensionality reduction with PCA,
+
+00:02:57.469 --> 00:03:01.039
+is deciding on the number of top components we want to get from our data,
+
+00:03:01.039 --> 00:03:03.864
+and eventual use in our final clustering model.
+
+00:03:03.865 --> 00:03:08.890
+Basically, we know we want to apply this PCA model to our original training data,
+
+00:03:08.889 --> 00:03:11.639
+which will return 33 principle components.
+
+00:03:11.639 --> 00:03:13.459
+But we only want to use a selection of
+
+00:03:13.460 --> 00:03:16.310
+the top components to create a smaller feature space,
+
+00:03:16.310 --> 00:03:18.740
+which will be better for clustering our population data.
+
+00:03:18.740 --> 00:03:21.485
+So out of our 33 principal components,
+
+00:03:21.485 --> 00:03:24.490
+how might we choose a good number of top components,
+
+00:03:24.490 --> 00:03:26.939
+to include when we transform our training data?
+
+00:03:26.939 --> 00:03:28.439
+Do we choose the top five components,
+
+00:03:28.439 --> 00:03:30.254
+the top 10 or even more?
+
+00:03:30.254 --> 00:03:32.870
+Well, one thing we know is that PCA will create
+
+00:03:32.870 --> 00:03:36.784
+components in the order of causing the most to least variance.
+
+00:03:36.784 --> 00:03:40.099
+So say we have data in three dimensions like this.
+
+00:03:40.099 --> 00:03:43.189
+This is just an illustrative example that's actually taken
+
+00:03:43.189 --> 00:03:46.579
+from a PhD thesis on organizing genetic data.
+
+00:03:46.580 --> 00:03:50.600
+So these three-dimensions capture 100 percent of the variance in our data,
+
+00:03:50.599 --> 00:03:52.159
+all of the spread up and down,
+
+00:03:52.159 --> 00:03:53.740
+left to right, and back and forth.
+
+00:03:53.740 --> 00:03:57.125
+In this image, you can see that most of this data is related,
+
+00:03:57.125 --> 00:04:00.455
+all of it flows close to on a 2D plane.
+
+00:04:00.455 --> 00:04:02.495
+Just by looking at the spread of data,
+
+00:04:02.495 --> 00:04:05.884
+we can visualize that these three dimensions have some correlation.
+
+00:04:05.884 --> 00:04:09.439
+It turns out that we can create two new dimensions that are
+
+00:04:09.439 --> 00:04:13.550
+made up of linear combinations of the original three dimensions.
+
+00:04:13.550 --> 00:04:17.030
+These two dimensions are centered in the center of our data,
+
+00:04:17.029 --> 00:04:20.500
+and angled according to these PCA component lines here.
+
+00:04:20.500 --> 00:04:22.774
+Here, you can see that we're projecting
+
+00:04:22.774 --> 00:04:26.794
+our three-dimensional data into this two-dimensional components space,
+
+00:04:26.795 --> 00:04:29.045
+our PCA transform space.
+
+00:04:29.045 --> 00:04:33.280
+Our axes are not defined by our PCA components, one and two.
+
+00:04:33.279 --> 00:04:38.184
+In this case, we're still capturing about 98 percent of our data variance,
+
+00:04:38.185 --> 00:04:40.699
+using just these two new dimensions.
+
+00:04:40.699 --> 00:04:42.229
+So in this simple case,
+
+00:04:42.230 --> 00:04:45.819
+dimensionality reduction doesn't hurt our data representation much.
+
+00:04:45.819 --> 00:04:48.694
+Typically, and especially for higher-dimensional data,
+
+00:04:48.694 --> 00:04:51.920
+there is a noticeable trade off between the amount of variance we can
+
+00:04:51.920 --> 00:04:56.074
+capture and the number of component dimensions we use to represent our data.
+
+00:04:56.074 --> 00:04:57.539
+This is pretty intuitive,
+
+00:04:57.540 --> 00:04:58.920
+if you discarded dimension,
+
+00:04:58.920 --> 00:05:01.890
+you're going to lose some complexity in how you can represent your data.
+
+00:05:01.889 --> 00:05:04.389
+PCA basically works with this trade off,
+
+00:05:04.389 --> 00:05:08.000
+and it's up to us to choose a number of components that both reduces
+
+00:05:08.000 --> 00:05:12.769
+the dimensionality of our data and still captures most of the variance of our data.
+
+00:05:12.769 --> 00:05:14.375
+Depending on your application,
+
+00:05:14.375 --> 00:05:15.740
+this number may vary,
+
+00:05:15.740 --> 00:05:20.990
+but for learning general patterns in a large base of population data as we're doing here,
+
+00:05:20.990 --> 00:05:23.650
+it's okay to capture around 80 percent variance.
+
+00:05:23.649 --> 00:05:25.189
+Now, one thing to note is that
+
+00:05:25.189 --> 00:05:30.125
+the largest s values are going to be actually at the end of this s DataFrame.
+
+00:05:30.125 --> 00:05:33.579
+So for example, I can look at the top five singular values,
+
+00:05:33.579 --> 00:05:38.560
+by looking at a certain starting index in this s DataFrame and printing those out.
+
+00:05:38.560 --> 00:05:41.149
+Now, to select our top n components,
+
+00:05:41.149 --> 00:05:43.250
+and calculate the explained variance,
+
+00:05:43.250 --> 00:05:46.600
+your task will be to complete a function explained variance,
+
+00:05:46.600 --> 00:05:50.525
+whose function will take in the entire s DataFrame that we just got,
+
+00:05:50.524 --> 00:05:53.644
+and a number of top principal components.
+
+00:05:53.644 --> 00:05:57.969
+This will be a value like the top one or the top five components, and so on.
+
+00:05:57.970 --> 00:06:00.350
+Then you should use this approximate formula for
+
+00:06:00.350 --> 00:06:03.260
+summing square values for the top n components,
+
+00:06:03.259 --> 00:06:05.855
+and dividing by the sum over all components,
+
+00:06:05.855 --> 00:06:09.620
+and return the decimal percentage of the approximate explained variance.
+
+00:06:09.620 --> 00:06:10.905
+When you're done with this code,
+
+00:06:10.904 --> 00:06:12.329
+you can test it out here,
+
+00:06:12.329 --> 00:06:14.004
+and you should be able to answer,
+
+00:06:14.004 --> 00:06:16.879
+what is the smallest number of principal components that
+
+00:06:16.879 --> 00:06:20.605
+captures at least 80 percent of the total variance in our dataset?
+
+00:06:20.605 --> 00:06:22.080
+Try to solve this on your own.
+
+00:06:22.079 --> 00:06:23.314
+If you want to check your work,
+
+00:06:23.314 --> 00:06:26.430
+I'll go over my solution in the next video.
+

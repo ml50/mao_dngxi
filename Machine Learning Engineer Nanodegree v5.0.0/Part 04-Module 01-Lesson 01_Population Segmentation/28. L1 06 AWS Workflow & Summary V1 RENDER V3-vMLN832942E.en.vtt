@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.669
+You've really learned a lot in this lesson,
+
+00:00:02.669 --> 00:00:07.799
+going from approaching unstructured tasks like population segmentation,
+
+00:00:07.799 --> 00:00:11.894
+to creating features and deploying a k-means clustering model.
+
+00:00:11.894 --> 00:00:15.119
+Congratulations. The steps you took to deploy
+
+00:00:15.119 --> 00:00:20.579
+your segmentation model are steps you can use when approaching any other task.
+
+00:00:20.579 --> 00:00:24.704
+In our industry, often the most challenging step is the first one,
+
+00:00:24.704 --> 00:00:28.589
+figuring out what business question you want to answer.
+
+00:00:28.589 --> 00:00:31.259
+In this lesson, we gave you an example,
+
+00:00:31.260 --> 00:00:34.590
+which US counties have similar characteristics,
+
+00:00:34.590 --> 00:00:37.925
+and what kinds of features defined that similarity?
+
+00:00:37.924 --> 00:00:41.449
+Not all questions need machine learning to be answered.
+
+00:00:41.450 --> 00:00:43.130
+But for those that do,
+
+00:00:43.130 --> 00:00:46.085
+you will need to collect and prepare relevant data.
+
+00:00:46.085 --> 00:00:49.685
+This step can take quite a lot of time and resources.
+
+00:00:49.685 --> 00:00:53.855
+It's also good practice to explore this data and see if there's
+
+00:00:53.854 --> 00:00:58.609
+anything notable about the distribution of the data or the different features.
+
+00:00:58.609 --> 00:01:02.479
+Once you have data that is ready to be fed into a model,
+
+00:01:02.479 --> 00:01:04.834
+you need to host that data somewhere.
+
+00:01:04.834 --> 00:01:09.769
+You can do this on your laptop by creating a notebook and saving your data locally,
+
+00:01:09.769 --> 00:01:13.399
+this is useful when exploring a small portion of your data.
+
+00:01:13.400 --> 00:01:15.109
+But for large datasets,
+
+00:01:15.109 --> 00:01:20.420
+you may want to upload those directly into a cloud storage such as Amazon S3.
+
+00:01:20.420 --> 00:01:24.799
+SageMaker allows you to spin up a notebook instance where you have
+
+00:01:24.799 --> 00:01:29.704
+the option of uploading and managing large datasets using an S3 bucket.
+
+00:01:29.704 --> 00:01:33.424
+In this lesson, you work with two different models.
+
+00:01:33.424 --> 00:01:39.920
+You train and deploy a principal component analysis model to simplify population data.
+
+00:01:39.920 --> 00:01:42.890
+This technique discards some information into
+
+00:01:42.890 --> 00:01:46.909
+raw data and create a few meaningful features,
+
+00:01:46.909 --> 00:01:51.545
+then you use these features to train a k-means clustering model.
+
+00:01:51.545 --> 00:01:57.379
+After training, you are able to evaluate the model by looking at the modal attributes.
+
+00:01:57.379 --> 00:02:03.769
+Finally, deployment gave you the ability to assign any data points to a certain cluster,
+
+00:02:03.769 --> 00:02:07.418
+and you could see which US counties were grouped together,
+
+00:02:07.418 --> 00:02:10.699
+and what kinds of features they shared in common.
+
+00:02:10.699 --> 00:02:14.704
+You did all of this from data cleaning to
+
+00:02:14.705 --> 00:02:18.969
+model deployment within a SageMaker notebook instance.
+
+00:02:18.969 --> 00:02:20.984
+In the next few lessons,
+
+00:02:20.985 --> 00:02:23.750
+we'll look at more real-world tasks.
+
+00:02:23.750 --> 00:02:27.740
+You'll be tasked with some supervised learning problems in which you can choose to
+
+00:02:27.740 --> 00:02:31.790
+use built-in algorithms or custom models of your own.
+
+00:02:31.789 --> 00:02:35.849
+So I hope you're excited to learn even more.
+

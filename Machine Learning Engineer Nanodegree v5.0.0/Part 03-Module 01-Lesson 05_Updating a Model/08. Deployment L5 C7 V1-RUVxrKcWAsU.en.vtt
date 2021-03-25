@@ -1,0 +1,340 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.100
+So, now we have reason to believe that something has
+
+00:00:02.100 --> 00:00:05.160
+changed about the underlying distribution of the data.
+
+00:00:05.160 --> 00:00:07.860
+Our proposed solution is to train
+
+00:00:07.860 --> 00:00:12.345
+a new model on the new data and replace the original model.
+
+00:00:12.345 --> 00:00:15.900
+To start, we need to make sure that we create a valid training set.
+
+00:00:15.900 --> 00:00:22.320
+So, earlier, we used the new reviews to create a new vocabulary.
+
+00:00:22.320 --> 00:00:25.140
+Now, we need to use that new vocabulary to create
+
+00:00:25.140 --> 00:00:28.464
+a bag of words encoding of our new data.
+
+00:00:28.464 --> 00:00:30.469
+Once this is done, as a quick check,
+
+00:00:30.469 --> 00:00:35.039
+we should make sure that the size of any row in our new bag
+
+00:00:35.039 --> 00:00:39.969
+of words encoded data set is equal to the length of the vocabulary that we were using.
+
+00:00:39.969 --> 00:00:42.884
+In this case, our vocabulary has the length of 5,000,
+
+00:00:42.884 --> 00:00:47.195
+and so we should expect the length of each row to also be 5,000, which it is.
+
+00:00:47.195 --> 00:00:51.829
+Once that's done, we need to split our new data into a training and validation set,
+
+00:00:51.829 --> 00:00:55.144
+so that we can save our new data along with
+
+00:00:55.145 --> 00:00:59.000
+the new training and validation sets to our local instance.
+
+00:00:59.000 --> 00:01:04.359
+Once that's done, we upload all of the data to s3 using the upload data method,
+
+00:01:04.359 --> 00:01:08.060
+so that we can create and train a new XGBoost model.
+
+00:01:08.060 --> 00:01:10.234
+We begin by setting up an estimator.
+
+00:01:10.234 --> 00:01:11.659
+In this case, I've used
+
+00:01:11.659 --> 00:01:15.319
+the same hyperparameters as we used in the original XGBoost model.
+
+00:01:15.319 --> 00:01:17.334
+Once we've created the estimator object,
+
+00:01:17.334 --> 00:01:24.469
+we can then call the fit method and fit our new XGBoost model to the new data set.
+
+00:01:24.469 --> 00:01:26.030
+So, now we should probably make sure that
+
+00:01:26.030 --> 00:01:29.570
+our new model is behaving in a way that we expect.
+
+00:01:29.569 --> 00:01:32.554
+One of the first ways we will do that is by
+
+00:01:32.555 --> 00:01:36.185
+testing our new model on the data that we use to train it.
+
+00:01:36.185 --> 00:01:39.424
+In practice, this is a pretty bad idea.
+
+00:01:39.424 --> 00:01:42.875
+Since we use the new data to train the model,
+
+00:01:42.875 --> 00:01:47.465
+testing it on that same data is a textbook example of leakage,
+
+00:01:47.465 --> 00:01:50.734
+and you should never do this in a real application.
+
+00:01:50.734 --> 00:01:53.030
+In our case, the reason we're doing it is so that we
+
+00:01:53.030 --> 00:01:55.555
+have a numerical baseline to compare things too.
+
+00:01:55.555 --> 00:01:57.725
+So, in order to test our new model,
+
+00:01:57.724 --> 00:02:00.394
+we create a new transformer object,
+
+00:02:00.394 --> 00:02:05.254
+which we use to create a transform job on our new data.
+
+00:02:05.254 --> 00:02:07.625
+Once that transform job has finished,
+
+00:02:07.625 --> 00:02:11.854
+we copy the results to our local instance and check to see how well it's doing.
+
+00:02:11.854 --> 00:02:15.894
+Seems like our new model is behaving pretty well on the new data.
+
+00:02:15.895 --> 00:02:20.020
+Of course, we expect this to be true since our new model was trained on that same data.
+
+00:02:20.020 --> 00:02:22.909
+A second thing we're going to check is that our model is
+
+00:02:22.909 --> 00:02:26.639
+behaving okay relative to the old data.
+
+00:02:26.639 --> 00:02:30.394
+We don't expect that the distribution has changed so much
+
+00:02:30.395 --> 00:02:34.909
+that our new model should behave very poorly on old data.
+
+00:02:34.909 --> 00:02:40.299
+So, we start by reading in the original test data and then transforming it.
+
+00:02:40.300 --> 00:02:45.920
+The reason for doing this is that we are using a new vocabulary for our new model,
+
+00:02:45.919 --> 00:02:48.689
+and so we need to make sure that when we create a bag
+
+00:02:48.689 --> 00:02:51.745
+of words encoding of the original test set,
+
+00:02:51.745 --> 00:02:54.215
+we use the new vocabulary to do it.
+
+00:02:54.215 --> 00:02:57.004
+Using the new_vectorizer that we constructed earlier,
+
+00:02:57.004 --> 00:03:01.594
+we can transform the original test set into a bag of words encoded version.
+
+00:03:01.594 --> 00:03:05.125
+Once we've done that, we can write the results to our local instance,
+
+00:03:05.125 --> 00:03:07.074
+upload that file to s3,
+
+00:03:07.074 --> 00:03:09.994
+and then transform it using our new model.
+
+00:03:09.995 --> 00:03:12.349
+Once that's done, we can check to see how well our model is
+
+00:03:12.349 --> 00:03:14.689
+doing and it seems like it's doing not so bad.
+
+00:03:14.689 --> 00:03:17.520
+So, in general, it would appear that
+
+00:03:17.520 --> 00:03:21.070
+our new XGBoost model is doing exactly what we wanted to.
+
+00:03:21.069 --> 00:03:25.479
+It's performing well on the new data and is performing well on the old data.
+
+00:03:25.479 --> 00:03:27.469
+It seems like it would be a good idea to switch
+
+00:03:27.469 --> 00:03:30.455
+our existing endpoint to using the new model.
+
+00:03:30.455 --> 00:03:33.140
+Of course, since we are imagining that we have
+
+00:03:33.139 --> 00:03:36.664
+some application running using the original model,
+
+00:03:36.664 --> 00:03:39.995
+we should make sure that we use sagemakers update functionality,
+
+00:03:39.995 --> 00:03:42.530
+so that our endpoint never has to get shut down.
+
+00:03:42.530 --> 00:03:45.689
+Recall that in order to update an endpoint,
+
+00:03:45.689 --> 00:03:48.300
+we need to create a new endpoint configuration.
+
+00:03:48.300 --> 00:03:50.850
+In order to create an endpoint configuration,
+
+00:03:50.849 --> 00:03:54.439
+we need to know the name of the model we'd like to send our data to.
+
+00:03:54.439 --> 00:03:59.164
+We can get that name from the transformer object that we created earlier.
+
+00:03:59.164 --> 00:04:01.004
+Once we've got the model name,
+
+00:04:01.004 --> 00:04:03.854
+we can then create a new endpoint configuration.
+
+00:04:03.854 --> 00:04:05.099
+In this case, we're creating
+
+00:04:05.099 --> 00:04:08.525
+an endpoint configuration which has only a single production variant,
+
+00:04:08.525 --> 00:04:11.015
+which is our new XGBoost model.
+
+00:04:11.014 --> 00:04:13.944
+Once that endpoint configuration has been created,
+
+00:04:13.944 --> 00:04:17.490
+we can ask sagemaker to update our existing endpoint,
+
+00:04:17.490 --> 00:04:22.225
+so that its new configuration uses the new XGBoost model.
+
+00:04:22.225 --> 00:04:24.055
+Now, in our real life scenario,
+
+00:04:24.055 --> 00:04:25.740
+this would be a job well done.
+
+00:04:25.740 --> 00:04:27.495
+We have diagnosed the problem,
+
+00:04:27.495 --> 00:04:29.189
+created a solution to that problem,
+
+00:04:29.189 --> 00:04:36.199
+and then updated our endpoint such that our end user didn't experience any loss of usage.
+
+00:04:36.199 --> 00:04:38.974
+Since we no longer need the endpoint that is deployed,
+
+00:04:38.975 --> 00:04:40.520
+we should make sure to delete it.
+
+00:04:40.519 --> 00:04:43.819
+I'd also like to point out that there are some additional questions here at the end,
+
+00:04:43.819 --> 00:04:45.918
+and these questions are really meant to be open-ended.
+
+00:04:45.918 --> 00:04:49.490
+For example, what other ways could the underlying distribution
+
+00:04:49.490 --> 00:04:53.475
+possibly change if we were trying to create a sentiment analysis model?
+
+00:04:53.475 --> 00:04:56.020
+This might be useful in more applications than just
+
+00:04:56.019 --> 00:04:59.289
+determining whether or not a movie review is positive or negative.
+
+00:04:59.290 --> 00:05:01.180
+For example, in some cases,
+
+00:05:01.180 --> 00:05:04.090
+firms use sentiment analysis of
+
+00:05:04.089 --> 00:05:06.459
+shareholder reports to determine whether or
+
+00:05:06.459 --> 00:05:09.250
+not a stock is going to perform well or poorly.
+
+00:05:09.250 --> 00:05:11.980
+Another question is, since we didn't want our model
+
+00:05:11.980 --> 00:05:14.530
+to change too significantly from the original model,
+
+00:05:14.529 --> 00:05:18.164
+was it a good idea to train the new model using only the new data?
+
+00:05:18.165 --> 00:05:21.025
+Should we have instead mixed the data in some way?
+
+00:05:21.024 --> 00:05:24.429
+If so, in what proportion should we mix it?
+
+00:05:24.430 --> 00:05:26.725
+Lastly, in this example,
+
+00:05:26.725 --> 00:05:29.390
+the new data that we received was quite significant,
+
+00:05:29.389 --> 00:05:31.115
+so we could use it to train our model.
+
+00:05:31.115 --> 00:05:33.574
+But what if you had much fewer examples?
+
+00:05:33.574 --> 00:05:37.745
+Suppose that you were given a new data set that only had 500 samples.
+
+00:05:37.745 --> 00:05:39.860
+Not really enough to create a new model,
+
+00:05:39.860 --> 00:05:42.785
+but enough to know that your old model wasn't behaving very well.
+
+00:05:42.785 --> 00:05:45.090
+How would you fix that? As I said earlier,
+
+00:05:45.089 --> 00:05:46.909
+these questions are meant to be open-ended
+
+00:05:46.910 --> 00:05:49.020
+and there isn't really a right answer to any of them.
+
+00:05:49.019 --> 00:05:51.349
+They're meant to give you an idea of some of the problems you
+
+00:05:51.350 --> 00:05:54.530
+might have to tackle in a real life scenario.
+

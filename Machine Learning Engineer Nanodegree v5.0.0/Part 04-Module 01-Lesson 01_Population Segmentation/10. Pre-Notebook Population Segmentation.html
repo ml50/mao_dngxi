@@ -1,0 +1,393 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Pre-Notebook: Population Segmentation
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Population Segmentation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Cezanne &amp; Dan.html">
+       01. Introducing Cezanne &amp; Dan
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Interview Segment What is SageMaker and Why Learn It.html">
+       02. Interview Segment: What is SageMaker and Why Learn It?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Course Outline, Case Studies.html">
+       03. Course Outline, Case Studies
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Unsupervised v Supervised Learning.html">
+       04. Unsupervised v Supervised Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Model Design.html">
+       05. Model Design
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Population Segmentation.html">
+       06. Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="07. K-means, Overview.html">
+       07. K-means, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Creating a Notebook Instance.html">
+       08. Creating a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Create a SageMaker Notebook Instance.html">
+       09. Create a SageMaker Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Pre-Notebook Population Segmentation.html">
+       10. Pre-Notebook: Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Exercise Data Loading &amp; Processing.html">
+       11. Exercise: Data Loading &amp; Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Solution Data Pre-Processing.html">
+       12. Solution: Data Pre-Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Exercise Normalization.html">
+       13. Exercise: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Solution Normalization.html">
+       14. Solution: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="15. PCA, Overview.html">
+       15. PCA, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="16. PCA Estimator &amp; Training.html">
+       16. PCA Estimator &amp; Training
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Exercise PCA Model Attributes &amp; Variance.html">
+       17. Exercise: PCA Model Attributes &amp; Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Solution Variance.html">
+       18. Solution: Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Component Makeup.html">
+       19. Component Makeup
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Exercise PCA Deployment &amp; Data Transformation.html">
+       20. Exercise: PCA Deployment &amp; Data Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Solution Creating Transformed Data.html">
+       21. Solution: Creating Transformed Data
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Exercise K-means Estimator &amp; Selecting K.html">
+       22. Exercise: K-means Estimator &amp; Selecting K
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Exercise K-means Predictions (clusters).html">
+       23. Exercise: K-means Predictions (clusters)
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Solution K-means Predictor.html">
+       24. Solution: K-means Predictor
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Exercise Get the Model Attributes.html">
+       25. Exercise: Get the Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Solution Model Attributes.html">
+       26. Solution: Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Clean Up All Resources.html">
+       27. Clean Up: All Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="28. AWS Workflow &amp; Summary.html">
+       28. AWS Workflow &amp; Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          10. Pre-Notebook: Population Segmentation
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="notebook-population-segmentation-exercise">
+          Notebook: Population Segmentation, Exercise
+         </h1>
+         <p>
+          Now, you're ready to approach the task of population segmentation! As you follow along with this lesson, you are encouraged to open the referenced SageMaker notebooks. We will present a solution to you, but please try to work on a solution of your own, when prompted. Much of the value in this experience will come from experimenting with the code,
+          <strong>
+           in your own way
+          </strong>
+          .
+         </p>
+         <p>
+          To open this notebook:
+         </p>
+         <blockquote>
+          <ul>
+           <li>
+            Navigate to your SageMaker notebook instance, in the
+            <a href="https://console.aws.amazon.com/sagemaker/" rel="noopener noreferrer" target="_blank">
+             SageMaker console
+            </a>
+            , which has been linked to the main
+            <a href="https://github.com/udacity/ML_SageMaker_Studies" rel="noopener noreferrer" target="_blank">
+             Github exercise repository
+            </a>
+           </li>
+           <li>
+            Activate the notebook instance (if it is in a "Stopped" state), and open it via Jupyter
+           </li>
+           <li>
+            Click on the exercise notebook in the
+            <code>
+             Population_Segmentation
+            </code>
+            directory.
+           </li>
+          </ul>
+         </blockquote>
+         <p>
+          You may also directly view the exercise and solution notebooks via the repository at the following links:
+         </p>
+         <ul>
+          <li>
+           <a href="https://github.com/udacity/ML_SageMaker_Studies/blob/master/Population_Segmentation/Pop_Segmentation_Exercise.ipynb" rel="noopener noreferrer" target="_blank">
+            Exercise notebook
+           </a>
+          </li>
+          <li>
+           <a href="https://github.com/udacity/ML_SageMaker_Studies/blob/master/Population_Segmentation/Pop_Segmentation_Solution.ipynb" rel="noopener noreferrer" target="_blank">
+            Solution notebook
+           </a>
+          </li>
+         </ul>
+         <p>
+          <strong>
+           The solution notebook is meant to be consulted if you are stuck or want to check your work.
+          </strong>
+         </p>
+         <h2 id="notebook-outline">
+          Notebook Outline
+         </h2>
+         <p>
+          We'll go over the following steps to complete the notebook.
+         </p>
+         <ul>
+          <li>
+           Load in and explore population data
+          </li>
+          <li>
+           Perform dimensionality reduction with a deployed PCA model
+          </li>
+          <li>
+           Cluster components with K-Means
+          </li>
+          <li>
+           Visualize the results
+          </li>
+         </ul>
+         <h2 id="later-delete-resources">
+          Later: Delete Resources
+         </h2>
+         <p>
+          At the end of this exercise, and intermittently, you will be reminded to delete your endpoints and resources so that you do not incur any extra processing or storage fees!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="11. Exercise Data Loading &amp; Processing.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Pre-Notebook: Population Segmentation')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

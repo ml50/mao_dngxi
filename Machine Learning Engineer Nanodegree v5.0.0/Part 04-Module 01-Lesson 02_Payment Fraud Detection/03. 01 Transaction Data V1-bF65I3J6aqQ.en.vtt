@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+All of the exercises in this lesson are held in
+
+00:00:02.609 --> 00:00:05.279
+the ML-case-studies Notebook we created earlier.
+
+00:00:05.280 --> 00:00:08.630
+So I'm going to start this up and just open it in Jupyter.
+
+00:00:08.630 --> 00:00:11.130
+I'll navigate to the Payment_Fraud_Detection directory
+
+00:00:11.130 --> 00:00:13.530
+and to the Fraud_Detection_Exercise Notebook.
+
+00:00:13.529 --> 00:00:15.794
+To approach the task of fraud detection,
+
+00:00:15.794 --> 00:00:19.184
+we'll be looking at credit card data that was initially taken from Kaggle.
+
+00:00:19.184 --> 00:00:21.824
+This data includes thousands of transactions with
+
+00:00:21.824 --> 00:00:25.484
+anonymized features and class labels, fraudulent or valid.
+
+00:00:25.484 --> 00:00:27.975
+We'll follow a typical machine learning workflow.
+
+00:00:27.975 --> 00:00:29.865
+Loading in and exploring our data,
+
+00:00:29.864 --> 00:00:34.034
+then moving onto splitting that data and parsing it to a binary classification model.
+
+00:00:34.034 --> 00:00:36.584
+In this notebook, we'll start with training and deploying
+
+00:00:36.585 --> 00:00:40.155
+a built-in linear model using SageMaker's LinearLearner.
+
+00:00:40.155 --> 00:00:42.980
+We'll also discuss the unique challenges that fraud detection
+
+00:00:42.979 --> 00:00:45.709
+has such as imbalanced training data,
+
+00:00:45.710 --> 00:00:49.310
+that is a history of more valid transactions than fraudulent ones.
+
+00:00:49.310 --> 00:00:51.905
+A lot of this Notebook will be about taking a model
+
+00:00:51.905 --> 00:00:55.030
+and improving it based on data or design challenges.
+
+00:00:55.030 --> 00:00:57.380
+As we go, we'll evaluate the models we trained by
+
+00:00:57.380 --> 00:00:59.929
+looking at a variety of metrics for success,
+
+00:00:59.929 --> 00:01:03.189
+not just accuracy, but precision and recall as well. All right.
+
+00:01:03.189 --> 00:01:06.230
+So in the first cell, I'm loading in my usual resources,
+
+00:01:06.230 --> 00:01:09.180
+and in the next, I'm just storing my SageMaker variables.
+
+00:01:09.180 --> 00:01:11.820
+So that's the SageMaker session enroll which will help me
+
+00:01:11.819 --> 00:01:15.229
+define how we train our models and a default bucket.
+
+00:01:15.230 --> 00:01:17.135
+The S3 bucket is where we'll store
+
+00:01:17.135 --> 00:01:20.109
+our training data as well as any saved model parameters.
+
+00:01:20.109 --> 00:01:22.185
+After getting my SageMaker resources,
+
+00:01:22.185 --> 00:01:24.665
+I'm going to actually load in our data from online.
+
+00:01:24.665 --> 00:01:28.670
+This link will get me a credit card fraud.zip file which I'll unzip here.
+
+00:01:28.670 --> 00:01:32.640
+You only need to run the cell once and you'll get a credit card.csv file.
+
+00:01:32.640 --> 00:01:37.069
+Then, I'm going to read that data in as a dataframe and print out the shape of our data.
+
+00:01:37.069 --> 00:01:40.309
+I can see I have about 285 thousand data points.
+
+00:01:40.310 --> 00:01:41.975
+If I look at the first few rows,
+
+00:01:41.974 --> 00:01:43.894
+I can see the features that this includes.
+
+00:01:43.894 --> 00:01:45.810
+It includes the time of transaction,
+
+00:01:45.810 --> 00:01:47.350
+since the first transaction,
+
+00:01:47.349 --> 00:01:51.559
+and a number of anonymized features V1 through V28.
+
+00:01:51.560 --> 00:01:55.579
+Then, it has the amount of the transaction and a class label at the very end.
+
+00:01:55.579 --> 00:01:59.614
+So overall, I have 30 input features and a single class.
+
+00:01:59.614 --> 00:02:02.509
+Zero indicates valid, which all of these points are,
+
+00:02:02.510 --> 00:02:05.260
+and one will indicate a fraudulent transaction.
+
+00:02:05.260 --> 00:02:08.210
+Now, you can't learn much from these anonymized features,
+
+00:02:08.210 --> 00:02:11.855
+but you can look at how the data is distributed over each of our classes.
+
+00:02:11.854 --> 00:02:15.875
+So your first task will be to complete this function, fraudulent percentage.
+
+00:02:15.875 --> 00:02:19.159
+This function takes in the transaction dataframe that we just loaded
+
+00:02:19.159 --> 00:02:23.210
+in and it should return the percentage of the data that's labeled as fraudulent.
+
+00:02:23.210 --> 00:02:25.745
+Below, I've given you a test cell to test
+
+00:02:25.745 --> 00:02:28.795
+out an implementation of this function when you complete it.
+
+00:02:28.794 --> 00:02:33.155
+Now, the next step will be to ingest this data and use it to train our model.
+
+00:02:33.155 --> 00:02:34.400
+With that goal in mind,
+
+00:02:34.400 --> 00:02:36.200
+I'm going to give you the second task,
+
+00:02:36.199 --> 00:02:38.944
+splitting these data into training and test sets.
+
+00:02:38.944 --> 00:02:41.814
+That is completing this function: train, test, split.
+
+00:02:41.814 --> 00:02:44.044
+This, again, takes in our transaction dataframe
+
+00:02:44.044 --> 00:02:46.609
+and a fraction of that data to withhold for training.
+
+00:02:46.610 --> 00:02:48.710
+The rest should be held for testing.
+
+00:02:48.710 --> 00:02:51.560
+So this default value of 0.7 means
+
+00:02:51.560 --> 00:02:54.485
+that 70 percent of our data should be kept for training,
+
+00:02:54.485 --> 00:02:56.990
+and then 30 percent should go to test data.
+
+00:02:56.990 --> 00:02:59.689
+So try to both calculate the percentage of data that's
+
+00:02:59.689 --> 00:03:02.629
+fraudulent and complete this function to split the data.
+
+00:03:02.629 --> 00:03:04.680
+I've left some guidelines in this Notebook,
+
+00:03:04.680 --> 00:03:06.830
+but if you get stuck or you want to check your solution,
+
+00:03:06.830 --> 00:03:09.510
+I'll go over my solution next.
+

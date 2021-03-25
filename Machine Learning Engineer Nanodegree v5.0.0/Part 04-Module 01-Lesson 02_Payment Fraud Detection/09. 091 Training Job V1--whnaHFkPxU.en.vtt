@@ -1,0 +1,196 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.174
+In the last video, we instantiated
+
+00:00:02.174 --> 00:00:06.450
+a LinearLearner model and I want to quickly go over how we formatted the training data.
+
+00:00:06.450 --> 00:00:10.410
+Essentially, I want to take the train features and labels that were generated from
+
+00:00:10.410 --> 00:00:12.960
+my split data function above and turn them into
+
+00:00:12.960 --> 00:00:15.795
+a record set that my estimator can use for training.
+
+00:00:15.794 --> 00:00:18.390
+So my first step is going to be converting my features
+
+00:00:18.390 --> 00:00:21.164
+and my labels into a float 32 type.
+
+00:00:21.164 --> 00:00:26.684
+Then I can use a linear.record_set to create a RecordSet out of this data.
+
+00:00:26.684 --> 00:00:29.445
+I just have to pass in my features and my labels.
+
+00:00:29.445 --> 00:00:33.000
+This may look familiar from when we did this in an unsupervised case.
+
+00:00:33.000 --> 00:00:34.619
+Only in an unsupervised case,
+
+00:00:34.619 --> 00:00:36.629
+we only had to pass in the features.
+
+00:00:36.630 --> 00:00:39.529
+This time, since we're doing a supervised learning task,
+
+00:00:39.529 --> 00:00:41.480
+we also have to pass in labels.
+
+00:00:41.479 --> 00:00:45.304
+So we have x our features and y are class labels here.
+
+00:00:45.304 --> 00:00:50.179
+This may look familiar from when we created a RecordSet in an unsupervised learning case.
+
+00:00:50.179 --> 00:00:53.554
+Only in that case, we only had to pass in our training features.
+
+00:00:53.554 --> 00:00:55.554
+We didn't have any labels to work with.
+
+00:00:55.554 --> 00:01:00.859
+This time, we have to pass in both x our training features and y our training labels,
+
+00:01:00.859 --> 00:01:02.990
+and this creates a formatted train data.
+
+00:01:02.990 --> 00:01:05.540
+Then to train a model on this formatted data,
+
+00:01:05.540 --> 00:01:09.250
+I just have to call linear.fit and pass in the formatted data.
+
+00:01:09.250 --> 00:01:11.930
+This cell creates a training job with some name.
+
+00:01:11.930 --> 00:01:15.590
+Launches are required instances and trains are linear estimator.
+
+00:01:15.590 --> 00:01:18.409
+Your next task was to deploy the trained model.
+
+00:01:18.409 --> 00:01:19.909
+So as our estimator trained,
+
+00:01:19.909 --> 00:01:23.090
+you should have seen a lot of data about the epic that were on,
+
+00:01:23.090 --> 00:01:26.075
+as well as a few details about how our model is training.
+
+00:01:26.075 --> 00:01:31.025
+As always, I can check on the status of this job by looking in our SageMaker console.
+
+00:01:31.025 --> 00:01:34.730
+So if I go to my SageMaker console and I click on Training Jobs,
+
+00:01:34.730 --> 00:01:38.285
+I see a lot from my previous work and this one that's in progress.
+
+00:01:38.284 --> 00:01:40.489
+So I'm going to click on this one that we just kicked off.
+
+00:01:40.489 --> 00:01:43.009
+I should see the job name, its status,
+
+00:01:43.010 --> 00:01:45.730
+and every details about its creation and type.
+
+00:01:45.730 --> 00:01:48.515
+I can even see some of the hyperparameters that are left
+
+00:01:48.515 --> 00:01:51.409
+as either default values or values that I specified,
+
+00:01:51.409 --> 00:01:53.539
+like the number of epochs and predictor type.
+
+00:01:53.540 --> 00:01:56.780
+I'm going to monitor this training job by looking at the logs.
+
+00:01:56.780 --> 00:01:59.000
+The log stream may take a moment to generate,
+
+00:01:59.000 --> 00:02:01.340
+but then you should be able to see something like this.
+
+00:02:01.340 --> 00:02:02.630
+When you click on these logs,
+
+00:02:02.629 --> 00:02:05.164
+you should be able to see a lot of data printed out.
+
+00:02:05.165 --> 00:02:10.129
+We can expand one of these metrics to see the binary classification cross entropy loss.
+
+00:02:10.129 --> 00:02:14.375
+In this case, we can see that we're training a LinearLearner and we're on the epic zero.
+
+00:02:14.375 --> 00:02:15.694
+If I scroll further down,
+
+00:02:15.694 --> 00:02:18.784
+I can click on the metrics and look at results from later epics.
+
+00:02:18.784 --> 00:02:20.689
+But only if I wait till the end of training,
+
+00:02:20.689 --> 00:02:24.215
+I should see that a best model was found and a checkpoint was saved.
+
+00:02:24.215 --> 00:02:26.650
+If I look a little above this best model line,
+
+00:02:26.650 --> 00:02:28.675
+I can look at metrics during training.
+
+00:02:28.675 --> 00:02:32.510
+Here, I have the final training loss which is a lot lower than when we started.
+
+00:02:32.509 --> 00:02:34.909
+Next, I can see the classification accuracy,
+
+00:02:34.909 --> 00:02:36.859
+which is really high for our training data.
+
+00:02:36.860 --> 00:02:40.770
+There's also scores for our training position and our training recall.
+
+00:02:40.770 --> 00:02:42.710
+We'll get into all of these metrics in a bit.
+
+00:02:42.710 --> 00:02:45.490
+All of this was actually printed out in the notebook,
+
+00:02:45.490 --> 00:02:48.235
+it's just a lot easier to read in the logs I find.
+
+00:02:48.235 --> 00:02:51.350
+Now, if you successfully trained your linear estimator,
+
+00:02:51.349 --> 00:02:54.094
+it's time to deploy it and create a linear_predictor.
+
+00:02:54.094 --> 00:02:55.580
+Once you deploy this predictor,
+
+00:02:55.580 --> 00:02:57.510
+you'll be able to use it to make predictions.
+
+00:02:57.509 --> 00:02:59.840
+I suggest you run the next few cells to see
+
+00:02:59.840 --> 00:03:02.664
+how the result looks when you pass in some test data.
+
+00:03:02.664 --> 00:03:08.189
+Next, I'll show you a diploid solution and go over some of my test evaluation results.
+

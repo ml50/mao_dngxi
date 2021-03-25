@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.459
+We saw that the default LinearLearner got
+
+00:00:02.459 --> 00:00:07.304
+a high accuracy but still misclassified fraudulent invalid data points,
+
+00:00:07.304 --> 00:00:09.839
+in fact, a little over 30 in each class.
+
+00:00:09.839 --> 00:00:12.660
+So let's think about what exactly during training
+
+00:00:12.660 --> 00:00:15.599
+could cause this behavior and how we might improve the model.
+
+00:00:15.599 --> 00:00:20.324
+First, if we imagine that we're designing this model for use in a bank application,
+
+00:00:20.324 --> 00:00:25.679
+we know that users do not want any valid transactions to be categorized as fraudulent.
+
+00:00:25.679 --> 00:00:28.300
+That is, we want to have as few false positives,
+
+00:00:28.300 --> 00:00:30.815
+zeros classified as ones as possible.
+
+00:00:30.815 --> 00:00:33.170
+On the other hand, if our bank manager asks for
+
+00:00:33.170 --> 00:00:36.740
+an application that will catch almost all cases of fraud,
+
+00:00:36.740 --> 00:00:39.590
+even if it means a higher number of false positives,
+
+00:00:39.590 --> 00:00:43.625
+then we'd want to optimize for as few false negatives as possible.
+
+00:00:43.625 --> 00:00:46.789
+To train according to specific product demands and goals,
+
+00:00:46.789 --> 00:00:49.494
+we do not want to optimize for accuracy only.
+
+00:00:49.494 --> 00:00:53.030
+Instead, we want to optimize for a metric like precision or
+
+00:00:53.030 --> 00:00:57.395
+recall that can help us decrease the number of false positives or negatives.
+
+00:00:57.395 --> 00:01:00.320
+Tuning with a specific metric in mind is often referred
+
+00:01:00.320 --> 00:01:03.409
+to as model optimization or model tuning.
+
+00:01:03.409 --> 00:01:05.509
+The second improvement we might make is
+
+00:01:05.510 --> 00:01:08.020
+something we saw at the very start of this notebook.
+
+00:01:08.019 --> 00:01:12.935
+We saw that only about 0.17 percent of our data was labeled as fraudulent.
+
+00:01:12.935 --> 00:01:16.519
+So even if a model labeled all of our data as valid,
+
+00:01:16.519 --> 00:01:19.099
+it likely would still have a high test accuracy.
+
+00:01:19.099 --> 00:01:21.379
+This may result in some overfitting towards
+
+00:01:21.379 --> 00:01:24.259
+valid data which accounts for some false negatives,
+
+00:01:24.260 --> 00:01:29.120
+cases in which fraudulent data ones are incorrectly characterized as valid zeros.
+
+00:01:29.120 --> 00:01:31.130
+So let's address these issues in order.
+
+00:01:31.129 --> 00:01:35.494
+First, tuning our model and optimizing for a specific metric during training,
+
+00:01:35.495 --> 00:01:39.750
+and second, accounting for class imbalance in the training set.
+

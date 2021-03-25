@@ -1,0 +1,343 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   SageMaker Retrospective
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Updating a Model
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Updating a Model.html">
+       01. Updating a Model
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Building a Sentiment Analysis Model (XGBoost).html">
+       02. Building a Sentiment Analysis Model (XGBoost)
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Building a Sentiment Analysis Model (Linear Learner).html">
+       03. Building a Sentiment Analysis Model (Linear Learner)
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Combining the Models.html">
+       04. Combining the Models
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Mini-Project Updating a Sentiment Analysis Model.html">
+       05. Mini-Project: Updating a Sentiment Analysis Model
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Loading and Testing the New Data.html">
+       06. Loading and Testing the New Data
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exploring the New Data.html">
+       07. Exploring the New Data
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Building a New Model.html">
+       08. Building a New Model
+      </a>
+     </li>
+     <li class="">
+      <a href="09. SageMaker Retrospective.html">
+       09. SageMaker Retrospective
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Cleaning Up Your AWS Account.html">
+       10. Cleaning Up Your AWS Account
+      </a>
+     </li>
+     <li class="">
+      <a href="11. SageMaker Tips and Tricks.html">
+       11. SageMaker Tips and Tricks
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          09. SageMaker Retrospective
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="sagemaker-retrospective">
+          SageMaker Retrospective
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Deployment L5 C8 V1
+         </p>
+        </h3>
+        <video controls="">
+         <source src="09. Deployment L5 C8 V1-Vdacqn_w-e4.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="09. Deployment L5 C8 V1-Vdacqn_w-e4.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="09. Deployment L5 C8 V1-Vdacqn_w-e4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this module we looked at various features offered by Amazon's SageMaker service. These features include the following.
+         </p>
+         <ul>
+          <li>
+           <p>
+            <strong>
+             Notebook Instances
+            </strong>
+            provide a convenient place to process and explore data in addition to making it very easy to interact with the rest of SageMaker's features.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Training Jobs
+            </strong>
+            allow us to create
+            <em>
+             model artifacts
+            </em>
+            by fitting various machine learning models to data.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Hyperparameter Tuning
+            </strong>
+            allow us to create multiple training jobs each with different hyperparameters in order to find the hyperparameters that work best for a given problem.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Models
+            </strong>
+            are essentially a combination of
+            <em>
+             model artifacts
+            </em>
+            formed during a training job and an associated docker container (code) that is used to perform inference.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Endpoint Configurations
+            </strong>
+            act as blueprints for endpoints. They describe what sort of resources should be used when an endpoint is constructed along with which models should be used and, if multiple models are to be used, how the incoming data should be split up among the various models.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Endpoints
+            </strong>
+            are the actual HTTP URLs that are created by SageMaker and which have properties specified by their associated endpoint configurations.
+            <strong>
+             Have you shut down your endpoints?
+            </strong>
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Batch Transform
+            </strong>
+            is the method by which you can perform inference on a whole bunch of data at once. In contrast, setting up an endpoint allows you to perform inference on small amounts of data by sending it do the endpoint bit by bit.
+           </p>
+          </li>
+         </ul>
+         <p>
+          In addition to the features provided by SageMaker we used three other Amazon services.
+         </p>
+         <p>
+          In particular, we used
+          <strong>
+           S3
+          </strong>
+          as a central repository in which to store our data. This included test / training / validation data as well as model artifacts that we created during training.
+         </p>
+         <p>
+          We also looked at how we could combine a deployed SageMaker endpoint with
+          <strong>
+           Lambda
+          </strong>
+          and
+          <strong>
+           API Gateway
+          </strong>
+          to create our own simple web app.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="10. Cleaning Up Your AWS Account.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('09. SageMaker Retrospective')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

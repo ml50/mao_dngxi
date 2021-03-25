@@ -1,0 +1,247 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.569
+Now that you've trained your estimator on some formatted train data,
+
+00:00:03.569 --> 00:00:07.605
+the next thing you should have done is deploy your model to create a linear predictor.
+
+00:00:07.605 --> 00:00:09.540
+This just requires that you pass in
+
+00:00:09.539 --> 00:00:12.854
+some information about the instance type you want for deployment.
+
+00:00:12.855 --> 00:00:15.705
+In this case, I'm using a T2 medium instance.
+
+00:00:15.705 --> 00:00:17.969
+This is a good default for these exercises
+
+00:00:17.969 --> 00:00:20.789
+and when working in a development environment in general.
+
+00:00:20.789 --> 00:00:22.710
+So after about seven minutes,
+
+00:00:22.710 --> 00:00:27.464
+a call to deploy creates both a model and an endpoint with some name.
+
+00:00:27.464 --> 00:00:31.829
+Now, I have a predictor endpoint that I can use to make predictions on my test data.
+
+00:00:31.829 --> 00:00:33.585
+Let's do a simple test first.
+
+00:00:33.585 --> 00:00:37.259
+I took a look at the predictor information here and I can see that
+
+00:00:37.259 --> 00:00:41.625
+the LinearLeanerPredictor requires a numpy and ndarry as input,
+
+00:00:41.625 --> 00:00:44.174
+and returns a list of record objects,
+
+00:00:44.174 --> 00:00:47.239
+one record for each data point in the input array.
+
+00:00:47.240 --> 00:00:50.900
+So here, I'm converting our test features into a numpy array,
+
+00:00:50.899 --> 00:00:53.000
+and I'm just going to pass in the first row of
+
+00:00:53.000 --> 00:00:55.534
+data and see what our linear predictor returns.
+
+00:00:55.534 --> 00:00:57.529
+I can see that for this one data point,
+
+00:00:57.530 --> 00:00:59.000
+I have a predicted label,
+
+00:00:59.000 --> 00:01:01.884
+let's hope in value float 32 tensor.
+
+00:01:01.884 --> 00:01:03.679
+I get the label 0,
+
+00:01:03.679 --> 00:01:06.260
+which I know corresponds to a valid transaction.
+
+00:01:06.260 --> 00:01:08.060
+In addition to a predicted label,
+
+00:01:08.060 --> 00:01:12.150
+I also get a score which gives me a more precise value if I need it.
+
+00:01:12.150 --> 00:01:15.890
+The score is what's rounded to the predicted label and so the score
+
+00:01:15.890 --> 00:01:20.079
+gives me a better idea of how confident the model is in its predicted label.
+
+00:01:20.079 --> 00:01:23.420
+In this case, a value really close to zero indicates that it's pretty
+
+00:01:23.420 --> 00:01:27.094
+confident that the past end datapoint is indeed a valid transaction.
+
+00:01:27.094 --> 00:01:29.599
+A higher value here, closer to 0.05,
+
+00:01:29.599 --> 00:01:32.375
+would indicate a lot of uncertainty in the prediction.
+
+00:01:32.375 --> 00:01:34.819
+So using what I know about this record format,
+
+00:01:34.819 --> 00:01:36.569
+I've created the helper function below.
+
+00:01:36.569 --> 00:01:39.214
+Evaluate takes in a deployed predictor,
+
+00:01:39.215 --> 00:01:41.105
+some test features and labels,
+
+00:01:41.105 --> 00:01:43.670
+and then it returns a variety of metrics.
+
+00:01:43.670 --> 00:01:46.310
+The first line of code in here is just me dividing
+
+00:01:46.310 --> 00:01:49.475
+my test data into batches because there's a lot of it.
+
+00:01:49.474 --> 00:01:53.765
+Getting predictions for each batch calling predictor.predict over batch.
+
+00:01:53.765 --> 00:01:56.484
+These batches are going to be over a 100 data points each.
+
+00:01:56.484 --> 00:01:59.174
+Then for each batch in my production batches,
+
+00:01:59.174 --> 00:02:01.715
+I'm going to get a pointer to each point in that batch
+
+00:02:01.715 --> 00:02:04.579
+and get the predicted label calling x-dot label.
+
+00:02:04.579 --> 00:02:08.530
+Then I'm just concatenating all of those results to get our test predictions.
+
+00:02:08.530 --> 00:02:11.120
+Finally, I'm doing a series of comparison between
+
+00:02:11.120 --> 00:02:14.645
+our generated test predictions and our true class labels.
+
+00:02:14.645 --> 00:02:17.015
+I'm calculating the number of true positives,
+
+00:02:17.014 --> 00:02:20.254
+false positives, true negatives, and false negatives.
+
+00:02:20.254 --> 00:02:21.769
+Then from those, calculating
+
+00:02:21.770 --> 00:02:25.640
+binary classification metrics for our test data including recall,
+
+00:02:25.639 --> 00:02:27.829
+precision, and total accuracy.
+
+00:02:27.830 --> 00:02:29.365
+I have an argument verbose,
+
+00:02:29.365 --> 00:02:33.200
+that is by default set to true which will print out these three metrics here.
+
+00:02:33.199 --> 00:02:37.414
+So next, I'm running this code and seeing how our linear predictor performs.
+
+00:02:37.414 --> 00:02:38.974
+I'm passing in the predictor,
+
+00:02:38.974 --> 00:02:43.460
+our formatted test features or test labels and I'm setting for both to be true,
+
+00:02:43.460 --> 00:02:46.320
+which means we'll print out the metrics I'm interested in.
+
+00:02:46.319 --> 00:02:48.469
+When I run this, the first thing I see is that I get
+
+00:02:48.469 --> 00:02:52.025
+a really high accuracy, 99.9 percent.
+
+00:02:52.025 --> 00:02:53.780
+But let's look at this table of data.
+
+00:02:53.780 --> 00:02:56.794
+So the rows are our true actual labels,
+
+00:02:56.794 --> 00:02:59.274
+zero for valid and one for fraudulent.
+
+00:02:59.275 --> 00:03:02.060
+Our columns are the predicted labels.
+
+00:03:02.060 --> 00:03:05.030
+So the values here indicate the number of test points that are
+
+00:03:05.030 --> 00:03:07.985
+classified correctly as valid and here,
+
+00:03:07.985 --> 00:03:10.865
+the number I correctly classified as fraudulent.
+
+00:03:10.865 --> 00:03:15.560
+But I can also see that for 33 of my truly valid cases,
+
+00:03:15.560 --> 00:03:21.080
+I misclassified them as fraudulent and for our fraudulent cases,
+
+00:03:21.080 --> 00:03:23.725
+32 of them were misclassified as valid.
+
+00:03:23.724 --> 00:03:26.150
+That's what's making our values for recall and
+
+00:03:26.150 --> 00:03:28.760
+precision much lower than the accuracy value.
+
+00:03:28.759 --> 00:03:30.620
+So even with a high accuracy,
+
+00:03:30.620 --> 00:03:32.664
+there is still room to improve this model.
+
+00:03:32.664 --> 00:03:35.179
+But now, I'm done evaluating this model and it's
+
+00:03:35.180 --> 00:03:38.645
+good practice to always delete the endpoint once you're done with evaluation.
+
+00:03:38.645 --> 00:03:41.030
+So here, I have a helper function that accepts
+
+00:03:41.030 --> 00:03:44.110
+a predictor as end point and then deletes an endpoint by name.
+
+00:03:44.110 --> 00:03:47.590
+I'm calling it here and I should see that my endpoint is deleted.
+
+00:03:47.590 --> 00:03:50.868
+Next, I'll discuss ways we might improve upon this model,
+
+00:03:50.868 --> 00:03:53.675
+including managing class imbalance in the training set
+
+00:03:53.675 --> 00:03:57.930
+and tuning this model according to goals we have as developers.
+

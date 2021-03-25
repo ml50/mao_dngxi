@@ -1,0 +1,533 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Deploy a Sentiment Analysis Model
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project: Deploying a Sentiment Analysis Model
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Deployment Project.html">
+       01. Deployment Project
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Setting up a Notebook Instance.html">
+       02. Setting up a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="03. SageMaker Instance Utilization Limits.html">
+       03. SageMaker Instance Utilization Limits
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Deploy a Sentiment Analysis Model.html">
+       Project Description - Deploy a Sentiment Analysis Model
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Deploy a Sentiment Analysis Model.html">
+       Project Rubric - Deploy a Sentiment Analysis Model
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Deploy a Sentiment Analysis Model
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div>
+        <h2>
+         <p>
+          Files Submitted
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Submission Files
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission includes all required files, including notebook, python scripts, and html files.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Preparing and Processing Data
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Question
+             </strong>
+             : What does review_to_words do?
+            </p>
+           </td>
+           <td>
+            <p>
+             Answer describes what the pre-processing method does to a review.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Question:
+             </strong>
+             What are the five most frequently appearing words?
+            </p>
+           </td>
+           <td>
+            <p>
+             Notebook displays the five most frequently appearing words.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Create a word dictionary
+            </p>
+           </td>
+           <td>
+            <p>
+             The
+             <code>
+              build_dict
+             </code>
+             method is implemented and constructs a valid word dictionary.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Question:
+             </strong>
+             Understanding
+             <code>
+              preprocess_data
+             </code>
+             and
+             <code>
+              convert_and_pad_data
+             </code>
+            </p>
+           </td>
+           <td>
+            <p>
+             Answer describes how the processing methods are applied to the training and test data sets and what, if any, issues there may be.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Build and Train a PyTorch Model
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Writing the training method
+            </p>
+           </td>
+           <td>
+            <p>
+             The train method is implemented and can be used to train the PyTorch model.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Training the model
+            </p>
+           </td>
+           <td>
+            <p>
+             The RNN is trained using SageMaker's supported PyTorch functionality.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Deploy a Model for Testing
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Deploy the trained model
+            </p>
+           </td>
+           <td>
+            <p>
+             The trained PyTorch model is successfully deployed.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Use the Model for Testing
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Question:
+             </strong>
+             How does this model compare to the XGBoost model?
+            </p>
+           </td>
+           <td>
+            <p>
+             Answer describes the differences between the RNN model and the XGBoost model and how they perform on the IMDB data.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Process the test review
+            </p>
+           </td>
+           <td>
+            <p>
+             The test review has been processed correctly and stored in the
+             <code>
+              test_data
+             </code>
+             variable.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Writing inference code
+            </p>
+           </td>
+           <td>
+            <p>
+             The
+             <code>
+              predict_fn()
+             </code>
+             method in
+             <code>
+              serve/predict.py
+             </code>
+             has been implemented.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Deploying a Web App
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             The web app is deployed
+            </p>
+           </td>
+           <td>
+            <p>
+             The model is deployed and the Lambda / API Gateway integration is complete so that the web app works (make sure to include your modified
+             <code>
+              index.html
+             </code>
+             ).
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             <strong>
+              Question:
+             </strong>
+             Give an example review and response
+            </p>
+           </td>
+           <td>
+            <p>
+             Answer gives a sample review and the resulting predicted sentiment.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div class="jumbotron">
+        <h3>
+         Tips to make your project standout:
+        </h3>
+        <p>
+         <h4 id="1-make-a-better-web-app">
+          (1) Make a Better Web App
+         </h4>
+         <p>
+          The web app that you make in this project simply reports to the user whether the predicted sentiment was positive or negative. Can you think of a better web app that uses the same model?
+         </p>
+         <h4 id="2-improve-the-web-app-appearance">
+          (2) Improve the Web App Appearance
+         </h4>
+         <p>
+          The provided web app is very simple and there is plenty of room for improvement if you wish to stretch your web developer skills.
+         </p>
+         <h4 id="3-improve-the-model">
+          (3) Improve the Model
+         </h4>
+         <p>
+          The model chosen here is a straightforward RNN with a single hidden layer. There are many different model architectures that you could try to see if they improve the results.
+         </p>
+        </p>
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Deploy a Sentiment Analysis Model')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

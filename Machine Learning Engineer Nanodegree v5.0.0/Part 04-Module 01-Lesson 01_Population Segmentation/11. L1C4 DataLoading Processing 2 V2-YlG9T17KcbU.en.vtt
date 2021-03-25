@@ -1,0 +1,391 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.455
+So I'm going to click into my Population_Segmentation_Exercise notebook.
+
+00:00:04.455 --> 00:00:08.955
+So the first thing I want to do is make sure I'm operating in the correct kernel.
+
+00:00:08.955 --> 00:00:11.195
+So I'll go to "Kernel", "Change kernel",
+
+00:00:11.195 --> 00:00:15.600
+and I can see that SageMaker offers a variety of different kernels to operate in.
+
+00:00:15.599 --> 00:00:17.160
+For all of these examples,
+
+00:00:17.160 --> 00:00:22.545
+we'll either use conda_mxnet_p36 or conda_pytorch_p36.
+
+00:00:22.545 --> 00:00:26.235
+This indicates the type of deep learning frameworks that we might use.
+
+00:00:26.234 --> 00:00:28.890
+Mxnet is the one that's built into SageMaker,
+
+00:00:28.890 --> 00:00:32.310
+and p36 indicates the version of Python we'll be using.
+
+00:00:32.310 --> 00:00:33.740
+So for this example,
+
+00:00:33.740 --> 00:00:39.750
+we'll be using built-in algorithms and using mxnet_p36 will be the ideal kernel.
+
+00:00:39.750 --> 00:00:43.810
+I can check which kernel I'm in by looking at the top right corner of my notebook.
+
+00:00:43.810 --> 00:00:46.490
+For the segmentation example I should note that
+
+00:00:46.490 --> 00:00:49.730
+my strategy will be to go over this first notebook in great detail.
+
+00:00:49.729 --> 00:00:51.709
+As we go through examples,
+
+00:00:51.710 --> 00:00:54.140
+I'll transfer more and more responsibility to you,
+
+00:00:54.140 --> 00:00:56.570
+leaving it up to you to complete the code,
+
+00:00:56.570 --> 00:00:59.064
+but I'll always provide a final solution notebook.
+
+00:00:59.064 --> 00:01:01.609
+Now, you can read a bit about the US census dataset
+
+00:01:01.609 --> 00:01:05.344
+here and the overall approach I plan to take to segment this data.
+
+00:01:05.344 --> 00:01:07.909
+This notebook is really a modified version of
+
+00:01:07.909 --> 00:01:11.125
+code that comes from a SageMaker blog post linked here.
+
+00:01:11.125 --> 00:01:13.174
+In this notebook, you'll employ to
+
+00:01:13.174 --> 00:01:16.819
+unsupervised learning algorithms to do population segmentation.
+
+00:01:16.819 --> 00:01:20.449
+This aims to find natural groupings and population data and
+
+00:01:20.450 --> 00:01:24.295
+reveal some feature level similarities between different regions in the US.
+
+00:01:24.295 --> 00:01:26.325
+To implement population segmentation,
+
+00:01:26.325 --> 00:01:28.170
+you'll go through a number of steps.
+
+00:01:28.170 --> 00:01:30.555
+First, data loading and exploration,
+
+00:01:30.555 --> 00:01:32.975
+then data cleaning and preprocessing.
+
+00:01:32.974 --> 00:01:34.439
+After cleaning your data,
+
+00:01:34.439 --> 00:01:37.810
+you'll move on to dimensionality reduction with PCA.
+
+00:01:37.810 --> 00:01:40.920
+PCA stands for Principal Component Analysis.
+
+00:01:40.920 --> 00:01:42.650
+You'll use these components to create
+
+00:01:42.650 --> 00:01:45.484
+new features and transform your original training data.
+
+00:01:45.484 --> 00:01:50.155
+Finally, you'll cluster your transformed data using a k-means clustering algorithm.
+
+00:01:50.155 --> 00:01:53.390
+We'll also get a lot of practice visualizing what each of these models,
+
+00:01:53.390 --> 00:01:55.954
+PCA and k-means, has learned to do.
+
+00:01:55.954 --> 00:01:58.129
+Meaning we'll take a look at the components and
+
+00:01:58.129 --> 00:02:00.604
+the k clusters that are produced by these models.
+
+00:02:00.605 --> 00:02:03.380
+Each of the exercises in this notebook are designed to give you
+
+00:02:03.379 --> 00:02:06.469
+practice with each step of the ML workflow and to
+
+00:02:06.469 --> 00:02:09.199
+demonstrate how to use SageMaker tools such as
+
+00:02:09.199 --> 00:02:13.164
+data management with S3 and SageMaker's built-in algorithms.
+
+00:02:13.164 --> 00:02:17.435
+So the first couple of cells you'll see in here are loading a bunch of libraries,
+
+00:02:17.435 --> 00:02:21.365
+some for visualization and some that are specific to SageMaker,
+
+00:02:21.365 --> 00:02:24.379
+specifically, the boto3 and SageMaker libraries.
+
+00:02:24.379 --> 00:02:28.069
+SageMaker has many libraries installed so you often just have to import
+
+00:02:28.069 --> 00:02:31.849
+the resources you want much like in the workspaces in the Udacity classroom.
+
+00:02:31.849 --> 00:02:33.724
+Now, we can get the data.
+
+00:02:33.724 --> 00:02:37.759
+This particular dataset is already in an Amazon S3 bucket and
+
+00:02:37.759 --> 00:02:41.840
+I can load the data by pointing to this bucket and getting a data file by name.
+
+00:02:41.840 --> 00:02:45.939
+So first, I'll have to create a boto3 client to interact with S3.
+
+00:02:45.939 --> 00:02:48.680
+Now, if I run this cell and I did this correctly,
+
+00:02:48.680 --> 00:02:52.490
+I should be able to look at a list of objects in that bucket.
+
+00:02:52.490 --> 00:02:55.325
+So here, I'm calling my client asking it to list
+
+00:02:55.324 --> 00:02:59.589
+all the objects that are in my bucket and then printing out the contents of that bucket.
+
+00:02:59.590 --> 00:03:03.814
+I can see there's just one file in here, Census_Data_for_SageMaker.
+
+00:03:03.814 --> 00:03:06.935
+It's a CSV file and I'm just going to get that one name.
+
+00:03:06.935 --> 00:03:10.460
+So I have the name of the CSV file that I want to retrieve.
+
+00:03:10.460 --> 00:03:12.650
+To actually get an S3 object,
+
+00:03:12.650 --> 00:03:15.649
+I'm going to call our client again and call get_object,
+
+00:03:15.649 --> 00:03:16.909
+passing it in the bucket,
+
+00:03:16.909 --> 00:03:20.185
+and the key which is the file name I just saved from here.
+
+00:03:20.185 --> 00:03:23.795
+In this last line, I'm printing out what the data object contains.
+
+00:03:23.794 --> 00:03:26.854
+So this object actually holds a lot of metadata
+
+00:03:26.854 --> 00:03:30.715
+including things like the content type which is a CSV file here.
+
+00:03:30.715 --> 00:03:35.405
+At the end, I see this body tag and a label streaming body here.
+
+00:03:35.405 --> 00:03:37.849
+This streaming data is exactly what I want.
+
+00:03:37.849 --> 00:03:40.204
+So in the next cell, I'm going to access that body,
+
+00:03:40.205 --> 00:03:42.844
+read it in, and print out it's data type.
+
+00:03:42.844 --> 00:03:48.859
+I can see that the datatype is bytes which I can read in with a call to io.BytesIO.
+
+00:03:48.860 --> 00:03:52.040
+This will finally give me a data stream that I can read in just like
+
+00:03:52.039 --> 00:03:55.775
+a CSV file and create a dataframe of county information.
+
+00:03:55.775 --> 00:03:59.810
+So that was the number of steps to read in a data stream from an S3 bucket.
+
+00:03:59.810 --> 00:04:04.504
+But I really just wanted to show you how to load in any data from an S3 bucket.
+
+00:04:04.504 --> 00:04:08.014
+Later, you'll see that you can also directly download data from the web.
+
+00:04:08.014 --> 00:04:12.219
+So I'm loading the data and I'm taking a quick look at what's held in the CSV file.
+
+00:04:12.219 --> 00:04:15.409
+Just printing out the head or the first five rows of data,
+
+00:04:15.409 --> 00:04:18.439
+I see a census ID, a state and county,
+
+00:04:18.439 --> 00:04:21.769
+and a lot of other features that look like they're counting up people
+
+00:04:21.769 --> 00:04:25.699
+and percentages for different demographic characteristics for that county.
+
+00:04:25.699 --> 00:04:28.729
+The census records traits like total population,
+
+00:04:28.730 --> 00:04:32.210
+race, transportation methods, and labor statistics.
+
+00:04:32.209 --> 00:04:37.074
+These traits have even changed over time as ideas of population categories change.
+
+00:04:37.074 --> 00:04:38.819
+As with any population data,
+
+00:04:38.819 --> 00:04:40.879
+the traits paint a simplified picture of
+
+00:04:40.879 --> 00:04:44.644
+the US population and real life is not as clean as this data.
+
+00:04:44.644 --> 00:04:48.199
+That being said, looking at commonalities or differences between
+
+00:04:48.199 --> 00:04:51.805
+regions can give you some really interesting and useful information.
+
+00:04:51.805 --> 00:04:53.384
+Now that we've loaded in the data,
+
+00:04:53.384 --> 00:04:54.539
+it's time to clean it up,
+
+00:04:54.540 --> 00:04:56.300
+explore it, and preprocess it.
+
+00:04:56.300 --> 00:04:58.370
+When you first explore any data,
+
+00:04:58.370 --> 00:05:00.050
+it's good to know what you're working with,
+
+00:05:00.050 --> 00:05:02.900
+how many data points and features are you starting with,
+
+00:05:02.899 --> 00:05:06.234
+and what kind of information can you get at a first glance?
+
+00:05:06.235 --> 00:05:08.750
+So you should investigate the shape of the data
+
+00:05:08.750 --> 00:05:11.555
+and I want you to implement a simple data cleaning step.
+
+00:05:11.555 --> 00:05:13.264
+Your first exercise.
+
+00:05:13.264 --> 00:05:16.264
+This will be to drop any incomplete data points.
+
+00:05:16.264 --> 00:05:18.649
+So any data with any columns missing or
+
+00:05:18.649 --> 00:05:21.889
+empty should not be included in the final training set.
+
+00:05:21.889 --> 00:05:24.240
+After you drop any incomplete data,
+
+00:05:24.240 --> 00:05:26.475
+I want you to do some data preprocessing.
+
+00:05:26.475 --> 00:05:30.020
+Eventually, you want to feed these features into a machine learning model.
+
+00:05:30.019 --> 00:05:33.139
+ML models need numerical data to learn from
+
+00:05:33.139 --> 00:05:36.680
+and not categorical data like strings like state and county.
+
+00:05:36.680 --> 00:05:40.129
+So you'll reformat this data such that the data is
+
+00:05:40.129 --> 00:05:44.295
+indexed by region, specifically, by "State-County".
+
+00:05:44.295 --> 00:05:49.609
+Then, you'll drop the old state and county columns along with the census ID column,
+
+00:05:49.608 --> 00:05:53.539
+which is just an assigned number and doesn't give us any demographic info.
+
+00:05:53.540 --> 00:05:55.749
+So instead of having row indices,
+
+00:05:55.749 --> 00:05:57.530
+this data will now be indexed by
+
+00:05:57.529 --> 00:06:02.029
+state-county and the rest of the features can remain as columns here.
+
+00:06:02.029 --> 00:06:03.454
+After completing your code,
+
+00:06:03.454 --> 00:06:06.444
+you should get a dataframe whose start looks a bit like this.
+
+00:06:06.444 --> 00:06:08.480
+Basically, you want a clean dataframe with
+
+00:06:08.480 --> 00:06:12.995
+no empty columns of useful numerical regional features to compare.
+
+00:06:12.995 --> 00:06:14.629
+If you complete all this code,
+
+00:06:14.629 --> 00:06:18.740
+you can move on to some interesting visualizations later on in the notebook.
+
+00:06:18.740 --> 00:06:21.290
+I also want to note that you should make sure to use
+
+00:06:21.290 --> 00:06:25.640
+the given variable names as they may be referenced later on in this notebook.
+
+00:06:25.639 --> 00:06:29.689
+I'm assuming that you'll execute all of these cells in order, and for example,
+
+00:06:29.689 --> 00:06:33.980
+clean_counties_df, which should look like this final clean counties dataframe,
+
+00:06:33.980 --> 00:06:36.530
+will be referenced later on in this notebook.
+
+00:06:36.529 --> 00:06:38.689
+If you get stuck on either the cleaning or
+
+00:06:38.689 --> 00:06:41.629
+reformatting exercises or just want to check your work,
+
+00:06:41.629 --> 00:06:45.029
+you can consult my solution video next.
+

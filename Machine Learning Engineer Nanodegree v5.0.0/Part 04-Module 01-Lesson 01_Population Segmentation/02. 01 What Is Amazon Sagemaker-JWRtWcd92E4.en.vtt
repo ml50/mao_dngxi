@@ -1,0 +1,154 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:04.879 --> 00:00:09.809
+Welcome. Today, I'm interviewing Dan Mbanga. , from Amazon AI.
+
+00:00:09.810 --> 00:00:12.150
+He work on business and technical issues at
+
+00:00:12.150 --> 00:00:14.880
+Amazon including things like Amazon's SageMaker.
+
+00:00:14.880 --> 00:00:17.775
+That's what I want to talk to you today about.
+
+00:00:17.774 --> 00:00:19.875
+So just to start,
+
+00:00:19.875 --> 00:00:22.065
+we all have a working definition.
+
+00:00:22.065 --> 00:00:26.495
+How do you describe Amazon SageMaker to someone who's working with machine learning?
+
+00:00:26.495 --> 00:00:27.880
+Yeah. Thank you, Cezanne.
+
+00:00:27.879 --> 00:00:30.989
+Amazon SageMaker is an end-to-end Machine Learning Service.
+
+00:00:30.989 --> 00:00:35.159
+Essentially, it solves the problem of building,
+
+00:00:35.159 --> 00:00:38.764
+training, tuning, and deploying machine learning algorithms.
+
+00:00:38.765 --> 00:00:42.493
+If you think about our story at Amazon,
+
+00:00:42.493 --> 00:00:47.865
+where we do have that by internal and external customers.
+
+00:00:47.865 --> 00:00:49.370
+I was at Amazon Web Services.
+
+00:00:49.369 --> 00:00:51.409
+We worked within total Amazon companies.
+
+00:00:51.409 --> 00:00:56.414
+There are building products for E-commerce or other services like Alexa,
+
+00:00:56.414 --> 00:00:59.030
+there's a lot of machine learning involved there.
+
+00:00:59.030 --> 00:01:04.114
+There are thousands and thousands of data scientists and AI engineers around the world.
+
+00:01:04.114 --> 00:01:07.054
+Building and training machine learning platform that scale.
+
+00:01:07.055 --> 00:01:10.040
+So we had that challenge of scaling machine learning,
+
+00:01:10.040 --> 00:01:12.730
+making it accessible to multiple developers,
+
+00:01:12.730 --> 00:01:15.760
+getting to understand the workflow of machine learning,
+
+00:01:15.760 --> 00:01:17.270
+and then training people,
+
+00:01:17.269 --> 00:01:18.679
+and building tools around
+
+00:01:18.680 --> 00:01:22.060
+that workflow to make sure that we ease the process of eventually,
+
+00:01:22.060 --> 00:01:23.855
+building products with machine learning.
+
+00:01:23.855 --> 00:01:25.730
+So gathering that experience,
+
+00:01:25.730 --> 00:01:29.180
+we basically decided to create Amazon SageMaker,
+
+00:01:29.180 --> 00:01:31.490
+which essentially follows developers and
+
+00:01:31.489 --> 00:01:34.949
+data scientists through the end-to-end process of building,
+
+00:01:34.950 --> 00:01:38.159
+training, and tuning machine learning algorithms.
+
+00:01:38.159 --> 00:01:39.849
+If you think about that process,
+
+00:01:39.849 --> 00:01:42.169
+you have to think about collecting data.
+
+00:01:42.170 --> 00:01:49.079
+You have to think about an environment where people have to crunch the data,
+
+00:01:49.079 --> 00:01:51.679
+look at the data distribution, analyze the data,
+
+00:01:51.680 --> 00:01:55.655
+and do the whole statistical approach of looking at dataset.
+
+00:01:55.655 --> 00:02:00.019
+That environment needs to be organized in such a way that it has tools that
+
+00:02:00.019 --> 00:02:04.129
+are enabling these data scientists to essentially get that work done.
+
+00:02:04.129 --> 00:02:06.799
+The third thing they need to do is to scale
+
+00:02:06.799 --> 00:02:10.609
+the process potentially of training these algorithms on large dataset.
+
+00:02:10.610 --> 00:02:15.680
+Then there's a very strong infrastructural orchestration need from
+
+00:02:15.680 --> 00:02:18.765
+that perspective and the other that needs to happen
+
+00:02:18.764 --> 00:02:22.789
+is figuring out where the models are eventually going to leave.
+
+00:02:22.789 --> 00:02:26.479
+Either in a real application or on a device,
+
+00:02:26.479 --> 00:02:30.019
+and all of these design and orchestration decisions have
+
+00:02:30.020 --> 00:02:34.835
+to traditionally be the responsibility of the scientists and developers.
+
+00:02:34.835 --> 00:02:37.939
+SageMaker takes some of that responsibility away,
+
+00:02:37.939 --> 00:02:41.539
+the undifferentiated heavy lifting essentially and make sure
+
+00:02:41.539 --> 00:02:45.634
+that data scientists and developers can focus on data science,
+
+00:02:45.634 --> 00:02:51.599
+and the infrastructure and orchestration piece of the work is done by the platform.
+

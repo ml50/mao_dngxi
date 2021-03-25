@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.865
+Before we get into specific case studies,
+
+00:00:02.865 --> 00:00:07.799
+I want to talk a bit about how to approach solving tasks with machine learning.
+
+00:00:07.799 --> 00:00:11.580
+Generally, the algorithms you use can be broken
+
+00:00:11.580 --> 00:00:15.285
+down into two major types; supervised, and unsupervised.
+
+00:00:15.285 --> 00:00:18.390
+I find it helpful to think of these in the context
+
+00:00:18.390 --> 00:00:21.570
+of a specific example, image classification.
+
+00:00:21.570 --> 00:00:26.219
+Say we've been given a bunch of images of vehicle types.
+
+00:00:26.219 --> 00:00:29.369
+Supervised learning means that our training data is
+
+00:00:29.370 --> 00:00:33.015
+made of images and their corresponding class labels.
+
+00:00:33.015 --> 00:00:36.149
+So we'll have images of cars, bikes,
+
+00:00:36.149 --> 00:00:37.545
+buses, and so on,
+
+00:00:37.545 --> 00:00:39.075
+all with their true label.
+
+00:00:39.075 --> 00:00:41.615
+The label is also called the ground truth.
+
+00:00:41.615 --> 00:00:46.715
+Then we can train an image classifier that takes in an image as input.
+
+00:00:46.715 --> 00:00:52.970
+Its goal is to produce a label that is as close to the true class label as possible.
+
+00:00:52.969 --> 00:00:55.460
+As we train the classifier,
+
+00:00:55.460 --> 00:00:57.980
+it tries to improve its accuracy.
+
+00:00:57.979 --> 00:01:01.789
+Supervised learning basically means we have a certain known target,
+
+00:01:01.789 --> 00:01:03.244
+in this case, the known label,
+
+00:01:03.244 --> 00:01:05.980
+to aim for during the training process.
+
+00:01:05.980 --> 00:01:09.350
+We achieve a successful training when the model is highly
+
+00:01:09.349 --> 00:01:12.634
+accurate at learning how to predict true labels,
+
+00:01:12.635 --> 00:01:15.035
+given new data it hasn't seen before.
+
+00:01:15.034 --> 00:01:19.134
+In other words, data that wasn't part of a training set.
+
+00:01:19.135 --> 00:01:24.844
+Now, let's think about how we might approach this task if we were not given any labels.
+
+00:01:24.844 --> 00:01:28.609
+So our training set is made of unlabeled images.
+
+00:01:28.609 --> 00:01:31.219
+We'll have to take an unsupervised approach.
+
+00:01:31.219 --> 00:01:33.605
+This means that instead of relying on
+
+00:01:33.605 --> 00:01:37.579
+given information about how to group all labeled data,
+
+00:01:37.579 --> 00:01:41.299
+we have to rely on finding natural groupings in the data.
+
+00:01:41.299 --> 00:01:44.929
+We can train an algorithm to separate images into clusters
+
+00:01:44.930 --> 00:01:49.475
+according to perceived similarities in color or geometric traits.
+
+00:01:49.474 --> 00:01:54.379
+But we don't really have a way of checking that these groupings are correct or incorrect.
+
+00:01:54.379 --> 00:01:56.829
+So there is no measure for accuracy.
+
+00:01:56.829 --> 00:02:01.144
+We'll have to develop a new metric for separating data into groups.
+
+00:02:01.144 --> 00:02:05.239
+Something like the distance between similar and different groups of data,
+
+00:02:05.239 --> 00:02:06.920
+and at the end of a training,
+
+00:02:06.920 --> 00:02:09.905
+will end up with an image clustering algorithm.
+
+00:02:09.905 --> 00:02:14.300
+The way images are clustered together is really meant to give us some insight
+
+00:02:14.300 --> 00:02:18.725
+into what patterns naturally emerge from a given dataset.
+
+00:02:18.724 --> 00:02:20.479
+In this first lesson,
+
+00:02:20.479 --> 00:02:23.449
+you'll focus on finding patterns in data using
+
+00:02:23.449 --> 00:02:27.409
+a variety of unsupervised algorithms in Amazon Sagemaker.
+
+00:02:27.409 --> 00:02:29.270
+By the end of this lesson,
+
+00:02:29.270 --> 00:02:32.825
+you should be able to utilize Sagemaker resources,
+
+00:02:32.824 --> 00:02:37.009
+and apply these techniques to task of your own design.
+

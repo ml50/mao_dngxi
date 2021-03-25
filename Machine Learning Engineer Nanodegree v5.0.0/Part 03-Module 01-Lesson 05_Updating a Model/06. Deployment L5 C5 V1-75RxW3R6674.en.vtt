@@ -1,0 +1,193 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.520
+All right. So, hopefully you had some fun
+
+00:00:02.520 --> 00:00:04.859
+going through and trying to complete this notebook.
+
+00:00:04.860 --> 00:00:07.290
+Now, let's take a look at my solutions.
+
+00:00:07.290 --> 00:00:09.780
+To start with, the first four steps are things that
+
+00:00:09.779 --> 00:00:12.259
+we've looked at before in previous notebooks.
+
+00:00:12.259 --> 00:00:15.855
+So, I've executed those cells in advance.
+
+00:00:15.855 --> 00:00:19.920
+At this point, we have an XGBoost model that has been trained
+
+00:00:19.920 --> 00:00:24.300
+and which we tested and seems to be performing pretty well.
+
+00:00:24.300 --> 00:00:26.625
+So, the story at this point is that,
+
+00:00:26.625 --> 00:00:30.664
+our XGBoost model is good enough that we want to put it in production.
+
+00:00:30.664 --> 00:00:35.524
+So, we've deployed it somewhere and it is being used by some application.
+
+00:00:35.524 --> 00:00:39.395
+Over time, we collect some reviews from users
+
+00:00:39.395 --> 00:00:43.555
+and we create ground truths for those reviews.
+
+00:00:43.554 --> 00:00:45.460
+We could maybe do this by hand,
+
+00:00:45.460 --> 00:00:48.620
+or find some other mechanism to do that.
+
+00:00:48.619 --> 00:00:50.989
+But regardless, we've collected a bunch of
+
+00:00:50.990 --> 00:00:57.160
+these sample reviews and we'd like to see how well our model is performing.
+
+00:00:57.159 --> 00:01:00.948
+This is a part of health checking our model essentially.
+
+00:01:00.948 --> 00:01:03.574
+So, we load in the new data.
+
+00:01:03.575 --> 00:01:07.655
+The first thing we do is encode our new data
+
+00:01:07.655 --> 00:01:12.010
+so that we can send it off to our XGBoost model.
+
+00:01:12.010 --> 00:01:17.915
+Remember that the processing that we'd perform on a review is in two parts.
+
+00:01:17.915 --> 00:01:27.219
+First, we stem our input so that things like hunting and hunt appear as the same token.
+
+00:01:27.219 --> 00:01:34.548
+Then, we look at the 5,000 most frequently occurring words in the training set,
+
+00:01:34.549 --> 00:01:36.865
+we call that our vocabulary.
+
+00:01:36.864 --> 00:01:38.459
+Then, for each review,
+
+00:01:38.459 --> 00:01:42.424
+we count the number of times each word in our vocabulary
+
+00:01:42.424 --> 00:01:48.030
+occurs and we store that vector of length equal to the vocabulary.
+
+00:01:48.030 --> 00:01:49.924
+In our case it's 5,000,
+
+00:01:49.924 --> 00:01:53.869
+as the bag of words encoded version of our review.
+
+00:01:53.870 --> 00:01:57.020
+Now, our new data has already been tokenized.
+
+00:01:57.019 --> 00:02:01.449
+However, we still need to create a bag of words encoding of it.
+
+00:02:01.450 --> 00:02:02.975
+To do that, we create
+
+00:02:02.974 --> 00:02:05.989
+a count vectorizer object using
+
+00:02:05.989 --> 00:02:09.259
+the vocabulary that we created earlier on in the notebook.
+
+00:02:09.259 --> 00:02:14.164
+We want to make sure that there's no extra preprocessing or extra tokenizing happening.
+
+00:02:14.164 --> 00:02:17.064
+Once we've created that count vectorizer,
+
+00:02:17.064 --> 00:02:21.680
+we can use it to transform the new data to
+
+00:02:21.680 --> 00:02:26.705
+get the vectorized or bag of words encoded version of our data.
+
+00:02:26.705 --> 00:02:32.575
+As a quick check that this transform operation did what we expect that it did,
+
+00:02:32.574 --> 00:02:37.519
+we should double-check and make sure that any of the rows in
+
+00:02:37.520 --> 00:02:42.395
+our new data set have length equal to the size of our vocabulary.
+
+00:02:42.395 --> 00:02:45.275
+In our case, the vocabulary size is 5,000.
+
+00:02:45.275 --> 00:02:51.655
+So, the length of each of the reviews should be 5,000, which it is.
+
+00:02:51.655 --> 00:02:56.750
+Okay. Now, our goal here is to test our model to see how well it's doing on the new data.
+
+00:02:56.750 --> 00:02:57.979
+So, to do that, we're going to set up
+
+00:02:57.979 --> 00:03:02.465
+a batch transform job and in order to execute a batch transform job,
+
+00:03:02.465 --> 00:03:04.375
+we need to first,
+
+00:03:04.375 --> 00:03:08.305
+save the new data locally into a CSV file,
+
+00:03:08.305 --> 00:03:14.814
+and then we need to upload that CSV file to S3 using the upload data method.
+
+00:03:14.814 --> 00:03:18.604
+Once your data has been uploaded and is available on S3,
+
+00:03:18.604 --> 00:03:22.340
+we can go ahead and use the transformer object that was created
+
+00:03:22.340 --> 00:03:28.069
+earlier and transform our new data to see how well our model is performing.
+
+00:03:28.069 --> 00:03:30.739
+Once the transform job has finished up,
+
+00:03:30.740 --> 00:03:34.520
+we can copy the results to our local instance and then
+
+00:03:34.520 --> 00:03:39.170
+check to see how well our model is performing on the new data.
+
+00:03:39.169 --> 00:03:41.799
+Oh, it turns out not so great.
+
+00:03:41.800 --> 00:03:43.600
+So, something has gone wrong here.
+
+00:03:43.599 --> 00:03:45.949
+I think that a reasonable explanation is that
+
+00:03:45.949 --> 00:03:49.459
+something has happened to the underlying distribution.
+
+00:03:49.460 --> 00:03:55.070
+So, that is that the words in our new data set don't mean
+
+00:03:55.069 --> 00:04:01.489
+the same thing or aren't being encoded as well as they were in the original data set.
+
+00:04:01.490 --> 00:04:06.270
+So, what can we do to try and look and see what's happening here?
+

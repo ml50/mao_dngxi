@@ -1,0 +1,445 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Course Outline, Case Studies
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Population Segmentation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Cezanne &amp; Dan.html">
+       01. Introducing Cezanne &amp; Dan
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Interview Segment What is SageMaker and Why Learn It.html">
+       02. Interview Segment: What is SageMaker and Why Learn It?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Course Outline, Case Studies.html">
+       03. Course Outline, Case Studies
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Unsupervised v Supervised Learning.html">
+       04. Unsupervised v Supervised Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Model Design.html">
+       05. Model Design
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Population Segmentation.html">
+       06. Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="07. K-means, Overview.html">
+       07. K-means, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Creating a Notebook Instance.html">
+       08. Creating a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Create a SageMaker Notebook Instance.html">
+       09. Create a SageMaker Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Pre-Notebook Population Segmentation.html">
+       10. Pre-Notebook: Population Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Exercise Data Loading &amp; Processing.html">
+       11. Exercise: Data Loading &amp; Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Solution Data Pre-Processing.html">
+       12. Solution: Data Pre-Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Exercise Normalization.html">
+       13. Exercise: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Solution Normalization.html">
+       14. Solution: Normalization
+      </a>
+     </li>
+     <li class="">
+      <a href="15. PCA, Overview.html">
+       15. PCA, Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="16. PCA Estimator &amp; Training.html">
+       16. PCA Estimator &amp; Training
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Exercise PCA Model Attributes &amp; Variance.html">
+       17. Exercise: PCA Model Attributes &amp; Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Solution Variance.html">
+       18. Solution: Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Component Makeup.html">
+       19. Component Makeup
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Exercise PCA Deployment &amp; Data Transformation.html">
+       20. Exercise: PCA Deployment &amp; Data Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Solution Creating Transformed Data.html">
+       21. Solution: Creating Transformed Data
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Exercise K-means Estimator &amp; Selecting K.html">
+       22. Exercise: K-means Estimator &amp; Selecting K
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Exercise K-means Predictions (clusters).html">
+       23. Exercise: K-means Predictions (clusters)
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Solution K-means Predictor.html">
+       24. Solution: K-means Predictor
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Exercise Get the Model Attributes.html">
+       25. Exercise: Get the Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Solution Model Attributes.html">
+       26. Solution: Model Attributes
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Clean Up All Resources.html">
+       27. Clean Up: All Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="28. AWS Workflow &amp; Summary.html">
+       28. AWS Workflow &amp; Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Course Outline, Case Studies
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="course-outline">
+          Course Outline
+         </h1>
+         <p>
+          Throughout this course, we’ll be focusing on deployment tools and the machine learning workflow; answering a few big questions along the way:
+         </p>
+         <ul>
+          <li>
+           How do you decide on the correct machine learning algorithm for a given task?
+          </li>
+          <li>
+           How can we utilize cloud ML services in SageMaker to work with interesting datasets or improve our algorithms?
+          </li>
+         </ul>
+         <p>
+          To approach these questions, we’ll go over a number of real-world
+          <strong>
+           case studies
+          </strong>
+          , and go from task and problem formulation to deploying models in SageMaker. We’ll also utilize a number of SageMaker’s built-in algorithms.
+         </p>
+         <hr/>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="case-studies">
+          Case Studies
+         </h3>
+         <p>
+          Case studies are in-depth examinations of specific, real-world tasks. In our case, we’ll focus on three different problems and look at how they can be solved using various machine learning strategies. The case studies are as follows:
+         </p>
+         <blockquote>
+          <p>
+           <strong>
+            Case Study 1 - Population Segmentation using SageMaker
+           </strong>
+          </p>
+         </blockquote>
+         <p>
+          You’ll look at a portion of
+          <a href="https://www.census.gov/data.html" rel="noopener noreferrer" target="_blank">
+           US census data
+          </a>
+          and, using a combination of unsupervised learning methods, extract meaningful components from that data and group regions by similar census-recorded characteristics. This case study will be a deep dive into Principal Components Analysis (PCA) and K-Means clustering methods, and the end result will be groupings that are used to inform things like localized marketing campaigns and voter campaign strategies.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <blockquote>
+          <p>
+           <strong>
+            Case Study 2 - Detecting Credit Card Fraud
+           </strong>
+          </p>
+         </blockquote>
+         <p>
+          This case will demonstrate how to use supervised learning techniques, specifically SageMaker’s
+          <code>
+           LinearLearner
+          </code>
+          , for fraud detection. The payment transaction dataset we'll work with is unbalanced, with many more examples of valid transactions vs. fraudulent, and so you will investigate methods for compensating for this imbalance and tuning your model to improve its performance according to a specific product goal.
+         </p>
+         <blockquote>
+          <p>
+           <strong>
+            Custom Models - Non-Linear Classification
+           </strong>
+          </p>
+         </blockquote>
+         <p>
+          Adding on to what you have learned in the credit card fraud case study, you will learn how to manage cases where classes of data are not separable by a linear line. You'll train and deploy a custom, PyTorch neural network for classifying data.
+         </p>
+         <blockquote>
+          <p>
+           <strong>
+            Case Study 3 - Time-Series Forecasting
+           </strong>
+          </p>
+         </blockquote>
+         <p>
+          This case demonstrates how to train SageMaker's DeepAR model for forecasting predictions over time. Time-series forecasting is an active area of research because a good forecasting algorithm often takes in a number of different features and accounts for seasonal or repetitive patterns. In this study, you will learn a bit about creating features out of time series data and formatting it for training.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2019-03-27-at-10.46.01-am.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <blockquote>
+          <p>
+           <strong>
+            Project: Plagiarism Detection
+           </strong>
+          </p>
+         </blockquote>
+         <p>
+          You'll apply the skills that you've learned to a final project; building and deploying a plagiarism classification model. This project will test your ability to do [text] data processing and feature extraction, your ability to train and evaluate models according to an accuracy specification, and your ability to deploy a trained model to an endpoint.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <hr/>
+         <p>
+          By the end of this course, you should have all the skills you need to build, train and deploy models to solve tasks of your own design!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Unsupervised v Supervised Learning.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Course Outline, Case Studies')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

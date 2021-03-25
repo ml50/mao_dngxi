@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.394
+Your first case study will be to analyze US census data.
+
+00:00:04.394 --> 00:00:07.679
+The census is a big survey that includes information about
+
+00:00:07.679 --> 00:00:11.054
+the demographic makeup of various regions in the US.
+
+00:00:11.054 --> 00:00:15.029
+One of its main purposes is to count up the population of each state.
+
+00:00:15.029 --> 00:00:18.570
+That number is used to determine congressional apportionment.
+
+00:00:18.570 --> 00:00:21.539
+But data like this has a variety of applications.
+
+00:00:21.539 --> 00:00:23.609
+The census includes information like
+
+00:00:23.609 --> 00:00:26.655
+the most prominent age range in certain areas of the US,
+
+00:00:26.655 --> 00:00:28.859
+the rate of unemployment, and so on.
+
+00:00:28.859 --> 00:00:32.909
+You can imagine using this information to create localized marketing campaigns,
+
+00:00:32.909 --> 00:00:38.299
+informed campaign strategies, and generally to learn more about certain areas in the US.
+
+00:00:38.299 --> 00:00:39.804
+In this lesson, you'll use
+
+00:00:39.804 --> 00:00:43.615
+a SageMaker notebook instance to load in and process this data.
+
+00:00:43.615 --> 00:00:45.024
+When you explore the data,
+
+00:00:45.024 --> 00:00:47.390
+you'll see that it's just tables of information.
+
+00:00:47.390 --> 00:00:50.314
+It doesn't contain any class labels to aim for.
+
+00:00:50.314 --> 00:00:54.379
+So you'll employ unsupervised learning techniques to group this data.
+
+00:00:54.380 --> 00:00:57.679
+Unsupervised algorithms allow us to ask what are
+
+00:00:57.679 --> 00:01:01.250
+the natural groupings that I can find in this population data,
+
+00:01:01.250 --> 00:01:05.450
+and which features are most effective at distinguishing these different groups?
+
+00:01:05.450 --> 00:01:08.000
+Your end goal will be to produce groupings that reveal
+
+00:01:08.000 --> 00:01:11.840
+some similarities and differences between regions in the US,
+
+00:01:11.840 --> 00:01:15.365
+segmenting the population based on shared demographic traits.
+
+00:01:15.364 --> 00:01:18.140
+This is called population segmentation.
+
+00:01:18.140 --> 00:01:20.704
+We'll approach this task step-by-step.
+
+00:01:20.704 --> 00:01:22.219
+First, I'll be going over
+
+00:01:22.219 --> 00:01:26.215
+an exercise notebook that demonstrates loading in and processing data.
+
+00:01:26.215 --> 00:01:29.465
+Then, I'll show you how to deploy an unsupervised model.
+
+00:01:29.465 --> 00:01:33.695
+Intermittently, you'll get a chance to practice what you've learned in code exercises.
+
+00:01:33.694 --> 00:01:35.689
+You'll define population features,
+
+00:01:35.689 --> 00:01:39.509
+and learn how to train and deploy an unsupervised model.
+

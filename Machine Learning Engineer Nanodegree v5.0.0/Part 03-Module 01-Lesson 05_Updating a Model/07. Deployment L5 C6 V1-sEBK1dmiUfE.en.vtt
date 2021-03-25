@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.134
+So, the original XGBoost model is now deployed
+
+00:00:03.134 --> 00:00:06.719
+helping set up the scenario that we are trying to tackle,
+
+00:00:06.719 --> 00:00:10.589
+and we have reason to believe that something
+
+00:00:10.589 --> 00:00:14.774
+about the nature of the problem we were trying to solve has changed,
+
+00:00:14.775 --> 00:00:17.940
+and the way this change is expressed is that
+
+00:00:17.940 --> 00:00:21.260
+our model no longer works as well as it used to.
+
+00:00:21.260 --> 00:00:24.720
+So what we'd now like to do is figure out what's going on.
+
+00:00:24.719 --> 00:00:31.769
+Why is the new data not being classified as well as the original data?
+
+00:00:31.769 --> 00:00:33.609
+To start in our investigation,
+
+00:00:33.609 --> 00:00:41.109
+we will take a look at some of the examples of reviews that have been misclassified.
+
+00:00:41.109 --> 00:00:44.825
+This will give us some idea of what's going on.
+
+00:00:44.825 --> 00:00:50.825
+As an aside, the way that I've created this method here is as a generator,
+
+00:00:50.825 --> 00:00:55.760
+and if you've not really been exposed to generators in Python before,
+
+00:00:55.759 --> 00:00:57.809
+now might be a good time to take a look.
+
+00:00:57.810 --> 00:01:00.469
+In an overly simplified sort of way,
+
+00:01:00.469 --> 00:01:04.700
+all you kind of have to do is replace a return statement with a yield statement.
+
+00:01:04.700 --> 00:01:10.405
+What this means is that once there is a single return value available,
+
+00:01:10.405 --> 00:01:12.769
+it will return that value and then if you call
+
+00:01:12.769 --> 00:01:15.459
+next on the resulting generator a second time,
+
+00:01:15.459 --> 00:01:18.834
+it will continue from where it last left off.
+
+00:01:18.834 --> 00:01:21.199
+So if you notice here in the for loop,
+
+00:01:21.200 --> 00:01:25.730
+I iterate through each of the rows in our new data set.
+
+00:01:25.730 --> 00:01:30.590
+When the first example of a misclassified review is found,
+
+00:01:30.590 --> 00:01:34.015
+it will return that result, stopping this loop.
+
+00:01:34.015 --> 00:01:35.875
+However, in some sense,
+
+00:01:35.875 --> 00:01:38.810
+it doesn't really stop the loop so much as posit
+
+00:01:38.810 --> 00:01:42.260
+so that it can be continued on later to find the next example.
+
+00:01:42.260 --> 00:01:47.359
+This is just a useful way of going through a big bunch of data to find
+
+00:01:47.359 --> 00:01:49.909
+counterexamples because it means that we don't have to
+
+00:01:49.909 --> 00:01:52.640
+process the entirety of the new data set.
+
+00:01:52.640 --> 00:01:54.079
+The way this works is that,
+
+00:01:54.079 --> 00:01:57.890
+we first create a method that has this yield keyword
+
+00:01:57.890 --> 00:02:01.954
+inside of it and we use that method to construct a generator.
+
+00:02:01.954 --> 00:02:05.030
+After that, whenever we call next on the generator,
+
+00:02:05.030 --> 00:02:07.730
+it will construct the next counterexample for us.
+
+00:02:07.730 --> 00:02:09.474
+So here's the first one.
+
+00:02:09.474 --> 00:02:15.650
+This is an example of a review which has been misclassified by our XGBoost model,
+
+00:02:15.650 --> 00:02:17.930
+and if I execute this cell again,
+
+00:02:17.930 --> 00:02:19.280
+I'll get another example,
+
+00:02:19.280 --> 00:02:20.854
+and if I execute it again,
+
+00:02:20.854 --> 00:02:22.554
+I'll get yet another example.
+
+00:02:22.555 --> 00:02:28.280
+So you can use this method to explore some of the incorrectly classified reviews.
+
+00:02:28.280 --> 00:02:30.935
+Suppose that after looking at these for awhile,
+
+00:02:30.935 --> 00:02:34.939
+you think that one of the problems is that the usage of
+
+00:02:34.939 --> 00:02:39.439
+words has changed between the original data set and the new data set.
+
+00:02:39.439 --> 00:02:44.629
+One of the ways of looking at this discrepancy is to look at
+
+00:02:44.629 --> 00:02:50.064
+the 5,000 most frequently occurring words in each of the two data sets.
+
+00:02:50.064 --> 00:02:52.620
+Five thousand isn't just a randomly chosen number,
+
+00:02:52.620 --> 00:02:54.409
+this is the size of our vocabulary.
+
+00:02:54.409 --> 00:02:58.250
+So, another way of looking at this is that I'd like to compare
+
+00:02:58.250 --> 00:03:02.764
+the vocabulary that we used when we initially created our model,
+
+00:03:02.764 --> 00:03:08.479
+to the vocabulary that might be used if we use our new data to train a model.
+
+00:03:08.479 --> 00:03:09.919
+So to do that,
+
+00:03:09.919 --> 00:03:14.214
+let's create a CountVectorizer and fit it to the new data.
+
+00:03:14.215 --> 00:03:17.735
+This will allow us to take a look at the resulting vocabulary.
+
+00:03:17.735 --> 00:03:21.965
+Once the CountVectorizer has been fit to the new data,
+
+00:03:21.965 --> 00:03:25.670
+I can create a set containing the words in
+
+00:03:25.669 --> 00:03:30.375
+the original vocabulary and a set containing the words in the new vocabulary,
+
+00:03:30.375 --> 00:03:32.599
+so that I can look at the difference.
+
+00:03:32.599 --> 00:03:33.829
+So this for example,
+
+00:03:33.830 --> 00:03:37.460
+will take all of the words in the original vocabulary,
+
+00:03:37.460 --> 00:03:41.615
+remove those words that also appear in the new vocabulary,
+
+00:03:41.615 --> 00:03:43.585
+and show us what is leftover.
+
+00:03:43.585 --> 00:03:47.629
+Similarly, this will take all of the words in
+
+00:03:47.629 --> 00:03:53.133
+the new vocabulary and remove the words that also appear in the original vocabulary,
+
+00:03:53.133 --> 00:03:54.954
+leaving us with this.
+
+00:03:54.955 --> 00:03:57.710
+So I don't really want to give away the answer here.
+
+00:03:57.710 --> 00:04:00.680
+The intent here is for this to be very open-ended.
+
+00:04:00.680 --> 00:04:03.155
+But, as far as next steps go,
+
+00:04:03.155 --> 00:04:05.810
+you might want to take a look at how often each of
+
+00:04:05.810 --> 00:04:09.414
+these words appear in their respective training sets.
+
+00:04:09.414 --> 00:04:14.314
+For example, how often does spill appear in the original training set?
+
+00:04:14.314 --> 00:04:18.740
+How often does masterson appear in the new data set?
+
+00:04:18.740 --> 00:04:21.199
+You may assume that these words don't appear
+
+00:04:21.199 --> 00:04:24.245
+very frequently in their respective data sets.
+
+00:04:24.245 --> 00:04:26.685
+If they do appear frequently,
+
+00:04:26.685 --> 00:04:29.269
+that might be an indication that something funny is going on.
+

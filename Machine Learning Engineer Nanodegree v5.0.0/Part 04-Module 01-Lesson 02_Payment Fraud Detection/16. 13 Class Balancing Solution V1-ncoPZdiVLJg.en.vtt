@@ -1,0 +1,121 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.870
+To account for class imbalance during training of a binary classifier,
+
+00:00:03.870 --> 00:00:08.414
+LinearLearner offers the hyperparameter, positive_example_weight_mult.
+
+00:00:08.414 --> 00:00:09.689
+This is the weight assigned to
+
+00:00:09.689 --> 00:00:13.679
+positive or fraudulent examples when training a binary classifier.
+
+00:00:13.679 --> 00:00:17.759
+The weight of negative examples or valid data is fixed at 1.
+
+00:00:17.760 --> 00:00:20.429
+From the hyperparameter documentation, it reads,
+
+00:00:20.429 --> 00:00:22.800
+"If you want the algorithm to choose a weight so
+
+00:00:22.800 --> 00:00:25.230
+that errors in classifying negative versus
+
+00:00:25.230 --> 00:00:30.300
+positive examples have equal impact on training loss, specify balanced."
+
+00:00:30.300 --> 00:00:33.270
+So in this cell, I've defined a balanced estimator as
+
+00:00:33.270 --> 00:00:37.615
+usual with the same number of epochs and recall tuning parameters.
+
+00:00:37.615 --> 00:00:39.980
+I've added just one more hyperparameter,
+
+00:00:39.979 --> 00:00:42.984
+setting positive_example_weight_mult to balanced.
+
+00:00:42.984 --> 00:00:47.079
+Then as usual, I'm training the balanced estimator and deploying it,
+
+00:00:47.079 --> 00:00:48.649
+creating a balanced predictor.
+
+00:00:48.649 --> 00:00:51.214
+Then I'm running my evaluation code as before,
+
+00:00:51.215 --> 00:00:53.105
+passing in my balanced predictor,
+
+00:00:53.104 --> 00:00:55.414
+my test features, and test labels.
+
+00:00:55.414 --> 00:00:59.450
+In this case, I can see a high recall and a higher precision than last time.
+
+00:00:59.450 --> 00:01:01.520
+In fact, if we look at the metrics from last time,
+
+00:01:01.520 --> 00:01:04.370
+we can see that we misclassified over 3,000
+
+00:01:04.370 --> 00:01:07.450
+valid examples as fraudulent and had a very low precision.
+
+00:01:07.450 --> 00:01:09.189
+In this balanced example,
+
+00:01:09.189 --> 00:01:13.340
+we've reduced that number of misclassifications by at least a factor of 3.
+
+00:01:13.340 --> 00:01:16.659
+So now I'm done evaluating this tuned and balanced model,
+
+00:01:16.659 --> 00:01:18.334
+and I'm going to delete the endpoint.
+
+00:01:18.334 --> 00:01:20.569
+Now one thing to note is that we're training with
+
+00:01:20.569 --> 00:01:24.244
+a fixed recall value of 0.9 or 90 percent,
+
+00:01:24.245 --> 00:01:28.579
+but this value may vary when it's actually applied to test data as seen here.
+
+00:01:28.579 --> 00:01:30.965
+In real-world tasks, you'll often be given
+
+00:01:30.965 --> 00:01:35.450
+unbalanced streaming data and a specific metric to define the success of a product.
+
+00:01:35.450 --> 00:01:38.299
+So knowing how to tune a model for a specific metric
+
+00:01:38.299 --> 00:01:41.899
+and balance the class weight for training is a really valuable skill.
+
+00:01:41.900 --> 00:01:43.385
+In fact, next I'll give you
+
+00:01:43.385 --> 00:01:46.100
+a different scenario for you to practice what you've learned here.
+
+00:01:46.099 --> 00:01:49.909
+I find that experimenting and playing with parameters is a great empirical way
+
+00:01:49.909 --> 00:01:53.674
+to gain intuition and better understanding of modeling techniques.
+
+00:01:53.674 --> 00:01:55.879
+So try experimenting with tuning and balancing
+
+00:01:55.879 --> 00:01:59.399
+parameters of your own design to see the effect.
+

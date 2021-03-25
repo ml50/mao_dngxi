@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.865
+Hello, welcome to this lesson on deployment.
+
+00:00:02.865 --> 00:00:04.110
+I'm Suzanne Kumacho.
+
+00:00:04.110 --> 00:00:06.615
+I teach deep learning concepts here at Udacity.
+
+00:00:06.615 --> 00:00:10.440
+Today I'm happy to have with me a deployment expert, Dan Lubanga.
+
+00:00:10.439 --> 00:00:12.419
+Could you tell us a bit about what you do Dan?
+
+00:00:12.419 --> 00:00:14.550
+Yes, and thank you Suzanne.
+
+00:00:14.550 --> 00:00:18.825
+I lead Amazon AI Business Development efforts for machine learning services.
+
+00:00:18.824 --> 00:00:20.294
+On a day-to-day basis,
+
+00:00:20.295 --> 00:00:24.540
+I work with our customers from startups to large enterprises to ensure
+
+00:00:24.539 --> 00:00:26.579
+that they do successfully build and deploy
+
+00:00:26.579 --> 00:00:29.174
+their machine learning models on Amazon SageMaker.
+
+00:00:29.175 --> 00:00:32.505
+So far we've been talking a lot about machine learning models,
+
+00:00:32.505 --> 00:00:33.554
+and in this lesson,
+
+00:00:33.554 --> 00:00:38.909
+we'll talk about deploying trained models using cloud services like Amazon SageMaker.
+
+00:00:38.909 --> 00:00:42.449
+I'll talk about the capabilities of SageMaker and
+
+00:00:42.450 --> 00:00:45.920
+Suzanne will lead you through practical code implementations.
+
+00:00:45.920 --> 00:00:48.800
+Getting comfortable with deployment as with anything,
+
+00:00:48.799 --> 00:00:50.479
+is really all about practice.
+
+00:00:50.479 --> 00:00:54.694
+So we'll give you some insights into how to use SageMaker and it's built-in tools,
+
+00:00:54.695 --> 00:00:59.670
+and challenge you to solve a variety of tasks along the way. Let's get started.
+

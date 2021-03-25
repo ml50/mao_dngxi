@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.839 --> 00:00:06.629
+So one of the things you mentioned is scale and products
+
+00:00:06.629 --> 00:00:09.570
+at scale and I was wondering if you have some applications
+
+00:00:09.570 --> 00:00:14.250
+that you find the most interesting that are really enabled by these things
+
+00:00:14.250 --> 00:00:16.725
+that SageMaker makes available whether it's data management
+
+00:00:16.725 --> 00:00:19.770
+or deploying to a huge number of customers
+
+00:00:19.769 --> 00:00:25.035
+Yes. There are two ways we can think about scale.
+
+00:00:25.035 --> 00:00:30.410
+Like one on the explosion of data that exists out there.
+
+00:00:30.410 --> 00:00:33.409
+Now, if you think about social networks,
+
+00:00:33.409 --> 00:00:35.719
+if you think about using devices that are
+
+00:00:35.719 --> 00:00:38.320
+internet-connected that are generating a lot of data.
+
+00:00:38.320 --> 00:00:41.899
+So mainly applications that can include chatbots,
+
+00:00:41.899 --> 00:00:43.954
+that can include social networks.
+
+00:00:43.954 --> 00:00:49.549
+Applications really have the massive opportunity to deal with a lot of data
+
+00:00:49.549 --> 00:00:53.359
+and use that amount of data with
+
+00:00:53.359 --> 00:00:57.649
+machine learning algorithms got help understand end-users better,
+
+00:00:57.649 --> 00:01:03.119
+that help get to better decisions as far as potentially recommending products,
+
+00:01:03.119 --> 00:01:04.640
+for example, to these end-users.
+
+00:01:04.640 --> 00:01:09.739
+So we see a lot of applications in the world of the mobile development or Internet
+
+00:01:09.739 --> 00:01:12.439
+of Things where large and large amounts
+
+00:01:12.439 --> 00:01:15.304
+of data are passed through machine-learning algorithms.
+
+00:01:15.305 --> 00:01:21.955
+We also see a lot of applications in sports analytics where you have NFL, for example,
+
+00:01:21.954 --> 00:01:28.968
+using machine learning algorithms on platforms like SageMaker to transform the experience
+
+00:01:28.968 --> 00:01:32.469
+that end-users have or consumers
+
+00:01:32.469 --> 00:01:36.289
+have in front of their TV with the benefits of machine learning.
+
+00:01:36.290 --> 00:01:37.100
+I didn't think about that.
+
+00:01:37.099 --> 00:01:39.634
+Yeah. In Formula One, for example,
+
+00:01:39.635 --> 00:01:45.725
+does live analytics and then uses machine learning models in the back-end
+
+00:01:45.724 --> 00:01:49.069
+to do some early predictions and then pass that and
+
+00:01:49.069 --> 00:01:52.579
+rebroadcast that experience back to the users on a TV.
+
+00:01:52.579 --> 00:01:57.094
+So if you think about the stream of data that goes from the cars that are racing,
+
+00:01:57.094 --> 00:02:02.075
+all the way up to the cloud and the expectation to pass the insights
+
+00:02:02.075 --> 00:02:07.430
+in real-time or in near real-time back to the users that are watching the show,
+
+00:02:07.430 --> 00:02:09.409
+it's pretty incredible the amount of data that
+
+00:02:09.409 --> 00:02:12.539
+goes through the life cycle of machine learning.
+

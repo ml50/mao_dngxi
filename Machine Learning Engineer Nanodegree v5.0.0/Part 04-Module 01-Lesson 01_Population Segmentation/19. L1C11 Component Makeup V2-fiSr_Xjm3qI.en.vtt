@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.629
+Recall that each of our PCA components is made up of
+
+00:00:03.629 --> 00:00:06.990
+a weighted linear combination of our original features here.
+
+00:00:06.990 --> 00:00:12.300
+After seeing that the top components account for a large percentage of our data variance,
+
+00:00:12.300 --> 00:00:16.019
+it's interesting to see what exactly the makeup of each component is;
+
+00:00:16.019 --> 00:00:17.699
+which features define it.
+
+00:00:17.699 --> 00:00:19.530
+So in this next cell, I have
+
+00:00:19.530 --> 00:00:25.170
+a complete function display component that takes in the list of component weights, v,
+
+00:00:25.170 --> 00:00:29.200
+our features list which will be the column names from our county's data frame,
+
+00:00:29.199 --> 00:00:33.950
+a component number like top one or top two, three, etc.,
+
+00:00:33.950 --> 00:00:36.455
+and a number of top weights to display,
+
+00:00:36.454 --> 00:00:39.939
+which is any number from 1-34.
+
+00:00:39.939 --> 00:00:44.084
+By default, I'm going to display the top 10 most important feature weights.
+
+00:00:44.085 --> 00:00:47.755
+Okay. So line-by-line, similar to what we did for the S data frame,
+
+00:00:47.755 --> 00:00:51.575
+I'm getting the row index of the row that points to our component of interest.
+
+00:00:51.575 --> 00:00:56.270
+So just one row that's close to the bottom of our v data frame because the components are
+
+00:00:56.270 --> 00:01:01.000
+listed from least to most important in the reverse order that we saw in S as well.
+
+00:01:01.000 --> 00:01:04.129
+Then I'm getting the list of feature weights for a component,
+
+00:01:04.129 --> 00:01:06.439
+which is that row in our v data frame.
+
+00:01:06.439 --> 00:01:08.974
+I'm grabbing the list of weight values.
+
+00:01:08.974 --> 00:01:11.454
+So our list of values is stored in v_1.
+
+00:01:11.454 --> 00:01:13.405
+Then using list comprehension,
+
+00:01:13.405 --> 00:01:17.629
+I'm combining these weight values and our list of features into one data frame.
+
+00:01:17.629 --> 00:01:22.609
+So this will give me one row of weight values that correspond to specific feature names.
+
+00:01:22.609 --> 00:01:25.370
+So this gives me a data frame of components and then
+
+00:01:25.370 --> 00:01:28.550
+I actually want to sort this by weight value.
+
+00:01:28.549 --> 00:01:32.539
+I know I want to display the weights in order of importance.
+
+00:01:32.540 --> 00:01:34.100
+To find the most important weights,
+
+00:01:34.099 --> 00:01:36.769
+I'm going to look at the magnitude of each weight which is
+
+00:01:36.769 --> 00:01:41.689
+the absolute value of the weight and then sort those values in order.
+
+00:01:41.689 --> 00:01:44.545
+Here I'm going to be grabbing the top n weights.
+
+00:01:44.545 --> 00:01:46.980
+Finally, using the seaborne display library,
+
+00:01:46.980 --> 00:01:50.655
+I'm going to display a nice barplot that displays those weight values,
+
+00:01:50.655 --> 00:01:51.954
+the names of the features,
+
+00:01:51.954 --> 00:01:55.325
+and has a title for the component number that I passed in.
+
+00:01:55.325 --> 00:01:59.350
+So let's actually see what this looks like for our first component.
+
+00:01:59.349 --> 00:02:02.329
+Now, we know from before that this first component captures
+
+00:02:02.329 --> 00:02:05.539
+about 32 percent of the data variance in our training data.
+
+00:02:05.540 --> 00:02:09.230
+We can see that it's extremely negatively weighted with respect
+
+00:02:09.229 --> 00:02:13.269
+to white people or people who are counted and identified as white during the census.
+
+00:02:13.270 --> 00:02:17.659
+It's positively weighted for people who identified as Hispanic or
+
+00:02:17.659 --> 00:02:22.729
+black and also positively weighted for levels of poverty and unemployment.
+
+00:02:22.729 --> 00:02:25.459
+We can go back to this function and pass in
+
+00:02:25.460 --> 00:02:28.135
+more weights to display if we want a more granular look.
+
+00:02:28.134 --> 00:02:32.224
+We can see more detail about public and private work and labor type.
+
+00:02:32.224 --> 00:02:36.629
+One thing to note is that these individual features are not independent,
+
+00:02:36.629 --> 00:02:41.164
+and the discrete nature of these categories means that some data will always be left out.
+
+00:02:41.164 --> 00:02:46.759
+For example, racial dynamics and socioeconomic opportunities are often intertwined,
+
+00:02:46.759 --> 00:02:49.549
+making some of these features more correlated than others.
+
+00:02:49.550 --> 00:02:52.430
+These racial categories act as umbrella terms
+
+00:02:52.430 --> 00:02:55.569
+that don't always capture the complexities of people's identities.
+
+00:02:55.569 --> 00:02:58.459
+As data scientists and machine learning developers,
+
+00:02:58.460 --> 00:03:00.860
+it's important to think about why this data is collected in
+
+00:03:00.860 --> 00:03:04.480
+the first place and the limitations it has in describing a population.
+
+00:03:04.479 --> 00:03:08.629
+Basically, I encourage you to look at any data source with a critical lens because
+
+00:03:08.629 --> 00:03:12.859
+that will give you a better idea of what insights you can eventually draw from this data.
+
+00:03:12.860 --> 00:03:14.840
+Let's check out another component.
+
+00:03:14.840 --> 00:03:16.500
+Now for our analysis,
+
+00:03:16.500 --> 00:03:18.104
+looking at the component breakdown,
+
+00:03:18.104 --> 00:03:22.280
+will be useful in generally describing how our training data is clustered later.
+
+00:03:22.280 --> 00:03:26.240
+For example, when we create a reduced dimensionality data,
+
+00:03:26.240 --> 00:03:31.175
+if we see that a certain US county has a high value for the component 2,
+
+00:03:31.175 --> 00:03:35.555
+we'll know that it has a mix of these positively and negatively weighted features.
+
+00:03:35.555 --> 00:03:39.200
+So now you can use this function to look at the makeup of any component.
+
+00:03:39.199 --> 00:03:41.974
+Next, we'll actually deploy this PCA model,
+
+00:03:41.974 --> 00:03:44.049
+grab our seven top components,
+
+00:03:44.050 --> 00:03:47.880
+and create new dimensionality reduced training data.
+

@@ -1,0 +1,292 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.665
+So we've loaded in the data and my first step will be to clean it up and explore it.
+
+00:00:04.665 --> 00:00:08.535
+Data exploration is one of the most important parts of the ML workflow,
+
+00:00:08.535 --> 00:00:12.810
+because it allows you to notice any initial patterns in data distribution
+
+00:00:12.810 --> 00:00:17.144
+and features that may inform how you proceed with modeling and clustering the data.
+
+00:00:17.144 --> 00:00:21.675
+So above, I loaded in the CSV file as a county's DataFrame,
+
+00:00:21.675 --> 00:00:25.425
+and here I'm just printing out the number of rows and columns in that DataFrame.
+
+00:00:25.425 --> 00:00:30.630
+Then on that DataFrame I'm calling.dropna across axis equals zero,
+
+00:00:30.629 --> 00:00:34.500
+which means I'm dropping any rows that have any incomplete data,
+
+00:00:34.500 --> 00:00:38.609
+and I'm saving this cleaned DataFrame as clean_counties_df.
+
+00:00:38.609 --> 00:00:41.975
+Then I'm printing out the shape to see how many rows of data I've lost.
+
+00:00:41.975 --> 00:00:43.070
+So if I run this cell,
+
+00:00:43.070 --> 00:00:49.250
+I can see that I originally started with 3,220 datapoints and 37 columns.
+
+00:00:49.250 --> 00:00:50.750
+Then after this cleaning step,
+
+00:00:50.750 --> 00:00:53.015
+I can see that I've dropped two rows of data,
+
+00:00:53.015 --> 00:00:56.079
+and now I'm down to 3,218 datapoints.
+
+00:00:56.079 --> 00:01:00.935
+Okay. So this clean data is what I want to use as I continue to process this data below.
+
+00:01:00.935 --> 00:01:03.215
+Next, I wanted to create a new DataFrame,
+
+00:01:03.215 --> 00:01:06.500
+indexed by state county instead of individual indices.
+
+00:01:06.500 --> 00:01:09.750
+So for each of the datapoints in our clean counties DataFrame,
+
+00:01:09.750 --> 00:01:12.325
+there is a state and a county value,
+
+00:01:12.325 --> 00:01:15.980
+and I can merge the two into a single string using a dash character.
+
+00:01:15.980 --> 00:01:18.454
+Then to index our DataFrame by this value,
+
+00:01:18.454 --> 00:01:24.275
+I'm going to call clean_counties_df.index and set it to a new state dash county value.
+
+00:01:24.275 --> 00:01:26.090
+So this is the first step,
+
+00:01:26.090 --> 00:01:29.359
+and I can see that now instead of having individual indices here,
+
+00:01:29.359 --> 00:01:32.674
+I'm indexing all of the data by its unique state county.
+
+00:01:32.674 --> 00:01:34.414
+But I haven't dropped any columns yet.
+
+00:01:34.415 --> 00:01:37.460
+I can see that the state county corresponds to the index.
+
+00:01:37.459 --> 00:01:41.029
+So now these two columns are actually redundant, and I can get rid of them.
+
+00:01:41.030 --> 00:01:43.310
+I'll also get rid of the census ID column,
+
+00:01:43.310 --> 00:01:46.700
+which doesn't really give me any meaningful information about these counties.
+
+00:01:46.700 --> 00:01:48.980
+So that's exactly what I'm doing in this next cell.
+
+00:01:48.980 --> 00:01:52.075
+I'm specifying the names of each of the columns that I want to drop,
+
+00:01:52.075 --> 00:01:54.680
+and then I'm calling.drop on our clean counties
+
+00:01:54.680 --> 00:01:57.680
+DataFrame to create a new clean counties_df.
+
+00:01:57.680 --> 00:01:59.480
+If I display a few of these points,
+
+00:01:59.480 --> 00:02:01.655
+now I have the DataFrame that I want,
+
+00:02:01.655 --> 00:02:03.335
+indexed by state county,
+
+00:02:03.334 --> 00:02:05.765
+and with numerical features as columns.
+
+00:02:05.765 --> 00:02:10.159
+I can see that I've actually gone from having 37 column values to 34,
+
+00:02:10.159 --> 00:02:13.685
+and I can print out the entire list of those feature values here.
+
+00:02:13.685 --> 00:02:18.159
+So here's a list of all those column names in our clean counties_df.
+
+00:02:18.159 --> 00:02:20.025
+We have the total population,
+
+00:02:20.025 --> 00:02:21.599
+counts of men and women,
+
+00:02:21.599 --> 00:02:24.900
+racial counts, labor counts and a bunch of other data here.
+
+00:02:24.900 --> 00:02:26.780
+Now that we've completed the step,
+
+00:02:26.780 --> 00:02:28.979
+creating a nice clean counties DataFrame,
+
+00:02:28.979 --> 00:02:31.579
+we'll be able to do some interesting visualizations,
+
+00:02:31.580 --> 00:02:35.075
+looking at the distribution of data over all of our counties.
+
+00:02:35.074 --> 00:02:36.530
+In fact, in this next step,
+
+00:02:36.530 --> 00:02:39.305
+I want to compare some features and learn more about them.
+
+00:02:39.305 --> 00:02:42.319
+In the next cell, I'm going to display some histograms of
+
+00:02:42.319 --> 00:02:47.269
+our features which will show the distribution of datapoints over discrete feature ranges.
+
+00:02:47.270 --> 00:02:50.555
+So first, I'm making a list of features that I want to compare.
+
+00:02:50.555 --> 00:02:53.689
+In this case, I've chosen a bunch of transportation types.
+
+00:02:53.689 --> 00:02:56.539
+These are specifically recorded as commute types.
+
+00:02:56.539 --> 00:02:59.030
+Do people drive, carpool, take transit,
+
+00:02:59.030 --> 00:03:02.094
+walk, or use another method when they commute to work?
+
+00:03:02.094 --> 00:03:03.504
+From looking at my DataFrame,
+
+00:03:03.504 --> 00:03:07.129
+I know that all these features are represented as percentages.
+
+00:03:07.129 --> 00:03:10.189
+So the x-axis of these plots should be comparable.
+
+00:03:10.189 --> 00:03:12.389
+So for each feature in this transport list,
+
+00:03:12.389 --> 00:03:16.159
+I'm going to create a single histogram grabbing the feature values in
+
+00:03:16.159 --> 00:03:18.379
+the clean counties DataFrame by name and
+
+00:03:18.379 --> 00:03:21.034
+specifying a number of bins to make in our histogram.
+
+00:03:21.034 --> 00:03:25.039
+So here's one example histogram of people who mainly drive to work.
+
+00:03:25.039 --> 00:03:28.474
+Each of these bandwidths describe some feature range.
+
+00:03:28.474 --> 00:03:30.185
+In this case, percentage points.
+
+00:03:30.185 --> 00:03:32.210
+So from about 0-5,
+
+00:03:32.210 --> 00:03:35.710
+5-10, and so on ranges of percentage points.
+
+00:03:35.710 --> 00:03:39.920
+Then the y-axis is how many datapoints actually fall into these bins.
+
+00:03:39.919 --> 00:03:43.814
+So how many counties fall into a certain feature range.
+
+00:03:43.814 --> 00:03:45.064
+There's some spread here.
+
+00:03:45.064 --> 00:03:47.159
+So really I can see across counties ,people
+
+00:03:47.159 --> 00:03:50.780
+commonly drive about 70-85 percent of the time.
+
+00:03:50.780 --> 00:03:54.055
+There's even really small bumps close to zero percent of the time.
+
+00:03:54.055 --> 00:03:58.564
+If I scroll down, I can see the same data for people who carpool in each county,
+
+00:03:58.564 --> 00:04:02.134
+looks about like 10 percent of the time for the majority of counties.
+
+00:04:02.134 --> 00:04:05.104
+I can see that for public transit and walking,
+
+00:04:05.104 --> 00:04:07.625
+and just intuitively, I think this makes sense.
+
+00:04:07.625 --> 00:04:09.979
+I think the concentration of people who use
+
+00:04:09.979 --> 00:04:14.209
+public transit are probably in big cities where those systems are already built,
+
+00:04:14.210 --> 00:04:17.199
+and it makes sense that that's a small percentage of the population.
+
+00:04:17.199 --> 00:04:20.495
+Now, I want to note that I haven't sorted anything into clusters yet.
+
+00:04:20.495 --> 00:04:23.149
+I'm just looking at how people in our counties
+
+00:04:23.149 --> 00:04:25.734
+classify their own transportation method to work.
+
+00:04:25.735 --> 00:04:28.785
+I can even change the number of bins if I want a more granular look,
+
+00:04:28.785 --> 00:04:32.270
+upping the number to get a more detailed description of this distribution.
+
+00:04:32.269 --> 00:04:35.194
+Now this is only an example for transportation data,
+
+00:04:35.194 --> 00:04:37.685
+and there's a lot of other features in our dataset.
+
+00:04:37.685 --> 00:04:39.319
+So as an optional exercise,
+
+00:04:39.319 --> 00:04:42.079
+I'm challenging you to create a set of histograms of your own.
+
+00:04:42.079 --> 00:04:44.089
+Create a list of features that you're interested in
+
+00:04:44.089 --> 00:04:46.609
+looking at and display the resulting plots.
+
+00:04:46.610 --> 00:04:49.040
+After that, you'll be asked to normalize this data
+
+00:04:49.040 --> 00:04:52.410
+in preparation for training a PCA model.
+

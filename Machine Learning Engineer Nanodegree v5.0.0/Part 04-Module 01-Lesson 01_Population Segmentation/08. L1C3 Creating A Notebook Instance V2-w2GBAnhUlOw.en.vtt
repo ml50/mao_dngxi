@@ -1,0 +1,271 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.980
+The first thing you'll want to do is get
+
+00:00:01.980 --> 00:00:04.679
+access to the notebooks that we'll be using in this lesson.
+
+00:00:04.679 --> 00:00:06.359
+I'm assuming that you've gone through this process
+
+00:00:06.360 --> 00:00:09.240
+before and already have an AWS account.
+
+00:00:09.240 --> 00:00:12.300
+So I've already logged into my AWS console here.
+
+00:00:12.300 --> 00:00:14.280
+I'll just quickly go through getting to
+
+00:00:14.279 --> 00:00:17.324
+the SageMaker console and creating a notebook instance.
+
+00:00:17.324 --> 00:00:18.719
+It never hurts to practice,
+
+00:00:18.719 --> 00:00:21.570
+and this dashboard occasionally changes in appearance.
+
+00:00:21.570 --> 00:00:24.600
+So this is what it looks like as I'm going through this exercise.
+
+00:00:24.600 --> 00:00:28.395
+I've logged into my personal AWS account, and I have my region,
+
+00:00:28.394 --> 00:00:30.434
+which is in Northern California,
+
+00:00:30.434 --> 00:00:32.655
+and you should set this for yourself as well.
+
+00:00:32.655 --> 00:00:35.210
+Then I want to get to Amazon SageMaker,
+
+00:00:35.210 --> 00:00:37.189
+and I can just search for it by name.
+
+00:00:37.189 --> 00:00:39.439
+So here's the SageMaker dashboard.
+
+00:00:39.439 --> 00:00:43.789
+You can see a lot of buttons on the side that point to things like notebook instances,
+
+00:00:43.789 --> 00:00:46.789
+training jobs, as well as things like models and end points,
+
+00:00:46.789 --> 00:00:49.939
+which will be useful for monitoring how our models train later.
+
+00:00:49.939 --> 00:00:52.655
+For now I want to actually create a new notebook instance.
+
+00:00:52.655 --> 00:00:54.050
+So I'm going to click on this button.
+
+00:00:54.049 --> 00:00:57.589
+Now I actually have a couple of notebooks that I'm in the middle of working with,
+
+00:00:57.590 --> 00:01:00.615
+but it's okay if this is blank or looks a bit different for you.
+
+00:01:00.615 --> 00:01:03.304
+We'll be working with a completely new notebook anyways.
+
+00:01:03.304 --> 00:01:05.420
+So to create a new notebook I'm going to click
+
+00:01:05.420 --> 00:01:08.060
+this button up here, Create notebook instance.
+
+00:01:08.060 --> 00:01:09.769
+You should see this pop-up,
+
+00:01:09.769 --> 00:01:12.469
+a place to specify in my notebook instance settings.
+
+00:01:12.469 --> 00:01:14.879
+First I need to add a name for my notebook.
+
+00:01:14.879 --> 00:01:18.634
+You can call this whatever you like and only mean something descriptive,
+
+00:01:18.635 --> 00:01:20.605
+like ML case studies.
+
+00:01:20.605 --> 00:01:22.450
+For many of the rest of these values,
+
+00:01:22.450 --> 00:01:24.439
+you can leave them as the default value.
+
+00:01:24.439 --> 00:01:28.519
+For example the instance type is ml.t2 medium,
+
+00:01:28.519 --> 00:01:33.094
+which is a CPU instance that's going to be ideal for a development environment.
+
+00:01:33.094 --> 00:01:35.439
+Next there's the IAM role.
+
+00:01:35.439 --> 00:01:38.054
+In small print, you can see a description of this role.
+
+00:01:38.055 --> 00:01:40.970
+It says, Choose a role or let us create a role with
+
+00:01:40.969 --> 00:01:44.989
+the AmazonSageMakerFullAccess IAM policy attached.
+
+00:01:44.989 --> 00:01:48.079
+This role defines the permissions that your notebook has,
+
+00:01:48.079 --> 00:01:50.149
+like what data it can read or write,
+
+00:01:50.150 --> 00:01:55.565
+and a full access role will give us access to all the public data-sets in S3 for example.
+
+00:01:55.564 --> 00:01:58.715
+I'd suggest you click this and select Create a new role.
+
+00:01:58.715 --> 00:02:00.305
+Here you can see that by default,
+
+00:02:00.305 --> 00:02:03.695
+you have access to any S3 bucket with SageMaker in the name,
+
+00:02:03.694 --> 00:02:06.169
+and we can also specify any additional buckets.
+
+00:02:06.170 --> 00:02:08.344
+But for these examples, we won't have any.
+
+00:02:08.344 --> 00:02:13.000
+So you can select None here and then click Create role to complete a new role.
+
+00:02:13.000 --> 00:02:14.789
+Okay, so we have an instance name,
+
+00:02:14.789 --> 00:02:18.275
+we have a type, and we have a new role that we just created.
+
+00:02:18.275 --> 00:02:20.480
+Now for VPC, life cycle,
+
+00:02:20.479 --> 00:02:21.979
+encryption and volume size,
+
+00:02:21.979 --> 00:02:24.169
+you can leave these as the default values.
+
+00:02:24.169 --> 00:02:26.914
+Now you could create an empty notebook instance right now.
+
+00:02:26.914 --> 00:02:29.644
+But we'll actually want to link this to a Git repository,
+
+00:02:29.645 --> 00:02:32.105
+and we can do that with this tab here.
+
+00:02:32.104 --> 00:02:36.219
+I want to link this notebook to a public Git repository.
+
+00:02:36.219 --> 00:02:39.430
+Specifically, I want to clone the lesson notebooks that are in
+
+00:02:39.430 --> 00:02:43.240
+a Udacity public repository called ML SageMaker Studies,
+
+00:02:43.240 --> 00:02:44.765
+and I can link to it by name.
+
+00:02:44.764 --> 00:02:47.959
+This repository holds examples for a bunch of lessons,
+
+00:02:47.960 --> 00:02:52.400
+and so I just need to create this one notebook instance to work through all of them.
+
+00:02:52.400 --> 00:02:56.780
+The last thing I need to do is just click Create notebook instance.
+
+00:02:56.780 --> 00:02:59.890
+Then you should get back to this main notebook instance page,
+
+00:02:59.889 --> 00:03:04.264
+and you should see that your notebook is in pending status.
+
+00:03:04.264 --> 00:03:07.234
+I actually deleted one of my older notebooks
+
+00:03:07.235 --> 00:03:09.785
+to make room for this new ML case studies one.
+
+00:03:09.784 --> 00:03:12.409
+It may take a moment for this to become in service,
+
+00:03:12.409 --> 00:03:16.719
+but once it does, you can select to open it in Jupyter or Jupyter lab.
+
+00:03:16.719 --> 00:03:19.159
+I find Jupyter lab to be most helpful when you're
+
+00:03:19.159 --> 00:03:21.590
+moving back and forth between files often,
+
+00:03:21.590 --> 00:03:23.555
+as you might in larger projects.
+
+00:03:23.555 --> 00:03:25.205
+But for these example notebooks,
+
+00:03:25.205 --> 00:03:26.785
+I'm just going to work in Jupyter.
+
+00:03:26.784 --> 00:03:30.049
+When you open this notebook instance you should see all files
+
+00:03:30.050 --> 00:03:33.725
+that were in the GitHub repository for ML SageMaker studies.
+
+00:03:33.724 --> 00:03:36.739
+These are all the lessons and examples that we'll be going through.
+
+00:03:36.740 --> 00:03:41.120
+I suggest you create a notebook instance of your own and have that open in one tab,
+
+00:03:41.120 --> 00:03:42.545
+while going through these lessons,
+
+00:03:42.544 --> 00:03:45.989
+that way you can alternate between learning and applying what you've learned.
+
+00:03:45.990 --> 00:03:49.985
+For the first lesson I'll be working with the population segmentation directory.
+
+00:03:49.985 --> 00:03:54.770
+Tasks and exercises are presented to you in the pop segmentation exercise notebook.
+
+00:03:54.770 --> 00:03:57.860
+If you need a place to consult a final solution,
+
+00:03:57.860 --> 00:03:59.555
+you can look at the solution notebook.
+
+00:03:59.555 --> 00:04:01.129
+So to work through this lesson,
+
+00:04:01.129 --> 00:04:03.049
+I'm going to click on this exercise notebook.
+
+00:04:03.050 --> 00:04:05.780
+All right. Next, I'll go over the task of
+
+00:04:05.780 --> 00:04:08.390
+population segmentation and start loading and
+
+00:04:08.389 --> 00:04:12.479
+exploring the data we'll be working with in this exercise notebook.
+

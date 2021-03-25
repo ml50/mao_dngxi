@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+The project that you will be working on,
+
+00:00:02.279 --> 00:00:08.894
+is very similar to the XGBoost sentiment analysis web app that you created earlier on.
+
+00:00:08.894 --> 00:00:10.080
+The difference here is that,
+
+00:00:10.080 --> 00:00:12.734
+instead of using XGBoost as your algorithm,
+
+00:00:12.734 --> 00:00:16.274
+you'll be constructing your own neural network, using pytorch.
+
+00:00:16.274 --> 00:00:18.689
+Now, the pytorch functionality in SageMaker is a
+
+00:00:18.690 --> 00:00:21.225
+little bit different than the XGBoost algorithm.
+
+00:00:21.225 --> 00:00:22.710
+One of the ways in which it's different,
+
+00:00:22.710 --> 00:00:25.440
+is that you get to provide your own code.
+
+00:00:25.440 --> 00:00:29.700
+As a result, you won't be able to do all of the project inside of the notebook,
+
+00:00:29.699 --> 00:00:34.634
+and instead you're going to have to make some modifications to some Python scripts.
+
+00:00:34.634 --> 00:00:36.399
+Inside of the project directory,
+
+00:00:36.399 --> 00:00:39.564
+you'll see all of the things you need to complete this project.
+
+00:00:39.564 --> 00:00:42.364
+The notebook will lead you through each of these steps,
+
+00:00:42.365 --> 00:00:44.600
+which includes all of the code that you need to
+
+00:00:44.600 --> 00:00:48.125
+complete and some additional questions that you need to answer.
+
+00:00:48.125 --> 00:00:52.159
+The train folder contains the code that will be used for training the model,
+
+00:00:52.159 --> 00:00:54.199
+and in particular you're going to have to make
+
+00:00:54.200 --> 00:00:57.410
+some modifications to the trained Python script.
+
+00:00:57.409 --> 00:01:02.694
+The serve folder contains the Python files that will be used in your deployed model.
+
+00:01:02.695 --> 00:01:05.209
+You will also need to make some changes inside of
+
+00:01:05.209 --> 00:01:09.039
+the serve folder in the predict Python file.
+
+00:01:09.040 --> 00:01:14.480
+Lastly, the website that you'll be creating that interacts with your deployed endpoint,
+
+00:01:14.480 --> 00:01:16.520
+is inside of the website folder.
+
+00:01:16.519 --> 00:01:21.979
+Now, this website is essentially the same as the one that we used in the XGBoost web app,
+
+00:01:21.980 --> 00:01:24.424
+but you'll have to set it up to work with your own endpoint.
+
+00:01:24.424 --> 00:01:27.289
+Once you've completed all the steps in the notebook,
+
+00:01:27.290 --> 00:01:31.290
+made sure to package up the notebook and the files that you modify,
+
+00:01:31.290 --> 00:01:34.040
+in particular the train file,
+
+00:01:34.040 --> 00:01:39.460
+the predict file, and the modified index file.
+

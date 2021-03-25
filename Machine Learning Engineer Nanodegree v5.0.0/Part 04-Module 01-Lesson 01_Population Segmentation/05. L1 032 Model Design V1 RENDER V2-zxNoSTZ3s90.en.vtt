@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.370
+Now, let's talk a little bit about model design and algorithms selection.
+
+00:00:05.370 --> 00:00:08.280
+Choosing an unsupervised or supervised approach,
+
+00:00:08.279 --> 00:00:10.500
+has a lot to do with your end goal.
+
+00:00:10.500 --> 00:00:16.094
+Unsupervised learning is often most useful when your end goal is relatively simple.
+
+00:00:16.094 --> 00:00:20.634
+For example, when you only want to group similar observations,
+
+00:00:20.635 --> 00:00:25.395
+you don't need a lot of detail about each individual observation.
+
+00:00:25.394 --> 00:00:28.500
+To group vehicles into cars, bikes,
+
+00:00:28.500 --> 00:00:32.740
+and buses, you probably don't need the specific car model.
+
+00:00:32.740 --> 00:00:38.250
+Alternatively, say you've been asked to distinguish between different models of cars,
+
+00:00:38.250 --> 00:00:41.715
+like images of a Tesla versus Toyota Prius,
+
+00:00:41.715 --> 00:00:45.740
+then you may actually want to go the extra step of labeling
+
+00:00:45.740 --> 00:00:51.020
+your vehicle image data so that you can train a specific classification model.
+
+00:00:51.020 --> 00:00:53.030
+If you have a lot of unlabeled data,
+
+00:00:53.030 --> 00:00:58.039
+you may be wondering how can I efficiently and accurately label this data?
+
+00:00:58.039 --> 00:01:02.439
+Data labeling is unfortunately a human intensive task.
+
+00:01:02.439 --> 00:01:07.819
+Ideally, you'd want to send your raw images to people who can manually draw
+
+00:01:07.819 --> 00:01:10.354
+bounding boxes around different car models
+
+00:01:10.355 --> 00:01:14.075
+as recognizing car models is a problem you are solving.
+
+00:01:14.075 --> 00:01:16.820
+You may also think of ways to automate
+
+00:01:16.819 --> 00:01:21.379
+your data labeling task with the help of what is called an active learning model,
+
+00:01:21.379 --> 00:01:26.034
+which is the machine learning model that can learn from human initial annotations.
+
+00:01:26.034 --> 00:01:32.194
+SageMaker combines these two capabilities are these two approaches sending the data to
+
+00:01:32.194 --> 00:01:35.119
+real humans and creating an active learning model for
+
+00:01:35.120 --> 00:01:38.410
+future tasks into one feature called ground truth.
+
+00:01:38.409 --> 00:01:44.584
+Ground truth, tries to solve the problem of going from raw data to label training data.
+
+00:01:44.584 --> 00:01:48.379
+It allows you to first send some of your data to be labeled
+
+00:01:48.379 --> 00:01:51.890
+by humans then having gotten this initial labels,
+
+00:01:51.890 --> 00:01:54.019
+it trains a machine learning model that
+
+00:01:54.019 --> 00:01:57.274
+learns to automate this labeling task in a future.
+
+00:01:57.275 --> 00:02:00.440
+Overall, these reduces the time and cost to label
+
+00:02:00.439 --> 00:02:04.679
+similar datasets in the future by about 70 percent.
+

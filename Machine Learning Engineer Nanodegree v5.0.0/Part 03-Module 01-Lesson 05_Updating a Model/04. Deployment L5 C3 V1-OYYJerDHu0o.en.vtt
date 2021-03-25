@@ -1,0 +1,277 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.384
+So far, we've created two different models.
+
+00:00:02.384 --> 00:00:04.994
+The XGBoost model and a linear model.
+
+00:00:04.995 --> 00:00:09.375
+Suppose now that we wanted to switch from a deployed XGBoost model,
+
+00:00:09.375 --> 00:00:11.564
+to a new linear model.
+
+00:00:11.564 --> 00:00:15.614
+However, we want to make sure that our new model is performing
+
+00:00:15.615 --> 00:00:19.920
+at least close enough to our XGBoost model.
+
+00:00:19.920 --> 00:00:23.670
+One of the ways we might do this is by performing A-B test, that is,
+
+00:00:23.670 --> 00:00:27.810
+we create a new endpoint that receives a bunch of data,
+
+00:00:27.809 --> 00:00:32.429
+and then the endpoint decides which of the two models to send that data to.
+
+00:00:32.429 --> 00:00:35.825
+We can do that when we set up an endpoint configuration
+
+00:00:35.825 --> 00:00:40.219
+by listing each model as its own production variant.
+
+00:00:40.219 --> 00:00:43.589
+So here, we're creating a new endpoint configuration,
+
+00:00:43.590 --> 00:00:46.635
+in which we have listed two production variants.
+
+00:00:46.634 --> 00:00:50.689
+The first, is the linear model and we give it the name linear model,
+
+00:00:50.689 --> 00:00:53.434
+and the second is the XGBoost model,
+
+00:00:53.435 --> 00:00:55.705
+whose name is XGB-Model.
+
+00:00:55.704 --> 00:00:58.909
+The amount of data that the endpoint will send to
+
+00:00:58.909 --> 00:01:02.959
+each model is dependent on the initial variant weight.
+
+00:01:02.960 --> 00:01:07.159
+The way that SageMaker determines the proportion of data to send each model,
+
+00:01:07.159 --> 00:01:10.715
+is that it will take a total of all of the weights,
+
+00:01:10.715 --> 00:01:15.049
+and then it will say the proportion of data that I send to the first model,
+
+00:01:15.049 --> 00:01:17.314
+will be that model's weight,
+
+00:01:17.314 --> 00:01:18.905
+divided by the total,
+
+00:01:18.905 --> 00:01:23.390
+and it will perform a similar calculation for each of the other production variants.
+
+00:01:23.390 --> 00:01:25.905
+In this case, we have two models,
+
+00:01:25.905 --> 00:01:27.659
+each of which has weight one.
+
+00:01:27.659 --> 00:01:29.109
+So the total is two,
+
+00:01:29.109 --> 00:01:33.664
+which means that one over two or half of the data will be sent to
+
+00:01:33.665 --> 00:01:38.440
+the linear model and the other half of the data will be sent to the XGBoost model.
+
+00:01:38.439 --> 00:01:40.840
+Once we've created that endpoint configuration,
+
+00:01:40.840 --> 00:01:45.814
+we can of course ask SageMaker to create an endpoint with those properties.
+
+00:01:45.814 --> 00:01:47.569
+So our endpoint is up and running,
+
+00:01:47.569 --> 00:01:49.104
+and we can send some data to it.
+
+00:01:49.105 --> 00:01:50.900
+So as we've been doing so far,
+
+00:01:50.900 --> 00:01:54.140
+we will start by sending just the first row of
+
+00:01:54.140 --> 00:01:59.344
+our test dataset after we serialize it to this new combined endpoint.
+
+00:01:59.344 --> 00:02:03.894
+In the response, we can see that our data was sent to the XGBoost model.
+
+00:02:03.894 --> 00:02:10.370
+Next, let's take a look at sending the first 10 rows of our test dataset to the endpoint,
+
+00:02:10.370 --> 00:02:13.580
+and print out the response from each of those calls.
+
+00:02:13.580 --> 00:02:17.105
+We can see that the first one was sent to the XGBoost model,
+
+00:02:17.104 --> 00:02:19.090
+the next was sent to the linear model,
+
+00:02:19.090 --> 00:02:23.400
+XGBoost again, XGBoost, linear model, et cetera.
+
+00:02:23.400 --> 00:02:25.060
+Essentially what SageMaker is doing,
+
+00:02:25.060 --> 00:02:26.944
+is whenever data comes into the endpoint,
+
+00:02:26.944 --> 00:02:30.459
+it flips a coin, heads goes to the XGBoost model,
+
+00:02:30.460 --> 00:02:32.400
+tails goes to the linear model.
+
+00:02:32.400 --> 00:02:37.615
+If at some point we forget the configuration of a deployed endpoint,
+
+00:02:37.615 --> 00:02:42.625
+we can use this described endpoint method of the SageMaker client.
+
+00:02:42.625 --> 00:02:47.319
+The return result will be a JSON object or Python dictionary,
+
+00:02:47.319 --> 00:02:52.400
+which describes all of the properties that we set about that specific endpoint.
+
+00:02:52.400 --> 00:02:54.545
+This is a little difficult to read,
+
+00:02:54.544 --> 00:02:58.969
+but we can see here that there is an entry for production variants,
+
+00:02:58.969 --> 00:03:05.210
+which includes the linear model and the XGBoost model.
+
+00:03:05.210 --> 00:03:08.510
+So now suppose we've been running this A-B test for a while,
+
+00:03:08.509 --> 00:03:10.174
+and we've been collecting data,
+
+00:03:10.175 --> 00:03:13.100
+and it turns out that it's working pretty well,
+
+00:03:13.099 --> 00:03:15.590
+our new linear model is working very well.
+
+00:03:15.590 --> 00:03:18.599
+So we'd like to complete the change, that is,
+
+00:03:18.599 --> 00:03:24.585
+instead of having our endpoint send data to both the XGBoost model and the linear model,
+
+00:03:24.585 --> 00:03:29.395
+we'd like to change it so that it only sends data to the linear model.
+
+00:03:29.395 --> 00:03:34.314
+To do that, we can use the update_endpoint method of the SageMaker Client.
+
+00:03:34.314 --> 00:03:39.379
+All we have to do, is specify which endpoint we'd like to update,
+
+00:03:39.379 --> 00:03:43.009
+and what endpoint configuration we would like
+
+00:03:43.009 --> 00:03:47.449
+that endpoint to look like once the update has finished.
+
+00:03:47.449 --> 00:03:52.264
+In this case we are going to update our previously deployed endpoint,
+
+00:03:52.264 --> 00:03:56.875
+so that its configuration only sends data to the linear model.
+
+00:03:56.875 --> 00:03:59.490
+Of course, this is happening in the background.
+
+00:03:59.490 --> 00:04:04.760
+In the meantime, if we take a look at the endpoint as it currently exists,
+
+00:04:04.759 --> 00:04:08.194
+we can see that it currently has two production variants,
+
+00:04:08.194 --> 00:04:11.275
+the linear model and the XGBoost model.
+
+00:04:11.275 --> 00:04:13.808
+The reason for this is that the endpoint,
+
+00:04:13.808 --> 00:04:17.285
+which uses the linear model endpoint configuration,
+
+00:04:17.285 --> 00:04:18.845
+has not yet started,
+
+00:04:18.845 --> 00:04:23.590
+and SageMaker wants to make sure that our endpoints never go down.
+
+00:04:23.589 --> 00:04:24.929
+So in the background,
+
+00:04:24.930 --> 00:04:28.655
+SageMaker will first launch a new endpoint,
+
+00:04:28.654 --> 00:04:34.159
+with the configuration that we want to change our deployed endpoint to.
+
+00:04:34.160 --> 00:04:37.025
+Once that new endpoint is ready,
+
+00:04:37.024 --> 00:04:40.864
+it will then configure the existing endpoint so that it routes
+
+00:04:40.865 --> 00:04:45.125
+all data to the new endpoint that has been created.
+
+00:04:45.125 --> 00:04:48.904
+This way, the end-user never sees any downtime.
+
+00:04:48.904 --> 00:04:52.924
+To see this, let's wait for our endpoint to finish being updated.
+
+00:04:52.925 --> 00:04:57.550
+Now that our endpoint has been updated so that it only points to the linear model,
+
+00:04:57.550 --> 00:05:00.245
+we can ask SageMaker to describe this endpoint,
+
+00:05:00.245 --> 00:05:02.155
+and see that indeed,
+
+00:05:02.154 --> 00:05:05.574
+the current endpoint has only a single production variant,
+
+00:05:05.574 --> 00:05:07.389
+which is the linear model.
+
+00:05:07.389 --> 00:05:11.240
+Of course, we should make sure to shut down the endpoint now that we're finished with it.
+
+00:05:11.240 --> 00:05:17.629
+So, we looked at how you can create an endpoint that sends data to more than one model,
+
+00:05:17.629 --> 00:05:21.139
+and we looked at how you can update an existing endpoint,
+
+00:05:21.139 --> 00:05:24.800
+so that there's no loss of service to the end-user.
+

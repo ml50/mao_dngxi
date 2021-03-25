@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.205
+After dropping any incomplete data,
+
+00:00:02.205 --> 00:00:03.780
+and taking a look at the results,
+
+00:00:03.779 --> 00:00:05.939
+you are test with normalizing the data.
+
+00:00:05.940 --> 00:00:08.790
+Above, when we looked at our clean counties DataFrame,
+
+00:00:08.789 --> 00:00:12.134
+you can see that the range of features was really large.
+
+00:00:12.134 --> 00:00:15.585
+Some of these columns have really big and wide ranging values,
+
+00:00:15.585 --> 00:00:17.820
+and others have percentage values.
+
+00:00:17.820 --> 00:00:22.589
+Since unsupervised learning relies on looking at the relationships between features,
+
+00:00:22.589 --> 00:00:25.304
+I want these features to be consistently comparable.
+
+00:00:25.304 --> 00:00:27.030
+In fact, I want to scale all of
+
+00:00:27.030 --> 00:00:30.810
+these numerical features into a range between zero and one,
+
+00:00:30.809 --> 00:00:35.539
+and I can start to do this with a call to the sklearn.preprocessing library,
+
+00:00:35.539 --> 00:00:38.104
+where I can import a MinMaxScaler.
+
+00:00:38.104 --> 00:00:40.070
+I can create a scalar object,
+
+00:00:40.070 --> 00:00:44.359
+which is able to look at the minimum and maximum values in a feature range,
+
+00:00:44.359 --> 00:00:49.280
+and divide every value by that range to get a normalized value between zero and one.
+
+00:00:49.280 --> 00:00:51.515
+So I'm creating a scalar,
+
+00:00:51.515 --> 00:00:54.070
+then to get my county scale DataFrame,
+
+00:00:54.070 --> 00:00:58.715
+I'm using fit_transform, passing in my clean counties DataFrame as a float type,
+
+00:00:58.715 --> 00:01:00.830
+and applying that MinMaxScaler.
+
+00:01:00.829 --> 00:01:03.125
+This is a pretty typical normalization step.
+
+00:01:03.125 --> 00:01:06.859
+Now you want the features and the indices to be the same for this scale DataFrame,
+
+00:01:06.859 --> 00:01:08.969
+as they are in our clean counties DataFrame,
+
+00:01:08.969 --> 00:01:11.179
+that is I want the columns to be our features,
+
+00:01:11.180 --> 00:01:14.215
+and the indices to be our state county indices.
+
+00:01:14.215 --> 00:01:16.520
+Let's see the result, now I can see the all of
+
+00:01:16.519 --> 00:01:19.609
+these numerical values are in decimal ranges.
+
+00:01:19.609 --> 00:01:24.480
+I can even go one step further and check that the maximum and minimum are what I expect.
+
+00:01:24.480 --> 00:01:26.689
+By calling.describe on a DataFrame,
+
+00:01:26.689 --> 00:01:29.569
+I can see steps like the minimum and the maximum value,
+
+00:01:29.569 --> 00:01:34.009
+and indeed, they're zero and one respectively for all of our numerical columns.
+
+00:01:34.010 --> 00:01:35.329
+So we cleaned our data,
+
+00:01:35.329 --> 00:01:37.310
+we got rid of our categorical columns,
+
+00:01:37.310 --> 00:01:38.875
+and now we've just scaled it.
+
+00:01:38.875 --> 00:01:41.870
+Now we're almost ready to put this through a PCA model,
+
+00:01:41.870 --> 00:01:45.515
+and reduce the dimensionality of this data for future analysis.
+
+00:01:45.515 --> 00:01:48.930
+Let's learn more about PCA next.
+

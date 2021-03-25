@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.815
+In this mini-project, we're going to take a look at a fun problem that
+
+00:00:04.815 --> 00:00:09.690
+tries to mimic in some ways the sort of issue you may encounter in a real life scenario.
+
+00:00:09.689 --> 00:00:15.329
+In particular, once you've created a model and it's deployed and being used,
+
+00:00:15.330 --> 00:00:19.440
+what happens if the underlying data distribution changes,
+
+00:00:19.440 --> 00:00:21.870
+so that your model no longer performs,
+
+00:00:21.870 --> 00:00:23.355
+as well as it once did?
+
+00:00:23.355 --> 00:00:28.920
+In this notebook, you'll go through the process of examining some new data,
+
+00:00:28.920 --> 00:00:32.550
+trying to figure out why your model no longer behaves,
+
+00:00:32.549 --> 00:00:38.265
+as well as it once did and then updating that model to take into account the new data.
+
+00:00:38.265 --> 00:00:40.274
+If you get stuck, don't worry,
+
+00:00:40.274 --> 00:00:43.890
+solutions are provided and in the next few videos,
+
+00:00:43.890 --> 00:00:45.799
+we'll go over my solutions.
+

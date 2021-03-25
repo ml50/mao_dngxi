@@ -1,0 +1,181 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.209
+In addition to looking at our trained model attributes,
+
+00:00:03.209 --> 00:00:08.219
+we can also use those to deploy a PCA model and use it to make predictions.
+
+00:00:08.220 --> 00:00:10.140
+To deploy a trained model,
+
+00:00:10.140 --> 00:00:14.115
+we simply call that model by name and call deploy.
+
+00:00:14.115 --> 00:00:19.390
+Then we pass in a few details about the instance count one and instance type,
+
+00:00:19.390 --> 00:00:22.740
+which I'm using a t2 medium for the endpoint.
+
+00:00:22.739 --> 00:00:27.104
+When I run this code, I can see that two things are automatically created.
+
+00:00:27.105 --> 00:00:31.445
+First, a model with some name and an endpoint with some name.
+
+00:00:31.445 --> 00:00:32.719
+Now, for built-in models,
+
+00:00:32.719 --> 00:00:35.435
+these two are often automatically created together.
+
+00:00:35.435 --> 00:00:38.030
+But for some custom models as we'll see later,
+
+00:00:38.030 --> 00:00:41.539
+we'll have to separately create a model and then create an endpoint.
+
+00:00:41.539 --> 00:00:45.350
+You could also consider using a different more powerful instance type,
+
+00:00:45.350 --> 00:00:48.335
+but a t2 medium is going to be fine for our purposes.
+
+00:00:48.335 --> 00:00:51.634
+This will take a few minutes to deploy, but once it does,
+
+00:00:51.634 --> 00:00:54.464
+we can then use it applying it to our training data,
+
+00:00:54.465 --> 00:00:57.120
+and transforming it into PCA components.
+
+00:00:57.119 --> 00:01:01.579
+In SageMaker, you have seen that an endpoint can be made accessible via a web app,
+
+00:01:01.579 --> 00:01:03.890
+by attaching it to API Gateway.
+
+00:01:03.890 --> 00:01:06.320
+But in this case, we're just going to want to use
+
+00:01:06.319 --> 00:01:09.619
+this predictor to process our original training data,
+
+00:01:09.620 --> 00:01:12.020
+and create dimensionality reduced data.
+
+00:01:12.019 --> 00:01:14.209
+Now that this predictor is deployed,
+
+00:01:14.209 --> 00:01:17.079
+I can use it to modify our original training data.
+
+00:01:17.079 --> 00:01:18.855
+To apply endpoint to some data,
+
+00:01:18.855 --> 00:01:22.325
+I just have to call.predict and pass in our training data.
+
+00:01:22.325 --> 00:01:26.480
+This function is going to by default expect a NumPy array as input,
+
+00:01:26.480 --> 00:01:29.150
+and so I'm passing in the data that we converted before.
+
+00:01:29.150 --> 00:01:31.984
+If you recall this, was just are scaled, normalized,
+
+00:01:31.983 --> 00:01:34.924
+and cleaned DataFrame converted into a NumPy array.
+
+00:01:34.924 --> 00:01:36.739
+So this predict function is going to look at
+
+00:01:36.739 --> 00:01:39.125
+the features of every data point in this set,
+
+00:01:39.125 --> 00:01:41.885
+and convert them into PCA components.
+
+00:01:41.885 --> 00:01:44.344
+So this will hold the PCA component values
+
+00:01:44.344 --> 00:01:47.554
+for each of our original 3,000 or so training points.
+
+00:01:47.555 --> 00:01:51.900
+Let's take a look at the first data point by printing it out by index, index zero.
+
+00:01:51.900 --> 00:01:54.380
+Though this is data for just one of our counties,
+
+00:01:54.379 --> 00:01:58.339
+I can see a key projection and a float 32 tensor.
+
+00:01:58.340 --> 00:02:01.329
+This holds our 33 component values.
+
+00:02:01.329 --> 00:02:03.118
+As with the rest of our analyses,
+
+00:02:03.118 --> 00:02:06.650
+the top components are actually going to be at the bottom of this list here.
+
+00:02:06.650 --> 00:02:10.609
+Now, using these names and this information about ordering,
+
+00:02:10.609 --> 00:02:13.225
+I want you to create a transformed DataFrame.
+
+00:02:13.224 --> 00:02:17.194
+Specifically, I want you to complete the function create_transformed_df.
+
+00:02:17.194 --> 00:02:21.319
+This will take in a list of our PCA training data that we just generated,
+
+00:02:21.319 --> 00:02:23.868
+our original county scale dataframe,
+
+00:02:23.868 --> 00:02:25.745
+and a number of top components.
+
+00:02:25.745 --> 00:02:29.254
+We need to create a DataFrame but still indexed by state county,
+
+00:02:29.254 --> 00:02:33.424
+but each column corresponds to one of these top end components.
+
+00:02:33.425 --> 00:02:35.359
+So if this is seven top components,
+
+00:02:35.359 --> 00:02:37.145
+you'll have seven columns of data.
+
+00:02:37.145 --> 00:02:39.875
+Your resultant DataFrame should look something like this.
+
+00:02:39.875 --> 00:02:42.319
+This function essentially creates a dataset where
+
+00:02:42.319 --> 00:02:46.204
+each county is described by the top and principal components,
+
+00:02:46.205 --> 00:02:49.505
+and it's exactly what we'll need to move on to K-means clustering.
+
+00:02:49.504 --> 00:02:51.389
+So try to complete this function,
+
+00:02:51.389 --> 00:02:54.069
+and if you do, you can move on to the next steps,
+
+00:02:54.069 --> 00:02:57.689
+which are deleting the PCA model endpoint that were done using,
+
+00:02:57.689 --> 00:03:03.210
+and moving onto training a K-means model on this new transformed data.
+

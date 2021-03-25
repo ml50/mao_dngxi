@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.509 --> 00:00:11.500
+So we've been talking a lot about specific products or people that are using SageMaker.
+
+00:00:11.500 --> 00:00:15.189
+I was wondering that if you see some group of
+
+00:00:15.189 --> 00:00:18.879
+people that maybe has some hesitance or hasn't been using these tools,
+
+00:00:18.879 --> 00:00:22.015
+that you think could really stand to benefit from using SageMaker?
+
+00:00:22.015 --> 00:00:24.054
+The quick answer is no.
+
+00:00:24.054 --> 00:00:30.420
+Like what I've seen so far is that SageMaker has a use case for everyone, right?
+
+00:00:30.420 --> 00:00:35.395
+So we do work with companies from startups to very large enterprises.
+
+00:00:35.395 --> 00:00:37.455
+It was built by design.
+
+00:00:37.454 --> 00:00:39.379
+Startups for example, are very agile,
+
+00:00:39.380 --> 00:00:42.965
+they are very fast, they want to build products really rapidly.
+
+00:00:42.965 --> 00:00:46.210
+So they don't care too much about or they do care,
+
+00:00:46.210 --> 00:00:51.649
+but they don't worry too much about things like end-to-end encryption or security,
+
+00:00:51.649 --> 00:00:56.164
+and all these sort of regulations that can come around a platform of service.
+
+00:00:56.164 --> 00:00:57.530
+So we do see startups
+
+00:00:57.530 --> 00:01:00.259
+accelerating the process through which we're building and Training Machine,
+
+00:01:00.259 --> 00:01:01.579
+Learning Models in SageMaker.
+
+00:01:01.579 --> 00:01:05.524
+But we also work with large enterprises that are heavily regulated.
+
+00:01:05.525 --> 00:01:07.865
+We work with people in financial services.
+
+00:01:07.864 --> 00:01:10.939
+You know, the platform needs to be PCI DSS compliant.
+
+00:01:10.939 --> 00:01:15.935
+We work with people in health care where the platform needs to be HIPAA compliant.
+
+00:01:15.935 --> 00:01:18.859
+We worked with GDPR out there nowadays.
+
+00:01:18.859 --> 00:01:22.849
+So SageMaker, we really put a lot of energy into making sure that
+
+00:01:22.849 --> 00:01:27.109
+the platform is flexible enough to fit the needs of everyone in the ecosystem.
+
+00:01:27.109 --> 00:01:31.549
+Now the platform is ISO, PCI, GDPR,
+
+00:01:31.549 --> 00:01:36.349
+HIPAA and all of these huge compliance capabilities
+
+00:01:36.349 --> 00:01:41.030
+are injected into the product which makes people that are heavily regulated comfortable.
+
+00:01:41.030 --> 00:01:43.939
+But it's also like very flexible,
+
+00:01:43.939 --> 00:01:46.234
+a lot of examples, a lot of APIs,
+
+00:01:46.234 --> 00:01:49.125
+a lot of automation and which also makes
+
+00:01:49.125 --> 00:01:56.090
+entry-level learners or startups to just like jump on it and then accelerate.
+
+00:01:56.090 --> 00:02:01.439
+Now I would really encourage all sorts of learners
+
+00:02:01.439 --> 00:02:02.929
+like students for example with
+
+00:02:02.930 --> 00:02:06.545
+a Machine Learning NANO degree or Deep Learning NANO degree at Udacity,
+
+00:02:06.545 --> 00:02:09.650
+AWS provides AWS editing credits, right?
+
+00:02:09.650 --> 00:02:14.000
+So if you think about just jumping on the program and then getting
+
+00:02:14.000 --> 00:02:19.099
+access to some credits in this jumping on SageMaker and playing not playing with a toy,
+
+00:02:19.099 --> 00:02:21.919
+it's the same Jupyter notebook that you have in your laptop.
+
+00:02:21.919 --> 00:02:25.099
+But then you get a possibility to use GPUs there
+
+00:02:25.099 --> 00:02:28.310
+and solve some deeper computer vision problems.
+
+00:02:28.310 --> 00:02:34.055
+So I don't really see a friction in the type of people that could use a platform.
+
+00:02:34.055 --> 00:02:37.205
+I've seen a lot of excitement from virtually people,
+
+00:02:37.205 --> 00:02:38.240
+everyone around the world
+
+00:02:38.240 --> 00:02:42.560
+Yeah. It's something where with the availability of
+
+00:02:42.560 --> 00:02:47.599
+GPUs and the availability of being able to label your own datasets,
+
+00:02:47.599 --> 00:02:50.419
+it's just really powering the research and the advancement.
+
+00:02:50.419 --> 00:02:51.979
+So I think these things are very tied.
+
+00:02:51.979 --> 00:02:52.579
+Exactly.
+
+00:02:52.580 --> 00:02:52.930
+Yeah.
+

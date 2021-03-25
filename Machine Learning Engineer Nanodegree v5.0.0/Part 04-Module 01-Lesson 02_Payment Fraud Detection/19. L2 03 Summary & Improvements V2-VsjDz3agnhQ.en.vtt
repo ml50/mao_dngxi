@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.285
+In this lesson, you built a credit card detection model and improved it over time.
+
+00:00:06.285 --> 00:00:09.810
+Many of the best developers and researchers I know,
+
+00:00:09.810 --> 00:00:12.495
+not only looked for solutions to problems,
+
+00:00:12.494 --> 00:00:14.820
+but they look for the best solutions.
+
+00:00:14.820 --> 00:00:20.160
+That often means looking at how a machine learning model fits into a larger picture.
+
+00:00:20.160 --> 00:00:22.679
+The best models consider a variety of
+
+00:00:22.679 --> 00:00:26.399
+metrics and the experience of someone using the model.
+
+00:00:26.399 --> 00:00:28.814
+In this fraud detection example,
+
+00:00:28.814 --> 00:00:34.484
+you saw how to train machine learning model and aim for a certain level of recall.
+
+00:00:34.484 --> 00:00:37.994
+SageMaker gives you a simple way to tune models
+
+00:00:37.994 --> 00:00:41.954
+based on the constraints that you give it during your training process.
+
+00:00:41.954 --> 00:00:46.820
+You also learned one approach to dealing with class imbalance in your data.
+
+00:00:46.820 --> 00:00:49.880
+Real data is messy and often imbalanced.
+
+00:00:49.880 --> 00:00:53.780
+It takes the work of data scientists using tools like augmentation,
+
+00:00:53.780 --> 00:00:57.859
+imbalancing techniques to make meaning of this kind of data.
+
+00:00:57.859 --> 00:01:04.140
+Take these learnings with you as you get to the next and final lesson in this section.
+

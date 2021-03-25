@@ -1,0 +1,241 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.330
+To create a new DataFrame and fill it with our new PCA component data, I wrote this code.
+
+00:00:06.330 --> 00:00:08.205
+The first thing I'm doing is creating
+
+00:00:08.205 --> 00:00:11.519
+a totally new DataFrame to hold all my new transformed data,
+
+00:00:11.519 --> 00:00:16.004
+and then I'm going to iterate through each data point in our PCA component data.
+
+00:00:16.004 --> 00:00:18.989
+I'm getting our component values from what I saw before,
+
+00:00:18.989 --> 00:00:20.834
+getting the label, projection,
+
+00:00:20.835 --> 00:00:23.234
+and our float 32 tensor values.
+
+00:00:23.234 --> 00:00:25.259
+Then I'm passing this list of components,
+
+00:00:25.260 --> 00:00:27.915
+and appending it to our county's transformed DataFrame.
+
+00:00:27.914 --> 00:00:32.399
+Now, this is going to be all 33 of our PCA components for each of our data points.
+
+00:00:32.399 --> 00:00:38.234
+Next, I know I still want to index by state county just as in our county scale DataFrame.
+
+00:00:38.234 --> 00:00:40.320
+So I'm setting our index accordingly.
+
+00:00:40.320 --> 00:00:43.625
+Then I know I only want to keep the top_n_components.
+
+00:00:43.625 --> 00:00:45.905
+I don't want all 33 of these features,
+
+00:00:45.905 --> 00:00:47.734
+I want say the top seven,
+
+00:00:47.734 --> 00:00:50.929
+and I know they're ordered from least to most important.
+
+00:00:50.929 --> 00:00:53.090
+So similar to how we've handled this before,
+
+00:00:53.090 --> 00:00:54.470
+I am getting a start index,
+
+00:00:54.469 --> 00:00:58.219
+and then I'm getting a selection of data from that start index onwards.
+
+00:00:58.219 --> 00:01:01.774
+Finally, I'll return that truncated DataFrame in reverse order.
+
+00:01:01.774 --> 00:01:06.260
+So I'll have my top component as the first column in this transformed DataFrame.
+
+00:01:06.260 --> 00:01:11.225
+Now, I can run this code and select top_n_components to create our new data,
+
+00:01:11.224 --> 00:01:13.519
+and I'll create our seven top components because I
+
+00:01:13.519 --> 00:01:16.179
+know that captures 80 percent of our data variance.
+
+00:01:16.180 --> 00:01:19.550
+So I'm calling my create transformed DataFrame function,
+
+00:01:19.549 --> 00:01:23.299
+and passing in my PCA component data for each of my data points,
+
+00:01:23.299 --> 00:01:25.625
+and the original county skilled DataFrame.
+
+00:01:25.625 --> 00:01:28.655
+Finally, I'm passing in seven top components.
+
+00:01:28.655 --> 00:01:30.305
+This is the resulting DataFrame.
+
+00:01:30.305 --> 00:01:32.630
+So I'm still indexing by state county,
+
+00:01:32.629 --> 00:01:36.079
+and they have the values for components one through components seven.
+
+00:01:36.079 --> 00:01:38.000
+I'll actually want to take one more step.
+
+00:01:38.000 --> 00:01:41.015
+Instead of having numerical values for each of these columns,
+
+00:01:41.015 --> 00:01:44.000
+I'm going to create a list of columns that's more descriptive.
+
+00:01:44.000 --> 00:01:46.275
+So component one, two, three,
+
+00:01:46.275 --> 00:01:49.550
+up to seven, then you can change these names to whatever you want.
+
+00:01:49.549 --> 00:01:52.909
+So now, I have a list of counties and their component values.
+
+00:01:52.909 --> 00:01:54.709
+Now that I have my transformed data,
+
+00:01:54.709 --> 00:01:57.379
+I no longer need my PCA model endpoint.
+
+00:01:57.379 --> 00:02:00.875
+I can delete it with a call to our SageMaker session.delete_endpoint,
+
+00:02:00.875 --> 00:02:04.209
+and passing in the name of our PCA predictor.
+
+00:02:04.209 --> 00:02:08.150
+You should always make sure to delete your resources when you're no longer using them.
+
+00:02:08.150 --> 00:02:11.420
+Otherwise, you may incur extra processing or storage fees.
+
+00:02:11.419 --> 00:02:15.244
+Okay. So I want to recap all the steps that we've taken.
+
+00:02:15.245 --> 00:02:17.900
+We went from defining a PCA model,
+
+00:02:17.900 --> 00:02:19.830
+to training it on some formatted data.
+
+00:02:19.830 --> 00:02:22.250
+Then we took a look at the trained model attributes by
+
+00:02:22.250 --> 00:02:26.310
+loading in the models at file with the MX net Library.
+
+00:02:26.560 --> 00:02:31.849
+We looked at the top_n components and how much variance they covered in our data,
+
+00:02:31.849 --> 00:02:36.169
+and decided to use the top seven principal components in our final analysis.
+
+00:02:36.169 --> 00:02:39.739
+We also care about the weights of the features that make up each component.
+
+00:02:39.740 --> 00:02:41.330
+This allows us to better describe
+
+00:02:41.330 --> 00:02:44.315
+the components that make up our transformed to training data.
+
+00:02:44.314 --> 00:02:46.699
+Then to finally create our transformed data,
+
+00:02:46.699 --> 00:02:49.174
+we had to deploy our trained PCA model,
+
+00:02:49.175 --> 00:02:51.680
+and apply it to our Numpy training data,
+
+00:02:51.680 --> 00:02:54.155
+and just now created a new transform to DataFrame.
+
+00:02:54.155 --> 00:02:58.460
+So this was a lot of demonstration around training and deploying a SageMaker model,
+
+00:02:58.460 --> 00:03:01.780
+and I left some of the data cleaning and transformation steps to you.
+
+00:03:01.780 --> 00:03:05.120
+Next, I want you to get practice with deploying models on your own.
+
+00:03:05.120 --> 00:03:10.069
+So I'll give you some exercises around training and deploying a K-means clustering model.
+
+00:03:10.069 --> 00:03:13.849
+This final model will be created in a similar way to the PCA model.
+
+00:03:13.849 --> 00:03:15.799
+You'll define a K-means estimator,
+
+00:03:15.800 --> 00:03:19.790
+passing in appropriate parameters and train it on this new transformed data.
+
+00:03:19.789 --> 00:03:23.239
+So read through the following exercises and instructions carefully,
+
+00:03:23.240 --> 00:03:25.270
+and see if you can complete all of them.
+
+00:03:25.270 --> 00:03:27.740
+Getting all the way to K-means model deployment
+
+00:03:27.740 --> 00:03:30.379
+and even extracting the trained model attributes.
+
+00:03:30.379 --> 00:03:31.909
+If you run into an error,
+
+00:03:31.909 --> 00:03:35.155
+try to debug as usual by looking through the logs and traces.
+
+00:03:35.155 --> 00:03:37.699
+I'll provide instruction and an even linking to
+
+00:03:37.699 --> 00:03:39.979
+some relevant documentation which can help you
+
+00:03:39.979 --> 00:03:42.409
+in passing in the correct arguments to a K-means model.
+
+00:03:42.409 --> 00:03:44.719
+For example, the end goal will be to assign
+
+00:03:44.719 --> 00:03:47.509
+clusters to each of our data points and say one,
+
+00:03:47.509 --> 00:03:49.884
+which counties are assigned to each cluster?
+
+00:03:49.884 --> 00:03:53.584
+Two, what that means as far as component and feature level makeup.
+
+00:03:53.585 --> 00:03:55.250
+This will allow us to describe
+
+00:03:55.250 --> 00:03:59.580
+the demographics similarities and differences between counties generally.
+

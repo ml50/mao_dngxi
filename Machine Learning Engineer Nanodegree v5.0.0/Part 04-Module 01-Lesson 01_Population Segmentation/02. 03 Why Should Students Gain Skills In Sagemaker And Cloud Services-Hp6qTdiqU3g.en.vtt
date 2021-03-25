@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.180 --> 00:00:04.349
+A lot of word,
+
+00:00:04.349 --> 00:00:06.389
+I've been focusing on when I teach Machine Learning,
+
+00:00:06.389 --> 00:00:07.889
+as you know training,
+
+00:00:07.889 --> 00:00:09.269
+and defining these models.
+
+00:00:09.269 --> 00:00:10.980
+But there's a big other piece,
+
+00:00:10.980 --> 00:00:12.870
+and I hear a lot from industry professionals,
+
+00:00:12.869 --> 00:00:16.619
+that building is probably the smallest piece of these technologies,
+
+00:00:16.620 --> 00:00:19.019
+like the biggest part is really, maintaining,
+
+00:00:19.019 --> 00:00:23.024
+updating in the face of gathering new data.
+
+00:00:23.024 --> 00:00:28.784
+So I was wondering if you could speak to what makes Sagemaker and Cloud services,
+
+00:00:28.785 --> 00:00:31.664
+a good skill to have career right,
+
+00:00:31.664 --> 00:00:34.560
+why is for people who are looking to become machine learning engineer's.
+
+00:00:34.560 --> 00:00:36.840
+Okay, let's follow through
+
+00:00:36.840 --> 00:00:40.080
+the process of building a machine learning product for example.
+
+00:00:40.079 --> 00:00:42.795
+As you know that involves big data,
+
+00:00:42.795 --> 00:00:44.385
+that involves handling data,
+
+00:00:44.384 --> 00:00:48.349
+that involves getting from understanding business problem,
+
+00:00:48.350 --> 00:00:51.530
+and mapping that business problem to machine learning problem,
+
+00:00:51.530 --> 00:00:55.719
+that's already a skill that you are teaching in the program.
+
+00:00:55.719 --> 00:00:57.679
+The other thing that people need to do,
+
+00:00:57.679 --> 00:01:00.189
+is to get into collecting the right amount of data,
+
+00:01:00.189 --> 00:01:03.019
+that would relate to solve that machine learning problem.
+
+00:01:03.020 --> 00:01:05.040
+So there is a data collection,
+
+00:01:05.040 --> 00:01:08.280
+organization, and analysis component to do there.
+
+00:01:08.280 --> 00:01:12.480
+Then the next thing that developers and data scientists need to do,
+
+00:01:12.480 --> 00:01:17.380
+is to jump in the process of selecting a machine learning algorithm,
+
+00:01:17.379 --> 00:01:20.750
+building and training machine learning model from that algorithm,
+
+00:01:20.750 --> 00:01:24.230
+and invalidating that machine learning model against some metrics,
+
+00:01:24.230 --> 00:01:25.549
+that could be accuracy,
+
+00:01:25.549 --> 00:01:27.825
+that can be cause, that can be time,
+
+00:01:27.825 --> 00:01:32.585
+and many other parameters that are potentially used to the business.
+
+00:01:32.584 --> 00:01:35.539
+Then if they have a satisfactory machine learning model
+
+00:01:35.540 --> 00:01:37.375
+based on the metrics that they have,
+
+00:01:37.375 --> 00:01:39.540
+then they can put that in production.
+
+00:01:39.540 --> 00:01:41.550
+If they don't have a satisfactory model,
+
+00:01:41.549 --> 00:01:44.509
+then it goes back in the process of collecting the data,
+
+00:01:44.510 --> 00:01:46.745
+or selecting different algorithms.
+
+00:01:46.745 --> 00:01:51.340
+So if you think about that entire end to end process of machine learning,
+
+00:01:51.340 --> 00:01:55.070
+as learners are going through the process of learning
+
+00:01:55.069 --> 00:01:58.819
+how to apply that process to the data,
+
+00:01:58.819 --> 00:02:01.579
+companies are also going through the process
+
+00:02:01.579 --> 00:02:05.064
+of automating that machine learning life-cycle.
+
+00:02:05.064 --> 00:02:06.480
+So there's synergy there,
+
+00:02:06.480 --> 00:02:07.935
+where as a learner,
+
+00:02:07.935 --> 00:02:11.569
+it's very important for you to get acquainted with a tool
+
+00:02:11.569 --> 00:02:15.530
+that can teach you the best practices involved in that process,
+
+00:02:15.530 --> 00:02:16.865
+and Sagemaker does that.
+
+00:02:16.865 --> 00:02:20.685
+Sagemaker would facilitate the process of collecting data,
+
+00:02:20.685 --> 00:02:23.569
+and in the platform will essentially instruct you
+
+00:02:23.569 --> 00:02:27.079
+as what are the best ways to look at data labeling practices,
+
+00:02:27.080 --> 00:02:31.565
+and then understand how to handle over the data to a machine learning algorithm or model.
+
+00:02:31.564 --> 00:02:35.180
+Then when it comes to training machine learning algorithms at scale,
+
+00:02:35.180 --> 00:02:41.210
+the platform is designed with APIs and all other related automation,
+
+00:02:41.210 --> 00:02:45.120
+to essentially create clusters,
+
+00:02:45.120 --> 00:02:50.094
+apply hyper-parameter optimization in some cases to the algorithms, such as training,
+
+00:02:50.094 --> 00:02:55.090
+and give you some validation metrics for you to look at,
+
+00:02:55.090 --> 00:03:00.520
+whether your machine learning algorithm was a successful trained algorithm or not.
+
+00:03:00.520 --> 00:03:03.820
+Then the next thing that is possible to do with the platform is,
+
+00:03:03.819 --> 00:03:06.849
+automate the deployment of the machine learning model in production.
+
+00:03:06.849 --> 00:03:09.579
+So again, following the process of
+
+00:03:09.580 --> 00:03:12.865
+building and training and deploying machine-learning algorithms.
+
+00:03:12.865 --> 00:03:15.865
+So if you get into that mindset,
+
+00:03:15.865 --> 00:03:19.210
+you stand much more like a higher probability of
+
+00:03:19.210 --> 00:03:22.540
+being successful in an interview with an employer,
+
+00:03:22.539 --> 00:03:23.840
+that is interested in machine learning,
+
+00:03:23.840 --> 00:03:26.780
+because they are going through the exact same process.
+
+00:03:26.780 --> 00:03:30.650
+Yeah, the great thing about machine learning is that,
+
+00:03:30.650 --> 00:03:34.625
+these algorithms improve over time with more data and more examples.
+
+00:03:34.625 --> 00:03:36.580
+When do you think about developing a product,
+
+00:03:36.580 --> 00:03:38.270
+it's very different than something that's
+
+00:03:38.270 --> 00:03:41.420
+just a physical thing that you get someone has done,
+
+00:03:41.419 --> 00:03:45.569
+is something that you want to be able to go through this cycle of gathering data,
+
+00:03:45.569 --> 00:03:49.250
+improving your algorithm, I think it can be the best thing to your consumers.
+
+00:03:49.250 --> 00:03:52.685
+So really thinking about that whole cycle,
+
+00:03:52.685 --> 00:03:54.620
+when you're a part of a team,
+
+00:03:54.620 --> 00:03:56.349
+or an engineer who's in charge of all of that,
+
+00:03:56.349 --> 00:03:57.469
+it is really important.
+
+00:03:57.469 --> 00:04:01.330
+So I'm excited to be partner with you and teach all these things.
+

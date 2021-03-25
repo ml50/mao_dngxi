@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.595
+Here's one way to define a linear learner.
+
+00:00:02.595 --> 00:00:06.028
+I've inputted the linear learner estimator from SageMaker,
+
+00:00:06.028 --> 00:00:08.849
+then the first thing I'm doing is specifying where in
+
+00:00:08.849 --> 00:00:12.419
+our s3 bucket I want to place the saved model attributes.
+
+00:00:12.419 --> 00:00:15.660
+In this case, specifying a prefix credit card and
+
+00:00:15.660 --> 00:00:18.089
+then a full output path in s3 which
+
+00:00:18.089 --> 00:00:21.129
+points to the bucket and to this directory credit card.
+
+00:00:21.129 --> 00:00:25.320
+This is just good practice to get into because it helps organize the contents of
+
+00:00:25.320 --> 00:00:27.660
+your s3 bucket and means you can always
+
+00:00:27.660 --> 00:00:30.675
+access a saved model from a known location leader.
+
+00:00:30.675 --> 00:00:33.049
+Then I'm instantiating an estimator called
+
+00:00:33.049 --> 00:00:36.274
+linear and passing in arguments to linear learner.
+
+00:00:36.274 --> 00:00:39.890
+You can see my usual SageMaker parameters and passing in the role,
+
+00:00:39.890 --> 00:00:43.359
+the SageMaker session, and the output path that I just defined,
+
+00:00:43.359 --> 00:00:46.130
+and also specifying details about the train instance.
+
+00:00:46.130 --> 00:00:48.920
+I want one instance that the c4 xlarge.
+
+00:00:48.920 --> 00:00:50.480
+Then for this linear learner,
+
+00:00:50.479 --> 00:00:52.564
+I need to specify the predictor type.
+
+00:00:52.564 --> 00:00:54.964
+This tells my estimator that I want it to be
+
+00:00:54.965 --> 00:00:58.470
+a binary classifier rather than a regression algorithm.
+
+00:00:58.469 --> 00:01:01.699
+Finally, I'm passing in a number of epochs to train for.
+
+00:01:01.700 --> 00:01:06.560
+It turns out that the default value number of epochs is 15 and this is just the number
+
+00:01:06.560 --> 00:01:11.540
+of times that our algorithm will iterate over our entire training set as it learns.
+
+00:01:11.540 --> 00:01:14.020
+My idea here is that I'll start with the default
+
+00:01:14.019 --> 00:01:16.439
+and then if it looks like I could use more training,
+
+00:01:16.439 --> 00:01:20.594
+I'll up the number of epochs but if it looks like my loss decreases really quickly,
+
+00:01:20.594 --> 00:01:22.685
+I can consider decreasing this number.
+
+00:01:22.685 --> 00:01:25.370
+Now that we've instantiated an estimator,
+
+00:01:25.370 --> 00:01:27.800
+I want to actually train it on our training data.
+
+00:01:27.799 --> 00:01:29.659
+As for any built-in algorithm,
+
+00:01:29.659 --> 00:01:33.250
+you'll need to format the training data but the split function returned,
+
+00:01:33.250 --> 00:01:37.730
+first into a non-pie float data array and then into a record set format.
+
+00:01:37.730 --> 00:01:41.285
+So your next task will be to format this data and train the estimator.
+
+00:01:41.284 --> 00:01:42.619
+If you make it past this point,
+
+00:01:42.620 --> 00:01:45.185
+you'll be given some instructions to deploy the trainer model.
+
+00:01:45.185 --> 00:01:46.685
+If you want to check your work,
+
+00:01:46.685 --> 00:01:50.100
+I'll quickly go over a solution in the next video.
+

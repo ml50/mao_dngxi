@@ -1,0 +1,439 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.889
+One thing to note is that each data point here has 34 associated features.
+
+00:00:04.889 --> 00:00:08.699
+So this is 34 dimensional data which is pretty high dimensional.
+
+00:00:08.699 --> 00:00:14.564
+Unsupervised algorithms rely on finding relationships in n dimensional feature space.
+
+00:00:14.564 --> 00:00:18.554
+For higher dimensions, we often get noisier clustering, for example.
+
+00:00:18.554 --> 00:00:20.640
+So an algorithm like K-means has
+
+00:00:20.640 --> 00:00:23.789
+a hard time figuring out which dimensions to pay attention to.
+
+00:00:23.789 --> 00:00:27.239
+Some of these dimensions are not as important as others.
+
+00:00:27.239 --> 00:00:32.039
+For example, if every county in our dataset had the same exact total population,
+
+00:00:32.039 --> 00:00:36.034
+then this particular feature wouldn't give us any distinguishing information.
+
+00:00:36.034 --> 00:00:38.539
+It would not help us to separate the counties into
+
+00:00:38.539 --> 00:00:42.034
+different groups because its value doesn't vary between counties.
+
+00:00:42.034 --> 00:00:43.969
+This is just a hypothetical example.
+
+00:00:43.969 --> 00:00:48.409
+Instead, we really want to find the features that help us separate ungrouped data.
+
+00:00:48.409 --> 00:00:52.804
+In other words, we want to find features that cause the most variance in our dataset.
+
+00:00:52.804 --> 00:00:55.399
+So before we cluster this data with K-means,
+
+00:00:55.399 --> 00:00:57.229
+I want to take one more step,
+
+00:00:57.229 --> 00:00:59.375
+a dimensionality reduction step.
+
+00:00:59.375 --> 00:01:01.310
+My aim will be to form a smaller set of
+
+00:01:01.310 --> 00:01:04.234
+features that will better help us separate our data.
+
+00:01:04.234 --> 00:01:09.400
+The technique we'll use is called PCA or Principal Component Analysis.
+
+00:01:09.400 --> 00:01:13.340
+PCA is most useful when you have a bunch of features and you want
+
+00:01:13.340 --> 00:01:17.359
+to find out which linear combinations of these features matter the most,
+
+00:01:17.359 --> 00:01:20.510
+which are responsible for the largest variance in our data.
+
+00:01:20.510 --> 00:01:22.094
+So to perform PCA,
+
+00:01:22.094 --> 00:01:24.795
+we'll use SageMaker's built-in model for PCA.
+
+00:01:24.795 --> 00:01:26.290
+To create any model,
+
+00:01:26.290 --> 00:01:30.680
+you'll first need to specify an IAM role and SageMaker session.
+
+00:01:30.680 --> 00:01:33.890
+Please let the model know what permissions and session to train in.
+
+00:01:33.890 --> 00:01:39.394
+So in this cell here, I'm storing our SageMaker session by calling sagemaker.Session.
+
+00:01:39.394 --> 00:01:42.349
+This is a capital S. It's a session object,
+
+00:01:42.349 --> 00:01:44.319
+and I'm storing that as a variable here.
+
+00:01:44.319 --> 00:01:46.234
+Then, I am getting the IAM role.
+
+00:01:46.234 --> 00:01:47.989
+We specified this role earlier,
+
+00:01:47.989 --> 00:01:51.474
+and I'm getting it by name with an import get_execution_role.
+
+00:01:51.474 --> 00:01:53.944
+I'll actually print it out to make sure it's the right name.
+
+00:01:53.944 --> 00:01:56.329
+So we have our session, and this role name should
+
+00:01:56.329 --> 00:01:58.769
+look familiar from when we created the Notebook.
+
+00:01:58.769 --> 00:02:03.229
+Next, we'll also need a place to store the trained model in an S3 bucket.
+
+00:02:03.230 --> 00:02:06.215
+So in this next cell, I'm creating a default bucket from
+
+00:02:06.215 --> 00:02:09.270
+our SageMaker session with a call to.default_bucket,
+
+00:02:09.270 --> 00:02:12.080
+and I'm saving the name of that bucket for reference later.
+
+00:02:12.080 --> 00:02:14.090
+If you print out the name of this default bucket,
+
+00:02:14.090 --> 00:02:15.800
+you should get something like this.
+
+00:02:15.800 --> 00:02:18.469
+It says SageMaker, and then it has your region,
+
+00:02:18.469 --> 00:02:22.405
+mine is US-West-1, and then some numbers to make it unique.
+
+00:02:22.405 --> 00:02:26.444
+Then, I'll start to build a PCA model and I'll need to do a few things.
+
+00:02:26.444 --> 00:02:28.759
+First, I'm going to specify exactly where,
+
+00:02:28.759 --> 00:02:29.859
+in our S3 bucket,
+
+00:02:29.860 --> 00:02:32.300
+I want to store the trained model artifacts.
+
+00:02:32.300 --> 00:02:35.725
+I'll specify a prefix for a directory where I want to store the data,
+
+00:02:35.724 --> 00:02:38.750
+calling it counties for data about counties in the US.
+
+00:02:38.750 --> 00:02:43.520
+Here I'm creating the entire output path which is a string that points to the bucket,
+
+00:02:43.520 --> 00:02:45.085
+and the prefix directory.
+
+00:02:45.085 --> 00:02:47.810
+Next, it's time to define the PCA model.
+
+00:02:47.810 --> 00:02:52.699
+So this model is built-in in SageMaker and I can import it by name, import PCA.
+
+00:02:52.699 --> 00:02:54.754
+Then, I'm creating a model down here.
+
+00:02:54.754 --> 00:02:58.264
+I'm saving it as pca_SM for SageMaker,
+
+00:02:58.264 --> 00:03:00.739
+and I'm calling our PCA constructor here.
+
+00:03:00.740 --> 00:03:02.750
+This takes in several arguments.
+
+00:03:02.750 --> 00:03:06.379
+First, I'm passing in the IAM role which we defined above.
+
+00:03:06.379 --> 00:03:08.764
+Then, I'm specifying the train instance count,
+
+00:03:08.764 --> 00:03:10.414
+which will usually be one,
+
+00:03:10.414 --> 00:03:11.810
+and the instance type,
+
+00:03:11.810 --> 00:03:14.305
+which I'm setting as a c4.xlarge.
+
+00:03:14.305 --> 00:03:18.680
+Then, I'll specify the output path as this one that we defined above.
+
+00:03:18.680 --> 00:03:23.000
+Again, this is the place that the resultant model data will be stored in S3.
+
+00:03:23.000 --> 00:03:26.830
+Then, I'm also passing in the SageMaker session that we also just defined.
+
+00:03:26.830 --> 00:03:29.330
+Now, there's one last thing I need to specify,
+
+00:03:29.330 --> 00:03:32.060
+and that is a hyperparameter for the PCA model.
+
+00:03:32.060 --> 00:03:36.979
+Basically, this model needs to know how many principal components we want to create.
+
+00:03:36.979 --> 00:03:41.435
+We want to reduce our 34 dimensions of data but we'll actually want to first generate
+
+00:03:41.435 --> 00:03:46.340
+enough linearly independent principal components to capture the variance in our data,
+
+00:03:46.340 --> 00:03:50.080
+and at later, select the top components to pass to our clustering model.
+
+00:03:50.080 --> 00:03:53.015
+So I'll define N_COMPONENTS as 33.
+
+00:03:53.014 --> 00:03:57.319
+This is the existing feature dimension, 34, minus one.
+
+00:03:57.319 --> 00:04:01.084
+This is a good rule of thumb for starting PCA analysis.
+
+00:04:01.085 --> 00:04:05.240
+So again, I'm going to generate 33 of these principal components, but then, later,
+
+00:04:05.240 --> 00:04:10.195
+I'll select only a few of the top components to use in our final clustering algorithm.
+
+00:04:10.194 --> 00:04:13.909
+This is going to be in all caps because it's a global variable.
+
+00:04:13.909 --> 00:04:15.469
+That means after defining it,
+
+00:04:15.469 --> 00:04:18.379
+I'll be able to access it in any later cell in the Notebook.
+
+00:04:18.379 --> 00:04:21.370
+So let me recap how I create an estimator like this.
+
+00:04:21.370 --> 00:04:24.590
+First, I'm going to import that built-in model from SageMaker,
+
+00:04:24.589 --> 00:04:27.889
+and then this takes in a number of constructor parameters.
+
+00:04:27.889 --> 00:04:32.735
+It takes in the role and SageMaker session which I got an a cell above, here.
+
+00:04:32.735 --> 00:04:35.470
+They're default parameters that are accessible from our Notebook.
+
+00:04:35.470 --> 00:04:39.380
+The session and role are variables that you can always get from your Notebook instance.
+
+00:04:39.379 --> 00:04:41.870
+I also specified an output path which is where
+
+00:04:41.870 --> 00:04:44.990
+this model will be saved after it trains in our S3 bucket.
+
+00:04:44.990 --> 00:04:48.650
+Then, I had to specify the instance count and type for training.
+
+00:04:48.649 --> 00:04:51.919
+Lastly, our hyper parameter for a PCA model,
+
+00:04:51.920 --> 00:04:53.254
+the number of components,
+
+00:04:53.254 --> 00:04:55.529
+33, that we want to generate.
+
+00:04:55.529 --> 00:04:57.359
+Okay. So I'm running the cell.
+
+00:04:57.360 --> 00:04:59.620
+Then, after defining this model,
+
+00:04:59.620 --> 00:05:03.965
+I'll actually want to create a training job and train it on our county's data.
+
+00:05:03.964 --> 00:05:05.574
+A requirement for all of
+
+00:05:05.574 --> 00:05:10.214
+SageMaker's built-in models is that the passed-in training data be a record set.
+
+00:05:10.214 --> 00:05:14.539
+This allows training of models within SageMaker to perform really fast compared to,
+
+00:05:14.540 --> 00:05:18.379
+say, Scikit-learn models, especially for large datasets.
+
+00:05:18.379 --> 00:05:21.214
+So to get a record set format, first,
+
+00:05:21.214 --> 00:05:23.779
+I'm going to convert our scale dataframe into
+
+00:05:23.779 --> 00:05:27.769
+a NumPy array calling values.astype, float32.
+
+00:05:27.769 --> 00:05:30.685
+I'll save this NumPy array as train_data_np.
+
+00:05:30.685 --> 00:05:34.889
+Then, I can actually call our model.record_set and pass in
+
+00:05:34.889 --> 00:05:39.425
+this NumPy data to create our formatted training data in a record set format.
+
+00:05:39.425 --> 00:05:41.595
+So going from NumPy to record set,
+
+00:05:41.595 --> 00:05:43.110
+I get our formatted train data.
+
+00:05:43.110 --> 00:05:44.370
+Finally, to train the model,
+
+00:05:44.370 --> 00:05:48.980
+I call pca_SM.fit and pass in this formatted train data.
+
+00:05:48.980 --> 00:05:50.180
+If I run this cell,
+
+00:05:50.180 --> 00:05:54.715
+this should kick off a training job and I can see the name of that training job here.
+
+00:05:54.714 --> 00:05:56.959
+This job will take a little while to complete,
+
+00:05:56.959 --> 00:05:59.104
+so I can show you a few things while it runs.
+
+00:05:59.105 --> 00:06:02.405
+I'm actually going to go back to my Amazon SageMaker console.
+
+00:06:02.404 --> 00:06:04.234
+Now, in all these buttons on the side,
+
+00:06:04.235 --> 00:06:06.275
+you'll see this one for training jobs.
+
+00:06:06.274 --> 00:06:09.949
+When I click this, I can actually see the PCA job that I just kicked off.
+
+00:06:09.949 --> 00:06:14.779
+It's in progress. I'll see a list of all these other jobs that I've done in the past.
+
+00:06:14.779 --> 00:06:17.959
+But let's click on this most recent one that's in progress.
+
+00:06:17.959 --> 00:06:22.310
+So in here, I can see the job name and the IAM role that it's attached to.
+
+00:06:22.310 --> 00:06:27.290
+I can see that it's in progress and read a bit about the details about this training job.
+
+00:06:27.290 --> 00:06:29.450
+If I scroll all the way down to Monitor,
+
+00:06:29.449 --> 00:06:31.740
+I'll actually be able to click on the logs,
+
+00:06:31.740 --> 00:06:33.860
+which will be really useful if I need to debug
+
+00:06:33.860 --> 00:06:36.185
+a training job if it's failed, for example.
+
+00:06:36.185 --> 00:06:39.415
+The logs are where any errors and trace back will be recorded.
+
+00:06:39.415 --> 00:06:42.700
+A failed job has happened to me a few times as I've developed,
+
+00:06:42.699 --> 00:06:45.259
+and the key is just to read through the logs and debug.
+
+00:06:45.259 --> 00:06:47.704
+Debugging is part of coding just like any other step.
+
+00:06:47.704 --> 00:06:50.000
+So I just wanted to show you this option of how to
+
+00:06:50.000 --> 00:06:52.779
+explore more information about a unique training job.
+
+00:06:52.779 --> 00:06:54.949
+Back to my Notebook, I can also see how
+
+00:06:54.949 --> 00:06:57.529
+the training job is monitored in the Notebook itself.
+
+00:06:57.529 --> 00:07:01.969
+I'll see print statements and timestamps that indicate when an instance is being spun up,
+
+00:07:01.970 --> 00:07:03.650
+when import data is being downloaded,
+
+00:07:03.649 --> 00:07:06.234
+and some details about the training in progress.
+
+00:07:06.235 --> 00:07:08.449
+Then, because I was timing this, at the end,
+
+00:07:08.449 --> 00:07:12.409
+I can scroll down and see how long this whole process took a few minutes.
+
+00:07:12.410 --> 00:07:14.270
+Now that this training job is complete,
+
+00:07:14.269 --> 00:07:15.740
+I have a trained model.
+
+00:07:15.740 --> 00:07:20.300
+Next, I'll actually want to see the principle components that the model has come up with.
+
+00:07:20.300 --> 00:07:25.280
+I want to see what linear combinations of features make up each component and decide on
+
+00:07:25.279 --> 00:07:27.919
+the number of top components to include as I
+
+00:07:27.920 --> 00:07:31.710
+create new reduced dimensionality training data.
+

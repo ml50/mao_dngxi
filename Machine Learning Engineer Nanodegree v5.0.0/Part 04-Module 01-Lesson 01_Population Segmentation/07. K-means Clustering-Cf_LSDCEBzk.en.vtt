@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.790 --> 00:00:06.179
+One commonly used image segmentation technique is k-means clustering.
+
+00:00:06.179 --> 00:00:09.740
+It's a machine learning technique that separates an image into segments by
+
+00:00:09.740 --> 00:00:13.660
+clustering or grouping together data points that have similar traits.
+
+00:00:13.660 --> 00:00:17.565
+As an example, let's look at this image of oranges in a bowl.
+
+00:00:17.565 --> 00:00:21.484
+If I asked k-means to break up this image into two different colors,
+
+00:00:21.484 --> 00:00:24.239
+it will give us an image that looks like this.
+
+00:00:24.239 --> 00:00:26.834
+The oranges and the lighter part of the table are all
+
+00:00:26.835 --> 00:00:29.705
+considered to be one cluster of orange points.
+
+00:00:29.704 --> 00:00:34.789
+And the dark background and any part in shadow are clustered as dark brown data points.
+
+00:00:34.789 --> 00:00:36.632
+But, we're getting ahead of ourselves,
+
+00:00:36.633 --> 00:00:40.100
+let's talk about how k-means clusters this data step by step.
+
+00:00:40.100 --> 00:00:42.079
+K-means is called an
+
+00:00:42.079 --> 00:00:46.250
+unsupervised learning method which means you don't need to label data.
+
+00:00:46.250 --> 00:00:51.990
+Instead, unsupervised learning aims to group and characterize unlabeled datasets.
+
+00:00:51.990 --> 00:00:56.690
+And, in doing so, often identifies patterns and similarities in groups of data.
+
+00:00:56.689 --> 00:01:00.394
+So, you can give k-means a set of any unlabeled data,
+
+00:01:00.395 --> 00:01:02.480
+like the pixel values in an image,
+
+00:01:02.479 --> 00:01:05.194
+and just tell it to break it into k clusters
+
+00:01:05.194 --> 00:01:08.384
+where k is a variable whose value you choose.
+
+00:01:08.385 --> 00:01:09.837
+For the orange example,
+
+00:01:09.837 --> 00:01:11.730
+we chose a k = 2.
+
+00:01:11.730 --> 00:01:13.400
+And if we increased that to say,
+
+00:01:13.400 --> 00:01:15.195
+k equals three or six,
+
+00:01:15.194 --> 00:01:18.314
+we would get three or six different colored segments.
+
+00:01:18.314 --> 00:01:20.269
+In this case, those segments divide
+
+00:01:20.269 --> 00:01:23.060
+differently shaded parts of the oranges and the table.
+
+00:01:23.060 --> 00:01:26.504
+Let's go through a simple example in even more detail.
+
+00:01:26.504 --> 00:01:31.414
+Here's a small image just 34 by 34 pixels of a rainbow pattern.
+
+00:01:31.415 --> 00:01:35.465
+I'll use k-means to separate this image into three clusters based on color.
+
+00:01:35.465 --> 00:01:41.030
+To start, we know that each pixel in this image has an associated RGB value.
+
+00:01:41.030 --> 00:01:47.570
+In fact, we can actually plot the value of each pixel as a data point in RGB color space.
+
+00:01:47.569 --> 00:01:51.089
+The axis are just values for R, G, and B.
+
+00:01:51.090 --> 00:01:53.185
+And notice the values on this axis.
+
+00:01:53.185 --> 00:01:54.981
+Here, the highest R, G,
+
+00:01:54.980 --> 00:01:56.044
+and B values say,
+
+00:01:56.045 --> 00:01:58.879
+close to white will be at this top corner.
+
+00:01:58.879 --> 00:02:00.484
+And if we turn this space,
+
+00:02:00.484 --> 00:02:04.530
+we can actually see that the points fall into natural color clusters.
+
+00:02:04.530 --> 00:02:08.689
+If I tell k-means to separate this image data into three clusters,
+
+00:02:08.689 --> 00:02:11.479
+it will look at these pixel values and randomly guess
+
+00:02:11.479 --> 00:02:15.935
+three RGB points that partition the data into three clusters.
+
+00:02:15.935 --> 00:02:19.265
+Let's call these points center point A, center point B,
+
+00:02:19.264 --> 00:02:21.979
+and center point C. It then assigns
+
+00:02:21.979 --> 00:02:26.840
+every pixel value to a cluster based on its closest center point.
+
+00:02:26.840 --> 00:02:30.050
+So all of these pixels on the left belong to cluster A.
+
+00:02:30.050 --> 00:02:32.340
+And these more to the right to cluster B.
+
+00:02:32.340 --> 00:02:33.575
+And these on the bottom,
+
+00:02:33.574 --> 00:02:35.144
+to cluster C. And here,
+
+00:02:35.145 --> 00:02:37.784
+I divided each into a separately colored region.
+
+00:02:37.784 --> 00:02:44.025
+k-means then takes the actual average or mean of all the RGB values in each cluster.
+
+00:02:44.025 --> 00:02:48.460
+And these mean values become the updated values for each center point.
+
+00:02:48.460 --> 00:02:52.502
+Let's go back a step and take one cluster as an example, Cluster A,
+
+00:02:52.502 --> 00:02:58.765
+k-means looks at all the pixel values in this cluster and computes a mean RGB value.
+
+00:02:58.764 --> 00:03:00.924
+Let's call that mean A.
+
+00:03:00.925 --> 00:03:05.750
+It then updates the position of the center point A to be this mean value.
+
+00:03:05.750 --> 00:03:08.590
+This is why I initially called these center points.
+
+00:03:08.590 --> 00:03:11.349
+They're supposed to be in the center of their cluster.
+
+00:03:11.349 --> 00:03:13.879
+And it does the same thing for cluster B and
+
+00:03:13.879 --> 00:03:17.159
+center point B and cluster C and center point C,
+
+00:03:17.159 --> 00:03:21.669
+moving the guessed center points to the mean of their cluster values.
+
+00:03:21.669 --> 00:03:23.405
+Then, this process repeats.
+
+00:03:23.405 --> 00:03:26.000
+New clusters are formed based on where they are in
+
+00:03:26.000 --> 00:03:28.715
+relation to these new adjusted center points.
+
+00:03:28.715 --> 00:03:30.979
+And then, an updated mean is calculated from
+
+00:03:30.979 --> 00:03:34.139
+these clusters and the center points are updated again.
+
+00:03:34.139 --> 00:03:38.989
+So, there's a sort of pulling done by the data points to create new center points.
+
+00:03:38.990 --> 00:03:42.439
+This process repeats again and the center points will generally move
+
+00:03:42.439 --> 00:03:47.164
+a smaller and smaller distance from their previous value after each iteration.
+
+00:03:47.164 --> 00:03:49.819
+The algorithm keeps repeating these steps until it
+
+00:03:49.819 --> 00:03:53.439
+converges and the convergence is defined by us.
+
+00:03:53.439 --> 00:03:56.675
+It's usually after a number of iterations, say 10,
+
+00:03:56.675 --> 00:04:01.160
+or based on how much the center points move after each iteration.
+
+00:04:01.159 --> 00:04:04.400
+If the center points move less than some small value, say,
+
+00:04:04.400 --> 00:04:06.590
+one pixel during an iteration,
+
+00:04:06.590 --> 00:04:10.784
+then the center points have converged and the algorithm is finished.
+
+00:04:10.784 --> 00:04:16.209
+The center points that arise at the end of this process should best separate the data.
+
+00:04:16.209 --> 00:04:19.000
+Next, let's see how to do this clustering in code.
+

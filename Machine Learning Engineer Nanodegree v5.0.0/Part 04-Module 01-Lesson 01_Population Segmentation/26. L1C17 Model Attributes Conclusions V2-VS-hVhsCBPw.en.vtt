@@ -1,0 +1,280 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.750
+To really see the details of how counties are grouped into clusters,
+
+00:00:03.750 --> 00:00:06.705
+we have to look at the trained k-means model attributes.
+
+00:00:06.705 --> 00:00:08.144
+To get these attributes,
+
+00:00:08.144 --> 00:00:11.384
+we first have to find where our model is stored in S3,
+
+00:00:11.384 --> 00:00:13.029
+retrieving it by name.
+
+00:00:13.029 --> 00:00:15.599
+Word saved is defined by our output path,
+
+00:00:15.599 --> 00:00:17.655
+which is defined by our prefix,
+
+00:00:17.655 --> 00:00:19.260
+our k-means job name,
+
+00:00:19.260 --> 00:00:23.085
+and this extension output/model.tar.gz.
+
+00:00:23.085 --> 00:00:25.769
+I just copied this from when I called fit above,
+
+00:00:25.769 --> 00:00:29.280
+but you can also find this in your AWS training jobs console.
+
+00:00:29.280 --> 00:00:32.280
+Then I'm downloading and unzipping the model file,
+
+00:00:32.280 --> 00:00:34.365
+saving it as model algo-1.
+
+00:00:34.365 --> 00:00:36.710
+Then just as we did with the PCA model,
+
+00:00:36.710 --> 00:00:42.770
+I'm loading in those model details using our MXNet Library and loading it in as an array,
+
+00:00:42.770 --> 00:00:44.435
+and I can print out those values.
+
+00:00:44.435 --> 00:00:48.739
+This time, I can see that k-means actually just has one set of model parameters,
+
+00:00:48.738 --> 00:00:51.079
+and there are no names associated with it.
+
+00:00:51.079 --> 00:00:53.809
+These values are actually our cluster centroids,
+
+00:00:53.810 --> 00:00:58.025
+the location of each cluster identified by our k-means model.
+
+00:00:58.024 --> 00:01:02.500
+The location is a 70 point in PCA component space,
+
+00:01:02.500 --> 00:01:05.629
+since that's the kind of data we passed into this model for training.
+
+00:01:05.629 --> 00:01:06.829
+So in this next cell,
+
+00:01:06.829 --> 00:01:09.754
+I'm getting those centuroids from the model attribute array.
+
+00:01:09.754 --> 00:01:13.894
+I can see I have eight clusters here and R seven components.
+
+00:01:13.894 --> 00:01:17.899
+So this is the location of cluster zero in component space.
+
+00:01:17.900 --> 00:01:22.460
+But this table alone is a bit difficult to translate into meaningful relationships.
+
+00:01:22.459 --> 00:01:24.619
+We can look at values and see which
+
+00:01:24.620 --> 00:01:27.234
+have the highest values and which have the lowest ones,
+
+00:01:27.234 --> 00:01:29.329
+but there's another way to visualize this.
+
+00:01:29.329 --> 00:01:32.170
+Seven dimensions can't be visualized in normal space,
+
+00:01:32.170 --> 00:01:34.879
+but I can look at this data as a heatmap.
+
+00:01:34.879 --> 00:01:38.449
+On the x-axis, I have a cluster label zero through seven,
+
+00:01:38.450 --> 00:01:42.295
+and on the y, I have our components, C1 through C7.
+
+00:01:42.295 --> 00:01:44.719
+This heatmap is basically showing me which of
+
+00:01:44.719 --> 00:01:48.019
+these weights is most important in defining a cluster.
+
+00:01:48.019 --> 00:01:50.674
+One thing that sticks out is our cluster two.
+
+00:01:50.674 --> 00:01:52.250
+I can see that for this cluster,
+
+00:01:52.250 --> 00:01:55.010
+it has a really high value for a component one.
+
+00:01:55.010 --> 00:01:58.310
+Now if, you've forgotten what these components exactly correspond to,
+
+00:01:58.310 --> 00:02:01.504
+you can use the display component function from above.
+
+00:02:01.504 --> 00:02:03.319
+This takes in our DataFrame V,
+
+00:02:03.319 --> 00:02:04.504
+a list of features,
+
+00:02:04.504 --> 00:02:05.929
+and a component number.
+
+00:02:05.930 --> 00:02:08.094
+I'm going to examine our first component again.
+
+00:02:08.094 --> 00:02:12.229
+So now, this is telling us what demographic features make up component one,
+
+00:02:12.229 --> 00:02:14.239
+and when I go back to this heatmap,
+
+00:02:14.240 --> 00:02:18.230
+it gives me a little more insight into what exactly defines our cluster two.
+
+00:02:18.229 --> 00:02:20.829
+Component four also looks like an interesting one,
+
+00:02:20.830 --> 00:02:23.485
+it has a low value for cluster two,
+
+00:02:23.485 --> 00:02:26.735
+but high values for cluster zero and cluster seven.
+
+00:02:26.735 --> 00:02:28.415
+So let's take a look at that one.
+
+00:02:28.414 --> 00:02:31.609
+So by looking at our component makeup and this heatmap,
+
+00:02:31.610 --> 00:02:34.895
+we can really start to tell something about the makeup of each cluster.
+
+00:02:34.895 --> 00:02:38.314
+But now, what does this have to do with our actual county data?
+
+00:02:38.314 --> 00:02:40.655
+You may be wondering which of our counties
+
+00:02:40.655 --> 00:02:43.280
+are clustered together and found to be most similar.
+
+00:02:43.280 --> 00:02:47.030
+So we can also map the cluster labels back to each data point,
+
+00:02:47.030 --> 00:02:50.659
+each county, and see which of them were grouped in the same cluster.
+
+00:02:50.659 --> 00:02:54.984
+So here, I'm actually adding labels column to our transformed counties DataFrame.
+
+00:02:54.985 --> 00:02:59.555
+I can sort it and see which are clustered in cluster zero for example.
+
+00:02:59.555 --> 00:03:02.060
+We can see the variety of counties in cluster
+
+00:03:02.060 --> 00:03:04.569
+zero just from looking at the first few data points.
+
+00:03:04.569 --> 00:03:06.664
+We can see datapoints in Georgia,
+
+00:03:06.664 --> 00:03:10.000
+Louisiana, Florida, and Virginia for example.
+
+00:03:10.000 --> 00:03:12.875
+I can look at just one cluster at a time by getting
+
+00:03:12.875 --> 00:03:15.870
+a label equal to a certain cluster number that I'm interested in.
+
+00:03:15.870 --> 00:03:19.895
+So if I want to look at counties that are all grouped into cluster one, I can.
+
+00:03:19.895 --> 00:03:23.375
+These are still sorted by their original alphabetical order.
+
+00:03:23.375 --> 00:03:25.939
+I think it's interesting to know that these counties have
+
+00:03:25.939 --> 00:03:29.479
+similar characteristics as given by our principle components,
+
+00:03:29.479 --> 00:03:32.090
+even though they're in different states for example.
+
+00:03:32.090 --> 00:03:34.625
+So this analysis is the end of this notebook.
+
+00:03:34.625 --> 00:03:37.729
+You've successfully completed population segmentation.
+
+00:03:37.729 --> 00:03:40.969
+This type of information is most often used to create
+
+00:03:40.969 --> 00:03:43.939
+localized marketing campaigns that want to target
+
+00:03:43.939 --> 00:03:47.509
+a variety of regions based on demographics similarities.
+
+00:03:47.509 --> 00:03:51.549
+Now, I'd encourage you to play around with the visualizations in this notebook.
+
+00:03:51.550 --> 00:03:53.260
+As one last step,
+
+00:03:53.259 --> 00:03:55.579
+if you decide you're entirely done,
+
+00:03:55.580 --> 00:03:58.370
+I suggest you take further resource cleaning steps,
+
+00:03:58.370 --> 00:04:00.935
+and I've linked to some relevant documentation here.
+
+00:04:00.935 --> 00:04:02.495
+To do a thorough cleanup,
+
+00:04:02.495 --> 00:04:05.995
+you'll actually want to go to your main Amazon SageMaker console.
+
+00:04:05.995 --> 00:04:07.965
+You'll want to click on "Endpoint",
+
+00:04:07.965 --> 00:04:12.710
+"End point configurations," and "Models" and manually delete them from the console.
+
+00:04:12.710 --> 00:04:17.090
+You can also go to S3 and delete anything in the S3 bucket,
+
+00:04:17.089 --> 00:04:18.984
+this is a good habit to get into.
+
+00:04:18.985 --> 00:04:21.230
+Now, using all that you've learned in this lesson,
+
+00:04:21.230 --> 00:04:24.170
+you should feel prepared to tackle any unsupervised task.
+
+00:04:24.170 --> 00:04:26.360
+Next, we'll recap what you've learned,
+
+00:04:26.360 --> 00:04:29.400
+and then move on to supervised learning.
+

@@ -1,0 +1,229 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.334
+In this lesson, we're going to take a look at updating an existing endpoint.
+
+00:00:04.334 --> 00:00:07.769
+Suppose that you had already constructed a model and deployed it,
+
+00:00:07.769 --> 00:00:12.614
+and that deployed model is now being used in an application somewhere.
+
+00:00:12.615 --> 00:00:15.074
+You might later on need to change the model,
+
+00:00:15.074 --> 00:00:18.149
+but want to do so in a way that didn't
+
+00:00:18.149 --> 00:00:21.869
+interrupt availability to whatever app was using it.
+
+00:00:21.870 --> 00:00:27.325
+SageMaker provides functionality that allows you to do this and not have any downtime.
+
+00:00:27.324 --> 00:00:30.349
+In addition we're going to look a little bit closer at
+
+00:00:30.350 --> 00:00:33.545
+the low-level way of creating endpoint configurations,
+
+00:00:33.545 --> 00:00:36.950
+as this will allow us some more flexibility and let
+
+00:00:36.950 --> 00:00:40.340
+us build some slightly more sophisticated endpoints.
+
+00:00:40.340 --> 00:00:42.890
+For example, we'll take a look at creating
+
+00:00:42.890 --> 00:00:46.939
+an endpoint that sends data to multiple different models.
+
+00:00:46.939 --> 00:00:48.649
+This might be helpful, for example,
+
+00:00:48.649 --> 00:00:50.320
+when doing an AB test.
+
+00:00:50.320 --> 00:00:53.060
+Along the way we will also be using a mixture of
+
+00:00:53.060 --> 00:00:57.140
+the high and low level approaches to creating things inside of SageMaker.
+
+00:00:57.140 --> 00:00:59.450
+This can be helpful in your own work because
+
+00:00:59.450 --> 00:01:02.390
+the high-level approach is really convenient in some cases,
+
+00:01:02.390 --> 00:01:06.349
+but in others, you may need the flexibility of the low-level approach.
+
+00:01:06.349 --> 00:01:09.844
+To start with, we're going to look at the Boston Housing dataset again,
+
+00:01:09.844 --> 00:01:12.140
+and as we've done before in other notebooks,
+
+00:01:12.140 --> 00:01:14.795
+we will begin by creating an XGBoost model
+
+00:01:14.795 --> 00:01:18.015
+that models the median cost of a house in the Boston area.
+
+00:01:18.015 --> 00:01:22.250
+We, of course, import all of the necessary modules including all the SageMaker ones,
+
+00:01:22.250 --> 00:01:23.569
+then we load in the data,
+
+00:01:23.569 --> 00:01:27.004
+split it up into training validation and testing datasets,
+
+00:01:27.004 --> 00:01:29.739
+save that data to our local notebook instance,
+
+00:01:29.739 --> 00:01:31.379
+upload it to S3,
+
+00:01:31.379 --> 00:01:34.349
+and then we go off and train a model.
+
+00:01:34.349 --> 00:01:37.949
+To do that remember first we create an estimator object,
+
+00:01:37.950 --> 00:01:41.980
+which uses the XGBoost container for training.
+
+00:01:41.980 --> 00:01:46.370
+We then set hyperparameters specific to that algorithm and then we
+
+00:01:46.370 --> 00:01:51.109
+call fit to fit our model to the training and validation data.
+
+00:01:51.109 --> 00:01:56.575
+Now, the result of calling the fit method is that model artifacts have been created.
+
+00:01:56.575 --> 00:01:59.329
+However, the model itself has not yet been
+
+00:01:59.329 --> 00:02:02.239
+created and when using the high level approach,
+
+00:02:02.239 --> 00:02:05.059
+the model won't get created unless it needs to be.
+
+00:02:05.060 --> 00:02:11.030
+For example, if you create a transformation object or if you deploy the model.
+
+00:02:11.030 --> 00:02:13.610
+Since we want to have more control over the deployed model,
+
+00:02:13.610 --> 00:02:18.080
+we're going to create our own model using the low-level approach.
+
+00:02:18.080 --> 00:02:20.960
+So, to do that we set up the data structure that
+
+00:02:20.960 --> 00:02:24.335
+describes which containers should be used for inference,
+
+00:02:24.335 --> 00:02:28.340
+and in addition points to the model artifacts that were created earlier.
+
+00:02:28.340 --> 00:02:31.610
+Once we've done that we can ask SageMaker to create the model,
+
+00:02:31.610 --> 00:02:34.669
+and once we have a model we can create an endpoint configuration.
+
+00:02:34.669 --> 00:02:38.625
+Now, this is the same sort of endpoint configuration that you've seen before,
+
+00:02:38.625 --> 00:02:44.164
+where we only have a single production variant and we call that variant XGB model.
+
+00:02:44.164 --> 00:02:46.099
+Once we have an endpoint configuration,
+
+00:02:46.099 --> 00:02:50.375
+we can ask SageMaker to create an endpoint with those properties.
+
+00:02:50.375 --> 00:02:54.469
+Once that's done we can test our endpoint to make sure that it's working.
+
+00:02:54.469 --> 00:02:59.509
+First, we serialize the input data and then send it off to our endpoint.
+
+00:02:59.509 --> 00:03:02.719
+The resulting response we can look at and like
+
+00:03:02.719 --> 00:03:05.824
+most things in SageMaker the result is a JSON object,
+
+00:03:05.824 --> 00:03:08.734
+which from a Python perspective,
+
+00:03:08.735 --> 00:03:11.800
+might be thought of as a dictionary object.
+
+00:03:11.800 --> 00:03:16.400
+This response object contains a bunch of information about the results of our model,
+
+00:03:16.400 --> 00:03:19.969
+in particular it tells us the format of the data that was returned,
+
+00:03:19.969 --> 00:03:23.669
+it tells us the name of the production variant that our data was sent to.
+
+00:03:23.669 --> 00:03:29.619
+Now, in this particular case our endpoint only ever sent data to a single model,
+
+00:03:29.620 --> 00:03:33.379
+so we should expect that this is the variant that the data was sent to,
+
+00:03:33.379 --> 00:03:35.539
+and we have a body object,
+
+00:03:35.539 --> 00:03:37.384
+which is a streaming object.
+
+00:03:37.384 --> 00:03:40.719
+In order to access the contents of a streaming object,
+
+00:03:40.719 --> 00:03:42.625
+we need to first read it in,
+
+00:03:42.625 --> 00:03:45.844
+and once we've read it in we have a bitstream.
+
+00:03:45.844 --> 00:03:50.180
+Since we know that our result should be an actual string,
+
+00:03:50.180 --> 00:03:53.344
+we need to convert that bit stream
+
+00:03:53.344 --> 00:03:57.530
+into a string which we can use the decode method to do.
+
+00:03:57.530 --> 00:04:00.995
+The result is almost 40,
+
+00:04:00.995 --> 00:04:04.219
+which is not super close to the true result,
+
+00:04:04.219 --> 00:04:05.379
+but it's close enough.
+
+00:04:05.379 --> 00:04:10.180
+Now, we are going to use the XGBoost model a little more later on,
+
+00:04:10.180 --> 00:04:13.640
+but for now we can shut down the endpoint that we created.
+
+00:04:13.639 --> 00:04:17.000
+Next, we're going to create a second model.
+

@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.540
+In this lesson,we're going to look at how you can change
+
+00:00:03.540 --> 00:00:06.915
+a deployed model without needing to first shut it down.
+
+00:00:06.915 --> 00:00:10.080
+There are many situations that might arise during the life of
+
+00:00:10.080 --> 00:00:13.919
+a deployed model that would cause it to no longer function as well.
+
+00:00:13.919 --> 00:00:18.649
+For example, maybe you're creating a recommendation engine and
+
+00:00:18.649 --> 00:00:23.734
+its job is to recommend to a user different articles they might find interesting.
+
+00:00:23.734 --> 00:00:27.574
+Over time, your user could develop new interests,
+
+00:00:27.574 --> 00:00:30.704
+or maybe old interests no longer apply.
+
+00:00:30.704 --> 00:00:35.104
+In that case, retraining your model might be a good idea.
+
+00:00:35.104 --> 00:00:40.359
+Once you do, you will need to deploy that new model and replace the old one.
+
+00:00:40.359 --> 00:00:43.369
+SageMaker provides functionality to let you do
+
+00:00:43.369 --> 00:00:46.280
+this without interrupting service to the end-user.
+
+00:00:46.280 --> 00:00:50.760
+Next, you're going to learn how to use this functionality yourself.
+
