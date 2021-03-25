@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.110 --> 00:00:04.245
+Let's discuss the details of the machine learning workflow.
+
+00:00:04.245 --> 00:00:07.575
+It's composed of three components:
+
+00:00:07.575 --> 00:00:11.789
+explore and process the data, modeling, and deployment.
+
+00:00:11.789 --> 00:00:14.364
+The first step is to retrieve the data.
+
+00:00:14.365 --> 00:00:17.839
+For a Kaggle competition, this is simple.
+
+00:00:17.839 --> 00:00:20.105
+We're given a dataset that contains
+
+00:00:20.105 --> 00:00:23.469
+all the housing data that we'll need to train our model.
+
+00:00:23.469 --> 00:00:29.554
+Therefore, this step involves downloading the data in this case to CSV files.
+
+00:00:29.554 --> 00:00:33.594
+Next, we'll clean the data and explore the data.
+
+00:00:33.594 --> 00:00:36.109
+This involves exploring and visualizing
+
+00:00:36.109 --> 00:00:39.109
+our data to identify the most promising features like
+
+00:00:39.109 --> 00:00:41.689
+relationships between housing values and
+
+00:00:41.689 --> 00:00:44.809
+the number of rooms that can be used in the modeling component.
+
+00:00:44.810 --> 00:00:48.350
+The data may also have to be cleaned to identify and remove
+
+00:00:48.350 --> 00:00:52.405
+any anomalous values such as outliers or mistakes.
+
+00:00:52.405 --> 00:00:56.814
+The final step of this component is to prepare and transform the data.
+
+00:00:56.814 --> 00:01:01.239
+Most machine learning models expect standardized data values.
+
+00:01:01.240 --> 00:01:06.969
+Therefore, this step often involves normalizing and converting the format of the data.
+
+00:01:06.969 --> 00:01:11.655
+In addition, this step is where the data is split into training,
+
+00:01:11.655 --> 00:01:14.379
+validation, and test datasets.
+
+00:01:14.379 --> 00:01:19.084
+Remember, the training dataset is used to train the model.
+
+00:01:19.084 --> 00:01:24.329
+The validation dataset is used for model tuning and selection.
+
+00:01:24.329 --> 00:01:29.670
+The test dataset is used after training for evaluation of the model.
+
+00:01:29.670 --> 00:01:31.855
+The next component, modeling,
+
+00:01:31.855 --> 00:01:36.094
+focuses on developing the model that's deployed to production.
+
+00:01:36.094 --> 00:01:41.799
+The first step is where the model is developed and trained using the training dataset.
+
+00:01:41.799 --> 00:01:46.789
+The final step of modelling is to evaluate and validate the model.
+
+00:01:46.790 --> 00:01:50.960
+In this step, you'll tune the model using the validation data set.
+
+00:01:50.959 --> 00:01:53.449
+You'll also select the model if you've developed
+
+00:01:53.450 --> 00:01:56.439
+more than one train model in the previous step.
+
+00:01:56.439 --> 00:02:00.469
+The final step is to evaluate your model using the test dataset.
+
+00:02:00.469 --> 00:02:04.745
+The final component of deployment focuses on deploying,
+
+00:02:04.745 --> 00:02:09.055
+monitoring, and updating the model in the production environment.
+
+00:02:09.055 --> 00:02:12.105
+This is what we'll be focusing on in this lesson,
+
+00:02:12.104 --> 00:02:13.780
+and the rest of the nanodegree.
+
+00:02:13.780 --> 00:02:17.495
+We'll start with deploying the model to the production environment.
+
+00:02:17.495 --> 00:02:19.849
+Simply put, this means making your model
+
+00:02:19.849 --> 00:02:23.460
+available for use by web or software application.
+
+00:02:23.460 --> 00:02:25.189
+For a Kaggle example,
+
+00:02:25.189 --> 00:02:27.925
+we'll deploy the model to a smartphone application.
+
+00:02:27.925 --> 00:02:32.830
+This will allow application users to determine the worth of Boston houses based
+
+00:02:32.830 --> 00:02:38.175
+upon a house's features The final step is to monitor and update the deployed model.
+
+00:02:38.175 --> 00:02:42.530
+With our example, imagine there's a tech boom in the Boston area,
+
+00:02:42.530 --> 00:02:46.759
+and it causes a dramatic increase in the median housing prices.
+
+00:02:46.759 --> 00:02:48.280
+To update your model,
+
+00:02:48.280 --> 00:02:51.500
+you'll build and train it using this new data,
+
+00:02:51.500 --> 00:02:55.569
+and then deploy it as a new version of the smartphone application.
+
+00:02:55.569 --> 00:03:01.590
+Application users can access the updated model by downloading the updated application.
+
+00:03:01.590 --> 00:03:04.819
+The cyclical nature of the workflow enables
+
+00:03:04.819 --> 00:03:09.430
+user data captured during deployment to be used to create new models.
+
+00:03:09.430 --> 00:03:14.210
+Specifically, the data captured during deployment can be explored and
+
+00:03:14.210 --> 00:03:16.490
+processed in the first component then
+
+00:03:16.490 --> 00:03:19.100
+used to develop a new model on the second component,
+
+00:03:19.099 --> 00:03:20.479
+and finally, deploy to
+
+00:03:20.479 --> 00:03:23.994
+the production environment in the third component of the machine learning workflow.
+
+00:03:23.995 --> 00:03:27.890
+Model deployment is often a critical aspect of machine learning in
+
+00:03:27.889 --> 00:03:32.359
+the workplace that's why it's good to keep the machine learning workflow in mind.
+

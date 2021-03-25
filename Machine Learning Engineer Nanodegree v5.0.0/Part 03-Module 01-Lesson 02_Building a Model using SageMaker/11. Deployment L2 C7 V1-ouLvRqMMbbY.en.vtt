@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.585
+Now, you're going to get a chance to use SageMaker to build a model.
+
+00:00:03.585 --> 00:00:05.219
+To start with, open of
+
+00:00:05.219 --> 00:00:09.870
+sagemaker-deployment directory and then inside of that, the mini-projects directory.
+
+00:00:09.869 --> 00:00:11.894
+The notebook we're going to be working in is,
+
+00:00:11.894 --> 00:00:15.599
+IMDB Sentiment Analysis-XGBoost( batch transform).
+
+00:00:15.599 --> 00:00:20.250
+In this notebook, you're going to use SageMaker to create an XGBoost model,
+
+00:00:20.250 --> 00:00:24.120
+that we'll try determine whether a review posted on
+
+00:00:24.120 --> 00:00:28.350
+the Internet movie database is positive or negative.
+
+00:00:28.350 --> 00:00:33.000
+To begin with, step through the various cells that download the data,
+
+00:00:33.000 --> 00:00:36.149
+prepare the data, and process the data.
+
+00:00:36.149 --> 00:00:39.530
+There isn't really anything for you to do here except execute the cells,
+
+00:00:39.530 --> 00:00:41.435
+and you should be warned that,
+
+00:00:41.435 --> 00:00:44.510
+the data processing can take some time,
+
+00:00:44.509 --> 00:00:46.549
+for me it took almost a full hour.
+
+00:00:46.549 --> 00:00:49.969
+So, I would recommend running all of the cells first,
+
+00:00:49.969 --> 00:00:53.420
+and then reading through to see what they're doing after the fact.
+
+00:00:53.420 --> 00:00:56.515
+Step four is where your work is going to begin.
+
+00:00:56.515 --> 00:01:01.924
+To start, you will break the training data set up into a validation and training set,
+
+00:01:01.924 --> 00:01:07.094
+then save the test training and validation sets to a file,
+
+00:01:07.094 --> 00:01:09.784
+and then upload those files to S3,
+
+00:01:09.784 --> 00:01:13.459
+just like we did in the Boston housing notebook.
+
+00:01:13.459 --> 00:01:19.099
+Then, you will create an XGBoost model, and fit it.
+
+00:01:19.099 --> 00:01:24.359
+Lastly, you will create a batch transform job to test the model,
+
+00:01:24.359 --> 00:01:27.640
+and take a look at how accurate your predictions are.
+
+00:01:27.640 --> 00:01:31.400
+Optionally, you can make sure to remove any files that were
+
+00:01:31.400 --> 00:01:34.910
+created in the data directory and the cache directory.
+
+00:01:34.909 --> 00:01:37.534
+This just makes sure that the disk drive
+
+00:01:37.534 --> 00:01:41.119
+on your notebook instance doesn't get filled up too quickly.
+
+00:01:41.120 --> 00:01:45.320
+I would recommend taking a look at the Boston housing notebook,
+
+00:01:45.319 --> 00:01:47.750
+as a lot of the things that we did there,
+
+00:01:47.750 --> 00:01:52.340
+are going to translate into the tasks that you want to do in this notebook.
+
+00:01:52.340 --> 00:01:54.020
+If you do get stuck however,
+
+00:01:54.019 --> 00:01:55.849
+don't worry because in the next video,
+
+00:01:55.849 --> 00:01:58.599
+I'm going to go through in detail my solution.
+

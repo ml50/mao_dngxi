@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.970
+In this lesson, we're going to take a look at how you can
+
+00:00:02.970 --> 00:00:05.849
+use SageMaker to create better tuned models.
+
+00:00:05.849 --> 00:00:08.355
+Often, when we're creating a model,
+
+00:00:08.355 --> 00:00:10.620
+we have to choose some hyperparameters.
+
+00:00:10.619 --> 00:00:14.969
+For example, you might need to choose the number of vertices in a tree,
+
+00:00:14.970 --> 00:00:16.920
+created by a random tree model.
+
+00:00:16.920 --> 00:00:22.350
+Or, you might choose the size of a hidden layer in a neural network.
+
+00:00:22.350 --> 00:00:26.535
+It would be nice if there was a way to test a whole bunch of hyperparameters,
+
+00:00:26.535 --> 00:00:29.295
+and then pick the best performing model.
+
+00:00:29.295 --> 00:00:35.070
+SageMaker provides a process for doing this called hyperparameter tuning.
+
+00:00:35.070 --> 00:00:39.359
+Next, you're going to see how you can do this on your own models.
+

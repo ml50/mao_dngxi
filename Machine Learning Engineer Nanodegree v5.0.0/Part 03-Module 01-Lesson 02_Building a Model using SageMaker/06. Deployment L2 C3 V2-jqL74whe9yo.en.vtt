@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.970
+Now, that our notebook instance is in service,
+
+00:00:02.970 --> 00:00:06.675
+we can click on Open to open up the Notebook Hub.
+
+00:00:06.674 --> 00:00:09.269
+Zoom in a little bit. All right.
+
+00:00:09.269 --> 00:00:10.529
+So, on the top here,
+
+00:00:10.529 --> 00:00:13.799
+you can see there's a tab that says, ''SageMaker Examples.''
+
+00:00:13.800 --> 00:00:17.550
+It gives you a bunch of notebooks that work through
+
+00:00:17.550 --> 00:00:19.679
+different examples of using SageMaker
+
+00:00:19.679 --> 00:00:22.530
+and I would certainly recommend that you take a look at some of those,
+
+00:00:22.530 --> 00:00:24.510
+if you'd like some additional resources.
+
+00:00:24.510 --> 00:00:28.350
+For now, though we're going to use git to download
+
+00:00:28.350 --> 00:00:32.655
+the notebooks for this module into our notebook instance.
+
+00:00:32.655 --> 00:00:37.880
+To do that, we click on New and open up a Terminal. All right.
+
+00:00:37.880 --> 00:00:41.850
+So, first we want to switch into the SageMaker directory,
+
+00:00:41.850 --> 00:00:43.634
+which we'll do like this,
+
+00:00:43.634 --> 00:00:47.899
+and now what we want to do is clone the GitHub repository
+
+00:00:47.899 --> 00:00:52.000
+for this module into the SageMaker directory.
+
+00:00:52.000 --> 00:00:57.709
+So, we do that by typing git clone and then the name of the repository which is
+
+00:00:57.709 --> 00:01:06.685
+https://github.com/udacity/sagemaker-deployment and there we go.
+
+00:01:06.685 --> 00:01:09.710
+Now, that we're done we just type exit and close
+
+00:01:09.709 --> 00:01:13.009
+the terminal tab and you can see that a directory has
+
+00:01:13.010 --> 00:01:16.010
+been added called sagemaker-deployment and inside are
+
+00:01:16.010 --> 00:01:19.600
+all of the different notebooks that we'll be going through.
+

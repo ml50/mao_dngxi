@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+Our goal in the remaining videos is to start
+
+00:00:02.279 --> 00:00:05.009
+looking into some of the details of what SageMaker is doing.
+
+00:00:05.009 --> 00:00:09.705
+To do this we will start by looking at the Boston Housing example that we started with,
+
+00:00:09.705 --> 00:00:12.179
+except instead of using the high-level API,
+
+00:00:12.179 --> 00:00:13.809
+we're going to use the low-level one.
+
+00:00:13.810 --> 00:00:16.829
+This way we can see all of the steps that need to be taken,
+
+00:00:16.829 --> 00:00:19.469
+and all of the objects that are created along the way.
+
+00:00:19.469 --> 00:00:21.024
+If you'd like to follow along,
+
+00:00:21.024 --> 00:00:24.229
+navigate into the tutorials folder and open up
+
+00:00:24.230 --> 00:00:29.679
+the Boston Housing-XGBoost Batch Transform Low-Level notebook.
+
+00:00:29.679 --> 00:00:32.090
+I've already opened up the notebook here,
+
+00:00:32.090 --> 00:00:34.070
+and I've run the first few cells.
+
+00:00:34.070 --> 00:00:38.365
+In beginning of this notebook is the same as the high-level version that you did earlier.
+
+00:00:38.365 --> 00:00:41.000
+A quick word of explanation before we get started.
+
+00:00:41.000 --> 00:00:43.700
+The reason for looking closely at the details is so that when
+
+00:00:43.700 --> 00:00:47.020
+errors inevitably show up they're easier to diagnose.
+
+00:00:47.020 --> 00:00:50.540
+SageMaker's high-level API make some choices on your behalf,
+
+00:00:50.539 --> 00:00:53.299
+which can be great when you want to get something done,
+
+00:00:53.299 --> 00:00:55.640
+but can be a little more problematic when things go wrong.
+
+00:00:55.640 --> 00:00:59.509
+So, now that we've downloaded the data and done some initial processing,
+
+00:00:59.509 --> 00:01:02.039
+it's time to upload the data files to S3.
+
+00:01:02.039 --> 00:01:05.319
+As before the way we do that is to first save
+
+00:01:05.319 --> 00:01:08.739
+the files locally inside of the notebook instance.
+
+00:01:08.739 --> 00:01:14.890
+To do that we start by making sure that a directory exists inside of the data subfolder,
+
+00:01:14.890 --> 00:01:19.930
+and then we use Pandas to save those files to the directory we've chosen.
+
+00:01:19.930 --> 00:01:22.350
+To see where those files have been saved,
+
+00:01:22.349 --> 00:01:25.839
+if we select the tab that shows the notebook hub,
+
+00:01:25.840 --> 00:01:28.030
+and we navigate up one directory,
+
+00:01:28.030 --> 00:01:30.849
+we can see that there's a folder called data,
+
+00:01:30.849 --> 00:01:34.269
+inside of the Data folder is another folder called Boston.
+
+00:01:34.269 --> 00:01:37.194
+Now, if you remember from the notebook.
+
+00:01:37.194 --> 00:01:42.319
+We're saving the Data to the Boston subdirectory of the data directory.
+
+00:01:42.319 --> 00:01:44.489
+Heading back to the notebook hub page,
+
+00:01:44.489 --> 00:01:47.734
+inside of the Boston subdirectory we can see the test,
+
+00:01:47.734 --> 00:01:51.954
+training, and validation csv files that we created using Pandas.
+
+00:01:51.954 --> 00:01:55.250
+Now that the files have been saved on the notebook instance,
+
+00:01:55.250 --> 00:01:57.019
+we can upload them to S3.
+
+00:01:57.019 --> 00:01:58.489
+Remember to do that,
+
+00:01:58.489 --> 00:02:02.509
+we use the upload data method of the session object.
+
+00:02:02.510 --> 00:02:03.680
+Before we do this,
+
+00:02:03.680 --> 00:02:07.105
+let's talk a little bit about what S3 is.
+
+00:02:07.105 --> 00:02:12.640
+In essence, S3 is Amazon's data storage facility.
+
+00:02:12.639 --> 00:02:18.034
+It provides a place for you to store data that you might want to read many times.
+
+00:02:18.034 --> 00:02:21.745
+For example, training data or a saved model.
+
+00:02:21.745 --> 00:02:24.844
+If we open up the AWS console page,
+
+00:02:24.844 --> 00:02:29.719
+which we can do by clicking on the AWS icon in the top left corner,
+
+00:02:29.719 --> 00:02:33.560
+and scroll down and look under storage for S3.
+
+00:02:33.560 --> 00:02:36.590
+We can open up the S3 console.
+
+00:02:36.590 --> 00:02:38.580
+This will show you any buckets,
+
+00:02:38.580 --> 00:02:43.280
+remember a bucket works like a drive that you have created inside of S3.
+
+00:02:43.280 --> 00:02:45.800
+Currently, I don't have any buckets.
+
+00:02:45.800 --> 00:02:50.469
+If I go back to the notebook and I execute this cell,
+
+00:02:50.469 --> 00:02:53.599
+SageMaker tells me that the default bucket
+
+00:02:53.599 --> 00:02:57.169
+associated with this notebook instance has been created.
+
+00:02:57.169 --> 00:03:03.123
+Now if I navigate back to the S3 console and refresh the page,
+
+00:03:03.123 --> 00:03:06.155
+I can see the S3 bucket that has been created.
+
+00:03:06.155 --> 00:03:09.650
+Further, if I select this and open it up,
+
+00:03:09.650 --> 00:03:12.545
+we can see that there's a single directory,
+
+00:03:12.544 --> 00:03:16.209
+again with the same name that we specified in our notebook,
+
+00:03:16.210 --> 00:03:21.129
+and inside of that directory are the test train and validation files.
+

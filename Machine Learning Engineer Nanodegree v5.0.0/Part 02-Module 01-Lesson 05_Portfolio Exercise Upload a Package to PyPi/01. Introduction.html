@@ -1,0 +1,445 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Introduction
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Portfolio Exercise: Upload a Package to PyPi
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Troubleshooting Possible Errors.html">
+       02. Troubleshooting Possible Errors
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Workspace.html">
+       03. Workspace
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Introduction
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="portfolio-exercise-upload-a-package-to-pypi">
+          Portfolio Exercise: Upload a Package to PyPi
+         </h1>
+         <p>
+          Personal portfolios are an excellent way to demonstrate your knowledge and creativity. In fact, they are little by little becoming a must-have for people working in the tech industry. In this portfolio building exercise, you will build a Python package and upload the package to PyPi.
+         </p>
+         <p>
+          <strong>
+           NOTE that a portfolio exercise like this is NOT reviewed. So you will not submit your work on this, and you do not need to complete this assignment in order to graduate.
+          </strong>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="getting-started">
+          Getting Started
+         </h1>
+         <p>
+          Next, you'll find a blank classroom workspace where you can do your work. The benefits of using the workspace over your own computer are two fold:
+         </p>
+         <ul>
+          <li>
+           you shouldn't run into set-up issues
+          </li>
+          <li>
+           if you install something on the workspace that causes issues, you can always reset everything
+          </li>
+         </ul>
+         <p>
+          The workspace is the same Ubuntu Linux environment you've been using to do the exercises. You are also welcome to develop your package locally on your own computer if you prefer.
+         </p>
+         <p>
+          For local development, if you are developing on macOS, you can use the exact same terminal commands. On a windows machine, the commands are slightly different and you'll need to use the command prompt. This link contains a
+          <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/ap-doslinux.html" rel="noopener noreferrer" target="_blank">
+           comparison of MS-DOS vs Linux commands
+          </a>
+          .
+         </p>
+         <p>
+          If at some point you decide to reset your workspace, make sure you have saved your work somewhere else like in a GitHub repository; otherwise, all of your work will be deleted. You can connect to a remote GitHub repo from within the workspace terminal. Here is a reminder of how to do that:
+          <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" rel="noopener noreferrer" target="_blank">
+           adding an existing repository to GitHub using the command line
+          </a>
+          . Another option is to download files or folders directly from the workspace. You right click on the file/folder name and click "Download".
+         </p>
+         <p>
+          In the workspace, you'll see that the files and folders have already been set up for you in terms of the structure, but the files themselves are empty.
+         </p>
+         <p>
+          Every time you type in the workspace, your work is automatically saved. But you should still save and commit your work to GitHub as well.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="instructions">
+          Instructions
+         </h1>
+         <p>
+          Build a Python package and upload the package to PyPi. We encourage you to use object-oriented programming and tackle a problem that interests you. The Introduction to Object-Oriented Programming lesson has all of the information needed to create a package and upload the package. As mentioned in the lesson material, you'll need to use a unique name to upload the package to PyPi since each package needs a unique name; hence 'dsnd-probability' will not work since that package name is already taken.
+         </p>
+         <p>
+          Here are a few ideas for packages:
+         </p>
+         <ul>
+          <li>
+           create a package that does basic matrix algebra such as addition, subtraction, multiplication, matrix inversion, etc.
+          </li>
+          <li>
+           make a calculus package that implements algorithms such as Newton's method
+          </li>
+          <li>
+           create a package built on top of Matplotlib or Seaborn that creates well-formatted, well labeled visualizations
+          </li>
+          <li>
+           create an object-oriented package to play a game of tic-tac-toe between two human players.
+          </li>
+          <li>
+           or make a number guessing game where the computer randomly chooses an integer and then tells a human player if a guess is higher or lower than the number
+          </li>
+         </ul>
+         <p>
+          Feel free to come up with your own ideas. The main goal is to develop and demonstrate your skills in object-oriented programming and uploading packages to PyPi.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="reminders">
+          Reminders
+         </h1>
+         <ul>
+          <li>
+           include a README file detailing the files in your package and how to install the package.
+          </li>
+          <li>
+           Comment your code - use docstrings and inline comments where appropriate.
+          </li>
+          <li>
+           Refactor code when possible - if you find your functions are getting too long, then refactor your code!
+          </li>
+          <li>
+           Use object-oriented programming whenever it makes sense to do so.
+          </li>
+          <li>
+           You're encouraged to write unit tests! The coding exercises in this lesson contained unit tests, so you can use those tests as a model for your package.
+          </li>
+          <li>
+           Use GitHub for version control, and commit your work often.
+          </li>
+         </ul>
+         <p>
+          As a reminder, your package should be placed in a folder with the following folders and files:
+         </p>
+         <ul>
+          <li>
+           a folder with the name of your package that contains:
+           <ul>
+            <li>
+             the Python code that makes up your package
+            </li>
+            <li>
+             a
+             <code>
+              README.md
+             </code>
+             file
+            </li>
+            <li>
+             an
+             <code>
+              __init__.py
+             </code>
+            </li>
+            <li>
+             <code>
+              license.txt
+             </code>
+            </li>
+            <li>
+             <code>
+              setup.cfg
+             </code>
+            </li>
+           </ul>
+          </li>
+          <li>
+           setup.py file
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="hints-and-helpful-links">
+          Hints and Helpful Links
+         </h1>
+         <p>
+          Because this exercise requires writing and organizing code in a specific way, you might have to rewatch some of the lecture videos especially the "Putting Code on PyPi" concept.
+         </p>
+         <p>
+          Before you upload your code to PyPi, you should first pip install the package locally to make sure everything works as expected. The "Making a Package" and "Virtual Environments" lesson concepts should be helpful. You should also consider writing unit tests to test the functionality of your package. In the object-oriented programming lesson workspace, there were unit tests inside the 4a_binomial_package folder that you can use to help you get started. Those were in a file called test.py.
+         </p>
+         <p>
+          The object-oriented programming lesson included a complete, working package called dsnd-probability. We encourage you to code a project from scratch; however, if you get stuck, use the dsnd-probability package code as a template. It already contains all of the necessary files you'll need for creating a package. It's also a simple example of object-oriented code. You can use these files, including the setup.py and setup.cfg files, to help structure your own code.
+         </p>
+         <p>
+          Those files are located in the "Exercise: Upload to PyPi" section inside the "5_exercise_upload_to_pypi" folder.
+         </p>
+         <p>
+          Besides the lesson on object-oriented programming, you might find
+          <a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/" rel="noopener noreferrer" target="_blank">
+           this package building summary guide from the Python website
+          </a>
+          helpful.
+         </p>
+         <p>
+          For a much more detailed explanation of distributing Python packages, check out the documentation on Distutils.
+         </p>
+         <ol>
+          <li>
+           <a href="https://docs.python.org/3/distutils/introduction.html" rel="noopener noreferrer" target="_blank">
+            Introduction
+           </a>
+          </li>
+          <li>
+           <a href="https://docs.python.org/3/distutils/setupscript.html" rel="noopener noreferrer" target="_blank">
+            setup.py script
+           </a>
+          </li>
+          <li>
+           <a href="https://docs.python.org/3/distutils/configfile.html" rel="noopener noreferrer" target="_blank">
+            config file
+           </a>
+          </li>
+          <li>
+           <a href="https://docs.python.org/3/distutils/sourcedist.html" rel="noopener noreferrer" target="_blank">
+            source distributions
+           </a>
+          </li>
+          <li>
+           <a href="https://docs.python.org/3/distutils/builtdist.html" rel="noopener noreferrer" target="_blank">
+            built distributions
+           </a>
+          </li>
+          <li>
+           <a href="https://docs.python.org/3/distutils/packageindex.html" rel="noopener noreferrer" target="_blank">
+            uploading to PyPi
+           </a>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="uploading-to-pypi">
+          Uploading to PyPi
+         </h1>
+         <p>
+          When you are ready to upload your package, you can first upload to the
+          <a href="https://test.pypi.org" rel="noopener noreferrer" target="_blank">
+           PyPi test repository
+          </a>
+          . Once everything is working as expected, you can upload to the public facing
+          <a href="https://pypi.org" rel="noopener noreferrer" target="_blank">
+           PyPi repository
+          </a>
+          .
+         </p>
+         <p>
+          As a reminder, you'll need to create a username for both the test and public facing repositories. You'll also need to pip install the twine package with:
+          <code>
+           pip install twine
+          </code>
+          . You can rewatch the lesson videos to see how to upload your package.
+         </p>
+         <p>
+          Continue on to the next sections to get some troubleshooting tips, and access the project workspace. When you're finished with your project, show off your work on a personal website, GitHub, and LinkedIn.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Troubleshooting Possible Errors.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Introduction')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

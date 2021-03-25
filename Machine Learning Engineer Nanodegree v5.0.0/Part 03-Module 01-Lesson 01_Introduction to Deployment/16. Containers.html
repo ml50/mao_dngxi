@@ -1,0 +1,997 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Containers
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Deployment
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Welcome!.html">
+       01. Welcome!
+      </a>
+     </li>
+     <li class="">
+      <a href="02. What's Ahead.html">
+       02. What's Ahead?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Problem Introduction.html">
+       03. Problem Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Machine Learning Workflow.html">
+       04. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Machine Learning Workflow.html">
+       05. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What is Cloud Computing &amp; Why Would We Use It.html">
+       06. What is Cloud Computing &amp; Why Would We Use It?
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Why Cloud Computing .html">
+       07. Why Cloud Computing?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Machine Learning Applications.html">
+       08. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Machine Learning Applications.html">
+       09. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Paths to Deployment.html">
+       10. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Paths to Deployment.html">
+       11. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Production Environments.html">
+       12. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Production Environments.html">
+       13. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Endpoints &amp; REST APIs.html">
+       14. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Endpoints &amp; REST APIs.html">
+       15. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Containers.html">
+       16. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Containers.html">
+       17. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Containers - Straight From the Experts.html">
+       18. Containers - Straight From the Experts
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Characteristics of Modeling &amp; Deployment.html">
+       19. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Characteristics of Modeling &amp; Deployment.html">
+       20. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Comparing Cloud Providers.html">
+       21. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Comparing Cloud Providers.html">
+       22. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Closing Statements.html">
+       23. Closing Statements
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Summary.html">
+       24. Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. [Optional] Cloud Computing Defined.html">
+       25. [Optional] Cloud Computing Defined
+      </a>
+     </li>
+     <li class="">
+      <a href="26. [Optional] Cloud Computing Explained.html">
+       26. [Optional] Cloud Computing Explained
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          16. Containers
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="containers">
+          Containers
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/m6-l1-c04-endpoint.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="model-application-and-containers">
+          Model, Application, and Containers
+         </h3>
+         <p>
+          When we discussed the
+          <em>
+           production environment
+          </em>
+          , it was composed of two primary programs, the
+          <strong>
+           model
+          </strong>
+          and the
+          <strong>
+           application
+          </strong>
+          , that
+          <em>
+           communicate
+          </em>
+          with each other through the
+          <strong>
+           endpoint
+          </strong>
+          (
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          ).
+         </p>
+         <ul>
+          <li>
+           The
+           <strong>
+            model
+           </strong>
+           is simply the
+           <em>
+            Python model
+           </em>
+           that's created, trained, and evaluated in the
+           <strong>
+            <em>
+             Modeling
+            </em>
+           </strong>
+           component of the
+           <em>
+            machine learning workflow
+           </em>
+           .
+          </li>
+          <li>
+           The
+           <strong>
+            application
+           </strong>
+           is simply a
+           <em>
+            web
+           </em>
+           or
+           <em>
+            software application
+           </em>
+           that
+           <em>
+            enables
+           </em>
+           the application users to use the
+           <em>
+            model
+           </em>
+           to retrieve
+           <em>
+            predictions
+           </em>
+           .
+          </li>
+         </ul>
+         <p>
+          Both the
+          <strong>
+           model
+          </strong>
+          and the
+          <strong>
+           application
+          </strong>
+          require a
+          <em>
+           computing environment
+          </em>
+          so that they can be run and available for use. One way to
+          <em>
+           create
+          </em>
+          and
+          <em>
+           maintain
+          </em>
+          these
+          <em>
+           computing environments
+          </em>
+          is through the use of
+          <strong>
+           <em>
+            containers
+           </em>
+          </strong>
+          .
+         </p>
+         <ul>
+          <li>
+           Specifically, the
+           <strong>
+            model
+           </strong>
+           and the
+           <strong>
+            application
+           </strong>
+           can each be run in a
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           <em>
+            computing environment
+           </em>
+           . The
+           <strong>
+            <em>
+             containers
+            </em>
+           </strong>
+           are created using a
+           <strong>
+            <em>
+             script
+            </em>
+           </strong>
+           that contains instructions on which software packages, libraries, and other computing attributes are needed in order to run a
+           <em>
+            software application
+           </em>
+           , in our case either the
+           <strong>
+            model
+           </strong>
+           or the
+           <strong>
+            application
+           </strong>
+           .
+          </li>
+         </ul>
+         <h4 id="containers-defined">
+          Containers Defined
+         </h4>
+         <ul>
+          <li>
+           A
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           can be thought of as a
+           <em>
+            standardized collection/bundle of software
+           </em>
+           that is to be
+           <em>
+            used
+           </em>
+           for the specific purpose of
+           <em>
+            running an application
+           </em>
+           .
+          </li>
+         </ul>
+         <p>
+          As stated
+          <strong>
+           above
+          </strong>
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          <em>
+           technology
+          </em>
+          is
+          <em>
+           used to create
+          </em>
+          the
+          <strong>
+           model
+          </strong>
+          and
+          <strong>
+           application
+          </strong>
+          <em>
+           computational environments
+          </em>
+          associated with
+          <strong>
+           <em>
+            deployment
+           </em>
+          </strong>
+          in machine learning. A common
+          <strong>
+           container
+          </strong>
+          software is
+          <em>
+           Docker
+          </em>
+          . Due to its popularity sometimes
+          <em>
+           Docker
+          </em>
+          is used synonymously with
+          <strong>
+           containers
+          </strong>
+          .
+         </p>
+         <h4 id="containers-explained">
+          Containers Explained
+         </h4>
+         <p>
+          Often to first explain the concept of
+          <strong>
+           <em>
+            containers
+           </em>
+          </strong>
+          , people tend to use the analogy of how Docker
+          <em>
+           containers
+          </em>
+          are similar to shipping containers.
+         </p>
+         <ul>
+          <li>
+           Shipping containers can contain a wide variety of products, from food to computers to cars.
+          </li>
+          <li>
+           The structure of a shipping container provides the ability for it to hold
+           <em>
+            different types
+           </em>
+           of products while making it
+           <em>
+            easy
+           </em>
+           to track, load, unload, and transport products worldwide within a shipping container.
+          </li>
+         </ul>
+         <p>
+          Similarly
+          <em>
+           Docker
+          </em>
+          <strong>
+           containers
+          </strong>
+          :
+         </p>
+         <ul>
+          <li>
+           Can
+           <em>
+            contain
+           </em>
+           <strong>
+            <em>
+             all
+            </em>
+           </strong>
+           types of
+           <em>
+            different
+           </em>
+           software.
+          </li>
+          <li>
+           The structure of a
+           <em>
+            Docker
+           </em>
+           <strong>
+            container
+           </strong>
+           enables the
+           <strong>
+            container
+           </strong>
+           to be
+           <em>
+            created
+           </em>
+           ,
+           <em>
+            saved
+           </em>
+           ,
+           <em>
+            used
+           </em>
+           , and
+           <em>
+            deleted
+           </em>
+           through a set of
+           <em>
+            common tools
+           </em>
+           .
+          </li>
+          <li>
+           The
+           <em>
+            common tool set
+           </em>
+           works with
+           <strong>
+            <em>
+             any
+            </em>
+           </strong>
+           <strong>
+            container
+           </strong>
+           regardless of the software the
+           <strong>
+            container
+           </strong>
+           contains.
+          </li>
+         </ul>
+         <h4 id="container-structure">
+          Container Structure
+         </h4>
+         <p>
+          The image
+          <strong>
+           below
+          </strong>
+          shows the basic structure of a
+          <strong>
+           container
+          </strong>
+          , you have:
+         </p>
+         <ul>
+          <li>
+           The underlying
+           <em>
+            computational infrastructure
+           </em>
+           which can be: a cloud provider’s data center, an on-premise data center, or even someone’s local computer.
+          </li>
+          <li>
+           Next, you have an
+           <em>
+            operating system
+           </em>
+           running on this computational infrastructure, this could be the operating system on your local computer.
+          </li>
+          <li>
+           Next, there’s the
+           <em>
+            container engine
+           </em>
+           , this could be
+           <em>
+            Docker
+           </em>
+           software running on your local computer. The
+           <em>
+            container engine
+           </em>
+           software enables one to create, save, use, and delete containers; for our example, it could be
+           <em>
+            Docker
+           </em>
+           running on a local computer.
+          </li>
+          <li>
+           The final two layers make up the composition of the
+           <em>
+            containers
+           </em>
+           .
+           <ul>
+            <li>
+             The first layer of the container is the
+             <em>
+              libraries
+             </em>
+             and
+             <em>
+              binaries
+             </em>
+             required to launch, run, and maintain the
+             <em>
+              next
+             </em>
+             layer, the
+             <em>
+              application
+             </em>
+             layer.
+            </li>
+           </ul>
+          </li>
+          <li>
+           The image
+           <strong>
+            below
+           </strong>
+           shows
+           <em>
+            three
+           </em>
+           containers running
+           <em>
+            three
+           </em>
+           different applications.
+          </li>
+         </ul>
+         <p>
+          This
+          <em>
+           architecture
+          </em>
+          of
+          <strong>
+           containers
+          </strong>
+          provides the following
+          <em>
+           advantages
+          </em>
+          :
+         </p>
+         <ol>
+          <li>
+           Isolates the application, which
+           <em>
+            increases
+           </em>
+           security.
+           <br/>
+          </li>
+          <li>
+           Requires
+           <em>
+            only
+           </em>
+           software needed to run the application, which uses computational resources
+           <em>
+            more efficiently
+           </em>
+           and allows for faster application deployment.
+           <br/>
+          </li>
+          <li>
+           Makes application creation, replication, deletion, and maintenance easier and the same across all applications that are deployed using containers.
+           <br/>
+          </li>
+          <li>
+           Provides a more simple and secure way to replicate, save, and share containers.
+           <br/>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/container-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As indicated by the
+          <strong>
+           <em>
+            fourth
+           </em>
+          </strong>
+          <em>
+           advantage
+          </em>
+          of using
+          <strong>
+           <em>
+            containers
+           </em>
+          </strong>
+          , a
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          <em>
+           script file
+          </em>
+          is used to create a
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          .
+         </p>
+         <ul>
+          <li>
+           This
+           <em>
+            text
+           </em>
+           <em>
+            script file
+           </em>
+           can easily be shared with others and provides a simple method to
+           <em>
+            replicate
+           </em>
+           a particular
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           .
+          </li>
+          <li>
+           This
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           <em>
+            script
+           </em>
+           is simply the
+           <em>
+            instructions (algorithm)
+           </em>
+           that is used to create a
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           ; for
+           <em>
+            Docker
+           </em>
+           these
+           <strong>
+            <em>
+             container
+            </em>
+           </strong>
+           <em>
+            scripts
+           </em>
+           are referred to as
+           <em>
+            dockerfiles
+           </em>
+           .
+          </li>
+         </ul>
+         <p>
+          This is shown with the image
+          <strong>
+           below
+          </strong>
+          , where the
+          <em>
+           container engine
+          </em>
+          uses a
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          <em>
+           script
+          </em>
+          to create a
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          for an application to run within.  These
+          <strong>
+           <em>
+            container
+           </em>
+          </strong>
+          <em>
+           script files
+          </em>
+          can be stored in repositories, which provide a simple means to share and replicate
+          <em>
+           containers
+          </em>
+          .  For
+          <em>
+           Docker
+          </em>
+          , the
+          <a href="https://hub.docker.com/explore/" rel="noopener noreferrer" target="_blank">
+           Docker Hub
+          </a>
+          is the official repository for storing and sharing
+          <em>
+           dockerfiles
+          </em>
+          .  Here's an example of a
+          <a href="https://github.com/pytorch/pytorch/blob/master/docker/pytorch/Dockerfile" rel="noopener noreferrer" target="_blank">
+           dockerfile
+          </a>
+          that creates a docker container with Python 3.6 and PyTorch installed.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/container-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="17. Containers.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('16. Containers')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

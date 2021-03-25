@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.660
+With this lesson, you've learned quite a bit about deploying
+
+00:00:03.660 --> 00:00:08.039
+machine learning models within cloud environments. Great job.
+
+00:00:08.039 --> 00:00:11.609
+You initially learned that cloud computing can be simply thought
+
+00:00:11.609 --> 00:00:15.869
+of as transforming an IT product into a service.
+
+00:00:15.869 --> 00:00:18.375
+With our vacation photos example,
+
+00:00:18.375 --> 00:00:21.539
+we transformed storing our photos on an IT product,
+
+00:00:21.539 --> 00:00:26.039
+the flash drive, into storing them on a service like Google Drive.
+
+00:00:26.039 --> 00:00:29.039
+Ultimately our vacation photos will be stored in
+
+00:00:29.039 --> 00:00:32.200
+a Google data center instead of on our own device.
+
+00:00:32.200 --> 00:00:34.079
+While this provides benefits,
+
+00:00:34.079 --> 00:00:37.179
+like easy access and shareability of our photos,
+
+00:00:37.179 --> 00:00:42.609
+using the cloud service also carries security and privacy risks.
+
+00:00:42.950 --> 00:00:47.955
+You've learned how the machine learning workflow is used to build,
+
+00:00:47.954 --> 00:00:52.259
+train, evaluate and deploy models to a production environment.
+
+00:00:52.259 --> 00:00:54.349
+You discovered deployment is
+
+00:00:54.350 --> 00:00:58.829
+a critical part of the machine learning workflow in the workplace.
+
+00:00:59.179 --> 00:01:03.590
+You understand that deployment is simply making your model
+
+00:01:03.590 --> 00:01:08.204
+available for predictions through a software or web application.
+
+00:01:08.204 --> 00:01:10.640
+You also learned about the characteristics of
+
+00:01:10.640 --> 00:01:13.905
+deployment and the technologies that are used for deployment.
+
+00:01:13.905 --> 00:01:15.614
+In the next lessons,
+
+00:01:15.614 --> 00:01:17.989
+you'll see how to implement these concepts you've
+
+00:01:17.989 --> 00:01:21.280
+learned to deploy your own machine learning models.
+

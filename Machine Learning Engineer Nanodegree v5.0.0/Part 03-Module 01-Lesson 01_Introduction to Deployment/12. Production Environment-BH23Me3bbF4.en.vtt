@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.180
+We've learned with deployment,
+
+00:00:02.180 --> 00:00:07.814
+we are simply making our model available for use with a software or web application.
+
+00:00:07.815 --> 00:00:11.370
+This means users can input their data into a model and receive
+
+00:00:11.369 --> 00:00:15.344
+predictions back from the model through the application.
+
+00:00:15.345 --> 00:00:18.469
+Thinking back to our Magic 8-ball application,
+
+00:00:18.469 --> 00:00:23.609
+users ask a question and provide some additional data to the application.
+
+00:00:23.609 --> 00:00:27.390
+The application sends this additional data to the model,
+
+00:00:27.390 --> 00:00:29.914
+which uses to predict the user's mood,
+
+00:00:29.914 --> 00:00:33.000
+then the application returns an answer to
+
+00:00:33.000 --> 00:00:36.765
+the user's question based upon the user's predicted mood.
+
+00:00:36.765 --> 00:00:39.420
+Let's imagine there's accompany,
+
+00:00:39.420 --> 00:00:43.530
+Oracles-R-Us, that provides a Magic 8-ball service.
+
+00:00:43.530 --> 00:00:49.445
+Service users call in and speak to representative who gathers there additional data.
+
+00:00:49.445 --> 00:00:53.884
+This data will be used to predict the user's mood.
+
+00:00:53.884 --> 00:00:58.609
+The user is put on hold while the representative talks to the typist
+
+00:00:58.609 --> 00:01:02.850
+to give them the additional data to input into the model.
+
+00:01:02.850 --> 00:01:06.710
+The typist then tells the representative the prediction,
+
+00:01:06.709 --> 00:01:10.434
+which they'll use to answer the user's question.
+
+00:01:10.435 --> 00:01:16.045
+Using this example, we can think of the representative as the application,
+
+00:01:16.045 --> 00:01:21.454
+whose responsibility is to interface with the user and gather their data.
+
+00:01:21.454 --> 00:01:24.359
+We can think of the typist as the model,
+
+00:01:24.359 --> 00:01:28.489
+whose responsibility is to take the data and return a prediction.
+
+00:01:28.489 --> 00:01:32.184
+Just like the representative and typist communicate with each other,
+
+00:01:32.185 --> 00:01:37.655
+our application and model communicate with each other to provide user predictions.
+
+00:01:37.655 --> 00:01:42.484
+The environment is the computational system that host the application.
+
+00:01:42.484 --> 00:01:48.090
+The type of environment is defined by the kind of user who can access the service.
+
+00:01:48.090 --> 00:01:53.405
+With our example, we're providing predictions to users who are customers,
+
+00:01:53.405 --> 00:01:55.719
+so it's a production environment.
+
+00:01:55.719 --> 00:02:00.265
+If instead users were employees testing the application,
+
+00:02:00.265 --> 00:02:02.375
+it would be a test environment.
+
+00:02:02.375 --> 00:02:05.120
+The application communicates with the model through
+
+00:02:05.120 --> 00:02:08.185
+an interface to the model that's called an endpoint.
+
+00:02:08.185 --> 00:02:12.039
+We'll discuss endpoints in more detail next.
+

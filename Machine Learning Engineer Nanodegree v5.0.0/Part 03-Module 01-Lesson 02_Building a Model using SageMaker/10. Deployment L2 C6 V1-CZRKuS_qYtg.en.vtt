@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.234
+Now that the training job is finished,
+
+00:00:02.234 --> 00:00:05.609
+we can look and scroll through and see all sorts of
+
+00:00:05.610 --> 00:00:09.800
+output describing how XGBoost is improving at every round,
+
+00:00:09.800 --> 00:00:15.750
+and at the very end telling us the total number of seconds that we are billed for.
+
+00:00:15.750 --> 00:00:17.984
+So, now, we have a fit model,
+
+00:00:17.984 --> 00:00:22.079
+and what we'd like to do is test it out on the testing data set.
+
+00:00:22.079 --> 00:00:27.149
+To do this, we're going to use SageMaker's batch transform functionality.
+
+00:00:27.149 --> 00:00:31.399
+Now a batch transform essentially means that we want to hand it
+
+00:00:31.399 --> 00:00:36.155
+a whole bunch of data and have SageMaker figure out how to split that data up,
+
+00:00:36.155 --> 00:00:38.189
+how to send it to our model,
+
+00:00:38.189 --> 00:00:40.439
+and how to merge all of the results.
+
+00:00:40.439 --> 00:00:43.399
+We will see a little later how we can do that
+
+00:00:43.399 --> 00:00:47.839
+ourselves and get a little more insight into what SageMaker is doing in the background,
+
+00:00:47.840 --> 00:00:53.065
+but for now, we can just view this as another convenient black box.
+
+00:00:53.064 --> 00:01:00.634
+So, to do that, we can start by using our estimator object that we created and then fit,
+
+00:01:00.634 --> 00:01:03.259
+and calling the transformer method,
+
+00:01:03.259 --> 00:01:07.105
+which creates for us a new transformer object.
+
+00:01:07.105 --> 00:01:09.505
+The only thing that we have to provide is,
+
+00:01:09.504 --> 00:01:13.129
+how many virtual machines we want that transformer to use in
+
+00:01:13.129 --> 00:01:18.250
+the background and what sort of virtual machine we want the transformer to use.
+
+00:01:18.250 --> 00:01:20.984
+Again, we only need one for our purposes,
+
+00:01:20.984 --> 00:01:25.174
+and ml.m4.xlarge is wonderful for our use.
+
+00:01:25.174 --> 00:01:27.530
+Now that the transformer has been created,
+
+00:01:27.530 --> 00:01:30.335
+it's time to actually start the transform job.
+
+00:01:30.334 --> 00:01:33.949
+Now, what we do is we give it a location.
+
+00:01:33.950 --> 00:01:35.900
+This is the data that we saved,
+
+00:01:35.900 --> 00:01:37.955
+the test data that we saved from S3.
+
+00:01:37.954 --> 00:01:41.234
+We tell it what kind of data it is.
+
+00:01:41.234 --> 00:01:43.379
+In our case, it is CSV data.
+
+00:01:43.379 --> 00:01:45.854
+Further, we tell it how,
+
+00:01:45.855 --> 00:01:47.055
+if it needs to,
+
+00:01:47.055 --> 00:01:48.930
+it can split the data up.
+
+00:01:48.930 --> 00:01:50.410
+Our data is tabular,
+
+00:01:50.409 --> 00:01:53.689
+which means that each line is its own sample.
+
+00:01:53.689 --> 00:01:56.299
+So, if it needed to break the data up into chunks,
+
+00:01:56.299 --> 00:01:59.420
+it could do so by splitting it up by line.
+
+00:01:59.420 --> 00:02:03.935
+Interesting to note is that this cell has now completely executed,
+
+00:02:03.935 --> 00:02:09.604
+and what is happening is that SageMaker in the background is creating a transformed job,
+
+00:02:09.604 --> 00:02:12.199
+which it will then run for us.
+
+00:02:12.199 --> 00:02:14.104
+But inside of the notebook,
+
+00:02:14.104 --> 00:02:17.144
+we don't really have any indication as to what's going on.
+
+00:02:17.145 --> 00:02:20.515
+However, if we call it the wait method,
+
+00:02:20.514 --> 00:02:23.599
+this provides us with some output to give us
+
+00:02:23.599 --> 00:02:27.995
+an indication as to how the transformation job is progressing,
+
+00:02:27.995 --> 00:02:31.205
+and in addition, it will let us know when it has finished.
+
+00:02:31.205 --> 00:02:33.635
+So, for now, we'll just wait for this to finish.
+
+00:02:33.634 --> 00:02:37.109
+So, another batch transform has completed. So, what happened?
+
+00:02:37.110 --> 00:02:39.885
+Well, SageMaker took our testing data,
+
+00:02:39.884 --> 00:02:42.090
+sent it to the model.
+
+00:02:42.090 --> 00:02:45.770
+The model then performed inference for each sample.
+
+00:02:45.770 --> 00:02:50.710
+SageMaker collected all of these predictions up and created a new file,
+
+00:02:50.710 --> 00:02:52.640
+and saved that file on S3.
+
+00:02:52.639 --> 00:02:59.464
+The location of that file is stored in the xgb_transformer.output_path variable,
+
+00:02:59.465 --> 00:03:03.515
+and we can use a little bit of notebook magic to use
+
+00:03:03.514 --> 00:03:11.269
+AWS's S3 functionality and copy the output file to our notebook instance,
+
+00:03:11.270 --> 00:03:13.360
+so we can more easily play around with it.
+
+00:03:13.360 --> 00:03:16.130
+Now the output file has been saved inside of
+
+00:03:16.129 --> 00:03:19.219
+the Boston subdirectory of the data directory,
+
+00:03:19.219 --> 00:03:24.009
+and we can use Pandas to read that CSV file in.
+
+00:03:24.009 --> 00:03:29.329
+Then, we can create a nice little graphic to show how well our model is doing.
+
+00:03:29.330 --> 00:03:33.469
+We would expect in a perfect world where we had a model that worked
+
+00:03:33.469 --> 00:03:37.699
+100 percent of the time that this would be a line y equals x.
+
+00:03:37.699 --> 00:03:41.929
+The data here kind of doesn't exactly lie along that line,
+
+00:03:41.930 --> 00:03:43.099
+but it does mostly,
+
+00:03:43.098 --> 00:03:45.169
+and so we can maybe view this as
+
+00:03:45.169 --> 00:03:48.544
+being a success but that there's some room for improvement.
+
+00:03:48.544 --> 00:03:51.019
+As a last optional step,
+
+00:03:51.020 --> 00:03:55.010
+we created a bunch of data and saved it inside of the data directory.
+
+00:03:55.009 --> 00:03:57.829
+If we were to just leave that data there
+
+00:03:57.830 --> 00:04:00.454
+and continue working through the various notebooks,
+
+00:04:00.454 --> 00:04:02.990
+eventually the disk space that we have
+
+00:04:02.990 --> 00:04:06.685
+available on our notebook instance would be used up.
+
+00:04:06.685 --> 00:04:10.789
+When that happens, you can get some errors that are a little hard to diagnose.
+
+00:04:10.789 --> 00:04:12.560
+So, as a last step here,
+
+00:04:12.560 --> 00:04:17.120
+we're going to clean up that data directory and then remove the directory.
+
+00:04:17.120 --> 00:04:18.985
+That's it. That's our first example.
+
+00:04:18.985 --> 00:04:20.900
+So, in the next video,
+
+00:04:20.899 --> 00:04:23.870
+we are going to take a look at a mini-project for you to do.
+

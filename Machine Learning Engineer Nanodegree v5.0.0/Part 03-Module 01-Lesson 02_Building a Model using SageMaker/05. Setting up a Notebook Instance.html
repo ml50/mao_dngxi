@@ -1,0 +1,475 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Setting up a Notebook Instance
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Building a Model using SageMaker
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction to Amazon SageMaker.html">
+       01. Introduction to Amazon SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="02. AWS Setup Instructions for Regular account.html">
+       02. AWS Setup Instructions for Regular account
+      </a>
+     </li>
+     <li class="">
+      <a href="03. AWS SageMaker.html">
+       03. AWS SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="04. SageMaker Instance Utilization Limits.html">
+       04. SageMaker Instance Utilization Limits
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Setting up a Notebook Instance.html">
+       05. Setting up a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Cloning the Deployment Notebooks.html">
+       06. Cloning the Deployment Notebooks
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Is Everything Set Up.html">
+       07. Is Everything Set Up?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Boston Housing Example - Getting the Data Ready.html">
+       08. Boston Housing Example - Getting the Data Ready
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Boston Housing Example - Training the Model.html">
+       09. Boston Housing Example - Training the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Boston Housing Example - Testing the Model.html">
+       10. Boston Housing Example - Testing the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Mini-Project Building Your First Model.html">
+       11. Mini-Project: Building Your First Model
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Mini-Project Solution.html">
+       12. Mini-Project: Solution
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Boston Housing In-Depth - Data Preparation.html">
+       13. Boston Housing In-Depth - Data Preparation
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Boston Housing In-Depth - Creating a Training Job.html">
+       14. Boston Housing In-Depth - Creating a Training Job
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Boston Housing In-Depth - Building a Model.html">
+       15. Boston Housing In-Depth - Building a Model
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Boston Housing In-Depth - Creating a Batch Transform Job.html">
+       16. Boston Housing In-Depth - Creating a Batch Transform Job
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Summary.html">
+       17. Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Setting up a Notebook Instance
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="setting-up-a-notebook-instance">
+          Setting up a Notebook Instance
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The first thing we are going to need to do is set up a notebook instance!
+         </p>
+         <p>
+          This will be the primary way in which we interact with the SageMaker ecosystem. Of course, this is not the
+          <em>
+           only
+          </em>
+          way to interact with SageMaker's functionality, but it is the way that we will use in this module.
+         </p>
+         <p>
+          The video below guides you through setting up your first notebook instance. Also, if you prefer to read the instructions instead, these have been provided underneath the video.
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          Once a notebook instance has been set up, by default, it will be
+          <strong>
+           InService
+          </strong>
+          which means that the notebook instance is running. This is important to know because the
+          <em>
+           cost
+          </em>
+          of a notebook instance is based on the length of time that it has been running. This means that once you are finished using a notebook instance you should
+          <strong>
+           Stop
+          </strong>
+          it so that you are no longer incurring a cost. Don't worry though, you won't lose any data provided you don't delete the instance. Just start the instance back up when you have time and all of your saved data will still be there.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Deployment L2 C2 V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. Deployment L2 C2 V2-TRUCNy5Eqjc.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. Deployment L2 C2 V2-TRUCNy5Eqjc.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="05. Deployment L2 C2 V2-TRUCNy5Eqjc.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="searching-for-sagemaker">
+          Searching for SageMaker
+         </h2>
+         <p>
+          Your main console page may look slightly different than in the above example. You should still be able to find
+          <strong>
+           Amazon SageMaker
+          </strong>
+          by either:
+         </p>
+         <ol>
+          <li>
+           Clicking on
+           <em>
+            All Services
+           </em>
+           then scrolling down and navigating to Machine Learning&gt; Amazon SageMaker, or
+          </li>
+          <li>
+           By searching for SageMaker, as in the below screenshot (and clicking on it).
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2018-11-27-at-4.06.38-pm.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="creating-and-running-a-notebook-instance">
+          Creating and Running a Notebook Instance
+         </h2>
+         <p>
+          First, start by logging in to the
+          <a href="https://console.aws.amazon.com" rel="noopener noreferrer" target="_blank">
+           AWS console
+          </a>
+          , opening the SageMaker dashboard, selecting
+          <strong>
+           Notebook Instances
+          </strong>
+          and clicking on
+          <strong>
+           Create notebook instance
+          </strong>
+          .
+         </p>
+         <p>
+          You may choose any name you would like for your notebook. Also, using
+          <strong>
+           ml.t2.medium
+          </strong>
+          should be all that is necessary for the notebooks that you will encounter in this module. In addition, an
+          <strong>
+           ml.t2.medium
+          </strong>
+          instance is covered under the free tier.
+         </p>
+         <p>
+          Next, under
+          <strong>
+           IAM role
+          </strong>
+          select
+          <strong>
+           Create a new role
+          </strong>
+          . You should get a pop-up window that looks like the one below. The only change that needs to be made is to select
+          <strong>
+           None
+          </strong>
+          under
+          <strong>
+           S3 buckets you specify
+          </strong>
+          , as is shown in the image below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/create-an-iam-role.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Once you have finished setting up the role for your notebook, your notebook instance settings should look something like the image below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/notebook-instance-settings.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          Your notebook name may be different than the one displayed and the IAM role that appears will be different.
+         </p>
+         <p>
+          Now scroll down and click on
+          <strong>
+           Create notebook instance
+          </strong>
+          .
+         </p>
+         <p>
+          Once your notebook instance has started and is accessible, click on
+          <strong>
+           open
+          </strong>
+          to get to the Jupyter notebook main page.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Cloning the Deployment Notebooks.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Setting up a Notebook Instance')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

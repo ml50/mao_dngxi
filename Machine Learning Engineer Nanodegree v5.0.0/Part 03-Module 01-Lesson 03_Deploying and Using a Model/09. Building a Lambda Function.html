@@ -1,0 +1,524 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Building a Lambda Function
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Deploying and Using a Model
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Deploying a Model in SageMaker.html">
+       01. Deploying a Model in SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Boston Housing Example - Deploying the Model.html">
+       02. Boston Housing Example - Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Boston Housing In-Depth - Deploying the Model.html">
+       03. Boston Housing In-Depth - Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Deploying and Using a Sentiment Analysis Model.html">
+       04. Deploying and Using a Sentiment Analysis Model
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Text Processing, Bag of Words.html">
+       05. Text Processing, Bag of Words
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Building and Deploying the Model.html">
+       06. Building and Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="07. How to Use a Deployed Model.html">
+       07. How to Use a Deployed Model
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Creating and Using an Endpoint.html">
+       08. Creating and Using an Endpoint
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Building a Lambda Function.html">
+       09. Building a Lambda Function
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Building an API.html">
+       10. Building an API
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Using the Final Web Application.html">
+       11. Using the Final Web Application
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Summary.html">
+       12. Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          09. Building a Lambda Function
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="building-a-lambda-function">
+          Building a Lambda Function
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Deployment L3 C6 V1
+         </p>
+        </h3>
+        <video controls="">
+         <source src="09. Deployment L3 C6 V1-jOXETK4AerU.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="09. Deployment L3 C6 V1-jOXETK4AerU.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="09. Deployment L3 C6 V1-jOXETK4AerU.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In general, a Lambda function is an example of a 'Function as a Service'. It lets you perform actions in response to certain events, called triggers. Essentially, you get to describe some events that you care about, and when those events occur, your code is executed.
+         </p>
+         <p>
+          For example, you could set up a trigger so that whenever data is uploaded to a particular S3 bucket, a Lambda function is executed to process that data and insert it into a database somewhere.
+         </p>
+         <p>
+          One of the big advantages to Lambda functions is that since the amount of code that can be contained in a Lambda function is relatively small, you are only charged for the
+          <em>
+           number
+          </em>
+          of executions.
+         </p>
+         <p>
+          In our case, the Lambda function we are creating is meant to process user input and interact with our deployed model. Also, the trigger that we will be using is the endpoint that we will create using API Gateway.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="create-a-lambda-function">
+          Create a Lambda Function
+         </h2>
+         <p>
+          The steps to create a lambda function are outlined in the notebook and here, for convenience.
+         </p>
+         <p>
+          Setting up a Lambda function
+          <br/>
+          The first thing we are going to do is set up a Lambda function. This Lambda function will be executed whenever our public API has data sent to it. When it is executed it will receive the data, perform any sort of processing that is required, send the data (the review) to the SageMaker endpoint we've created and then return the result.
+         </p>
+         <p>
+          <strong>
+           Part A: Create an IAM Role for the Lambda function
+          </strong>
+         </p>
+         <p>
+          Since we want the Lambda function to call a SageMaker endpoint, we need to make sure that it has permission to do so. To do this, we will construct a role that we can later give the Lambda function.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+         </div>
+         <form>
+          <fieldset>
+           <legend>
+            Task List:
+           </legend>
+           <div>
+            <input id="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--0" type="checkbox"/>
+            <label for="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--0">
+             <p>
+              Using the AWS Console, navigate to the IAM page and click on Roles. Then, click on Create role.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--1" type="checkbox"/>
+            <label for="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--1">
+             <p>
+              Make sure that the AWS service is the type of trusted entity selected and choose Lambda as the service that will use this role, then click Next: Permissions.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--2" type="checkbox"/>
+            <label for="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--2">
+             <p>
+              In the search box type sagemaker and select the check box next to the AmazonSageMakerFullAccess policy. Then, click on Next: Review.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--3" type="checkbox"/>
+            <label for="a9a2dc30-1fa2-487d-8ab6-cf79f59fb6c2--3">
+             <p>
+              Lastly, give this role a name. Make sure you use a name that you will remember later on, for example LambdaSageMakerRole. Then, click on Create role.
+             </p>
+            </label>
+           </div>
+          </fieldset>
+         </form>
+         <div>
+          <h4>
+           Task Feedback:
+          </h4>
+          <p>
+           Great, now on to Part B!
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Part B: Create a Lambda function
+          </strong>
+         </p>
+         <p>
+          Now it is time to actually create the Lambda function. Remember from earlier that in order to process the user provided input and send it to our endpoint we need to gather two pieces of information:
+         </p>
+         <ol>
+          <li>
+           The name of the endpoint, and
+          </li>
+          <li>
+           the vocabulary object.
+          </li>
+         </ol>
+         <p>
+          We will copy these pieces of information to our Lambda function, after we create it.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+         </div>
+         <form>
+          <fieldset>
+           <legend>
+            Task List:
+           </legend>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--0" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--0">
+             <p>
+              To start, using the AWS Console, navigate to the AWS Lambda page and click on Create a function.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--1" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--1">
+             <p>
+              When you get to the next page, make sure that Author from scratch is selected.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--2" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--2">
+             <p>
+              Now, name your Lambda function, using a name that you will remember later on, for example sentiment_analysis_xgboost_func. Make sure that the Python 3.6 runtime is selected and then choose the role that you created in the previous part. Then, click on Create Function.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--3" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--3">
+             <p>
+              On the next page you will see some information about the Lambda function you've just created. If you scroll down you should see an editor in which you can write the code that will be executed when your Lambda function is triggered… you should copy and past the code below.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--4" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--4">
+             <p>
+              Once you have copy and pasted the code above into the Lambda code editor, replace the
+              <strong>
+               ENDPOINT NAME HERE
+              </strong>
+              portion with the name of the endpoint that we deployed earlier.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--5" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--5">
+             <p>
+              You will also need to copy the vocabulary dict to the appropriate place in the code at the beginning of the lambda_handler method.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--6" type="checkbox"/>
+            <label for="29f30c14-9841-41c2-9cf9-f61f5ac7d33e--6">
+             <p>
+              Once you have added the endpoint name to the Lambda function, click on Save. Your Lambda function is now up and running!
+             </p>
+            </label>
+           </div>
+          </fieldset>
+         </form>
+         <div>
+          <h4>
+           Task Feedback:
+          </h4>
+          <p>
+           Great, make sure to copy and paste the relevant info!
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <pre><code class="python language-python"># We need to use the low-level library to interact with SageMaker since the SageMaker API
+# is not available natively through Lambda.
+import boto3
+
+# And we need the regular expression library to do some of the data processing
+import re
+
+REPLACE_NO_SPACE = re.compile("(\.)|(\;)|(\:)|(\!)|(\')|(\?)|(\,)|(\")|(\()|(\))|(\[)|(\])")
+REPLACE_WITH_SPACE = re.compile("(&lt;br\s*/&gt;&lt;br\s*/&gt;)|(\-)|(\/)")
+
+def review_to_words(review):
+    words = REPLACE_NO_SPACE.sub("", review.lower())
+    words = REPLACE_WITH_SPACE.sub(" ", words)
+    return words
+
+def bow_encoding(words, vocabulary):
+    bow = [0] * len(vocabulary) # Start by setting the count for each word in the vocabulary to zero.
+    for word in words.split():  # For each word in the string
+        if word in vocabulary:  # If the word is one that occurs in the vocabulary, increase its count.
+            bow[vocabulary[word]] += 1
+    return bow
+
+
+def lambda_handler(event, context):
+
+    vocab = "*** ACTUAL VOCABULARY GOES HERE ***"
+
+    words = review_to_words(event['body'])
+    bow = bow_encoding(words, vocab)
+
+    # The SageMaker runtime is what allows us to invoke the endpoint that we've created.
+    runtime = boto3.Session().client('sagemaker-runtime')
+
+    # Now we use the SageMaker runtime to invoke our endpoint, sending the review we were given
+    response = runtime.invoke_endpoint(EndpointName = '***ENDPOINT NAME HERE***',# The name of the endpoint we created
+                                       ContentType = 'text/csv',                 # The data format that is expected
+                                       Body = ','.join([str(val) for val in bow]).encode('utf-8')) # The actual review
+
+    # The response is an HTTP response whose body contains the result of our inference
+    result = response['Body'].read().decode('utf-8')
+
+    # Round the result so that our web app only gets '1' or '0' as a response.
+    result = round(float(result))
+
+    return {
+        'statusCode' : 200,
+        'headers' : { 'Content-Type' : 'text/plain', 'Access-Control-Allow-Origin' : '*' },
+        'body' : str(result)
+    }</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="10. Building an API.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('09. Building a Lambda Function')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

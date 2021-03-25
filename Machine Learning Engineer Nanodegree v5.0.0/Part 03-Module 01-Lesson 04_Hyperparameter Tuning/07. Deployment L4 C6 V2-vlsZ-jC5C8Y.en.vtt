@@ -1,0 +1,265 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.184
+Now that you've had a chance to try out SageMaker's hyperparameter tuning,
+
+00:00:04.184 --> 00:00:08.070
+let's take a look and see in a little more detail what's happening.
+
+00:00:08.070 --> 00:00:10.410
+To follow along inside of the tutorial folder,
+
+00:00:10.410 --> 00:00:13.140
+we're going to be working through the Boston Housing,
+
+00:00:13.140 --> 00:00:16.469
+XGBoost, hyperparameter tuning, low-level notebook.
+
+00:00:16.469 --> 00:00:19.799
+Of course, the beginning of this notebook is like the beginning of
+
+00:00:19.800 --> 00:00:25.170
+the other low-level notebooks in that we first import any modules that we need,
+
+00:00:25.170 --> 00:00:28.200
+download the data, split the data up,
+
+00:00:28.199 --> 00:00:32.100
+upload the results to Amazon S3 and then,
+
+00:00:32.100 --> 00:00:34.560
+we train instruct the XGBoost model.
+
+00:00:34.560 --> 00:00:35.804
+In this case however,
+
+00:00:35.804 --> 00:00:37.560
+we are going to use
+
+00:00:37.560 --> 00:00:42.780
+SageMaker's hyperparameter tuning API to train a bunch of different models.
+
+00:00:42.780 --> 00:00:49.914
+To begin with, this looks a lot like the low-level batch transform notebook,
+
+00:00:49.914 --> 00:00:52.149
+in that to start with,
+
+00:00:52.149 --> 00:00:56.004
+we construct this training parameter dictionary
+
+00:00:56.005 --> 00:00:58.929
+and inside of this dictionary goes a bunch of information,
+
+00:00:58.929 --> 00:01:04.870
+such as the role we want the training container to be run as,
+
+00:01:04.870 --> 00:01:07.300
+which training algorithm we'd like to use.
+
+00:01:07.299 --> 00:01:09.909
+Which in our case is going to be XGBoost,
+
+00:01:09.909 --> 00:01:12.219
+where the data should be saved.
+
+00:01:12.219 --> 00:01:15.844
+What remote instance should be used.
+
+00:01:15.844 --> 00:01:19.239
+A stopping condition in case something bad happens and we end
+
+00:01:19.239 --> 00:01:22.824
+up with a very lengthy computation,
+
+00:01:22.825 --> 00:01:27.020
+like for example an accidental infinite loop and then the first difference.
+
+00:01:27.019 --> 00:01:33.619
+Rather than specify the hyperparameters for the algorithm that we are going to be using,
+
+00:01:33.620 --> 00:01:37.420
+instead we specify only the static hyperparameters.
+
+00:01:37.420 --> 00:01:41.210
+That is the hyper parameters that we are not going to
+
+00:01:41.209 --> 00:01:46.039
+vary using SageMaker's hyperparameter functionality.
+
+00:01:46.040 --> 00:01:50.155
+In this case, we're going to leave gamma fixed at four,
+
+00:01:50.155 --> 00:01:53.609
+leave subsampling fixed at 0.8.
+
+00:01:53.609 --> 00:01:57.200
+Since we are trying to determine the median cost of a house it makes
+
+00:01:57.200 --> 00:02:01.040
+sense for our objective to be linear regression of course we don't
+
+00:02:01.040 --> 00:02:03.900
+want that to change and then we'll leave 10 as
+
+00:02:03.900 --> 00:02:08.525
+our early chopping rounds in 200 as the maximum number of iterations of the algorithm.
+
+00:02:08.525 --> 00:02:10.925
+Next, we specify the input data.
+
+00:02:10.925 --> 00:02:15.550
+Now, this is again similar to when we constructed just a training job.
+
+00:02:15.550 --> 00:02:18.219
+We described the data we want to use as the training data,
+
+00:02:18.219 --> 00:02:20.409
+we say where it is,
+
+00:02:20.409 --> 00:02:25.819
+that it's on S3, that it's CSV data and we do the same thing for validation.
+
+00:02:25.819 --> 00:02:29.959
+So, in short, this training params object is very similar
+
+00:02:29.960 --> 00:02:33.969
+to the training params object we created when making a training job.
+
+00:02:33.969 --> 00:02:36.560
+The difference is instead of setting hyperparameters,
+
+00:02:36.560 --> 00:02:39.515
+we set only the static hyperparameters.
+
+00:02:39.514 --> 00:02:44.299
+We'll set the ones that we want to allow a SageMaker to vary a little later on.
+
+00:02:44.300 --> 00:02:47.780
+Now, that training program object is used to create
+
+00:02:47.780 --> 00:02:51.710
+the base model that SageMaker will use,
+
+00:02:51.710 --> 00:02:54.980
+similar to the way that we constructed an estimator object to be
+
+00:02:54.979 --> 00:02:59.000
+used as the base model in the high level approach.
+
+00:02:59.000 --> 00:03:01.533
+To specify the things that are allowed to change,
+
+00:03:01.533 --> 00:03:03.875
+we need to set up a tuning job.
+
+00:03:03.875 --> 00:03:08.930
+To do that, we first specify the different parameters that we allow to
+
+00:03:08.930 --> 00:03:14.599
+vary first specifying the continuous parameters with a max value,
+
+00:03:14.599 --> 00:03:16.009
+a min value, and the name of
+
+00:03:16.009 --> 00:03:19.849
+the parameter and also specifying the integer parameters again
+
+00:03:19.849 --> 00:03:22.489
+with a minimum value or a maximum value and the name
+
+00:03:22.490 --> 00:03:25.435
+of the parameter that we are allowing SageMaker to vary.
+
+00:03:25.435 --> 00:03:31.474
+After that, we specify the total number of models that we want SageMaker to
+
+00:03:31.474 --> 00:03:37.585
+create for us and the total number of models that should be created in parallel.
+
+00:03:37.585 --> 00:03:44.480
+Bayesian is the strategy that SageMaker will use to update the modified hyperparameters.
+
+00:03:44.479 --> 00:03:47.419
+And lastly, we need to tell SageMaker how to
+
+00:03:47.419 --> 00:03:51.709
+determine when a model is better or worse and we do that by
+
+00:03:51.710 --> 00:03:59.830
+saying that a model is better if the validation RMSE is minimal or is smaller.
+
+00:03:59.830 --> 00:04:02.360
+So, we have a data structure which describes
+
+00:04:02.360 --> 00:04:09.755
+the base model and we have a data structure that describes how the tuner should operate.
+
+00:04:09.754 --> 00:04:11.240
+If we put those together,
+
+00:04:11.240 --> 00:04:13.900
+we can create a hyperparameter tuning job.
+
+00:04:13.900 --> 00:04:16.610
+As with everything SageMaker related,
+
+00:04:16.610 --> 00:04:20.879
+we need to make sure to name this job and the name needs to be unique.
+
+00:04:20.879 --> 00:04:25.764
+Now, there is a further constraint on the tuning job name that you should be aware of.
+
+00:04:25.764 --> 00:04:31.969
+Most of the job names that we construct are allowed to be up to 63 characters long,
+
+00:04:31.970 --> 00:04:37.795
+so we have quite a lot of flexibility in the name that we prepend to the timestamp.
+
+00:04:37.795 --> 00:04:39.785
+In the case of a tuning job,
+
+00:04:39.785 --> 00:04:42.950
+the maximum length is 32 characters and
+
+00:04:42.949 --> 00:04:45.949
+the reason for that is that the tuning job will create a bunch of
+
+00:04:45.949 --> 00:04:48.979
+training jobs and it will automatically assign
+
+00:04:48.980 --> 00:04:53.290
+those training jobs names based on the tuning job name.
+
+00:04:53.290 --> 00:04:55.790
+So, that's just something to keep in mind you might get
+
+00:04:55.790 --> 00:04:59.285
+an error if you make the tuning job name too long.
+
+00:04:59.285 --> 00:05:01.460
+Once we've specified a name,
+
+00:05:01.459 --> 00:05:06.299
+we can create a hyperparameter tuning job by saying what name we want it to have,
+
+00:05:06.300 --> 00:05:11.509
+providing a tuning job configuration that tells SageMaker which hyperparameters
+
+00:05:11.509 --> 00:05:17.194
+vary and by how and a training job which describes the Bass Model.
+
+00:05:17.194 --> 00:05:21.990
+Of course, SageMaker in addition to creating the job will start running the job,
+
+00:05:21.990 --> 00:05:25.125
+and like always, it gets done in the background.
+
+00:05:25.125 --> 00:05:29.074
+So, if we want to have some sort of visual representation,
+
+00:05:29.074 --> 00:05:32.729
+we need to use the wait_for_tuning_job method.
+

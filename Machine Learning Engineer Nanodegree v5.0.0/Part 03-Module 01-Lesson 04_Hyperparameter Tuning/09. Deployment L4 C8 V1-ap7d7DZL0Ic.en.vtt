@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.860
+Now that the tuning job has finished,
+
+00:00:01.860 --> 00:00:04.710
+you can see that we've got a whole bunch of output here.
+
+00:00:04.710 --> 00:00:08.009
+This output describes the results of our tuning Job,
+
+00:00:08.009 --> 00:00:11.279
+and one of the most important bits is all the way
+
+00:00:11.279 --> 00:00:15.314
+down here where it says best training job.
+
+00:00:15.314 --> 00:00:19.108
+You can see that this is an entry in the resulting dictionary
+
+00:00:19.109 --> 00:00:23.280
+which contains the name of the tuning job that performed the best.
+
+00:00:23.280 --> 00:00:26.580
+So, we're going to need that name so that we can create
+
+00:00:26.579 --> 00:00:31.214
+a model from the training artifacts associated with this training job.
+
+00:00:31.214 --> 00:00:35.325
+Now, if you don't want to go through this output and copy and paste,
+
+00:00:35.325 --> 00:00:38.790
+you can get a copy of this object by using
+
+00:00:38.789 --> 00:00:43.994
+the describe hyperparameter tuning job method of the SageMaker client.
+
+00:00:43.994 --> 00:00:45.799
+All you have to do is provide it with the name of
+
+00:00:45.799 --> 00:00:47.959
+the tuning job whose information you'd like to get.
+
+00:00:47.960 --> 00:00:51.785
+Now, tuning job info contains all of the information up here.
+
+00:00:51.784 --> 00:00:55.949
+In particular, it has the name of the best training job.
+
+00:00:55.950 --> 00:01:00.609
+Using that name, we can use the describe training job method,
+
+00:01:00.609 --> 00:01:03.170
+to get information about that training job.
+
+00:01:03.170 --> 00:01:07.640
+In particular, we can get access to the model artifacts which are stored on S3.
+
+00:01:07.640 --> 00:01:11.599
+Once we have a URI to the Model Artifacts,
+
+00:01:11.599 --> 00:01:14.269
+we can use that to construct a model object.
+
+00:01:14.269 --> 00:01:15.875
+Remember then in SageMaker,
+
+00:01:15.875 --> 00:01:21.125
+a model is a collection of data that contains the container that is meant to be used
+
+00:01:21.125 --> 00:01:26.359
+during inference in addition to the model artifacts that were created during training.
+
+00:01:26.359 --> 00:01:28.804
+Once we've created the model object,
+
+00:01:28.805 --> 00:01:32.330
+we can create a batch transform job to test our model.
+
+00:01:32.329 --> 00:01:33.920
+To create a batch transform job,
+
+00:01:33.920 --> 00:01:37.189
+we do the same thing as we did in the previous notebook.
+
+00:01:37.189 --> 00:01:40.849
+In that we just create a data structure that it contains
+
+00:01:40.849 --> 00:01:45.034
+all the information about the batch transform job we wish to create,
+
+00:01:45.034 --> 00:01:48.649
+and then we ask SageMaker to execute that batch transform
+
+00:01:48.650 --> 00:01:53.165
+job and wait for the results to see how well our model is doing.
+
+00:01:53.165 --> 00:01:55.775
+Now that the batch transform job has finished up,
+
+00:01:55.775 --> 00:01:57.560
+we can copy the results to
+
+00:01:57.560 --> 00:02:02.250
+our notebook instance and then take a look and see how well it did.
+

@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.700
+All right. To start using the SageMaker,
+
+00:00:02.700 --> 00:00:06.375
+the first thing we're going to need to do is set up a notebook instance.
+
+00:00:06.375 --> 00:00:11.265
+To do that, we need to sign into the AWS console, which I have done here,
+
+00:00:11.265 --> 00:00:14.760
+and then scroll down and underneath Machine Learning,
+
+00:00:14.759 --> 00:00:17.655
+we want to click on Amazon SageMaker.
+
+00:00:17.655 --> 00:00:20.700
+This will open up the SageMaker dashboard.
+
+00:00:20.699 --> 00:00:22.589
+From here on the left-hand side,
+
+00:00:22.589 --> 00:00:25.530
+we want to click on notebook instances.
+
+00:00:25.530 --> 00:00:28.350
+As you can see, I don't have any set-up currently.
+
+00:00:28.350 --> 00:00:31.380
+To make a new one, we click on this orange button in the top right corner
+
+00:00:31.379 --> 00:00:34.500
+that says Create Notebook instance.
+
+00:00:34.500 --> 00:00:36.435
+Most of these settings are fine the way they are.
+
+00:00:36.435 --> 00:00:40.370
+However, we do need to name our notebook instance.
+
+00:00:40.369 --> 00:00:44.759
+I'm going to call mine deployment-notebook.
+
+00:00:45.250 --> 00:00:48.725
+We also need to make sure to set a role.
+
+00:00:48.725 --> 00:00:51.189
+A role acts like a security certificate,
+
+00:00:51.189 --> 00:00:56.299
+letting Amazon know what other resources are notebook we'll have access to.
+
+00:00:56.299 --> 00:01:00.574
+We need to make sure that we allow our notebook access to S3.
+
+00:01:00.575 --> 00:01:05.245
+To do that, we click on this drop-down and select Create a new role.
+
+00:01:05.245 --> 00:01:08.385
+The default selections will be perfectly fine.
+
+00:01:08.385 --> 00:01:11.435
+The most important line is the second one here that says
+
+00:01:11.435 --> 00:01:16.865
+any S3 bucket with SageMaker in the name can be accessed by our notebook.
+
+00:01:16.864 --> 00:01:18.649
+Since there are no additional buckets,
+
+00:01:18.650 --> 00:01:22.315
+we want to have our notebook access we'll select None here.
+
+00:01:22.314 --> 00:01:25.019
+A little later on, we'll talk about what S3 is.
+
+00:01:25.019 --> 00:01:28.429
+But, for now, just think of it as a place to store data,
+
+00:01:28.430 --> 00:01:32.435
+like training data, or maybe a trained model.
+
+00:01:32.435 --> 00:01:36.025
+Once we've done this, we click on Create role.
+
+00:01:36.025 --> 00:01:40.144
+The role has now been created and automatically assigned to our notebook instance.
+
+00:01:40.144 --> 00:01:46.025
+To finish it up, we just scroll down to the bottom and click on Create notebook instance.
+
+00:01:46.025 --> 00:01:48.700
+The status of our notebook instance is now pending,
+
+00:01:48.700 --> 00:01:53.000
+which means that Amazon is working away in the background to set everything up.
+
+00:01:53.000 --> 00:01:55.489
+At this point, we just need to wait and
+
+00:01:55.489 --> 00:01:58.414
+Amazon has finished setting up our notebook instance.
+
+00:01:58.415 --> 00:02:01.530
+If we look under the status column now,
+
+00:02:01.530 --> 00:02:04.799
+it says that our notebook instance is inService,
+
+00:02:04.799 --> 00:02:06.929
+which means that it's running.
+
+00:02:06.930 --> 00:02:10.430
+Now, it's important to note that the default behavior
+
+00:02:10.430 --> 00:02:14.754
+is for a notebook to begin running once you've created it.
+
+00:02:14.754 --> 00:02:18.169
+It's important to know that because the cost of
+
+00:02:18.169 --> 00:02:21.409
+a notebook instance is based on the length of time that it's running.
+
+00:02:21.409 --> 00:02:24.400
+So, if you aren't going to be using your notebook,
+
+00:02:24.400 --> 00:02:27.530
+make sure to stop it and then start it again later.
+

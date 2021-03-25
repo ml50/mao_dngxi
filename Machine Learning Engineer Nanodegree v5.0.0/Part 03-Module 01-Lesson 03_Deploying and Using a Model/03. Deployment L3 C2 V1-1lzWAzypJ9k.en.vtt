@@ -1,0 +1,328 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.009
+In this video, we're going to look at
+
+00:00:02.009 --> 00:00:05.189
+deployment model and sagemaker with a lot more detail.
+
+00:00:05.190 --> 00:00:11.550
+To follow along, open up the Boston Housing XGBoost Deploy low-level notebook.
+
+00:00:11.550 --> 00:00:15.600
+Again the majority of this notebook is the same as the low-level notebook that we
+
+00:00:15.599 --> 00:00:19.725
+went through that use the batch transform method for testing the resulting model.
+
+00:00:19.725 --> 00:00:21.855
+To remind ourselves of how this works,
+
+00:00:21.855 --> 00:00:25.920
+first we load up any of the necessary modules.
+
+00:00:25.920 --> 00:00:27.960
+Then we download and prepare the data,
+
+00:00:27.960 --> 00:00:31.710
+but in this case since we're using data provided by SKLearn, it's very simple.
+
+00:00:31.710 --> 00:00:35.340
+We split that up into a training validation and testing set,
+
+00:00:35.340 --> 00:00:39.530
+then we save the data locally and upload it to S3.
+
+00:00:39.530 --> 00:00:42.380
+Once our training data is available on S3,
+
+00:00:42.380 --> 00:00:44.750
+we can set up the training job where we
+
+00:00:44.750 --> 00:00:47.659
+describe all of the important bits like for example,
+
+00:00:47.659 --> 00:00:49.639
+what algorithm we want to use,
+
+00:00:49.640 --> 00:00:54.259
+the hyperparameter specific to that algorithm and where our data is stored.
+
+00:00:54.259 --> 00:00:56.719
+Once we have described the training job,
+
+00:00:56.719 --> 00:00:59.780
+we then ask SageMaker to create and run
+
+00:00:59.780 --> 00:01:03.935
+that training job and we can wait for that job to complete.
+
+00:01:03.935 --> 00:01:05.629
+Once the training job terminates,
+
+00:01:05.629 --> 00:01:08.974
+the output of the machine learning algorithm in this case XG Boost,
+
+00:01:08.974 --> 00:01:14.419
+is saved to S3 and those resulting files are called the "Model Artifacts."
+
+00:01:14.420 --> 00:01:16.430
+We can then create a model inside of
+
+00:01:16.430 --> 00:01:19.250
+SageMaker by specifying which model artifacts should be
+
+00:01:19.250 --> 00:01:24.275
+used along with which docker container contains the appropriate inference code.
+
+00:01:24.275 --> 00:01:25.895
+Just like in the previous video,
+
+00:01:25.894 --> 00:01:29.780
+instead of testing the model using the batch- transform functionality,
+
+00:01:29.780 --> 00:01:33.995
+we're going to deploy the model and then send the test data to the deployed endpoint.
+
+00:01:33.995 --> 00:01:40.350
+Remember, in SageMaker, deploying a model means creating an endpoint and that endpoint,
+
+00:01:40.349 --> 00:01:44.629
+from the user's perspective is just a URL that we can send data to.
+
+00:01:44.629 --> 00:01:47.539
+Behind the scenes, things are a little more complicated but
+
+00:01:47.540 --> 00:01:50.750
+fortunately SageMaker takes care of most of the heavy lifting.
+
+00:01:50.750 --> 00:01:53.599
+What this means for us is that to deploy a model,
+
+00:01:53.599 --> 00:01:57.169
+means to create an endpoint and to create an endpoint we need to tell
+
+00:01:57.170 --> 00:02:00.870
+SageMaker in details about how that endpoint should operate.
+
+00:02:00.870 --> 00:02:04.460
+In other words, we need to create an endpoint configuration.
+
+00:02:04.459 --> 00:02:07.619
+Just like most of the objects that we deal with instead of SageMaker,
+
+00:02:07.620 --> 00:02:12.270
+an endpoint must have a name and that name must be unique.
+
+00:02:12.270 --> 00:02:15.455
+So we're going to use the same trick that we've used before by
+
+00:02:15.455 --> 00:02:19.310
+appending a timestamp to the end of our chosen name.
+
+00:02:19.310 --> 00:02:24.405
+Once we have a name, we need to specify a list of what are called production variants.
+
+00:02:24.405 --> 00:02:30.405
+In effect these are different versions of the same model or different models.
+
+00:02:30.405 --> 00:02:36.229
+And endpoints sort of acts like a uniform resource that we can send data to.
+
+00:02:36.229 --> 00:02:41.060
+SageMaker can then take the data that is sent to an endpoint and if we wanted to,
+
+00:02:41.060 --> 00:02:44.615
+split it up among different models.
+
+00:02:44.615 --> 00:02:48.530
+For now, we only want to deploy a single model at
+
+00:02:48.530 --> 00:02:53.719
+our endpoint and so our production variants consists of a single item,
+
+00:02:53.719 --> 00:02:58.504
+and that single item is the model that we specified,
+
+00:02:58.504 --> 00:02:59.734
+that we created earlier.
+
+00:02:59.735 --> 00:03:03.230
+Once we ask SageMaker to create the endpoint configuration,
+
+00:03:03.229 --> 00:03:05.090
+a new object has been created.
+
+00:03:05.090 --> 00:03:07.729
+Now this endpoint configuration can be thought of as
+
+00:03:07.729 --> 00:03:10.159
+a blueprint that we can use as many times as
+
+00:03:10.159 --> 00:03:15.155
+we need to in the future and it tells SageMaker how to create a specific endpoint.
+
+00:03:15.155 --> 00:03:18.979
+So for example, if I go back to the SageMaker console,
+
+00:03:18.979 --> 00:03:22.294
+and on the left-hand side here I look at endpoint configurations,
+
+00:03:22.294 --> 00:03:26.905
+you can see this first one here is the endpoint configuration that we just created.
+
+00:03:26.905 --> 00:03:32.090
+So this will stay here and perpetuity and we can create an endpoint using this blueprint,
+
+00:03:32.090 --> 00:03:34.400
+this configuration whenever we'd like to.
+
+00:03:34.400 --> 00:03:36.325
+Heading back to the notebook,
+
+00:03:36.324 --> 00:03:42.259
+we can now ask SageMaker to create an endpoint based on the configuration we just made.
+
+00:03:42.259 --> 00:03:44.009
+Again just like always,
+
+00:03:44.009 --> 00:03:48.129
+we have to make sure to specify a name and that name must be unique.
+
+00:03:48.129 --> 00:03:53.590
+So now SageMaker is setting up our endpoint in the background and as before,
+
+00:03:53.590 --> 00:03:56.110
+we can use this method here to see
+
+00:03:56.110 --> 00:04:00.070
+a visual output as to how our endpoint construction is progressing.
+
+00:04:00.069 --> 00:04:02.500
+While SageMaker works on setting up our end point,
+
+00:04:02.500 --> 00:04:05.439
+let's take a look and see what was created.
+
+00:04:05.439 --> 00:04:08.659
+If we head back to the SageMaker console,
+
+00:04:08.659 --> 00:04:12.939
+remember that this object here is the endpoint configuration that we made,
+
+00:04:12.939 --> 00:04:17.469
+and if we further click on the endpoints listing here on the left,
+
+00:04:17.470 --> 00:04:20.380
+we can see the endpoint that we just asked SageMaker to
+
+00:04:20.379 --> 00:04:24.584
+create and currently it is in the process of being created.
+
+00:04:24.584 --> 00:04:27.904
+So we'll wait for SageMaker to finish making this endpoint for us.
+
+00:04:27.904 --> 00:04:31.174
+Now we can see that our endpoint is in-service.
+
+00:04:31.175 --> 00:04:33.155
+If we head back to the notebook,
+
+00:04:33.154 --> 00:04:37.119
+we can see that the process of creating our endpoint has been completed as well.
+
+00:04:37.120 --> 00:04:38.384
+So now we can test the model,
+
+00:04:38.384 --> 00:04:43.745
+which as we said before means we can serialize our data and then send it to an end point.
+
+00:04:43.745 --> 00:04:45.079
+Now in this case,
+
+00:04:45.079 --> 00:04:47.050
+because we don't have a predictor object,
+
+00:04:47.050 --> 00:04:50.810
+we need to serialize the data ourselves which is pretty straightforward.
+
+00:04:50.810 --> 00:04:54.694
+We basically just turn our matrix which is a listing
+
+00:04:54.694 --> 00:04:58.899
+of records into a comma delimited file, so we do that.
+
+00:04:58.899 --> 00:05:04.219
+Then we use the SageMaker runtime client to call our endpoint with
+
+00:05:04.220 --> 00:05:07.835
+the specified name with content which is
+
+00:05:07.834 --> 00:05:12.989
+a CSV file and then we include the data we wish to have our model process.
+
+00:05:12.990 --> 00:05:15.170
+The resulting object is then
+
+00:05:15.170 --> 00:05:18.500
+a serialized output which we need to convert to
+
+00:05:18.500 --> 00:05:22.009
+a string and then turn back into a numpy array.
+
+00:05:22.009 --> 00:05:24.289
+Once we have our resulting output,
+
+00:05:24.290 --> 00:05:26.415
+we can then plot a nice little graph.
+
+00:05:26.415 --> 00:05:29.795
+As before, once we're done using our endpoint we need to shut it down.
+
+00:05:29.795 --> 00:05:33.410
+But I'm going to show you a slightly different way to shut down
+
+00:05:33.410 --> 00:05:37.490
+the endpoint from just using the notebook methods.
+
+00:05:37.490 --> 00:05:40.310
+So if we go back to the SageMaker console,
+
+00:05:40.310 --> 00:05:42.214
+and look at our endpoint.
+
+00:05:42.214 --> 00:05:45.889
+Clicking on this endpoint here gives us some more information about it.
+
+00:05:45.889 --> 00:05:48.169
+In particular, right here is
+
+00:05:48.170 --> 00:05:52.610
+the actual URL that can be used to send data to our endpoint.
+
+00:05:52.610 --> 00:05:55.069
+Now it turns out, not just anyone can send data
+
+00:05:55.069 --> 00:05:58.204
+here and we'll talk about that more in detail later on.
+
+00:05:58.204 --> 00:06:02.769
+Another useful feature of this page is this 'Delete' button.
+
+00:06:02.769 --> 00:06:04.180
+If I click on the delete button,
+
+00:06:04.180 --> 00:06:06.439
+it will shut down the endpoint for us.
+
+00:06:06.439 --> 00:06:09.334
+So we don't have to use the notebook to shut down the end points.
+
+00:06:09.334 --> 00:06:11.449
+We can use this SageMaker console as well.
+
+00:06:11.449 --> 00:06:13.979
+And yes we'd like to delete it
+

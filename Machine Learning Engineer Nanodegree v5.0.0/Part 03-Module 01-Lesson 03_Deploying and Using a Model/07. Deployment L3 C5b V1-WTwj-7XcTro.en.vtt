@@ -1,0 +1,394 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.615
+In the last video, we took a look at the mini-project that you worked on last lesson,
+
+00:00:03.615 --> 00:00:05.775
+and extended it by deploying it.
+
+00:00:05.775 --> 00:00:08.669
+Of course, we didn't do much with the deployed endpoint,
+
+00:00:08.669 --> 00:00:12.379
+we just use it as another opportunity to test our model.
+
+00:00:12.380 --> 00:00:15.585
+Now, we're going to start putting together all of the pieces
+
+00:00:15.585 --> 00:00:19.170
+in order to make our endpoint work with the web app.
+
+00:00:19.170 --> 00:00:20.640
+Remember that in the introduction,
+
+00:00:20.640 --> 00:00:23.760
+we talked about how we have two problems we need to overcome.
+
+00:00:23.760 --> 00:00:27.000
+The first is that, our models endpoint expects to
+
+00:00:27.000 --> 00:00:30.929
+receive a bag of words encoded version of the review.
+
+00:00:30.929 --> 00:00:33.920
+However, our web app allows our user to
+
+00:00:33.920 --> 00:00:37.625
+type any reviewing as a string. So, how do we do that?
+
+00:00:37.625 --> 00:00:41.359
+The second problem we have to overcome is one of security.
+
+00:00:41.359 --> 00:00:45.859
+A diploid stage maker endpoint will only allow access to
+
+00:00:45.859 --> 00:00:47.659
+another object which is authenticated with
+
+00:00:47.659 --> 00:00:51.769
+AWS and has permission to use a sage maker endpoint.
+
+00:00:51.770 --> 00:00:54.020
+That seems like overkill for a simple web app.
+
+00:00:54.020 --> 00:00:57.595
+So, what we'd like to do is create a new endpoint,
+
+00:00:57.594 --> 00:00:59.534
+which is open to anyone,
+
+00:00:59.534 --> 00:01:02.414
+that can receive a string as input,
+
+00:01:02.414 --> 00:01:04.900
+perform some data processing,
+
+00:01:04.900 --> 00:01:09.560
+and then send the process review off to our model,
+
+00:01:09.560 --> 00:01:10.885
+get the result back,
+
+00:01:10.885 --> 00:01:13.175
+and return it to the original color.
+
+00:01:13.174 --> 00:01:16.049
+A nice picture to summarize this is right here.
+
+00:01:16.049 --> 00:01:17.435
+So, we have our web app,
+
+00:01:17.435 --> 00:01:20.269
+and our web app takes a string from the user,
+
+00:01:20.269 --> 00:01:24.408
+sends it off to the new end point that we're going to create,
+
+00:01:24.409 --> 00:01:28.010
+the new end point does some additional processing to
+
+00:01:28.010 --> 00:01:32.525
+the review and then sends that process review over to the model.
+
+00:01:32.525 --> 00:01:34.555
+The model then creates a prediction,
+
+00:01:34.555 --> 00:01:39.320
+sends the prediction back to our newly created endpoint,
+
+00:01:39.319 --> 00:01:42.169
+and our endpoint returns the result back to our app,
+
+00:01:42.170 --> 00:01:43.969
+which it can then display to the user.
+
+00:01:43.969 --> 00:01:47.030
+The technology we are going to use in order to implement
+
+00:01:47.030 --> 00:01:50.320
+this new endpoint is first of all Lambda,
+
+00:01:50.319 --> 00:01:55.504
+and then we're going to create an interface to our Lambda function using API Gateway.
+
+00:01:55.504 --> 00:01:58.239
+For now, let's just talk about lambda.
+
+00:01:58.239 --> 00:02:02.344
+Lambda is an example of something called a function as a service.
+
+00:02:02.344 --> 00:02:06.950
+That is, instead of having to create a server and have it running,
+
+00:02:06.950 --> 00:02:09.275
+the whole time, before you even need it,
+
+00:02:09.275 --> 00:02:12.034
+you can instead tell Amazon that you want
+
+00:02:12.034 --> 00:02:17.229
+a specific function to be run whenever a specific event occurs.
+
+00:02:17.229 --> 00:02:20.229
+That way, you don't have to pay for a server running the whole time,
+
+00:02:20.229 --> 00:02:24.489
+you only have to pay each time your function is run.
+
+00:02:24.490 --> 00:02:26.560
+Before setting up a lambda function though,
+
+00:02:26.560 --> 00:02:29.539
+let's take a look at what kind of processing we need to do.
+
+00:02:29.539 --> 00:02:32.120
+To start with, our Lambda function is going to
+
+00:02:32.120 --> 00:02:35.605
+receive a string which contains a movie review.
+
+00:02:35.604 --> 00:02:38.119
+In our case, let's think of test review as
+
+00:02:38.120 --> 00:02:40.925
+being the string that will be sent to our Lambda function.
+
+00:02:40.925 --> 00:02:43.189
+This is a rather negative review.
+
+00:02:43.189 --> 00:02:45.650
+The first thing we need to do is to get rid of
+
+00:02:45.650 --> 00:02:49.129
+any HTML formatting that may appear inside of the string,
+
+00:02:49.129 --> 00:02:52.745
+and we need to remove any punctuation that appears.
+
+00:02:52.745 --> 00:02:54.155
+If you recall from earlier,
+
+00:02:54.155 --> 00:02:56.900
+we wrote a function called review_to_words that did just
+
+00:02:56.900 --> 00:03:00.700
+that using only Python's built-in regular expression module.
+
+00:03:00.699 --> 00:03:03.829
+So, if we call this method on our sample review,
+
+00:03:03.830 --> 00:03:05.660
+and we print the result,
+
+00:03:05.659 --> 00:03:09.439
+we will see that we get a cleaned up version of the review.
+
+00:03:09.439 --> 00:03:13.465
+Next, we needed to create a bag of words encoding of the review.
+
+00:03:13.465 --> 00:03:16.909
+To do that, we need a vocabulary which remember we
+
+00:03:16.909 --> 00:03:21.909
+constructed by looking at the most frequently occurring words in the training set.
+
+00:03:21.909 --> 00:03:23.639
+Based on this vocabulary,
+
+00:03:23.639 --> 00:03:27.994
+we count the number of times each word in the vocabulary occurs in
+
+00:03:27.995 --> 00:03:32.463
+our review and then we create a sequence that encodes all that information.
+
+00:03:32.463 --> 00:03:34.609
+Doing that is pretty straightforward and in
+
+00:03:34.610 --> 00:03:36.740
+fact has been implemented in this method right here.
+
+00:03:36.740 --> 00:03:40.460
+So, given our input which is the cleaned review,
+
+00:03:40.460 --> 00:03:47.405
+and vocabulary dictionary, the result is a bag of words encoded version of the review.
+
+00:03:47.405 --> 00:03:51.794
+Of course, if we were to just print this bag of words encoding out,
+
+00:03:51.794 --> 00:03:53.264
+it wouldn't make much sense.
+
+00:03:53.264 --> 00:03:57.559
+Since it's just a vector of length equal to the size of the vocabulary.
+
+00:03:57.560 --> 00:03:58.819
+As a sanity check though,
+
+00:03:58.819 --> 00:04:02.329
+we can make sure that the bag of words encoded version of the review has
+
+00:04:02.330 --> 00:04:04.280
+the correct length and that agrees
+
+00:04:04.280 --> 00:04:06.905
+with the size of the vocabulary that we created earlier.
+
+00:04:06.905 --> 00:04:10.444
+Alright. So, what we'd like to do now is take our bag of words encoded
+
+00:04:10.444 --> 00:04:15.025
+review and send it off to our model to see what happens.
+
+00:04:15.025 --> 00:04:18.819
+Of course, we shut down the endpoint of our model in the last video.
+
+00:04:18.819 --> 00:04:20.404
+So, we need to start it back up again.
+
+00:04:20.404 --> 00:04:22.349
+Now, that our endpoint is up and running,
+
+00:04:22.350 --> 00:04:27.290
+we can send our bag of words encoded review off to it to see what happens.
+
+00:04:27.290 --> 00:04:28.685
+Now, in the past,
+
+00:04:28.685 --> 00:04:33.370
+we have used the xgb predictor object in order to call our endpoint.
+
+00:04:33.370 --> 00:04:36.454
+Of course, on the Lambda function we are going to create,
+
+00:04:36.454 --> 00:04:39.859
+we do not have access to this xgb predictor object.
+
+00:04:39.860 --> 00:04:43.610
+So, we need to use the SageMaker interface itself.
+
+00:04:43.610 --> 00:04:48.095
+To do that, we can get an object which points to the SageMaker runtime.
+
+00:04:48.095 --> 00:04:51.050
+Once we have that, using the name of
+
+00:04:51.050 --> 00:04:55.009
+the endpoint we have created which we can remind ourselves here,
+
+00:04:55.009 --> 00:05:00.230
+we can use the invoke endpoint method making sure to include the name of the endpoint,
+
+00:05:00.230 --> 00:05:02.770
+the format of the data that we're sending it,
+
+00:05:02.769 --> 00:05:04.214
+and the data itself.
+
+00:05:04.214 --> 00:05:05.819
+So, let's see what happens.
+
+00:05:05.819 --> 00:05:07.154
+It seems we got an error.
+
+00:05:07.154 --> 00:05:08.459
+So, why did we get an error?
+
+00:05:08.459 --> 00:05:10.334
+Well, if we scroll down to the bottom,
+
+00:05:10.334 --> 00:05:12.409
+we can see that perimeter validation failed.
+
+00:05:12.410 --> 00:05:14.480
+Which means that, some of the parameters that we
+
+00:05:14.480 --> 00:05:17.754
+used to invoke our endpoint, were not correct.
+
+00:05:17.754 --> 00:05:20.670
+In particular, look at the value of the body.
+
+00:05:20.670 --> 00:05:22.740
+This doesn't look like a CSV file,
+
+00:05:22.740 --> 00:05:25.694
+and we told SageMaker we're going to send a CSV file.
+
+00:05:25.694 --> 00:05:28.334
+Instead, we sent a list of integers.
+
+00:05:28.334 --> 00:05:31.609
+So, we need to make sure to serialize this object before we can
+
+00:05:31.610 --> 00:05:35.405
+properly call the invoke endpoint method. So, let's do that now.
+
+00:05:35.404 --> 00:05:38.449
+Here, again, we include the name of the endpoint,
+
+00:05:38.449 --> 00:05:41.629
+we tell SageMaker the type of data that we will be including,
+
+00:05:41.629 --> 00:05:44.189
+and then, we serialize that data.
+
+00:05:44.189 --> 00:05:48.634
+We do that by joining together each of the entries in the bag of words vector,
+
+00:05:48.634 --> 00:05:50.735
+separating each of them by a comma.
+
+00:05:50.735 --> 00:05:53.194
+Once we do this, we get a response,
+
+00:05:53.194 --> 00:05:54.699
+and what does that response look like?
+
+00:05:54.699 --> 00:05:56.680
+A whole bunch of data.
+
+00:05:56.680 --> 00:05:59.750
+Of course, a lot of this data has to do with the fact that we communicate with
+
+00:05:59.750 --> 00:06:02.959
+our model using an HTTP endpoint.
+
+00:06:02.959 --> 00:06:05.529
+That is, an endpoint that is just a URL.
+
+00:06:05.529 --> 00:06:06.669
+Looking right here though,
+
+00:06:06.670 --> 00:06:09.050
+we can see that there's a body object and
+
+00:06:09.050 --> 00:06:12.170
+that body object contains the real information we're looking for.
+
+00:06:12.170 --> 00:06:15.365
+So, what we can do is read in that body object
+
+00:06:15.365 --> 00:06:19.405
+making sure to convert the result to a string, and what do we get?
+
+00:06:19.404 --> 00:06:21.629
+0.378.
+
+00:06:21.629 --> 00:06:26.464
+It seems like our model did not think that review was particularly positive.
+
+00:06:26.464 --> 00:06:28.869
+In fact, our model thought it was negative.
+
+00:06:28.870 --> 00:06:31.280
+So, this gives an example of the sort of processing we're
+
+00:06:31.279 --> 00:06:33.679
+going to need to do inside of the Lambda function.
+
+00:06:33.680 --> 00:06:36.730
+Next, we will actually set up the Lambda function.
+

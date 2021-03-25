@@ -1,0 +1,244 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.334
+All right, now that you've had a chance to fill this notebook out yourself,
+
+00:00:04.334 --> 00:00:07.245
+let's go through and take a look at my solutions.
+
+00:00:07.245 --> 00:00:12.435
+I have already run all of the data downloading and processing steps,
+
+00:00:12.435 --> 00:00:15.179
+so we can start right away here at step four,
+
+00:00:15.179 --> 00:00:16.949
+where we start adding our own code.
+
+00:00:16.949 --> 00:00:22.424
+First things first, let's split our training dataset into a training and validation set.
+
+00:00:22.425 --> 00:00:28.214
+Here we have 25,000 reviews and we've already randomize the order of the reviews.
+
+00:00:28.214 --> 00:00:31.469
+So, to split into a training and validation set,
+
+00:00:31.469 --> 00:00:34.679
+we can just take the first 10,000 as
+
+00:00:34.679 --> 00:00:39.289
+the validation set and then leave the remaining as the training set.
+
+00:00:39.289 --> 00:00:44.939
+Once we've done that, as we did in the Boston Housing notebook,
+
+00:00:44.939 --> 00:00:47.559
+saved the testing, validation,
+
+00:00:47.560 --> 00:00:53.585
+and training datasets to CSV files in an appropriately chosen data directory.
+
+00:00:53.585 --> 00:00:56.359
+Also like in the Boston Housing dataset,
+
+00:00:56.359 --> 00:01:01.174
+we make sure that when we save the CSV files we do not include a header or an index
+
+00:01:01.174 --> 00:01:07.469
+as that is the format that SageMaker requires the data files to be in.
+
+00:01:07.469 --> 00:01:11.284
+Now, that the test validation and training sets have been saved,
+
+00:01:11.284 --> 00:01:15.244
+we can first do a little bit of memory management.
+
+00:01:15.245 --> 00:01:17.570
+So, you will see this sort of a code tail
+
+00:01:17.569 --> 00:01:21.739
+appear in a number of the notebooks and the reason for this is that
+
+00:01:21.739 --> 00:01:25.099
+the default virtual machine that our notebook instance is running
+
+00:01:25.099 --> 00:01:28.699
+inside of doesn't have a lot of RAM available to it.
+
+00:01:28.700 --> 00:01:32.269
+So, if we let unused data just sort of linger,
+
+00:01:32.269 --> 00:01:35.704
+we can accidentally run out of memory inside of the notebook.
+
+00:01:35.704 --> 00:01:37.024
+So, we have two options.
+
+00:01:37.025 --> 00:01:39.305
+We could increase the capabilities of
+
+00:01:39.305 --> 00:01:42.445
+the virtual machine that our notebook is running inside of,
+
+00:01:42.444 --> 00:01:44.069
+but that may be costly,
+
+00:01:44.069 --> 00:01:47.479
+or we could do something like this where we make sure to keep
+
+00:01:47.480 --> 00:01:51.170
+track of memory that is no longer being used and free it.
+
+00:01:51.170 --> 00:01:55.000
+Next step is to upload the data files to S3.
+
+00:01:55.000 --> 00:01:59.974
+This is essentially done in the same way as we did in the Boston Housing and notebook.
+
+00:01:59.974 --> 00:02:02.780
+The difference really is that we are changing the prefix.
+
+00:02:02.780 --> 00:02:09.015
+Remember the prefix is basically like the folder name on some drive,
+
+00:02:09.014 --> 00:02:16.409
+and the drive is the default drive or bucket that corresponds to this notebook.
+
+00:02:16.409 --> 00:02:19.954
+Aside from that, we just use the upload data method for
+
+00:02:19.955 --> 00:02:23.780
+each of our data files and upload them to S3.
+
+00:02:23.780 --> 00:02:26.689
+Now, the data files have been uploaded and we can move on.
+
+00:02:26.689 --> 00:02:30.454
+To begin with, we make sure to get hold of the execution role.
+
+00:02:30.455 --> 00:02:35.969
+Remember that the role describes what other resources our notebook has
+
+00:02:35.969 --> 00:02:41.539
+access to and we need to make sure to give the estimator we're about to create a role.
+
+00:02:41.539 --> 00:02:44.814
+We may as well give it the same role that we're using for this notebook.
+
+00:02:44.814 --> 00:02:48.829
+We also need to make sure to create the image URI for
+
+00:02:48.830 --> 00:02:53.200
+the XGBoost algorithm and that depends on the region that we're currently using.
+
+00:02:53.199 --> 00:02:55.974
+So, we use the get image URI method.
+
+00:02:55.974 --> 00:03:00.424
+Then, we create the SageMaker estimator objects
+
+00:03:00.425 --> 00:03:04.400
+in the exact same way as we did in the Boston Housing notebook.
+
+00:03:04.400 --> 00:03:09.710
+The difference here is in one of the XGB hyperparameters.
+
+00:03:09.710 --> 00:03:12.515
+Since we are trying to determine sentiment that is
+
+00:03:12.514 --> 00:03:16.864
+a binary outcome, positive or negative,
+
+00:03:16.865 --> 00:03:22.290
+we want to make sure that we're using a binary or a two-outcome regression,
+
+00:03:22.289 --> 00:03:26.829
+and in particular, logistic regression is typically what we want to be using.
+
+00:03:26.830 --> 00:03:31.670
+So, the only real difference between the Boston Housing notebook and this one is
+
+00:03:31.669 --> 00:03:36.684
+that we have changed the objective to being a binary logistic regression.
+
+00:03:36.685 --> 00:03:41.030
+Okay. So, now we have defined the XGBoost model and we need to actually feed it.
+
+00:03:41.030 --> 00:03:43.550
+So, again just like in the Boston Housing notebook,
+
+00:03:43.550 --> 00:03:48.094
+we just provide the training and validation datasets and away it goes.
+
+00:03:48.094 --> 00:03:49.879
+Once the model has been fed,
+
+00:03:49.879 --> 00:03:53.674
+we can go on to testing to see how well our model behaves.
+
+00:03:53.675 --> 00:03:57.545
+First thing we need to do, is create a new transformer object.
+
+00:03:57.544 --> 00:04:00.014
+Once that's been done we setup
+
+00:04:00.014 --> 00:04:05.239
+a transform job making sure to specify both where the test data is,
+
+00:04:05.240 --> 00:04:06.890
+the type of data it is,
+
+00:04:06.889 --> 00:04:12.199
+and the way in which SageMaker could if necessary, split the data up.
+
+00:04:12.199 --> 00:04:15.369
+Now, remember the transform job is happening in the background,
+
+00:04:15.370 --> 00:04:16.939
+is being set up and run in the background.
+
+00:04:16.939 --> 00:04:21.529
+So, if we use the weight method we can get some visual output to let us
+
+00:04:21.529 --> 00:04:26.419
+know how that transform job is progressing and when it's finished.
+
+00:04:26.420 --> 00:04:28.740
+Once the transform job has finished up,
+
+00:04:28.740 --> 00:04:34.444
+we can copy the output from that transform job to the notebook instance.
+
+00:04:34.444 --> 00:04:38.165
+Then, reading that data and check to see how well our model perform.
+
+00:04:38.165 --> 00:04:40.475
+Well, not so bad, almost 87 percent.
+
+00:04:40.475 --> 00:04:43.220
+Again, we can then do the optional cleanup step,
+
+00:04:43.220 --> 00:04:47.600
+to get rid of any of the files that we created throughout the notebook. So, that's it.
+
+00:04:47.600 --> 00:04:50.970
+You have created your first ever model in SageMaker.
+
+00:04:50.970 --> 00:04:53.060
+Of course, we have used a lot of
+
+00:04:53.060 --> 00:04:56.375
+the high-level functionality of SageMaker and as a result,
+
+00:04:56.375 --> 00:04:58.810
+most of the magic has happened in the background.
+
+00:04:58.810 --> 00:05:01.009
+In the next few videos, we're going to go into
+
+00:05:01.009 --> 00:05:05.129
+much more detail as to how SageMaker works.
+

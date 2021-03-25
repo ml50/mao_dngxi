@@ -1,0 +1,391 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Summary
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Building a Model using SageMaker
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction to Amazon SageMaker.html">
+       01. Introduction to Amazon SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="02. AWS Setup Instructions for Regular account.html">
+       02. AWS Setup Instructions for Regular account
+      </a>
+     </li>
+     <li class="">
+      <a href="03. AWS SageMaker.html">
+       03. AWS SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="04. SageMaker Instance Utilization Limits.html">
+       04. SageMaker Instance Utilization Limits
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Setting up a Notebook Instance.html">
+       05. Setting up a Notebook Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Cloning the Deployment Notebooks.html">
+       06. Cloning the Deployment Notebooks
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Is Everything Set Up.html">
+       07. Is Everything Set Up?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Boston Housing Example - Getting the Data Ready.html">
+       08. Boston Housing Example - Getting the Data Ready
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Boston Housing Example - Training the Model.html">
+       09. Boston Housing Example - Training the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Boston Housing Example - Testing the Model.html">
+       10. Boston Housing Example - Testing the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Mini-Project Building Your First Model.html">
+       11. Mini-Project: Building Your First Model
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Mini-Project Solution.html">
+       12. Mini-Project: Solution
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Boston Housing In-Depth - Data Preparation.html">
+       13. Boston Housing In-Depth - Data Preparation
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Boston Housing In-Depth - Creating a Training Job.html">
+       14. Boston Housing In-Depth - Creating a Training Job
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Boston Housing In-Depth - Building a Model.html">
+       15. Boston Housing In-Depth - Building a Model
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Boston Housing In-Depth - Creating a Batch Transform Job.html">
+       16. Boston Housing In-Depth - Creating a Batch Transform Job
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Summary.html">
+       17. Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          17. Summary
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="what-have-we-learned-so-far">
+          What have we learned so far?
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this lesson we went over the basics of how models can be constructed and trained using Amazon SageMaker. In addition, we saw some of how SageMaker works and how it interacts with other services.
+         </p>
+         <p>
+          In particular, we learned how Amazon S3 is used as a central storage service when using SageMaker. In order to train a model, data must first be available on S3, and once the model has been trained, the model artifacts are also stored on S3.
+         </p>
+         <p>
+          We also saw how to use SageMaker to train models and fit them to data, saving the results (called model artifacts).
+         </p>
+         <p>
+          Lastly, we looked at how we could use SageMaker's Batch Transform functionality to test our models.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          SageMaker Models
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUESTION:
+          </strong>
+         </p>
+         <p>
+          What are the main components of a SageMaker model?
+         </p>
+         <details>
+          <summary>
+           <strong>
+            ANSWER:
+           </strong>
+          </summary>
+          <p>
+           <p>
+            In SageMaker, a model is a collection of information that describes how to perform inference. For the most part, this comprises two very important pieces.
+           </p>
+           <p>
+            The first is the container that holds the model inference functionality. For different types of models this code may be different but for simpler models and models provided by Amazon this is typically the same container that was used to train the model.
+           </p>
+           <p>
+            The second is the model artifacts. These are the pieces of data that were created during the training process. For example, if we were fitting a linear model then the coefficients that were fit would be saved as model artifacts.
+           </p>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Fitting Models
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUESTION:
+          </strong>
+         </p>
+         <p>
+          What happens when a model is fit using SageMaker?
+         </p>
+         <details>
+          <summary>
+           <strong>
+            ANSWER:
+           </strong>
+          </summary>
+          <p>
+           <p>
+            When a model is fit using SageMaker, the process is as follows.
+           </p>
+           <p>
+            First, a compute instance (basically a server somewhere) is started up with the properties that we specified.
+           </p>
+           <p>
+            Next, when the compute instance is ready, the code, in the form of a container, that is used to fit the model is loaded and executed. When this code is executed, it is provided access to the training (and possibly validation) data stored on S3.
+           </p>
+           <p>
+            Once the compute instance has finished fitting the model, the resulting model artifacts are stored on S3 and the compute instance is shut down.
+           </p>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="whats-next">
+          What's next?
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the next few lessons we are going to look at some of the more advanced functionality of SageMaker.
+         </p>
+         <p>
+          To begin with, we will look at deploying a model using SageMaker. This means making a model available for other entities to use. Along the way we will create a simple web app that interacts with a deployed model.
+         </p>
+         <p>
+          In addition, we will look at hyperparameter tuning. Which is a way to train a bunch of different models, all with different hyperparameters, and then select the one that performs the best.
+         </p>
+         <p>
+          Lastly, we will take a look at updating a deployed model. Sometimes a model may not work as well as it once did due to changes in the underlying data. In
+          <a href="https://edouardfouche.com/Data-Stream-Generation-with-Concept-Drift/" rel="noopener noreferrer" target="_blank">
+           this resource
+          </a>
+          , you can read more about how a model's predictions and accuracy may degrade as a result of something called
+          <em>
+           concept drift
+          </em>
+          , which is a change in the underlying data distribution over time. When this happens we might want to update a deployed model, however, our model may be in use so we don't want to shut it down. SageMaker allows us to solve this problem without there being any loss of service.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('17. Summary')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

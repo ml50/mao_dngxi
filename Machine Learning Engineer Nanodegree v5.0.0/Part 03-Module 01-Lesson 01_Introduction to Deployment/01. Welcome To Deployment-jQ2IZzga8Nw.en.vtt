@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.625
+Welcome to the Deployment section in the standard group program.
+
+00:00:03.625 --> 00:00:06.509
+I'm Jennifer Stub, an expert in cloud computing.
+
+00:00:06.509 --> 00:00:10.484
+My passion for cloud computing was ignited when I began using
+
+00:00:10.484 --> 00:00:16.484
+Amazon Web Services for genomic research at a pharmaceutical company in 2012.
+
+00:00:16.484 --> 00:00:19.230
+Using cloud computing services provide
+
+00:00:19.230 --> 00:00:21.870
+secure supercomputing capability for
+
+00:00:21.870 --> 00:00:25.960
+big data analytics that I could build and manage alone.
+
+00:00:25.960 --> 00:00:27.670
+With this deployment section,
+
+00:00:27.670 --> 00:00:30.400
+you'll be developing, training, validating,
+
+00:00:30.399 --> 00:00:35.039
+and deploying machine learning models using Amazon SageMaker service.
+
+00:00:35.039 --> 00:00:37.589
+While you'll use SageMaker for deployment,
+
+00:00:37.590 --> 00:00:40.260
+the skills you'll be learning are applicable to
+
+00:00:40.259 --> 00:00:44.689
+any production environment that aims to deploy machine learning models,
+
+00:00:44.689 --> 00:00:47.015
+and deep learning models with Python.
+
+00:00:47.015 --> 00:00:49.490
+We'll keep this lesson platform-neutral,
+
+00:00:49.490 --> 00:00:52.510
+we want to make sure that you get a good foundation in deployment.
+
+00:00:52.509 --> 00:00:57.684
+So, that you're able to apply this knowledge using any Cloud Platform in the future.
+
+00:00:57.685 --> 00:01:02.980
+With this lesson, we begin by providing you with an understanding of Cloud Computing.
+
+00:01:02.979 --> 00:01:07.765
+Next, the lesson we'll focus on how machine learning is typically used in the workplace.
+
+00:01:07.765 --> 00:01:12.055
+Deployment is a critical part of the machine learning workflow in the workplace.
+
+00:01:12.055 --> 00:01:13.490
+With this final lesson,
+
+00:01:13.489 --> 00:01:17.359
+we'll examine deployment, and how it fits within the machine learning workflow.
+

@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+Now that the training job is completed,
+
+00:00:02.279 --> 00:00:04.365
+we can build the SageMaker model.
+
+00:00:04.365 --> 00:00:07.500
+Remember, the SageMaker model is really a collection of
+
+00:00:07.500 --> 00:00:11.849
+information that includes both a link to the model artifacts,
+
+00:00:11.849 --> 00:00:15.509
+that is the saved files that were created by our training job,
+
+00:00:15.509 --> 00:00:21.929
+and some information that describes how those model artifacts should be used.
+
+00:00:21.929 --> 00:00:23.949
+Before we do that however,
+
+00:00:23.949 --> 00:00:29.869
+let's actually take a look at the training job inside of the SageMaker console.
+
+00:00:29.870 --> 00:00:36.289
+To do that, let's open up the tab that currently is on the S3 console.
+
+00:00:36.289 --> 00:00:39.174
+If I click on the icon in the top left corner,
+
+00:00:39.174 --> 00:00:42.509
+it brings me to the main AWS console,
+
+00:00:42.509 --> 00:00:46.589
+and from here, we can choose whichever service we want to look at.
+
+00:00:46.590 --> 00:00:49.850
+In our case, we want to scroll down to Machine Learning and
+
+00:00:49.850 --> 00:00:53.859
+select "Amazon" SageMaker to open up the SageMaker console.
+
+00:00:53.859 --> 00:00:55.399
+Now, the last time we were here,
+
+00:00:55.399 --> 00:00:57.530
+we clicked on "Notebook instances" which
+
+00:00:57.530 --> 00:01:00.890
+shows each of the notebook instances that we have created.
+
+00:01:00.890 --> 00:01:04.370
+This time, we want to take a look at "Training jobs."
+
+00:01:04.370 --> 00:01:07.460
+As you can see how I have quite a lot of training jobs that
+
+00:01:07.459 --> 00:01:10.519
+I have built up over my time playing with SageMaker.
+
+00:01:10.519 --> 00:01:14.224
+However, this one right here at the top
+
+00:01:14.224 --> 00:01:19.655
+corresponds to the training job that we just completed in the low-level notebook.
+
+00:01:19.655 --> 00:01:21.275
+How do I know this?
+
+00:01:21.275 --> 00:01:23.255
+Well, for two reasons.
+
+00:01:23.254 --> 00:01:25.744
+First, the creation time is today,
+
+00:01:25.745 --> 00:01:28.520
+and secondly, when we named this training job,
+
+00:01:28.519 --> 00:01:32.049
+remember we included a timestamp at the end of it,
+
+00:01:32.049 --> 00:01:34.605
+which again includes today's date,
+
+00:01:34.605 --> 00:01:38.510
+and the time that I created this training job.
+
+00:01:38.510 --> 00:01:41.000
+If I select this and click on it,
+
+00:01:41.000 --> 00:01:44.109
+it shows me some information about the training job.
+
+00:01:44.109 --> 00:01:47.150
+One piece of information that may be of use to you in
+
+00:01:47.150 --> 00:01:52.400
+the future is down at the bottom where it says "View logs."
+
+00:01:52.400 --> 00:01:54.275
+If you click on this,
+
+00:01:54.275 --> 00:01:56.219
+it will open up a,
+
+00:01:56.219 --> 00:01:59.390
+CloudWatch dashboard, from which you can take a look
+
+00:01:59.390 --> 00:02:02.810
+at the output that was created by that training job.
+
+00:02:02.810 --> 00:02:06.935
+So, if you have any errors that show up while training,
+
+00:02:06.935 --> 00:02:08.425
+they will appear here.
+
+00:02:08.425 --> 00:02:11.105
+This can be very useful tool when you are
+
+00:02:11.104 --> 00:02:14.239
+working on creating jobs that are a little more complicated than this one.
+
+00:02:14.240 --> 00:02:17.150
+Going back to the low-level notebook,
+
+00:02:17.150 --> 00:02:19.240
+again our training job has completed, so,
+
+00:02:19.240 --> 00:02:23.120
+now it's time to build the model inside of SageMaker.
+
+00:02:23.120 --> 00:02:24.689
+So, how do we do that?
+
+00:02:24.689 --> 00:02:26.430
+Well, as I said before,
+
+00:02:26.430 --> 00:02:30.015
+a model in SageMaker is really a collection of data.
+
+00:02:30.014 --> 00:02:33.009
+In particular, it includes a link to
+
+00:02:33.009 --> 00:02:39.114
+the model artifacts which we can extract from the training job information,
+
+00:02:39.115 --> 00:02:44.435
+and some additional information about how those model artifacts can be used.
+
+00:02:44.435 --> 00:02:47.949
+Now, just like when we created a training job,
+
+00:02:47.949 --> 00:02:51.458
+a model must have a name that is unique.
+
+00:02:51.459 --> 00:02:56.965
+So, the way we are going to create the model name here is to take the training job name,
+
+00:02:56.965 --> 00:03:00.599
+which was already unique because it had a timestamp,
+
+00:03:00.599 --> 00:03:02.669
+and append model to it.
+
+00:03:02.669 --> 00:03:04.689
+Once we have the model name,
+
+00:03:04.689 --> 00:03:08.329
+we package up information including a link to
+
+00:03:08.330 --> 00:03:12.880
+the model artifacts and a link to the docker container,
+
+00:03:12.879 --> 00:03:16.324
+which contains the algorithm necessary to perform
+
+00:03:16.324 --> 00:03:20.269
+inference using our creative model artifacts.
+
+00:03:20.270 --> 00:03:23.450
+Lastly, we use SageMaker object to
+
+00:03:23.449 --> 00:03:27.280
+create a model which includes the name that we specified,
+
+00:03:27.280 --> 00:03:30.169
+a role in the data structure which
+
+00:03:30.169 --> 00:03:33.994
+includes a link to the container and a link to the model artifacts.
+
+00:03:33.995 --> 00:03:37.599
+So, now that we've run this cell, what actually happened?
+
+00:03:37.599 --> 00:03:42.014
+Well, if we go back to the SageMaker dashboard,
+
+00:03:42.014 --> 00:03:43.459
+on the left hand side,
+
+00:03:43.460 --> 00:03:46.010
+if we click on models,
+
+00:03:46.009 --> 00:03:51.039
+again I have a whole bunch here built up from previous experiments with SageMaker.
+
+00:03:51.039 --> 00:03:53.245
+If we look at this top one here,
+
+00:03:53.245 --> 00:03:55.430
+it looks like the name of
+
+00:03:55.430 --> 00:03:59.675
+the training job that recreated including the correct timestamp,
+
+00:03:59.675 --> 00:04:02.045
+with the word model upended.
+
+00:04:02.044 --> 00:04:07.024
+So, this is the model that we just created in the notebook.
+
+00:04:07.025 --> 00:04:08.810
+If I click on here,
+
+00:04:08.810 --> 00:04:12.844
+notice that all of the information we provided is now included.
+
+00:04:12.844 --> 00:04:15.379
+Looking through, we can see a link to
+
+00:04:15.379 --> 00:04:20.199
+the model artifacts and a location of the inference code.
+

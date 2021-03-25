@@ -1,0 +1,2424 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   [Optional] Cloud Computing Explained
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Deployment
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Welcome!.html">
+       01. Welcome!
+      </a>
+     </li>
+     <li class="">
+      <a href="02. What's Ahead.html">
+       02. What's Ahead?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Problem Introduction.html">
+       03. Problem Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Machine Learning Workflow.html">
+       04. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Machine Learning Workflow.html">
+       05. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What is Cloud Computing &amp; Why Would We Use It.html">
+       06. What is Cloud Computing &amp; Why Would We Use It?
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Why Cloud Computing .html">
+       07. Why Cloud Computing?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Machine Learning Applications.html">
+       08. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Machine Learning Applications.html">
+       09. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Paths to Deployment.html">
+       10. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Paths to Deployment.html">
+       11. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Production Environments.html">
+       12. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Production Environments.html">
+       13. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Endpoints &amp; REST APIs.html">
+       14. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Endpoints &amp; REST APIs.html">
+       15. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Containers.html">
+       16. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Containers.html">
+       17. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Containers - Straight From the Experts.html">
+       18. Containers - Straight From the Experts
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Characteristics of Modeling &amp; Deployment.html">
+       19. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Characteristics of Modeling &amp; Deployment.html">
+       20. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Comparing Cloud Providers.html">
+       21. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Comparing Cloud Providers.html">
+       22. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Closing Statements.html">
+       23. Closing Statements
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Summary.html">
+       24. Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. [Optional] Cloud Computing Defined.html">
+       25. [Optional] Cloud Computing Defined
+      </a>
+     </li>
+     <li class="">
+      <a href="26. [Optional] Cloud Computing Explained.html">
+       26. [Optional] Cloud Computing Explained
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          26. [Optional] Cloud Computing Explained
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="optional-cloud-computing-explained">
+          [Optional] Cloud Computing Explained
+         </h1>
+         <p>
+          The following content is
+          <strong>
+           optional
+          </strong>
+          , it's provided to give students a greater understanding of cloud computing if they are interested in learning more.
+         </p>
+         <hr/>
+         <h2 id="cloud-computing-drivers-benefits-and-risks-provided-by-cloud-providers-and-references">
+          Cloud Computing Drivers, Benefits, and Risks provided by Cloud Providers and References
+         </h2>
+         <p>
+          The
+          <em>
+           capacity utilization
+          </em>
+          graphic that you will see in this section was originally presented by AWS in 2012 to help explain the benefits of cloud computing. As usage of cloud computing has become more ubiquitous in recent years, cloud providers Amazon, Google, and Microsoft have evolving benefits and improved security within their cloud services (see
+          <strong>
+           3
+          </strong>
+          ,
+          <strong>
+           4
+          </strong>
+          , &amp;
+          <strong>
+           5
+          </strong>
+          in
+          <strong>
+           References
+          </strong>
+          ). Authors Thomas Erl and Michael Kavis explained in more detail the business drivers, benefits, and risks of cloud computing in their books (see
+          <strong>
+           1
+          </strong>
+          &amp;
+          <strong>
+           2
+          </strong>
+          in
+          <strong>
+           References
+          </strong>
+          ). The information found in this section is based upon the materials that we have included in the
+          <strong>
+           References
+          </strong>
+          at the end of this section.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="recall-why-businesses-decide-to-use-cloud-computing">
+          <em>
+           Recall
+          </em>
+          why businesses decide to use cloud computing
+         </h3>
+         <p>
+          Remember that most of the factors related to choosing
+          <em>
+           cloud computing services
+          </em>
+          , instead of
+          <em>
+           developing on-premise IT resources
+          </em>
+          are related to
+          <strong>
+           <em>
+            time
+           </em>
+          </strong>
+          and
+          <strong>
+           <em>
+            cost
+           </em>
+          </strong>
+          .  Below we have an example that explains
+          <em>
+           why
+          </em>
+          startups use cloud services.
+         </p>
+         <p style="margin-left: 25px">
+          Imagine it’s 2010 and you created a photo-sharing application called *Instagram*.  Some challenges you face are you have little funding, few employees, and your application will need to scale to meet customer usage. Ideally, your application needs to scale to meet spikes in demand without having to put limits on application usage or the number of supported users. Because you’re unsure about how popular your application will be, you don’t want to spend funding to prepare for users you may not have. Instead, you want to spend those funds on advertising and extra features to attract more users.
+         </p>
+         <p style="margin-left: 25px">
+          You’ve learned cloud computing provides ***pay-as-you-go*** service (*on-demand self service*), that can be available to anyone with ***wireless or internet connection*** (*broad network access*), and can ***scale up and down rapidly*** (*rapid elasticity*) to meet customer demand easily. These ***features*** of **cloud computing** make using cloud the *obvious* choice to launch your photo sharing application.
+         </p>
+         <p>
+          While it may make sense why a startup like Instagram chose to use cloud services, it may be more perplexing why an
+          <em>
+           established
+          </em>
+          organization would consider incorporating cloud services into their infrastructure. Addressing these questions will provide you with information that will guide decisions you will make when
+          <strong>
+           <em>
+            deploying
+           </em>
+          </strong>
+          <em>
+           machine learning models
+          </em>
+          within your workplace.
+         </p>
+         <h3 id="capacity-utilization-graph">
+          Capacity Utilization Graph
+         </h3>
+         <p>
+          To understand why an
+          <em>
+           established
+          </em>
+          organization would consider incorporating cloud services into their infrastructure, it’s important to understand the
+          <strong>
+           <em>
+            capacity utilization over time graph
+           </em>
+          </strong>
+          below.  I’m going to explain this graph in detail to illustrate the business drivers and benefits of cloud computing for both
+          <em>
+           startups
+          </em>
+          and
+          <em>
+           established
+          </em>
+          organizations.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capacity Utilization Graph" class="img img-fluid" src="img/capacityutilizationcurve3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capacity Utilization Graph
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="axes">
+          Axes
+         </h4>
+         <p>
+          Along the y-axis or vertical axis of this graph is
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          . Capacity can be thought of as a number of IT resources like compute capacity, storage, networking, etc. This
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          also includes the
+          <em>
+           costs
+          </em>
+          associated with these IT resources. For traditional non-cloud infrastructures, this would include purchase and maintenance of these resources. For cloud infrastructures, this would only include paying for use of these IT services. Along the x-axis or horizontal axis of this graph is
+          <strong>
+           <em>
+            time
+           </em>
+          </strong>
+          . Generally, lines plotted on this graph depict
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          across
+          <strong>
+           <em>
+            time
+           </em>
+          </strong>
+          .
+         </p>
+         <h4 id="lines">
+          Lines
+         </h4>
+         <p>
+          For understanding this graph, we are going to return to our Instagram example. Imagine this graph depicts the
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          needed for Instagram’s photo-sharing application across a period of a few months. The
+          <strong>
+           <span style="color:black;">
+            black
+           </span>
+          </strong>
+          curvy line depicts the
+          <em>
+           actual customer demand
+          </em>
+          for
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          based upon the customers’ usage of the photo-sharing application. The spikes in demand may indicate increased usage by registered Instagram users. The general rise in the
+          <strong>
+           <span style="color:black;">
+            black
+           </span>
+          </strong>
+          curved line over time indicates an increase in the number of registered users of the Instagram application.
+         </p>
+         <p>
+          The
+          <em>
+           dashed
+          </em>
+          <strong>
+           <span style="color:#1155cc;">
+            blue
+           </span>
+          </strong>
+          line depicts the
+          <em>
+           predicted customer demand
+          </em>
+          for
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          based upon the predictions Instagram would have made if they would have decided to use traditional non-cloud infrastructure. Instagram would have had to base these predictions on historical data and current trends.
+         </p>
+         <p>
+          The
+          <strong>
+           <span style="color:#1155cc;">
+            blue
+           </span>
+          </strong>
+          <em>
+           step-like
+          </em>
+          line depicts how much
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          is provided by the
+          <em>
+           traditional non-cloud infrastructure
+          </em>
+          and hardware. If Instagram would have had decided to not use cloud services, this
+          <strong>
+           <span style="color:#1155cc;">
+            blue
+           </span>
+          </strong>
+          <em>
+           step-like
+          </em>
+          line would have been the capacity that Instagram would have provided their customers. In this scenario where Instagram is using
+          <em>
+           traditional infrastructure
+          </em>
+          , they would have needed to build or purchase their own data center and computing resources to provide capacity for their customers.
+         </p>
+         <p>
+          The
+          <strong>
+           <span style="color:#f1c232;">
+            yellow
+           </span>
+          </strong>
+          curvy line depicts how much
+          <strong>
+           <em>
+            capacity
+           </em>
+          </strong>
+          Instagram would provide using
+          <em>
+           cloud infrastructure
+          </em>
+          to meet their customers’ demands for capacity. Notice that using cloud infrastructure will provide automated cloud capacity as a service. This automated cloud capacity enables a company the ability to meet and exceed customer demands, unlike if they had chosen to use
+          <em>
+           traditional non-cloud infrastructure
+          </em>
+          .
+         </p>
+         <h3 id="interpretation-of-graph">
+          Interpretation of Graph
+         </h3>
+         <p>
+          We explain the graph in detail to demonstrate the benefits of cloud infrastructure. With
+          <em>
+           traditional infrastructure
+          </em>
+          , it takes a considerable amount of time to predict demand, obtain approval for
+          <em>
+           capacity
+          </em>
+          increase, purchase new resources, and install these resources. The graph below depicts this lag of time with how
+          <em>
+           traditional infrastructure
+          </em>
+          is increased to the level of predicted
+          <strong>
+           <em>
+            future
+           </em>
+          </strong>
+          demand. The point select is the time at which they would be able to increase traditional infrastructure again.
+         </p>
+         <p>
+          If Instagram had decided to use
+          <em>
+           traditional non-cloud infrastructure
+          </em>
+          , they would have needed more capital to make the investment in
+          <em>
+           traditional infrastructure
+          </em>
+          and they would have needed to overestimate customer demand for
+          <em>
+           capacity
+          </em>
+          . This overestimation of customer
+          <em>
+           capacity
+          </em>
+          provides Instagram with the additional time needed to upgrade
+          <em>
+           traditional infrastructure
+          </em>
+          to meet an increasing customer demand.
+         </p>
+         <h4 id="wasted-capacity">
+          Wasted Capacity
+         </h4>
+         <p>
+          The
+          <strong>
+           <span style="color:#00cfcf;">
+            cyan
+           </span>
+          </strong>
+          shaded area in this graph below depicts the amount of
+          <strong>
+           <em>
+            wasted capacity
+           </em>
+          </strong>
+          that Instagram would have had with
+          <em>
+           traditional non-cloud infrastructure
+          </em>
+          while they waited for customer demand to meet their
+          <em>
+           capacity
+          </em>
+          . Specifically, the
+          <strong>
+           <span style="color:#1155cc;">
+            blue
+           </span>
+          </strong>
+          arrow shows the large costs associated with Instagram attempting to answer the variability in their customer demand for capacity by
+          <em>
+           overestimation
+          </em>
+          of demand using
+          <em>
+           traditional infrastructure
+          </em>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capacity Utilization Graph - Wasted Capacity" class="img img-fluid" src="img/capacityutilizationcurve-wastedcap4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capacity Utilization Graph - Wasted Capacity
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="insufficient-capacity">
+          Insufficient Capacity
+         </h4>
+         <p>
+          Due to the lag in time needed to upgrade* traditional infrastructure*, if Instagram failed to *overestimate* customer demand correctly they run the risk of losing their customers as represented by the
+          <strong>
+           <span style="color:#00cfcf;">
+            cyan
+           </span>
+          </strong>
+          shaded area in this graph below. This
+          <strong>
+           <span style="color:#00cfcf;">
+            cyan
+           </span>
+          </strong>
+          shaded area depicts the amount of
+          <strong>
+           <em>
+            insufficient capacity
+           </em>
+          </strong>
+          that Instagram would have had with
+          <em>
+           traditional infrastructure
+          </em>
+          , once customer demand exceeds their capacity. Specifically, the
+          <strong>
+           <span style="color:#00cfcf;">
+            cyan
+           </span>
+          </strong>
+          shaded areas represent the costs associated with losing customers due to
+          <em>
+           failure
+          </em>
+          to meet customer demand when the demand exceeds capacity provided by
+          <em>
+           traditional infrastructure
+          </em>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capacity Utilization Graph - Insufficient Capacity" class="img img-fluid" src="img/capacityutilizationcurve-insufficientcap3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capacity Utilization Graph - Insufficient Capacity
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="dynamic-capacity">
+          Dynamic Capacity
+         </h4>
+         <p>
+          Understand that with
+          <em>
+           cloud infrastructure
+          </em>
+          , one can set
+          <em>
+           automated triggers
+          </em>
+          that will increase or decrease cloud capacity once a certain level customer demand has been reached. If Instagram uses
+          <em>
+           cloud infrastructure
+          </em>
+          , they will be able to set
+          <em>
+           automatic triggers
+          </em>
+          so that their cloud capacity always exceeds their customer demand for capacity by a small margin as to avoid having
+          <em>
+           insufficient capacity
+          </em>
+          and losing customers. Specifically, the
+          <strong>
+           <span style="color:#f1c232;">
+            yellow
+           </span>
+          </strong>
+          arrow in the graph below shows this ability for
+          <em>
+           cloud infrastructure
+          </em>
+          to automatically meet customer demand. The
+          <strong>
+           <span style="color:#00cfcf;">
+            cyan
+           </span>
+          </strong>
+          shaded area in this graph below depicts the amount of
+          <strong>
+           <em>
+            dynamic capacity
+           </em>
+          </strong>
+          Instagram would need to maintain using
+          <em>
+           cloud infrastructure
+          </em>
+          to guarantee they meet their customers’ demand as to avoid losing customers.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capacity Utilization Graph - Dynamic Capacity" class="img img-fluid" src="img/capacityutilizationcurve-dynamiccap4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capacity Utilization Graph - Dynamic Capacity
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="summarizing-the-capacity-utilization-graph">
+          Summarizing the Capacity Utilization Graph
+         </h3>
+         <p>
+          Now that we understand this graph, we understand why Instagram or any company would benefit from using cloud infrastructure instead of traditional non-cloud infrastructure with regards to meeting customer demand.  This understanding is what drives businesses to consider using cloud computing services.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Select
+             <strong>
+              all
+             </strong>
+             choices below that are included as part of
+             <strong>
+              <em>
+               Capacity
+              </em>
+             </strong>
+             (the
+             <em>
+              y-axis
+             </em>
+             ) in the
+             <em>
+              Capacity Utilization Graph
+             </em>
+             .
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1542680727411" name="784433" type="checkbox" value="a1542680727411"/>
+           <label for="a1542680727411">
+            <p>
+             Time
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1542680746527" name="784433" type="checkbox" value="a1542680746527"/>
+           <label for="a1542680746527">
+            <p>
+             Costs associated with IT Resources
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1542680753035" name="784433" type="checkbox" value="a1542680753035"/>
+           <label for="a1542680753035">
+            <p>
+             Compute Capacity
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1542680754466" name="784433" type="checkbox" value="a1542680754466"/>
+           <label for="a1542680754466">
+            <p>
+             Customer Satisfaction
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1542680755638" name="784433" type="checkbox" value="a1542680755638"/>
+           <label for="a1542680755638">
+            <p>
+             Automated Demand
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1542680756819" name="784433" type="checkbox" value="a1542680756819"/>
+           <label for="a1542680756819">
+            <p>
+             Storage (as associated with computers)
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            Costs associated with IT Resources
+           </li>
+           <li>
+            Compute Capacity
+           </li>
+           <li>
+            Storage (as associated with computers)
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="benefits-of-cloud-computing">
+          Benefits of Cloud Computing
+         </h3>
+         <p>
+          The
+          <strong>
+           <em>
+            capacity utilization
+           </em>
+          </strong>
+          graph above was initially used by cloud providers like Amazon to illustrate the
+          <strong>
+           <em>
+            benefits
+           </em>
+          </strong>
+          of cloud computing. Summarized below are the
+          <strong>
+           <em>
+            benefits
+           </em>
+          </strong>
+          of cloud computing which are often what
+          <em>
+           drives
+          </em>
+          businesses to include cloud services in their IT infrastructure [
+          <strong>
+           1
+          </strong>
+          ]. These same
+          <strong>
+           <em>
+            benefits
+           </em>
+          </strong>
+          are echoed in those provided by cloud providers Amazon (
+          <a href="https://aws.amazon.com/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           benefits
+          </a>
+          ), Google (
+          <a href="https://cloud.google.com/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           benefits
+          </a>
+          ), and Microsoft (
+          <a href="https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           benefits
+          </a>
+          ).  Additionally, these
+          <strong>
+           <em>
+            benefits
+           </em>
+          </strong>
+          are tightly coupled with what
+          <strong>
+           <em>
+            drives
+           </em>
+          </strong>
+          businesses to use cloud computing. In the sections below we explain these benefits and business drivers in greater detail.
+         </p>
+         <h4 id="benefits">
+          Benefits
+         </h4>
+         <ol>
+          <li>
+           Reduced Investments and Proportional Costs (providing cost reduction)
+           <br/>
+           <br/>
+          </li>
+          <li>
+           Increased Scalability (providing simplified capacity planning)
+           <br/>
+           <br/>
+          </li>
+          <li>
+           Increased Availability and Reliability (providing organizational agility)
+           <br/>
+           <br/>
+          </li>
+         </ol>
+         <h4 id="reduced-investments-and-proportional-costs">
+          Reduced Investments and Proportional Costs
+         </h4>
+         <p>
+          Using cloud computing has the benefit of
+          <strong>
+           <em>
+            reducing investments and having costs proportional
+           </em>
+          </strong>
+          to the usage of cloud services. Recall that cloud computing provides
+          <em>
+           on-demand
+          </em>
+          access to
+          <em>
+           pay-as-you-go
+          </em>
+          cloud computing services; therefore, reducing the necessity to invest in computational resources that will
+          <em>
+           not
+          </em>
+          be used. Additionally,
+          <em>
+           pay-as-you-go
+          </em>
+          services make using cloud resources proportional to their costs. This is illustrated by how
+          <em>
+           automated cloud capacity
+          </em>
+          can meet actual customer demand without
+          <em>
+           wasting capacity
+          </em>
+          nor having
+          <em>
+           insufficient capacity
+          </em>
+          to meet demand.
+         </p>
+         <p>
+          The
+          <em>
+           automated
+          </em>
+          cloud capacity that always meets customer demand while minimizing
+          <em>
+           wasted capacity
+          </em>
+          , provides
+          <em>
+           cost savings
+          </em>
+          . Specifically, cloud computing provides this
+          <em>
+           direct alignment
+          </em>
+          between
+          <em>
+           cost
+          </em>
+          and
+          <em>
+           performance
+          </em>
+          , the minimization of
+          <em>
+           wasted capacity
+          </em>
+          , and the elimination of
+          <em>
+           insufficient capacity
+          </em>
+          which results in
+          <strong>
+           <em>
+            cost reduction
+           </em>
+          </strong>
+          .  Additionally, there are also savings in removing the need to spend company resources on
+          <em>
+           prediction
+          </em>
+          of customer demand.  This
+          <strong>
+           <em>
+            cost reduction
+           </em>
+          </strong>
+          that's associated with the benefit of
+          <strong>
+           <em>
+            reducing investments and having proportional costs
+           </em>
+          </strong>
+          is typically considered a business
+          <strong>
+           <em>
+            driver
+           </em>
+          </strong>
+          of cloud computing.
+         </p>
+         <h4 id="increased-scalability">
+          Increased Scalability
+         </h4>
+         <p>
+          Cloud computing also provides the benefit of
+          <strong>
+           <em>
+            increased scalability
+           </em>
+          </strong>
+          . This is also demonstrated by cloud capacity meeting customer demand. Using
+          <em>
+           automatic triggers
+          </em>
+          and the
+          <em>
+           rapid elasticity
+          </em>
+          provided by cloud computing enables consumers the ability to ensure that cloud capacity always
+          <strong>
+           <em>
+            exceeds
+           </em>
+          </strong>
+          customer demand by a small margin.
+         </p>
+         <p>
+          Companies, like Instagram, can utilize these
+          <em>
+           automated
+          </em>
+          features of cloud computing such that they can guarantee they meet their customer demand for
+          <em>
+           capacity
+          </em>
+          while minimizing
+          <em>
+           wasted capacity
+          </em>
+          , and reducing the need to spend company resources to
+          <em>
+           predict
+          </em>
+          customer demand.  These
+          <em>
+           automated
+          </em>
+          features of cloud computing
+          <em>
+           simplify
+          </em>
+          <strong>
+           <em>
+            capacity planning
+           </em>
+          </strong>
+          for a business. This simplification of
+          <strong>
+           <em>
+            capacity planning
+           </em>
+          </strong>
+          that's associated with the benefit of
+          <strong>
+           <em>
+            increased scalability
+           </em>
+          </strong>
+          is typically considered a business
+          <strong>
+           <em>
+            driver
+           </em>
+          </strong>
+          of cloud computing.
+         </p>
+         <h4 id="increased-availability-and-reliability">
+          Increased Availability and Reliability
+         </h4>
+         <p>
+          The final benefit is the
+          <strong>
+           <em>
+            increased availability and reliability
+           </em>
+          </strong>
+          provided by cloud computing. While
+          <em>
+           availability
+          </em>
+          and
+          <em>
+           reliability
+          </em>
+          can be provided by traditional infrastructure; these characteristics come natively with the
+          <strong>
+           <em>
+            automatic
+           </em>
+          </strong>
+          <em>
+           on-demand self service
+          </em>
+          ,
+          <em>
+           broad network access
+          </em>
+          , and
+          <em>
+           rapid elasticity
+          </em>
+          characteristics of cloud computing. Additionally, cloud providers provide guarantees associated with
+          <em>
+           availability
+          </em>
+          and
+          <em>
+           reliability
+          </em>
+          of their services in their service-level agreement, SLA.
+         </p>
+         <p>
+          This
+          <strong>
+           <em>
+            increased availability and reliability
+           </em>
+          </strong>
+          as depicted by
+          <em>
+           automated cloud capacity
+          </em>
+          (
+          <strong>
+           <span style="color:#f1c232;">
+            yellow
+           </span>
+          </strong>
+          curvy line in the capacity utilization graph) illustrates how companies that use cloud computing can better adapt and evolve to respond to changes in customer demand as compared to traditional infrastructure (
+          <strong>
+           <span style="color:#1155cc;">
+            blue
+           </span>
+          </strong>
+          step-like line in the capacity utilization graph). This
+          <strong>
+           <em>
+            increased availability and reliability
+           </em>
+          </strong>
+          provides a company with
+          <strong>
+           <em>
+            organizational agility
+           </em>
+          </strong>
+          that's typically considered a business
+          <strong>
+           <em>
+            driver
+           </em>
+          </strong>
+          of cloud computing.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="risks-of-cloud-computing">
+          Risks of Cloud Computing
+         </h2>
+         <p>
+          To understand the
+          <strong>
+           <em>
+            risks
+           </em>
+          </strong>
+          of cloud computing, recall the
+          <em>
+           essential characteristics
+          </em>
+          that compose the definition of cloud computing. Below we have also summarized he
+          <strong>
+           <em>
+            risks
+           </em>
+          </strong>
+          associated with cloud computing [
+          <strong>
+           1
+          </strong>
+          ]. Cloud providers don't typically highlight the
+          <em>
+           risks
+          </em>
+          assumed when using their cloud services as they do with the
+          <em>
+           benefits
+          </em>
+          , but cloud providers like: Amazon (
+          <a href="https://aws.amazon.com/security/introduction-to-cloud-security/" rel="noopener noreferrer" target="_blank">
+           security
+          </a>
+          ), Google (
+          <a href="https://cloud.google.com/security/data-safety/" rel="noopener noreferrer" target="_blank">
+           security
+          </a>
+          ), and Microsoft (
+          <a href="https://www.microsoft.com/en-us/TrustCenter/CloudServices/Azure/default.aspx" rel="noopener noreferrer" target="_blank">
+           security
+          </a>
+          ) often provide details on security of their cloud services.
+         </p>
+         <p>
+          It's up to the
+          <em>
+           cloud user
+          </em>
+          to understand the compliance and legal issues associated with housing data within a
+          <em>
+           cloud provider's
+          </em>
+          data center instead of on-premise. The service level agreements (SLA) provided for a cloud service often highlight security responsibilities of the cloud provider and those
+          <em>
+           assumed
+          </em>
+          by the cloud user. Below you will find the risks of cloud computing described in greater detail.
+         </p>
+         <h4 id="risks">
+          Risks
+         </h4>
+         <ol>
+          <li>
+           (Potential) Increase in Security Vulnerabilities
+           <br/>
+           <br/>
+          </li>
+          <li>
+           Reduced Operational Governance Control (over cloud resources)
+           <br/>
+           <br/>
+          </li>
+          <li>
+           Limited Portability Between Cloud Providers
+           <br/>
+           <br/>
+          </li>
+          <li>
+           Multi-regional Compliance and Legal Issues
+          </li>
+         </ol>
+         <h4 id="increased-security-vulnerabilities">
+          Increased Security Vulnerabilities
+         </h4>
+         <p>
+          Consider that to have
+          <em>
+           on-demand self service
+          </em>
+          with
+          <em>
+           broad network access
+          </em>
+          and
+          <em>
+           resource pooling
+          </em>
+          , one needs to
+          <em>
+           access
+          </em>
+          cloud services through the
+          <em>
+           internet
+          </em>
+          . Additionally, when cloud services utilize
+          <em>
+           resource pooling
+          </em>
+          , a customer might be using a
+          <strong>
+           <em>
+            shared
+           </em>
+          </strong>
+          cloud resource instead of a physically isolated resource. Cloud computing can have the
+          <strong>
+           <em>
+            risk
+           </em>
+          </strong>
+          of
+          <strong>
+           <em>
+            increased security vulnerabilities
+           </em>
+          </strong>
+          ; as compared to traditional infrastructure, which typically involves a direct connection to on-premise infrastructure with isolated resources.
+         </p>
+         <h4 id="reduced-operational-governance-control">
+          Reduced Operational Governance Control
+         </h4>
+         <p>
+          Cloud computing has the
+          <strong>
+           <em>
+            risk
+           </em>
+          </strong>
+          of
+          <strong>
+           <em>
+            reduced operational governance control
+           </em>
+          </strong>
+          due to the
+          <em>
+           risks
+          </em>
+          associated with how the cloud providers operate their infrastructure and that they required external connections for communication between provider and customer. For example, a
+          <em>
+           disreputable
+          </em>
+          cloud provider could make guarantees in their cloud services’ service-level agreements that they
+          <em>
+           fail
+          </em>
+          to honor; therefore, making their customers
+          <strong>
+           <em>
+            unknowingly
+           </em>
+          </strong>
+          more
+          <em>
+           vulnerable
+          </em>
+          . Additionally, the cloud providers’ data centers might be located physically located much further from their customers than if their customer had opted to use traditional infrastructure. This
+          <em>
+           increased
+          </em>
+          physical distance could cause
+          <em>
+           variable latency
+          </em>
+          and
+          <em>
+           bandwidth
+          </em>
+          issues.
+         </p>
+         <h4 id="limited-portability-between-cloud-providers">
+          Limited Portability Between Cloud Providers
+         </h4>
+         <p>
+          Another
+          <strong>
+           <em>
+            risk
+           </em>
+          </strong>
+          of cloud computing is the
+          <strong>
+           <em>
+            limited portability between cloud providers
+           </em>
+          </strong>
+          . The
+          <em>
+           lack
+          </em>
+          of an established industry
+          <em>
+           standard
+          </em>
+          could lead to customer
+          <strong>
+           <em>
+            dependency
+           </em>
+          </strong>
+          on particular cloud providers. Think about how difficult it is to share photos from a
+          <em>
+           Photo Stream
+          </em>
+          with those who don’t have iPhones, iPads, or other Apple devices.  It’s
+          <strong>
+           not
+          </strong>
+          <em>
+           impossible
+          </em>
+          , but it isn’t simple and those without an Apple device
+          <em>
+           don’t
+          </em>
+          get the
+          <em>
+           same
+          </em>
+          functionality as those that have an Apple device. Similar can be said regarding most cloud platforms, it’s
+          <strong>
+           not
+          </strong>
+          <em>
+           impossible
+          </em>
+          to move between cloud providers, but the transfer of data and code might not be seamless and certain providers may offer services of features that aren’t offered by other providers.
+         </p>
+         <h4 id="multiregional-compliance-and-legal-issues">
+          Multiregional Compliance and Legal Issues
+         </h4>
+         <p>
+          The final
+          <strong>
+           risk
+          </strong>
+          of cloud computing is the
+          <strong>
+           <em>
+            multiregional compliance and legal issues
+           </em>
+          </strong>
+          that may result from using cloud computing. Specifically, a cloud provider establishes their data centers in affordable and geographically convenient locations. The
+          <em>
+           physical location
+          </em>
+          of data centers can cause
+          <em>
+           legal concerns
+          </em>
+          connected to industry or
+          <em>
+           government regulations
+          </em>
+          that
+          <em>
+           specify
+          </em>
+          data privacy and storage policy. Additionally, there could be
+          <em>
+           legal issues
+          </em>
+          associated to
+          <em>
+           accessibility
+          </em>
+          and
+          <em>
+           disclosure
+          </em>
+          of data based upon the
+          <em>
+           country’s laws
+          </em>
+          where the data center is located. For example, consider how the General Data Protection Regulation of the European Union is a much stronger data protection and
+          <em>
+           privacy regulation
+          </em>
+          than offered by the United States; therefore, US businesses must adhere to these stronger protections if they operate within the countries that are members of the European Union.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="cloud-computing-guidelines-and-examples">
+          Cloud Computing Guidelines and Examples
+         </h1>
+         <h2 id="cloud-computing-guidelines">
+          Cloud Computing Guidelines
+         </h2>
+         <h4 id="considerations-for-startups">
+          Considerations for Startups
+         </h4>
+         <p>
+          Cloud computing solutions work
+          <strong>
+           <em>
+            best
+           </em>
+          </strong>
+          for
+          <strong>
+           startups
+          </strong>
+          that can use cloud infrastructure instead of building their own from scratch.  Being able to use cloud infrastructure typically means that a
+          <strong>
+           startup
+          </strong>
+          :
+         </p>
+         <ul>
+          <li>
+           Has
+           <em>
+            no
+           </em>
+           real infrastructure overhead costs due to the
+           <em>
+            pay-as-you-go
+           </em>
+           and
+           <em>
+            on-demand
+           </em>
+           access that cloud services provide.
+           <br>
+           </br>
+          </li>
+          <li>
+           Requires
+           <em>
+            fewer
+           </em>
+           staff and
+           <em>
+            costs less
+           </em>
+           to build and maintain their software product or application due to the ease of use and
+           <em>
+            quick
+           </em>
+           startup associated with cloud services as compared to traditional infrastructure.
+           <br>
+           </br>
+          </li>
+          <li>
+           Has greater
+           <em>
+            ability
+           </em>
+           to scale and meet customer demand for capability more
+           <em>
+            efficiently
+           </em>
+           (less cost, less wasted capacity or insufficient capacity - refer to
+           <em>
+            Capacity Utilization Curve
+           </em>
+           below).
+           <br>
+           </br>
+          </li>
+          <li>
+           Can get their software product or application
+           <em>
+            to market
+           </em>
+           much more
+           <em>
+            quickly
+           </em>
+           .
+           <br>
+           </br>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capacity Utilization Graph" class="img img-fluid" src="img/capacityutilizationcurve3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capacity Utilization Graph
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="considerations-for-established-organizations">
+          Considerations for Established Organizations
+         </h4>
+         <p>
+          For
+          <strong>
+           <em>
+            established
+           </em>
+          </strong>
+          <strong>
+           enterprises
+          </strong>
+          and
+          <strong>
+           organizations
+          </strong>
+          with large amounts of infrastructure and legacy architectures already in use, introducing cloud services into their traditional infrastructure
+          <em>
+           may not
+          </em>
+          make sense. Primarily because some of the efficiencies above
+          <em>
+           do not hold true
+          </em>
+          when there is existing computing infrastructure, some of the legacy architectures
+          <em>
+           might not
+          </em>
+          be able to be
+          <em>
+           integrated
+          </em>
+          with cloud services, some of the
+          <em>
+           risks
+          </em>
+          of cloud computing (security, governance, compliance) might outweigh expected the benefits of using cloud computing for the established organization, company culture
+          <em>
+           might not
+          </em>
+          be accepting of replacing traditional infrastructure with cloud, and company employees
+          <em>
+           may lack
+          </em>
+          the skill set to use cloud computing.
+         </p>
+         <h2 id="cloud-computing-successes">
+          Cloud Computing Successes
+         </h2>
+         <p>
+          Below we have provided examples of four companies (startup and established organizations) that embraced cloud computing to become successful.
+         </p>
+         <h4 id="instagram">
+          Instagram
+         </h4>
+         <p>
+          In October 2010, the photo-sharing application called
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          launched and:
+         </p>
+         <ul>
+          <li>
+           within 1 day, it had 25,000 users
+          </li>
+          <li>
+           within 3 months,  it had 1 million users
+          </li>
+          <li>
+           within 1 and ½ years, it had close to 30 million users [
+           <strong>
+            2
+           </strong>
+           ]
+          </li>
+         </ul>
+         <p>
+          Facebook purchased
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          for an estimated $1 billion in April 2012 [
+          <strong>
+           2
+          </strong>
+          ]. By September 2012,
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          had 100 million users,  just shy of two years after their initial launch [
+          <strong>
+           2
+          </strong>
+          ]. At the time of
+          <strong>
+           <em>
+            Instagram’s
+           </em>
+          </strong>
+          purchase company consisted of 13 employees and over 100 servers running in Amazon’s Web Service, AWS, to support 30 million users [
+          <strong>
+           2
+          </strong>
+          ].
+         </p>
+         <p>
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          had the luxury of starting from scratch and architecting for the cloud to start. To learn more about how
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          migrated to AWS’s Virtual Private Cloud, see
+          <a href="https://instagram-engineering.com/migrating-from-aws-to-aws-f4b16a65e13c" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          -
+          <em>
+           10 minute read
+          </em>
+          . To learn more about how
+          <strong>
+           <em>
+            Instagram
+           </em>
+          </strong>
+          migrated from AWS data centers to Facebook data centers, see
+          <a href="http://instagram-engineering.tumblr.com/post/89992572022/migrating-aws-fb" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          -
+          <em>
+           4 minute read
+          </em>
+          .
+         </p>
+         <h4 id="netflix">
+          Netflix
+         </h4>
+         <p>
+          <strong>
+           <em>
+            Netflix
+           </em>
+          </strong>
+          is a pioneer in the online video streaming industry. In 2009, 100% of all streaming traffic was run through
+          <strong>
+           <em>
+            Netflix’s
+           </em>
+          </strong>
+          own data center [
+          <strong>
+           2
+          </strong>
+          ]. By end of 2010, most of all that traffic was run through AWS data centers, with a goal of 95% of
+          <strong>
+           all
+          </strong>
+          services run through AWS [
+          <strong>
+           2
+          </strong>
+          ].
+          <strong>
+           <em>
+            Netflix
+           </em>
+          </strong>
+          made a business decision to move to the Cloud, they hired and trained an incredible engineering team to continue to be pioneers in cloud computing.
+         </p>
+         <p>
+          To learn more about how
+          <strong>
+           <em>
+            Netflix
+           </em>
+          </strong>
+          use of AWS, see
+          <a href="https://aws.amazon.com/solutions/case-studies/netflix/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          -
+          <em>
+           two videos 7 minutes total
+          </em>
+          . To learn more about the open source software that
+          <strong>
+           <em>
+            Netflix
+           </em>
+          </strong>
+          developed to run on AWS look
+          <a href="https://netflix.github.io/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <h4 id="hsbc-bank">
+          HSBC Bank
+         </h4>
+         <p>
+          <strong>
+           <em>
+            HSBC
+           </em>
+          </strong>
+          is a 150 year old international organization that recently migrated to the Google Cloud Platform. The following
+          <a href="https://www.youtube.com/embed/j_K1YoMHpbk?start=3578&amp;end=4311" rel="noopener noreferrer" target="_blank">
+           video link
+          </a>
+          is a
+          <em>
+           12 minute video
+          </em>
+          from the Google Cloud Next 2017 Day 1 Keynote address. The moderator is Tariq Shaukat, President for Customer facing Operations at Google Cloud; he introduces Darryl West, the Global Chief Information Officer at
+          <strong>
+           <em>
+            HSBC
+           </em>
+          </strong>
+          . Darryl West explains
+          <strong>
+           <em>
+            HSBC’s
+           </em>
+          </strong>
+          partnership with Google and their migration to the cloud.
+         </p>
+         <h4 id="ebay">
+          eBay
+         </h4>
+         <p>
+          <strong>
+           <em>
+            eBay
+           </em>
+          </strong>
+          , the company that facilitates auction style online sales, recently migrated to the Google Cloud Platform. The following
+          <a href="https://www.youtube.com/embed/j_K1YoMHpbk?start=4547&amp;end=4989" rel="noopener noreferrer" target="_blank">
+           video link
+          </a>
+          is a
+          <em>
+           7 and ½ video
+          </em>
+          from the Google Cloud Next 2017 Day 1 Keynote address. The moderator is Diane Greene, a SVP at Google Cloud; she is speaking with RJ Pittman, the Chief Product Office at
+          <strong>
+           <em>
+            eBay
+           </em>
+          </strong>
+          .  He describes
+          <strong>
+           <em>
+            eBay’s
+           </em>
+          </strong>
+          migration to the cloud.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="machine-learning-workflow-and-cloud-computing">
+          Machine Learning Workflow and Cloud Computing
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/mlworkflow-allornocloud.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="cloud-computing-within-the-machine-learning-workflow">
+          Cloud Computing within the Machine Learning Workflow
+         </h2>
+         <h4 id="deciding-the-amount-of-cloud-to-include-within-the-workflow">
+          Deciding the Amount of Cloud to include within the Workflow
+         </h4>
+         <p>
+          Thinking back on the
+          <em>
+           Machine Learning Workflow
+          </em>
+          , one might wonder how this workflow fits within cloud computing services. Cloud computing services can be used for
+          <strong>
+           <em>
+            all
+           </em>
+          </strong>
+          <em>
+           parts
+          </em>
+          of the Machine Learning workflow (
+          <strong>
+           <em>
+            <span style="color:#1155cc;">
+             blue
+            </span>
+           </em>
+          </strong>
+          <em>
+           enclosed figure
+          </em>
+          ) to
+          <em>
+           none
+          </em>
+          of the parts (
+          <strong>
+           <em>
+            <span style="color:#f1c232;">
+             yellow
+            </span>
+           </em>
+          </strong>
+          <em>
+           enclosed figure
+          </em>
+          ) of the
+          <em>
+           Machine Learning workflow
+          </em>
+          .
+         </p>
+         <p>
+          Guiding
+          <em>
+           how much
+          </em>
+          or
+          <em>
+           how little
+          </em>
+          of the machine learning workflow is using cloud computing services are an organization's:
+         </p>
+         <ul>
+          <li>
+           <em>
+            Existing
+           </em>
+           infrastructure
+          </li>
+          <li>
+           <em>
+            Vulnerability
+           </em>
+           to the
+           <em>
+            risks
+           </em>
+           of cloud computing
+          </li>
+         </ul>
+         <p>
+          Your workplace may have
+          <em>
+           security
+          </em>
+          concerns, concerns regarding
+          <em>
+           operational governance
+          </em>
+          of the cloud services, and/or
+          <em>
+           compliance and legal
+          </em>
+          concerns regarding the use of cloud services.  Additionally, your workplace may also have already on-premise infrastructure that supports the machine learning workflow; therefore, making the use of cloud services an
+          <em>
+           unnecessary
+          </em>
+          expenditure.
+         </p>
+         <h4 id="typical-scenarios">
+          Typical Scenarios
+         </h4>
+         <p>
+          Cloud services like Amazon’s SageMaker can be used for
+          <strong>
+           all
+          </strong>
+          parts of the Machine Learning Workflow  (
+          <strong>
+           <em>
+            <span style="color:#1155cc;">
+             blue
+            </span>
+           </em>
+          </strong>
+          *enclosed figure
+          <strong>
+           above
+           <strong>
+            <em>
+             ); and with subsequent lessons you will be using Amazon's SageMaker in this *all cloud* scenario. Some users of SageMaker may decide to
+             <em>
+              Explore and Process Data
+             </em>
+             using on-premise (
+             <em>
+              non-cloud
+             </em>
+             ) resources (
+            </em>
+           </strong>
+           <span style="color:#f1c232;">
+            yellow
+           </span>
+          </strong>
+          *
+          <em>
+           enclosing the "Explore &amp; Process Data"
+          </em>
+          <strong>
+           <em>
+            below
+           </em>
+          </strong>
+          ).
+         </p>
+         <p>
+          Cloud services like Google’s Cloud ML Engine are meant to be used primarily for
+          <em>
+           Modeling
+          </em>
+          and
+          <em>
+           Deployment
+          </em>
+          .  It’s up to the user of Google's ML Engine if they would like to use on-premise (
+          <em>
+           non-cloud
+          </em>
+          ) resources, Google’s Cloud Dataflow service, or other cloud services for the
+          <em>
+           Explore and Process Data
+          </em>
+          part of the Machine Learning Workflow.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/mlworkflow-differentcloudservices.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Another common way to incorporate cloud into the machine learning workflow is to
+          <em>
+           only
+          </em>
+          use cloud computing services for
+          <em>
+           Deployment
+          </em>
+          (
+          <strong>
+           <em>
+            <span style="color:#1155cc;">
+             blue
+            </span>
+           </em>
+          </strong>
+          <em>
+           enclosing the "Deployment"
+          </em>
+          <strong>
+           <em>
+            above
+           </em>
+          </strong>
+          ). This might be a common strategy for organizations that are concerned about protecting the
+          <em>
+           privacy
+          </em>
+          of the data they used to create the model that was deployed. Additionally, organizations might host their web application or software application on cloud assets to allow for greater scalability and availability for less cost as offered by cloud services.
+         </p>
+         <p>
+          Note that the machine learning workflow and underlying algorithms discussed in the
+          <em>
+           Deployment
+          </em>
+          will be similar regardless if using
+          <em>
+           on-premise
+          </em>
+          or
+          <em>
+           cloud
+          </em>
+          resources.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <hr/>
+         <h3 id="references">
+          References
+         </h3>
+         <p>
+          Below are links and books that provide more detailed information on the topics discussed in this section
+          <strong>
+           above
+          </strong>
+          .
+         </p>
+         <p>
+          <strong>
+           1.
+          </strong>
+          <strong>
+           Erl
+          </strong>
+          , T., Mahmood, Z., &amp; Puttini R. (2013).
+          <em>
+           Cloud Computing: Concepts, Technology, &amp; Architecture.
+          </em>
+          Upper Saddle River, NJ: Prentice Hall.
+         </p>
+         <ul>
+          <li>
+           <em>
+            Chapter 3
+           </em>
+           : Discusses Business Drivers, Benefits, and Risks of Cloud Computing.
+          </li>
+         </ul>
+         <p>
+          <strong>
+           2.
+          </strong>
+          <strong>
+           Kavis
+          </strong>
+          , M. (2014).
+          <em>
+           Architecting the Cloud: Design Decisions for Cloud Computing Service Models.
+          </em>
+          Hoboken, NJ: Wiley.
+         </p>
+         <ul>
+          <li>
+           <em>
+            Chapter 1
+           </em>
+           : Cloud Computing define and early examples of cloud computing that highlight the benefits.
+          </li>
+          <li>
+           <em>
+            Chapter 3
+           </em>
+           : Cloud Computing worst practices are discussed to highlight both risks and benefits of cloud computing.
+          </li>
+          <li>
+           <em>
+            Chapter 9
+           </em>
+           : Discusses security responsibilities by Service Model.
+          </li>
+         </ul>
+         <p>
+          <strong>
+           3.
+          </strong>
+          <a href="https://aws.amazon.com/" rel="noopener noreferrer" target="_blank">
+           Amazon Web Services
+          </a>
+          (AWS) discusses some benefits of Cloud Computing
+          <a href="https://aws.amazon.com/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and security
+          <a href="https://aws.amazon.com/what-is-aws/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and
+          <a href="https://aws.amazon.com/security/introduction-to-cloud-security/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          <strong>
+           4.
+          </strong>
+          <a href="https://cloud.google.com/" rel="noopener noreferrer" target="_blank">
+           Google Cloud Platform
+          </a>
+          (GCP) discusses some benefits of Cloud Computing
+          <a href="https://cloud.google.com/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and security
+          <a href="https://cloud.google.com/security/data-safety/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          <strong>
+           5.
+          </strong>
+          <a href="https://azure.microsoft.com/en-us/" rel="noopener noreferrer" target="_blank">
+           Microsoft Azure
+          </a>
+          (Azure) discusses their some benefits of Cloud Computing
+          <a href="https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and security
+          <a href="https://www.microsoft.com/en-us/trustcenter/cloudservices/azure" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('26. [Optional] Cloud Computing Explained')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

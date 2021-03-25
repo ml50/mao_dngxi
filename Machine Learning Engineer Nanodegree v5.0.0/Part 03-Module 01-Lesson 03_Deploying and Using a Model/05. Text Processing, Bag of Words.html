@@ -1,0 +1,374 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Text Processing, Bag of Words
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Deploying and Using a Model
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Deploying a Model in SageMaker.html">
+       01. Deploying a Model in SageMaker
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Boston Housing Example - Deploying the Model.html">
+       02. Boston Housing Example - Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Boston Housing In-Depth - Deploying the Model.html">
+       03. Boston Housing In-Depth - Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Deploying and Using a Sentiment Analysis Model.html">
+       04. Deploying and Using a Sentiment Analysis Model
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Text Processing, Bag of Words.html">
+       05. Text Processing, Bag of Words
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Building and Deploying the Model.html">
+       06. Building and Deploying the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="07. How to Use a Deployed Model.html">
+       07. How to Use a Deployed Model
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Creating and Using an Endpoint.html">
+       08. Creating and Using an Endpoint
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Building a Lambda Function.html">
+       09. Building a Lambda Function
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Building an API.html">
+       10. Building an API
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Using the Final Web Application.html">
+       11. Using the Final Web Application
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Summary.html">
+       12. Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Text Processing, Bag of Words
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="text-processing">
+          Text Processing
+         </h2>
+         <p>
+          I mentioned that one of our tasks will be to convert any user input text into data that our deployed model can see as input. You've seen a few examples of text pre-processing and the steps usually go something like this:
+         </p>
+         <ol>
+          <li>
+           Get rid of any special characters like punctuation
+          </li>
+          <li>
+           Convert all text to lowercase and split into individual words
+          </li>
+          <li>
+           Create a vocabulary that assigns each unique word a numerical value or converts words into a vector of numbers
+          </li>
+         </ol>
+         <p>
+          This last step is often called
+          <strong>
+           word tokenization
+          </strong>
+          or vectorization.
+         </p>
+         <p>
+          And in the next example, you'll see exactly how I do these processing steps; I'll also be vectorizing words using a method called
+          <strong>
+           bag of words
+          </strong>
+          . If you'd like to learn more about bag of words, please check out the video below, recorded by another of our instructors, Arpan!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="bag-of-words">
+          Bag of Words
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Bag Of Words
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. Bag Of Words-A7M1z8yLl0w.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="05. Bag Of Words-A7M1z8yLl0w.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="05. Bag Of Words-A7M1z8yLl0w.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="05. Bag Of Words-A7M1z8yLl0w.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          You can read more about the bag of words model, and its applications,
+          <a href="https://en.wikipedia.org/wiki/Bag-of-words_model" rel="noopener noreferrer" target="_blank">
+           on this page
+          </a>
+          . It's a useful way to represent words based on their frequency of occurrence in a text.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="quiz">
+          Quiz
+         </h3>
+         <p>
+          For the following quiz questions, consider a "document" that is just the following sentence:
+         </p>
+         <pre><code class="shell language-shell">At a very basic level, I think people need the opportunity to learn and to grow.</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Given only this document, what is the size of the vocabulary (the unique words in the document)?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1543523043440" name="790341" type="radio" value="a1543523043440"/>
+           <label for="a1543523043440">
+            <p>
+             1
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1543523077821" name="790341" type="radio" value="a1543523077821"/>
+           <label for="a1543523077821">
+            <p>
+             14
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1543523089224" name="790341" type="radio" value="a1543523089224"/>
+           <label for="a1543523089224">
+            <p>
+             15
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1543523090953" name="790341" type="radio" value="a1543523090953"/>
+           <label for="a1543523090953">
+            <p>
+             16
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          15
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Building and Deploying the Model.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Text Processing, Bag of Words')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.969
+If you open up the Boston Housing XGBoost hyperparameter tuning high-level notebook,
+
+00:00:05.969 --> 00:00:07.320
+which I've already done here,
+
+00:00:07.320 --> 00:00:09.929
+and then execute the first few cells and scroll down
+
+00:00:09.929 --> 00:00:12.809
+to the part where we want to train the XGBoost model.
+
+00:00:12.810 --> 00:00:15.210
+To begin with, we construct an estimator object in
+
+00:00:15.210 --> 00:00:18.675
+exactly the same way as if we were just training a single model.
+
+00:00:18.675 --> 00:00:23.700
+Essentially, this is going to be used as the base model which SageMaker will
+
+00:00:23.699 --> 00:00:28.679
+change and tweak in order to test various hyperparameters.
+
+00:00:28.679 --> 00:00:31.769
+Next, we will actually set some hyperparameters.
+
+00:00:31.769 --> 00:00:37.094
+Now again, this is going to be the base model from which SageMaker will depart.
+
+00:00:37.094 --> 00:00:40.289
+So, by default, we'll set eta to 0.2,
+
+00:00:40.289 --> 00:00:44.630
+for example, although we may allow SageMaker to vary that later on.
+
+00:00:44.630 --> 00:00:47.300
+So now, we've set up our estimator object,
+
+00:00:47.299 --> 00:00:49.939
+it's time to create a new object which in this case
+
+00:00:49.939 --> 00:00:52.969
+is called a hyperparameter tuner object.
+
+00:00:52.969 --> 00:00:57.759
+To begin with, we give it an estimator object which acts as the base model.
+
+00:00:57.759 --> 00:01:02.254
+We tell it how to differentiate between two different trained models.
+
+00:01:02.255 --> 00:01:07.430
+In our case, we are going to use the RMSE metric, and in particular,
+
+00:01:07.430 --> 00:01:11.330
+we care about the metric applied to the validation data set,
+
+00:01:11.329 --> 00:01:12.859
+not the training data set.
+
+00:01:12.859 --> 00:01:18.424
+Next, we want to find the model that minimizes the validation RMSE.
+
+00:01:18.424 --> 00:01:24.469
+Max jobs says how many models we want sage maker to train in total.
+
+00:01:24.469 --> 00:01:28.039
+Max parallel jobs says how many models we
+
+00:01:28.040 --> 00:01:31.780
+want sage maker to train in parallel with one another.
+
+00:01:31.780 --> 00:01:40.015
+Lastly, we tell SageMaker what different ranges we want to give specific hyperparameters.
+
+00:01:40.015 --> 00:01:42.834
+So, for example, this eta hyper-parameter,
+
+00:01:42.834 --> 00:01:49.524
+we tell SageMaker that it should be a continuous parameter in the range 0.05 to 0.5.
+
+00:01:49.525 --> 00:01:52.695
+Once we've created the hyperparameter tuner object,
+
+00:01:52.694 --> 00:01:54.559
+we simply call fit on
+
+00:01:54.560 --> 00:01:59.344
+that hyperparameter tuning object in the same way as we would on an estimator object.
+
+00:01:59.344 --> 00:02:04.310
+Now, much like some of the other training jobs that we've constructed in the past,
+
+00:02:04.310 --> 00:02:07.234
+the work that SageMaker is doing is happening in the background.
+
+00:02:07.234 --> 00:02:10.775
+If we want to have a visual representation of what's going on,
+
+00:02:10.775 --> 00:02:12.814
+we need to use the weight method.
+
+00:02:12.814 --> 00:02:15.875
+Now, we wait for the hyperparameter tuning job to complete.
+
+00:02:15.875 --> 00:02:19.490
+Now that SageMaker has finished training a bunch of models for us,
+
+00:02:19.490 --> 00:02:24.125
+we can take a look and see what the best trained model was.
+
+00:02:24.125 --> 00:02:28.000
+This is stored in the best training job method.
+
+00:02:28.000 --> 00:02:31.050
+As we can see, this is the name of the best training job.
+
+00:02:31.050 --> 00:02:33.740
+In the past when we wanted to create
+
+00:02:33.740 --> 00:02:39.469
+a transformer object in order to create a batch transform job to test our model,
+
+00:02:39.469 --> 00:02:41.875
+we did so using an estimator object.
+
+00:02:41.875 --> 00:02:45.514
+However, we don't have an estimator object which has been trained.
+
+00:02:45.514 --> 00:02:49.250
+We created an estimator object earlier in order
+
+00:02:49.250 --> 00:02:53.300
+to create the hyperparameter tuner object.
+
+00:02:53.300 --> 00:02:58.489
+However, the original estimator object has not been trained.
+
+00:02:58.489 --> 00:03:04.835
+What we can do is create a new estimator object using the attach method,
+
+00:03:04.835 --> 00:03:09.355
+and attach this estimator object to a training job.
+
+00:03:09.354 --> 00:03:14.244
+This will result in creating an estimator object that is trained.
+
+00:03:14.245 --> 00:03:17.960
+In fact, is associated with the model artifacts that are
+
+00:03:17.960 --> 00:03:21.740
+created as a result of the training job that we pass in as a parameter.
+
+00:03:21.740 --> 00:03:24.950
+In this case, we're passing in the name of the best training job.
+
+00:03:24.949 --> 00:03:29.299
+So, xgb-attached is now the trained estimator object
+
+00:03:29.300 --> 00:03:34.460
+associated with the best training job from our hyperparameter tuning job.
+
+00:03:34.460 --> 00:03:38.960
+From there, we can do the same stuff that we did before when testing our model.
+
+00:03:38.960 --> 00:03:42.795
+That is, we create a transformer and then start our transform job.
+
+00:03:42.794 --> 00:03:44.625
+Waiting to see what the results are.
+
+00:03:44.625 --> 00:03:47.090
+Now that the batch transform has finished up,
+
+00:03:47.090 --> 00:03:52.580
+we can copy the resulting output back to our local notebook instance,
+
+00:03:52.580 --> 00:03:56.130
+and then create a nice little chart to see how well we did.
+

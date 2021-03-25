@@ -1,0 +1,163 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.310
+Hi, I'm Sean Carrell.
+
+00:00:02.310 --> 00:00:07.320
+In this lesson, I'm going to introduce you to Amazon's SageMaker service.
+
+00:00:07.320 --> 00:00:09.150
+By the end of this lesson,
+
+00:00:09.150 --> 00:00:12.179
+you should have an understanding of how SageMaker works,
+
+00:00:12.179 --> 00:00:15.089
+and you'll have had a chance to try it out yourself.
+
+00:00:15.089 --> 00:00:18.629
+To start, let's answer three big questions.
+
+00:00:18.629 --> 00:00:21.454
+What is it? Why use it?
+
+00:00:21.454 --> 00:00:25.644
+How does it work? First, what is SageMaker?
+
+00:00:25.644 --> 00:00:31.259
+Well, practically speaking, a SageMaker is a combination of two very useful tools.
+
+00:00:31.260 --> 00:00:35.414
+The first is a managed jupyter notebook instance.
+
+00:00:35.414 --> 00:00:39.144
+This is the same jupyter notebook that you know and love,
+
+00:00:39.145 --> 00:00:43.475
+except instead of running in a workspace or on your personal computer,
+
+00:00:43.475 --> 00:00:46.460
+it runs on a virtual machine hosted by Amazon.
+
+00:00:46.460 --> 00:00:48.649
+As you've seen throughout this standard degree,
+
+00:00:48.649 --> 00:00:52.879
+notebooks give us a place to explore and process data and can be
+
+00:00:52.880 --> 00:00:57.500
+used to test ideas before needing more sophisticated and powerful machinery.
+
+00:00:57.500 --> 00:01:01.070
+The second tool provided by SageMaker is an API,
+
+00:01:01.070 --> 00:01:02.719
+which simplifies, some of them are
+
+00:01:02.719 --> 00:01:06.334
+computationally difficult tasks we might need to perform.
+
+00:01:06.334 --> 00:01:09.500
+Like, when want to train or deploy machine learning model.
+
+00:01:09.500 --> 00:01:11.495
+So why use SageMaker?
+
+00:01:11.495 --> 00:01:13.055
+The simple answer is,
+
+00:01:13.055 --> 00:01:18.280
+that it makes a lot of the machine learning tasks we need to perform much easier.
+
+00:01:18.280 --> 00:01:22.409
+For example, in the machine learning workflow you looked at earlier,
+
+00:01:22.409 --> 00:01:27.474
+SageMaker provides tools to make each of the steps involved simpler.
+
+00:01:27.474 --> 00:01:31.924
+The notebook can be used to explore and process the data,
+
+00:01:31.924 --> 00:01:36.435
+and the API could help simplify the modeling and deployment steps.
+
+00:01:36.435 --> 00:01:39.935
+So how does SageMaker actually work?
+
+00:01:39.935 --> 00:01:43.655
+For the most part, when we talk about using sage maker,
+
+00:01:43.655 --> 00:01:47.439
+we really mean working in the managed notebook.
+
+00:01:47.439 --> 00:01:51.189
+This notebook has all of the benefits that we talked about before,
+
+00:01:51.189 --> 00:01:55.254
+with the added bonus of having access to the SageMaker API.
+
+00:01:55.254 --> 00:01:59.409
+The SageMaker API itself can be thought of as a collection of
+
+00:01:59.409 --> 00:02:04.039
+tools that deal with the training process and the inference process.
+
+00:02:04.040 --> 00:02:07.310
+The training process is exactly what you think it is.
+
+00:02:07.310 --> 00:02:10.060
+A computational task is constructed.
+
+00:02:10.060 --> 00:02:15.094
+Generally, this task is meant to fit a machine learning model to some data,
+
+00:02:15.094 --> 00:02:18.125
+then this task is executed on a virtual machine.
+
+00:02:18.125 --> 00:02:21.379
+The resulting model, such as the tree is constructed in
+
+00:02:21.379 --> 00:02:24.715
+a random tree model or the layers in a neural network,
+
+00:02:24.715 --> 00:02:26.569
+is then saved to a file.
+
+00:02:26.569 --> 00:02:30.844
+This saved data is called the model artifacts.
+
+00:02:30.844 --> 00:02:35.030
+The inference process is very similar to the training process.
+
+00:02:35.030 --> 00:02:41.830
+First, a computational task is constructed for the purposes of performing inference,
+
+00:02:41.830 --> 00:02:45.710
+then this task is executed on a virtual machine.
+
+00:02:45.710 --> 00:02:47.540
+In this case however,
+
+00:02:47.539 --> 00:02:50.569
+the virtual machine waits for us to send it some data.
+
+00:02:50.569 --> 00:02:55.159
+When we do, it takes that data along with the modal artifacts,
+
+00:02:55.159 --> 00:02:57.139
+which were created during the training process,
+
+00:02:57.139 --> 00:03:00.019
+and performs inference, returning the result.
+
+00:03:00.020 --> 00:03:04.060
+So that gives you a basic understanding of the SageMaker service.
+
+00:03:04.060 --> 00:03:06.384
+Before going into any more detail,
+
+00:03:06.384 --> 00:03:10.299
+let's actually use SageMaker to build our first model.
+

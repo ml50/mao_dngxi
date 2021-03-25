@@ -1,0 +1,1321 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Endpoints &amp; REST APIs
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Deployment
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Welcome!.html">
+       01. Welcome!
+      </a>
+     </li>
+     <li class="">
+      <a href="02. What's Ahead.html">
+       02. What's Ahead?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Problem Introduction.html">
+       03. Problem Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Machine Learning Workflow.html">
+       04. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Machine Learning Workflow.html">
+       05. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What is Cloud Computing &amp; Why Would We Use It.html">
+       06. What is Cloud Computing &amp; Why Would We Use It?
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Why Cloud Computing .html">
+       07. Why Cloud Computing?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Machine Learning Applications.html">
+       08. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Machine Learning Applications.html">
+       09. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Paths to Deployment.html">
+       10. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Paths to Deployment.html">
+       11. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Production Environments.html">
+       12. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Production Environments.html">
+       13. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Endpoints &amp; REST APIs.html">
+       14. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Endpoints &amp; REST APIs.html">
+       15. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Containers.html">
+       16. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Containers.html">
+       17. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Containers - Straight From the Experts.html">
+       18. Containers - Straight From the Experts
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Characteristics of Modeling &amp; Deployment.html">
+       19. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Characteristics of Modeling &amp; Deployment.html">
+       20. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Comparing Cloud Providers.html">
+       21. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Comparing Cloud Providers.html">
+       22. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Closing Statements.html">
+       23. Closing Statements
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Summary.html">
+       24. Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. [Optional] Cloud Computing Defined.html">
+       25. [Optional] Cloud Computing Defined
+      </a>
+     </li>
+     <li class="">
+      <a href="26. [Optional] Cloud Computing Explained.html">
+       26. [Optional] Cloud Computing Explained
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          14. Endpoints &amp; REST APIs
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="production-environment-and-the-endpoint">
+          Production Environment and the Endpoint
+         </h3>
+         <p>
+          When we discussed the
+          <em>
+           production environment
+          </em>
+          , the
+          <strong>
+           <em>
+            endpoint
+           </em>
+          </strong>
+          was defined as the
+          <strong>
+           interface
+          </strong>
+          to the model.  This
+          <strong>
+           interface
+          </strong>
+          (
+          <strong>
+           <em>
+            endpoint
+           </em>
+          </strong>
+          ) facilitates an ease of communication between the
+          <em>
+           model
+          </em>
+          and the
+          <em>
+           application
+          </em>
+          . Specifically,  this
+          <strong>
+           interface
+          </strong>
+          (
+          <strong>
+           <em>
+            endpoint
+           </em>
+          </strong>
+          )
+         </p>
+         <ul>
+          <li>
+           Allows the
+           <em>
+            application
+           </em>
+           to send
+           <strong>
+            <em>
+             user data
+            </em>
+           </strong>
+           to the
+           <em>
+            model
+           </em>
+           and
+          </li>
+          <li>
+           Receives
+           <strong>
+            <em>
+             predictions
+            </em>
+           </strong>
+           back from the
+           <em>
+            model
+           </em>
+           based upon that
+           <strong>
+            <em>
+             user data
+            </em>
+           </strong>
+           .
+          </li>
+         </ul>
+         <h3 id="model-application-and-endpoint">
+          Model, Application, and Endpoint
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/endpointprogram-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          One way to think of the
+          <strong>
+           <em>
+            endpoint
+           </em>
+          </strong>
+          that acts as this
+          <em>
+           interface
+          </em>
+          , is to think of a
+          <em>
+           Python program
+          </em>
+          where:
+         </p>
+         <ul>
+          <li>
+           the
+           <strong>
+            endpoint
+           </strong>
+           itself is like a
+           <strong>
+            <em>
+             function call
+            </em>
+           </strong>
+          </li>
+          <li>
+           the
+           <strong>
+            <em>
+             function
+            </em>
+           </strong>
+           itself would be the
+           <strong>
+            model
+           </strong>
+           and
+          </li>
+          <li>
+           the
+           <strong>
+            <em>
+             Python program
+            </em>
+           </strong>
+           is the
+           <strong>
+            application
+           </strong>
+           .
+          </li>
+         </ul>
+         <p>
+          The image
+          <strong>
+           above
+          </strong>
+          depicts the association between a
+          <strong>
+           <em>
+            Python program
+           </em>
+          </strong>
+          and the
+          <strong>
+           endpoint
+          </strong>
+          ,
+          <strong>
+           model
+          </strong>
+          , and
+          <strong>
+           application
+          </strong>
+          .
+         </p>
+         <ul>
+          <li>
+           the
+           <strong>
+            endpoint
+           </strong>
+           :
+           <em>
+            line
+           </em>
+           <strong>
+            <em>
+             8
+            </em>
+           </strong>
+           <strong>
+            <em>
+             function call
+            </em>
+           </strong>
+           to
+           <strong>
+            ml_model
+           </strong>
+          </li>
+          <li>
+           the
+           <strong>
+            model
+           </strong>
+           : beginning on
+           <em>
+            line
+           </em>
+           <strong>
+            <em>
+             14
+            </em>
+           </strong>
+           <strong>
+            <em>
+             function definition
+            </em>
+           </strong>
+           for
+           <strong>
+            ml_model
+           </strong>
+          </li>
+          <li>
+           the
+           <strong>
+            application
+           </strong>
+           :
+           <strong>
+            <em>
+             Python program
+            </em>
+           </strong>
+           <strong>
+            web_app.py
+           </strong>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/endpointprogram-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Using this example
+          <strong>
+           above
+          </strong>
+          notice the following:
+         </p>
+         <ul>
+          <li>
+           <p>
+            <em>
+             Similar
+            </em>
+            to a
+            <strong>
+             <em>
+              function call
+             </em>
+            </strong>
+            the
+            <strong>
+             endpoint
+            </strong>
+            accepts
+            <em>
+             user data
+            </em>
+            as the
+            <strong>
+             <em>
+              input
+             </em>
+            </strong>
+            and
+            <strong>
+             <em>
+              returns
+             </em>
+            </strong>
+            the
+            <em>
+             model’s prediction
+            </em>
+            based upon this
+            <strong>
+             <em>
+              input
+             </em>
+            </strong>
+            through the
+            <strong>
+             endpoint
+            </strong>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            In the example, the
+            <em>
+             user data
+            </em>
+            is the
+            <strong>
+             <em>
+              input argument
+             </em>
+            </strong>
+            and the
+            <em>
+             prediction
+            </em>
+            is the
+            <strong>
+             <em>
+              returned value
+             </em>
+            </strong>
+            from the
+            <strong>
+             <em>
+              function call
+             </em>
+            </strong>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            The
+            <strong>
+             application
+            </strong>
+            , here the
+            <strong>
+             <em>
+              python program
+             </em>
+            </strong>
+            , displays the
+            <em>
+             model’s prediction
+            </em>
+            to the
+            <em>
+             application user
+            </em>
+            .
+           </p>
+          </li>
+         </ul>
+         <p>
+          This example highlights how the
+          <strong>
+           endpoint
+          </strong>
+          itself is just the
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          between the
+          <strong>
+           model
+          </strong>
+          and the
+          <strong>
+           application
+          </strong>
+          ; where this
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          enables users to get
+          <em>
+           predictions
+          </em>
+          from the
+          <strong>
+           <em>
+            deployed
+           </em>
+          </strong>
+          <em>
+           model
+          </em>
+          based on their
+          <em>
+           user data
+          </em>
+          .
+         </p>
+         <p>
+          Next we'll focus on
+          <em>
+           how
+          </em>
+          the
+          <strong>
+           endpoint
+          </strong>
+          (
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          ) facilitates communication between
+          <strong>
+           application
+          </strong>
+          and
+          <strong>
+           model
+          </strong>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="endpoint-and-rest-api">
+          Endpoint and REST API
+         </h3>
+         <p>
+          Communication between the
+          <strong>
+           application
+          </strong>
+          and the
+          <strong>
+           model
+          </strong>
+          is done through the
+          <strong>
+           endpoint
+          </strong>
+          (
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          ), where the
+          <strong>
+           endpoint
+          </strong>
+          is an
+          <strong>
+           Application Programming Interface
+          </strong>
+          (
+          <strong>
+           API
+          </strong>
+          ).
+         </p>
+         <ul>
+          <li>
+           <p>
+            An
+            <em>
+             easy
+            </em>
+            way to think of an
+            <strong>
+             API
+            </strong>
+            , is as a
+            <em>
+             set of rules
+            </em>
+            that
+            <em>
+             enable
+            </em>
+            programs, here the
+            <strong>
+             application
+            </strong>
+            and the
+            <strong>
+             model
+            </strong>
+            , to
+            <em>
+             communicate
+            </em>
+            with each other.
+           </p>
+          </li>
+          <li>
+           <p>
+            In this case, our
+            <strong>
+             API
+            </strong>
+            uses a
+            <strong>
+             RE
+            </strong>
+            presentational
+            <strong>
+             S
+            </strong>
+            tate
+            <strong>
+             T
+            </strong>
+            ransfer,
+            <strong>
+             REST
+            </strong>
+            , architecture that provides a framework for the
+            <em>
+             set of rules
+            </em>
+            and
+            <em>
+             constraints
+            </em>
+            that must be adhered to for
+            <em>
+             communication
+            </em>
+            between programs.
+           </p>
+          </li>
+          <li>
+           <p>
+            This
+            <strong>
+             REST API
+            </strong>
+            is one that uses
+            <em>
+             HTTP requests
+            </em>
+            and
+            <em>
+             responses
+            </em>
+            to enable communication between the
+            <strong>
+             application
+            </strong>
+            and the
+            <strong>
+             model
+            </strong>
+            through the
+            <strong>
+             endpoint
+            </strong>
+            (
+            <strong>
+             <em>
+              interface
+             </em>
+            </strong>
+            ).
+           </p>
+          </li>
+          <li>
+           <p>
+            Noting that
+            <strong>
+             <em>
+              both
+             </em>
+            </strong>
+            the
+            <strong>
+             HTTP request
+            </strong>
+            and
+            <strong>
+             HTTP response
+            </strong>
+            are
+            <em>
+             communications
+            </em>
+            sent between the
+            <strong>
+             application
+            </strong>
+            and
+            <strong>
+             model
+            </strong>
+            .
+           </p>
+          </li>
+         </ul>
+         <p>
+          The
+          <strong>
+           HTTP request
+          </strong>
+          that’s sent from your
+          <strong>
+           application
+          </strong>
+          to your
+          <strong>
+           model
+          </strong>
+          is composed of
+          <em>
+           four
+          </em>
+          parts:
+         </p>
+         <ul>
+          <li>
+           <strong>
+            Endpoint
+           </strong>
+           <ul>
+            <li>
+             This
+             <strong>
+              endpoint
+             </strong>
+             will be in the form of a URL, Uniform Resource Locator, which is commonly known as a web address.
+            </li>
+           </ul>
+          </li>
+          <li>
+           HTTP Method
+           <ul>
+            <li>
+             Below you will find four of the
+             <strong>
+              HTTP methods
+             </strong>
+             , but for purposes of
+             <strong>
+              <em>
+               deployment
+              </em>
+             </strong>
+             our
+             <strong>
+              application
+             </strong>
+             will use the
+             <strong>
+              <em>
+               POST method
+              </em>
+             </strong>
+             <em>
+              only
+             </em>
+             .
+            </li>
+           </ul>
+          </li>
+          <li>
+           HTTP Headers
+           <ul>
+            <li>
+             The
+             <strong>
+              headers
+             </strong>
+             will contain additional information, like the format of the data within the message, that’s passed to the
+             <em>
+              receiving
+             </em>
+             program.
+            </li>
+           </ul>
+          </li>
+          <li>
+           Message (Data or Body)
+           <ul>
+            <li>
+             The final part is the
+             <strong>
+              message
+             </strong>
+             (data or body); for
+             <strong>
+              <em>
+               deployment
+              </em>
+             </strong>
+             will contain the
+             <em>
+              user’s data
+             </em>
+             which is input into the
+             <strong>
+              model
+             </strong>
+             .
+            </li>
+           </ul>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/httpmethods.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The
+          <strong>
+           HTTP response
+          </strong>
+          sent from your model to your application is composed of
+          <em>
+           three
+          </em>
+          parts:
+         </p>
+         <ul>
+          <li>
+           HTTP Status Code
+           <ul>
+            <li>
+             If the model successfully received and processed the
+             <em>
+              user’s data
+             </em>
+             that was sent in the
+             <strong>
+              message
+             </strong>
+             , the status code should start with a
+             <strong>
+              <em>
+               2
+              </em>
+             </strong>
+             , like
+             <em>
+              200
+             </em>
+             .
+            </li>
+           </ul>
+          </li>
+          <li>
+           HTTP Headers
+           <ul>
+            <li>
+             The
+             <strong>
+              headers
+             </strong>
+             will contain additional information, like the format of the data within the
+             <strong>
+              message
+             </strong>
+             , that’s passed to the receiving program.
+            </li>
+           </ul>
+          </li>
+          <li>
+           Message (Data or Body)
+           <ul>
+            <li>
+             What’s returned as the
+             <em>
+              data
+             </em>
+             within the
+             <strong>
+              message
+             </strong>
+             is the
+             <em>
+              prediction
+             </em>
+             that’s provided by the
+             <strong>
+              model
+             </strong>
+             .
+            </li>
+           </ul>
+          </li>
+         </ul>
+         <p>
+          This
+          <em>
+           prediction
+          </em>
+          is then presented to the
+          <em>
+           application user
+          </em>
+          through the
+          <strong>
+           application
+          </strong>
+          . The
+          <strong>
+           endpoint
+          </strong>
+          is the
+          <strong>
+           <em>
+            interface
+           </em>
+          </strong>
+          that
+          <em>
+           enables communication
+          </em>
+          between the
+          <strong>
+           application
+          </strong>
+          and the
+          <strong>
+           model
+          </strong>
+          using a
+          <strong>
+           REST API
+          </strong>
+          .
+         </p>
+         <p>
+          As we learn more about
+          <strong>
+           REST*ful *API
+          </strong>
+          , realize that it's the
+          <strong>
+           application’s
+          </strong>
+          responsibility:
+         </p>
+         <ul>
+          <li>
+           To format the
+           <em>
+            user’s data
+           </em>
+           in a way that can be easily put into the
+           <strong>
+            HTTP request
+           </strong>
+           <strong>
+            <em>
+             message
+            </em>
+           </strong>
+           and
+           <strong>
+            <em>
+             used
+            </em>
+           </strong>
+           by the
+           <strong>
+            model
+           </strong>
+           .
+          </li>
+          <li>
+           To translate the
+           <em>
+            predictions
+           </em>
+           from the
+           <strong>
+            HTTP response
+           </strong>
+           <strong>
+            <em>
+             message
+            </em>
+           </strong>
+           in a way that’s easy for the
+           <em>
+            application user’s
+           </em>
+           to understand.
+          </li>
+         </ul>
+         <p>
+          Notice the following regarding the
+          <em>
+           information
+          </em>
+          included in the
+          <strong>
+           <em>
+            HTTP messages
+           </em>
+          </strong>
+          sent between
+          <strong>
+           application
+          </strong>
+          and
+          <strong>
+           model
+          </strong>
+          :
+         </p>
+         <ul>
+          <li>
+           Often
+           <em>
+            user's data
+           </em>
+           will need to be in a
+           <em>
+            CSV
+           </em>
+           or
+           <em>
+            JSON
+           </em>
+           format with a specific
+           <em>
+            ordering
+           </em>
+           of the data that's dependent upon the
+           <strong>
+            model
+           </strong>
+           used.
+          </li>
+          <li>
+           Often
+           <em>
+            predictions
+           </em>
+           will be returned in
+           <em>
+            CSV
+           </em>
+           or
+           <em>
+            JSON
+           </em>
+           format with a specific
+           <em>
+            ordering
+           </em>
+           of the returned
+           <em>
+            predictions
+           </em>
+           dependent upon the
+           <strong>
+            model
+           </strong>
+           used.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="15. Endpoints &amp; REST APIs.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('14. Endpoints &amp; REST APIs')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

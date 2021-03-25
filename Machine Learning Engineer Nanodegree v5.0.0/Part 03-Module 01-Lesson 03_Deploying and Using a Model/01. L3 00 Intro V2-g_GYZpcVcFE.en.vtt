@@ -1,0 +1,28 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.634
+Now you've had a chance to see some of the basics of what SageMaker can do for you.
+
+00:00:04.634 --> 00:00:08.879
+For the most part, we've looked at how SageMaker can be used in a lab like setting,
+
+00:00:08.880 --> 00:00:12.285
+where we're interested in exploring and processing data,
+
+00:00:12.285 --> 00:00:15.300
+creating models and then testing those models.
+
+00:00:15.300 --> 00:00:18.630
+Next, we're going to look at how SageMaker can help us deploy
+
+00:00:18.629 --> 00:00:22.259
+the models that we've created so they can be used outside of the notebook.
+
+00:00:22.260 --> 00:00:24.300
+In addition, we're going to look at building
+
+00:00:24.300 --> 00:00:28.240
+a simple web app that will interact with a deployed model.
+

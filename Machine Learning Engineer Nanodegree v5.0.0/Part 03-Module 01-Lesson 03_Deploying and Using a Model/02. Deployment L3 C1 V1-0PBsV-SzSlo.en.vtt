@@ -1,0 +1,187 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.049
+We've looked at how SageMaker can be used to create and train models and we've
+
+00:00:04.049 --> 00:00:08.189
+looked at how the batch transform functionality can be used to test the trained model.
+
+00:00:08.189 --> 00:00:10.289
+Now, we'll look at how you can deploy a trained model.
+
+00:00:10.289 --> 00:00:12.989
+In our case, we'll be deploying it by making it available at
+
+00:00:12.990 --> 00:00:17.190
+an endpoint which is a supported way of deploying a model using SageMaker.
+
+00:00:17.190 --> 00:00:19.510
+We'll use the deployed model for the notebook itself,
+
+00:00:19.510 --> 00:00:20.820
+but later on in this lesson,
+
+00:00:20.820 --> 00:00:23.670
+we'll create a web app that can access a deployed model.
+
+00:00:23.670 --> 00:00:25.590
+To follow along, navigate into
+
+00:00:25.589 --> 00:00:29.355
+the SageMaker folder and then inside of the tutorials folder,
+
+00:00:29.355 --> 00:00:34.469
+and open up the Boston Housing XGBoost High Level deploy notebook.
+
+00:00:34.469 --> 00:00:37.560
+To start with, we will be using the same dataset and creating
+
+00:00:37.560 --> 00:00:40.675
+the same sort of model as in the other Boston Housing notebooks.
+
+00:00:40.674 --> 00:00:42.979
+In particular, we'll be predicting the median cost of
+
+00:00:42.979 --> 00:00:45.634
+a house in the Boston area using XGBoost.
+
+00:00:45.634 --> 00:00:46.924
+Since we've done this before,
+
+00:00:46.924 --> 00:00:49.489
+I will go ahead and train the model now.
+
+00:00:49.490 --> 00:00:51.469
+Now, we've obtained the data,
+
+00:00:51.469 --> 00:00:53.240
+done any processing that was required,
+
+00:00:53.240 --> 00:00:55.090
+built the model, and trained it.
+
+00:00:55.090 --> 00:00:58.220
+Instead of creating a batch transform job to test our model,
+
+00:00:58.219 --> 00:00:59.789
+we're going to test it by first deploying it,
+
+00:00:59.789 --> 00:01:02.644
+and then sending the test data to the deployed endpoint.
+
+00:01:02.645 --> 00:01:06.560
+Using the high-level approach makes actually deploying the model very easy.
+
+00:01:06.560 --> 00:01:10.820
+We simply call the deploy method of the trained model object making sure to
+
+00:01:10.819 --> 00:01:16.024
+specify the number of virtual machines we want to use and the type of virtual machine.
+
+00:01:16.025 --> 00:01:19.670
+Currently SageMaker is preparing and then we'll run our deployed model.
+
+00:01:19.670 --> 00:01:21.769
+We'll come back once this is done.
+
+00:01:21.769 --> 00:01:24.619
+As you can see, the model has now been deployed.
+
+00:01:24.620 --> 00:01:26.814
+So, what does this mean exactly?
+
+00:01:26.814 --> 00:01:30.289
+What this means is that SageMaker has created a virtual machine that
+
+00:01:30.290 --> 00:01:33.990
+contains our trained model that can be accessed at an endpoint,
+
+00:01:33.989 --> 00:01:36.909
+in other words, at a specific URL.
+
+00:01:36.909 --> 00:01:38.899
+In the next video when we go into more detail,
+
+00:01:38.900 --> 00:01:42.020
+I'll show you how you can find this URL, but for now,
+
+00:01:42.019 --> 00:01:44.780
+the predictor object, which was returned by
+
+00:01:44.780 --> 00:01:47.519
+the deploy method takes care of all of that for you.
+
+00:01:47.519 --> 00:01:50.819
+In order to send data to our model's endpoint,
+
+00:01:50.819 --> 00:01:55.729
+we can use the predict method of the predictor object that was returned.
+
+00:01:55.730 --> 00:02:01.300
+However, the data that we provide to the predictor object needs to be serialized first.
+
+00:02:01.299 --> 00:02:04.609
+Fortunately, SageMaker provides this functionality for us
+
+00:02:04.609 --> 00:02:08.240
+so long as you specify the type of data that our model expects.
+
+00:02:08.240 --> 00:02:10.370
+In this case, we are going to be using
+
+00:02:10.370 --> 00:02:14.515
+CSV data and so we can use the provided CSV serializer.
+
+00:02:14.514 --> 00:02:18.409
+Once our model has performed inference on each of the records that we sent it,
+
+00:02:18.409 --> 00:02:19.669
+a result will be returned,
+
+00:02:19.669 --> 00:02:21.859
+which would be the serialized predictions.
+
+00:02:21.860 --> 00:02:25.460
+This means that the result is a comma delimited string of results
+
+00:02:25.460 --> 00:02:29.469
+for each record and so we need to convert it back to a numpy array,
+
+00:02:29.469 --> 00:02:30.680
+which is what we do right here.
+
+00:02:30.680 --> 00:02:33.439
+Once we had the resulting data in a format that we can use,
+
+00:02:33.439 --> 00:02:36.229
+we can make a nice little graph to see how our model is doing.
+
+00:02:36.229 --> 00:02:39.079
+Of course, we should expect this model to perform
+
+00:02:39.080 --> 00:02:42.755
+similarly to the other XGBoost models that we've made using the same dataset.
+
+00:02:42.754 --> 00:02:48.069
+The last step that must be completed is to shut down the deployed model.
+
+00:02:48.069 --> 00:02:49.759
+Remember, that SageMaker has created
+
+00:02:49.759 --> 00:02:52.864
+a virtual machine for you that is hosting your trained model.
+
+00:02:52.865 --> 00:02:55.640
+This virtual machine will continue to run waiting
+
+00:02:55.639 --> 00:02:58.449
+for data to be sent to it until you shut it down.
+
+00:02:58.449 --> 00:03:02.719
+Since the cost of running a deployed model is based on how long it is running for,
+
+00:03:02.719 --> 00:03:05.469
+when you no longer need an endpoint you need to shut it down.
+

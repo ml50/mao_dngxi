@@ -1,0 +1,142 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.264
+Now you've had a chance to try out SageMaker's hyperparameter tuning for yourself,
+
+00:00:05.264 --> 00:00:07.274
+let's take a look at my solutions.
+
+00:00:07.275 --> 00:00:09.015
+So as I mentioned earlier,
+
+00:00:09.015 --> 00:00:13.109
+the first three steps are the same as the other mini-project that we worked on,
+
+00:00:13.109 --> 00:00:15.044
+so I've already executed those cells.
+
+00:00:15.044 --> 00:00:17.309
+Starting here with step four,
+
+00:00:17.309 --> 00:00:18.779
+the first thing of course that we do,
+
+00:00:18.780 --> 00:00:24.210
+is make sure that we split our dataset up into a validation and training set,
+
+00:00:24.210 --> 00:00:27.855
+and then save those datasets to our Notebook Instance.
+
+00:00:27.855 --> 00:00:31.875
+Once we have our datasets saved to our local notebook instance,
+
+00:00:31.875 --> 00:00:33.704
+we use the upload data method,
+
+00:00:33.704 --> 00:00:36.824
+to upload those datasets to S3.
+
+00:00:36.825 --> 00:00:41.100
+Next we do the same thing that we did in the other mini-project,
+
+00:00:41.100 --> 00:00:47.014
+in that we first get a little bit of information about our current Notebook instance,
+
+00:00:47.014 --> 00:00:49.465
+including both our current role,
+
+00:00:49.465 --> 00:00:51.475
+and the name of the container,
+
+00:00:51.475 --> 00:00:55.115
+that is specific to the region that we are currently working in.
+
+00:00:55.115 --> 00:00:56.990
+Just like in the previous Notebooks,
+
+00:00:56.990 --> 00:00:58.010
+the first thing to do,
+
+00:00:58.009 --> 00:01:00.504
+is create an estimator object.
+
+00:01:00.505 --> 00:01:02.540
+Here I've created an estimator object,
+
+00:01:02.539 --> 00:01:07.420
+in the same way that we did in the previous XGBoost sentiment analysis Notebook.
+
+00:01:07.420 --> 00:01:12.474
+Furthermore, I just use the same hyperparameters that we used last time as well,
+
+00:01:12.474 --> 00:01:16.789
+including making sure to change the objective to binary logistic.
+
+00:01:16.790 --> 00:01:19.220
+Now that we've created an estimator object,
+
+00:01:19.219 --> 00:01:23.024
+which serves as the basic model
+
+00:01:23.024 --> 00:01:27.945
+which SageMaker will use in the hyperparameter tuning job,
+
+00:01:27.944 --> 00:01:30.904
+we need to set up the hyperparameter tuner object.
+
+00:01:30.905 --> 00:01:32.525
+Like we discussed in the last video,
+
+00:01:32.525 --> 00:01:34.940
+we first provide the estimator object,
+
+00:01:34.939 --> 00:01:37.359
+which is the base model,
+
+00:01:37.359 --> 00:01:41.450
+we then say which metric we would like to optimize, in our case,
+
+00:01:41.450 --> 00:01:43.640
+again, we'll be using RMSE,
+
+00:01:43.640 --> 00:01:45.715
+of the validation set.
+
+00:01:45.715 --> 00:01:48.460
+Then we describe what makes a model better.
+
+00:01:48.459 --> 00:01:52.299
+In this case it is having a smaller RMSE value.
+
+00:01:52.299 --> 00:01:57.334
+Next we tell SageMaker the total number of models we'd like it to create for us.
+
+00:01:57.334 --> 00:01:58.969
+In this case, I've just chosen six,
+
+00:01:58.969 --> 00:02:03.500
+because each of these training jobs takes a bit longer than the Boston Housing example.
+
+00:02:03.500 --> 00:02:05.540
+So I don't want to wait too long.
+
+00:02:05.540 --> 00:02:10.135
+Next we tell SageMaker how many models should be created in parallel.
+
+00:02:10.134 --> 00:02:15.310
+Lastly, we describe the ranges that we want various parameters to take on.
+
+00:02:15.310 --> 00:02:18.694
+Now that we've created the hyperparameter tuner object,
+
+00:02:18.694 --> 00:02:21.590
+we just ask SageMaker to train it.
+
+00:02:21.590 --> 00:02:24.564
+As we discussed, this is all going on in the background.
+
+00:02:24.564 --> 00:02:28.069
+So, we just wait for it to finish.
+

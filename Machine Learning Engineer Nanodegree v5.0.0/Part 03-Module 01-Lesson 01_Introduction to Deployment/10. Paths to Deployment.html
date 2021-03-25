@@ -1,0 +1,904 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Paths to Deployment
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Introduction to Deployment
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Welcome!.html">
+       01. Welcome!
+      </a>
+     </li>
+     <li class="">
+      <a href="02. What's Ahead.html">
+       02. What's Ahead?
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Problem Introduction.html">
+       03. Problem Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Machine Learning Workflow.html">
+       04. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Machine Learning Workflow.html">
+       05. Machine Learning Workflow
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What is Cloud Computing &amp; Why Would We Use It.html">
+       06. What is Cloud Computing &amp; Why Would We Use It?
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Why Cloud Computing .html">
+       07. Why Cloud Computing?
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Machine Learning Applications.html">
+       08. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Machine Learning Applications.html">
+       09. Machine Learning Applications
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Paths to Deployment.html">
+       10. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Paths to Deployment.html">
+       11. Paths to Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Production Environments.html">
+       12. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Production Environments.html">
+       13. Production Environments
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Endpoints &amp; REST APIs.html">
+       14. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Endpoints &amp; REST APIs.html">
+       15. Endpoints &amp; REST APIs
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Containers.html">
+       16. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Containers.html">
+       17. Containers
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Containers - Straight From the Experts.html">
+       18. Containers - Straight From the Experts
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Characteristics of Modeling &amp; Deployment.html">
+       19. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Characteristics of Modeling &amp; Deployment.html">
+       20. Characteristics of Modeling &amp; Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Comparing Cloud Providers.html">
+       21. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Comparing Cloud Providers.html">
+       22. Comparing Cloud Providers
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Closing Statements.html">
+       23. Closing Statements
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Summary.html">
+       24. Summary
+      </a>
+     </li>
+     <li class="">
+      <a href="25. [Optional] Cloud Computing Defined.html">
+       25. [Optional] Cloud Computing Defined
+      </a>
+     </li>
+     <li class="">
+      <a href="26. [Optional] Cloud Computing Explained.html">
+       26. [Optional] Cloud Computing Explained
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          10. Paths to Deployment
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="deployment-to-production">
+          Deployment to Production
+         </h3>
+         <h5 id="recall-that">
+          Recall that:
+         </h5>
+         <p style="margin-left: 25px">
+          ***Deployment to production*** can simply be thought of as a method that integrates a machine learning model into an existing production environment so that the model can be used to make *decisions* or *predictions* based upon *data input* into the model.
+         </p>
+         <p>
+          This means that moving from
+          <em>
+           modeling
+          </em>
+          to
+          <em>
+           deployment
+          </em>
+          , a
+          <em>
+           model
+          </em>
+          needs to be provided to those responsible for
+          <em>
+           deployment
+          </em>
+          . We are going to assume that the machine learning model we will be deploying was developed in Python.
+         </p>
+         <h3 id="paths-to-deployment">
+          Paths to Deployment
+         </h3>
+         <p>
+          There are
+          <em>
+           three
+          </em>
+          primary methods used to transfer a model from the
+          <strong>
+           <em>
+            modeling
+           </em>
+          </strong>
+          <em>
+           component
+          </em>
+          to the
+          <strong>
+           <em>
+            deployment
+           </em>
+          </strong>
+          <em>
+           component
+          </em>
+          of the machine learning workflow. We will be discussing them in
+          <em>
+           order
+          </em>
+          of
+          <strong>
+           <em>
+            least
+           </em>
+          </strong>
+          to
+          <strong>
+           <em>
+            most
+           </em>
+          </strong>
+          commonly used. The
+          <strong>
+           <em>
+            third
+           </em>
+          </strong>
+          <em>
+           method
+          </em>
+          that's
+          <em>
+           most
+          </em>
+          similar to what’s used for
+          <em>
+           deployment
+          </em>
+          within
+          <strong>
+           <em>
+            Amazon’s SageMaker
+           </em>
+          </strong>
+          .
+         </p>
+         <h4 id="paths-to-deployment-1">
+          Paths to
+          <em>
+           Deployment
+          </em>
+          :
+         </h4>
+         <ol>
+          <li>
+           Python model is
+           <em>
+            recoded
+           </em>
+           into the programming language of the production environment.
+           <br/>
+          </li>
+          <li>
+           Model is
+           <em>
+            coded
+           </em>
+           in
+           <em>
+            Predictive Model Markup Language
+           </em>
+           (PMML) or
+           <em>
+            Portable Format Analytics
+           </em>
+           (PFA).
+           <br/>
+          </li>
+          <li>
+           Python model is
+           <em>
+            converted
+           </em>
+           into a format that can be used in the production environment.
+           <br/>
+          </li>
+         </ol>
+         <h4 id="recoding-model-into-programming-language-of-production-environment">
+          Recoding Model into Programming Language of Production Environment
+         </h4>
+         <p>
+          The
+          <em>
+           first
+          </em>
+          method which involves recoding the Python model into the language of the production environment, often Java or C++. This method is
+          <em>
+           rarely used anymore
+          </em>
+          because it takes time to recode, test, and validate the model that provides the
+          <em>
+           same
+          </em>
+          predictions as the
+          <em>
+           original
+          </em>
+          .
+         </p>
+         <h4 id="model-is-coded-in-pmml-or-pfa">
+          Model is Coded in PMML or PFA
+         </h4>
+         <p>
+          The
+          <em>
+           second
+          </em>
+          method is to code the model in Predictive Model Markup Language (PMML) or Portable Format for Analytics (PFA), which are two complementary standards that *simplify *moving predictive models to
+          <em>
+           deployment
+          </em>
+          into a
+          <em>
+           production environment
+          </em>
+          . The Data Mining Group developed both PMML and PFA to provide vendor-neutral executable model specifications for certain predictive models used by data mining and machine learning. Certain analytic software allows for the direct import of PMML including but
+          <em>
+           not limited
+          </em>
+          to IBM SPSS, R, SAS Base &amp; Enterprise Miner, Apache Spark, Teradata Warehouse Miner, and TIBCO Spotfire.
+         </p>
+         <h4 id="model-is-converted-into-format-that’s-used-in-the-production-environment">
+          Model is Converted into Format that’s used in the Production Environment
+         </h4>
+         <p>
+          The
+          <em>
+           third
+          </em>
+          method is to build a Python model and
+          <strong>
+           <em>
+            use
+           </em>
+          </strong>
+          <em>
+           libraries
+          </em>
+          and
+          <em>
+           methods
+          </em>
+          that
+          <em>
+           convert
+          </em>
+          the model into
+          <strong>
+           <em>
+            code
+           </em>
+          </strong>
+          that can be used in the
+          <em>
+           production environment
+          </em>
+          . Specifically
+          <em>
+           most
+          </em>
+          popular machine learning software frameworks, like PyTorch, TensorFlow, SciKit-Learn, have methods that will
+          <em>
+           convert
+          </em>
+          Python models into
+          <em>
+           intermediate standard format
+          </em>
+          , like ONNX (
+          <a href="https://onnx.ai/" rel="noopener noreferrer" target="_blank">
+           Open Neural Network Exchange
+          </a>
+          format). This
+          <em>
+           intermediate standard format
+          </em>
+          then can be
+          <strong>
+           <em>
+            converted
+           </em>
+          </strong>
+          into the software native to the
+          <em>
+           production environment
+          </em>
+          .
+         </p>
+         <ul>
+          <li>
+           This is the
+           <em>
+            easiest
+           </em>
+           and
+           <em>
+            fastest
+           </em>
+           way
+           <strong>
+            <em>
+             to move
+            </em>
+           </strong>
+           a Python model from
+           <em>
+            modeling
+           </em>
+           directly to
+           <em>
+            deployment
+           </em>
+           .
+          </li>
+          <li>
+           Moving forward this is
+           <em>
+            typically
+           </em>
+           the way
+           <em>
+            models
+           </em>
+           are
+           <strong>
+            <em>
+             moved
+            </em>
+           </strong>
+           into the
+           <em>
+            production environment
+           </em>
+           .
+          </li>
+          <li>
+           Technologies like
+           <em>
+            containers
+           </em>
+           ,
+           <em>
+            endpoints
+           </em>
+           , and
+           <em>
+            APIs
+           </em>
+           (Application Programming Interfaces) also help
+           <strong>
+            <em>
+             ease
+            </em>
+           </strong>
+           the
+           <strong>
+            <em>
+             work
+            </em>
+           </strong>
+           required for
+           <em>
+            deploying
+           </em>
+           a model into the
+           <em>
+            production environment
+           </em>
+           .
+          </li>
+         </ul>
+         <p>
+          We will discuss these
+          <em>
+           technologies
+          </em>
+          in more detail in the
+          <strong>
+           <em>
+            next
+           </em>
+          </strong>
+          sections.
+         </p>
+         <h3 id="machine-learning-workflow-and-devops">
+          Machine Learning Workflow and DevOps
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/mlworkflow-devops-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="machine-learning-workflow-and-deployment">
+          Machine Learning Workflow and Deployment
+         </h4>
+         <p>
+          Considering the components of the
+          <em>
+           Machine Learning Workflow
+          </em>
+          , one can see how
+          <em>
+           Exploring and Processing Data
+          </em>
+          is tightly coupled with
+          <em>
+           Modeling
+          </em>
+          . The
+          <em>
+           modeling
+          </em>
+          <strong>
+           can’t
+          </strong>
+          occur without
+          <em>
+           first
+          </em>
+          having the
+          <em>
+           data
+          </em>
+          the model will be based upon
+          <em>
+           prepared
+          </em>
+          for the modeling process.
+         </p>
+         <p>
+          Comparatively
+          <em>
+           deployment
+          </em>
+          is
+          <strong>
+           more
+          </strong>
+          tightly coupled with the
+          <em>
+           production environment
+          </em>
+          than with
+          <em>
+           modeling
+          </em>
+          or
+          <em>
+           exploring and processing the data
+          </em>
+          . Therefore,
+          <em>
+           traditionally
+          </em>
+          there’s was a separation between
+          <em>
+           Deployment
+          </em>
+          and the
+          <em>
+           other components
+          </em>
+          of the machine learning workflow. Specifically looking at the diagram
+          <strong>
+           <em>
+            above
+           </em>
+          </strong>
+          , the
+          <strong>
+           Process Data and Modeling
+          </strong>
+          are considered
+          <strong>
+           <em>
+            Development
+           </em>
+          </strong>
+          ; whereas,
+          <strong>
+           Deployment
+          </strong>
+          is
+          <em>
+           typically
+          </em>
+          considered
+          <strong>
+           <em>
+            Operations
+           </em>
+          </strong>
+          .
+         </p>
+         <p>
+          In the past typically,
+          <strong>
+           <em>
+            development
+           </em>
+          </strong>
+          was handled by
+          <strong>
+           analysts
+          </strong>
+          ; whereas,
+          <strong>
+           <em>
+            operations
+           </em>
+          </strong>
+          was handled by
+          <strong>
+           software developers
+          </strong>
+          responsible for the
+          <em>
+           production environment
+          </em>
+          . With
+          <em>
+           recent
+          </em>
+          developments in
+          <em>
+           technology
+          </em>
+          (containers, endpoints, APIs) and the
+          <em>
+           most
+          </em>
+          common path of deployment;
+          <em>
+           this division
+          </em>
+          between
+          <strong>
+           <em>
+            development
+           </em>
+          </strong>
+          and
+          <strong>
+           <em>
+            operations
+           </em>
+          </strong>
+          <em>
+           softens
+          </em>
+          . The softening of this division enables
+          <strong>
+           analysts
+          </strong>
+          to handle certain aspects of
+          <strong>
+           <em>
+            deployment
+           </em>
+          </strong>
+          and enables faster updates to faltering models.
+         </p>
+         <h4 id="deployment-within-machine-learning-curriculum">
+          Deployment within Machine Learning Curriculum
+         </h4>
+         <p>
+          <strong>
+           <em>
+            Deployment
+           </em>
+          </strong>
+          is
+          <strong>
+           not
+          </strong>
+          commonly included in
+          <em>
+           machine learning curriculum
+          </em>
+          . This likely is associated with the
+          <em>
+           analyst's
+          </em>
+          typical focus on
+          <strong>
+           <em>
+            Exploring and Processing Data
+           </em>
+          </strong>
+          and
+          <strong>
+           <em>
+            Modeling
+           </em>
+          </strong>
+          , and the
+          <em>
+           software developer's
+          </em>
+          focusing more on
+          <strong>
+           <em>
+            Deployment
+           </em>
+          </strong>
+          and the
+          <em>
+           production environment
+          </em>
+          .  Advances in cloud services, like
+          <a href="https://aws.amazon.com/sagemaker/" rel="noopener noreferrer" target="_blank">
+           SageMaker
+          </a>
+          and
+          <a href="https://cloud.google.com/ml-engine/" rel="noopener noreferrer" target="_blank">
+           ML Engine
+          </a>
+          , and deployment technologies, like Containers and REST APIs, allow for
+          <em>
+           analysts
+          </em>
+          to easily take on the responsibilities of
+          <strong>
+           <em>
+            deployment
+           </em>
+          </strong>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="11. Paths to Deployment.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Paths to Deployment')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

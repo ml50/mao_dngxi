@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.399
+Our goal over the next few videos is to take
+
+00:00:02.399 --> 00:00:05.969
+the sediment analysis mini-project that you worked on in the last lesson,
+
+00:00:05.969 --> 00:00:08.039
+and create a simple web app that uses it.
+
+00:00:08.039 --> 00:00:11.189
+The web app that we're going to create will look like this,
+
+00:00:11.189 --> 00:00:14.474
+and what you can do is take a review.
+
+00:00:14.474 --> 00:00:17.550
+For example, here is a rather negative review,
+
+00:00:17.550 --> 00:00:20.760
+and you click on submit and the model lets us know that,
+
+00:00:20.760 --> 00:00:22.245
+this review was negative!
+
+00:00:22.245 --> 00:00:26.234
+As another example we could take this very positive review.
+
+00:00:26.234 --> 00:00:30.480
+Click submit and our web app tells us that our model believes that,
+
+00:00:30.480 --> 00:00:32.340
+this review was positive.
+
+00:00:32.340 --> 00:00:34.530
+In order to do this we will deploy
+
+00:00:34.530 --> 00:00:36.689
+the Sentiment Analysis Model in the same way that
+
+00:00:36.689 --> 00:00:39.284
+we deployed the Boston Housing Model earlier.
+
+00:00:39.284 --> 00:00:42.739
+However there are a couple of problems that we'll have to solve.
+
+00:00:42.740 --> 00:00:45.515
+The first is that the Sentiment Analysis Model
+
+00:00:45.515 --> 00:00:49.534
+expects to be sent a Bag of Words encoding of a movie review.
+
+00:00:49.534 --> 00:00:54.019
+But as you can see here we allow the user to enter a block of text.
+
+00:00:54.020 --> 00:00:57.725
+So how do we encode the user's input in a way that the model can understand.
+
+00:00:57.725 --> 00:01:00.439
+The other problem we'll need to solve is one of security.
+
+00:01:00.439 --> 00:01:04.250
+Endpoints created by SageMaker can only be accessed by a web app if
+
+00:01:04.250 --> 00:01:08.349
+that web app is properly authenticated and has permission to use SageMaker endpoints.
+
+00:01:08.349 --> 00:01:10.039
+Since that seems like a lot of work for
+
+00:01:10.040 --> 00:01:13.520
+a relatively simple web app we will instead create our own endpoint,
+
+00:01:13.519 --> 00:01:16.144
+that can be accessed by anyone with no restrictions.
+
+00:01:16.144 --> 00:01:19.594
+This will require using some additional Amazon services.
+
+00:01:19.594 --> 00:01:23.870
+In particular we're going to need Lambda and API Gateway.
+

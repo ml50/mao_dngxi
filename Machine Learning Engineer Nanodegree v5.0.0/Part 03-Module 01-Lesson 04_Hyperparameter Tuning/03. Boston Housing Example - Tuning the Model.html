@@ -1,0 +1,302 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Boston Housing Example - Tuning the Model
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Hyperparameter Tuning
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Hyperparameter Tuning.html">
+       01. Hyperparameter Tuning
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Introduction to Hyperparameter Tuning.html">
+       02. Introduction to Hyperparameter Tuning
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Boston Housing Example - Tuning the Model.html">
+       03. Boston Housing Example - Tuning the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Mini-Project Tuning the Sentiment Analysis Model.html">
+       04. Mini-Project: Tuning the Sentiment Analysis Model
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Mini-Project Solution - Tuning the Model.html">
+       05. Mini-Project: Solution - Tuning the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Mini-Project Solution - Fixing the Error and Testing.html">
+       06. Mini-Project: Solution - Fixing the Error and Testing
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Boston Housing In-Depth - Creating a Tuning Job.html">
+       07. Boston Housing In-Depth - Creating a Tuning Job
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Boston Housing In-Depth - Monitoring the Tuning Job.html">
+       08. Boston Housing In-Depth - Monitoring the Tuning Job
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Boston Housing In-Depth - Building and Testing the Model.html">
+       09. Boston Housing In-Depth - Building and Testing the Model
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Summary.html">
+       10. Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Boston Housing Example - Tuning the Model
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="boston-housing-example">
+          Boston Housing Example
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the video below we will look at how we can set up a hyperparameter tuning job using the high level approach in SageMaker. To following along, open up the
+          <code>
+           Boston Housing - XGBoost (Hyperparameter Tuning) - High Level.ipynb
+          </code>
+          notebook in the
+          <code>
+           Tutorials
+          </code>
+          directory.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Deployment L4 C2 V1
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. Deployment L4 C2 V1-lsYRtKivrGc.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. Deployment L4 C2 V1-lsYRtKivrGc.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="03. Deployment L4 C2 V1-lsYRtKivrGc.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Generally speaking, the way to think about hyperparameter tuning inside of SageMaker is that we start with a
+          <strong>
+           base
+          </strong>
+          collection of hyperparameters which describe a default model. We then give some additional set of hyperparameters ranges. These ranges tell SageMaker which hyperparameters can be varied, with the goal being to improve the default model.
+         </p>
+         <p>
+          We then describe how to compare models, which in our instance is just by way of specifying a metric. Then we describe how many total models we want SageMaker to train.
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          In addition to creating a tuned model in this notebook, we also saw how the
+          <code>
+           attach
+          </code>
+          method can be used to create an
+          <code>
+           Estimator
+          </code>
+          object which is attached to an already completed training job. This method is useful in other situations as well.
+         </p>
+         <p>
+          You will notice that throughout this module we train the same model multiple times. In most of the Boston Housing notebooks, for example, we train an XGBoost model with the same hyperparameters. The reason for this is so that each notebook is self contained and can be run even if you haven't run the other notebooks.
+         </p>
+         <p>
+          In
+          <em>
+           your
+          </em>
+          case however, you've probably already created an XGBoost model on the Boston Housing training set with the standard hyperparameters. If you wanted to, you could use the
+          <code>
+           attach
+          </code>
+          method to avoid having to re-train the model.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Mini-Project Tuning the Sentiment Analysis Model.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Boston Housing Example - Tuning the Model')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

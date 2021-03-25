@@ -1,0 +1,313 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.424
+Our first task, starting with the mini-project that you worked on last lesson,
+
+00:00:04.424 --> 00:00:06.794
+is extended by way of deploying it.
+
+00:00:06.794 --> 00:00:11.175
+To follow along, navigate to the SageMaker deployment folder,
+
+00:00:11.175 --> 00:00:14.775
+and then into the tutorials folder,
+
+00:00:14.775 --> 00:00:20.039
+and open up the IMDB Sentiment Analysis XGBoost-Web-App Notebook.
+
+00:00:20.039 --> 00:00:21.464
+As in the mini-project,
+
+00:00:21.464 --> 00:00:23.519
+we will start by downloading the data,
+
+00:00:23.519 --> 00:00:25.679
+and then doing a little bit of processing.
+
+00:00:25.679 --> 00:00:28.179
+So, we start by reading it in.
+
+00:00:28.699 --> 00:00:31.664
+If you remember from the mini-project,
+
+00:00:31.664 --> 00:00:35.659
+one of the ways that we converted our views to a list of
+
+00:00:35.659 --> 00:00:40.599
+words was to use Beautiful Soup and NLTK.
+
+00:00:40.600 --> 00:00:45.829
+We use Beautiful Soup in order to remove any HTML formatting that may have appeared,
+
+00:00:45.829 --> 00:00:49.369
+and we use NLTK to stem the words.
+
+00:00:49.369 --> 00:00:52.250
+Here, we're going to take a bit of a more simplistic approach,
+
+00:00:52.250 --> 00:00:55.250
+and we're just going to remove any punctuation,
+
+00:00:55.250 --> 00:01:00.230
+and any HTML formatting that will appear in our reviews,
+
+00:01:00.229 --> 00:01:04.689
+and we're just going to do that by using the Python three regular expression module.
+
+00:01:04.689 --> 00:01:07.730
+There's a reason that we've chosen to simplify this method quite a bit and
+
+00:01:07.730 --> 00:01:10.930
+it has to do with some of the technology that we'll use later.
+
+00:01:10.930 --> 00:01:13.540
+In particular, this makes using Lambda much easier.
+
+00:01:13.540 --> 00:01:15.115
+So, how does this method work?
+
+00:01:15.114 --> 00:01:20.419
+Well, suppose we start with this review right here, as you can see,
+
+00:01:20.420 --> 00:01:22.385
+there is some HTML formatting,
+
+00:01:22.385 --> 00:01:27.080
+and we have some punctuation here and here.
+
+00:01:27.079 --> 00:01:28.804
+So, review to words,
+
+00:01:28.805 --> 00:01:30.755
+we'll then clean that up,
+
+00:01:30.754 --> 00:01:33.979
+and what we're left with is a cleaned version of the review.
+
+00:01:33.980 --> 00:01:39.969
+So, now what we'd like to do is do that to each of the reviews in our data set.
+
+00:01:39.969 --> 00:01:43.823
+Now, that's done, we need to take our clean reviews,
+
+00:01:43.823 --> 00:01:46.340
+and we're going to encode them using Bag-Of-Words.
+
+00:01:46.340 --> 00:01:50.900
+What that means is that we are going to look at all of the reviews in our training set,
+
+00:01:50.900 --> 00:01:55.130
+and then we will collect the most frequently appearing words,
+
+00:01:55.129 --> 00:01:57.935
+and then we will encode each review as a vector,
+
+00:01:57.935 --> 00:02:00.125
+where each entry in the vector,
+
+00:02:00.125 --> 00:02:05.060
+tells us the number of times that particular word appears in our review.
+
+00:02:05.060 --> 00:02:09.710
+Notice that the vocabulary size that we use here is 5,000,
+
+00:02:09.710 --> 00:02:13.129
+which means that we are only going to track the top
+
+00:02:13.129 --> 00:02:16.719
+5,000 most occurring words in our training set.
+
+00:02:16.719 --> 00:02:18.205
+What that means is,
+
+00:02:18.205 --> 00:02:22.985
+once we have encoded a review using the Bag-Of-Words approach,
+
+00:02:22.985 --> 00:02:28.285
+we should end up with a vector which has length 5,000, which we do.
+
+00:02:28.284 --> 00:02:31.939
+Next we need to move on to uploading our datasets to S3,
+
+00:02:31.939 --> 00:02:33.770
+and we do that in this standard way.
+
+00:02:33.770 --> 00:02:38.045
+First, we will split our training set up into a validation and training set.
+
+00:02:38.044 --> 00:02:43.984
+Next we will save the test training and validation sets to disk using Pandas,
+
+00:02:43.985 --> 00:02:46.100
+and to save a little bit of memory,
+
+00:02:46.099 --> 00:02:51.489
+we will set the variables that held onto our Panda's dataframes to none.
+
+00:02:51.490 --> 00:02:55.325
+Keep in mind that the Notebook Instance that you are likely to be using,
+
+00:02:55.324 --> 00:02:57.049
+does not have a lot of RAM available.
+
+00:02:57.050 --> 00:02:59.255
+So, if we just sort of let
+
+00:02:59.254 --> 00:03:03.120
+these dataframes hang around even though we don't need them anymore,
+
+00:03:03.120 --> 00:03:05.810
+we could end up running out of memory which can lead
+
+00:03:05.810 --> 00:03:09.034
+to some sometimes difficult to diagnose issues.
+
+00:03:09.034 --> 00:03:11.150
+Once that's done, we're going to use
+
+00:03:11.150 --> 00:03:18.365
+the SageMaker upload data method to upload our test validation and training sets to S3.
+
+00:03:18.365 --> 00:03:22.520
+Next step, we create an XGBoost model,
+
+00:03:22.520 --> 00:03:25.130
+the same way that you did in the mini-project,
+
+00:03:25.129 --> 00:03:27.099
+and then we fit the model.
+
+00:03:27.099 --> 00:03:33.454
+Now, that the model is fit, we can go ahead and test it by creating a transformer object,
+
+00:03:33.455 --> 00:03:36.485
+and then creating a transform job on
+
+00:03:36.485 --> 00:03:41.560
+our test header to make sure that our model is working as we expect it to.
+
+00:03:41.560 --> 00:03:43.819
+Once the back-transform job is done,
+
+00:03:43.819 --> 00:03:50.000
+we can copy the resulting output from S3 to our local notebook instance,
+
+00:03:50.000 --> 00:03:53.030
+and then check to see how well the predictions did.
+
+00:03:53.030 --> 00:03:54.634
+Turns out not so bad. All right.
+
+00:03:54.634 --> 00:04:00.620
+So, now we're going to extend the mini-project in order to deploy it for the first time,
+
+00:04:00.620 --> 00:04:04.450
+much in the same way as we did with the Boston Housing notebook.
+
+00:04:04.449 --> 00:04:06.859
+Of course deploying is relatively straightforward
+
+00:04:06.860 --> 00:04:09.800
+using the high-level approach which is called the deploy method,
+
+00:04:09.800 --> 00:04:14.105
+and wait for SageMaker to setup our virtual machine and get it running.
+
+00:04:14.104 --> 00:04:16.310
+Now, that SageMaker has finished setting up
+
+00:04:16.310 --> 00:04:19.389
+the virtual machine which we are using to deploy our model,
+
+00:04:19.389 --> 00:04:21.144
+we can test the model again,
+
+00:04:21.144 --> 00:04:25.579
+we should get the same results that we got when we created a batch transform job.
+
+00:04:25.579 --> 00:04:27.680
+However, we're going to test it
+
+00:04:27.680 --> 00:04:30.655
+again to make sure that everything is working as we expect it to.
+
+00:04:30.654 --> 00:04:32.500
+So, first in this case,
+
+00:04:32.500 --> 00:04:34.264
+because we're using the high-level approach,
+
+00:04:34.264 --> 00:04:37.759
+we can use SageMaker's built-in serialization methods.
+
+00:04:37.759 --> 00:04:40.789
+We just need to make sure that we tell SageMaker what
+
+00:04:40.790 --> 00:04:43.855
+format our model expects to receive data in.
+
+00:04:43.855 --> 00:04:46.365
+In this case, for an XGBoost model,
+
+00:04:46.365 --> 00:04:48.495
+it expects CSV data.
+
+00:04:48.495 --> 00:04:51.290
+Now, since our testing data is too large to send in
+
+00:04:51.290 --> 00:04:54.754
+a single invocation of our endpoint, we need to split it up.
+
+00:04:54.754 --> 00:04:56.254
+So, we split it up into chunks,
+
+00:04:56.254 --> 00:04:58.074
+and then we collect all of the output,
+
+00:04:58.074 --> 00:05:03.819
+then we send our test data off to our end point to see what our model thinks.
+
+00:05:03.819 --> 00:05:05.360
+Now that our model has finished
+
+00:05:05.360 --> 00:05:08.194
+performing any predictions in it needs to on the test set,
+
+00:05:08.194 --> 00:05:10.899
+we can take a look and see how well we did.
+
+00:05:10.899 --> 00:05:14.884
+Good. We've got the same result as when we created a batch transform job.
+
+00:05:14.884 --> 00:05:17.644
+Now, we deployed our model in this section,
+
+00:05:17.644 --> 00:05:20.344
+so that we could test it to make sure that everything was working.
+
+00:05:20.345 --> 00:05:22.910
+We're going to have to do a little more work before we can
+
+00:05:22.910 --> 00:05:26.755
+actually use our endpoint in our simple web app.
+
+00:05:26.754 --> 00:05:30.694
+So, for now, we're going to shut down the endpoint that we've deployed.
+
+00:05:30.694 --> 00:05:31.939
+It's a good idea to do this,
+
+00:05:31.939 --> 00:05:33.889
+if we're not going to use it in the near future,
+
+00:05:33.889 --> 00:05:36.019
+because remember that the cost of deploying an endpoint
+
+00:05:36.019 --> 00:05:38.539
+is based on the length of time that it is running for.
+
+00:05:38.540 --> 00:05:40.330
+So, if you don't need it, shut it down.
+
