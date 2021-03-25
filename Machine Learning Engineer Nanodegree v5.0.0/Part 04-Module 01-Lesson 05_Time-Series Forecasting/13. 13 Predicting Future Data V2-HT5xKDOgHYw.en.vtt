@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.040
+Recall that we did not give our model any data about 2010 when it trained.
+
+00:00:05.040 --> 00:00:08.129
+So if we ask it to predict data in 2010,
+
+00:00:08.130 --> 00:00:10.304
+we're asking it to look into its future.
+
+00:00:10.304 --> 00:00:12.269
+To ask it for such a prediction,
+
+00:00:12.269 --> 00:00:14.789
+I'm going to have to create a formatted input.
+
+00:00:14.789 --> 00:00:19.094
+In this case, I'll aim to predict the first 30 days of 2010,
+
+00:00:19.094 --> 00:00:21.059
+starting on January 1st.
+
+00:00:21.059 --> 00:00:23.250
+So I'm setting my start date accordingly.
+
+00:00:23.250 --> 00:00:28.065
+The request data is going to be a dictionary of instances and configuration.
+
+00:00:28.065 --> 00:00:33.870
+In this case, there is only one instance defined by my start time and an empty target.
+
+00:00:33.869 --> 00:00:37.294
+This data has no complete associated time series.
+
+00:00:37.295 --> 00:00:40.215
+We specifically withheld that information from our model,
+
+00:00:40.215 --> 00:00:43.100
+and the configuration details will be the same as before.
+
+00:00:43.100 --> 00:00:48.289
+Then I can pass this json input to a predictor and get a prediction back.
+
+00:00:48.289 --> 00:00:49.579
+Then in the next line,
+
+00:00:49.579 --> 00:00:53.710
+I'm just decoding that prediction to get a list of quantum predictions.
+
+00:00:53.710 --> 00:00:58.100
+Next, I have a few details in here but creating a 2010 time series.
+
+00:00:58.100 --> 00:01:00.289
+We didn't do that at the start of this notebook.
+
+00:01:00.289 --> 00:01:02.359
+So I'm just grabbing the data at the end of
+
+00:01:02.359 --> 00:01:07.159
+my mean_power_data frame and creating a 2010 times series that's a few months long.
+
+00:01:07.159 --> 00:01:08.719
+From this time series data,
+
+00:01:08.719 --> 00:01:13.534
+I can get the actual target consumption values from 2010 for comparison.
+
+00:01:13.534 --> 00:01:16.670
+Then I'm using my same display_quantiles code
+
+00:01:16.670 --> 00:01:20.239
+to compare the predicted values with the target values.
+
+00:01:20.239 --> 00:01:21.804
+So this looks really good.
+
+00:01:21.805 --> 00:01:26.885
+The predictions for January of 2010 closely line up with the actual data,
+
+00:01:26.885 --> 00:01:31.775
+even though DeepAR has never seen this data before and was given no target.
+
+00:01:31.775 --> 00:01:33.280
+As a last step here,
+
+00:01:33.280 --> 00:01:34.790
+I want to make sure to delete
+
+00:01:34.790 --> 00:01:38.030
+the predictor endpoint after I'm done with all my predictions,
+
+00:01:38.030 --> 00:01:40.969
+and I want to congratulate you for making it through this lesson.
+
+00:01:40.969 --> 00:01:45.605
+Now you've seen one complex but far reaching method for time series forecasting,
+
+00:01:45.605 --> 00:01:47.689
+and you should have the skills you need to apply
+
+00:01:47.689 --> 00:01:52.649
+the DeepAR model to time-series data that interests you. Great job.
+

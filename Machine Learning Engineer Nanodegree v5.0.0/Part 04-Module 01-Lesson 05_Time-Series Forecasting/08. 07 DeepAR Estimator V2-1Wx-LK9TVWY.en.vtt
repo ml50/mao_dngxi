@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.720
+To convert any time series into my desired JSON format,
+
+00:00:03.720 --> 00:00:07.185
+I created a dictionary with start and target keys.
+
+00:00:07.184 --> 00:00:10.649
+The index of the time series holds the start time and
+
+00:00:10.650 --> 00:00:14.789
+the target is just the actual time series data which I'm getting as a list here.
+
+00:00:14.789 --> 00:00:16.559
+Running the next couple of cells,
+
+00:00:16.559 --> 00:00:20.804
+I may train and test JSON files stored in a local directory.
+
+00:00:20.804 --> 00:00:25.245
+I stored both files in a directory that I specified json energy data.
+
+00:00:25.245 --> 00:00:26.789
+Then to upload my data,
+
+00:00:26.789 --> 00:00:31.199
+I first got my sagemaker resources including an S3 bucket.
+
+00:00:31.199 --> 00:00:35.570
+Then I specified unique prefixes from a training and test data.
+
+00:00:35.570 --> 00:00:40.924
+First creating a general prefix and then adding slash train and slash test to that.
+
+00:00:40.924 --> 00:00:46.789
+Then I called upload data for my train JSON file and test JSON file and got the path.
+
+00:00:46.789 --> 00:00:51.979
+Great. So now I'm in good shape and I just need to instantiate an estimator to train it.
+
+00:00:51.979 --> 00:00:56.714
+Some built-in estimators have specific sagemaker constructors but not all.
+
+00:00:56.715 --> 00:01:00.035
+Instead, you can create a base estimator and pass in
+
+00:01:00.034 --> 00:01:04.685
+a specific image or container that essentially hold a specific model,
+
+00:01:04.685 --> 00:01:06.230
+like a mini library.
+
+00:01:06.230 --> 00:01:11.135
+So in this cell, in getting the image for the DeepAR forecasting algorithm.
+
+00:01:11.135 --> 00:01:14.675
+Next, you can create a generic estimator and pass
+
+00:01:14.674 --> 00:01:18.414
+in the specific image name to make it a DeepAR estimator.
+
+00:01:18.415 --> 00:01:22.160
+You've gotten a lot of practice creating estimators and I've also
+
+00:01:22.159 --> 00:01:26.359
+linked to some source code if you want to check out the specific constructor parameters.
+
+00:01:26.359 --> 00:01:28.295
+So try to create this estimator,
+
+00:01:28.295 --> 00:01:33.030
+then next I'll discuss estimator, hyperparameters, and training.
+

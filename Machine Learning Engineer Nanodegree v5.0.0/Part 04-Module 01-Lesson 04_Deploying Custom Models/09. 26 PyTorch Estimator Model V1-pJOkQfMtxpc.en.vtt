@@ -1,0 +1,253 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.980
+So here's how I created a custom estimator that utilizes a training script.
+
+00:00:04.980 --> 00:00:09.285
+First, I've inputted the PyTorch Estimator from sagemaker.pytorch.
+
+00:00:09.285 --> 00:00:11.730
+Then, I'm going to specify an output path in
+
+00:00:11.730 --> 00:00:14.330
+s3 where I want my trained model to be saved,
+
+00:00:14.330 --> 00:00:18.600
+and then I'm creating an estimator passing in a number of constructor arguments.
+
+00:00:18.600 --> 00:00:21.960
+Now, let's first take a look at the PyTorch estimator documentation.
+
+00:00:21.960 --> 00:00:24.539
+In here, I can see that this takes in an entry point,
+
+00:00:24.539 --> 00:00:28.859
+a source directory, and several hyperparameters including a framework version.
+
+00:00:28.859 --> 00:00:33.899
+If I scroll down, I can see that the entry point is a path to the Python source file,
+
+00:00:33.899 --> 00:00:36.494
+which will be executed as the entry point to training.
+
+00:00:36.494 --> 00:00:40.769
+The source directory is a directory with any other training source code dependencies.
+
+00:00:40.770 --> 00:00:43.025
+In this case, this will be our source directory
+
+00:00:43.024 --> 00:00:45.664
+where our model that PY file is also saved.
+
+00:00:45.664 --> 00:00:49.490
+The hyperparameters are things that we defined in our argument parser,
+
+00:00:49.490 --> 00:00:50.719
+and the framework version is
+
+00:00:50.719 --> 00:00:53.839
+just the PyTorch version you want to use for executing your model.
+
+00:00:53.840 --> 00:00:55.845
+So here, I've specified an entry point,
+
+00:00:55.844 --> 00:00:59.164
+my training script and a source directory where that can be found.
+
+00:00:59.164 --> 00:01:01.070
+Since I'm demonstrating a solution,
+
+00:01:01.070 --> 00:01:04.474
+I'm using the code that's complete in source_solution.
+
+00:01:04.474 --> 00:01:07.789
+But for you, if you've worked on a train.py file of your own,
+
+00:01:07.790 --> 00:01:12.185
+you should be able to use just source and your complete train.py file.
+
+00:01:12.185 --> 00:01:15.350
+Then, I'm specifying my usual SageMaker parameters including
+
+00:01:15.349 --> 00:01:19.194
+role and things about my trained instance and sagemaker_session.
+
+00:01:19.194 --> 00:01:22.329
+I'm also thinking that I want to use the latest version of PyTorch,
+
+00:01:22.329 --> 00:01:25.015
+which at this recording is Version 1.0.
+
+00:01:25.015 --> 00:01:28.415
+Here, I'm specifying my model and training hyperparameters.
+
+00:01:28.415 --> 00:01:32.240
+I know I have two-dimensional input data and we're specifying the number of
+
+00:01:32.239 --> 00:01:34.144
+hidden nodes which will hopefully be
+
+00:01:34.144 --> 00:01:37.219
+complex enough to help me find the patterns in this data,
+
+00:01:37.219 --> 00:01:40.219
+and I want to output one value as output.
+
+00:01:40.219 --> 00:01:44.099
+I have also specified that I want to train this model for 80 epochs.
+
+00:01:44.099 --> 00:01:45.774
+Now, during actual training,
+
+00:01:45.775 --> 00:01:49.590
+I'll note the model loss and see if I could train for longer,
+
+00:01:49.590 --> 00:01:53.600
+that is if the loss continues to decrease or if it became plateaus,
+
+00:01:53.599 --> 00:01:55.714
+in which case I want to decrease this number.
+
+00:01:55.715 --> 00:01:59.329
+So I've created a custom PyTorch estimator and the next thing
+
+00:01:59.329 --> 00:02:02.974
+I want to do is train that estimator on my training data.
+
+00:02:02.974 --> 00:02:04.780
+If you recall in the training script,
+
+00:02:04.780 --> 00:02:08.569
+our trained data loader explicitly accepted a CSV file as
+
+00:02:08.569 --> 00:02:13.174
+input with labels in the first column of data and features in the rest of the columns.
+
+00:02:13.175 --> 00:02:15.740
+So we do not need to take any further steps to
+
+00:02:15.740 --> 00:02:19.219
+format the train.csv file that we stored in s3 earlier.
+
+00:02:19.219 --> 00:02:23.330
+Our custom estimator will accept the CSV file just as it is,
+
+00:02:23.330 --> 00:02:25.820
+and instead of passing in only the data,
+
+00:02:25.819 --> 00:02:27.859
+I'll pass in a dictionary that specifies that
+
+00:02:27.860 --> 00:02:31.400
+this data is to be treated as data in the train channel.
+
+00:02:31.400 --> 00:02:33.950
+Then this kicks off a training job with this name.
+
+00:02:33.949 --> 00:02:38.599
+I can see my instance being spun up and details about my model parameters.
+
+00:02:38.599 --> 00:02:41.180
+For example, I should see that my transcript is
+
+00:02:41.180 --> 00:02:43.685
+invoked with my specified number of epochs,
+
+00:02:43.685 --> 00:02:46.969
+hidden dimension, input dimension, and output dimension.
+
+00:02:46.969 --> 00:02:51.169
+Then, my twin loop prints out my average training loss after each epoch,
+
+00:02:51.169 --> 00:02:53.059
+and I should see this decrease.
+
+00:02:53.060 --> 00:02:54.620
+So at Epoch 80,
+
+00:02:54.620 --> 00:02:58.069
+I see that it's decreased from about 0.8-0.4,
+
+00:02:58.069 --> 00:03:01.534
+and it looks like it's slowly but surely still decreasing.
+
+00:03:01.534 --> 00:03:03.514
+So I could have set it to train for longer.
+
+00:03:03.514 --> 00:03:05.059
+So now we've done a lot,
+
+00:03:05.060 --> 00:03:08.360
+from defining the customer estimator to training that estimator here.
+
+00:03:08.360 --> 00:03:12.740
+Now, there's one extra step before I can deploy this and make predictions.
+
+00:03:12.740 --> 00:03:18.010
+You may have noticed that in previous examples like when I call.deploy on linear learner,
+
+00:03:18.009 --> 00:03:23.764
+two things happened; a linear learner model was created and an endpoint was created.
+
+00:03:23.764 --> 00:03:26.224
+In the case of a custom PyTorch model,
+
+00:03:26.224 --> 00:03:30.039
+I'll need to create a model and an endpoint individually.
+
+00:03:30.039 --> 00:03:34.159
+PyTorch models do not automatically come with.predict functions.
+
+00:03:34.159 --> 00:03:38.030
+You may have noticed earlier that you were given a predict.py file.
+
+00:03:38.030 --> 00:03:40.189
+This file is responsible for loading in
+
+00:03:40.189 --> 00:03:44.210
+a trained model and applying it to paste in data to produce predictions.
+
+00:03:44.210 --> 00:03:47.510
+Much like an estimator knew where the transcript was,
+
+00:03:47.509 --> 00:03:53.094
+the next task will be to create a PyTorch model that knows where this predict.py file is.
+
+00:03:53.094 --> 00:03:57.669
+A PyTorch model takes in a few constructor arguments including an entry point,
+
+00:03:57.669 --> 00:04:00.409
+which in this case will be our predict.py file.
+
+00:04:00.409 --> 00:04:03.379
+It also takes in the trained estimator data,
+
+00:04:03.379 --> 00:04:05.120
+the trained model attributes.
+
+00:04:05.120 --> 00:04:09.485
+This is the zipped model file that we use to explore model attributes earlier,
+
+00:04:09.485 --> 00:04:11.915
+and it's also used to deploy a model.
+
+00:04:11.914 --> 00:04:13.594
+When an estimator is trained,
+
+00:04:13.594 --> 00:04:16.475
+you can get it with a call to estimator.model_data.
+
+00:04:16.475 --> 00:04:19.430
+So try to create this model on your own and deploy it.
+
+00:04:19.430 --> 00:04:21.079
+If you get this far, you can use
+
+00:04:21.079 --> 00:04:24.324
+your deployed predictor and see how it performs on some test data.
+
+00:04:24.324 --> 00:04:29.870
+In the next video, I'll show you one possible solution along with some test results.
+

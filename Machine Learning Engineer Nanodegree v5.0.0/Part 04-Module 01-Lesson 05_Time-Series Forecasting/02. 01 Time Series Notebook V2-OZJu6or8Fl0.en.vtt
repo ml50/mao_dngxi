@@ -1,0 +1,199 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.270
+For this lesson, I'm navigating to my time series forecasting
+
+00:00:03.270 --> 00:00:07.335
+directory into my energy consumption exercise notebook.
+
+00:00:07.334 --> 00:00:11.940
+In this notebook, I want to address the task of time series forecasting.
+
+00:00:11.939 --> 00:00:17.699
+A time series is any data collected over time and time series forecasting is
+
+00:00:17.699 --> 00:00:20.579
+involved in so many applications from
+
+00:00:20.579 --> 00:00:24.179
+weather forecasting to sales and stock market prediction,
+
+00:00:24.179 --> 00:00:28.530
+and even in predicting traffic congestion patterns in a city over a day.
+
+00:00:28.530 --> 00:00:30.825
+So it's a really good skill to have.
+
+00:00:30.824 --> 00:00:33.859
+Many traditional time series algorithms use
+
+00:00:33.859 --> 00:00:36.679
+a linear regression model to basically fit a series of
+
+00:00:36.679 --> 00:00:39.619
+data in a historical timeframe and then
+
+00:00:39.619 --> 00:00:43.054
+extrapolate from that data to predict future points.
+
+00:00:43.054 --> 00:00:47.375
+So even something like a linear learner can be used to do time series analysis.
+
+00:00:47.375 --> 00:00:49.820
+Only the problem is that these models often
+
+00:00:49.820 --> 00:00:52.310
+struggle with accounting for complex patterns.
+
+00:00:52.310 --> 00:00:56.960
+For example, they don't do so well in cases like predicting the rise and fall of
+
+00:00:56.960 --> 00:01:01.668
+the stock market and they struggle with seasonal or a long-term patterns,
+
+00:01:01.668 --> 00:01:03.859
+for example, in weather prediction in which there are
+
+00:01:03.859 --> 00:01:06.500
+differences in temperature according to the time of year.
+
+00:01:06.500 --> 00:01:07.790
+So in this example,
+
+00:01:07.790 --> 00:01:10.070
+I just want to show you one algorithm that I think is pretty
+
+00:01:10.069 --> 00:01:12.684
+cool and useful for time series analysis,
+
+00:01:12.685 --> 00:01:15.480
+and that is the built-in algorithm; DeepAR.
+
+00:01:15.480 --> 00:01:18.079
+DeepAR is a supervised learning algorithm for
+
+00:01:18.079 --> 00:01:21.984
+forecasting time series using recurrent neural networks or RNNs.
+
+00:01:21.984 --> 00:01:25.219
+RNNs have the potential to improve on traditional models
+
+00:01:25.219 --> 00:01:28.459
+by giving us a way to look at specific windows of data,
+
+00:01:28.459 --> 00:01:31.459
+basically taking in some set of historical points as input and
+
+00:01:31.459 --> 00:01:34.969
+trying to produce the next sequence of points as predicted output.
+
+00:01:34.969 --> 00:01:36.799
+In the case of DeepAR,
+
+00:01:36.799 --> 00:01:41.164
+it trains by looking at a training dataset made of several time series.
+
+00:01:41.165 --> 00:01:45.755
+It trains by randomly sampling training examples from the time series.
+
+00:01:45.754 --> 00:01:48.079
+Each example consists of a pair of
+
+00:01:48.079 --> 00:01:52.400
+adjacent context and prediction windows of fixed predefined length.
+
+00:01:52.400 --> 00:01:56.245
+The context length defines how far in the past the model can see.
+
+00:01:56.245 --> 00:02:00.890
+The prediction length controls how far in the future predictions can be made.
+
+00:02:00.890 --> 00:02:04.760
+You can read more about how DeepAR learns in this documentation.
+
+00:02:04.760 --> 00:02:07.940
+Here you can see samples taken over a time series where
+
+00:02:07.939 --> 00:02:11.094
+we get a variety of different contexts and predictions.
+
+00:02:11.094 --> 00:02:13.965
+Since DeepAR trains on several time series,
+
+00:02:13.965 --> 00:02:17.689
+it's well suited for data that exhibit recurring patterns.
+
+00:02:17.689 --> 00:02:19.520
+In any forecasting task,
+
+00:02:19.520 --> 00:02:21.665
+you should choose the context window to provide
+
+00:02:21.664 --> 00:02:25.959
+enough relevant information so that a model can produce accurate predictions.
+
+00:02:25.960 --> 00:02:29.330
+In general, data points closest to the prediction timeframe will
+
+00:02:29.330 --> 00:02:33.200
+contain the information that's most influential in defining that prediction.
+
+00:02:33.199 --> 00:02:35.944
+The data we'll be working with in this notebook is data
+
+00:02:35.944 --> 00:02:38.944
+about global household electric power consumption.
+
+00:02:38.944 --> 00:02:41.629
+The dataset is originally taken from Kaggle and
+
+00:02:41.629 --> 00:02:44.899
+represents power consumption collected over several years,
+
+00:02:44.899 --> 00:02:47.120
+from 2006 through 2010.
+
+00:02:47.120 --> 00:02:48.830
+With such a large dataset,
+
+00:02:48.830 --> 00:02:51.860
+we can aim to predict over long periods of time,
+
+00:02:51.860 --> 00:02:54.145
+over days, weeks or months of time.
+
+00:02:54.145 --> 00:02:56.870
+Predicting power consumption is useful for predicting
+
+00:02:56.870 --> 00:02:59.825
+power storage and delivery needs for a population.
+
+00:02:59.824 --> 00:03:02.689
+I've link to an interesting article here that was
+
+00:03:02.689 --> 00:03:05.544
+recently published that does something kind of similar.
+
+00:03:05.544 --> 00:03:08.194
+Google and DeepMind built some model to predict
+
+00:03:08.194 --> 00:03:12.394
+energy generation by windmills and it's a pretty cool application.
+
+00:03:12.395 --> 00:03:17.585
+Our workflow will be pretty typical going from loading in this data to processing it,
+
+00:03:17.585 --> 00:03:20.900
+formatting it, and uploading it to S3 than training,
+
+00:03:20.900 --> 00:03:23.180
+deploying, and evaluating a model.
+
+00:03:23.180 --> 00:03:27.439
+I'd suggest you follow along in a SageMaker notebook in another tab and next,
+
+00:03:27.439 --> 00:03:30.180
+a load in and process the data.
+

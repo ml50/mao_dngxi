@@ -1,0 +1,322 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Solution: Split Data
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Time-Series Forecasting
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Time-Series Forecasting.html">
+       01. Time-Series Forecasting
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Forecasting Energy Consumption, Notebook.html">
+       02. Forecasting Energy Consumption, Notebook
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Pre-Notebook Time-Series Forecasting.html">
+       03. Pre-Notebook: Time-Series Forecasting
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Processing Energy Data.html">
+       04. Processing Energy Data
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Exercise Creating Time Series.html">
+       05. Exercise: Creating Time Series
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Solution Split Data.html">
+       06. Solution: Split Data
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise Convert to JSON.html">
+       07. Exercise: Convert to JSON
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Solution Formatting JSON Lines &amp; DeepAR Estimator.html">
+       08. Solution: Formatting JSON Lines &amp; DeepAR Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Exercise DeepAR Estimator.html">
+       09. Exercise: DeepAR Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Solution Complete Estimator &amp; Hyperparameters.html">
+       10. Solution: Complete Estimator &amp; Hyperparameters
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Making Predictions.html">
+       11. Making Predictions
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Exercise Predicting the Future.html">
+       12. Exercise: Predicting the Future
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Solution Predicting Future Data.html">
+       13. Solution: Predicting Future Data
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Clean Up All Resources.html">
+       14. Clean Up: All Resources
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Solution: Split Data
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="splitting-in-time">
+          Splitting in Time
+         </h1>
+         <p>
+          We'll evaluate our model on a test set of data. For machine learning tasks like classification, we typically create train/test data by randomly splitting examples into different sets. For forecasting it's important to do this train/test split in
+          <strong>
+           time
+          </strong>
+          rather than a random split of all data points.
+         </p>
+         <h2 id="training-time-series">
+          Training Time Series
+         </h2>
+         <p>
+          In general, we can create training data by taking each of our complete time series and leaving off the last
+          <code>
+           prediction_length
+          </code>
+          data points to create corresponding, training time series.
+         </p>
+         <p>
+          In code this looks like  this:
+         </p>
+         <pre><code class="python language-python">def create_training_series(complete_time_series, prediction_length):
+    '''Given a complete list of time series data, create training time series.
+       :param complete_time_series: A list of all complete time series.
+       :param prediction_length: The number of points we want to predict.
+       :return: A list of training time series.
+       '''
+    # get training series
+    time_series_training = []
+
+    for ts in complete_time_series:
+        # truncate trailing `prediction_length` pts
+        time_series_training.append(ts[:-prediction_length])
+
+    return time_series_training</code></pre>
+         <p>
+          DeepAR will train on the provided data looking at different intervals that are
+          <code>
+           context_length
+          </code>
+          number of points as input and the next
+          <code>
+           prediction_length
+          </code>
+          number of points as output. It selects the context from the given, truncated training data, which is why it is important to leave off the last
+          <code>
+           prediction_length
+          </code>
+          points.
+         </p>
+         <h2 id="training-and-test-series">
+          Training and Test Series
+         </h2>
+         <p>
+          We can visualize what these series look like, by plotting the train/test series on the same axis. We should see that the test series contains
+          <em>
+           all
+          </em>
+          of our data in a year, and a training series contains all but the last
+          <code>
+           prediction_length
+          </code>
+          points. Below are train/test series for 2007.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Test series and train series (truncated, in orange)." class="img img-fluid" src="img/screen-shot-2019-04-01-at-7.52.45-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Test series and train series (truncated, in orange).
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Exercise Convert to JSON.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Solution: Split Data')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

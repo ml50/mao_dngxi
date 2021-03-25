@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.509
+You've seen how to create training data by iterating over all of
+
+00:00:03.509 --> 00:00:08.250
+our complete time series and leaving off the last prediction length number of points.
+
+00:00:08.250 --> 00:00:10.964
+Here, you can see one such series displayed.
+
+00:00:10.964 --> 00:00:14.699
+The test set of data is the entire time series that we initially created.
+
+00:00:14.699 --> 00:00:17.925
+Now, we're almost ready to train a deep AR estimator.
+
+00:00:17.925 --> 00:00:20.429
+According to the deep AR documentation,
+
+00:00:20.429 --> 00:00:25.094
+deep AR expects to see input training data in a JSON format.
+
+00:00:25.094 --> 00:00:28.949
+Specifically, each of our time series will be on a single line in
+
+00:00:28.949 --> 00:00:34.109
+a JSON file and formatted as a dictionary that looks like these examples.
+
+00:00:34.109 --> 00:00:35.729
+We have a start key,
+
+00:00:35.729 --> 00:00:39.449
+which is a string that defines the starting date of the time series.
+
+00:00:39.450 --> 00:00:42.885
+This is going to be year, month, day, and timestamp.
+
+00:00:42.884 --> 00:00:44.519
+Then a key target,
+
+00:00:44.520 --> 00:00:47.210
+which hold are associated time series data.
+
+00:00:47.210 --> 00:00:50.689
+These will be the values of the meaning global active power.
+
+00:00:50.689 --> 00:00:52.379
+There is an optional key cat,
+
+00:00:52.380 --> 00:00:54.840
+short for category, that's worth mentioning.
+
+00:00:54.840 --> 00:00:57.920
+Cut is a numerical array of categorical features
+
+00:00:57.920 --> 00:01:00.980
+that can be used to encode the groups that your data belongs to.
+
+00:01:00.979 --> 00:01:03.709
+This is useful when you have different items like
+
+00:01:03.710 --> 00:01:07.504
+stocks or products that you want your model to distinguish between,
+
+00:01:07.504 --> 00:01:10.219
+but we will not be using it in this example.
+
+00:01:10.219 --> 00:01:13.924
+So your next task will be to convert or time series data
+
+00:01:13.924 --> 00:01:18.229
+both the training and test sets into JSON formatted lines.
+
+00:01:18.230 --> 00:01:21.980
+You should complete this function series to JSON obj.
+
+00:01:21.980 --> 00:01:25.549
+This takes in a single time series and returns a dictionary of
+
+00:01:25.549 --> 00:01:30.064
+values in the desired format with start and target keys.
+
+00:01:30.064 --> 00:01:31.759
+Once you've completed this function,
+
+00:01:31.760 --> 00:01:37.025
+you can run the next few cells to write the training and test data to JSON files locally.
+
+00:01:37.025 --> 00:01:39.160
+After uploading your data locally,
+
+00:01:39.159 --> 00:01:42.575
+you'll see one more task which is actually uploading the data
+
+00:01:42.575 --> 00:01:46.534
+to S3 to make it accessible to a deep AR estimator.
+
+00:01:46.534 --> 00:01:48.049
+If you complete these tasks,
+
+00:01:48.049 --> 00:01:52.319
+you'll be ready to instantiate and train an estimator on this data.
+

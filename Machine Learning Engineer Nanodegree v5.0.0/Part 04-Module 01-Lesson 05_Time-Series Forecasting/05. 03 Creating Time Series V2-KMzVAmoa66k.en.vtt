@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.778
+Now that we have our daily average energy consumption data,
+
+00:00:03.778 --> 00:00:08.175
+it's time to turn this into time series that DeepAR can use as training data.
+
+00:00:08.175 --> 00:00:09.420
+Looking at this data,
+
+00:00:09.419 --> 00:00:11.955
+I made a couple of design decisions.
+
+00:00:11.955 --> 00:00:15.210
+I've decided to create three time series of data for
+
+00:00:15.210 --> 00:00:20.250
+our three full years of data: 2007, 2008, and 2009.
+
+00:00:20.250 --> 00:00:22.184
+I'll train a model on this data,
+
+00:00:22.184 --> 00:00:25.890
+and then withhold 2010 as a test set,
+
+00:00:25.890 --> 00:00:28.304
+which I can use later to evaluate the model.
+
+00:00:28.304 --> 00:00:30.210
+In a real-world scenario,
+
+00:00:30.210 --> 00:00:35.009
+you'll likely want to use all of your data and not withhold any time series data.
+
+00:00:35.009 --> 00:00:38.204
+So this is strictly for demonstrative purposes.
+
+00:00:38.204 --> 00:00:40.759
+In general, the methods I use can be
+
+00:00:40.759 --> 00:00:43.670
+modified slightly to create different kinds of time series.
+
+00:00:43.670 --> 00:00:46.130
+I'll also be showing you one other way to evaluate
+
+00:00:46.130 --> 00:00:49.130
+a DeepAR model without withholding data.
+
+00:00:49.130 --> 00:00:50.385
+I've written a function,
+
+00:00:50.384 --> 00:00:54.229
+make_time_series which will make a three-year long time series.
+
+00:00:54.229 --> 00:00:58.594
+It takes in our mean_power_data frame and a past n list of years.
+
+00:00:58.594 --> 00:01:00.424
+So let's take a look at this code.
+
+00:01:00.424 --> 00:01:04.250
+A few details, I'm going to set a starting index at 16,
+
+00:01:04.250 --> 00:01:06.995
+which is where my 2007 data starts.
+
+00:01:06.995 --> 00:01:09.935
+I only had a couple of weeks of data from 2006.
+
+00:01:09.935 --> 00:01:13.100
+Then I also know that 2008 was a leap year.
+
+00:01:13.099 --> 00:01:15.589
+So I'm going to note that here and make sure I
+
+00:01:15.590 --> 00:01:19.030
+calculate the correct number of days to move through the data frame with.
+
+00:01:19.030 --> 00:01:23.570
+Now, all of the time series we create will start at a consistent time point,
+
+00:01:23.569 --> 00:01:26.339
+t_start or sometimes called t _zero.
+
+00:01:26.340 --> 00:01:29.870
+DeepAR uses this time point as a frame of reference,
+
+00:01:29.870 --> 00:01:33.770
+taking into account time frames like weeks or a year since
+
+00:01:33.769 --> 00:01:35.269
+the start point to learn
+
+00:01:35.269 --> 00:01:39.424
+long-term recurrent patterns like that summer is different than winter.
+
+00:01:39.424 --> 00:01:44.030
+You can change t_start and t_end to define the length of the time series you create.
+
+00:01:44.030 --> 00:01:45.635
+I'm also getting the data from
+
+00:01:45.635 --> 00:01:50.305
+our mean_power_data frame within this time frame from t_start to t_end.
+
+00:01:50.305 --> 00:01:55.430
+Here I'm creating a time series by passing in the time indices and the relevant data.
+
+00:01:55.430 --> 00:01:58.505
+I'm appending this to my list of time series.
+
+00:01:58.504 --> 00:02:00.064
+After this four loop completes,
+
+00:02:00.064 --> 00:02:02.829
+I should have my list of three yearly time series.
+
+00:02:02.829 --> 00:02:05.284
+I can test my results by running my code.
+
+00:02:05.284 --> 00:02:07.459
+Passing in my mean_power_data frame,
+
+00:02:07.459 --> 00:02:10.789
+the number of full years I want to create time series out of,
+
+00:02:10.789 --> 00:02:13.250
+and then displaying the first time series.
+
+00:02:13.250 --> 00:02:16.414
+So here I can see power usage over a year.
+
+00:02:16.414 --> 00:02:21.409
+I see that winter usage hovers around 1.5 and has a lot of volatility.
+
+00:02:21.409 --> 00:02:23.284
+Similar values are a bit lower.
+
+00:02:23.284 --> 00:02:27.004
+Next, we'll split this data into training and test sets,
+
+00:02:27.004 --> 00:02:29.844
+a test that gives us a way to evaluate our model.
+
+00:02:29.844 --> 00:02:32.530
+For machine learning tasks like classification,
+
+00:02:32.530 --> 00:02:34.925
+we typically create training and test data
+
+00:02:34.925 --> 00:02:38.030
+by randomly splitting examples into different sets.
+
+00:02:38.030 --> 00:02:42.004
+But for forecasting, it's important to do the split in time.
+
+00:02:42.004 --> 00:02:44.930
+In general, we can create training data by taking each of
+
+00:02:44.930 --> 00:02:49.010
+our complete time series and leaving off the last prediction length,
+
+00:02:49.009 --> 00:02:50.539
+length of data points.
+
+00:02:50.539 --> 00:02:52.594
+This will be your first task.
+
+00:02:52.594 --> 00:02:55.224
+Complete the function, create_training_series,
+
+00:02:55.224 --> 00:02:59.329
+which takes in a list of complete time series like we just created,
+
+00:02:59.330 --> 00:03:00.980
+and creates a different list of
+
+00:03:00.979 --> 00:03:05.229
+training time series that have the n prediction length points left off.
+
+00:03:05.229 --> 00:03:10.009
+In this example, I want to predict about a month of energy consumption data over time.
+
+00:03:10.009 --> 00:03:11.299
+So in the next cells,
+
+00:03:11.300 --> 00:03:13.640
+you can test out your code by applying it to
+
+00:03:13.639 --> 00:03:16.864
+our time series and a prediction length of 30 days.
+
+00:03:16.865 --> 00:03:18.860
+If you get stuck and want to check your work,
+
+00:03:18.860 --> 00:03:22.260
+you can check out the solution in the next code example.
+

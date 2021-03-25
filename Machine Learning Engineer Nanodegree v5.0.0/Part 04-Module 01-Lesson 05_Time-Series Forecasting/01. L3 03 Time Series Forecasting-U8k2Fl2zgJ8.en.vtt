@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.480
+Now you've gotten a lot of practice with sage maker.
+
+00:00:03.480 --> 00:00:05.405
+In this last deployment lesson,
+
+00:00:05.405 --> 00:00:09.005
+you'll look at one more application; time series forecasting.
+
+00:00:09.005 --> 00:00:11.550
+An example of a time series is something like
+
+00:00:11.550 --> 00:00:14.935
+the temperature of a place measured every hour over a day,
+
+00:00:14.935 --> 00:00:18.285
+or the price of stocks as they rise and fall over time.
+
+00:00:18.285 --> 00:00:20.850
+Time series forecasting is all about looking at
+
+00:00:20.850 --> 00:00:24.285
+historical data and using it to try to predict the future.
+
+00:00:24.285 --> 00:00:26.550
+In this lesson, we'll specifically talk about
+
+00:00:26.550 --> 00:00:29.685
+choosing a context length and a prediction length.
+
+00:00:29.684 --> 00:00:32.299
+The context length defines the amount of data
+
+00:00:32.299 --> 00:00:35.750
+recorded in the past that an algorithm will see as input.
+
+00:00:35.750 --> 00:00:39.484
+For example, we could give a model a month's worth of weather data.
+
+00:00:39.484 --> 00:00:44.119
+Then ask it to use that data to form a prediction over some length of time,
+
+00:00:44.119 --> 00:00:46.684
+like predicting the weather for the next week.
+
+00:00:46.685 --> 00:00:48.200
+During the training process,
+
+00:00:48.200 --> 00:00:53.145
+we'll actually compare the predicted output to some known real data in that time frame.
+
+00:00:53.145 --> 00:00:54.710
+So we do have a target.
+
+00:00:54.710 --> 00:00:56.209
+Now as an example,
+
+00:00:56.209 --> 00:00:58.955
+say you know that it's been sunny for an hour today.
+
+00:00:58.954 --> 00:01:00.695
+This is your context.
+
+00:01:00.695 --> 00:01:03.799
+What do you think the weather will be like in the next hour?
+
+00:01:03.799 --> 00:01:07.355
+Well, it might be a good prediction to say that it will still be sunny.
+
+00:01:07.355 --> 00:01:10.560
+But what if I asked you to predict the weather for next week,
+
+00:01:10.560 --> 00:01:13.365
+given only this one sunny hour for context?
+
+00:01:13.364 --> 00:01:15.140
+That becomes much harder.
+
+00:01:15.140 --> 00:01:19.015
+You don't have enough context to know what a typical week of weather looks like.
+
+00:01:19.015 --> 00:01:21.500
+Generally, the more contexts you're given,
+
+00:01:21.500 --> 00:01:25.010
+the more you'll be able to notice about patterns and data over time.
+
+00:01:25.010 --> 00:01:29.030
+So a longer context length will often result in better predictions.
+
+00:01:29.030 --> 00:01:33.140
+Conversely, your predicted output values become more uncertain over time.
+
+00:01:33.140 --> 00:01:37.609
+Next, you'll learn about different strategies for approaching time series analysis.
+
+00:01:37.609 --> 00:01:41.314
+You'll go from data exploration to model deployment and sage maker.
+
+00:01:41.314 --> 00:01:42.829
+By the end of this lesson,
+
+00:01:42.829 --> 00:01:45.349
+you'll be able to employ similar strategies to
+
+00:01:45.349 --> 00:01:48.839
+analyze any time series data that interest you.
+

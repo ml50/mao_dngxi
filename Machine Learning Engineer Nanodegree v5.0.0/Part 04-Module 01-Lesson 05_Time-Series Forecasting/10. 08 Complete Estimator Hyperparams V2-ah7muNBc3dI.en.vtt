@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.889
+Here's my complete estimator.
+
+00:00:01.889 --> 00:00:03.990
+I passed in the usual role,
+
+00:00:03.990 --> 00:00:07.155
+sage_maker session and train_instance details.
+
+00:00:07.155 --> 00:00:09.810
+I also created an output path in S3,
+
+00:00:09.810 --> 00:00:12.225
+where I can save the trained model attributes.
+
+00:00:12.224 --> 00:00:15.464
+I pass in the image name specific to deep AR.
+
+00:00:15.464 --> 00:00:17.925
+So this estimator knows what model to train.
+
+00:00:17.925 --> 00:00:21.330
+Now this only gives me a pretty basic estimator and I'm
+
+00:00:21.329 --> 00:00:24.869
+going to want to define hyperparameters for the deep AR model.
+
+00:00:24.870 --> 00:00:28.560
+I wanted to find parameters like the number of epochs to train for,
+
+00:00:28.559 --> 00:00:30.570
+and the prediction and contexts length that I
+
+00:00:30.570 --> 00:00:33.119
+want the model to sample from the training data.
+
+00:00:33.119 --> 00:00:37.399
+I also have to let it know that my time series and lengths are measured in days.
+
+00:00:37.399 --> 00:00:39.545
+These are just the required parameters.
+
+00:00:39.545 --> 00:00:42.320
+There are a lot more optional parameters that can define
+
+00:00:42.320 --> 00:00:45.920
+the underlying recurrent neural network in the training behavior.
+
+00:00:45.920 --> 00:00:48.109
+So here I've provided a good starting list for
+
+00:00:48.109 --> 00:00:51.609
+those parameters and a link here to read more about each one.
+
+00:00:51.609 --> 00:00:56.689
+Basically, the number of cells and layers define the size of the underlying RNN,
+
+00:00:56.689 --> 00:01:01.039
+and a bigger size is able to capture more complex relationships in the data.
+
+00:01:01.039 --> 00:01:05.120
+Then batch size and learning rate define how this model trains and improves.
+
+00:01:05.120 --> 00:01:09.770
+Then in this cell, I'm passing in those hyperparameters and setting them to my estimator.
+
+00:01:09.769 --> 00:01:14.405
+Finally, I can pass in my training and test data and fit this estimator.
+
+00:01:14.405 --> 00:01:16.835
+Now I could only provide training data.
+
+00:01:16.834 --> 00:01:19.824
+But we've created both training and test data.
+
+00:01:19.825 --> 00:01:23.135
+A test data set means that deep AR can calculate
+
+00:01:23.135 --> 00:01:27.515
+accuracy metrics for the model during training on this test data set.
+
+00:01:27.515 --> 00:01:30.469
+The computed error metrics will be included as part of
+
+00:01:30.469 --> 00:01:33.679
+the log output that we can monitor for a training job.
+
+00:01:33.680 --> 00:01:37.910
+So next, I'll call fit and I'll deploy this trained model.
+
+00:01:37.909 --> 00:01:40.144
+After creating a prediction endpoint,
+
+00:01:40.144 --> 00:01:45.599
+next I'll show you how we can make some predictions and evaluate this trained model.
+

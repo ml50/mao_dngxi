@@ -1,0 +1,244 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.549
+The method I recommend for implementing
+
+00:00:02.549 --> 00:00:07.514
+an efficient LCS algorithm is using a matrix and dynamic programming.
+
+00:00:07.514 --> 00:00:10.064
+Dynamic programming is all about breaking
+
+00:00:10.064 --> 00:00:13.424
+a larger problem into a smaller set of subproblems,
+
+00:00:13.425 --> 00:00:18.105
+and building up a complete solution without having to repeat any subproblems.
+
+00:00:18.105 --> 00:00:20.535
+This approach assumes that you can split up
+
+00:00:20.535 --> 00:00:24.765
+a large LCS task into a combination of smaller tasks.
+
+00:00:24.765 --> 00:00:27.705
+Let's look at a simple example that compares letters,
+
+00:00:27.704 --> 00:00:31.814
+the answer ABCD, and the source BD.
+
+00:00:31.815 --> 00:00:36.314
+We can see right away that the longest sub-sequence of letters here is two.
+
+00:00:36.314 --> 00:00:39.149
+B and D are in sequence in both strings.
+
+00:00:39.149 --> 00:00:43.984
+We can calculate this by looking at relationships between each letter in the two strings.
+
+00:00:43.984 --> 00:00:47.179
+This technique can be applied to individual words as well,
+
+00:00:47.179 --> 00:00:48.924
+not just individual letters.
+
+00:00:48.924 --> 00:00:51.634
+Here, I have a matrix with the answer letters
+
+00:00:51.634 --> 00:00:54.574
+on top and the source letters on the left side.
+
+00:00:54.575 --> 00:00:59.510
+This starts out as a matrix that has as many columns and rows as letters in the strings,
+
+00:00:59.509 --> 00:01:02.045
+plus one additional row and column,
+
+00:01:02.045 --> 00:01:04.745
+filled with zeros on the top and left sides.
+
+00:01:04.745 --> 00:01:07.445
+So in this case, instead of a two-by-four matrix,
+
+00:01:07.444 --> 00:01:09.454
+it's a three-by-five matrix.
+
+00:01:09.454 --> 00:01:13.939
+Now, we can fill this matrix up by breaking it into smaller LCS problems.
+
+00:01:13.939 --> 00:01:17.524
+For example, let's first look at the shortest sub-strings.
+
+00:01:17.525 --> 00:01:21.219
+The starting letter of A and S. Well, first ask.
+
+00:01:21.219 --> 00:01:26.209
+What is the longest common subsequence between these two letters, A and B?
+
+00:01:26.209 --> 00:01:27.694
+Since these letters don't match,
+
+00:01:27.694 --> 00:01:29.019
+the answer is zero,
+
+00:01:29.019 --> 00:01:32.375
+and I'll fill in the corresponding grid cell with that value.
+
+00:01:32.375 --> 00:01:34.564
+Then we ask the next question.
+
+00:01:34.564 --> 00:01:37.579
+What is the LCS between AB and B?
+
+00:01:37.579 --> 00:01:39.920
+Here, we have a match, B and B,
+
+00:01:39.920 --> 00:01:42.650
+and we can fill in the appropriate value, one.
+
+00:01:42.650 --> 00:01:45.710
+Notice that I'm only looking at if there's a matching letter between
+
+00:01:45.709 --> 00:01:48.934
+one column and one row at a time to get this one match.
+
+00:01:48.935 --> 00:01:51.019
+If we continue along this row,
+
+00:01:51.019 --> 00:01:54.049
+we can actually see that B only matches this one time,
+
+00:01:54.049 --> 00:01:59.409
+and any further questions such as what does the LCS between ABCD and B?
+
+00:01:59.409 --> 00:02:01.099
+We'll have that same value,
+
+00:02:01.099 --> 00:02:04.009
+one, due to the initial BB match.
+
+00:02:04.010 --> 00:02:06.835
+In fact, this one will propagate to the right,
+
+00:02:06.834 --> 00:02:08.719
+filling up the rest of this row.
+
+00:02:08.719 --> 00:02:10.909
+So let's move on to the second row.
+
+00:02:10.909 --> 00:02:13.579
+A and BD have zero matches,
+
+00:02:13.580 --> 00:02:17.090
+then AB and BD do have a match,
+
+00:02:17.090 --> 00:02:20.210
+but this b row and d column do not match exactly.
+
+00:02:20.210 --> 00:02:24.680
+The match actually comes from the same BB match that we recorded before,
+
+00:02:24.680 --> 00:02:26.810
+which we noted in the cell above this one.
+
+00:02:26.810 --> 00:02:30.770
+So we can take that value one and pull it down into the cell.
+
+00:02:30.770 --> 00:02:34.885
+Then it stays one in this row until another match is finally reached,
+
+00:02:34.884 --> 00:02:37.824
+the letter D. With this additional match,
+
+00:02:37.824 --> 00:02:41.119
+we add one to our previous highest LCS value to get
+
+00:02:41.120 --> 00:02:45.634
+a longest common subsequence of two at the corner of this filled matrix.
+
+00:02:45.634 --> 00:02:47.479
+So to get our final value,
+
+00:02:47.479 --> 00:02:51.364
+we then just have to normalize by dividing by the length of the answer text,
+
+00:02:51.365 --> 00:02:52.730
+which has four letters,
+
+00:02:52.729 --> 00:02:55.699
+so we get a final value of 0.5.
+
+00:02:55.699 --> 00:02:58.989
+A few interesting patterns emerge from this matrix.
+
+00:02:58.990 --> 00:03:04.159
+We notice that the LCS is always going to be in the bottom right of our complete matrix,
+
+00:03:04.159 --> 00:03:08.120
+because this corner indicates that we've reached the end of both of our texts.
+
+00:03:08.120 --> 00:03:10.640
+We've considered all possible matches.
+
+00:03:10.639 --> 00:03:14.089
+Now, we started with a row and column of zeros.
+
+00:03:14.090 --> 00:03:15.770
+Then to fill up this matrix,
+
+00:03:15.770 --> 00:03:17.840
+we looked at one cell at a time,
+
+00:03:17.840 --> 00:03:19.955
+I'll call this our cell of interest,
+
+00:03:19.955 --> 00:03:23.575
+and we only had to handle two cases: One,
+
+00:03:23.574 --> 00:03:27.289
+if we do not find a match as in the case of the letters A and B,
+
+00:03:27.289 --> 00:03:29.750
+we can take a look at the values in the cells
+
+00:03:29.750 --> 00:03:33.094
+directly to the left and top of our cell of interest,
+
+00:03:33.094 --> 00:03:36.634
+then fill our cell by looking at the maximum of those two values.
+
+00:03:36.634 --> 00:03:38.709
+In this case, the maximum is zero.
+
+00:03:38.710 --> 00:03:42.379
+Two, our second case is if we do find a match as in
+
+00:03:42.379 --> 00:03:46.055
+the case of B and B and D and D at the end.
+
+00:03:46.055 --> 00:03:48.920
+In this case, we can take the value in the cell that is to
+
+00:03:48.919 --> 00:03:53.599
+the top left of our cell of interest and add one to fill our cell of interest.
+
+00:03:53.599 --> 00:03:56.688
+These two cases for no match and match,
+
+00:03:56.688 --> 00:03:59.284
+allow us to fill in the matrix dynamically.
+
+00:03:59.284 --> 00:04:01.340
+To calculate each new cell value,
+
+00:04:01.340 --> 00:04:05.245
+we only have to look at one or two existing values in our matrix.
+
+00:04:05.245 --> 00:04:07.849
+Basically, taking earlier solutions to
+
+00:04:07.849 --> 00:04:12.629
+LCS tasks and using them to build up a final solution.
+

@@ -1,0 +1,332 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Plagiarism Detector
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Containment.html">
+       02. Containment
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Notebook Calculate Containment.html">
+       03. Notebook: Calculate Containment
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Longest Common Subsequence.html">
+       04. Longest Common Subsequence
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Dynamic Programming.html">
+       05. Dynamic Programming
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Project Files &amp; Evaluation.html">
+       06. Project Files &amp; Evaluation
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook Exploring the Data.html">
+       07. Notebook: Exploring the Data
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Plagiarism Detector.html">
+       Project Description - Plagiarism Detector
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Plagiarism Detector.html">
+       Project Rubric - Plagiarism Detector
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Plagiarism Detector
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <h1 id="plagiarism-detection">
+        Plagiarism Detection
+       </h1>
+       <h2 id="project-overview">
+        Project Overview
+       </h2>
+       <p>
+        In this project, you will be tasked with building a plagiarism detector that examines a text file and performs binary classification; labeling that file as either plagiarized or not, depending on how similar the text file is to a provided source text.
+       </p>
+       <h2 id="getting-the-project-materials">
+        Getting the Project Materials
+       </h2>
+       <p>
+        You have been given starting notebooks in a Github repository, linked below.
+       </p>
+       <blockquote>
+        <p>
+         Since this project uses SageMaker, it is suggested that you create a new SageMaker notebook instance using your
+         <a href="https://console.aws.amazon.com" rel="noopener noreferrer" target="_blank">
+          AWS console
+         </a>
+         and link it to the Github repository
+         <a href="https://github.com/udacity/ML_SageMaker_Studies" rel="noopener noreferrer" target="_blank">
+          https://github.com/udacity/ML_SageMaker_Studies
+         </a>
+         .
+        </p>
+       </blockquote>
+       <p>
+        <strong>
+         The project files are in the
+         <code>
+          Project_Plagiarism_Detection
+         </code>
+         directory.
+        </strong>
+       </p>
+       <p>
+        You should complete each exercise and question; your project will be evaluated against
+        <a href="https://review.udacity.com/#!/rubrics/2516/view" rel="noopener noreferrer" target="_blank">
+         this rubric
+        </a>
+        .
+       </p>
+       <h2 id="submission-and-project-evaluation">
+        Submission and Project Evaluation
+       </h2>
+       <p>
+        You will be graded on your implementation of a plagiarism detector as well as complete answers to any questions in the project notebook. You'll submit a
+        <strong>
+         zip file
+        </strong>
+        or Github repo that includes complete notebooks, with all cells executed, and you'll be graded according to the project rubric.
+       </p>
+       <ol>
+        <li>
+         Ensure you've passed all the unit tests in the notebook.
+        </li>
+        <li>
+         Ensure you pass all points on
+         <a href="https://review.udacity.com/#!/rubrics/2516/view" rel="noopener noreferrer" target="_blank">
+          the rubric
+         </a>
+         .
+        </li>
+        <li>
+         When you're done with the project, please save the last two notebooks, "2_Plagiarism_Feature_Engineering.ipynb" and "3_Training_a_Model.ipynb", making sure you've run all cells. You can do this by going to the
+         <strong>
+          File
+         </strong>
+         menu in the notebook and choosing "Download".
+        </li>
+        <li>
+         Package "2_Plagiarism_Feature_Engineering.ipynb", "3_Training_a_Model.ipynb", "problem_unittests.py", "helpers.py", and at least
+         <em>
+          one
+         </em>
+         , complete training directory (
+         <code>
+          source_sklearn
+         </code>
+         or
+         <code>
+          source_pytorch
+         </code>
+         ) into a zip archive, or push the files from your GitHub repo.
+        </li>
+       </ol>
+       <p>
+        Note that the zip file should
+        <strong>
+         not
+        </strong>
+        include the large
+        <code>
+         data
+        </code>
+        or any generated data repositories; this would make your submission too large to download and manage.
+       </p>
+       <p>
+        Once you have all of your project files in one zip file, you click
+        <code>
+         Submit
+        </code>
+        and follow the instructions for uploading your complete project!
+       </p>
+       <h2 id="project-submission-checklist">
+        Project Submission Checklist
+       </h2>
+       <p>
+        <strong>
+         Before submitting your project, please review and confirm the following items.
+        </strong>
+        <br/>
+        <input type="checkbox"/>
+        I am confident all rubric items have been met and my project will pass as submitted.
+        <br/>
+        <input type="checkbox"/>
+        Project builds correctly without errors and runs.
+        <br/>
+        <input type="checkbox"/>
+        All required functionality exists and my project behaves as expected per the project's specifications.
+       </p>
+       <p>
+        <strong>
+         Once you have checked all these items, you are ready to submit!
+        </strong>
+       </p>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Plagiarism Detector')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.990
+So I have corresponding solutions to all of the files in this source file.
+
+00:00:03.990 --> 00:00:05.504
+In fact, in source_solution,
+
+00:00:05.504 --> 00:00:07.605
+I have a complete model.py file.
+
+00:00:07.605 --> 00:00:11.250
+This is just one solution for a neural network made of linear layers.
+
+00:00:11.250 --> 00:00:12.359
+So as an example,
+
+00:00:12.359 --> 00:00:14.669
+I've defined a two layer linear network.
+
+00:00:14.669 --> 00:00:16.035
+My first linear layer,
+
+00:00:16.035 --> 00:00:18.839
+which I've called fc1 for fully connected one,
+
+00:00:18.839 --> 00:00:23.149
+accepts a number of inputs and produces a number of hidden dim notes,
+
+00:00:23.149 --> 00:00:28.019
+then my second layer accepts this as input and produces a specified number of outputs.
+
+00:00:28.019 --> 00:00:29.969
+In addition to these two linear layers,
+
+00:00:29.969 --> 00:00:34.094
+I've also specified a dropout layer with a probability of 0.3,
+
+00:00:34.094 --> 00:00:37.589
+and this will help prevent domination by just a few nodes in the network,
+
+00:00:37.590 --> 00:00:39.690
+and I've also defined a sigmoid layer,
+
+00:00:39.689 --> 00:00:41.579
+which I'll be able to apply to the output of
+
+00:00:41.579 --> 00:00:44.384
+my network to get a class score between zero and one.
+
+00:00:44.384 --> 00:00:46.984
+So in init is where I'm defining all these layers,
+
+00:00:46.984 --> 00:00:48.034
+and then in forward,
+
+00:00:48.034 --> 00:00:51.174
+I'm specifying how an input x will actually move through them.
+
+00:00:51.174 --> 00:00:54.049
+I'm basically passing my input x which is
+
+00:00:54.049 --> 00:00:57.140
+a batch of input features through my layers in sequence.
+
+00:00:57.140 --> 00:01:00.244
+First, I'm passing it through my first fully connected layer,
+
+00:01:00.244 --> 00:01:02.854
+and I'm applying a relu activation function.
+
+00:01:02.854 --> 00:01:04.924
+Then in between my two linear layers,
+
+00:01:04.924 --> 00:01:06.679
+I'm applying my dropout layer.
+
+00:01:06.680 --> 00:01:11.330
+Finally, after a transformed output has moved through our final fully-connected layer,
+
+00:01:11.329 --> 00:01:15.554
+I'm applying my sigmoid activation function to return a final class score.
+
+00:01:15.555 --> 00:01:18.755
+Now, you might be wondering where is a model like this,
+
+00:01:18.754 --> 00:01:20.689
+SimpleNet, going to be used.
+
+00:01:20.689 --> 00:01:24.289
+Well, if I look at just the start of this train.py file,
+
+00:01:24.290 --> 00:01:27.340
+I can see that I'm importing the model for use right here.
+
+00:01:27.340 --> 00:01:31.295
+Train.py is where I'm going to instantiate this model and train it.
+
+00:01:31.295 --> 00:01:33.530
+So next, I'll talk about the details in
+
+00:01:33.530 --> 00:01:37.739
+this training script and the steps you'll need to take to complete it.
+

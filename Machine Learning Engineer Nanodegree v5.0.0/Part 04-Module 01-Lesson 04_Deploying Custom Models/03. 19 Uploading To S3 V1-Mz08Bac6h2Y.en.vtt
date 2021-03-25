@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.140
+Before training and deploying a model,
+
+00:00:02.140 --> 00:00:04.769
+we'll need to upload our training data to S3.
+
+00:00:04.769 --> 00:00:06.719
+In the last video, I asked you to create
+
+00:00:06.719 --> 00:00:10.109
+a CSV file that held are trained features and train labels,
+
+00:00:10.109 --> 00:00:13.334
+with the train labels in the first column of our CSV file.
+
+00:00:13.335 --> 00:00:17.219
+Creating a CSV file at a features x and labels y,
+
+00:00:17.219 --> 00:00:18.989
+can be done in a few lines of code.
+
+00:00:18.989 --> 00:00:24.449
+So first, I'm using pd.concat to concatenate my labels with my features.
+
+00:00:24.449 --> 00:00:27.149
+Setting x is equal to 1 means I'm concatenating
+
+00:00:27.149 --> 00:00:30.539
+these and smashing them together along the column dimension.
+
+00:00:30.539 --> 00:00:34.609
+Then I'm turning this concatenated DataFrame into a CSV file,
+
+00:00:34.609 --> 00:00:37.829
+and passing in where exactly I want this file to be stored,
+
+00:00:37.829 --> 00:00:41.344
+and I'm specifying that I don't want any headers or indices.
+
+00:00:41.344 --> 00:00:44.104
+This ensures that I'm not including anything extraneous,
+
+00:00:44.104 --> 00:00:45.574
+like column or row names,
+
+00:00:45.575 --> 00:00:46.790
+in the CSV file,
+
+00:00:46.789 --> 00:00:48.664
+I'm only including the row data.
+
+00:00:48.664 --> 00:00:50.119
+So if I run this cell,
+
+00:00:50.119 --> 00:00:52.074
+I can then test it in the next cell,
+
+00:00:52.075 --> 00:00:57.440
+and I should see that I've created a train.csv file in my specified data directory.
+
+00:00:57.439 --> 00:01:00.544
+The next step is to actually upload this data to S3.
+
+00:01:00.545 --> 00:01:03.399
+Now, I can do this with a call to session.upload_data.
+
+00:01:03.399 --> 00:01:05.719
+We're going to pass in where this data is stored
+
+00:01:05.719 --> 00:01:09.500
+locally and where I want it to be stored in our S3 bucket.
+
+00:01:09.500 --> 00:01:12.939
+So in specifying a different prefix specific to S3,
+
+00:01:12.939 --> 00:01:14.829
+and they'll even print out where that is.
+
+00:01:14.829 --> 00:01:19.489
+Here, I can see location in S3 with a bucket name and a specified prefix.
+
+00:01:19.489 --> 00:01:21.064
+Then just to be doubly sure,
+
+00:01:21.064 --> 00:01:24.950
+I'm going to iterate through the objects in our S3 bucket and print the contents.
+
+00:01:24.950 --> 00:01:28.435
+I can see that I have my specified prefix in S3,
+
+00:01:28.435 --> 00:01:31.234
+followed by my expected train.csv file.
+
+00:01:31.234 --> 00:01:34.069
+I should also note here that I've been manually navigating to
+
+00:01:34.069 --> 00:01:36.979
+S3 to empty my bucket after each lesson,
+
+00:01:36.980 --> 00:01:40.760
+so that I'm not accumulating multiple large model files, for example.
+
+00:01:40.760 --> 00:01:43.175
+So if you see multiple files printed out here,
+
+00:01:43.174 --> 00:01:45.965
+that could be a sign that you need to empty your S3 bucket.
+
+00:01:45.965 --> 00:01:50.465
+Okay. Now that we have data in S3 where an estimator can use it for training,
+
+00:01:50.465 --> 00:01:55.560
+next, let's learn more about actually building a custom PyTorch estimator.
+

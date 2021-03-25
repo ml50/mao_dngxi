@@ -1,0 +1,301 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.879
+Now, you've defined a neural network in model.py,
+
+00:00:02.879 --> 00:00:05.279
+it's time to instantiate and train that model,
+
+00:00:05.280 --> 00:00:07.740
+and we'll do this in the training script which is a file that's
+
+00:00:07.740 --> 00:00:10.859
+located in the source directory under train.py.
+
+00:00:10.859 --> 00:00:14.114
+The training script is key for training a custom model.
+
+00:00:14.115 --> 00:00:18.359
+It's the script that will execute when.fit is called on a custom estimator.
+
+00:00:18.359 --> 00:00:21.629
+Now, I'll be showing you a PyTorch example but you can also train and
+
+00:00:21.629 --> 00:00:24.945
+deploy custom scikit-learn models in a very similar way.
+
+00:00:24.945 --> 00:00:29.039
+In fact, it's even easier because you can just import a model instead of defining
+
+00:00:29.039 --> 00:00:33.269
+a custom one and mini Sklearn models have built in predict functions.
+
+00:00:33.270 --> 00:00:36.359
+So the only file you'll need is a train.py file.
+
+00:00:36.359 --> 00:00:40.019
+So a typical training script is responsible for a number of things.
+
+00:00:40.020 --> 00:00:44.000
+First, it loads in your training data and it will parse any training
+
+00:00:44.000 --> 00:00:48.140
+and model hyperparameters that are passed into your estimator constructor,
+
+00:00:48.140 --> 00:00:51.725
+then it will instantiate a model with any specified hyperparameters,
+
+00:00:51.725 --> 00:00:53.899
+in our case things like input dim,
+
+00:00:53.899 --> 00:00:57.019
+hidden dim and output dim and it will train that model.
+
+00:00:57.020 --> 00:00:59.120
+Finally, it's also responsible for
+
+00:00:59.119 --> 00:01:02.149
+saving the trained model so that it can be deployed later.
+
+00:01:02.149 --> 00:01:04.640
+So let's take a look at this train.py file.
+
+00:01:04.640 --> 00:01:06.695
+The first thing in here are my inputs.
+
+00:01:06.694 --> 00:01:11.444
+Any libraries I need and aligned to input the model that we just made, SimpleNet.
+
+00:01:11.444 --> 00:01:13.774
+Then I have a couple of provided functions
+
+00:01:13.775 --> 00:01:16.969
+including a function that loads a previously trained model.
+
+00:01:16.969 --> 00:01:21.694
+This is helpful if you want to create a SimpleNet from previously saved model parameters.
+
+00:01:21.694 --> 00:01:24.574
+The next thing I have is get train loader which accepts
+
+00:01:24.575 --> 00:01:28.385
+a batch size and a data directory where our training data is saved.
+
+00:01:28.385 --> 00:01:32.120
+This function will read in a training CSV file which it assumes is
+
+00:01:32.120 --> 00:01:36.350
+called train.csv and it will split it into labels and features.
+
+00:01:36.349 --> 00:01:40.539
+Here I'm getting labels from the first column of data and our features from the rest.
+
+00:01:40.540 --> 00:01:42.800
+Then I'm wrapping my features and labels into
+
+00:01:42.799 --> 00:01:46.325
+a TensorDataset which can be easily batched by a data loader.
+
+00:01:46.325 --> 00:01:49.265
+Next, I have a train function which takes in a model,
+
+00:01:49.265 --> 00:01:52.099
+our trained loader, and some training parameters.
+
+00:01:52.099 --> 00:01:54.799
+This loop is responsible for iterating over all of
+
+00:01:54.799 --> 00:01:59.435
+our training data and updating the model according to some optimization parameters.
+
+00:01:59.435 --> 00:02:00.590
+So here for example,
+
+00:02:00.590 --> 00:02:03.740
+I'm looking at how my model response to a batch of data and
+
+00:02:03.739 --> 00:02:06.979
+I'm looking at how close the output is to some target,
+
+00:02:06.980 --> 00:02:10.550
+then in performing back propagation and optimization to improve the model.
+
+00:02:10.550 --> 00:02:13.400
+I also have a line here to print out some stats about training,
+
+00:02:13.400 --> 00:02:15.995
+and I'm actually going to collapses for a better visibility.
+
+00:02:15.995 --> 00:02:17.990
+But only at the end of all of our epics,
+
+00:02:17.990 --> 00:02:21.050
+I'm going to save our trained model to a model directory,
+
+00:02:21.050 --> 00:02:23.180
+and they have some provided saving functions here.
+
+00:02:23.180 --> 00:02:27.200
+Saving the State Dictionary of a trained model and just saving the model parameters.
+
+00:02:27.199 --> 00:02:31.354
+Now, all the details about how to actually define a model entry in it,
+
+00:02:31.354 --> 00:02:33.379
+how many epics to train for and so on,
+
+00:02:33.379 --> 00:02:36.625
+all of those taken care of in this main if statement,
+
+00:02:36.625 --> 00:02:38.460
+if name equals main.
+
+00:02:38.460 --> 00:02:41.090
+All of the code in here is what will execute when you
+
+00:02:41.090 --> 00:02:43.670
+call.fit and train a custom estimator.
+
+00:02:43.669 --> 00:02:45.259
+So in this if statement,
+
+00:02:45.259 --> 00:02:49.179
+is where I wanted to find all my model and training hyperparameters.
+
+00:02:49.180 --> 00:02:52.099
+These will be arguments like batch size that will be able to
+
+00:02:52.099 --> 00:02:55.204
+parse into a constructor when we create an estimator.
+
+00:02:55.205 --> 00:02:57.800
+This will also be where I get my train loader and
+
+00:02:57.800 --> 00:03:00.860
+instantiate a model with some specify parameters.
+
+00:03:00.860 --> 00:03:04.010
+I'll have to define an optimizer and loss function and parse
+
+00:03:04.009 --> 00:03:07.669
+those to my train function above to finally save my trained model.
+
+00:03:07.669 --> 00:03:09.759
+So you have a few to dos in here,
+
+00:03:09.759 --> 00:03:12.769
+and your first task will be to define the model and training
+
+00:03:12.770 --> 00:03:16.265
+hyperparameters and add them to our unknown argument here.
+
+00:03:16.264 --> 00:03:18.694
+You can do this with an ArgumentParser.
+
+00:03:18.694 --> 00:03:23.989
+This ArgumentParser basically allows us to add arguments to our estimator constructor.
+
+00:03:23.990 --> 00:03:25.969
+So we can add things like batch size,
+
+00:03:25.969 --> 00:03:29.615
+but we can specify when we actually construct a custom estimator.
+
+00:03:29.615 --> 00:03:30.935
+To add an argument,
+
+00:03:30.935 --> 00:03:34.039
+we just need to call parser.add argument and parse
+
+00:03:34.039 --> 00:03:38.299
+in dash dash and the name of a variable and a few other things.
+
+00:03:38.300 --> 00:03:42.140
+Each argument has a type something like int or string,
+
+00:03:42.139 --> 00:03:46.084
+a default value that it can take if it's not specified in the constructor.
+
+00:03:46.085 --> 00:03:50.330
+A metavar, which is a descriptive string typically a letter or two like n
+
+00:03:50.330 --> 00:03:54.875
+for number or s for seed that may be used in usage messages.
+
+00:03:54.875 --> 00:03:59.210
+Finally, help, which is just a description about what this parameter is.
+
+00:03:59.210 --> 00:04:01.205
+In this first batch of arguments,
+
+00:04:01.205 --> 00:04:03.305
+we have actually SageMaker Parameters.
+
+00:04:03.305 --> 00:04:06.469
+These are things like the model directory in the data directory,
+
+00:04:06.469 --> 00:04:09.995
+where we can find training data and place our trained model output.
+
+00:04:09.995 --> 00:04:13.340
+These are things that will be set automatically no matter the estimator.
+
+00:04:13.340 --> 00:04:16.814
+Then I've set some training arguments things like batch size,
+
+00:04:16.814 --> 00:04:19.564
+the number of epics to train for, and a learning rate.
+
+00:04:19.564 --> 00:04:23.870
+Your task will be to add new parameters that we need to define a SimpleNet,
+
+00:04:23.870 --> 00:04:26.780
+essentially like we had to parse in k for a k-means
+
+00:04:26.779 --> 00:04:30.589
+model or a predictor type for training a linear learner.
+
+00:04:30.589 --> 00:04:33.879
+We know that we have three model parameters that define the input,
+
+00:04:33.879 --> 00:04:35.798
+hidden and output dimensions,
+
+00:04:35.798 --> 00:04:38.329
+so you should add three new arguments here.
+
+00:04:38.329 --> 00:04:42.069
+I recommend naming them according to the parameters in our SimpleNet,
+
+00:04:42.069 --> 00:04:44.909
+so input dim hidden dim and output dim.
+
+00:04:44.910 --> 00:04:47.150
+Your next to do is to actually instantiate
+
+00:04:47.149 --> 00:04:49.774
+the model by passing in those input parameters,
+
+00:04:49.774 --> 00:04:52.370
+so you can call simple myth and passing something like
+
+00:04:52.370 --> 00:04:55.490
+args.inputdim to get the appropriate dimension.
+
+00:04:55.490 --> 00:04:59.615
+Finally, you'll define an optimizer and criterion for training.
+
+00:04:59.615 --> 00:05:02.449
+All of these things will be packed into your train function here,
+
+00:05:02.449 --> 00:05:05.074
+which takes care of training and saving your model.
+
+00:05:05.074 --> 00:05:09.214
+Next, try to complete this training script following the to dos marked in code.
+
+00:05:09.214 --> 00:05:12.929
+Then, I'll show you one possible solution next.
+

@@ -1,0 +1,184 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.895
+Here's my solution to PYTorchModel creation.
+
+00:00:02.895 --> 00:00:05.400
+This takes in a few of the parameters we're familiar
+
+00:00:05.400 --> 00:00:07.980
+with including a rule and framework version.
+
+00:00:07.980 --> 00:00:12.615
+Then I'm parsing in the entry point which is where my predict.py file is.
+
+00:00:12.615 --> 00:00:13.800
+Now, for your code,
+
+00:00:13.800 --> 00:00:15.525
+this will just be in the source directory,
+
+00:00:15.525 --> 00:00:18.750
+but for solution cases and using source_solution.
+
+00:00:18.750 --> 00:00:20.699
+The main thing to note here is I'm parsing in
+
+00:00:20.699 --> 00:00:22.875
+some trained model data which is
+
+00:00:22.875 --> 00:00:26.039
+our modeled data from our trained estimator that was fit above.
+
+00:00:26.039 --> 00:00:29.429
+So this gives me a PYTorchModel that I can then deploy.
+
+00:00:29.429 --> 00:00:31.304
+That's what I'm doing in this next cell,
+
+00:00:31.304 --> 00:00:35.570
+calling.deploy and parsing in some details about my deployment instance,
+
+00:00:35.570 --> 00:00:39.875
+this creates a predictor that I can then use to make predictions on some test data.
+
+00:00:39.875 --> 00:00:42.965
+If we actually take a look at this predict.py file,
+
+00:00:42.965 --> 00:00:46.730
+I can see that it starts off looking the same as the train.py file,
+
+00:00:46.729 --> 00:00:50.539
+lots of imports including an import for the model simple net.
+
+00:00:50.539 --> 00:00:53.299
+Then I ask code to load a trained model here,
+
+00:00:53.299 --> 00:00:55.189
+and it also has functions for the type of
+
+00:00:55.189 --> 00:00:58.280
+input data it can see and the type of output it produces.
+
+00:00:58.280 --> 00:01:02.090
+In this case, this Content_Type is actually going to be numpy data.
+
+00:01:02.090 --> 00:01:04.265
+In the predict function at the bottom,
+
+00:01:04.265 --> 00:01:07.670
+I'm assuming the input data is going to be of a numpy type,
+
+00:01:07.670 --> 00:01:11.930
+then I'm turning it into a tensor that can be parsed to our simple net model.
+
+00:01:11.930 --> 00:01:14.540
+Finally, I'm getting the result of applying our model to
+
+00:01:14.540 --> 00:01:17.305
+that data which should be a predicted class score.
+
+00:01:17.305 --> 00:01:19.380
+So back to this deployed predictor,
+
+00:01:19.379 --> 00:01:23.795
+I should be able to apply this to some test data features and evaluate the model.
+
+00:01:23.795 --> 00:01:26.310
+In fact, I've provided an evaluate function here,
+
+00:01:26.310 --> 00:01:29.915
+that's very similar to the function we used in the linear learner example.
+
+00:01:29.915 --> 00:01:33.200
+It takes in a deployed predictor and some test data,
+
+00:01:33.200 --> 00:01:35.359
+and returns a lot of granular metrics.
+
+00:01:35.359 --> 00:01:37.879
+The main difference here is that our model actually returns
+
+00:01:37.879 --> 00:01:41.099
+numpy formatted data is dictated by our predict file,
+
+00:01:41.099 --> 00:01:44.000
+and so we don't need to do much processing of the data here.
+
+00:01:44.000 --> 00:01:47.780
+I'm simply rounding the output class scores to a one or zero
+
+00:01:47.780 --> 00:01:51.950
+predicted label and squeezing this to get rid of any empty dimensions.
+
+00:01:51.950 --> 00:01:53.880
+Then the code is the same as before.
+
+00:01:53.879 --> 00:01:58.744
+I'm comparing the test predictions to the true labels and calculating true positives,
+
+00:01:58.745 --> 00:02:01.969
+false positives, true negatives, and false negatives,
+
+00:02:01.969 --> 00:02:04.489
+and some binary classification metrics,
+
+00:02:04.489 --> 00:02:06.219
+and I'll print them out here.
+
+00:02:06.219 --> 00:02:09.949
+Now, if I run this code on our predictor, here is what I get.
+
+00:02:09.949 --> 00:02:12.530
+I get an accuracy of about 80 percent,
+
+00:02:12.530 --> 00:02:15.050
+which is pretty good for our noisy wiggly data.
+
+00:02:15.050 --> 00:02:19.160
+I'd encourage you to try to improve this model by either increasing
+
+00:02:19.159 --> 00:02:23.629
+the hidden dimension and adding complexity to the layers or training for a longer time.
+
+00:02:23.629 --> 00:02:26.509
+Then as always, when you're done with evaluation,
+
+00:02:26.509 --> 00:02:28.564
+you should delete your endpoints.
+
+00:02:28.564 --> 00:02:33.139
+I'd also suggest going to your SageMaker console and cleaning up any models,
+
+00:02:33.139 --> 00:02:37.099
+config files, and data that you no longer need, and that's it.
+
+00:02:37.099 --> 00:02:39.919
+You've learnt how to deploy a custom PYTorchModel.
+
+00:02:39.919 --> 00:02:42.859
+Being able to deploy a custom deep learning model of
+
+00:02:42.860 --> 00:02:46.235
+your own design is a useful skill for a variety of tasks,
+
+00:02:46.235 --> 00:02:50.375
+especially tests that evade traditional methods for classification.
+
+00:02:50.375 --> 00:02:53.044
+It's also useful for tasks where you want to employ
+
+00:02:53.044 --> 00:02:56.014
+a different framework than SageMaker's built-in models,
+
+00:02:56.014 --> 00:02:59.629
+basically, allowing for greater flexibility in problem-solving.
+
+00:02:59.629 --> 00:03:02.359
+So I wanted to say great job getting this far.
+
+00:03:02.360 --> 00:03:06.480
+I think you're well equipped to start tackling problems of your own.
+

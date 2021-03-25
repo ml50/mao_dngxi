@@ -1,0 +1,704 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Plagiarism Detector
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Project
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Containment.html">
+       02. Containment
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Notebook Calculate Containment.html">
+       03. Notebook: Calculate Containment
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Longest Common Subsequence.html">
+       04. Longest Common Subsequence
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Dynamic Programming.html">
+       05. Dynamic Programming
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Project Files &amp; Evaluation.html">
+       06. Project Files &amp; Evaluation
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook Exploring the Data.html">
+       07. Notebook: Exploring the Data
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Plagiarism Detector.html">
+       Project Description - Plagiarism Detector
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Plagiarism Detector.html">
+       Project Rubric - Plagiarism Detector
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Plagiarism Detector
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div>
+        <h2>
+         <p>
+          All Required Files and Tests
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Are all required files submitted?
+            </p>
+           </td>
+           <td>
+            <p>
+             The submission includes complete notebook files as
+             <code>
+              .ipynb
+             </code>
+             : "2_Plagiarism_Feature_Engineering" and "3_Training_a_Model". And the test and helper files are included: "problem_unittests.py", "helpers.py". The submission also includes a training directory
+             <code>
+              source_sklearn
+             </code>
+             OR
+             <code>
+              source_pytorch
+             </code>
+             .
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Are all unit tests passed?
+            </p>
+           </td>
+           <td>
+            <p>
+             All the unit tests in project have passed.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 2: DataFrame Pre-Processing
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             For each data point, is a class label added and the
+             <code>
+              Category
+             </code>
+             converted to a numerical value?
+            </p>
+           </td>
+           <td>
+            <p>
+             The function
+             <code>
+              numerical_dataframe
+             </code>
+             should be complete, reading in the original file_information.csv file and returning a DataFrame of information with a numerical
+             <code>
+              Category
+             </code>
+             column and new,
+             <code>
+              Class
+             </code>
+             column.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Is a
+             <code>
+              complete_df
+             </code>
+             created?
+            </p>
+           </td>
+           <td>
+            <p>
+             There is no code requirement here, just make sure you run all required cells to create a
+             <code>
+              complete_df
+             </code>
+             that holds pre-processed file text data and
+             <code>
+              Datatype
+             </code>
+             information.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 2: Features Created
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you implemented a function to calculate containment?
+            </p>
+           </td>
+           <td>
+            <p>
+             The function
+             <code>
+              calculate_containment
+             </code>
+             should be complete, taking in the necessary information and returning a single, normalized containment value for a given answer file.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Did you answer the question about containment feature calculation?
+            </p>
+           </td>
+           <td>
+            <p>
+             Provide an answer to the question about containment feature calculation.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you implemented a function to calculate the longest common subsequence of words between two texts?
+            </p>
+           </td>
+           <td>
+            <p>
+             The function
+             <code>
+              lcs_norm_word
+             </code>
+             should be complete, taking in two texts and returning a single, normalized LCS value.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you created a DataFrame that holds at least 6 similarity features for all the text data?
+            </p>
+           </td>
+           <td>
+            <p>
+             Define an n-gram range to calculate multiple containment features. Run the code to calculate one LCS feature, and create a DataFrame that holds all of these feature calculations.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 2: Train and Test Files Created
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you implemented the code to create train/test features and labels?
+            </p>
+           </td>
+           <td>
+            <p>
+             Complete the function
+             <code>
+              train_test_data
+             </code>
+             . This should return only a
+             <em>
+              selection
+             </em>
+             of training and test features, and corresponding class labels.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you selected a few "good" features to include in the train/test data?
+            </p>
+           </td>
+           <td>
+            <p>
+             Select a few features to use in your final training and test data.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Did you answer the question about selecting features?
+            </p>
+           </td>
+           <td>
+            <p>
+             Provide an answer that describes why you chose your final features.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you made train/test csv files?
+            </p>
+           </td>
+           <td>
+            <p>
+             Implement the
+             <code>
+              make_csv
+             </code>
+             function. The class labels for train/test data should be in the first column of the csv file; selected features in the rest of the columns. Run the rest of the cells to create
+             <code>
+              train.csv
+             </code>
+             and
+             <code>
+              test.csv
+             </code>
+             files.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 3: Data Upload
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you uploaded your training data to S3?
+            </p>
+           </td>
+           <td>
+            <p>
+             Upload the
+             <code>
+              train.csv
+             </code>
+             file to a specified directory in an S3 bucket.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 3: Training a Custom Model
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you completed a training script?
+            </p>
+           </td>
+           <td>
+            <p>
+             Complete at least
+             <em>
+              one
+             </em>
+             of the
+             <code>
+              train.py
+             </code>
+             files by instantiating a model, and training it in the main if statement. If you are using a custom PyTorch model, you will have to complete the
+             <code>
+              model.py
+             </code>
+             file, as well (you do not have to do so if you choose to use an imported sklearn model).
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you defined a custom estimator?
+            </p>
+           </td>
+           <td>
+            <p>
+             Define a custom sklearn OR PyTorch estimator by passing in the required arguments.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you trained your model?
+            </p>
+           </td>
+           <td>
+            <p>
+             Fit your estimator (from the previous rubric item) to the training data you stored in S3.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 3: Deploying and Evaluating a Model
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Have you deployed the trained model?
+            </p>
+           </td>
+           <td>
+            <p>
+             Deploy the model and create a
+             <code>
+              predictor
+             </code>
+             by specifying a deployment instance.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Is the test accuracy of your model greater than 90%?
+            </p>
+           </td>
+           <td>
+            <p>
+             Pass test data to your deployed
+             <code>
+              predictor
+             </code>
+             and evaluate its performance by comparing its predictions to the true, class labels. Your model should get at least 90% test accuracy.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             Did you answer the two questions about model metrics and design considerations?
+            </p>
+           </td>
+           <td>
+            <p>
+             Provide an answer to the two model-related questions.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Notebook 3: Cleaning up Resources
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             Did you delete your model endpoint?
+            </p>
+           </td>
+           <td>
+            <p>
+             Run the code to clean up your final model resources.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Plagiarism Detector')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

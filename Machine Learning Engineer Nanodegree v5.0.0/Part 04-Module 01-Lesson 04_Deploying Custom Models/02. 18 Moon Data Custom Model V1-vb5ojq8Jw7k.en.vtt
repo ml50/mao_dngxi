@@ -1,0 +1,274 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.935
+Now, we saw the strengths of using
+
+00:00:01.935 --> 00:00:05.339
+a linear learner to build a payment fraud classification model.
+
+00:00:05.339 --> 00:00:09.585
+But it's often very useful to deploy a custom model of your own design.
+
+00:00:09.585 --> 00:00:11.850
+So I've created a couple of Notebooks that test
+
+00:00:11.849 --> 00:00:14.594
+your ability to create and deploy a custom model.
+
+00:00:14.595 --> 00:00:17.440
+These Notebooks require that you change a few files,
+
+00:00:17.440 --> 00:00:19.695
+and so from this Notebook Instance page,
+
+00:00:19.695 --> 00:00:22.335
+I'm actually going to select Open JupyterLab.
+
+00:00:22.335 --> 00:00:25.080
+This should bring you to a launcher page like this which is
+
+00:00:25.079 --> 00:00:28.019
+a little nicer I find for working with multiple files.
+
+00:00:28.019 --> 00:00:31.620
+You'll also see a number of unique buttons on the side and on the top.
+
+00:00:31.620 --> 00:00:35.325
+JupyterLab allows you to upload data using this button for example,
+
+00:00:35.325 --> 00:00:38.925
+and explore a collection of SageMaker sample Notebooks here.
+
+00:00:38.924 --> 00:00:41.640
+So let's navigate to the Moon Data directory,
+
+00:00:41.640 --> 00:00:46.295
+and open up this exercise Notebook here. I'll close this launcher.
+
+00:00:46.295 --> 00:00:50.810
+I'll also be able to collapse this sidebar by just clicking on this folder icon here.
+
+00:00:50.810 --> 00:00:53.990
+So the first thing to note about this Notebook is our kernel.
+
+00:00:53.990 --> 00:00:56.600
+It's conduct PyTorch P36.
+
+00:00:56.600 --> 00:00:58.800
+We've been using a mix net as the default,
+
+00:00:58.799 --> 00:01:02.959
+but if I wanted to develop a custom patronage model as I will in this example,
+
+00:01:02.960 --> 00:01:04.795
+it's a good idea to use this kernel.
+
+00:01:04.795 --> 00:01:07.775
+Now my plan for this Notebook is to generate some data,
+
+00:01:07.775 --> 00:01:12.330
+upload it to S3, and use it to train accustomed PyTorch Classifier.
+
+00:01:12.329 --> 00:01:16.474
+So the first thing I'm going to do is load in my usual data management libraries.
+
+00:01:16.474 --> 00:01:20.809
+You'll also see a few specific functions that I want to load in including make moons,
+
+00:01:20.810 --> 00:01:23.840
+and train test split from the SKLearn library.
+
+00:01:23.840 --> 00:01:27.530
+These functions are going to be useful for generating my Moon Data below.
+
+00:01:27.530 --> 00:01:31.085
+Let's click on the make moons documentation to read more about this.
+
+00:01:31.084 --> 00:01:35.389
+I can see that make moons expects a number of samples to generate as input,
+
+00:01:35.390 --> 00:01:38.480
+and as output it will produce x and y.
+
+00:01:38.480 --> 00:01:41.525
+X will be generated samples that are two dimensional,
+
+00:01:41.525 --> 00:01:44.005
+and y will be the corresponding class labels,
+
+00:01:44.004 --> 00:01:46.409
+zero or one for each of these points.
+
+00:01:46.409 --> 00:01:49.954
+So in this cell, I'm saying I want to generate 600 points,
+
+00:01:49.954 --> 00:01:51.980
+and I have a noise parameter that dictates
+
+00:01:51.980 --> 00:01:54.260
+how spread apart and noisy these points will be.
+
+00:01:54.260 --> 00:01:55.880
+The larger this value is,
+
+00:01:55.879 --> 00:01:57.560
+the more noisy our points will be.
+
+00:01:57.560 --> 00:02:01.865
+Then I'm calling make moons passing in the number of points and that noise parameter,
+
+00:02:01.864 --> 00:02:03.649
+and getting back x and y.
+
+00:02:03.650 --> 00:02:07.370
+You can play around with these values just to see what kind of data they generate.
+
+00:02:07.370 --> 00:02:12.020
+So x and y are data points that I can then split into training and test sets,
+
+00:02:12.020 --> 00:02:15.814
+and I'm doing that with a call to train test split passing in my features,
+
+00:02:15.814 --> 00:02:18.560
+and my labels, and a test size that I want.
+
+00:02:18.560 --> 00:02:22.189
+This is the fraction of the data that I want to make our test data set.
+
+00:02:22.189 --> 00:02:25.925
+So in this case, I'm keeping a quarter of our data for our test set.
+
+00:02:25.925 --> 00:02:27.380
+After generating this data,
+
+00:02:27.379 --> 00:02:28.669
+I'm going to plot it here.
+
+00:02:28.669 --> 00:02:31.159
+I'm plotting my feature data as a scatter plot,
+
+00:02:31.159 --> 00:02:33.079
+plotting one-dimension against another,
+
+00:02:33.080 --> 00:02:35.105
+and I'm coloring it based on the label.
+
+00:02:35.104 --> 00:02:38.530
+In this case any points that are labeled as zero are going to be purple,
+
+00:02:38.530 --> 00:02:40.925
+and any points with label one are yellow.
+
+00:02:40.925 --> 00:02:44.405
+This data is a classic binary classification challenge.
+
+00:02:44.405 --> 00:02:46.569
+We have evenly distributed classes,
+
+00:02:46.569 --> 00:02:50.944
+but a nonlinear separation line that gets a little tricky with the noise we added.
+
+00:02:50.944 --> 00:02:55.039
+So a linear model will actually not perform very well on this dataset,
+
+00:02:55.039 --> 00:02:57.245
+and it's beneficial to use a custom model.
+
+00:02:57.245 --> 00:03:00.469
+So in this Notebook, I'm going to focus on exercises that will
+
+00:03:00.469 --> 00:03:04.120
+allow you to deploy a custom PyTorch deep learning model.
+
+00:03:04.120 --> 00:03:09.020
+One thing to note is this data is not yet accessible to a SageMaker estimator.
+
+00:03:09.020 --> 00:03:12.245
+An estimator trains on data that's stored in S3.
+
+00:03:12.245 --> 00:03:13.849
+So as my next couple of steps,
+
+00:03:13.849 --> 00:03:18.769
+I'm going to load in my SageMaker specific libraries and get a few variables.
+
+00:03:18.770 --> 00:03:21.075
+First message maker session enroll,
+
+00:03:21.074 --> 00:03:23.479
+and I'm also getting a default bucket,
+
+00:03:23.479 --> 00:03:25.864
+an S3 bucket where we can store our data.
+
+00:03:25.865 --> 00:03:28.129
+Then I'm going to actually want to create a
+
+00:03:28.129 --> 00:03:32.615
+train.CSV file that holds all of our features and their labels.
+
+00:03:32.615 --> 00:03:35.270
+Then I'll have a single file to upload to S3.
+
+00:03:35.270 --> 00:03:38.659
+In that vain, I want you to complete this function make_CSV.
+
+00:03:38.659 --> 00:03:40.759
+It should take in some features x,
+
+00:03:40.759 --> 00:03:42.709
+some corresponding labels y,
+
+00:03:42.710 --> 00:03:46.295
+and a file name and data directory that define where to save this file.
+
+00:03:46.294 --> 00:03:48.709
+It may be helpful to use Pandas to smartly
+
+00:03:48.710 --> 00:03:51.890
+concatenate your features and labels into one dataframe,
+
+00:03:51.889 --> 00:03:53.929
+and then turn them into a CSV file.
+
+00:03:53.930 --> 00:03:56.254
+I want you to create a CSV file in
+
+00:03:56.254 --> 00:03:59.305
+a certain format according to SageMakers documentation.
+
+00:03:59.305 --> 00:04:04.159
+Specifically, SageMaker requires that a CSV file does not have a header record,
+
+00:04:04.159 --> 00:04:08.780
+and that the target variable in this case our class label is in the first column.
+
+00:04:08.780 --> 00:04:10.805
+So in creating a CSV file,
+
+00:04:10.805 --> 00:04:12.760
+we should set the header to false,
+
+00:04:12.759 --> 00:04:14.840
+and we should make the first column equal to
+
+00:04:14.840 --> 00:04:17.569
+our class labels leaving the rest as features.
+
+00:04:17.569 --> 00:04:19.189
+So try to complete this function,
+
+00:04:19.189 --> 00:04:21.350
+and if you're competent with your code you can create a
+
+00:04:21.350 --> 00:04:24.245
+train.CSV file by executing the cell below.
+
+00:04:24.245 --> 00:04:25.475
+If you want to check your work,
+
+00:04:25.475 --> 00:04:28.260
+I'll go over a solution next.
+

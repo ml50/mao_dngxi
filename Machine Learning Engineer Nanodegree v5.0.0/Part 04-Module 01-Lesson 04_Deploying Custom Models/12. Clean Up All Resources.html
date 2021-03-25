@@ -1,0 +1,442 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Clean Up: All Resources
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Deploying Custom Models
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Pre-Notebook Custom Models &amp; Moon Data.html">
+       01. Pre-Notebook: Custom Models &amp; Moon Data
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Moon Data &amp; Custom Models.html">
+       02. Moon Data &amp; Custom Models
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Upload Data to S3.html">
+       03. Upload Data to S3
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Exercise Custom PyTorch Classifier.html">
+       04. Exercise: Custom PyTorch Classifier
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Solution Simple Neural Network.html">
+       05. Solution: Simple Neural Network
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Exercise Training Script.html">
+       06. Exercise: Training Script
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Solution Complete Training Script.html">
+       07. Solution: Complete Training Script
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Custom SKLearn Model.html">
+       08. Custom SKLearn Model
+      </a>
+     </li>
+     <li class="">
+      <a href="09. PyTorch Estimator.html">
+       09. PyTorch Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Exercise Create a PyTorchModel &amp; Endpoint.html">
+       10. Exercise: Create a PyTorchModel &amp; Endpoint
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Solution PyTorchModel &amp; Evaluation.html">
+       11. Solution: PyTorchModel &amp; Evaluation
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Clean Up All Resources.html">
+       12. Clean Up: All Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Summary of Skills.html">
+       13. Summary of Skills
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          12. Clean Up: All Resources
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="clean-up-resources">
+          Clean up Resources
+         </h1>
+         <p>
+          It is good practice to always clean up and delete any resources that you are no longer using. That is, after you complete an exercise, and you are done with predictions and data analysis, you should get rid of any:
+         </p>
+         <ul>
+          <li>
+           Data source in S3 that you are no longer using
+          </li>
+          <li>
+           Endpoint configuration files that you no longer need
+          </li>
+          <li>
+           Endpoints that you will no longer use
+          </li>
+          <li>
+           CloudWatch logs that are no longer useful
+          </li>
+         </ul>
+         <h2 id="deleting-endpoints">
+          Deleting Endpoints
+         </h2>
+         <p>
+          In the notebook, we have usually included code to delete your endpoints after creating some predictions, for example:
+         </p>
+         <pre><code class="python language-python"># delete predictor endpoint
+session.delete_endpoint(predictor.endpoint)</code></pre>
+         <h2 id="thorough-clean-up">
+          Thorough Clean up
+         </h2>
+         <p>
+          You can find a link for instructions on cleaning up all your resources,
+          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-cleanup.html" rel="noopener noreferrer" target="_blank">
+           in this documentation
+          </a>
+          and I will go over some of these details, next.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ul>
+          <li>
+           Open the Amazon SageMaker console at
+           <a href="https://console.aws.amazon.com/sagemaker/" rel="noopener noreferrer" target="_blank">
+            https://console.aws.amazon.com/sagemaker/
+           </a>
+           and delete the following resources:
+          </li>
+         </ul>
+         <ol>
+          <li>
+           The endpoint configuration.
+          </li>
+          <li>
+           The model.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Delete endpoint config files." class="img img-fluid" src="img/delete-endpoint-config1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Delete endpoint config files.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Deleting models" class="img img-fluid" src="img/delete-models.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Deleting models
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ul>
+          <li>
+           Open the Amazon S3 console at
+           <a href="https://console.aws.amazon.com/s3/" rel="noopener noreferrer" target="_blank">
+            https://console.aws.amazon.com/s3/
+           </a>
+           and delete or empty the bucket that you created for storing model artifacts and the training dataset.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Delete or empty your S3 bucket (empty is recommended until the end of the course, when you should delete this bucket entirely)" class="img img-fluid" src="img/s3-empty-bucket.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Delete or empty your S3 bucket (empty is recommended until the end of the course, when you should delete this bucket entirely)
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ul>
+          <li>
+           Open the Amazon CloudWatch console at
+           <a href="https://console.aws.amazon.com/cloudwatch/" rel="noopener noreferrer" target="_blank">
+            https://console.aws.amazon.com/cloudwatch/
+           </a>
+           and delete all of the log groups that have names starting with /aws/sagemaker/.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          At the end of this course, you may also choose to delete the entire notebook instance and IAM Role, but you may keep these as is, for now. In between lessons, if you are taking a break, you may want to
+          <strong>
+           Stop
+          </strong>
+          your notebook and pause it from continuously running.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Stopping the ML-case-studies notebook" class="img img-fluid" src="img/stop-notebook.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Stopping the ML-case-studies notebook
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Cleaning up resources at the end of an exercise or lesson is a great practice to get into!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="important">
+          IMPORTANT
+         </h2>
+         <p>
+          <strong>
+           To avoid incurring additional charges, it is suggested that you
+           <em>
+            DELETE
+           </em>
+           any unused notebooks and data resources on S3 and CloudWatch.
+          </strong>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="13. Summary of Skills.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('12. Clean Up: All Resources')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

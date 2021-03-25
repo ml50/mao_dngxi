@@ -1,0 +1,281 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Exercise: DeepAR Estimator
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Time-Series Forecasting
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Time-Series Forecasting.html">
+       01. Time-Series Forecasting
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Forecasting Energy Consumption, Notebook.html">
+       02. Forecasting Energy Consumption, Notebook
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Pre-Notebook Time-Series Forecasting.html">
+       03. Pre-Notebook: Time-Series Forecasting
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Processing Energy Data.html">
+       04. Processing Energy Data
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Exercise Creating Time Series.html">
+       05. Exercise: Creating Time Series
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Solution Split Data.html">
+       06. Solution: Split Data
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise Convert to JSON.html">
+       07. Exercise: Convert to JSON
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Solution Formatting JSON Lines &amp; DeepAR Estimator.html">
+       08. Solution: Formatting JSON Lines &amp; DeepAR Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Exercise DeepAR Estimator.html">
+       09. Exercise: DeepAR Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Solution Complete Estimator &amp; Hyperparameters.html">
+       10. Solution: Complete Estimator &amp; Hyperparameters
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Making Predictions.html">
+       11. Making Predictions
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Exercise Predicting the Future.html">
+       12. Exercise: Predicting the Future
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Solution Predicting Future Data.html">
+       13. Solution: Predicting Future Data
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Clean Up All Resources.html">
+       14. Clean Up: All Resources
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          09. Exercise: DeepAR Estimator
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="instantiating-a-deepar-estimator">
+          Instantiating a DeepAR Estimator
+         </h2>
+         <p>
+          Some estimators have specific, SageMaker constructors, but not all. Instead, you can create a base Estimator and pass in the specific
+          <strong>
+           image
+          </strong>
+          (or container) that holds a specific model. The container for the DeepAR model can be gotten as follows:
+         </p>
+         <pre><code class="python language-python">from sagemaker.amazon.amazon_estimator import get_image_uri
+
+image_name = get_image_uri(boto3.Session().region_name, # get the region
+                           'forecasting-deepar') # specify image</code></pre>
+         <p>
+          Now that you have the correct image, you can instantiate an Estimator. You're given the following, in-notebook exercise.
+         </p>
+         <h3 id="exercise-instantiate-an-estimator">
+          EXERCISE: Instantiate an Estimator
+         </h3>
+         <p>
+          A generic Estimator will be defined by the usual constructor arguments and an
+          <code>
+           image_name
+          </code>
+          .
+         </p>
+         <p>
+          You can take a look at the
+          <a href="https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/estimator.py#L601" rel="noopener noreferrer" target="_blank">
+           estimator source code
+          </a>
+          to view specifics.
+         </p>
+         <p>
+          If you complete this task, you can move on to setting DeepAR's model and training hyperparameters and call
+          <code>
+           .fit()
+          </code>
+          to start a training job! You're encouraged to keep going, deploying and evaluating the model on your owm; you are welcome to consult the solution videos to see if your answer matches mine.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="10. Solution Complete Estimator &amp; Hyperparameters.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('09. Exercise: DeepAR Estimator')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

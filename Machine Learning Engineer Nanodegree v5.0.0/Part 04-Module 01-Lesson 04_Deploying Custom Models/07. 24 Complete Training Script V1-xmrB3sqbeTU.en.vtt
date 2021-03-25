@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.634
+So here's my complete solution for the if statement in our train.py file.
+
+00:00:04.634 --> 00:00:06.719
+The first thing I wanted to do was add
+
+00:00:06.719 --> 00:00:09.719
+arguments to our parser for our three model parameters.
+
+00:00:09.720 --> 00:00:13.545
+I've specified input_dim, hidden_dim, and output _dim.
+
+00:00:13.544 --> 00:00:16.140
+All of these arguments are going to be integer values,
+
+00:00:16.140 --> 00:00:18.600
+and I've specified default values for each.
+
+00:00:18.600 --> 00:00:21.450
+Input_dim is the number of input features to our model
+
+00:00:21.449 --> 00:00:24.554
+which will default to two since we have two-dimensional data.
+
+00:00:24.554 --> 00:00:28.949
+Hidden_dim is the hidden dimension of the model which I'll set as a default to 10.
+
+00:00:28.949 --> 00:00:31.140
+Finally, output_dim is the output dimension of
+
+00:00:31.140 --> 00:00:33.765
+our model or how many values I want to output,
+
+00:00:33.765 --> 00:00:36.119
+and I'll just want to output one class score.
+
+00:00:36.119 --> 00:00:41.179
+The next to do was to instantiate the model by passing in the appropriate parameters.
+
+00:00:41.179 --> 00:00:42.859
+I know how to instantiate a SimpleNet.
+
+00:00:42.859 --> 00:00:45.530
+I just have to pass in the appropriate input dimension,
+
+00:00:45.530 --> 00:00:47.780
+hidden dimension, and output dimension.
+
+00:00:47.780 --> 00:00:51.259
+Setting these equal to args.input_dim will allow someone
+
+00:00:51.259 --> 00:00:54.649
+to specify this dimension when they instantiate an estimator.
+
+00:00:54.649 --> 00:00:56.269
+I'm also moving this model to
+
+00:00:56.270 --> 00:00:59.720
+the appropriate device which will move it to a GPU if it's available.
+
+00:00:59.719 --> 00:01:04.069
+Next, I'm choosing to use an Adam optimizer which is just my go-to because,
+
+00:01:04.069 --> 00:01:05.644
+empirically, it works pretty well,
+
+00:01:05.644 --> 00:01:08.164
+but you could also use stochastic gradient descent.
+
+00:01:08.165 --> 00:01:10.220
+I'm passing in my model parameters here and
+
+00:01:10.219 --> 00:01:12.500
+the learning rates specified in my parameters.
+
+00:01:12.500 --> 00:01:14.028
+Then, for my criterion,
+
+00:01:14.028 --> 00:01:18.414
+I'm specifying BCELoss, which is binary cross entropy loss.
+
+00:01:18.415 --> 00:01:20.990
+In PyTorch, normal cross entropy will not work
+
+00:01:20.989 --> 00:01:24.039
+here because our model only returns one value,
+
+00:01:24.040 --> 00:01:27.145
+and so it's particularly suited to BCELoss.
+
+00:01:27.144 --> 00:01:29.049
+That completes this if statement.
+
+00:01:29.049 --> 00:01:30.709
+My complete model, optimizer,
+
+00:01:30.709 --> 00:01:34.909
+and criterion will be passed into this train function which will save our trained model.
+
+00:01:34.909 --> 00:01:36.890
+Now, if we go back to our notebook,
+
+00:01:36.890 --> 00:01:40.594
+I can use pygmentize to print out our complete train.py file.
+
+00:01:40.594 --> 00:01:44.959
+The next step is going to be creating and training a PyTorch estimator such
+
+00:01:44.959 --> 00:01:49.625
+that it executes this training script and trains on the training data we stored in S3.
+
+00:01:49.625 --> 00:01:54.140
+A PyTorch estimator is constructed in a very similar way to other estimators.
+
+00:01:54.140 --> 00:01:57.064
+You can see that I'm importing a PyTorch estimator here,
+
+00:01:57.064 --> 00:02:00.620
+and you'll just have to pass in some arguments to the constructor.
+
+00:02:00.620 --> 00:02:03.409
+When a custom model is constructed in SageMaker,
+
+00:02:03.409 --> 00:02:08.395
+an entry point must be specified that points to a training script, in this case.
+
+00:02:08.395 --> 00:02:11.300
+The entry point will let it know where the training script is
+
+00:02:11.300 --> 00:02:15.200
+located so that the estimator knows what to do when.fit is called.
+
+00:02:15.199 --> 00:02:19.699
+So I've given you a link to just the documentation for a PyTorch estimator and I
+
+00:02:19.699 --> 00:02:21.889
+think you'll be able to complete this task and train
+
+00:02:21.889 --> 00:02:24.519
+a custom model by just using this as a resource.
+
+00:02:24.520 --> 00:02:26.020
+Try that on your own,
+
+00:02:26.020 --> 00:02:29.330
+and in the next video, I'll go over one solution.
+

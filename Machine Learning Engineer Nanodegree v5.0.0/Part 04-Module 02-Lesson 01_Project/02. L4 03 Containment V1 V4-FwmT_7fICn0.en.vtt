@@ -1,0 +1,154 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.320
+One of your first project tasks will be to create containment features.
+
+00:00:04.320 --> 00:00:06.750
+Here's the equation for calculating containment.
+
+00:00:06.750 --> 00:00:09.224
+Let's go over each term one by one.
+
+00:00:09.224 --> 00:00:12.224
+You'll first see a few of this word ngram.
+
+00:00:12.224 --> 00:00:16.199
+An N-gram is a sequential word grouping of length n words.
+
+00:00:16.199 --> 00:00:18.164
+For example, in a phrase like,
+
+00:00:18.164 --> 00:00:19.500
+''I like to read books.''
+
+00:00:19.500 --> 00:00:23.759
+A 1-gram or unigram is just one word like ''to'' or ''read''.
+
+00:00:23.760 --> 00:00:30.015
+A 2-gram might be ''like to'' or ''read books'' and a 3-gram might be ''like to read''.
+
+00:00:30.015 --> 00:00:34.975
+In this project, you'll be comparing a source text S and an answer text A,
+
+00:00:34.975 --> 00:00:38.965
+trying to see if the answer text is plagiarized from the source or not.
+
+00:00:38.965 --> 00:00:42.050
+Thinking about n-grams, you might intuitively say that the
+
+00:00:42.049 --> 00:00:45.049
+more n-grams that the two texts have in common,
+
+00:00:45.049 --> 00:00:49.309
+the more likely it is that the given answer text was plagiarized from the source.
+
+00:00:49.310 --> 00:00:52.070
+Containment is a mathematical way of representing
+
+00:00:52.070 --> 00:00:55.490
+this idea and it's easiest to see in an example.
+
+00:00:55.490 --> 00:00:58.850
+Consider these examples sentences, the answer,
+
+00:00:58.850 --> 00:01:01.130
+''This is an answer text,'' and the source,
+
+00:01:01.130 --> 00:01:02.910
+''This is a source text.''
+
+00:01:02.909 --> 00:01:04.909
+Say we have an n of 1, which means,
+
+00:01:04.909 --> 00:01:09.265
+we're going to look at every word in an answer text and every word in a source text.
+
+00:01:09.265 --> 00:01:12.875
+We'll count up the occurrences of each word in each text.
+
+00:01:12.875 --> 00:01:15.319
+This gives us the n-gram counts.
+
+00:01:15.319 --> 00:01:18.589
+Then we'll take the intersection of those n-gram counts.
+
+00:01:18.590 --> 00:01:22.909
+The intersection is the set of n-grams that both of the texts have in common.
+
+00:01:22.909 --> 00:01:26.164
+Here, we see that both of the texts contain the words,
+
+00:01:26.165 --> 00:01:28.790
+This, Is, and Text.
+
+00:01:28.790 --> 00:01:30.370
+This is the intersection.
+
+00:01:30.370 --> 00:01:33.800
+To get a numerical value that represents this intersection,
+
+00:01:33.799 --> 00:01:36.965
+We just sum up these occurrences to get the value 3.
+
+00:01:36.965 --> 00:01:39.890
+Finally, we'll normalize this value by dividing by
+
+00:01:39.890 --> 00:01:43.344
+the sum of all n-gram counts in the answer text.
+
+00:01:43.344 --> 00:01:44.780
+For an n equal to 1,
+
+00:01:44.780 --> 00:01:50.165
+this is 5 for the five words and we get the final containment value 0.6.
+
+00:01:50.165 --> 00:01:53.030
+So to summarize, we calculated the number of
+
+00:01:53.030 --> 00:01:55.900
+n-grams that the source and answer text have in common,
+
+00:01:55.900 --> 00:01:59.795
+then divided that value by the number of n-grams in the answer text.
+
+00:01:59.795 --> 00:02:02.329
+A value of 0.6 is quite high,
+
+00:02:02.329 --> 00:02:04.219
+but maybe it's just because these texts are
+
+00:02:04.219 --> 00:02:06.875
+short or they use the same kind of filler words.
+
+00:02:06.875 --> 00:02:09.395
+Now, if we selected an N equal to two,
+
+00:02:09.395 --> 00:02:12.439
+we would look at which pairs of words these texts have in common.
+
+00:02:12.439 --> 00:02:15.245
+With an N of 1, the order of words didn't matter.
+
+00:02:15.245 --> 00:02:19.340
+But with a larger N, the order of words in each n-gram does matter.
+
+00:02:19.340 --> 00:02:21.395
+Consider a longer text.
+
+00:02:21.395 --> 00:02:23.960
+You can imagine that if you have a high containment value
+
+00:02:23.960 --> 00:02:26.659
+for matching two grams or three grams or longer,
+
+00:02:26.659 --> 00:02:31.115
+then this might be a good indicator of cut and paste style plagiarism.
+
+00:02:31.115 --> 00:02:34.250
+This will be one of the features that you calculate for our corpus of
+
+00:02:34.250 --> 00:02:39.240
+text data and you'll get more practice calculating containment next.
+

@@ -1,0 +1,374 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Exercise: Create a PyTorchModel &amp; Endpoint
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Deploying Custom Models
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Pre-Notebook Custom Models &amp; Moon Data.html">
+       01. Pre-Notebook: Custom Models &amp; Moon Data
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Moon Data &amp; Custom Models.html">
+       02. Moon Data &amp; Custom Models
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Upload Data to S3.html">
+       03. Upload Data to S3
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Exercise Custom PyTorch Classifier.html">
+       04. Exercise: Custom PyTorch Classifier
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Solution Simple Neural Network.html">
+       05. Solution: Simple Neural Network
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Exercise Training Script.html">
+       06. Exercise: Training Script
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Solution Complete Training Script.html">
+       07. Solution: Complete Training Script
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Custom SKLearn Model.html">
+       08. Custom SKLearn Model
+      </a>
+     </li>
+     <li class="">
+      <a href="09. PyTorch Estimator.html">
+       09. PyTorch Estimator
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Exercise Create a PyTorchModel &amp; Endpoint.html">
+       10. Exercise: Create a PyTorchModel &amp; Endpoint
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Solution PyTorchModel &amp; Evaluation.html">
+       11. Solution: PyTorchModel &amp; Evaluation
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Clean Up All Resources.html">
+       12. Clean Up: All Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Summary of Skills.html">
+       13. Summary of Skills
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          10. Exercise: Create a PyTorchModel &amp; Endpoint
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="create-and-deploy-a-trained-model">
+          Create and Deploy a Trained Model
+         </h1>
+         <p>
+          Before you can deploy a custom PyTorch model, you have to take one more step: creating a
+          <code>
+           PyTorchModel
+          </code>
+          . In earlier exercises, you could see that a call to
+          <code>
+           .deploy()
+          </code>
+          created
+          <strong>
+           both
+          </strong>
+          a
+          <em>
+           model
+          </em>
+          and an
+          <em>
+           endpoint
+          </em>
+          , but for PyTorch models, these steps have to be separate. PyTorch models do not automatically come with
+          <code>
+           .predict()
+          </code>
+          functions attached (as many Amazon and Scikit-learn models do, for example) and you may have noticed that you've been given a
+          <code>
+           predict.py
+          </code>
+          file in the
+          <code>
+           source
+          </code>
+          directory. This file is responsible for loading a trained model and applying it to passed in, numpy data.
+         </p>
+         <p>
+          Now, when we created a PyTorch
+          <strong>
+           estimator
+          </strong>
+          , we specified where the training script,
+          <code>
+           train.py
+          </code>
+          was located. And we'll have to do something very similar here, but for a PyTorch
+          <strong>
+           model
+          </strong>
+          and the
+          <code>
+           predict.py
+          </code>
+          file.
+         </p>
+         <h3 id="exercise-instantiate-a-pytorchmodel">
+          EXERCISE: Instantiate a PyTorchModel
+         </h3>
+         <p>
+          You can create a
+          <code>
+           PyTorchModel
+          </code>
+          from your trained, estimator attributes. This model is responsible for knowing how to execute a specific
+          <code>
+           predict.py
+          </code>
+          script. And this model is what you'll deploy to create an endpoint.
+         </p>
+         <h4 id="model-parameters">
+          Model Parameters
+         </h4>
+         <p>
+          To instantiate a
+          <code>
+           PyTorchModel
+          </code>
+          , (
+          <a href="https://sagemaker.readthedocs.io/en/stable/sagemaker.pytorch.html#pytorch-model" rel="noopener noreferrer" target="_blank">
+           documentation, here
+          </a>
+          ) you pass in the same arguments as your PyTorch estimator, with a few additions/modifications:
+         </p>
+         <ul>
+          <li>
+           <strong>
+            model_data
+           </strong>
+           : The trained model.tar.gz file created by your estimator, which can be accessed as estimator.model_data.
+          </li>
+          <li>
+           <strong>
+            entry_point
+           </strong>
+           : This time, this is the path to the Python script SageMaker runs for prediction rather than training, predict.py.
+          </li>
+         </ul>
+         <p>
+          In the exercise notebook, you've been given the following code to fill in:
+         </p>
+         <pre><code class="python language-python">%%time
+# importing PyTorchModel
+from sagemaker.pytorch import PyTorchModel
+
+# Create a model from the trained estimator data
+# And point to the prediction script
+model = None</code></pre>
+         <h3 id="exercise-deploy-the-trained-model">
+          EXERCISE: Deploy the trained model
+         </h3>
+         <p>
+          Deploy your model to create a predictor. We'll use this to make predictions on our test data and evaluate the model.
+         </p>
+         <pre><code class="python language-python">%%time
+# deploy and create a predictor
+predictor = None</code></pre>
+         <h3 id="evaluate-your-model">
+          Evaluate your Model
+         </h3>
+         <p>
+          After deploying your model, you have been given some code to evaluate its performance according to a variety of metrics!
+         </p>
+         <blockquote>
+          <p>
+           Remember to
+           <strong>
+            delete your predictor endpoint
+           </strong>
+           <em>
+            after
+           </em>
+           you've finished evaluating the model.
+          </p>
+         </blockquote>
+         <p>
+          Try to complete these steps on your own, and I'll go over one solution, next!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="11. Solution PyTorchModel &amp; Evaluation.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Exercise: Create a PyTorchModel &amp; Endpoint')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

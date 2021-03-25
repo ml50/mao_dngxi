@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.060
+In text classification, it's often useful to
+
+00:00:03.060 --> 00:00:06.314
+include multiple features in your final classification model.
+
+00:00:06.315 --> 00:00:10.574
+Containment is just one measure of text similarity and in this project,
+
+00:00:10.574 --> 00:00:15.390
+you'll also be expected to calculate the longest common subsequence or LCS,
+
+00:00:15.390 --> 00:00:17.295
+between a source and answer text.
+
+00:00:17.295 --> 00:00:20.490
+Given two texts and answer A and a source S,
+
+00:00:20.489 --> 00:00:24.734
+your goal is to find the value for the longest common subsequence of words.
+
+00:00:24.734 --> 00:00:29.640
+This is the longest sequence of words that appear left to right in both texts.
+
+00:00:29.640 --> 00:00:33.299
+It's important to note that the words don't have to be exactly continuous,
+
+00:00:33.299 --> 00:00:35.265
+just in left to right order.
+
+00:00:35.265 --> 00:00:37.994
+Consider these sentences: A,
+
+00:00:37.994 --> 00:00:42.074
+machine learning is all about finding patterns in data and forming predictions,
+
+00:00:42.075 --> 00:00:46.520
+and S, deep learning uses neural networks to find patterns in data.
+
+00:00:46.520 --> 00:00:48.090
+To find the LCS,
+
+00:00:48.090 --> 00:00:51.035
+we can go along word by word in each sentence.
+
+00:00:51.034 --> 00:00:54.375
+The first words, machine and deep, are different.
+
+00:00:54.375 --> 00:00:56.229
+Then learning is a match,
+
+00:00:56.229 --> 00:00:58.129
+then the texts diverge again.
+
+00:00:58.130 --> 00:01:03.005
+So we continue moving left to right along both texts until we see the next common words.
+
+00:01:03.005 --> 00:01:05.844
+In this case, the words patterns and data.
+
+00:01:05.844 --> 00:01:08.299
+That's the end of our source text and so we can stop
+
+00:01:08.299 --> 00:01:11.914
+here and say that the LCS is four words total.
+
+00:01:11.915 --> 00:01:14.240
+There's one more normalization step,
+
+00:01:14.239 --> 00:01:17.390
+which is to divide this value by the length of the answer text,
+
+00:01:17.390 --> 00:01:18.844
+which has 12 words in it.
+
+00:01:18.844 --> 00:01:24.090
+So we get our final value four over 12 or about 0.333.
+
+00:01:24.090 --> 00:01:26.424
+You could approach this problem recursively,
+
+00:01:26.424 --> 00:01:31.209
+keeping track of your location in each text and counting up when you find a common word.
+
+00:01:31.209 --> 00:01:34.369
+But a recursive approach especially for longer texts,
+
+00:01:34.370 --> 00:01:36.605
+can be very computationally intensive.
+
+00:01:36.605 --> 00:01:39.650
+Instead, I recommend a dynamic programming approach,
+
+00:01:39.650 --> 00:01:42.150
+which I'll go over it next.
+

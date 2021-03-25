@@ -1,0 +1,214 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.569
+So we've trained our model on training and test channels of data.
+
+00:00:03.569 --> 00:00:07.080
+Then deployed this to create a predictor that should be able to predict
+
+00:00:07.080 --> 00:00:10.800
+the future or rather produce predictions of prediction length,
+
+00:00:10.800 --> 00:00:14.220
+30 days, given a historical time series as input.
+
+00:00:14.220 --> 00:00:18.255
+Now, we can't pass a time series object to our predictor directly.
+
+00:00:18.254 --> 00:00:21.105
+We have to format the input in a specific way.
+
+00:00:21.105 --> 00:00:23.580
+It's going to be a JSON format once again.
+
+00:00:23.579 --> 00:00:26.219
+The predictor expects to see input data in
+
+00:00:26.219 --> 00:00:30.629
+a JSON format with instances and configuration keys.
+
+00:00:30.629 --> 00:00:32.804
+Here's an example of what this looks like.
+
+00:00:32.804 --> 00:00:37.140
+The instances are just a list of JSON formatted time series
+
+00:00:37.140 --> 00:00:38.765
+that should be forecast by the model,
+
+00:00:38.765 --> 00:00:43.890
+and we know how to create these already with the function series to JSON obj we wrote.
+
+00:00:43.890 --> 00:00:48.200
+You may also note that the target can be a list of values of varying length.
+
+00:00:48.200 --> 00:00:50.750
+Then configuration holds a dictionary of
+
+00:00:50.750 --> 00:00:55.060
+configuration information that defines the type of response we want from the predictor.
+
+00:00:55.060 --> 00:00:56.929
+Then our predictor will output
+
+00:00:56.929 --> 00:01:00.859
+some samples with an element of randomness and uncertainty,
+
+00:01:00.859 --> 00:01:04.114
+and so we'll want quantile predictions back as output.
+
+00:01:04.114 --> 00:01:07.704
+Quantiles basically look at the ranges that these samples fall into.
+
+00:01:07.704 --> 00:01:10.489
+So we can get an upper and lower bound for
+
+00:01:10.489 --> 00:01:14.794
+our prediction range as well as an average over all samples, for example.
+
+00:01:14.795 --> 00:01:17.989
+This will become clearer when we can actually visualize this data.
+
+00:01:17.989 --> 00:01:22.259
+But know that we'll have a configuration with some number of samples to generate,
+
+00:01:22.260 --> 00:01:24.755
+an output type which is going to be quantiles,
+
+00:01:24.754 --> 00:01:27.560
+and the list of exact quantiles that we want.
+
+00:01:27.560 --> 00:01:31.490
+So this function is provided and it's written to take in a list of
+
+00:01:31.489 --> 00:01:33.454
+input time series and produce
+
+00:01:33.454 --> 00:01:36.954
+a JSON formatted input that we can then pass to our predictor.
+
+00:01:36.954 --> 00:01:40.234
+Here's exactly how that JSON request is constructed.
+
+00:01:40.234 --> 00:01:45.230
+First gain our JSON formatted input series and then specifying the configuration.
+
+00:01:45.230 --> 00:01:49.850
+In the next cell, and getting all the input training and full test time series,
+
+00:01:49.849 --> 00:01:51.875
+which I'll use only for evaluation.
+
+00:01:51.875 --> 00:01:53.734
+Then I'm passing the list of
+
+00:01:53.734 --> 00:01:58.280
+input training time series into our function to get a JSON formatted output.
+
+00:01:58.280 --> 00:02:01.489
+This holds instances for all three of our input series,
+
+00:02:01.489 --> 00:02:04.709
+then I'm passing this formatted input to the predictor,
+
+00:02:04.709 --> 00:02:07.744
+calling predictor dot predict and passing in this input.
+
+00:02:07.745 --> 00:02:11.735
+This print line is here in case you need to debug or want to see what this looks like.
+
+00:02:11.735 --> 00:02:13.580
+Looking at the documentation,
+
+00:02:13.580 --> 00:02:19.190
+I can see that if I pass in an input with this instances and configuration format,
+
+00:02:19.189 --> 00:02:21.949
+I should get a response in this format where we have
+
+00:02:21.949 --> 00:02:25.354
+a dictionary of predictions organized by quantiles.
+
+00:02:25.354 --> 00:02:26.599
+So in our notebook,
+
+00:02:26.599 --> 00:02:29.759
+I've written code to decode the predictor output as well,
+
+00:02:29.759 --> 00:02:33.849
+just getting my quantile predictions for each time series that was passed in.
+
+00:02:33.849 --> 00:02:36.500
+This should return a list of predictions.
+
+00:02:36.500 --> 00:02:39.754
+So this has been a lot of formatting and unformatting.
+
+00:02:39.754 --> 00:02:42.634
+But now if I decode my JSON prediction,
+
+00:02:42.634 --> 00:02:44.899
+I'm going to be left with the list that looks like
+
+00:02:44.900 --> 00:02:47.825
+this or at least this for the first time series.
+
+00:02:47.824 --> 00:02:50.164
+It's a list of 30 predictions for
+
+00:02:50.164 --> 00:02:54.379
+each quantile and the 30 comes from our prediction length.
+
+00:02:54.379 --> 00:02:57.319
+I can finally use this data to display the results.
+
+00:02:57.319 --> 00:03:01.683
+This display quantiles function takes in a list of quantile predictions
+
+00:03:01.683 --> 00:03:05.900
+like we just generated and a list of target time series if there are some.
+
+00:03:05.900 --> 00:03:09.995
+It will display the unknown last 30 values in a target time series.
+
+00:03:09.995 --> 00:03:13.775
+It will also print the average prediction over all samples.
+
+00:03:13.775 --> 00:03:16.564
+The target and prediction median should be comparable.
+
+00:03:16.564 --> 00:03:18.530
+This also fills in an area with
+
+00:03:18.530 --> 00:03:22.180
+lower and upper bounds for the majority of the produce samples.
+
+00:03:22.180 --> 00:03:26.805
+Those samples that fall in between quantiles 0.1 and 0.9.
+
+00:03:26.805 --> 00:03:28.185
+When I run this code,
+
+00:03:28.185 --> 00:03:30.849
+I get these three plots.
+
+00:03:31.240 --> 00:03:34.925
+I can see that the results are actually pretty good.
+
+00:03:34.925 --> 00:03:39.365
+The predictions seem to generally follow the waves and trend of the target data.
+
+00:03:39.365 --> 00:03:41.600
+They also seem like they might get a little less
+
+00:03:41.599 --> 00:03:44.060
+certain inaccurate at the end of a prediction window.
+
+00:03:44.060 --> 00:03:46.449
+Next, I have one last thing to show you,
+
+00:03:46.449 --> 00:03:50.699
+which is predicting the 2010 data that we withheld.
+

@@ -1,0 +1,121 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.850
+So we have our binary moon data,
+
+00:00:02.850 --> 00:00:07.560
+and the next thing we want to do is define and train a custom PyTorch model.
+
+00:00:07.559 --> 00:00:11.234
+Specifically, a neural network that performs binary classification.
+
+00:00:11.234 --> 00:00:13.664
+Now, aside from this exercise notebook,
+
+00:00:13.664 --> 00:00:15.899
+I've given you a source directory here.
+
+00:00:15.900 --> 00:00:18.120
+Inside here, you'll find several files,
+
+00:00:18.120 --> 00:00:21.525
+train.py, predict.py, and model.py.
+
+00:00:21.524 --> 00:00:26.684
+Model.py will be where the layers of a PyTorch model will be explicitly defined.
+
+00:00:26.684 --> 00:00:29.654
+Predict.py is completely provided to you.
+
+00:00:29.655 --> 00:00:31.560
+You won't need to change anything in here.
+
+00:00:31.559 --> 00:00:33.644
+It's complete and just applies
+
+00:00:33.645 --> 00:00:37.140
+a trained model to some data and returns predicted class scores.
+
+00:00:37.140 --> 00:00:39.619
+Finally, we have train.py which is
+
+00:00:39.619 --> 00:00:42.709
+where I'll be demonstrating how to build and train a custom model.
+
+00:00:42.710 --> 00:00:44.359
+So let's take this piece by piece.
+
+00:00:44.359 --> 00:00:49.085
+Your first task will be to define a simple binary classifier in model.py.
+
+00:00:49.085 --> 00:00:51.500
+In the notebook, I've specified that this model should
+
+00:00:51.500 --> 00:00:53.825
+accept a number of input_dim features.
+
+00:00:53.825 --> 00:00:57.320
+It should then process this input through a couple of hidden layers,
+
+00:00:57.320 --> 00:00:59.914
+and return a single output value that indicates
+
+00:00:59.914 --> 00:01:02.750
+a class score close to zero or close to one,
+
+00:01:02.750 --> 00:01:05.810
+for our purple and for our yellow points respectively.
+
+00:01:05.810 --> 00:01:09.920
+In fact, this output value should be a sigmoid-activated class score.
+
+00:01:09.920 --> 00:01:13.670
+You can even display the model.py contents in the notebook.
+
+00:01:13.670 --> 00:01:17.225
+This is the starting code I've given you for this model.py file.
+
+00:01:17.224 --> 00:01:19.179
+Let me click on that file directly.
+
+00:01:19.180 --> 00:01:22.605
+So all your tasks are marked as TODOs in this file.
+
+00:01:22.605 --> 00:01:23.920
+In the init function,
+
+00:01:23.920 --> 00:01:29.120
+you should define a two or three layer model that takes in some number of input features,
+
+00:01:29.120 --> 00:01:31.520
+creates hidden layers according to this hidden dimension,
+
+00:01:31.519 --> 00:01:34.399
+and produces an output_dim number of outputs.
+
+00:01:34.400 --> 00:01:37.370
+You specify all your layers in this init function,
+
+00:01:37.370 --> 00:01:40.660
+and then define the feedforward behavior of the network in forward.
+
+00:01:40.659 --> 00:01:43.729
+Don't forget to apply activation functions where necessary,
+
+00:01:43.730 --> 00:01:46.743
+and really think about how you might create a binary classifier,
+
+00:01:46.743 --> 00:01:49.040
+the outputs a zero or one label.
+
+00:01:49.040 --> 00:01:51.200
+There're even more details in the notebook,
+
+00:01:51.200 --> 00:01:54.034
+and a link to an example for a three layer network.
+
+00:01:54.034 --> 00:02:00.030
+So try to complete this model.py file before moving on to the solution and next files.
+
