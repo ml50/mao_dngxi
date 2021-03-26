@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.410
+So far, you've learned a lot about approaching the task of image classification.
+
+00:00:04.410 --> 00:00:08.710
+In fact, now is a good time to review the pipeline we've developed for such a task.
+
+00:00:08.710 --> 00:00:12.060
+First, load and visualize the data you're working with,
+
+00:00:12.060 --> 00:00:16.170
+then pre-process that data by normalizing it and converting it into a tensor,
+
+00:00:16.170 --> 00:00:20.070
+so that it's prepped for further processing by the layers of a neural network.
+
+00:00:20.070 --> 00:00:21.804
+Then, do your research,
+
+00:00:21.804 --> 00:00:24.644
+has anyone approached this or similar task before?
+
+00:00:24.644 --> 00:00:28.019
+What kind of deep learning models have already been tried and tested?
+
+00:00:28.019 --> 00:00:32.200
+Use this research to help you decide on a model architecture and define it.
+
+00:00:32.200 --> 00:00:36.695
+Then, decide on loss and optimization functions and proceed with training your model.
+
+00:00:36.695 --> 00:00:39.465
+Here, you may choose to use a validation dataset
+
+00:00:39.465 --> 00:00:42.410
+to select and save the best model during training.
+
+00:00:42.409 --> 00:00:45.929
+Finally, test your model on previously unseen data.
+
+00:00:45.929 --> 00:00:49.024
+At this point, feel free to take a break from what you are learning,
+
+00:00:49.024 --> 00:00:51.530
+take time to absorb what you've learned so far.
+
+00:00:51.530 --> 00:00:53.765
+Then when you're ready, you can keep going.
+
+00:00:53.765 --> 00:00:57.560
+Next, I'll go over a new kind of architecture for image classification,
+
+00:00:57.560 --> 00:00:59.289
+a convolutional neural network,
+
+00:00:59.289 --> 00:01:02.640
+which can help us build even better image classification models.
+

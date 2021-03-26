@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.149
+Let's begin by investigating how deep learning can
+
+00:00:03.149 --> 00:00:06.120
+be used to recognize a single object in an image.
+
+00:00:06.120 --> 00:00:07.980
+In this example, we want to design
+
+00:00:07.980 --> 00:00:11.620
+an image classifier that takes in an image of a hand-written number,
+
+00:00:11.619 --> 00:00:14.164
+and produces a predicted class for that number.
+
+00:00:14.164 --> 00:00:17.780
+This class ideally, correctly identifies the given image.
+
+00:00:17.780 --> 00:00:20.500
+To build this, we'll use the MNIST database,
+
+00:00:20.500 --> 00:00:24.495
+which contains thousands of small gray scale images of hand-written digits.
+
+00:00:24.495 --> 00:00:27.835
+Each image depicts one of the numbers zero through nine.
+
+00:00:27.835 --> 00:00:29.460
+This database is perhaps one of
+
+00:00:29.460 --> 00:00:33.140
+the most famous databases in the field of machine and deep learning.
+
+00:00:33.140 --> 00:00:36.390
+It was one of the first databases used to prove the usefulness of
+
+00:00:36.390 --> 00:00:38.670
+neural networks and has continued to inform
+
+00:00:38.670 --> 00:00:41.359
+the development of new architectures overtime.
+
+00:00:41.359 --> 00:00:44.060
+If you look over this small sample of data,
+
+00:00:44.060 --> 00:00:46.940
+you might notice that some digits are more legible than others.
+
+00:00:46.939 --> 00:00:49.039
+For instance, if you squint just right,
+
+00:00:49.039 --> 00:00:50.890
+this three could pass for an eight.
+
+00:00:50.890 --> 00:00:54.859
+You can imagine that the dataset contains some fours that could pass for nines,
+
+00:00:54.859 --> 00:00:56.570
+or ones and sevens.
+
+00:00:56.570 --> 00:00:58.249
+Even with these subtleties,
+
+00:00:58.249 --> 00:01:01.685
+for us the task of identifying these numbers is pretty easy.
+
+00:01:01.685 --> 00:01:04.894
+We also want to design an appropriate model such that
+
+00:01:04.894 --> 00:01:08.299
+it too can accurately distinguish between each of these numbers.
+
+00:01:08.299 --> 00:01:12.530
+Using deep learning, we can take a data-driven approach to training an algorithm
+
+00:01:12.530 --> 00:01:14.629
+that can examine these images and discover
+
+00:01:14.629 --> 00:01:17.170
+patterns that distinguish one number from another.
+
+00:01:17.170 --> 00:01:19.835
+Our algorithm will need to attain some level of
+
+00:01:19.834 --> 00:01:23.250
+understanding of what makes a hand-drawn one look like a one,
+
+00:01:23.250 --> 00:01:27.790
+and how images of ones differ from images of say twos or threes.
+
+00:01:27.790 --> 00:01:29.960
+The first step in recognizing patterns in
+
+00:01:29.959 --> 00:01:32.989
+images is learning how images are seen by computers.
+
+00:01:32.989 --> 00:01:35.629
+So, before we start to design an algorithm,
+
+00:01:35.629 --> 00:01:39.759
+let's first visualize this data and take a closer look at these images.
+

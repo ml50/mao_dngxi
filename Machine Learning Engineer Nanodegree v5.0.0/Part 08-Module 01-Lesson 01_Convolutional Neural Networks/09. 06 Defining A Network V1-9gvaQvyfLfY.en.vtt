@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.360
+You've learned a lot about how to approach the task of image classification.
+
+00:00:04.360 --> 00:00:07.725
+In this notebook, I'll go over how to load in image data,
+
+00:00:07.724 --> 00:00:09.879
+define a model, and train it.
+
+00:00:09.880 --> 00:00:12.220
+You may already be familiar with this process from
+
+00:00:12.220 --> 00:00:14.960
+the earlier lesson on deep learning with PyTorch,
+
+00:00:14.960 --> 00:00:18.955
+but I'd encourage you to stay tuned just so you can see another example in detail.
+
+00:00:18.954 --> 00:00:21.324
+I'll present this code as an exercise.
+
+00:00:21.324 --> 00:00:23.710
+Then you'll get a chance to change this code,
+
+00:00:23.710 --> 00:00:24.789
+define your own model,
+
+00:00:24.789 --> 00:00:28.064
+and try it out on your own in a Jupyter Notebook, much like this one.
+
+00:00:28.065 --> 00:00:30.460
+So, the first thing I've done in this notebook is to
+
+00:00:30.460 --> 00:00:33.304
+load in the necessary torch and NumPy libraries.
+
+00:00:33.304 --> 00:00:37.630
+Next, I'm going to import the torchvision datasets and transformation libraries.
+
+00:00:37.630 --> 00:00:39.400
+I'll use these to actually load in
+
+00:00:39.399 --> 00:00:42.835
+the MNIST dataset and transform it into a Tensor datatype.
+
+00:00:42.835 --> 00:00:47.064
+Here transforms.ToTensor is where I define that transformation.
+
+00:00:47.064 --> 00:00:51.449
+The tensor datatype is just a data type that's very similar to a NumPy array,
+
+00:00:51.450 --> 00:00:53.720
+only it can be moved onto a GPU for
+
+00:00:53.719 --> 00:00:56.515
+faster calculation, which you'll learn more about later.
+
+00:00:56.515 --> 00:01:00.620
+You'll also see that I've set some parameters for loading in the image data.
+
+00:01:00.619 --> 00:01:03.109
+I can define the batch size which is the number of
+
+00:01:03.109 --> 00:01:06.174
+training images that will be seen in one training iteration,
+
+00:01:06.174 --> 00:01:09.200
+where one training iteration means one time that a network
+
+00:01:09.200 --> 00:01:12.430
+make some mistakes and learn from them using back propagation.
+
+00:01:12.430 --> 00:01:15.550
+The number of workers is if you want to load data in parallel.
+
+00:01:15.549 --> 00:01:18.429
+For most cases, zero will work fine here.
+
+00:01:18.430 --> 00:01:23.415
+Now I'm going to load in training and test data using datasets.MNIST.
+
+00:01:23.415 --> 00:01:25.460
+I'm going to download each set and I'm going to
+
+00:01:25.459 --> 00:01:28.684
+transform it into a tensor datatype which I defined here.
+
+00:01:28.685 --> 00:01:32.670
+I'll put the downloaded data into a directory named data.
+
+00:01:32.670 --> 00:01:36.260
+Finally, I'm going to create training and test loaders.
+
+00:01:36.260 --> 00:01:39.140
+These loaders taking our data that we defined above,
+
+00:01:39.140 --> 00:01:41.269
+our batch size and number of workers.
+
+00:01:41.269 --> 00:01:43.640
+The train and test loaders give
+
+00:01:43.640 --> 00:01:46.614
+us a way to iterate through this data one batch at a time.
+
+00:01:46.614 --> 00:01:49.559
+Downloading the data may take a minute or two.
+
+00:01:49.560 --> 00:01:51.715
+After I've downloaded my data,
+
+00:01:51.715 --> 00:01:54.590
+I do the first step in any image analysis task,
+
+00:01:54.590 --> 00:01:56.055
+I visualize the data.
+
+00:01:56.055 --> 00:01:58.640
+Here I'm grabbing one batch of images and
+
+00:01:58.640 --> 00:02:01.525
+their correct labels and I'm plotting 20 of them.
+
+00:02:01.525 --> 00:02:05.635
+Here you can see a variety of MNIST images and their labels.
+
+00:02:05.635 --> 00:02:08.120
+This step allows me to check and make sure that
+
+00:02:08.120 --> 00:02:10.730
+these images look how I expect them to look.
+
+00:02:10.729 --> 00:02:13.094
+I can even look at an image in more detail.
+
+00:02:13.094 --> 00:02:18.520
+Here I'm just looking at one image in our set and I'm displaying the gray scale values.
+
+00:02:18.520 --> 00:02:21.335
+You can see that these values are normalized
+
+00:02:21.335 --> 00:02:23.930
+and the brightest pixels are close to a value of one.
+
+00:02:23.930 --> 00:02:26.330
+The black pixels have a value of zero.
+
+00:02:26.330 --> 00:02:30.710
+Next comes the really interesting part which is defining the MLP model.
+
+00:02:30.710 --> 00:02:34.129
+We've talked about defining the input hidden and output layers
+
+00:02:34.129 --> 00:02:37.430
+and so I'll leave most of this section for you to fill out.
+
+00:02:37.430 --> 00:02:39.960
+I do want to point out a couple of things here.
+
+00:02:39.960 --> 00:02:41.740
+First the init function.
+
+00:02:41.740 --> 00:02:45.260
+To define any neural network in PyTorch you have to define and
+
+00:02:45.259 --> 00:02:48.889
+name any layers that have learned weight values in the Init function,
+
+00:02:48.889 --> 00:02:52.939
+in this case, any fully-connected linear layers that you define.
+
+00:02:52.939 --> 00:02:58.159
+I've defined a sample first input layer which I've named FC1 for you.
+
+00:02:58.159 --> 00:03:04.250
+This has 784 or 28 by 28 inputs and a number of hidden nodes.
+
+00:03:04.250 --> 00:03:07.754
+This is the number of outputs that this layer will produce.
+
+00:03:07.754 --> 00:03:10.009
+For now, I've left this as one and this will have
+
+00:03:10.009 --> 00:03:12.379
+to be changed to create a working solution.
+
+00:03:12.379 --> 00:03:16.144
+Next, you have to define the feedforward behavior of your network.
+
+00:03:16.145 --> 00:03:21.215
+This is just how an input X will be passed through various layers and transformed.
+
+00:03:21.215 --> 00:03:24.439
+I'm assuming the past in X will be a grayscale image like
+
+00:03:24.439 --> 00:03:28.335
+an MNIST image and I've provided some starting code in here for you.
+
+00:03:28.335 --> 00:03:32.705
+First, I've made sure to flatten the input image X by using the view function.
+
+00:03:32.705 --> 00:03:35.270
+View takes in a number of rows and columns and
+
+00:03:35.270 --> 00:03:38.120
+then squishes and input into that desired shape.
+
+00:03:38.120 --> 00:03:40.759
+In this case, the number of columns will be 28 by
+
+00:03:40.759 --> 00:03:44.479
+28 or 784 and by putting a negative one here,
+
+00:03:44.479 --> 00:03:49.119
+this function will automatically fit all of the x values into this column shape.
+
+00:03:49.120 --> 00:03:53.930
+The end result is that this X will be a vector of 784 values.
+
+00:03:53.930 --> 00:03:56.300
+Then I'm passing this flattened vector to
+
+00:03:56.300 --> 00:03:58.810
+our first fully-connected layer defined up here.
+
+00:03:58.810 --> 00:04:00.689
+I just call this layer by name,
+
+00:04:00.689 --> 00:04:04.395
+pass in our input and apply a relu activation function.
+
+00:04:04.395 --> 00:04:06.680
+A relu should be applied generally to
+
+00:04:06.680 --> 00:04:09.140
+the output of every hidden layer so that those outputs
+
+00:04:09.139 --> 00:04:13.949
+are consistent positive values and finally I return the transformed X.
+
+00:04:13.949 --> 00:04:15.484
+Now to complete this model,
+
+00:04:15.485 --> 00:04:18.410
+you should add to the init end forward functions so that
+
+00:04:18.410 --> 00:04:22.135
+the final returned X is a list of class scores.
+
+00:04:22.134 --> 00:04:25.115
+Next, I'm going to describe how you might go about training
+
+00:04:25.115 --> 00:04:28.530
+your defined model and complete this task on your own.
+

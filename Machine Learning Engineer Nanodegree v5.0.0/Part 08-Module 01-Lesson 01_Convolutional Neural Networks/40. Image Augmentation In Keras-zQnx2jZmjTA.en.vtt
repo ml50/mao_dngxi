@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.990
+When we design an algorithm to classify objects in images,
+
+00:00:03.990 --> 00:00:07.685
+we have to deal with a lot of irrelevant information.
+
+00:00:07.684 --> 00:00:10.320
+We really only want our algorithm to
+
+00:00:10.320 --> 00:00:13.565
+determine if an object is present in the image or not.
+
+00:00:13.564 --> 00:00:16.225
+The size of the object doesn't matter,
+
+00:00:16.225 --> 00:00:17.765
+neither does the angle,
+
+00:00:17.765 --> 00:00:20.905
+or if I move it all the way to the right side of the image.
+
+00:00:20.905 --> 00:00:23.669
+It's still an image with an avocado.
+
+00:00:23.669 --> 00:00:27.330
+In other words, we can say that we want our algorithm to
+
+00:00:27.329 --> 00:00:31.244
+learn an invariant representation of the image.
+
+00:00:31.245 --> 00:00:36.490
+We don't want our model to change its prediction based on the size of the object.
+
+00:00:36.490 --> 00:00:39.355
+This is called scale invariance.
+
+00:00:39.354 --> 00:00:43.334
+Likewise, we don't want the angle of the object to matter.
+
+00:00:43.335 --> 00:00:46.384
+This is called rotation invariance.
+
+00:00:46.384 --> 00:00:50.879
+If I shift the image a little to the left or to the right, well,
+
+00:00:50.880 --> 00:00:53.050
+it's still an image with an avocado,
+
+00:00:53.049 --> 00:00:56.349
+and this is called translation invariance.
+
+00:00:56.350 --> 00:01:02.115
+CNN's do have some built-in translation invariance.
+
+00:01:02.115 --> 00:01:07.170
+To see this, you'll need to first recall how we calculate max-pooling layers.
+
+00:01:07.170 --> 00:01:09.710
+Remember that at each window location,
+
+00:01:09.709 --> 00:01:13.379
+we took the maximum of the pixels contained in the window.
+
+00:01:13.379 --> 00:01:17.244
+This maximum value can occur anywhere within the window.
+
+00:01:17.245 --> 00:01:20.180
+The value of the max-pooling node would be the
+
+00:01:20.180 --> 00:01:23.765
+same if we translated the image a little to the left,
+
+00:01:23.765 --> 00:01:25.814
+to the right, up,
+
+00:01:25.814 --> 00:01:30.170
+down, as long as the maximum value stays within the window.
+
+00:01:30.170 --> 00:01:33.290
+The effect of applying many max-pooling layers in
+
+00:01:33.290 --> 00:01:37.640
+a sequence each one following a convolutional layer,
+
+00:01:37.640 --> 00:01:40.769
+is that we could translate the object quite far to the left,
+
+00:01:40.769 --> 00:01:42.109
+to the top of the image,
+
+00:01:42.109 --> 00:01:43.549
+to the bottom of the image,
+
+00:01:43.549 --> 00:01:46.869
+and still our network will be able to make sense of it all.
+
+00:01:46.870 --> 00:01:49.925
+This is truly a non-trivial problem.
+
+00:01:49.924 --> 00:01:53.789
+Recall that the computer only sees a matrix of pixels.
+
+00:01:53.790 --> 00:01:56.770
+Transforming an object's scale, rotation,
+
+00:01:56.769 --> 00:02:00.894
+or position in the image has a huge effect on the pixel values.
+
+00:02:00.894 --> 00:02:05.659
+We as humans can see the difference in images quite clearly,
+
+00:02:05.659 --> 00:02:10.090
+but how do you think you'd do if you were just given the corresponding array of numbers?
+
+00:02:10.090 --> 00:02:12.710
+Thankfully, there's a technique that works well for
+
+00:02:12.710 --> 00:02:16.338
+making our algorithms more statistically invariant,
+
+00:02:16.338 --> 00:02:19.699
+but it will feel a little bit like cheating.
+
+00:02:19.699 --> 00:02:21.935
+The idea is this,
+
+00:02:21.935 --> 00:02:25.745
+if you want your CNN to be rotation invariant,
+
+00:02:25.745 --> 00:02:28.730
+well, then you can just add some images to your training
+
+00:02:28.729 --> 00:02:33.179
+set created by doing random rotations on your training images.
+
+00:02:33.180 --> 00:02:35.985
+If you want more translation invariance,
+
+00:02:35.985 --> 00:02:39.350
+you can also just add new images created
+
+00:02:39.349 --> 00:02:42.924
+by doing random translations of your training images.
+
+00:02:42.925 --> 00:02:44.240
+When we do this,
+
+00:02:44.240 --> 00:02:48.640
+we say that we have expanded the training set by augmenting the data.
+
+00:02:48.639 --> 00:02:53.389
+Data augmentation will also help us to avoid overfitting.
+
+00:02:53.389 --> 00:02:57.594
+This is because the model is seeing many new images.
+
+00:02:57.594 --> 00:03:00.484
+Thus, it should be better at generalizing
+
+00:03:00.485 --> 00:03:04.150
+and we should get better performance on the test dataset.
+
+00:03:04.150 --> 00:03:09.379
+Let's augment the training data and the CFR 10 dataset from the previous video,
+
+00:03:09.379 --> 00:03:12.250
+and see if we can improve our test accuracy.
+
+00:03:12.250 --> 00:03:16.949
+We'll be using a Jupiter notebook that you can download below.
+

@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.469
+In this lesson, we've investigated two new types of layers for neural networks.
+
+00:00:04.469 --> 00:00:07.320
+We began with convolutional layers which detect
+
+00:00:07.320 --> 00:00:10.755
+regional patterns in an image using a series of image filters.
+
+00:00:10.755 --> 00:00:14.160
+We've seen how typically a ReLu activation function is
+
+00:00:14.160 --> 00:00:17.960
+applied to the output of these filters to standardize their output values.
+
+00:00:17.960 --> 00:00:20.435
+Then, you learned about max pooling layers,
+
+00:00:20.434 --> 00:00:25.184
+which appear after convolutional layers to reduce the dimensionality of our input arrays.
+
+00:00:25.184 --> 00:00:27.824
+These new layers, along with fully-connected layers,
+
+00:00:27.824 --> 00:00:28.934
+that should be familiar,
+
+00:00:28.934 --> 00:00:32.174
+are often the only layers that you'll find in a CNN.
+
+00:00:32.174 --> 00:00:34.349
+In this video, we'll discuss how to arrange
+
+00:00:34.350 --> 00:00:37.480
+these layers to design a complete CNN architecture.
+
+00:00:37.479 --> 00:00:40.765
+We'll focus again on CNNs for image classification.
+
+00:00:40.765 --> 00:00:44.734
+In this case, our CNN must accept an image array as input.
+
+00:00:44.734 --> 00:00:47.899
+Now, if we're going to work with messy real-world images,
+
+00:00:47.899 --> 00:00:50.359
+there's a complication that we haven't yet discussed.
+
+00:00:50.359 --> 00:00:53.714
+If I go online and collect thousands or millions of images,
+
+00:00:53.715 --> 00:00:57.155
+well, it's pretty much guaranteed that they'll all be different sizes.
+
+00:00:57.155 --> 00:01:02.265
+Similar to MLPs, the CNNs we'll discuss will require a fixed size input.
+
+00:01:02.265 --> 00:01:05.030
+So, we'll have to pick an image size and resize all of
+
+00:01:05.030 --> 00:01:08.614
+our images to that same size before doing anything else.
+
+00:01:08.614 --> 00:01:11.420
+This is considered to be another pre-processing step,
+
+00:01:11.420 --> 00:01:15.185
+alongside normalization and conversion to a tensor datatype.
+
+00:01:15.185 --> 00:01:19.070
+It's very common to resize each image to be a square,
+
+00:01:19.069 --> 00:01:21.739
+with the spatial dimensions equal to a power of two,
+
+00:01:21.739 --> 00:01:25.339
+or else a number that's divisible by a large power of two.
+
+00:01:25.340 --> 00:01:26.525
+In the next few videos,
+
+00:01:26.525 --> 00:01:29.240
+we'll work with a dataset composed of images that have all
+
+00:01:29.239 --> 00:01:32.359
+been resized to 32 by 32 pixels.
+
+00:01:32.359 --> 00:01:36.890
+Recall that any image is interpreted by the computer as a three-dimensional array.
+
+00:01:36.890 --> 00:01:41.120
+Color images had some height and width in pixels along with red,
+
+00:01:41.120 --> 00:01:45.150
+green, and blue color channels corresponding to a depth of three.
+
+00:01:45.150 --> 00:01:48.010
+Grayscale images, while technically two-dimensional,
+
+00:01:48.010 --> 00:01:52.590
+can also be thought of as having their own width and height and a depth of one.
+
+00:01:52.590 --> 00:01:54.109
+For both of these cases,
+
+00:01:54.109 --> 00:01:56.209
+with color or grayscale images,
+
+00:01:56.209 --> 00:02:00.064
+the input array will always be much taller and wider than it is deep.
+
+00:02:00.064 --> 00:02:03.560
+Our CNN architecture will be designed with the goal of taking
+
+00:02:03.560 --> 00:02:07.879
+that array and gradually making it much deeper than it is tall or wide.
+
+00:02:07.879 --> 00:02:10.340
+Convolutional layers will be used to make
+
+00:02:10.340 --> 00:02:12.920
+the array deeper as it passes through the network,
+
+00:02:12.919 --> 00:02:17.299
+and max pooling layers will be used to decrease the XY dimensions.
+
+00:02:17.300 --> 00:02:19.060
+As the network gets deeper,
+
+00:02:19.060 --> 00:02:21.949
+it's actually extracting more and more complex patterns and
+
+00:02:21.949 --> 00:02:25.994
+features that help identify the content and the objects in an image,
+
+00:02:25.995 --> 00:02:29.539
+and it's actually discarding some spatial information about features
+
+00:02:29.539 --> 00:02:33.870
+like a smooth background and so on that do not help identify the image.
+
+00:02:33.870 --> 00:02:35.965
+To see how this works, next,
+
+00:02:35.965 --> 00:02:39.700
+let's go over a complete image classification CNN in detail.
+

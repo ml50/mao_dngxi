@@ -1,0 +1,664 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Applications of CNNs
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Convolutional Neural Networks
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introducing Alexis.html">
+       01. Introducing Alexis
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Applications of CNNs.html">
+       02. Applications of CNNs
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Outline.html">
+       03. Lesson Outline
+      </a>
+     </li>
+     <li class="">
+      <a href="04. MNIST Dataset.html">
+       04. MNIST Dataset
+      </a>
+     </li>
+     <li class="">
+      <a href="05. How Computers Interpret Images.html">
+       05. How Computers Interpret Images
+      </a>
+     </li>
+     <li class="">
+      <a href="06. MLP Structure &amp; Class Scores.html">
+       06. MLP Structure &amp; Class Scores
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Do Your Research.html">
+       07. Do Your Research
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Loss &amp; Optimization.html">
+       08. Loss &amp; Optimization
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Defining a Network in PyTorch.html">
+       09. Defining a Network in PyTorch
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Training the Network.html">
+       10. Training the Network
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Pre-Notebook MLP Classification, Exercise.html">
+       11. Pre-Notebook: MLP Classification, Exercise
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Notebook MLP Classification, MNIST.html">
+       12. Notebook: MLP Classification, MNIST
+      </a>
+     </li>
+     <li class="">
+      <a href="13. One Solution.html">
+       13. One Solution
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Model Validation.html">
+       14. Model Validation
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Validation Loss.html">
+       15. Validation Loss
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Image Classification Steps.html">
+       16. Image Classification Steps
+      </a>
+     </li>
+     <li class="">
+      <a href="17. MLPs vs CNNs.html">
+       17. MLPs vs CNNs
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Local Connectivity.html">
+       18. Local Connectivity
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Filters and the Convolutional Layer.html">
+       19. Filters and the Convolutional Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Filters &amp; Edges.html">
+       20. Filters &amp; Edges
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Frequency in Images.html">
+       21. Frequency in Images
+      </a>
+     </li>
+     <li class="">
+      <a href="22. High-pass Filters.html">
+       22. High-pass Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Quiz Kernels.html">
+       23. Quiz: Kernels
+      </a>
+     </li>
+     <li class="">
+      <a href="24. OpenCV &amp; Creating Custom Filters.html">
+       24. OpenCV &amp; Creating Custom Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Notebook Finding Edges.html">
+       25. Notebook: Finding Edges
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Convolutional Layer.html">
+       26. Convolutional Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Convolutional Layers (Part 2).html">
+       27. Convolutional Layers (Part 2)
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Stride and Padding.html">
+       28. Stride and Padding
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Pooling Layers.html">
+       29. Pooling Layers
+      </a>
+     </li>
+     <li class="">
+      <a href="30. Notebook Layer Visualization.html">
+       30. Notebook: Layer Visualization
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Capsule Networks.html">
+       31. Capsule Networks
+      </a>
+     </li>
+     <li class="">
+      <a href="32. Increasing Depth.html">
+       32. Increasing Depth
+      </a>
+     </li>
+     <li class="">
+      <a href="33. CNNs for Image Classification.html">
+       33. CNNs for Image Classification
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Convolutional Layers in PyTorch.html">
+       34. Convolutional Layers in PyTorch
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Feature Vector.html">
+       35. Feature Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="36. Pre-Notebook CNN Classification.html">
+       36. Pre-Notebook: CNN Classification
+      </a>
+     </li>
+     <li class="">
+      <a href="37. Notebook CNNs for CIFAR Image Classification.html">
+       37. Notebook: CNNs for CIFAR Image Classification
+      </a>
+     </li>
+     <li class="">
+      <a href="38. CIFAR Classification Example.html">
+       38. CIFAR Classification Example
+      </a>
+     </li>
+     <li class="">
+      <a href="39. CNNs in PyTorch.html">
+       39. CNNs in PyTorch
+      </a>
+     </li>
+     <li class="">
+      <a href="40. Image Augmentation.html">
+       40. Image Augmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="41. Augmentation Using Transformations.html">
+       41. Augmentation Using Transformations
+      </a>
+     </li>
+     <li class="">
+      <a href="42. Groundbreaking CNN Architectures.html">
+       42. Groundbreaking CNN Architectures
+      </a>
+     </li>
+     <li class="">
+      <a href="43. Visualizing CNNs (Part 1).html">
+       43. Visualizing CNNs (Part 1)
+      </a>
+     </li>
+     <li class="">
+      <a href="44. Visualizing CNNs (Part 2).html">
+       44. Visualizing CNNs (Part 2)
+      </a>
+     </li>
+     <li class="">
+      <a href="45. Summary of CNNs.html">
+       45. Summary of CNNs
+      </a>
+     </li>
+     <li class="">
+      <a href="46. Introduction to GPU Workspaces.html">
+       46. Introduction to GPU Workspaces
+      </a>
+     </li>
+     <li class="">
+      <a href="47. Workspace Playground.html">
+       47. Workspace Playground
+      </a>
+     </li>
+     <li class="">
+      <a href="48. GPU Workspace Playground.html">
+       48. GPU Workspace Playground
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Applications of CNNs
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Aplicações de CNNs
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. Aplicações de CNNs-HrYNL_1SV2Y.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. Aplicações de CNNs-HrYNL_1SV2Y.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="02. Aplicações de CNNs-HrYNL_1SV2Y.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="02. Aplicações de CNNs-HrYNL_1SV2Y.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="optional-resources">
+          Optional Resources
+         </h3>
+         <ul>
+          <li>
+           <p>
+            Read about the
+            <a href="https://deepmind.com/blog/wavenet-generative-model-raw-audio/" rel="noopener noreferrer" target="_blank">
+             WaveNet
+            </a>
+            model.
+           </p>
+           <ul>
+            <li>
+             Why train an A.I. to talk, when you can train it to sing ;)?  In April 2017, researchers used a variant of the WaveNet model to generate songs.  The original paper and demo can be found
+             <a href="http://www.creativeai.net/posts/W2C3baXvf2yJSLbY6/a-neural-parametric-singing-synthesizer" rel="noopener noreferrer" target="_blank">
+              here
+             </a>
+             .
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Learn about CNNs
+            <a href="http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/" rel="noopener noreferrer" target="_blank">
+             for text classification
+            </a>
+            .
+           </p>
+           <ul>
+            <li>
+             You might like to sign up for the author's
+             <a href="https://www.getrevue.co/profile/wildml" rel="noopener noreferrer" target="_blank">
+              Deep Learning Newsletter
+             </a>
+             !
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Read about Facebook's
+            <a href="https://code.facebook.com/posts/1978007565818999/a-novel-approach-to-neural-machine-translation/" rel="noopener noreferrer" target="_blank">
+             novel CNN approach
+            </a>
+            for language translation that achieves state-of-the-art accuracy at nine times the speed of RNN models.
+           </p>
+          </li>
+          <li>
+           <p>
+            Play
+            <a href="https://deepmind.com/research/dqn/" rel="noopener noreferrer" target="_blank">
+             Atari games
+            </a>
+            with a CNN and reinforcement learning.  You can
+            <a href="https://sites.google.com/a/deepmind.com/dqn/" rel="noopener noreferrer" target="_blank">
+             download
+            </a>
+            the code that comes with this paper.
+           </p>
+           <ul>
+            <li>
+             If you would like to play around with some beginner code (for deep reinforcement learning), you're encouraged to check out Andrej Karpathy's
+             <a href="http://karpathy.github.io/2016/05/31/rl/" rel="noopener noreferrer" target="_blank">
+              post
+             </a>
+             .
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Play
+            <a href="https://quickdraw.withgoogle.com/#" rel="noopener noreferrer" target="_blank">
+             pictionary
+            </a>
+            with a CNN!
+           </p>
+           <ul>
+            <li>
+             Also check out all of the other cool implementations on the
+             <a href="https://aiexperiments.withgoogle.com/" rel="noopener noreferrer" target="_blank">
+              A.I. Experiments
+             </a>
+             website.  Be sure not to miss
+             <a href="https://www.autodraw.com/" rel="noopener noreferrer" target="_blank">
+              AutoDraw
+             </a>
+             !
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Read more about
+            <a href="https://deepmind.com/research/alphago/" rel="noopener noreferrer" target="_blank">
+             AlphaGo
+            </a>
+            .
+           </p>
+           <ul>
+            <li>
+             Check out
+             <a href="https://www.technologyreview.com/s/604273/finding-solace-in-defeat-by-artificial-intelligence/?set=604287" rel="noopener noreferrer" target="_blank">
+              this article
+             </a>
+             , which asks the question:
+             <em>
+              If mastering Go “requires human intuition,” what is it like to have a piece of one’s humanity challenged?
+             </em>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Check out these
+            <em>
+             really cool
+            </em>
+            videos with drones that are powered by CNNs.
+           </p>
+           <ul>
+            <li>
+             Here's an interview with a startup -
+             <a href="https://www.youtube.com/watch?v=AMDiR61f86Y" rel="noopener noreferrer" target="_blank">
+              Intelligent Flying Machines (IFM)
+             </a>
+             .
+            </li>
+            <li>
+             Outdoor autonomous navigation is typically accomplished through the use of the
+             <a href="http://www.droneomega.com/gps-drone-navigation-works/" rel="noopener noreferrer" target="_blank">
+              global positioning system (GPS)
+             </a>
+             , but here's a demo with a CNN-powered
+             <a href="https://www.youtube.com/watch?v=wSFYOw4VIYY" rel="noopener noreferrer" target="_blank">
+              autonomous drone
+             </a>
+             .
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            If you're excited about using CNNs in self-driving cars, you're encouraged to check out:
+           </p>
+           <ul>
+            <li>
+             our
+             <a href="https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013" rel="noopener noreferrer" target="_blank">
+              Self-Driving Car Engineer Nanodegree
+             </a>
+             , where we classify signs in the
+             <a href="http://benchmark.ini.rub.de/?section=gtsrb&amp;subsection=dataset" rel="noopener noreferrer" target="_blank">
+              German Traffic Sign
+             </a>
+             dataset in
+             <a href="https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project" rel="noopener noreferrer" target="_blank">
+              this project
+             </a>
+             .
+            </li>
+            <li>
+             our
+             <a href="https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009" rel="noopener noreferrer" target="_blank">
+              Machine Learning Engineer Nanodegree
+             </a>
+             , where we classify house numbers from the
+             <a href="http://ufldl.stanford.edu/housenumbers/" rel="noopener noreferrer" target="_blank">
+              Street View House Numbers
+             </a>
+             dataset in
+             <a href="https://github.com/udacity/machine-learning/tree/master/projects/digit_recognition" rel="noopener noreferrer" target="_blank">
+              this project
+             </a>
+             .
+            </li>
+            <li>
+             this
+             <a href="https://pythonprogramming.net/game-frames-open-cv-python-plays-gta-v/" rel="noopener noreferrer" target="_blank">
+              series of blog posts
+             </a>
+             that details how to train a CNN in Python to produce a self-driving A.I. to play Grand Theft Auto V.
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            Check out some additional applications not mentioned in the video.
+           </p>
+           <ul>
+            <li>
+             Some of the world's most famous paintings have been
+             <a href="http://www.businessinsider.com/3d-printed-works-of-art-for-the-blind-2016-1" rel="noopener noreferrer" target="_blank">
+              turned into 3D
+             </a>
+             for the visually impaired.  Although the article does not mention
+             <em>
+              how
+             </em>
+             this was done, we note that it is possible to use a CNN to
+             <a href="https://www.cs.nyu.edu/~deigen/depth/" rel="noopener noreferrer" target="_blank">
+              predict depth
+             </a>
+             from a single image.
+            </li>
+            <li>
+             Check out
+             <a href="https://research.googleblog.com/2017/03/assisting-pathologists-in-detecting.html" rel="noopener noreferrer" target="_blank">
+              this research
+             </a>
+             that uses CNNs to localize breast cancer.
+            </li>
+            <li>
+             CNNs are used to
+             <a href="https://blogs.nvidia.com/blog/2016/11/04/saving-endangered-species/?adbsc=social_20170303_70517416" rel="noopener noreferrer" target="_blank">
+              save endangered species
+             </a>
+             !
+            </li>
+            <li>
+             An app called
+             <a href="http://www.digitaltrends.com/photography/faceapp-neural-net-image-editing/" rel="noopener noreferrer" target="_blank">
+              FaceApp
+             </a>
+             uses a CNN to make you smile in a picture or change genders.
+            </li>
+           </ul>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Lesson Outline.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Applications of CNNs')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

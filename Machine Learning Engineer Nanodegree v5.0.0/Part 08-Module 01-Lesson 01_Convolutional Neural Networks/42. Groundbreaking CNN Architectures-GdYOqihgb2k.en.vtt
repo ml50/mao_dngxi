@@ -1,0 +1,130 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.605
+ImageNet is a database of over 10 million hand labeled images,
+
+00:00:04.605 --> 00:00:08.179
+drawn from 1,000 different image categories.
+
+00:00:08.179 --> 00:00:11.490
+Since 2010, the ImageNet project has held
+
+00:00:11.490 --> 00:00:15.629
+the ImageNet Large Scale Visual Recognition Competition,
+
+00:00:15.630 --> 00:00:18.630
+an annual competition where teams try to build
+
+00:00:18.629 --> 00:00:23.004
+the best CNN for object recognition and classification.
+
+00:00:23.004 --> 00:00:26.164
+The first breakthrough was in 2012.
+
+00:00:26.164 --> 00:00:28.634
+The network called AlexNet,
+
+00:00:28.635 --> 00:00:32.715
+was developed by a team at the University of Toronto.
+
+00:00:32.715 --> 00:00:36.610
+Using the best GPUs available in 2012,
+
+00:00:36.609 --> 00:00:40.475
+the AlexNet team trained the network in about a week.
+
+00:00:40.475 --> 00:00:44.995
+AlexNet pioneered the use of the ReLU activation function,
+
+00:00:44.994 --> 00:00:49.219
+and dropout as a technique for avoiding overfitting.
+
+00:00:49.219 --> 00:00:55.655
+In 2014, two different groups nearly tied in the ImageNet competition.
+
+00:00:55.655 --> 00:00:59.710
+One of those networks was called VGGNet,
+
+00:00:59.710 --> 00:01:03.100
+often referred to as just VGG,
+
+00:01:03.100 --> 00:01:07.905
+and it came from the Visual Geometry Group at Oxford University.
+
+00:01:07.905 --> 00:01:12.560
+VGG has two versions termed VGG16,
+
+00:01:12.560 --> 00:01:18.935
+and VGG 19, with 16 and 19 total layers respectively.
+
+00:01:18.935 --> 00:01:22.859
+Both versions have a simple and elegant architecture,
+
+00:01:22.859 --> 00:01:26.685
+which is just a long sequence of three by three convolutions,
+
+00:01:26.685 --> 00:01:29.460
+broken up by two by two pooling layers,
+
+00:01:29.459 --> 00:01:33.129
+and finished with three fully-connected layers.
+
+00:01:33.129 --> 00:01:39.649
+VGG pioneered the exclusive use of small three by three convolution windows,
+
+00:01:39.650 --> 00:01:45.295
+to contrast AlexNets much larger 11 by 11 windows.
+
+00:01:45.295 --> 00:01:51.954
+In 2015, the ImageNet winner was a network from Microsoft Research called ResNet.
+
+00:01:51.954 --> 00:01:57.939
+ResNet is like VGG and not the same structure is repeated again and again,
+
+00:01:57.939 --> 00:01:59.599
+for layer after layer.
+
+00:01:59.599 --> 00:02:05.214
+Also like VGG, ResNet has different versions that vary in their number of layers.
+
+00:02:05.215 --> 00:02:10.490
+The largest having a groundbreaking 152 layers.
+
+00:02:10.490 --> 00:02:14.400
+Previous researchers tried to make their CNNs this deep,
+
+00:02:14.400 --> 00:02:17.810
+but they ran into a problem where as they were adding layers,
+
+00:02:17.810 --> 00:02:20.099
+performance increased up to a point,
+
+00:02:20.099 --> 00:02:22.909
+after which performance quickly declined.
+
+00:02:22.909 --> 00:02:27.349
+This is partially due to what's known as the vanishing gradient's problem,
+
+00:02:27.349 --> 00:02:31.715
+which arises when we go to train the network through backpropagation.
+
+00:02:31.715 --> 00:02:37.474
+The main idea is that the gradient signal has to be pushed through the entire network.
+
+00:02:37.474 --> 00:02:39.625
+The deeper the network becomes,
+
+00:02:39.625 --> 00:02:44.550
+the more likely that the signal gets weakened before it gets where it needs to go.
+
+00:02:44.550 --> 00:02:50.665
+The ResNet team added connections to their very deep CNN that skip layers.
+
+00:02:50.664 --> 00:02:54.389
+So, the gradient signal has a shorter route to travel.
+
+00:02:54.389 --> 00:03:01.649
+ResNet achieves superhuman performance in classifying images in the ImageNet database.
+

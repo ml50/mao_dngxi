@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.140
+When I type in mlp for mnist into Google,
+
+00:00:03.140 --> 00:00:04.515
+a few things pop up,
+
+00:00:04.514 --> 00:00:07.439
+including a couple of code implementations.
+
+00:00:07.440 --> 00:00:12.214
+This first one from the official keras GitHub repository looks like a reputable source.
+
+00:00:12.214 --> 00:00:13.964
+Scrolling through this code,
+
+00:00:13.964 --> 00:00:17.399
+I can see that they've imported the MNIST dataset and that they
+
+00:00:17.399 --> 00:00:21.449
+flattened each input image into a vector of size 784.
+
+00:00:21.449 --> 00:00:26.739
+Here, it looks like they're using one hidden layer to convert that input to be 512 nodes.
+
+00:00:26.739 --> 00:00:29.669
+We can also see an activation function being applied,
+
+00:00:29.670 --> 00:00:35.090
+a relu function, and we have one more hidden layer also with 512 nodes.
+
+00:00:35.090 --> 00:00:37.790
+We can also see some Dropout layers in between.
+
+00:00:37.789 --> 00:00:41.445
+This 0.2 means they have a 20 percent probability of
+
+00:00:41.445 --> 00:00:45.314
+Dropout or of a node being turned off during a training cycle.
+
+00:00:45.314 --> 00:00:49.474
+As you've learned, Dropout layers are used to avoid overfitting data.
+
+00:00:49.475 --> 00:00:52.625
+Lastly, I see one more fully connected layer that's
+
+00:00:52.625 --> 00:00:56.380
+producing an output vector of length 10 for a number of classes.
+
+00:00:56.380 --> 00:00:58.170
+When I look at a source like this,
+
+00:00:58.170 --> 00:01:00.745
+I first try to think about whether it makes sense.
+
+00:01:00.744 --> 00:01:03.859
+I know that the more hidden layers I include in the network,
+
+00:01:03.859 --> 00:01:07.090
+the more complex patterns this network will be able to detect,
+
+00:01:07.090 --> 00:01:09.965
+but I don't want to add unnecessary complexity either.
+
+00:01:09.965 --> 00:01:13.130
+My intuition is telling me that for small images,
+
+00:01:13.129 --> 00:01:14.959
+two hidden layers sounds very reasonable.
+
+00:01:14.959 --> 00:01:19.834
+Now, this is just one solution to the task of handwritten digit classification.
+
+00:01:19.834 --> 00:01:23.804
+The next step in approaching a problem like this is to either, one,
+
+00:01:23.805 --> 00:01:28.445
+keep looking and see if you can find another structure that appeals to you; then two,
+
+00:01:28.444 --> 00:01:31.250
+when you do find a model or two that look interesting,
+
+00:01:31.250 --> 00:01:34.185
+try them out in code and see how well they perform.
+
+00:01:34.185 --> 00:01:36.620
+This model that I found is good enough for me,
+
+00:01:36.620 --> 00:01:38.990
+so I think I'm going to proceed with defining
+
+00:01:38.989 --> 00:01:42.269
+an MLP with two hidden layers based on this structure.
+

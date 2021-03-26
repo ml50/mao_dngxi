@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.730
+So far, we've investigated how to train
+
+00:00:02.730 --> 00:00:06.415
+an MLP to classify handwritten digits in the MNIST dataset,
+
+00:00:06.415 --> 00:00:08.765
+and we got a really high test accuracy.
+
+00:00:08.765 --> 00:00:11.405
+MLPs are a nice solution in this case.
+
+00:00:11.404 --> 00:00:14.969
+Some other solutions for the MNIST classification task and
+
+00:00:14.970 --> 00:00:19.000
+their errors on the test dataset can be explored at the link provided below.
+
+00:00:19.000 --> 00:00:21.649
+You'll find that the best algorithms or the ones with
+
+00:00:21.649 --> 00:00:26.794
+the least test error are the approaches that use convolutional neural networks or CNNs.
+
+00:00:26.795 --> 00:00:29.710
+In fact, for most image classification tasks,
+
+00:00:29.710 --> 00:00:32.615
+CNNs and MLPs do not even compare,
+
+00:00:32.615 --> 00:00:34.420
+CNNs do much better.
+
+00:00:34.420 --> 00:00:36.795
+The MNIST database is an exception,
+
+00:00:36.795 --> 00:00:39.190
+and that it's very clean and pre-processed.
+
+00:00:39.189 --> 00:00:45.244
+All images of digits are roughly the same size and are centered in a 28 by 28 pixel grid.
+
+00:00:45.244 --> 00:00:47.659
+You can imagine that if instead of having to
+
+00:00:47.659 --> 00:00:50.479
+classify the digit within these very clean images,
+
+00:00:50.479 --> 00:00:53.784
+you had to work with images where the digit could appear anywhere within the grid,
+
+00:00:53.784 --> 00:00:56.729
+and sometimes appear quite small or quite large.
+
+00:00:56.729 --> 00:00:59.829
+It would be a more challenging task for an MLP.
+
+00:00:59.829 --> 00:01:02.759
+In the case of real-world messy image data,
+
+00:01:02.759 --> 00:01:05.670
+CNNs will truly shine over MLPs.
+
+00:01:05.670 --> 00:01:08.269
+For some intuition for why this might be the case,
+
+00:01:08.269 --> 00:01:11.079
+we saw that in order to feed an image to an MLP,
+
+00:01:11.079 --> 00:01:13.664
+you must first convert the image to a vector.
+
+00:01:13.665 --> 00:01:16.340
+The MLP then treats this converted image as
+
+00:01:16.340 --> 00:01:19.045
+a simple vector of numbers with no special structure.
+
+00:01:19.045 --> 00:01:20.930
+It has no knowledge of the fact that
+
+00:01:20.930 --> 00:01:23.925
+these numbers were originally spatially arranged in a grid.
+
+00:01:23.924 --> 00:01:27.319
+CNNs, in contrast, are built for the exact purpose
+
+00:01:27.319 --> 00:01:31.174
+of working with or elucidating the patterns in multidimensional data.
+
+00:01:31.174 --> 00:01:35.750
+Unlike MLPs, CNNs understand the fact that image pixels that are closer
+
+00:01:35.750 --> 00:01:40.474
+in proximity to each other are more heavily related than pixels that are far apart.
+
+00:01:40.474 --> 00:01:44.969
+In this section, Alexis and I will discuss the math behind this kind of understanding.
+
+00:01:44.969 --> 00:01:47.849
+We'll present different types of layers that make up a CNN,
+
+00:01:47.849 --> 00:01:50.299
+and provide some intuition about each of their roles in
+
+00:01:50.299 --> 00:01:53.640
+processing an input and forming a complete neural network.
+

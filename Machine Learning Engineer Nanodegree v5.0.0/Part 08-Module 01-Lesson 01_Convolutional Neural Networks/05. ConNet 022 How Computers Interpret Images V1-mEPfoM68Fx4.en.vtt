@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.200
+Any gray scale image is interpreted by a computer as an array.
+
+00:00:04.200 --> 00:00:07.380
+A grid of values for each grid cell is called a pixel,
+
+00:00:07.379 --> 00:00:09.865
+and each pixel has a numerical value.
+
+00:00:09.865 --> 00:00:14.009
+Each image in the MNIST database is 28 pixels high and wide.
+
+00:00:14.009 --> 00:00:18.070
+And so, it's understood by a computer as a 28 by 28 array.
+
+00:00:18.070 --> 00:00:20.070
+In a typical gray scale image,
+
+00:00:20.070 --> 00:00:23.123
+white pixels are encoded as the value 255,
+
+00:00:23.123 --> 00:00:25.625
+and black pixels are encoded as zero.
+
+00:00:25.625 --> 00:00:27.600
+Gray pixels fall somewhere in between,
+
+00:00:27.600 --> 00:00:30.150
+with light-gray being closer to 255.
+
+00:00:30.149 --> 00:00:32.059
+We'll soon see that color images have
+
+00:00:32.060 --> 00:00:35.495
+similar numerical representations for each pixel color.
+
+00:00:35.494 --> 00:00:39.504
+These MNIST images have actually gone through a quick pre-processing step.
+
+00:00:39.505 --> 00:00:44.275
+They've been re-scaled so that each image has pixel values in a range from zero to one,
+
+00:00:44.274 --> 00:00:46.739
+as opposed to from 0-255.
+
+00:00:46.740 --> 00:00:50.420
+To go from a range of 0-255 to zero to one,
+
+00:00:50.420 --> 00:00:54.000
+you just have to divide every pixel value by 255.
+
+00:00:54.000 --> 00:00:56.253
+This step is called normalization,
+
+00:00:56.253 --> 00:00:59.280
+and it's common practice in many deep learning techniques.
+
+00:00:59.280 --> 00:01:02.375
+Normalization will help our algorithm to train better.
+
+00:01:02.375 --> 00:01:05.344
+The reason we typically want normalized pixel values
+
+00:01:05.344 --> 00:01:08.629
+is because neural networks rely on gradient calculations.
+
+00:01:08.629 --> 00:01:11.449
+These networks are trying to learn how important or how
+
+00:01:11.450 --> 00:01:15.120
+weighty a certain pixel should be in determining the class of an image.
+
+00:01:15.120 --> 00:01:19.609
+Normalizing the pixel values helps these gradient calculations stay consistent,
+
+00:01:19.609 --> 00:01:23.834
+and not get so large that they slow down or prevent a network from training.
+
+00:01:23.834 --> 00:01:26.328
+So, now we have a normalized data,
+
+00:01:26.328 --> 00:01:29.344
+how might we approach the task of classifying these images?
+
+00:01:29.344 --> 00:01:32.429
+Well, you already learned one method for classification,
+
+00:01:32.430 --> 00:01:34.790
+using a multi-layer perceptron.
+
+00:01:34.790 --> 00:01:38.450
+How might we input this image data into an MLP?
+
+00:01:38.450 --> 00:01:41.519
+Recall that MLPs only take vectors as input.
+
+00:01:41.519 --> 00:01:44.244
+So, in order to use an MLP with images,
+
+00:01:44.245 --> 00:01:47.575
+we have to first convert any image array into a vector.
+
+00:01:47.575 --> 00:01:51.394
+This process is so common that it has a name, flattening.
+
+00:01:51.394 --> 00:01:55.380
+I'll illustrate this flattening conversion process on a small example here.
+
+00:01:55.379 --> 00:01:57.569
+In the case of a four-by-four image,
+
+00:01:57.569 --> 00:02:00.379
+we have a matrix with 16 pixel values.
+
+00:02:00.379 --> 00:02:03.375
+Instead of representing this as a four-by-four matrix,
+
+00:02:03.375 --> 00:02:06.250
+we can construct a vector with 16 entries,
+
+00:02:06.250 --> 00:02:08.224
+where the first first four entries of our vector
+
+00:02:08.224 --> 00:02:10.764
+correspond to the first wheel of our old array.
+
+00:02:10.764 --> 00:02:14.494
+The second four entries correspond to the second wheel and so on.
+
+00:02:14.495 --> 00:02:17.300
+After converting our images into vectors,
+
+00:02:17.300 --> 00:02:20.650
+they can then be fed into the input layer of an MLP.
+
+00:02:20.650 --> 00:02:23.045
+We'll see how this works and see how to produce
+
+00:02:23.044 --> 00:02:26.599
+a class prediction for any given image in the next few videos.
+

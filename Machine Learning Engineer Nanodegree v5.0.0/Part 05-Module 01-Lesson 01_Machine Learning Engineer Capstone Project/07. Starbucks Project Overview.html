@@ -1,0 +1,370 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Starbucks Project Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Machine Learning Engineer Capstone Project
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Software &amp; Data Requirements.html">
+       02. Software &amp; Data Requirements
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Possible Projects.html">
+       03. Possible Projects
+      </a>
+     </li>
+     <li class="">
+      <a href="04. BertelsmannArvato Project Overview.html">
+       04. Bertelsmann/Arvato Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Arvato Terms and Conditions.html">
+       05. Arvato: Terms and Conditions
+      </a>
+     </li>
+     <li class="">
+      <a href="06. BertelsmannArvato Project Workspace.html">
+       06. Bertelsmann/Arvato Project Workspace
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Starbucks Project Overview.html">
+       07. Starbucks Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Starbucks Project Workspace.html">
+       08. Starbucks Project Workspace
+      </a>
+     </li>
+     <li class="">
+      <a href="09. CNN Project Dog Breed Classifier.html">
+       09. CNN Project: Dog Breed Classifier
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Dog Project Workspace.html">
+       10. Dog Project Workspace
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Selecting One Project.html">
+       11. Selecting One Project
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. Starbucks Project Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Capstone
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. Capstone-bq-H7M5BU3U.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="07. Capstone-bq-H7M5BU3U.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="07. Capstone-bq-H7M5BU3U.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="starbucks-capstone-challenge">
+          Starbuck's Capstone Challenge
+         </h1>
+         <p>
+          Instructions for the project can be found in the Starbucks Project Workspace.
+         </p>
+         <h2 id="dataset-overview">
+          Dataset overview
+         </h2>
+         <ul>
+          <li>
+           The program used to create the data simulates how people make purchasing
+           <br/>
+           decisions and how those decisions are influenced by promotional offers.
+          </li>
+          <li>
+           Each person in the simulation has some hidden traits that influence their
+           <br/>
+           purchasing patterns and are associated with their observable traits. People
+           <br/>
+           produce various events, including receiving offers, opening offers, and making
+           <br/>
+           purchases.
+          </li>
+          <li>
+           As a simplification, there are no explicit products to track. Only the
+           <br/>
+           amounts of each transaction or offer are recorded.
+          </li>
+          <li>
+           There are three types of offers that can be sent: buy-one-get-one (BOGO),
+           <br/>
+           discount, and informational. In a BOGO offer, a user needs to spend a certain
+           <br/>
+           amount to get a reward equal to that threshold amount. In a discount, a user
+           <br/>
+           gains a reward equal to a fraction of the amount spent. In an informational
+           <br/>
+           offer, there is no reward, but neither is there a requisite amount that the user
+           <br/>
+           is expected to spend. Offers can be delivered via multiple channels.
+          </li>
+          <li>
+           The basic task is to use the data to identify which groups of people are most
+           <br/>
+           responsive to each type of offer, and how best to present each type of offer.
+          </li>
+         </ul>
+         <h2 id="data-dictionary">
+          Data Dictionary
+         </h2>
+         <h3 id="profilejson">
+          profile.json
+         </h3>
+         <p>
+          Rewards program users (17000 users x 5 fields)
+         </p>
+         <ul>
+          <li>
+           gender: (categorical) M, F, O, or null
+          </li>
+          <li>
+           age: (numeric) missing value encoded as 118
+          </li>
+          <li>
+           id: (string/hash)
+          </li>
+          <li>
+           became_member_on: (date) format YYYYMMDD
+          </li>
+          <li>
+           income: (numeric)
+          </li>
+         </ul>
+         <h3 id="portfoliojson">
+          portfolio.json
+         </h3>
+         <p>
+          Offers sent during 30-day test period (10 offers x 6 fields)
+         </p>
+         <ul>
+          <li>
+           reward: (numeric) money awarded for the amount spent
+          </li>
+          <li>
+           channels: (list) web, email, mobile, social
+          </li>
+          <li>
+           difficulty: (numeric) money required to be spent to receive reward
+          </li>
+          <li>
+           duration: (numeric) time for offer to be open, in days
+          </li>
+          <li>
+           offer_type: (string) bogo, discount, informational
+          </li>
+          <li>
+           id: (string/hash)
+          </li>
+         </ul>
+         <h3 id="transcriptjson">
+          transcript.json
+         </h3>
+         <p>
+          Event log (306648 events x 4 fields)
+         </p>
+         <ul>
+          <li>
+           person: (string/hash)
+          </li>
+          <li>
+           event: (string) offer received, offer viewed, transaction, offer completed
+          </li>
+          <li>
+           value: (dictionary) different values depending on event type
+           <ul>
+            <li>
+             offer id: (string/hash) not associated with any "transaction"
+            </li>
+            <li>
+             amount: (numeric) money spent in "transaction"
+            </li>
+            <li>
+             reward: (numeric) money gained from "offer completed"
+            </li>
+           </ul>
+          </li>
+          <li>
+           time: (numeric) hours after start of test
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. Starbucks Project Workspace.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Starbucks Project Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

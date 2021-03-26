@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.000
+A convolutional neural network is a special kind of
+
+00:00:03.000 --> 00:00:06.209
+neural network in that it can remember spatial information.
+
+00:00:06.209 --> 00:00:10.120
+The neural networks that you've seen so far only look at individual inputs.
+
+00:00:10.119 --> 00:00:11.750
+But convolutional neural networks,
+
+00:00:11.750 --> 00:00:13.560
+can look at an image as a whole,
+
+00:00:13.560 --> 00:00:16.820
+or in patches and analyze groups of pixels at a time.
+
+00:00:16.820 --> 00:00:19.199
+The key to preserving the spatial information
+
+00:00:19.199 --> 00:00:21.375
+is something called the convolutional layer.
+
+00:00:21.375 --> 00:00:23.759
+A convolutional layer applies a series of
+
+00:00:23.760 --> 00:00:28.155
+different image filters also known as convolutional kernels to an input image.
+
+00:00:28.155 --> 00:00:30.975
+The resulting filtered images have different appearances.
+
+00:00:30.975 --> 00:00:34.890
+The filters may have extracted features like the edges of objects in that image,
+
+00:00:34.890 --> 00:00:37.920
+or the colors that distinguish the different classes of images.
+
+00:00:37.920 --> 00:00:40.695
+In the case of classifying digits for example,
+
+00:00:40.695 --> 00:00:43.820
+CNN should learn to identify spatial patterns like
+
+00:00:43.820 --> 00:00:48.094
+the curves and lines that make up the number six as distinct from another digit.
+
+00:00:48.094 --> 00:00:51.439
+Later layers in a model will learn how to combine different color
+
+00:00:51.439 --> 00:00:54.844
+and spatial features to produce an output like a class label.
+
+00:00:54.844 --> 00:00:59.629
+Before we get into defining and training a complete CNN in the next couple videos,
+
+00:00:59.630 --> 00:01:03.065
+you'll learn a bit more about the filters that define a convolutional layer.
+
+00:01:03.064 --> 00:01:06.189
+How they're defined, and how they can transform an input image?
+
+00:01:06.189 --> 00:01:09.859
+This will be important foundational knowledge that will come up again as you get to
+
+00:01:09.859 --> 00:01:14.239
+training as CNN and even visualizing the inner workings of a trained CNN.
+

@@ -1,0 +1,86 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.176 --> 00:00:04.368
+Até agora, aprendemos sobre
+classificação de imagem.
+
+00:00:04.401 --> 00:00:08.664
+Na verdade, agora é a hora
+de revisar o pipeline da tarefa.
+
+00:00:08.697 --> 00:00:11.728
+Primeiro, carregue e visualize
+os dados.
+
+00:00:11.761 --> 00:00:13.652
+Depois, pré-processe os dados,
+
+00:00:13.685 --> 00:00:16.111
+normalizando e os convertendo
+em um tensor,
+
+00:00:16.144 --> 00:00:20.174
+para que possam ser processados
+nas camadas da rede neural.
+
+00:00:20.207 --> 00:00:21.702
+Depois, faça a pesquisa.
+
+00:00:21.735 --> 00:00:24.536
+Alguém já abordou isso
+ou uma tarefa parecida?
+
+00:00:24.569 --> 00:00:27.963
+Quais modelos de aprendizado
+profundo foram testados e aprovados?
+
+00:00:27.996 --> 00:00:31.839
+Use a pesquisa para escolher
+a arquitetura de um modelo.
+
+00:00:31.872 --> 00:00:34.662
+Então, escolha as funções de perda
+e de otimização
+
+00:00:34.695 --> 00:00:36.691
+e treine o seu modelo.
+
+00:00:36.724 --> 00:00:39.476
+Aqui você pode usar
+um conjunto de dados de validação
+
+00:00:39.509 --> 00:00:42.526
+para selecionar e salvar
+o melhor modelo.
+
+00:00:42.559 --> 00:00:45.734
+Por fim, teste o modelo
+com dados inéditos.
+
+00:00:45.767 --> 00:00:48.827
+Neste ponto, faça uma pausa
+
+00:00:48.860 --> 00:00:51.481
+e tente absorver
+tudo que foi aprendido.
+
+00:00:51.514 --> 00:00:53.804
+Quando estiver pronto,
+continue.
+
+00:00:53.837 --> 00:00:55.996
+A seguir, mostrarei
+uma nova arquitetura
+
+00:00:56.029 --> 00:00:57.530
+para classificação de imagem,
+
+00:00:57.563 --> 00:00:59.155
+a rede neural convolucional,
+
+00:00:59.188 --> 00:01:02.524
+que nos ajudará a criar modelos
+de classificação ainda melhores.
+

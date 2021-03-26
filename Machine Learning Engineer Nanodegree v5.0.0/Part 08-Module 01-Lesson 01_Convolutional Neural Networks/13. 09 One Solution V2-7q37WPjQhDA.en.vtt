@@ -1,0 +1,277 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.189
+I'm going to quickly show you how I went about
+
+00:00:02.189 --> 00:00:05.544
+defining and training an MLP for image classification.
+
+00:00:05.544 --> 00:00:09.490
+So first, I just loaded in and looked at my normalized image data.
+
+00:00:09.490 --> 00:00:12.750
+Then, I started to define the classification model.
+
+00:00:12.750 --> 00:00:15.929
+I started with the fully connected layer FC1 that sees
+
+00:00:15.929 --> 00:00:20.289
+the 784 entry long vector that represents a flattened image as input.
+
+00:00:20.289 --> 00:00:23.280
+Then, I proceed it based on the resource that I found,
+
+00:00:23.280 --> 00:00:27.170
+which had two hidden layers with 512 inputs and outputs.
+
+00:00:27.170 --> 00:00:31.775
+I've actually stored those values here as two variables, hidden_1 and hidden_2.
+
+00:00:31.774 --> 00:00:34.799
+This is an extra step, but it makes it easy should I want to change
+
+00:00:34.799 --> 00:00:37.629
+these values later on for testing or something else.
+
+00:00:37.630 --> 00:00:39.978
+So, to complete my first fully connected layer,
+
+00:00:39.978 --> 00:00:43.244
+I put hidden_1 as the number of outputs I want this to produce.
+
+00:00:43.244 --> 00:00:46.424
+Then, I create a second fully connected layer, FC2,
+
+00:00:46.424 --> 00:00:51.349
+which takes in that number of outputs and produces 512 outputs again.
+
+00:00:51.350 --> 00:00:56.215
+I also want to be clear that the outputs of one layer feed into the inputs of the next.
+
+00:00:56.215 --> 00:00:59.480
+Then, I've defined the last fully connected layer FC3,
+
+00:00:59.479 --> 00:01:03.669
+such that it sees 512 inputs and produces 10 outputs.
+
+00:01:03.670 --> 00:01:08.329
+The 10 outputs correspond to the number of digit classes zero through nine.
+
+00:01:08.329 --> 00:01:11.254
+So, this layer will produce our class scores.
+
+00:01:11.254 --> 00:01:13.399
+Finally, still in the init function,
+
+00:01:13.400 --> 00:01:18.520
+I've also defined a dropout layer with a dropout probability of 0.2 or 205.
+
+00:01:18.519 --> 00:01:23.329
+Now that I've defined all the layers that I need to make up this classification MLP,
+
+00:01:23.329 --> 00:01:26.694
+I have to explicitly define the feedforward behavior of the network.
+
+00:01:26.694 --> 00:01:28.169
+With the forward function,
+
+00:01:28.170 --> 00:01:32.415
+I basically want to answer how will an input vector proceed through these layers?
+
+00:01:32.415 --> 00:01:36.485
+So, the input x starts out as a 28 by 28 image tensor,
+
+00:01:36.484 --> 00:01:40.334
+and my first step is to flatten it into a 784-length vector.
+
+00:01:40.334 --> 00:01:41.809
+Once the input is flattened,
+
+00:01:41.810 --> 00:01:44.280
+I'm passing it through the first fully connected layer,
+
+00:01:44.280 --> 00:01:47.424
+FC1, and applying an activation function.
+
+00:01:47.424 --> 00:01:52.174
+Next, I'm going to do the exact same thing with our second fully connected layer, FC2.
+
+00:01:52.174 --> 00:01:53.855
+Only in-between these two layers,
+
+00:01:53.855 --> 00:01:57.725
+I'm actually adding a dropout layer which would help prevent over-fitting.
+
+00:01:57.724 --> 00:02:00.379
+After x passes through our second hidden layer,
+
+00:02:00.379 --> 00:02:04.369
+we're going to add one more dropout layer and reach our final fully connected layer.
+
+00:02:04.370 --> 00:02:08.450
+You'll notice that I'm not applying an activation function to this final layer.
+
+00:02:08.449 --> 00:02:12.594
+That's because later it will have a softmax activation function applied to it.
+
+00:02:12.594 --> 00:02:17.365
+So right now, I am leaving it as is and returning the final transformed x.
+
+00:02:17.365 --> 00:02:20.390
+Because FC3 produces 10 outputs,
+
+00:02:20.389 --> 00:02:23.244
+this x should represent our 10 class scores.
+
+00:02:23.245 --> 00:02:26.015
+Okay. Then, I'm instantiating and printing
+
+00:02:26.014 --> 00:02:28.849
+out the net to make sure it has the layers that I want.
+
+00:02:28.849 --> 00:02:31.655
+I should see our three linear layers and our dropout.
+
+00:02:31.655 --> 00:02:35.115
+The next step is defining the loss and optimization functions.
+
+00:02:35.115 --> 00:02:38.780
+Here, I'm defining the last criterion as cross-entropy loss.
+
+00:02:38.780 --> 00:02:41.879
+This is just a pretty standard loss for any classification task.
+
+00:02:41.879 --> 00:02:44.674
+Then, I'm going to use stochastic gradient descent,
+
+00:02:44.675 --> 00:02:47.465
+SGD, from the torch optimization library.
+
+00:02:47.465 --> 00:02:50.599
+This takes in our model parameters and a learning rate.
+
+00:02:50.599 --> 00:02:53.259
+I've set a learning rate of 0.01.
+
+00:02:53.259 --> 00:02:56.745
+If you find that your loss is decreasing too slowly or sporadically,
+
+00:02:56.745 --> 00:02:58.164
+you can change this value.
+
+00:02:58.164 --> 00:03:02.049
+Next, I spent some time training this model for 50 epochs.
+
+00:03:02.050 --> 00:03:05.240
+This took some time because I'm just using my CPU for now,
+
+00:03:05.240 --> 00:03:08.180
+and later I'll show you how to use a GPU for faster training.
+
+00:03:08.180 --> 00:03:10.430
+At the end of each of these epochs I printed out
+
+00:03:10.430 --> 00:03:13.415
+the training loss and watched how it decreased over time.
+
+00:03:13.414 --> 00:03:16.969
+You can see that it decreased fairly quickly at first and then later
+
+00:03:16.969 --> 00:03:21.240
+on slows down especially around the 40 epoch mark.
+
+00:03:21.240 --> 00:03:24.520
+But it is still decreasing up to epoch 50.
+
+00:03:24.520 --> 00:03:29.060
+Then, to actually see how well my trained model generalizes to new data,
+
+00:03:29.060 --> 00:03:32.164
+I tested on our test data that we loaded in at the start.
+
+00:03:32.164 --> 00:03:35.224
+Here, I've iterated through all the data in our test litter.
+
+00:03:35.224 --> 00:03:38.164
+I applied the model and recorded the test loss.
+
+00:03:38.164 --> 00:03:42.139
+Recall that our model is actually returning a list of class scores.
+
+00:03:42.139 --> 00:03:43.834
+To isolate our predicted class,
+
+00:03:43.835 --> 00:03:48.330
+I'm going to take the maximum value of the scores and return it as our prediction.
+
+00:03:48.330 --> 00:03:51.795
+Then, I compare this prediction to our target label.
+
+00:03:51.794 --> 00:03:55.194
+This creates a list whether a certain prediction was correct or not,
+
+00:03:55.194 --> 00:03:58.069
+then I actually separate these into the 10 classes
+
+00:03:58.069 --> 00:04:00.739
+and I print out the accuracy for each class.
+
+00:04:00.740 --> 00:04:06.030
+I have our overall test loss and our overall accuracy which is 97%.
+
+00:04:06.030 --> 00:04:08.060
+This is pretty good, and you can see among
+
+00:04:08.060 --> 00:04:10.694
+all the digit classes this value is pretty consistent.
+
+00:04:10.694 --> 00:04:14.500
+The model seems to do the worst on images of the number seven or eight.
+
+00:04:14.500 --> 00:04:16.910
+But an even distribution indicates that your model
+
+00:04:16.910 --> 00:04:19.755
+is trained pretty evenly on each type of data.
+
+00:04:19.754 --> 00:04:21.129
+I've also included a cell,
+
+00:04:21.129 --> 00:04:25.533
+where you can display test images and the predicted and true labels side-by-side.
+
+00:04:25.533 --> 00:04:29.339
+This makes it easy to see if you've gotten any specific image wrong.
+
+00:04:29.339 --> 00:04:32.269
+But going back up to the test accuracy overall,
+
+00:04:32.269 --> 00:04:34.449
+I actually wonder if I could do even better.
+
+00:04:34.449 --> 00:04:36.500
+If I could improve this model by adding, say,
+
+00:04:36.500 --> 00:04:38.589
+another layer to find more patterns in the data.
+
+00:04:38.589 --> 00:04:42.739
+I even wonder if I chose the right point to stop training this model.
+
+00:04:42.740 --> 00:04:45.230
+In fact, one thing to note is that I stopped training at
+
+00:04:45.230 --> 00:04:49.220
+50 epochs based on only how I expected the loss to decrease over time.
+
+00:04:49.220 --> 00:04:51.835
+But it's more of an art than a science at this point.
+
+00:04:51.834 --> 00:04:56.359
+So next, I'll talk about one more concrete method of knowing when to stop training.
+
+00:04:56.360 --> 00:04:58.730
+A technique called model validation.
+

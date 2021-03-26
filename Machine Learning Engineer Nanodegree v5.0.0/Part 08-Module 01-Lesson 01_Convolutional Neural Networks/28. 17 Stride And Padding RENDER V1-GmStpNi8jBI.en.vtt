@@ -1,0 +1,130 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.259
+We've seen that you can control the behavior of a convolutional layer by
+
+00:00:04.259 --> 00:00:09.029
+specifying the number of filters and the size of each filter, for instance.
+
+00:00:09.029 --> 00:00:12.269
+To increase the number of nodes in a convolutional layer,
+
+00:00:12.269 --> 00:00:14.424
+you could increase the number of filters.
+
+00:00:14.425 --> 00:00:17.160
+To increase the size of the detected patterns,
+
+00:00:17.160 --> 00:00:19.394
+you could increase the size of your filter.
+
+00:00:19.394 --> 00:00:22.939
+But there are even more hyperparameters that you can do.
+
+00:00:22.940 --> 00:00:27.585
+One of these hyperparameters is referred to as the stride of the convolution.
+
+00:00:27.585 --> 00:00:32.035
+The stride is just the amount by which the filter slides over the image.
+
+00:00:32.034 --> 00:00:35.679
+In the example in the previous video, the stride was one.
+
+00:00:35.679 --> 00:00:38.729
+We move the convolution window horizontally
+
+00:00:38.729 --> 00:00:41.979
+and vertically across the image one pixel at a time.
+
+00:00:41.979 --> 00:00:44.869
+A stride of one makes the convolutional layer
+
+00:00:44.869 --> 00:00:48.424
+roughly the same width and height as the input image.
+
+00:00:48.424 --> 00:00:54.169
+In this animation, we've drawn the purple convolutional layer as stacked feature maps.
+
+00:00:54.170 --> 00:00:57.770
+If we instead make the stride equal to two,
+
+00:00:57.770 --> 00:01:01.920
+the convolutional layer is about half the width and height of the image.
+
+00:01:01.920 --> 00:01:06.525
+I save roughly because it depends on what you do at the edge of your image.
+
+00:01:06.525 --> 00:01:09.290
+To see how the treatment of the edges will matter,
+
+00:01:09.290 --> 00:01:13.145
+consider our toy example of a five-by-five grey scale image.
+
+00:01:13.144 --> 00:01:17.390
+Say, we have a different filter now with the height and width of two.
+
+00:01:17.390 --> 00:01:19.480
+Say, the stride is also two.
+
+00:01:19.480 --> 00:01:24.030
+Then, as before, we start with the filter in the top left corner of
+
+00:01:24.030 --> 00:01:29.260
+the image and calculate the value for the first node in the convolutional layer.
+
+00:01:29.260 --> 00:01:34.070
+We then move the filter two units to the right and do the same.
+
+00:01:34.069 --> 00:01:37.869
+But when we move the filter two more units to the right,
+
+00:01:37.870 --> 00:01:42.120
+the filter extends outside the image. What do we do now?
+
+00:01:42.120 --> 00:01:45.805
+Do we still want to keep the corresponding convolutional node?
+
+00:01:45.805 --> 00:01:49.820
+For now, let's just populate the places where the filter
+
+00:01:49.819 --> 00:01:53.809
+extends outside with a question mark and proceed as planned.
+
+00:01:53.810 --> 00:01:59.475
+So now, how do we deal with these nodes where the filter extended outside the image?
+
+00:01:59.474 --> 00:02:01.890
+We could as a first option,
+
+00:02:01.890 --> 00:02:03.230
+just get rid of them.
+
+00:02:03.230 --> 00:02:05.600
+Note that if we choose this option,
+
+00:02:05.599 --> 00:02:08.014
+it's possible that our convolutional layer has
+
+00:02:08.014 --> 00:02:11.554
+no information about some regions of the image.
+
+00:02:11.555 --> 00:02:16.960
+This is the case here for the right and bottom edges of the image.
+
+00:02:16.960 --> 00:02:18.844
+As a second option,
+
+00:02:18.844 --> 00:02:22.069
+we could plan ahead for this case by padding the image with
+
+00:02:22.069 --> 00:02:26.549
+zeros to give the filter more space to move.
+
+00:02:26.550 --> 00:02:29.570
+Now, when we populate the convolutional layer,
+
+00:02:29.569 --> 00:02:33.609
+we get contributions from every region in the image.
+

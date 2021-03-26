@@ -1,0 +1,160 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.970
+Say we want to classify an input image.
+
+00:00:02.970 --> 00:00:06.809
+There are a few ways we could go about this using a deep learning architecture.
+
+00:00:06.809 --> 00:00:10.780
+Consider following the input layer with a sequence of convolutional layers.
+
+00:00:10.779 --> 00:00:14.714
+This stack will discover hierarchies of spatial patterns in the image.
+
+00:00:14.714 --> 00:00:18.359
+The first layer of filters looks at patterns in the input image,
+
+00:00:18.359 --> 00:00:22.239
+the second looks at patterns in the previous convolutional layer, and so on.
+
+00:00:22.239 --> 00:00:27.539
+Each of the convolutional layers requires us to specify a number of hyperparameters.
+
+00:00:27.539 --> 00:00:30.869
+The first and second inputs to define a convolutional layer are
+
+00:00:30.870 --> 00:00:34.429
+simply the depth of the input and the desired depth of the output.
+
+00:00:34.429 --> 00:00:39.420
+For example, the input depth of a color image will be three for the RGB channels,
+
+00:00:39.420 --> 00:00:44.230
+and we might want to produce 16 different filtered images in this convolutional layer.
+
+00:00:44.229 --> 00:00:48.149
+Next, we define the size of the filters that define a convolutional layer.
+
+00:00:48.149 --> 00:00:51.579
+These are often square and range from the size of two-by-two at the
+
+00:00:51.579 --> 00:00:55.489
+smallest to up to a seven-by-seven or so for very large images.
+
+00:00:55.490 --> 00:00:58.445
+Here, I'll choose to use three-by-three filters.
+
+00:00:58.445 --> 00:01:00.149
+The stride is generally set to
+
+00:01:00.149 --> 00:01:03.289
+one and many frameworks will have this as the default value,
+
+00:01:03.289 --> 00:01:05.560
+so you may need to input this value.
+
+00:01:05.560 --> 00:01:09.275
+As for padding, you may get better results if you set your padding such that
+
+00:01:09.275 --> 00:01:11.450
+a convolutional layer will have the same width
+
+00:01:11.450 --> 00:01:13.990
+and height as its input from the previous layer.
+
+00:01:13.989 --> 00:01:16.084
+In the case of a three-by-three filter,
+
+00:01:16.084 --> 00:01:21.219
+which can almost center itself perfectly on an image but misses the border pixels by one,
+
+00:01:21.219 --> 00:01:22.965
+this padding will be equal to one.
+
+00:01:22.965 --> 00:01:26.469
+You can read a bit more about different cases for padding below.
+
+00:01:26.469 --> 00:01:30.409
+When deciding the depth or number of filters in a convolutional layer,
+
+00:01:30.409 --> 00:01:33.679
+often we'll have a number of filters increase in sequence.
+
+00:01:33.680 --> 00:01:36.860
+So, the first convolutional layer might have 16 filters.
+
+00:01:36.859 --> 00:01:41.435
+The second second will see that depth as input and produce a layer with a depth of 32.
+
+00:01:41.435 --> 00:01:44.795
+The third will have a depth of 64 and so on.
+
+00:01:44.795 --> 00:01:46.810
+After each convolutional layer,
+
+00:01:46.810 --> 00:01:49.320
+we'll apply a ReLU activation function.
+
+00:01:49.319 --> 00:01:51.079
+If we follow this process,
+
+00:01:51.079 --> 00:01:53.719
+we have a method for gradually increasing the depth of
+
+00:01:53.719 --> 00:01:56.765
+our array without modifying the height and width.
+
+00:01:56.765 --> 00:01:59.480
+The input, just like all of the layers in this sequence,
+
+00:01:59.480 --> 00:02:01.450
+has a height and width of 32.
+
+00:02:01.450 --> 00:02:07.480
+But the depth increases from an input layers depth of three to 16 to 32 to 64.
+
+00:02:07.480 --> 00:02:10.379
+We call that, yes we wanted to increase the depth,
+
+00:02:10.379 --> 00:02:15.215
+but we also wanted to decrease the height and width and discard some spatial information.
+
+00:02:15.215 --> 00:02:17.854
+This is where max pooling layers will come in.
+
+00:02:17.854 --> 00:02:22.250
+They generally follow every one or two convolutional layers in the sequence.
+
+00:02:22.250 --> 00:02:26.990
+Here's one such example with a max pooling layer after each convolutional layer.
+
+00:02:26.990 --> 00:02:28.820
+To define a max pooling layers,
+
+00:02:28.819 --> 00:02:31.685
+you'll only need to define the filter size and stride.
+
+00:02:31.685 --> 00:02:35.960
+The most common setting will use filters of size two with a stride of two.
+
+00:02:35.960 --> 00:02:37.610
+This has the effect of making
+
+00:02:37.610 --> 00:02:41.110
+the XY dimensions half of what they were from the previous layer.
+
+00:02:41.110 --> 00:02:45.590
+In this way, the combination of convolutional and max pooling layers accomplishes
+
+00:02:45.590 --> 00:02:50.750
+our goal of attaining an array that's quite deep but small in the X and Y dimensions.
+
+00:02:50.750 --> 00:02:55.189
+Next, let's talk about finally connecting this output to a fully-connected layer,
+
+00:02:55.189 --> 00:02:59.879
+and see what exactly is happening to an input as it moves through these layers.
+
