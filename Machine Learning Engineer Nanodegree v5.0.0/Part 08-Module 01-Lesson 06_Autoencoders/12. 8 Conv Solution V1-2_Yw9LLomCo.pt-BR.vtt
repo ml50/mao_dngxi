@@ -1,0 +1,257 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.306 --> 00:00:03.183
+Queríamos criar
+um autocodificador convolucional
+
+00:00:03.216 --> 00:00:06.444
+com um codificador com camadas
+convolucionais e de max pooling
+
+00:00:06.477 --> 00:00:09.773
+e um decodificador com camadas
+convolucionais transpostas.
+
+00:00:09.806 --> 00:00:11.183
+Aqui está a minha solução.
+
+00:00:11.216 --> 00:00:14.335
+Eu separei os códigos
+do codificador e do decodificador.
+
+00:00:14.368 --> 00:00:18.328
+Na função init do codificador,
+defini duas camadas convolucionais.
+
+00:00:18.361 --> 00:00:21.524
+A 1ª vê uma imagem em escala
+de cinza com profundidade igual a 1
+
+00:00:21.557 --> 00:00:23.837
+e produz 16
+mapas de características.
+
+00:00:23.870 --> 00:00:25.732
+Aqui eu uso um Kernel de 3x3
+
+00:00:25.765 --> 00:00:29.046
+e, para manter os outputs com
+o mesmo tamanho X e Y dos inputs,
+
+00:00:29.079 --> 00:00:31.308
+uso padding igual a 1px.
+
+00:00:31.341 --> 00:00:33.501
+Na próxima camada,
+há algo parecido,
+
+00:00:33.534 --> 00:00:37.406
+mas diminuí a profundidade
+de 16 para 4 mapas.
+
+00:00:37.439 --> 00:00:39.693
+Por fim,
+defini uma camada max pooling
+
+00:00:39.726 --> 00:00:42.163
+com stride e tamanho de Kernel
+iguais a 2,
+
+00:00:42.196 --> 00:00:44.807
+que serão colocados
+após cada camada convolucional
+
+00:00:44.840 --> 00:00:47.357
+para reduzir o tamanho espacial
+do output.
+
+00:00:47.390 --> 00:00:48.967
+Agora temos o decodificador.
+
+00:00:49.000 --> 00:00:52.237
+O trabalho dele
+é desfazer a redução
+
+00:00:52.270 --> 00:00:55.157
+feita pelo codificador
+do modelo.
+
+00:00:55.190 --> 00:00:59.557
+Se observarmos o diagrama,
+cada camada transposta
+
+00:00:59.590 --> 00:01:02.101
+ampliará uma imagem,
+desfará o pooling
+
+00:01:02.134 --> 00:01:04.437
+e modificará a profundidade
+do output,
+
+00:01:04.470 --> 00:01:08.813
+passando da profundidade comprimida
+de 4 para 16 e de volta para 1.
+
+00:01:08.846 --> 00:01:13.438
+Isso reconstruirá a imagem
+de 28x28x1.
+
+00:01:13.471 --> 00:01:18.749
+Eu faço isso aqui, mudo de 4
+para 16, depois de 16 para 1,
+
+00:01:18.782 --> 00:01:21.541
+cada vez aumentando
+a dimensão espacial em 2,
+
+00:01:21.574 --> 00:01:24.108
+definindo o Kernel
+e o stride como 2.
+
+00:01:24.141 --> 00:01:27.126
+Com a última camada,
+conseguirei treinar o modelo
+
+00:01:27.159 --> 00:01:29.326
+comparando as imagens
+originais de input
+
+00:01:29.359 --> 00:01:31.446
+com as reconstruções.
+
+00:01:31.479 --> 00:01:35.169
+Depois junto tudo
+na função forward.
+
+00:01:35.202 --> 00:01:37.888
+Temos a série de camadas
+convolucionais e de pooling
+
+00:01:37.921 --> 00:01:39.519
+na parte do codificador,
+
+00:01:39.552 --> 00:01:43.357
+e as camadas convolucionais
+transpostas no decodificador.
+
+00:01:43.390 --> 00:01:47.477
+Perceba que aplico a ativação ReLU
+para cada camada oculta,
+
+00:01:47.510 --> 00:01:49.788
+exceto para a de output.
+
+00:01:49.821 --> 00:01:52.869
+Nela, eu apliquei uma função
+de ativação sigmoide,
+
+00:01:52.902 --> 00:01:56.190
+que escalona o output para que
+ele tenha pixels em escala de cinza
+
+00:01:56.223 --> 00:01:58.277
+em um intervalo de 0 a 1.
+
+00:01:58.310 --> 00:02:01.261
+Agora o treinamento.
+Como esta é uma tarefa de regressão,
+
+00:02:01.294 --> 00:02:04.896
+que compara quantidades de pixels
+em vez de probabilidades de classe,
+
+00:02:04.929 --> 00:02:06.983
+usamos a perda
+do erro quadrático médio,
+
+00:02:07.016 --> 00:02:09.527
+que é adequada
+para a comparação de quantidades.
+
+00:02:09.560 --> 00:02:12.478
+E uso o mesmo otimizador Adam.
+
+00:02:12.511 --> 00:02:17.005
+No loop de treinamento,
+itero as imagens de treinamento.
+
+00:02:17.038 --> 00:02:20.524
+Os dados MNIST contêm imagens
+com rótulos,
+
+00:02:20.557 --> 00:02:23.150
+mas os rótulos não me interessam
+nesse caso.
+
+00:02:23.183 --> 00:02:25.733
+Em vez disso,
+passo as imagens pelo modelo,
+
+00:02:25.766 --> 00:02:28.637
+que produz
+imagens reconstruídas.
+
+00:02:28.670 --> 00:02:31.597
+Depois, a perda compara
+as imagens reconstruídas
+
+00:02:31.630 --> 00:02:33.525
+com as originais.
+
+00:02:33.558 --> 00:02:36.396
+De preferência,
+isso será quase indistinguível.
+
+00:02:37.118 --> 00:02:40.399
+Registrei a perda de treinamento
+depois de cada uma das 30 epochs.
+
+00:02:40.432 --> 00:02:44.989
+Ela diminuiu de 0,55
+para 0,16.
+
+00:02:45.022 --> 00:02:47.446
+Agora eu vejo os resultados.
+
+00:02:47.479 --> 00:02:50.494
+As 10 imagens originais
+estão na linha de cima,
+
+00:02:50.527 --> 00:02:53.206
+e as reconstruções,
+na de baixo.
+
+00:02:53.239 --> 00:02:56.668
+Muitas das reconstruções
+estão muito boas.
+
+00:02:56.701 --> 00:03:01.046
+O modelo não tem mais
+o borrão que havia no modelo linear.
+
+00:03:01.079 --> 00:03:04.397
+Existem algumas falhas,
+
+00:03:04.430 --> 00:03:07.295
+e parece haver dificuldade
+com áreas curvas.
+
+00:03:07.328 --> 00:03:10.023
+Padrões assim podem ocorrer
+
+00:03:10.056 --> 00:03:11.813
+porque as camadas transpostas
+
+00:03:11.846 --> 00:03:14.565
+tendem a se sobrepor e produzir
+um padrão de grade.
+
+00:03:14.598 --> 00:03:17.926
+Eu incluí um notebook
+com uma solução alternativa,
+
+00:03:17.959 --> 00:03:19.097
+que virá a seguir.
+

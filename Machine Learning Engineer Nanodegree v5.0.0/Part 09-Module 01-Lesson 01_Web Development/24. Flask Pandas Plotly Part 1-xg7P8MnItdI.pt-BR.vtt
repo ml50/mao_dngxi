@@ -1,0 +1,266 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:03.066
+Esta é a parte onde começamos
+a juntar tudo.
+
+00:00:03.099 --> 00:00:07.066
+Me acompanhe neste vídeo
+porque há muito o que mostrar.
+
+00:00:07.099 --> 00:00:09.933
+Aqui está um lembrete
+de onde estamos até agora.
+
+00:00:09.966 --> 00:00:14.266
+Tenho um aplicativo web
+com rotas e templates HTML,
+
+00:00:14.299 --> 00:00:17.366
+mas os templates
+não nos interessam ainda.
+
+00:00:17.399 --> 00:00:19.199
+Também há um arquivo CSV
+
+00:00:19.233 --> 00:00:22.399
+que é importado
+e preparado com Pandas.
+
+00:00:22.433 --> 00:00:25.066
+Este é o arquivo que faz
+toda a preparação.
+
+00:00:25.099 --> 00:00:28.033
+O objetivo é pegar
+estes dados preparados,
+
+00:00:28.066 --> 00:00:30.399
+configurar
+uma visualização Plotly
+
+00:00:30.433 --> 00:00:33.099
+e mostrar a visualização
+no front-end.
+
+00:00:33.133 --> 00:00:35.566
+Vamos olhar
+o arquivo routes.py.
+
+00:00:35.599 --> 00:00:40.199
+Meu painel de dados de worldbank
+era só uma webpage
+
+00:00:40.233 --> 00:00:42.133
+então só preciso de um route.
+
+00:00:42.166 --> 00:00:44.966
+Vou apagar
+este segundo route aqui.
+
+00:00:44.999 --> 00:00:49.199
+Tenho todos os dados
+nesta variável de dados.
+
+00:00:49.233 --> 00:00:53.066
+Vamos iniciar o aplicativo
+para ver como os dados são.
+
+00:00:53.099 --> 00:00:55.833
+Os dados estão sendo printados
+no arquivo routes.
+
+00:00:55.866 --> 00:00:57.533
+É uma lista de tuplas,
+
+00:00:57.566 --> 00:00:59.999
+em que cada tupla contém
+o nome de um país,
+
+00:01:00.033 --> 00:01:02.533
+valores X e valores Y.
+
+00:01:02.566 --> 00:01:06.466
+Como convertemos isto
+numa visualização?
+
+00:01:06.499 --> 00:01:11.166
+Você precisa enviar estes dados
+que estão no back-end
+
+00:01:11.199 --> 00:01:13.399
+e levá-los para o front-end.
+
+00:01:13.433 --> 00:01:14.866
+Como fazer isto?
+
+00:01:14.899 --> 00:01:16.999
+No método render template,
+
+00:01:17.033 --> 00:01:20.433
+você pode mandar variáveis
+ao front-end.
+
+00:01:20.466 --> 00:01:22.999
+Você só precisa listá-las
+
+00:01:23.033 --> 00:01:25.199
+após especificar
+o nome do template.
+
+00:01:25.233 --> 00:01:29.433
+É o que fiz aqui escrevendo:
+data_set = data.
+
+00:01:29.466 --> 00:01:32.133
+Agora o front-end terá acesso
+
+00:01:32.166 --> 00:01:34.099
+a esta variável
+de conjunto de dados.
+
+00:01:34.133 --> 00:01:37.766
+Vamos mudar para o código
+front-end index.html.
+
+00:01:37.799 --> 00:01:41.933
+Este index.html tem
+HTML regular,
+
+00:01:41.966 --> 00:01:45.999
+mas Flask inclui um processador
+de template chamado Jinja.
+
+00:01:46.033 --> 00:01:48.766
+Um processador de template é
+uma ferramenta que permite
+
+00:01:48.799 --> 00:01:51.933
+que você reutilize HTML
+introduzindo variáveis.
+
+00:01:51.966 --> 00:01:53.666
+Olhe o que eu quis dizer:
+
+00:01:53.699 --> 00:01:56.299
+a variável de conjunto de dados
+do back-end
+
+00:01:56.333 --> 00:01:58.433
+agora está disponível
+no front-end.
+
+00:01:58.466 --> 00:02:03.533
+Você só precisa envolver
+o nome da variável em chaves assim.
+
+00:02:03.566 --> 00:02:05.766
+Agora vamos para o front-end.
+
+00:02:05.799 --> 00:02:08.099
+Na página index.html,
+
+00:02:08.133 --> 00:02:10.499
+todos os dados
+estão sendo printados,
+
+00:02:10.533 --> 00:02:13.266
+então conseguimos obter os dados
+do back-end
+
+00:02:13.299 --> 00:02:14.999
+e mostrá-los no front-end.
+
+00:02:15.033 --> 00:02:18.766
+Com o Jinja, você pode escrever
+instruções de fluxo de controle,
+
+00:02:18.799 --> 00:02:20.533
+como if e for.
+
+00:02:20.566 --> 00:02:23.566
+Isto pode dar mais controle
+da formatação,
+
+00:02:23.599 --> 00:02:26.033
+você só tem
+que aprender a sintaxe.
+
+00:02:26.066 --> 00:02:27.466
+Vou mostrar.
+
+00:02:27.499 --> 00:02:32.133
+Voltando ao index.html,
+vou escrever um loop for.
+
+00:02:33.399 --> 00:02:36.233
+Vamos ver como este loop for
+fica no front-end.
+
+00:02:36.266 --> 00:02:39.299
+Ele está iterando
+por todos os dados
+
+00:02:39.333 --> 00:02:41.966
+e os printando
+linha por linha.
+
+00:02:41.999 --> 00:02:44.466
+Imagine usar esta sintaxe
+
+00:02:44.499 --> 00:02:47.599
+para fazer uma tabela
+para os dados por exemplo.
+
+00:02:47.633 --> 00:02:51.966
+A sintaxe é que variáveis são
+cercadas por chaves
+
+00:02:51.999 --> 00:02:56.399
+e instruções de controle têm
+uma chave e sinal de porcentagem.
+
+00:02:56.433 --> 00:02:59.399
+Estas variáveis
+e instruções de controle
+
+00:02:59.433 --> 00:03:01.666
+precisam estar separadas
+de algum modo
+
+00:03:01.699 --> 00:03:06.266
+para o processador de template
+saber que parte são tags HTML
+
+00:03:06.299 --> 00:03:09.433
+e que parte é uma variável
+ou uma instrução de controle.
+
+00:03:09.466 --> 00:03:12.466
+Dá para imaginar por que é chamado
+de processador de template.
+
+00:03:12.499 --> 00:03:15.966
+O HTML pode ser reutilizado
+como um esqueleto,
+
+00:03:15.999 --> 00:03:18.666
+e a informação
+nas variáveis pode mudar.
+
+00:03:18.699 --> 00:03:20.533
+O próximo passo é descobrir
+
+00:03:20.566 --> 00:03:22.633
+como configurar
+uma visualização Plotly
+
+00:03:22.666 --> 00:03:23.899
+no back-end Python
+
+00:03:23.933 --> 00:03:26.866
+e enviar esta informação
+para o front-end.
+

@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:06.080 --> 00:00:10.539
+Before going into the details of how to build the application,
+
+00:00:10.539 --> 00:00:13.574
+let's talk about the different components of a web app.
+
+00:00:13.574 --> 00:00:17.799
+A web app essentially has two parts; the front end,
+
+00:00:17.800 --> 00:00:20.350
+which is what we see when navigating a website,
+
+00:00:20.350 --> 00:00:21.655
+and the back end,
+
+00:00:21.655 --> 00:00:26.190
+which are all the processes and data working behind the scenes.
+
+00:00:26.190 --> 00:00:28.464
+When you open a web page,
+
+00:00:28.464 --> 00:00:30.379
+you're looking at the front end.
+
+00:00:30.379 --> 00:00:33.280
+You can think of the page as having three parts.
+
+00:00:33.280 --> 00:00:34.850
+The first part is content,
+
+00:00:34.850 --> 00:00:38.789
+which includes text, images, videos, and forms.
+
+00:00:38.789 --> 00:00:42.740
+You control this content with a language called HTML.
+
+00:00:42.740 --> 00:00:46.400
+The second part is the design, like the colors,
+
+00:00:46.399 --> 00:00:48.564
+font styles, and layout,
+
+00:00:48.564 --> 00:00:52.984
+all of which you manage using another language called CSS.
+
+00:00:52.984 --> 00:00:56.689
+The third part includes all of the animations and
+
+00:00:56.689 --> 00:01:00.945
+interactivity such as fade-ins, slideshows, and pop-ups.
+
+00:01:00.945 --> 00:01:06.155
+The code to make this happen is written in a language called JavaScript.
+
+00:01:06.155 --> 00:01:09.844
+The back end is responsible for running the web app.
+
+00:01:09.844 --> 00:01:14.045
+But you don't actually see the back end when looking at a web page.
+
+00:01:14.045 --> 00:01:18.665
+The back end includes the server where the website files are stored.
+
+00:01:18.665 --> 00:01:21.640
+When you type in a web address and hit "Enter",
+
+00:01:21.640 --> 00:01:25.409
+you're actually asking the server to send you the HTML,
+
+00:01:25.409 --> 00:01:30.394
+CSS and JavaScript files that make up the front end of your web app.
+
+00:01:30.394 --> 00:01:35.134
+A web app might also have a database as part of the back end.
+
+00:01:35.135 --> 00:01:37.820
+The code that controls the server and
+
+00:01:37.819 --> 00:01:41.729
+communicates with the database is all part of the back end.
+
+00:01:41.730 --> 00:01:49.130
+You can code the back end in a variety of languages including PHP, Java, and Ruby.
+
+00:01:49.129 --> 00:01:52.039
+Because you're already familiar with Python,
+
+00:01:52.040 --> 00:01:54.640
+we are going to use Python for this lesson.
+

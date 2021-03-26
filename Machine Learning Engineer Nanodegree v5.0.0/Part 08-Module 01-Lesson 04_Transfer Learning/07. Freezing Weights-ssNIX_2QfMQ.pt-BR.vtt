@@ -1,0 +1,168 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.110 --> 00:00:03.125
+Da última vez,
+carreguei o modelo VGG
+
+00:00:03.158 --> 00:00:04.533
+com pesos pré-treinados.
+
+00:00:04.566 --> 00:00:06.339
+Agora quero fazer duas coisas:
+
+00:00:06.372 --> 00:00:09.478
+primeiro, vou congelar os pesos
+nas camadas de características,
+
+00:00:09.511 --> 00:00:13.749
+para que os pesos convolucionais
+não mudem durante o treinamento.
+
+00:00:13.782 --> 00:00:18.052
+Esta parte da rede VGG agirá
+como um extrator de recursos
+
+00:00:18.085 --> 00:00:21.148
+que operará em qualquer
+imagem de input da mesma forma.
+
+00:00:21.181 --> 00:00:23.645
+A seguir, substituirei a última
+camada linear
+
+00:00:23.678 --> 00:00:26.317
+pela camada que dará um output
+com 5 pontuações
+
+00:00:26.350 --> 00:00:28.869
+e treinarei as camadas
+completamente conectadas.
+
+00:00:28.902 --> 00:00:31.245
+Vamos descer para realizar
+a primeira tarefa,
+
+00:00:31.278 --> 00:00:33.124
+a de congelar pesos
+pré-treinados.
+
+00:00:33.157 --> 00:00:34.660
+Para congelar os pesos,
+
+00:00:34.693 --> 00:00:36.612
+vamos iterar cada parâmetro
+
+00:00:36.645 --> 00:00:39.580
+na lista de parâmetros
+das características VGG.
+
+00:00:39.613 --> 00:00:42.308
+Lembre-se de que "features"
+é o nome do grupo
+
+00:00:42.341 --> 00:00:45.515
+com as camadas convolucionais
+e de pooling.
+
+00:00:45.548 --> 00:00:50.173
+Direi que, para cada peso,
+a propriedade require_grad é falsa.
+
+00:00:50.206 --> 00:00:54.735
+O PyTorch, durante o treinamento,
+rastreia o gradiente da perda
+
+00:00:54.768 --> 00:00:56.847
+em relação aos pesos
+do modelo,
+
+00:00:56.880 --> 00:00:59.118
+mas se isso for configurado
+como falso,
+
+00:00:59.151 --> 00:01:00.664
+os pesos serão ignorados
+
+00:01:00.697 --> 00:01:03.614
+e não serão levados em conta
+nos cálculos do gradiente.
+
+00:01:03.647 --> 00:01:06.886
+Em outras palavras,
+ao configurar como falso,
+
+00:01:06.919 --> 00:01:10.814
+congelamos os pesos e eles manterão
+os valores do pré-treinamento.
+
+00:01:10.847 --> 00:01:14.149
+A seguir, quero que você altere
+a última camada do modelo.
+
+00:01:14.182 --> 00:01:16.991
+Você sabe o suficiente
+para tentar fazer isso sozinho.
+
+00:01:17.024 --> 00:01:20.022
+Pegue a última camada
+completamente conectada
+
+00:01:20.055 --> 00:01:21.310
+pelo nome e pelo número
+
+00:01:21.343 --> 00:01:23.937
+e a configure
+como uma nova camada linear,
+
+00:01:23.970 --> 00:01:27.094
+com a quantidade correta de inputs
+e cinco outputs.
+
+00:01:27.127 --> 00:01:30.406
+Para definir uma camada,
+usamos nn.linear,
+
+00:01:30.439 --> 00:01:33.750
+assim como fizemos
+na função init da classe net.
+
+00:01:33.783 --> 00:01:36.278
+Este será algo que você deverá
+completar.
+
+00:01:36.311 --> 00:01:38.302
+Darei mais um desfio.
+
+00:01:38.335 --> 00:01:40.446
+Deixarei este loop
+de treinamento vazio.
+
+00:01:40.479 --> 00:01:43.030
+Vimos alguns exemplos
+de loop de treinamento.
+
+00:01:43.063 --> 00:01:45.350
+Usando alguma referência
+ou de memória,
+
+00:01:45.383 --> 00:01:47.821
+codifique um loop
+de epoch e de lote
+
+00:01:47.854 --> 00:01:50.253
+que itere pelos dados
+de treinamento.
+
+00:01:50.286 --> 00:01:53.327
+Registre a perda de treinamento
+e imprima.
+
+00:01:53.360 --> 00:01:55.965
+A seguir, mostrarei como adicionar
+a última camada
+
+00:01:55.998 --> 00:01:57.265
+e treinar o modelo.
+

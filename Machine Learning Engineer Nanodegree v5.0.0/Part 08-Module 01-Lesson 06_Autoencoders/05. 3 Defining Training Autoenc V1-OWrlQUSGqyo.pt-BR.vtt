@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.285 --> 00:00:02.564
+A tarefa era definir
+as camadas lineares
+
+00:00:02.597 --> 00:00:04.780
+para construir
+um autocodificador simples.
+
+00:00:04.813 --> 00:00:07.883
+O codificador comprimiria
+a imagem de input,
+
+00:00:07.916 --> 00:00:10.179
+e a última camada
+usaria a compressão
+
+00:00:10.212 --> 00:00:12.702
+para produzir uma imagem
+reconstruída.
+
+00:00:12.735 --> 00:00:14.723
+Se quisermos complicar isso,
+
+00:00:14.756 --> 00:00:17.107
+podemos adicionar mais
+e mais camadas,
+
+00:00:17.140 --> 00:00:20.540
+desde que haja um ponto mediano
+no qual os outputs
+
+00:00:20.573 --> 00:00:22.778
+representem
+a representação comprimida.
+
+00:00:22.811 --> 00:00:24.981
+Indiferentemente
+da quantidade de camadas,
+
+00:00:25.014 --> 00:00:30.003
+queremos um output de 784 unidades,
+que será igual ao vetor de input,
+
+00:00:30.036 --> 00:00:32.203
+assim poderemos
+comparar o output
+
+00:00:32.236 --> 00:00:34.197
+diretamente
+com os valores de input.
+
+00:00:34.230 --> 00:00:35.514
+Esta é a minha solução.
+
+00:00:35.547 --> 00:00:40.251
+Neste exemplo, defini o codificador
+e o decodificador em uma camada.
+
+00:00:40.284 --> 00:00:43.268
+O codificador vê a imagem
+de input de 784 pixels
+
+00:00:43.301 --> 00:00:46.060
+e produz uma quantidade
+específica de outputs,
+
+00:00:46.093 --> 00:00:47.870
+que são uma representação
+comprimida
+
+00:00:47.903 --> 00:00:50.410
+com comprimento igual
+a encoding_dim.
+
+00:00:50.443 --> 00:00:53.339
+Neste exemplo, esse valor
+é igual a 32.
+
+00:00:53.372 --> 00:00:57.299
+Essa camada transforma o input
+de 784 em 32.
+
+00:00:57.332 --> 00:01:00.660
+Depois, eu reverto o processo
+no decodificador.
+
+00:01:00.693 --> 00:01:02.380
+Aqui eu criei
+uma camada linear
+
+00:01:02.413 --> 00:01:04.491
+que pega o valor 32 como input
+
+00:01:04.524 --> 00:01:09.099
+e o transforma no vetor
+de imagem de 784.
+
+00:01:09.132 --> 00:01:11.753
+Na função forward, eu apliquei
+uma ativação ReLU
+
+00:01:11.786 --> 00:01:13.058
+na camada de codificação
+
+00:01:13.091 --> 00:01:16.711
+e uma sigmoide para escalonar
+os valores do decodificador.
+
+00:01:16.744 --> 00:01:21.711
+O output conterá 784 valores
+de pixels em escala de cinza.
+
+00:01:21.744 --> 00:01:25.519
+Aqui eu instanciei o modelo
+com o encoding_dim de 32.
+
+00:01:25.552 --> 00:01:26.918
+Agora vem o treinamento.
+
+00:01:26.951 --> 00:01:30.588
+Para isso, definimos as funções
+de perda e de otimização.
+
+00:01:30.621 --> 00:01:32.372
+Eu ajudarei com isso.
+
+00:01:32.405 --> 00:01:34.715
+Essa não é uma tarefa
+de classificação,
+
+00:01:34.748 --> 00:01:37.324
+então usaremos
+outro tipo de perda,
+
+00:01:37.357 --> 00:01:40.717
+usaremos o erro quadrático médio
+em vez da entropia cruzada.
+
+00:01:40.750 --> 00:01:43.934
+Usamos essa perda ao compararmos
+quantidades de pixels
+
+00:01:43.967 --> 00:01:45.917
+em vez de probabilidades
+de classes.
+
+00:01:45.950 --> 00:01:49.318
+Usarei o otimizador Adam
+em vez do gradiente descendente,
+
+00:01:49.351 --> 00:01:52.558
+porque ele funciona melhor
+nessas situações.
+
+00:01:52.591 --> 00:01:54.245
+No loop de treinamento,
+
+00:01:54.278 --> 00:01:57.669
+as epochs e os loops nos lotes
+já são conhecidos.
+
+00:01:57.702 --> 00:02:02.269
+Aqui só estamos usando as imagens
+do carregador de treinamento.
+
+00:02:02.302 --> 00:02:04.478
+Não queremos saber
+dos rótulos,
+
+00:02:04.511 --> 00:02:07.446
+só das imagens originais
+e das reconstruções.
+
+00:02:07.479 --> 00:02:11.246
+Eu achato estas imagens
+e passo os vetores para o modelo,
+
+00:02:11.279 --> 00:02:14.253
+que retorna os outputs
+das imagens reconstruídas.
+
+00:02:14.286 --> 00:02:16.590
+Por fim, comparamos
+as imagens de input
+
+00:02:16.623 --> 00:02:19.013
+com o output
+das imagens reconstruídas.
+
+00:02:19.046 --> 00:02:23.789
+A perda informa a qualidade
+da produção de um modelo.
+
+00:02:23.822 --> 00:02:27.086
+Posteriormente, no notebook,
+eu fornecerei o código
+
+00:02:27.119 --> 00:02:29.894
+para você testar o seu modelo
+com imagens de teste
+
+00:02:29.927 --> 00:02:32.349
+e poder ver
+as imagens reconstruídas.
+
+00:02:32.382 --> 00:02:35.145
+A seguir, veremos como a perda
+ficará com o tempo
+
+00:02:35.178 --> 00:02:37.363
+e mostrarei algumas imagens
+reconstruídas.
+

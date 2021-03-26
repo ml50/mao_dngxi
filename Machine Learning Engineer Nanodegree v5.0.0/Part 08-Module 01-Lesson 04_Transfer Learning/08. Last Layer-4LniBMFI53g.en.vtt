@@ -1,0 +1,226 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.134
+So we've loaded in a pre-trained vgg16 model and frozen in our features parameters.
+
+00:00:06.134 --> 00:00:08.969
+Our next task was to replace the last layer of
+
+00:00:08.970 --> 00:00:11.795
+the model so that instead of outputting a thousand classes,
+
+00:00:11.794 --> 00:00:14.964
+it outputted five values for our five flower classes.
+
+00:00:14.964 --> 00:00:17.364
+And this actually only takes a couple lines of code.
+
+00:00:17.364 --> 00:00:21.029
+First, I need some information about the layer that I want to change,
+
+00:00:21.030 --> 00:00:24.645
+so I'm going to get it by name VGG classifier six.
+
+00:00:24.644 --> 00:00:26.660
+From printing out our model architecture,
+
+00:00:26.660 --> 00:00:28.410
+we know that the classifier contains
+
+00:00:28.410 --> 00:00:33.439
+three final fully-connected layers and six points to the last linear layers specifically.
+
+00:00:33.439 --> 00:00:36.809
+Now I know I need to define a new linear layer that takes in as
+
+00:00:36.810 --> 00:00:40.200
+input the same number of in features as the existing last layer,
+
+00:00:40.200 --> 00:00:43.500
+so I'm saving this number of inputs as N inputs.
+
+00:00:43.500 --> 00:00:45.859
+Then, I'm defining a new last layer.
+
+00:00:45.859 --> 00:00:49.850
+I'm defining a linear layer as usual using our library.
+
+00:00:49.850 --> 00:00:52.475
+I'm defining this layer to take those inputs
+
+00:00:52.475 --> 00:00:55.245
+and produce as many outputs as we have classes.
+
+00:00:55.244 --> 00:00:57.429
+In this case, this length should be five.
+
+00:00:57.429 --> 00:01:00.320
+Then again, I'm going to reference this last layer that I want to
+
+00:01:00.320 --> 00:01:03.899
+replace and set it equal to this last layer that I just defined.
+
+00:01:03.899 --> 00:01:07.319
+This effectively replaces the old layer with the new layer.
+
+00:01:07.319 --> 00:01:09.875
+Now, I should have a complete VGG 16 model
+
+00:01:09.875 --> 00:01:12.469
+and I'll move this whole model to GPU if available.
+
+00:01:12.469 --> 00:01:16.459
+Finally, I'm just going to print out the number of out features in this layer,
+
+00:01:16.459 --> 00:01:18.349
+just to check that I've done this correctly,
+
+00:01:18.349 --> 00:01:22.784
+and we can see that this produces five outputs which is exactly what I expect.
+
+00:01:22.784 --> 00:01:26.780
+The next detail here is to prepare this whole model for training.
+
+00:01:26.780 --> 00:01:30.230
+I'm going to define loss and optimization functions as usual.
+
+00:01:30.230 --> 00:01:32.930
+Only this time, you'll notice that in the optimizer,
+
+00:01:32.930 --> 00:01:36.335
+I'm actually only passing in the parameters for the classifier.
+
+00:01:36.334 --> 00:01:40.509
+These Classifier parameters are the only ones that I want to change during training.
+
+00:01:40.510 --> 00:01:42.340
+Then we get to the training loop.
+
+00:01:42.340 --> 00:01:46.280
+I suggest training on GPU to speed this process up since these networks still
+
+00:01:46.280 --> 00:01:50.480
+contain a lot of parameters even in just the fully connected layers,
+
+00:01:50.480 --> 00:01:52.775
+and I'm only going to train for two epics.
+
+00:01:52.775 --> 00:01:54.530
+Since this model is pre-trained,
+
+00:01:54.530 --> 00:01:56.810
+I should only need to train for a little while to tune
+
+00:01:56.810 --> 00:01:59.674
+this model to our flower classification task.
+
+00:01:59.674 --> 00:02:03.109
+In our training loop, I'm keeping track of the loss.
+
+00:02:03.109 --> 00:02:09.259
+My first step is moving any data to GPU and then zeroing out any accumulated gradients,
+
+00:02:09.259 --> 00:02:13.114
+and then pass in our image data into the VGG 16 network.
+
+00:02:13.115 --> 00:02:15.629
+This produces an output of class scores.
+
+00:02:15.629 --> 00:02:18.784
+Here I'm calculating the cross entropy loss and performing
+
+00:02:18.784 --> 00:02:21.949
+a single optimization step to change the weights of our network.
+
+00:02:21.949 --> 00:02:25.729
+This step is only attached to the last few layers of our VGG model.
+
+00:02:25.729 --> 00:02:27.689
+The rest of the weights are frozen.
+
+00:02:27.689 --> 00:02:32.210
+And here, I'm just updating the training loss and printing it out every 20 batches.
+
+00:02:32.210 --> 00:02:37.099
+I can see that the loss starts out small and decreases in a wiggly fashion.
+
+00:02:37.099 --> 00:02:40.114
+Sometimes the loss moves up before it moves down again.
+
+00:02:40.115 --> 00:02:43.900
+But let's see how this performs after just two epics of training.
+
+00:02:43.900 --> 00:02:46.789
+Here, I'm iterating over our test data and I'm
+
+00:02:46.789 --> 00:02:49.594
+checking how our model does on our five classes.
+
+00:02:49.594 --> 00:02:55.449
+After only two epics of training our model gets 74% accuracy on our images.
+
+00:02:55.449 --> 00:02:57.439
+Even though our dataset was small,
+
+00:02:57.439 --> 00:02:59.329
+I've managed to transfer the learnings from
+
+00:02:59.330 --> 00:03:03.765
+the VGG network to this very specific flower classification task.
+
+00:03:03.764 --> 00:03:06.419
+Let's take a look at what this looks like visually.
+
+00:03:06.419 --> 00:03:10.344
+Here are some correctly and incorrectly classified images of flowers.
+
+00:03:10.344 --> 00:03:12.500
+Now, we know that transfer learning worked,
+
+00:03:12.500 --> 00:03:14.750
+because even though VGG was initially
+
+00:03:14.750 --> 00:03:17.669
+trained to recognize a thousand different image types.
+
+00:03:17.669 --> 00:03:20.750
+The way it distinguished those images by finding
+
+00:03:20.750 --> 00:03:25.810
+color and geometric patterns translated into distinguishing images of flowers as well.
+
+00:03:25.810 --> 00:03:28.280
+And you can see that some of the images this model
+
+00:03:28.280 --> 00:03:31.414
+fails on are even difficult for us to identify.
+
+00:03:31.414 --> 00:03:35.599
+There are many models that you can try to implement transfer learning with,
+
+00:03:35.599 --> 00:03:40.715
+and you can even try training for a longer amount of time or fine-tuning entire models.
+
+00:03:40.715 --> 00:03:42.890
+Take a look at the documentation on
+
+00:03:42.889 --> 00:03:47.054
+available pre-trained models and experiment with creating your own applications.
+
+00:03:47.055 --> 00:03:49.969
+You could even extend this example to create something
+
+00:03:49.969 --> 00:03:53.134
+like a weed versus flower application for gardeners.
+
+00:03:53.134 --> 00:03:57.229
+To me, the excitement is really in the variety of data that's out there.
+
+00:03:57.229 --> 00:04:00.019
+Data that you can train your models to learn from.
+
+00:04:00.020 --> 00:04:02.469
+Let your imagination be your limit.
+

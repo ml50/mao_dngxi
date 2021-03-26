@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:01.033 --> 00:00:06.497
+COMPONENTES DE UM APP DA WEB
+
+00:00:06.961 --> 00:00:10.621
+Antes de entrar em detalhes
+de como construir o aplicativo,
+
+00:00:10.655 --> 00:00:13.793
+vamos falar sobre os diferentes
+componentes de um app da web.
+
+00:00:13.827 --> 00:00:16.611
+Um app da web tem,
+essencialmente, duas partes:
+
+00:00:16.645 --> 00:00:17.915
+o front-end,
+
+00:00:17.949 --> 00:00:20.394
+que é o que vemos
+ao navegar em um site da web,
+
+00:00:20.428 --> 00:00:21.825
+e o back-end,
+
+00:00:21.859 --> 00:00:26.751
+que são todos os processos e dados
+que trabalham nos bastidores.
+
+00:00:26.785 --> 00:00:30.730
+Ao abrir uma página da web,
+você vê o front-end.
+
+00:00:30.764 --> 00:00:33.349
+Pense na página
+como tendo três partes.
+
+00:00:33.383 --> 00:00:34.907
+A primeira parte é o conteúdo,
+
+00:00:34.941 --> 00:00:39.125
+que inclui texto, imagens,
+vídeos e formulários.
+
+00:00:39.159 --> 00:00:43.085
+Você controla esse conteúdo
+com uma linguagem chamada "HTML".
+
+00:00:43.119 --> 00:00:45.416
+A segunda parte é o design,
+
+00:00:45.450 --> 00:00:48.659
+como as cores,
+estilos de fonte e layout,
+
+00:00:48.693 --> 00:00:53.473
+e você gerencia tudo isso usando
+outra linguagem, chamada "CSS".
+
+00:00:53.507 --> 00:00:57.532
+A terceira parte inclui todas
+as animações e interatividades,
+
+00:00:57.566 --> 00:01:01.534
+como fade-ins,
+slideshows e pop-ups.
+
+00:01:01.568 --> 00:01:03.035
+O código responsável por isso
+
+00:01:03.069 --> 00:01:06.800
+é escrito em uma linguagem
+chamada "JavaScript".
+
+00:01:06.834 --> 00:01:09.991
+O back-end é responsável
+por executar o app da web.
+
+00:01:10.025 --> 00:01:14.608
+Mas você não vê o back-end
+ao olhar uma página da web.
+
+00:01:14.642 --> 00:01:16.419
+O back-end inclui o servidor
+
+00:01:16.453 --> 00:01:19.222
+onde os arquivos do site
+são armazenados.
+
+00:01:19.256 --> 00:01:22.061
+Ao digitar um endereço da web
+e pressionar enter,
+
+00:01:22.095 --> 00:01:25.297
+você está pedindo ao servidor
+para mandar os arquivos
+
+00:01:25.331 --> 00:01:31.001
+HTML, CSS e JavaScript que compõem
+o front-end do seu app da web.
+
+00:01:31.035 --> 00:01:33.355
+Um app da web também pode ter
+um banco de dados
+
+00:01:33.389 --> 00:01:35.707
+como parte do back-end.
+
+00:01:35.741 --> 00:01:39.300
+O código que controla o servidor
+e se comunica com o banco de dados
+
+00:01:39.334 --> 00:01:42.327
+faz parte do back-end.
+
+00:01:42.361 --> 00:01:45.011
+Você pode codificar o back-end
+em várias linguagens,
+
+00:01:45.045 --> 00:01:49.450
+incluindo PHP, Java e Ruby.
+
+00:01:49.484 --> 00:01:51.947
+Como você já está familiarizado
+com Python,
+
+00:01:51.981 --> 00:01:55.851
+vamos usar Python nesta aula.
+

@@ -1,0 +1,83 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.993 --> 00:00:06.540
+VISÃO GERAL DA AULA
+
+00:00:06.970 --> 00:00:08.079
+Ao longo da aula,
+
+00:00:08.113 --> 00:00:10.588
+você será introduzido
+a cada parte do aplicativo,
+
+00:00:10.622 --> 00:00:12.576
+peça por peça.
+
+00:00:12.610 --> 00:00:15.282
+Você vai começar
+pela base de um app da web:
+
+00:00:15.316 --> 00:00:18.483
+HTML, CSS e JavaScript.
+
+00:00:18.517 --> 00:00:20.927
+Depois, você vai praticar
+usando duas bibliotecas
+
+00:00:20.961 --> 00:00:23.207
+que facilitam
+o desenvolvimento web.
+
+00:00:23.241 --> 00:00:25.359
+A primeira biblioteca
+chama-se "Bootstrap",
+
+00:00:25.393 --> 00:00:29.127
+e você pode usá-la para construir
+o design e o layout do seu app.
+
+00:00:29.161 --> 00:00:31.236
+A segunda biblioteca
+chama-se "Plotly"
+
+00:00:31.270 --> 00:00:34.406
+e usa JavaScript
+para fazer visualizações.
+
+00:00:34.440 --> 00:00:37.672
+Nesse ponto, você terá
+uma página em funcionamento
+
+00:00:37.706 --> 00:00:39.959
+que inclui
+visualizações de dados.
+
+00:00:39.993 --> 00:00:42.797
+Porém, a página da web
+só estará no seu computador local,
+
+00:00:42.831 --> 00:00:44.480
+e não na internet.
+
+00:00:44.514 --> 00:00:49.442
+O foco da última parte da aula
+é preparar o app para a internet.
+
+00:00:49.476 --> 00:00:52.590
+Você trabalhará com um framework
+Python chamado "Flask",
+
+00:00:52.623 --> 00:00:56.285
+que cuida da lógica do aplicativo
+que ocorre nos bastidores.
+
+00:00:56.319 --> 00:00:59.010
+Finalmente, você vai juntar
+todas essas ferramentas
+
+00:00:59.044 --> 00:01:02.194
+e implantar seu aplicativo da web
+em um site aberto ao público.
+

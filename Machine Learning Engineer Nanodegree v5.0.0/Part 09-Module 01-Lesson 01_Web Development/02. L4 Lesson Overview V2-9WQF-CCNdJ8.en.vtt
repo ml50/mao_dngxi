@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:06.019 --> 00:00:09.059
+Throughout the lesson, you'll be introduced to
+
+00:00:09.060 --> 00:00:12.245
+each part of the application piece by piece.
+
+00:00:12.244 --> 00:00:15.214
+You'll start with the basic building blocks of a Web app,
+
+00:00:15.214 --> 00:00:18.265
+HTML, CSS and JavaScript.
+
+00:00:18.265 --> 00:00:23.045
+Then, you'll practice using two libraries that make Web development easier.
+
+00:00:23.045 --> 00:00:25.440
+The first library is called Bootstrap,
+
+00:00:25.440 --> 00:00:28.865
+and you can use it to quickly build the design and layout of your app.
+
+00:00:28.864 --> 00:00:31.229
+The second library is called Plotly,
+
+00:00:31.230 --> 00:00:34.100
+which uses JavaScript to make visualizations.
+
+00:00:34.100 --> 00:00:36.109
+At this point in the lesson you'll have
+
+00:00:36.109 --> 00:00:39.640
+a functioning web page that includes data visualizations.
+
+00:00:39.640 --> 00:00:44.159
+However, the Web page will only be on your local computer not the Internet.
+
+00:00:44.159 --> 00:00:49.174
+The last part of the lesson focuses on getting the application ready for the Internet.
+
+00:00:49.174 --> 00:00:52.339
+You'll work with a Python Web framework called Flask,
+
+00:00:52.340 --> 00:00:56.130
+which takes care of the application logic happening behind the scenes,
+
+00:00:56.130 --> 00:00:59.210
+and finally you'll put all of these tools together and
+
+00:00:59.210 --> 00:01:02.399
+deploy your Web app to a website that anyone can access.
+

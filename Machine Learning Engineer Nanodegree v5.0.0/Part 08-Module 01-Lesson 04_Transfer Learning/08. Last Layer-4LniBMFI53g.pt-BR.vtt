@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.209 --> 00:00:03.759
+Carregamos um modelo pré-treinado
+VGG-16
+
+00:00:03.792 --> 00:00:06.045
+e congelamos os parâmetros
+de características.
+
+00:00:06.078 --> 00:00:09.295
+A próxima tarefa era substituir
+a última camada do modelo
+
+00:00:09.328 --> 00:00:11.661
+para que, em vez de fornecer
+1.000 classes,
+
+00:00:11.694 --> 00:00:14.956
+ela fornecesse cinco valores
+para as classes de flores.
+
+00:00:14.989 --> 00:00:17.380
+E só precisamos
+de algumas linhas de código.
+
+00:00:17.413 --> 00:00:21.084
+Precisamos das informações
+sobre a camada a ser alterada.
+
+00:00:21.117 --> 00:00:24.709
+Vamos obter pelo nome
+vgg16.classifier[6].
+
+00:00:24.742 --> 00:00:26.620
+Ao imprimir
+a arquitetura do modelo,
+
+00:00:26.653 --> 00:00:30.268
+sabemos que o classificador
+tem três camadas finais conectadas
+
+00:00:30.301 --> 00:00:33.492
+e seis pontos
+na última camada linear.
+
+00:00:33.525 --> 00:00:35.900
+Precisamos definir
+uma nova camada linear
+
+00:00:35.933 --> 00:00:38.821
+que pega como input
+a mesma quantidade de in_features
+
+00:00:38.854 --> 00:00:40.701
+da última camada existente.
+
+00:00:40.734 --> 00:00:43.676
+Eu salvo a quantidade de inputs
+como n_inputs.
+
+00:00:43.709 --> 00:00:45.740
+Depois eu defino
+a nova última camada.
+
+00:00:45.773 --> 00:00:49.708
+Defino a camada linear
+usando a biblioteca nn.
+
+00:00:49.741 --> 00:00:52.115
+Defino a camada
+para pegar os inputs
+
+00:00:52.148 --> 00:00:55.220
+e produzir os outputs
+em relação às classes.
+
+00:00:55.253 --> 00:00:57.436
+Neste caso,
+o comprimento será igual a 5.
+
+00:00:57.469 --> 00:01:00.851
+Vamos referenciar a última camada,
+que substituiremos,
+
+00:01:00.884 --> 00:01:04.003
+e usar o "last_layer"
+que acabamos de definir.
+
+00:01:04.036 --> 00:01:07.085
+Isso substituirá
+a antiga camada pela nova.
+
+00:01:07.118 --> 00:01:09.804
+Agora eu tenho um modelo
+VGG-16 completo.
+
+00:01:09.837 --> 00:01:12.716
+Vamos movê-lo para a GPU,
+se houver uma.
+
+00:01:12.749 --> 00:01:16.194
+Por fim, imprimimos a quantidade
+de out_features da camada
+
+00:01:16.227 --> 00:01:18.624
+para conferir
+se tudo foi feito corretamente.
+
+00:01:18.657 --> 00:01:23.053
+Vemos que isso produz 5 outputs,
+que é exatamente o que esperávamos.
+
+00:01:23.086 --> 00:01:26.436
+O próximo detalhe é preparar
+o modelo para o treinamento.
+
+00:01:26.469 --> 00:01:30.175
+Definirei as funções de perda
+e de otimização, como sempre.
+
+00:01:30.208 --> 00:01:32.717
+Desta vez, no otimizador,
+
+00:01:32.750 --> 00:01:36.276
+passo os parâmetros
+para o classificador.
+
+00:01:36.309 --> 00:01:40.579
+Esses parâmetros são os únicos
+que desejo alterar no treinamento.
+
+00:01:40.612 --> 00:01:43.893
+Chegamos no loop de treinamento.
+É melhor treinar na GPU
+
+00:01:43.926 --> 00:01:47.829
+para acelerar o processo, pois
+a rede contém muitos parâmetros,
+
+00:01:47.862 --> 00:01:50.189
+mesmo só nas camadas
+completamente conectadas.
+
+00:01:50.222 --> 00:01:52.645
+Eu só treinarei
+por duas epochs.
+
+00:01:52.678 --> 00:01:56.293
+Como o modelo é pré-treinado,
+treinaremos por pouco tempo
+
+00:01:56.326 --> 00:01:59.661
+para ajustá-lo para a tarefa
+de classificação das flores.
+
+00:01:59.694 --> 00:02:02.461
+No loop de treinamento,
+rastrearemos a perda.
+
+00:02:03.358 --> 00:02:06.083
+A primeira tarefa será mover
+os dados para a GPU
+
+00:02:06.116 --> 00:02:09.069
+e zerar qualquer
+gradiente acumulado.
+
+00:02:09.102 --> 00:02:13.236
+Agora passamos os dados da imagem
+na rede VGG-16.
+
+00:02:13.269 --> 00:02:15.670
+Isso produzirá um output
+de pontuações de classe.
+
+00:02:15.703 --> 00:02:17.972
+Aqui eu calculo a perda
+de entropia cruzada
+
+00:02:18.005 --> 00:02:21.954
+e realizo um passo de otimização
+para mudar os pesos da rede.
+
+00:02:21.987 --> 00:02:25.596
+Esse passo está ligado
+às últimas camadas do modelo VGG,
+
+00:02:25.629 --> 00:02:27.652
+os outros pesos
+estão congelados.
+
+00:02:27.685 --> 00:02:32.119
+Atualizamos a perda de treinamento
+e imprimimos a cada 20 lotes.
+
+00:02:32.152 --> 00:02:37.065
+Vemos que a perda começa pequena
+e diminui de forma sinuosa.
+
+00:02:37.098 --> 00:02:40.281
+Às vezes a perda sobe
+antes de voltar a cair,
+
+00:02:40.314 --> 00:02:44.160
+mas vejamos o desempenho depois
+de duas epochs de treinamento.
+
+00:02:44.193 --> 00:02:46.272
+Aqui eu itero
+os dados de teste
+
+00:02:46.305 --> 00:02:49.528
+e vejo como o modelo se sai
+nas cinco classes.
+
+00:02:49.561 --> 00:02:51.511
+Depois das duas epochs
+de treinamento,
+
+00:02:51.544 --> 00:02:55.208
+o modelo tem 74% de precisão
+nas imagens.
+
+00:02:55.241 --> 00:02:57.319
+Mesmo com um conjunto
+de dados pequeno,
+
+00:02:57.352 --> 00:03:00.361
+conseguimos transferir
+o aprendizado da rede VGG
+
+00:03:00.394 --> 00:03:03.680
+para a tarefa de classificação
+de flores.
+
+00:03:03.713 --> 00:03:06.423
+Vejamos como isso ficou
+visualmente.
+
+00:03:06.456 --> 00:03:10.376
+Vemos as imagens classificadas
+correta e incorretamente.
+
+00:03:10.409 --> 00:03:12.424
+Sabemos
+que a transferência funcionou,
+
+00:03:12.457 --> 00:03:15.023
+porque mesmo que a VGG
+tenha sido treinada
+
+00:03:15.056 --> 00:03:17.575
+para reconhecer
+1.000 tipos de imagens,
+
+00:03:17.608 --> 00:03:19.932
+a forma como ela distinguiu
+aquelas imagens -
+
+00:03:19.965 --> 00:03:22.460
+ao identificar padrões
+de cores e geométricos -
+
+00:03:22.493 --> 00:03:25.729
+foi traduzida na forma
+como ela diferenciou as flores.
+
+00:03:25.762 --> 00:03:28.864
+Notamos que as imagens
+para as quais o modelo falhou
+
+00:03:28.897 --> 00:03:31.465
+são difíceis até para nós
+identificarmos.
+
+00:03:31.498 --> 00:03:35.289
+Existem muitos modelos
+que podem ser implementados,
+
+00:03:35.322 --> 00:03:38.088
+e podemos até tentar treinar
+por mais tempo
+
+00:03:38.121 --> 00:03:40.855
+ou ajustar modelos inteiros.
+
+00:03:40.888 --> 00:03:44.055
+Veja a documentação
+dos modelos disponíveis
+
+00:03:44.088 --> 00:03:47.024
+e tente criar suas aplicações.
+
+00:03:47.057 --> 00:03:48.968
+Você pode até estender
+este exemplo
+
+00:03:49.001 --> 00:03:53.032
+para diferenciar ervas
+de flores.
+
+00:03:53.065 --> 00:03:57.105
+Eu fico animada só de pensar
+na variedade de imagens que existe,
+
+00:03:57.138 --> 00:03:59.688
+dados com os quais
+os modelos podem aprender.
+
+00:03:59.721 --> 00:04:01.933
+Que sua imaginação
+seja o limite!
+

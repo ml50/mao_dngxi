@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.044
+You've learned how CNNs will take an input image,
+
+00:00:03.044 --> 00:00:04.799
+and through a series of layers,
+
+00:00:04.799 --> 00:00:09.375
+transform that input into an output that's much smaller in the x and y dimensions,
+
+00:00:09.375 --> 00:00:11.054
+but much greater in depth.
+
+00:00:11.054 --> 00:00:14.400
+Along the way, the CNN is discarding spatial information from
+
+00:00:14.400 --> 00:00:18.954
+the input image and isolating high level information about its content.
+
+00:00:18.954 --> 00:00:23.254
+Some of this structure can also be thought of as a kind of data compression;
+
+00:00:23.254 --> 00:00:26.910
+compressing from an image into something like a feature vector,
+
+00:00:26.910 --> 00:00:29.960
+which is basically a feature map produced after an input has
+
+00:00:29.960 --> 00:00:33.399
+gone through a series of layers squished into a vector shape.
+
+00:00:33.399 --> 00:00:36.975
+This is part of what makes up something called an autoencoder,
+
+00:00:36.975 --> 00:00:39.270
+which is what you'll learn about in this lesson.
+
+00:00:39.270 --> 00:00:44.720
+An autoencoder has two main components: an encoder that compresses some input data,
+
+00:00:44.719 --> 00:00:48.894
+and a decoder that reconstructs data from the compressed representation.
+
+00:00:48.895 --> 00:00:52.000
+You might be wondering why is this kind of structure even useful?
+
+00:00:52.000 --> 00:00:55.405
+It ends up being useful in a number of cases.
+
+00:00:55.405 --> 00:00:59.179
+Autoencoders are used in a traditional data compression sense,
+
+00:00:59.179 --> 00:01:02.570
+in that they can learn to reduce the dimensionality of any input.
+
+00:01:02.570 --> 00:01:06.030
+Then, anyone can use a compressed representation to share it,
+
+00:01:06.030 --> 00:01:07.239
+or view it and so on,
+
+00:01:07.239 --> 00:01:09.939
+faster than they could with the original input.
+
+00:01:09.939 --> 00:01:13.459
+You might think of something like a jpeg or mp3 file type,
+
+00:01:13.459 --> 00:01:17.224
+which contain explicit rules for compressing images and audio.
+
+00:01:17.224 --> 00:01:19.759
+The difference is that an autoencoder learns
+
+00:01:19.760 --> 00:01:24.350
+efficient data compression and decompression functions instead of having them designed,
+
+00:01:24.349 --> 00:01:26.155
+encoded by a human.
+
+00:01:26.155 --> 00:01:28.924
+Autoencoders have shown the most promise in
+
+00:01:28.924 --> 00:01:32.670
+image de-noising techniques and in filling in missing data.
+
+00:01:32.670 --> 00:01:35.600
+This structure will also come up again as you learn about
+
+00:01:35.599 --> 00:01:38.599
+generative models that can take in an image and
+
+00:01:38.599 --> 00:01:41.609
+transform it into a related space such as from
+
+00:01:41.609 --> 00:01:45.435
+gray scale to color or from low to high resolution images.
+
+00:01:45.435 --> 00:01:49.609
+The encoder and decoder here are both built with neural networks.
+
+00:01:49.609 --> 00:01:51.920
+Generally, the whole network is trained by
+
+00:01:51.920 --> 00:01:54.760
+minimizing the difference between the input and output.
+
+00:01:54.760 --> 00:01:58.219
+In this way, the middle layer will be a compressed representation of
+
+00:01:58.219 --> 00:02:02.084
+the input data from which you can reconstruct the original data.
+
+00:02:02.084 --> 00:02:05.479
+The key aspect of an autoencoder is its ability to
+
+00:02:05.480 --> 00:02:09.064
+compress an image such that its content is still maintained.
+
+00:02:09.064 --> 00:02:10.819
+Then later, you may be able to use
+
+00:02:10.819 --> 00:02:14.139
+this compressed representation to generate something else.
+
+00:02:14.139 --> 00:02:17.729
+In this lesson, I'll show you how to build autoencoders in PyTorch.
+
+00:02:17.729 --> 00:02:21.060
+I'll start with a simple example where we'll compress images.
+
+00:02:21.060 --> 00:02:23.205
+Then, since this is ImageData,
+
+00:02:23.205 --> 00:02:25.790
+we'll improve it by using convolutional layers
+

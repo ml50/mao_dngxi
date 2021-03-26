@@ -1,0 +1,205 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.759
+Now earlier, I did mention that the value of one
+
+00:00:02.759 --> 00:00:05.669
+is actually a bit too high of a good starting weight value.
+
+00:00:05.669 --> 00:00:08.339
+So, choosing weights from a uniform range of values
+
+00:00:08.339 --> 00:00:12.490
+between 0 and 1 is actually not the best range to choose from.
+
+00:00:12.490 --> 00:00:15.265
+You may be wondering how can I select a better range?
+
+00:00:15.265 --> 00:00:17.910
+But we know that for fully connected layers,
+
+00:00:17.910 --> 00:00:20.490
+each node will see every input value,
+
+00:00:20.489 --> 00:00:24.359
+multiply it by a model weight and then add the weighted values together.
+
+00:00:24.359 --> 00:00:26.294
+In the case of Fashion-MNIST,
+
+00:00:26.295 --> 00:00:30.460
+each hidden node in the first layer is seeing 784 input values.
+
+00:00:30.460 --> 00:00:35.774
+The next layer is seeing 256 input values then 128 as input.
+
+00:00:35.774 --> 00:00:39.799
+Because the model weights act as multipliers for all the inputs,
+
+00:00:39.799 --> 00:00:41.869
+it makes sense that the weights should be somehow
+
+00:00:41.869 --> 00:00:45.469
+related to the number of inputs that each node is going to see.
+
+00:00:45.469 --> 00:00:48.439
+In fact, the relationship is an inverse one.
+
+00:00:48.439 --> 00:00:51.019
+The more inputs a certain node sees,
+
+00:00:51.020 --> 00:00:52.925
+the smaller its weight should be.
+
+00:00:52.924 --> 00:00:56.099
+So let's see what exact range we should try.
+
+00:00:56.100 --> 00:00:59.300
+A general rule for setting the weights in a neural network
+
+00:00:59.299 --> 00:01:02.334
+is to set them to be close to zero without being too small.
+
+00:01:02.335 --> 00:01:06.750
+More specifically, we should start with weights and the range of negative -y to y,
+
+00:01:06.750 --> 00:01:09.750
+where y equals 1 over square root n,
+
+00:01:09.750 --> 00:01:12.829
+and n is the number of inputs to a given neuron.
+
+00:01:12.829 --> 00:01:17.849
+So this rule is basically saying two things: the weights should be centered around zero,
+
+00:01:17.849 --> 00:01:20.509
+and the range should be quite small and inversely
+
+00:01:20.510 --> 00:01:23.380
+related to the number of input nodes for a given layer.
+
+00:01:23.379 --> 00:01:25.310
+So, let's see if this holds true,
+
+00:01:25.310 --> 00:01:28.344
+and let's first create a centered baseline to compare with.
+
+00:01:28.344 --> 00:01:31.200
+Let's center our uniform range over zero by
+
+00:01:31.200 --> 00:01:35.200
+shifting it from 0 to 1 to negative five to 0.5.
+
+00:01:35.200 --> 00:01:40.495
+Here, I'm defining a whole new initialization function weights init uniform center.
+
+00:01:40.495 --> 00:01:43.040
+Then for every linear layer in our network,
+
+00:01:43.040 --> 00:01:45.515
+I'm going to initialize the weights of that layer using
+
+00:01:45.515 --> 00:01:49.935
+a uniform distribution with a range of negative to positive 0.5.
+
+00:01:49.935 --> 00:01:51.650
+Then I'm creating a new model,
+
+00:01:51.650 --> 00:01:55.484
+model centered, and applying these centered weights to that model.
+
+00:01:55.484 --> 00:02:00.114
+Then, I'm gonna do the same thing only for our general rule which uses a value of
+
+00:02:00.114 --> 00:02:02.179
+1 over square root n. I'm going to have to
+
+00:02:02.180 --> 00:02:04.570
+reference the number of inputs to a given layer.
+
+00:02:04.569 --> 00:02:07.639
+So, here I've prepared an initialization function,
+
+00:02:07.640 --> 00:02:09.319
+and I'm looking at every linear layer.
+
+00:02:09.319 --> 00:02:14.150
+Now we just have to define y. I can get the number of input features from
+
+00:02:14.150 --> 00:02:19.310
+a specific layer by calling m.in_features and I'm storing that as a variable n. Then,
+
+00:02:19.310 --> 00:02:23.985
+I'm calculating y as 1 over the square root of n. Finally,
+
+00:02:23.985 --> 00:02:26.540
+I'm initializing the weights of each linear layer with
+
+00:02:26.539 --> 00:02:29.704
+a uniform distribution that's centered around this value, y.
+
+00:02:29.705 --> 00:02:34.460
+Then, I'm creating another new model and applying these initial weights to it.
+
+00:02:34.460 --> 00:02:37.110
+Finally, I'm going to compare the behavior of these two models,
+
+00:02:37.110 --> 00:02:39.200
+model centered and model rule.
+
+00:02:39.199 --> 00:02:41.439
+I'm giving each a descriptive name and use
+
+00:02:41.439 --> 00:02:45.004
+a my compare_int_weights function to see their behavior over time.
+
+00:02:45.004 --> 00:02:47.530
+So first off, we can see on the y-axis that
+
+00:02:47.530 --> 00:02:51.794
+our lost values are orders of magnitude smaller than what we've seen previously.
+
+00:02:51.794 --> 00:02:53.894
+This behavior is really promising.
+
+00:02:53.895 --> 00:02:56.959
+Not only is the lost decreasing for both of these models,
+
+00:02:56.959 --> 00:03:01.310
+but it seems to do so very quickly for a uniform weights that follow the general rule.
+
+00:03:01.310 --> 00:03:02.810
+After only two epochs,
+
+00:03:02.810 --> 00:03:04.969
+we get a fairly high validation accuracy.
+
+00:03:04.969 --> 00:03:08.064
+Almost 86% for using our general rule.
+
+00:03:08.064 --> 00:03:11.389
+This should start to give you some intuition for why starting out with
+
+00:03:11.389 --> 00:03:14.469
+the right initial weights can really help your training process.
+
+00:03:14.469 --> 00:03:16.280
+Now, there's really one more kind of
+
+00:03:16.280 --> 00:03:19.134
+distribution that I want to take a look at before we wrap up.
+
+00:03:19.134 --> 00:03:24.109
+Since the uniform distribution has the same chance of picking any value and arrange,
+
+00:03:24.110 --> 00:03:25.820
+what if we used a distribution that had
+
+00:03:25.819 --> 00:03:28.909
+a higher chance of picking numbers closer to zero?
+
+00:03:28.909 --> 00:03:32.329
+This is the normal distribution which we'll look at next.
+

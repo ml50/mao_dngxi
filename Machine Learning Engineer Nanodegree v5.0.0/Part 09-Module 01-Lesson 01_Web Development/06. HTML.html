@@ -1,0 +1,691 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   HTML
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Web Development
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Lesson Overview.html">
+       02. Lesson Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The Web.html">
+       03. The Web
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Components of a Web App.html">
+       04. Components of a Web App
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The Front-End.html">
+       05. The Front-End
+      </a>
+     </li>
+     <li class="">
+      <a href="06. HTML.html">
+       06. HTML
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise HTML.html">
+       07. Exercise: HTML
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Div and Span.html">
+       08. Div and Span
+      </a>
+     </li>
+     <li class="">
+      <a href="09. IDs and Classes.html">
+       09. IDs and Classes
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Exercise HTML Div, Span, IDs, Classes.html">
+       10. Exercise: HTML Div, Span, IDs, Classes
+      </a>
+     </li>
+     <li class="">
+      <a href="11. CSS.html">
+       11. CSS
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Exercise CSS.html">
+       12. Exercise: CSS
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Bootstrap Library.html">
+       13. Bootstrap Library
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Exercise Bootstrap.html">
+       14. Exercise: Bootstrap
+      </a>
+     </li>
+     <li class="">
+      <a href="15. JavaScript.html">
+       15. JavaScript
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Exercise JavaScript.html">
+       16. Exercise: JavaScript
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Plotly.html">
+       17. Plotly
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Exercise Plotly.html">
+       18. Exercise: Plotly
+      </a>
+     </li>
+     <li class="">
+      <a href="19. The Backend.html">
+       19. The Backend
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Flask.html">
+       20. Flask
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Exercise Flask.html">
+       21. Exercise: Flask
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Flask + Pandas.html">
+       22. Flask + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Example Flask + Pandas.html">
+       23. Example: Flask + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Flask+Plotly+Pandas Part 1.html">
+       24. Flask+Plotly+Pandas Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Flask+Plotly+Pandas Part 2.html">
+       25. Flask+Plotly+Pandas Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Flask+Plotly+Pandas Part 3.html">
+       26. Flask+Plotly+Pandas Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Flask+Plotly+Pandas Part 4.html">
+       27. Flask+Plotly+Pandas Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Example Flask + Plotly + Pandas.html">
+       28. Example: Flask + Plotly + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Exercise Flask + Plotly + Pandas.html">
+       29. Exercise: Flask + Plotly + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="30. Deployment.html">
+       30. Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Exercise Deployment.html">
+       31. Exercise: Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="32. Lesson Summary.html">
+       32. Lesson Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. HTML
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="introduction-to-html">
+          Introduction to HTML
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          6 Screencast HTML Code V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="06. 6 Screencast HTML Code V2-G7fBus1JSc0.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="06. 6 Screencast HTML Code V2-G7fBus1JSc0.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="06. 6 Screencast HTML Code V2-G7fBus1JSc0.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="06. 6 Screencast HTML Code V2-G7fBus1JSc0.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="html-document-example">
+          HTML Document Example
+         </h1>
+         <p>
+          Here is an example of HTML code
+         </p>
+         <pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;A Photo of a Beautiful Landscape&lt;/h1&gt;
+    &lt;a href="https://www.w3schools.com/tags"&gt;HTML tags&lt;/a&gt;
+    &lt;p&gt;Here is the photo&lt;/p&gt;
+    &lt;img src="photo.jpg" alt="Country Landscape"&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+         <h3 id="explanation-of-the-html-document">
+          Explanation of the HTML document
+         </h3>
+         <p>
+          As you progress through the lesson, you'll find that the
+          <code>
+           &lt;head&gt;
+          </code>
+          tag is mostly for housekeeping like specifying the page title and adding meta tags. Meta tags are in essence information about the page that web crawlers see but users do not. The head tag also contains links to javascript and css files, which you'll see later in the lesson.
+         </p>
+         <p>
+          The website content goes in the
+          <code>
+           &lt;body&gt;
+          </code>
+          tag.  The body tag can contain headers, paragraphs, images, links, forms, lists, and a handful of other tags. Of particular note in this example are the link tag
+          <code>
+           &lt;a&gt;
+          </code>
+          and the image tag
+          <code>
+           &lt;img&gt;
+          </code>
+          .
+         </p>
+         <p>
+          Both of these tags link to external information outside of the html doc. In the html code above, the link
+          <code>
+           &lt;a&gt;
+          </code>
+          tag links to an external website called w3schools. The href is called an attribute, and in this case href specifies the link.
+         </p>
+         <p>
+          The image
+          <code>
+           &lt;img&gt;
+          </code>
+          tag displays an image called "photo.jpg". In this case, the jpg file and the html document are in the same directory, but the documents do not have to be.  The src attribute specifies the path to the image file relative to the html document. The alt tag contains text that gets displaced in case the image cannot be found.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="full-list-of-tags-and-how-to-use-them">
+          Full List of Tags and How to Use Them
+         </h1>
+         <p>
+          This is a link to one of the best references for html. Use this website to look up html tags and how to use them.
+          <br/>
+          <a href="https://www.w3schools.com/tags/default.asp" rel="noopener noreferrer" target="_blank">
+           W3Schools HTML Tags
+          </a>
+         </p>
+         <p>
+          In fact, the
+          <a href="https://www.w3schools.com" rel="noopener noreferrer" target="_blank">
+           W3Schools website
+          </a>
+          has a lot of free information about web development syntax.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="checking-your-html">
+          Checking your HTML
+         </h1>
+         <p>
+          It's a good idea to check the validity of your HTML. Here is a website that checks your HTML for syntax errors:
+          <a href="https://validator.w3.org/#validate_by_input" rel="noopener noreferrer" target="_blank">
+           W3C Validator
+          </a>
+          . Try pasting your HTML code here and running the validator. You can read through the error messages and fix your HTML.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Tag matching
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Match the HTML tag with its purpose.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           <code>
+            &lt;a&gt;
+           </code>
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           <code>
+            &lt;p&gt;
+           </code>
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           <code>
+            &lt;ul&gt;
+           </code>
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           <code>
+            &lt;img&gt;
+           </code>
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           <code>
+            &lt;ol&gt;
+           </code>
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             HTML Tag
+            </p>
+           </th>
+           <th>
+            <p>
+             Purpose
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             alphabetized list
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             images
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             link
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             paragraph
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             unordered list
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             ordered list
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              HTML Tag
+             </p>
+            </th>
+            <th>
+             <p>
+              Purpose
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              images
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               <code>
+                &lt;img&gt;
+               </code>
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              link
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               <code>
+                &lt;a&gt;
+               </code>
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              paragraph
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               <code>
+                &lt;p&gt;
+               </code>
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              unordered list
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               <code>
+                &lt;ul&gt;
+               </code>
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              ordered list
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               <code>
+                &lt;ol&gt;
+               </code>
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Exercise HTML.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. HTML')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

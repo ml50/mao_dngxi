@@ -1,0 +1,110 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.988 --> 00:00:06.485
+INTRODUÇÃO
+
+00:00:06.519 --> 00:00:09.071
+Até agora, na seção
+de engenharia de software,
+
+00:00:09.105 --> 00:00:12.405
+você praticou escrever
+código limpo e sustentável.
+
+00:00:12.439 --> 00:00:14.552
+Depois, em programação
+orientada a objetos,
+
+00:00:14.586 --> 00:00:16.702
+você construiu
+um pacote Python.
+
+00:00:16.736 --> 00:00:18.920
+Nesta última aula
+de engenharia de software,
+
+00:00:18.954 --> 00:00:22.463
+você vai usar suas novas habilidades
+para construir um aplicativo real,
+
+00:00:22.497 --> 00:00:24.499
+um painel de dados.
+
+00:00:24.533 --> 00:00:27.401
+Um painel de dados
+é uma coleção de visualizações
+
+00:00:27.435 --> 00:00:30.249
+que ajuda a monitorar medidas
+e tendências-chave.
+
+00:00:30.283 --> 00:00:33.641
+Criar painéis é uma tarefa comum
+para analistas de dados
+
+00:00:33.675 --> 00:00:36.163
+e cientistas de dados.
+
+00:00:36.197 --> 00:00:39.197
+Contudo, fazer
+um painel da web do zero
+
+00:00:39.231 --> 00:00:41.473
+exige um amplo conjunto
+de ferramentas,
+
+00:00:41.507 --> 00:00:43.922
+incluindo HTML, JavaScript,
+
+00:00:43.956 --> 00:00:47.476
+CSS, Linux, um pouco
+de programação orientada a objetos
+
+00:00:47.510 --> 00:00:52.140
+e, para o painel que você vai fazer,
+em especial, Python.
+
+00:00:52.174 --> 00:00:55.681
+Na Udacity, temos um Nanodegree
+inteiro dedicado
+
+00:00:55.715 --> 00:00:59.421
+a aprender essas habilidades chamado
+"Desenvolvimento Web Full Stack".
+
+00:00:59.455 --> 00:01:02.161
+Como fazer um aplicativo da web
+é uma carreira em si
+
+00:01:02.195 --> 00:01:04.290
+e leva-se meses para aprender,
+
+00:01:04.324 --> 00:01:07.631
+esta aula dará uma visão geral
+rápida e de alto nível
+
+00:01:07.665 --> 00:01:11.236
+de desenvolvimento web.
+Também forneceremos um template
+
+00:01:11.270 --> 00:01:14.271
+para facilitar a construção
+e a implantação do aplicativo.
+
+00:01:14.305 --> 00:01:16.486
+Você poderá reutilizar
+esse template
+
+00:01:16.520 --> 00:01:19.960
+para construir seus próprios
+painéis de dados fora deste curso.
+
+00:01:19.994 --> 00:01:23.693
+Ao fim da aula, você terá implantado
+um app da web voltado para o público
+
+00:01:23.727 --> 00:01:25.488
+e acessível pela internet.
+

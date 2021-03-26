@@ -1,0 +1,318 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.169 --> 00:00:03.069
+A inicialização de pesos
+dá a melhor chance
+
+00:00:03.103 --> 00:00:05.238
+de os modelos aprenderem
+enquanto treinam.
+
+00:00:05.271 --> 00:00:08.308
+Já que minimodelos dependem
+de melhorias interativas
+
+00:00:08.341 --> 00:00:09.976
+observando os erros
+que cometem,
+
+00:00:10.009 --> 00:00:13.246
+queremos que eles cometam
+mais erros informativos,
+
+00:00:13.279 --> 00:00:15.882
+que sejam instrutivos
+e forneçam informação
+
+00:00:15.915 --> 00:00:17.817
+sobre como um modelo
+pode melhorar.
+
+00:00:17.851 --> 00:00:19.652
+Descobrimos que não é o caso
+
+00:00:19.686 --> 00:00:22.122
+quando inicializamos
+com pesos constantes.
+
+00:00:22.155 --> 00:00:25.125
+Então talvez faça sentido
+usar uma abordagem diferente.
+
+00:00:25.158 --> 00:00:28.561
+Em vez de configurar tudo
+com 0 ou 1,
+
+00:00:28.595 --> 00:00:32.432
+que tal inicializarmos os pesos
+como números únicos?
+
+00:00:32.465 --> 00:00:36.302
+O melhor modo de fazer isto é pegar
+números únicos aleatoriamente,
+
+00:00:36.336 --> 00:00:39.439
+o que podemos fazer
+com a distribuição de probabilidade.
+
+00:00:39.472 --> 00:00:41.743
+Um bom jeito de conseguir
+os pesos aleatórios
+
+00:00:41.776 --> 00:00:44.142
+é com a amostragem
+de uma distribuição uniforme.
+
+00:00:44.175 --> 00:00:47.280
+Uma distribuição uniforme
+tem probabilidade igual
+
+00:00:47.313 --> 00:00:49.649
+de escolher qualquer número
+em um intervalo.
+
+00:00:49.682 --> 00:00:52.418
+Vamos escolher valores
+de uma distribuição contínua,
+
+00:00:52.452 --> 00:00:55.355
+então a chance de escolher
+o mesmo número é bem pequena.
+
+00:00:55.388 --> 00:00:58.625
+Primeiro vou mostrar este valor
+usando uma função helper,
+
+00:00:58.658 --> 00:01:01.628
+que mostra vários valores
+aleatórios como histograma.
+
+00:01:01.661 --> 00:01:04.631
+Estou usando a função
+np.random.uniform
+
+00:01:04.664 --> 00:01:07.333
+para escolher números
+de uma distribuição uniforme.
+
+00:01:07.367 --> 00:01:09.869
+Esta função contém um limite
+alto e um baixo
+
+00:01:09.903 --> 00:01:12.172
+no intervalo
+de valores aleatórios a gerar.
+
+00:01:12.205 --> 00:01:15.542
+E estou especificando que deve gerar
+1.000 valores aleatórios
+
+00:01:15.575 --> 00:01:18.044
+em um intervalo de -3 a 3.
+
+00:01:18.077 --> 00:01:20.113
+E aqui está
+o histograma resultante.
+
+00:01:20.146 --> 00:01:22.248
+Ele é feito
+de vários retângulos
+
+00:01:22.282 --> 00:01:25.418
+com alturas proporcionais
+à frequência de um certo valor.
+
+00:01:25.452 --> 00:01:28.988
+Neste caso, o histograma
+está criando 500 buckets
+
+00:01:29.022 --> 00:01:31.558
+por cada mil valores gerados.
+
+00:01:31.591 --> 00:01:33.460
+Para uma distribuição
+uniforme,
+
+00:01:33.493 --> 00:01:37.030
+vemos que a maioria dos buckets
+contêm dois valores gerados.
+
+00:01:37.063 --> 00:01:39.732
+O que podemos ver
+nesta linha 2 aqui.
+
+00:01:40.261 --> 00:01:44.170
+Alguns buckets têm 0, 1
+ou valores até 10 neles,
+
+00:01:44.204 --> 00:01:46.668
+mas isto é só um pouco
+de aleatoriedade.
+
+00:01:46.701 --> 00:01:48.875
+Em geral, devemos ver
+que estes valores
+
+00:01:48.908 --> 00:01:52.175
+são distribuídos uniformemente
+neste intervalo.
+
+00:01:52.506 --> 00:01:56.049
+Ao escolher os pesos iniciais
+do modelo de uma distribuição assim,
+
+00:01:56.082 --> 00:01:59.652
+nós incorporamos a aleatoriedade
+que deve ajudar o modelo a treinar.
+
+00:01:59.686 --> 00:02:03.056
+E podemos configurar limites
+sobre os valores dos pesos.
+
+00:02:03.485 --> 00:02:05.758
+Agora que vimos
+uma distribuição uniforme,
+
+00:02:05.792 --> 00:02:09.529
+vamos ver como o modelo treina
+se for iniciado com pesos uniformes.
+
+00:02:09.562 --> 00:02:13.199
+Vamos configurar o valor mais baixo
+como 0 e o mais alto como 1.
+
+00:02:13.233 --> 00:02:17.403
+E aqui vou mostrar outro jeito,
+além do código de classe da rede,
+
+00:02:17.437 --> 00:02:19.139
+de inicializar os pesos
+da rede.
+
+00:02:19.172 --> 00:02:21.808
+Para definir os pesos
+fora da definição do modelo,
+
+00:02:21.841 --> 00:02:25.478
+defina uma função que atribua pesos
+pelo tipo de camada de rede
+
+00:02:25.512 --> 00:02:27.747
+e aplique estes pesos
+no modelo inicializado
+
+00:02:27.781 --> 00:02:29.549
+usando model.apply(fn),
+
+00:02:29.582 --> 00:02:32.185
+que aplica uma função
+em cada camada do modelo.
+
+00:02:32.218 --> 00:02:35.752
+Aqui estou definindo a função
+weights_init_uniform.
+
+00:02:35.785 --> 00:02:38.892
+Isto vai ser aplicado
+em cada módulo no modelo.
+
+00:02:38.925 --> 00:02:42.128
+Aqui estou vendo se há
+camadas lineares no modelo.
+
+00:02:42.162 --> 00:02:44.264
+Para os pesos
+em cada camada linear,
+
+00:02:44.297 --> 00:02:46.733
+vou aplicar
+uma distribuição uniforme
+
+00:02:46.766 --> 00:02:49.369
+com um intervalo de 0 a 1.
+
+00:02:49.699 --> 00:02:53.173
+Aqui estou configurando o viés
+como um valor constante de zero.
+
+00:02:53.206 --> 00:02:54.908
+Assim como nn.init,
+
+00:02:54.941 --> 00:02:57.277
+há várias distribuições
+que você pode usar
+
+00:02:57.310 --> 00:02:59.813
+para inicializar os pesos
+da rede deste jeito.
+
+00:02:59.846 --> 00:03:01.181
+Existe mais um passo.
+
+00:03:01.214 --> 00:03:03.416
+Para inicializar um modelo
+com estes pesos,
+
+00:03:03.450 --> 00:03:05.585
+eu vou criar um novo modelo.
+
+00:03:05.618 --> 00:03:07.787
+Vou usar model_uniform,
+
+00:03:07.821 --> 00:03:10.123
+e vou configurá-lo igual
+a uma rede padrão.
+
+00:03:10.354 --> 00:03:13.660
+Não estou passando
+nenhum valor de peso constante.
+
+00:03:13.693 --> 00:03:15.562
+Para aplicar
+meus pesos uniformes,
+
+00:03:15.595 --> 00:03:19.332
+vou usar
+apply(weights_init_uniform).
+
+00:03:19.365 --> 00:03:22.836
+"Apply" vai chamar
+minha função de inicialização
+
+00:03:22.869 --> 00:03:25.705
+e aplicar pesos uniformes
+para toda camada linear.
+
+00:03:25.738 --> 00:03:28.708
+Também vou imprimir
+alguns detalhes sobre o modelo.
+
+00:03:29.005 --> 00:03:32.078
+Por último, crio uma lista
+de modelos com comprimento 1
+
+00:03:32.112 --> 00:03:34.681
+e quero ver
+como o modelo uniforme vai se sair.
+
+00:03:34.978 --> 00:03:37.684
+Aqui podemos ver que a perda
+ainda começa muito alta,
+
+00:03:37.717 --> 00:03:39.853
+mas diminui bastante.
+
+00:03:39.886 --> 00:03:44.090
+Após treinar por dois epochs,
+o modelo fica com 33% de precisão.
+
+00:03:44.124 --> 00:03:46.126
+O que é bem melhor
+do que só adivinhar,
+
+00:03:46.159 --> 00:03:48.161
+então estamos
+no caminho certo.
+

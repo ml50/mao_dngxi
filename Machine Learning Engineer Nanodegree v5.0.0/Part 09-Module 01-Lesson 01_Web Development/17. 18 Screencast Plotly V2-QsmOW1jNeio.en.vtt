@@ -1,0 +1,451 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.360
+There are quite a few choices when it comes to choosing a JavaScript chart library.
+
+00:00:05.360 --> 00:00:08.220
+I chose Plotly for this lesson because it has
+
+00:00:08.220 --> 00:00:12.060
+both a JavaScript library and also a Python version.
+
+00:00:12.060 --> 00:00:15.675
+Since the back end of this web app will be in Python,
+
+00:00:15.675 --> 00:00:20.100
+you can actually use the Plotly Python library in your back end.
+
+00:00:20.100 --> 00:00:21.570
+Plotly, just so you know,
+
+00:00:21.570 --> 00:00:22.969
+is actually a company,
+
+00:00:22.969 --> 00:00:25.929
+but their charting libraries are open-source.
+
+00:00:25.929 --> 00:00:28.164
+Since you haven't made the back end yet,
+
+00:00:28.164 --> 00:00:29.504
+for this part of the lesson,
+
+00:00:29.504 --> 00:00:33.439
+I'm going to show you the JavaScript version of the Plotly library.
+
+00:00:33.439 --> 00:00:40.409
+The syntax and ideas behind the Python and JavaScript version are quite similar.
+
+00:00:40.409 --> 00:00:44.034
+So, when you end up using the Python Plotly library later in the lesson,
+
+00:00:44.034 --> 00:00:45.479
+it won't be too different.
+
+00:00:45.479 --> 00:00:47.134
+To make a plot,
+
+00:00:47.134 --> 00:00:51.519
+all you need to do is create a div element with a specific ID.
+
+00:00:51.520 --> 00:00:52.870
+So, you can see here,
+
+00:00:52.869 --> 00:00:56.024
+I have a basic HTML document.
+
+00:00:56.024 --> 00:01:02.685
+All I've done is linked to the JavaScript source file of the Plotly library.
+
+00:01:02.685 --> 00:01:07.855
+Then, I've created a div down here with ID plot1.
+
+00:01:07.855 --> 00:01:11.660
+Also, links to a script called plot1.js where
+
+00:01:11.659 --> 00:01:15.754
+I'm going to write the JavaScript code to make the plot appear.
+
+00:01:15.754 --> 00:01:21.549
+I'm going to put the plotly code into this file plot1.js.
+
+00:01:21.549 --> 00:01:25.039
+So, essentially, all you need to do is have
+
+00:01:25.040 --> 00:01:29.430
+some data and then tell plotly what kind of plot you want to make.
+
+00:01:29.430 --> 00:01:30.860
+So, in this case,
+
+00:01:30.859 --> 00:01:34.489
+I'm going to put some data into a couple of JavaScript lists.
+
+00:01:34.489 --> 00:01:38.099
+So, this is just regular JavaScript code.
+
+00:01:38.099 --> 00:01:41.329
+I'm creating some data that has a year as
+
+00:01:41.329 --> 00:01:46.329
+one variable and then arable_land is another variable.
+
+00:01:46.329 --> 00:01:50.625
+This is real data that I've taken from the World Bank website.
+
+00:01:50.625 --> 00:01:53.275
+Okay. Now, comes the plotly code.
+
+00:01:53.275 --> 00:01:55.835
+So, I'm going to make a variable that I'm going to call
+
+00:01:55.834 --> 00:01:58.684
+a trace and a trace is essentially
+
+00:01:58.685 --> 00:02:02.269
+a visualization or you can think of it as a part of
+
+00:02:02.269 --> 00:02:06.409
+a visualization like a single line or a set of points.
+
+00:02:06.409 --> 00:02:08.155
+You'll see what I mean in a second.
+
+00:02:08.155 --> 00:02:13.185
+So, I'm going to specify the X variable as year,
+
+00:02:13.185 --> 00:02:16.134
+the Y variable as arable_land,
+
+00:02:16.134 --> 00:02:21.090
+and then I'm going to say, mode: 'lines' because I want to make a line chart,
+
+00:02:21.090 --> 00:02:26.250
+and then I'm going to specify the type as a scatter plot.
+
+00:02:26.250 --> 00:02:29.930
+So, this is actually essentially a dictionary that I'm making in
+
+00:02:29.930 --> 00:02:34.210
+JavaScript where I'm specifying all the parts of this visualization.
+
+00:02:34.210 --> 00:02:39.115
+So, I'm going to make another list where I'm going to keep this trace and call it data.
+
+00:02:39.115 --> 00:02:43.955
+Then, the last part, I just say, Plotly.newPlot.
+
+00:02:43.955 --> 00:02:47.585
+So, I'm calling the Plotly library, newPlot method,
+
+00:02:47.585 --> 00:02:52.680
+and then I say plot1 because that was the ID we used in the HTML,
+
+00:02:52.680 --> 00:02:55.635
+insert the data, and it should work.
+
+00:02:55.634 --> 00:02:58.139
+There we go. This is the plot I made.
+
+00:02:58.139 --> 00:03:00.489
+So, this plot isn't perfect.
+
+00:03:00.490 --> 00:03:03.230
+It's missing a title, for example,
+
+00:03:03.229 --> 00:03:07.284
+and it's missing x and y-axis labels, so let's add that.
+
+00:03:07.284 --> 00:03:11.509
+I'm going to add another variable called layout and this is
+
+00:03:11.509 --> 00:03:15.965
+going to be another dictionary with the information I want to put in like the title.
+
+00:03:15.965 --> 00:03:17.939
+I'm going to put in this br,
+
+00:03:17.939 --> 00:03:21.520
+which is actually HTML for a break in the line,
+
+00:03:21.520 --> 00:03:24.915
+so that the title will render on two different lines.
+
+00:03:24.914 --> 00:03:29.484
+Now, I'm going to specify some things about the x-axis.
+
+00:03:29.485 --> 00:03:34.550
+This is going to be within a dictionary because there are various options.
+
+00:03:34.550 --> 00:03:36.700
+So, I'm going to say, title: 'year'.
+
+00:03:36.699 --> 00:03:38.869
+I'm going to say, actually,
+
+00:03:38.870 --> 00:03:46.150
+that I want the tick to start at 1990 and I want the delta between the ticks 325.
+
+00:03:46.150 --> 00:03:49.159
+Now, I'm going to specify some things about
+
+00:03:49.159 --> 00:03:54.449
+the y-axis like the title and then we're going to close this off.
+
+00:03:54.449 --> 00:03:59.669
+Now, we're going to add layout as the third input to the newPlot method.
+
+00:03:59.669 --> 00:04:03.119
+Okay. So, we made sure that the x-axis started at
+
+00:04:03.120 --> 00:04:07.219
+1990 and that there are only two points,
+
+00:04:07.219 --> 00:04:10.944
+1990 and then a delta of 25 to 2015.
+
+00:04:10.944 --> 00:04:14.074
+We added the year as the x-axis label,
+
+00:04:14.074 --> 00:04:17.435
+and then we added the y-axis label, and a title.
+
+00:04:17.435 --> 00:04:19.935
+So, you can see how using Plotly,
+
+00:04:19.935 --> 00:04:23.790
+you can build out a chart little by little with more and more features.
+
+00:04:23.790 --> 00:04:27.944
+So, let's make this visualization a little bit more complex.
+
+00:04:27.944 --> 00:04:29.740
+I have Brazil on here.
+
+00:04:29.740 --> 00:04:31.250
+I want to add Germany,
+
+00:04:31.250 --> 00:04:33.860
+so that Brazil and Germany appear at the same time.
+
+00:04:33.860 --> 00:04:38.280
+So, I'm going to change this variable and call it arable_land1.
+
+00:04:38.279 --> 00:04:43.549
+Then, I'm going to make a country1 variable and call it Brazil.
+
+00:04:43.550 --> 00:04:48.480
+Okay. Now, I want arable_land1 as y-axis.
+
+00:04:48.480 --> 00:04:52.100
+I'm going to add this name here and say,
+
+00:04:52.100 --> 00:04:56.545
+country1, and that's going to be use for the legend, okay?
+
+00:04:56.545 --> 00:05:00.840
+Now, I am going to add some information about Germany.
+
+00:05:00.839 --> 00:05:04.049
+Now, I need to create another trace,
+
+00:05:04.050 --> 00:05:06.439
+trace2, to make a line for Germany.
+
+00:05:06.439 --> 00:05:08.944
+We're going to use the same year variable,
+
+00:05:08.944 --> 00:05:14.569
+arable_land2, specify the mode, specify the type.
+
+00:05:14.569 --> 00:05:20.159
+Now, we're going to add trace2 to the data list and there we go.
+
+00:05:20.160 --> 00:05:22.930
+Just to give you some other ideas,
+
+00:05:22.930 --> 00:05:25.055
+you can change the mode, for example,
+
+00:05:25.055 --> 00:05:28.314
+and change it from lines to markers,
+
+00:05:28.314 --> 00:05:31.975
+and that just gives you points instead of a line or you could even say,
+
+00:05:31.975 --> 00:05:34.570
+'lines+markers', and have both of them.
+
+00:05:34.569 --> 00:05:37.675
+Okay. Now, let's add another plot.
+
+00:05:37.675 --> 00:05:40.975
+So, all I have to do here is add another div,
+
+00:05:40.975 --> 00:05:42.665
+call it something else.
+
+00:05:42.665 --> 00:05:46.145
+We're going to call it plot2.
+
+00:05:46.144 --> 00:05:48.344
+Just for organization purposes,
+
+00:05:48.345 --> 00:05:52.580
+I'm going to put it into a different file.
+
+00:05:52.579 --> 00:05:56.629
+So, let's create this new file called plot2.
+
+00:05:56.629 --> 00:06:01.430
+So, in plot2, I'm going to make a bar chart to make something different.
+
+00:06:01.430 --> 00:06:06.745
+I'm just going to put the data in directly instead of using the extra variables.
+
+00:06:06.745 --> 00:06:09.095
+Again, the data is just a list,
+
+00:06:09.095 --> 00:06:11.270
+a list of all the data points in order,
+
+00:06:11.269 --> 00:06:14.740
+so that the X and Y match.
+
+00:06:14.740 --> 00:06:18.680
+I'm going to say, type is a bar chart because I want to do something different.
+
+00:06:18.680 --> 00:06:21.740
+Let's close this, create a layout.
+
+00:06:21.740 --> 00:06:30.285
+I'm going to say, title: 'Hectares Arable Land Per Person 2015',
+
+00:06:30.285 --> 00:06:32.875
+x-axis, let's give it a title,
+
+00:06:32.875 --> 00:06:37.759
+y-axis, 'hectares per person' as a title.
+
+00:06:37.759 --> 00:06:43.089
+Then, we call the Plotly.newPlot method,
+
+00:06:43.089 --> 00:06:47.454
+make sure to specify the right name of the ID, put in the data,
+
+00:06:47.454 --> 00:06:51.745
+put in the layout, and we've got our second chart down here.
+
+00:06:51.745 --> 00:06:56.280
+So, it's up to you to decide what kind of chart is best for your data,
+
+00:06:56.279 --> 00:06:58.814
+and you'll want to go to the Plotly website,
+
+00:06:58.814 --> 00:07:01.250
+and see all of their examples,
+
+00:07:01.250 --> 00:07:03.800
+so that you can make the kind of chart you're trying to make.
+
+00:07:03.800 --> 00:07:06.954
+They have a lot of examples on their website.
+
+00:07:06.954 --> 00:07:09.009
+Again, you can take the code,
+
+00:07:09.009 --> 00:07:11.230
+you can copy their example code,
+
+00:07:11.230 --> 00:07:13.915
+and then you can fill it in with your own data,
+
+00:07:13.915 --> 00:07:16.750
+and change it any way you'd like.
+
+00:07:16.750 --> 00:07:21.230
+Okay. The last thing I want to show you is putting together what you've made with
+
+00:07:21.230 --> 00:07:26.725
+the Bootstrap library and putting in these Plotly plots.
+
+00:07:26.725 --> 00:07:31.879
+So, here, I have the front end that you've been working
+
+00:07:31.879 --> 00:07:37.250
+with Bootstrap and I've put in a couple of extra things here.
+
+00:07:37.250 --> 00:07:40.225
+So, way at the bottom,
+
+00:07:40.225 --> 00:07:43.145
+I added some extra scripts tags.
+
+00:07:43.144 --> 00:07:48.049
+One links to the Plotly JavaScript library and
+
+00:07:48.050 --> 00:07:53.525
+then two other ones are linking to the Plotly code that I was just writing before.
+
+00:07:53.524 --> 00:07:57.404
+So, they're linking to plot1.js and plot2.js.
+
+00:07:57.404 --> 00:08:00.409
+So, the only thing left is to put the divs with
+
+00:08:00.410 --> 00:08:04.870
+the correct IDs in the spot where I want to put the visualizations.
+
+00:08:04.870 --> 00:08:07.435
+Scrolling back up here,
+
+00:08:07.435 --> 00:08:11.274
+I have this row and these two columns.
+
+00:08:11.274 --> 00:08:13.879
+So, that is where I want my plots to show up.
+
+00:08:13.879 --> 00:08:15.250
+So, I'm going to make a new div,
+
+00:08:15.250 --> 00:08:18.649
+and I'm going to say, id="plot1",
+
+00:08:18.649 --> 00:08:20.694
+and then close the div.
+
+00:08:20.694 --> 00:08:22.909
+I'm going to make another div,
+
+00:08:22.910 --> 00:08:28.270
+and say, id="plot2", and close the div.
+
+00:08:28.269 --> 00:08:31.074
+Let's see what we've got.
+
+00:08:31.074 --> 00:08:36.215
+Okay. So now, we've combined the CSS Bootstrap front end with
+
+00:08:36.215 --> 00:08:41.639
+the JavaScript visualizations using Plotly.
+
+00:08:41.639 --> 00:08:44.449
+The one part that's still missing in terms of
+
+00:08:44.450 --> 00:08:49.410
+the front end is actually using data from say,
+
+00:08:49.409 --> 00:08:53.429
+a CSV file or downloading data from the Internet,
+
+00:08:53.429 --> 00:08:56.120
+but we'll get to that a little bit later in the lesson.
+
+00:08:56.120 --> 00:08:59.414
+So, this is it essentially for the front end.
+
+00:08:59.414 --> 00:09:04.929
+There's one exercise left to do and then you're going to start working on the back end.
+

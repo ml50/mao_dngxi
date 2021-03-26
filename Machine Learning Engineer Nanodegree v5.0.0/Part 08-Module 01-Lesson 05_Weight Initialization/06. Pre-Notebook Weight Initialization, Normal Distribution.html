@@ -1,0 +1,279 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Pre-Notebook: Weight Initialization, Normal Distribution
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Weight Initialization
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Weight Initialization.html">
+       01. Weight Initialization
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Constant Weights.html">
+       02. Constant Weights
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Random Uniform.html">
+       03. Random Uniform
+      </a>
+     </li>
+     <li class="">
+      <a href="04. General Rule.html">
+       04. General Rule
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Normal Distribution.html">
+       05. Normal Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Pre-Notebook Weight Initialization, Normal Distribution.html">
+       06. Pre-Notebook: Weight Initialization, Normal Distribution
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Notebook Normal &amp; No Initialization.html">
+       07. Notebook: Normal &amp; No Initialization
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Solution and Default Initialization.html">
+       08. Solution and Default Initialization
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Additional Material.html">
+       09. Additional Material
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Pre-Notebook: Weight Initialization, Normal Distribution
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="notebook-weight-initialization">
+          Notebook: Weight Initialization
+         </h1>
+         <p>
+          Now, you're ready to try out a weight initialization method that you define.
+         </p>
+         <p>
+          To open this notebook, you have two options:
+         </p>
+         <blockquote>
+          <ul>
+           <li>
+            Go to the next page in the classroom (recommended).
+           </li>
+           <li>
+            Clone the repo from
+            <a href="https://github.com/udacity/deep-learning-v2-pytorch" rel="noopener noreferrer" target="_blank">
+             Github
+            </a>
+            and open the notebook
+            <strong>
+             weight_initialization_exercise.ipynb
+            </strong>
+            in the *
+            <em>
+             weight-initialization
+            </em>
+            folder.  You can either download the repository with
+            <code>
+             git clone https://github.com/udacity/deep-learning-v2-pytorch.git
+            </code>
+            , or download it as an archive file from
+            <a href="https://github.com/udacity/deep-learning-v2-pytorch/archive/master.zip" rel="noopener noreferrer" target="_blank">
+             this link
+            </a>
+            .
+           </li>
+          </ul>
+         </blockquote>
+         <h1 id="instructions">
+          Instructions
+         </h1>
+         <ul>
+          <li>
+           Load in the FashionMNIST data
+          </li>
+          <li>
+           Define a function to initialize the weights of your model, taking values from a normal distribution
+          </li>
+          <li>
+           See how a model
+           <em>
+            without any explicit
+           </em>
+           weight initialization performs
+          </li>
+         </ul>
+         <p>
+          This is a self-assessed lab. If you need any help or want to check your answers, feel free to check out the solutions notebook in the same folder, or by clicking
+          <a href="https://github.com/udacity/deep-learning-v2-pytorch/blob/master/weight-initialization/weight_initialization_solution.ipynb" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Notebook Normal &amp; No Initialization.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Pre-Notebook: Weight Initialization, Normal Distribution')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:06.290 --> 00:00:08.818
+In the next part of the lesson,
+
+00:00:08.819 --> 00:00:10.560
+you'll code the front-end.
+
+00:00:10.560 --> 00:00:13.519
+You'll start working with the three languages needed to code
+
+00:00:13.519 --> 00:00:17.605
+a webpage: HTML, CSS, and JavaScript.
+
+00:00:17.605 --> 00:00:21.120
+As a reminder, HTML controls the content,
+
+00:00:21.120 --> 00:00:23.200
+CSS is in charge of style,
+
+00:00:23.199 --> 00:00:25.869
+and JavaScript takes care of interactivity.
+
+00:00:25.870 --> 00:00:28.870
+I want to emphasize that this part of the lesson will
+
+00:00:28.870 --> 00:00:31.984
+be a brief overview of these three languages.
+
+00:00:31.984 --> 00:00:34.604
+In reality, it can take a few weeks,
+
+00:00:34.604 --> 00:00:37.250
+if not months, to really learn them.
+
+00:00:37.250 --> 00:00:41.140
+You could code the front-end of a data dashboard including
+
+00:00:41.140 --> 00:00:45.350
+visualizations using only these three languages and nothing else.
+
+00:00:45.350 --> 00:00:49.518
+However, you are an intelligent busy data scientist
+
+00:00:49.518 --> 00:00:53.074
+and there's no reason to do everything from scratch.
+
+00:00:53.075 --> 00:00:56.775
+Once you've seen the basics of how to build a webpage,
+
+00:00:56.774 --> 00:01:00.769
+I'll introduce you to a front-end framework called Bootstrap.
+
+00:01:00.770 --> 00:01:04.490
+Bootstrap helps you make professional looking websites rather
+
+00:01:04.489 --> 00:01:08.780
+quickly because a lot of the CSS is taken care of for you.
+
+00:01:08.780 --> 00:01:13.665
+Finally, you'll work with a JavaScript library called Plotly.
+
+00:01:13.665 --> 00:01:17.150
+Plotly makes adding data visualizations relatively
+
+00:01:17.150 --> 00:01:20.770
+easy although it does take some time to get used to the syntax.
+
+00:01:20.769 --> 00:01:22.295
+With all this in mind,
+
+00:01:22.295 --> 00:01:24.280
+let's start building the front-end.
+

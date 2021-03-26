@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.540
+Knowing what you know now about convolutional autoencoders,
+
+00:00:03.540 --> 00:00:06.804
+I'm going to challenge you to make a Denoising Autoencoder.
+
+00:00:06.804 --> 00:00:11.460
+As we know Autoencoders don't excel at compressing images but they can learn
+
+00:00:11.460 --> 00:00:16.214
+pretty well how to denoise them given a noisy and non noisy set to learn from.
+
+00:00:16.214 --> 00:00:19.140
+The idea is this given an input set of
+
+00:00:19.140 --> 00:00:23.365
+noisy data and a target set of data that's the non noisy image data,
+
+00:00:23.364 --> 00:00:26.579
+the encoder can learn to distill important information from
+
+00:00:26.579 --> 00:00:31.664
+the noisy image and the decoder can learn to produce a non noisy reconstruction.
+
+00:00:31.664 --> 00:00:33.390
+After this is trained,
+
+00:00:33.390 --> 00:00:37.380
+this whole auto encoder should be able to Denoise new test data.
+
+00:00:37.380 --> 00:00:40.070
+In this notebook, I've given you the usual code to
+
+00:00:40.070 --> 00:00:42.649
+load in and visualize your iMNIST data.
+
+00:00:42.649 --> 00:00:46.210
+Then later I'm going to add this speckle noise to this data.
+
+00:00:46.210 --> 00:00:49.370
+This way you'll have a set of noisy images for an encoder to
+
+00:00:49.369 --> 00:00:52.939
+C and a set of target images that are without noise.
+
+00:00:52.939 --> 00:00:56.744
+It will be up to you to define a ConvDenoiser architecture.
+
+00:00:56.744 --> 00:01:00.265
+The architecture will be very similar to the ones we've gone through.
+
+00:01:00.265 --> 00:01:03.125
+Only Denoising is a bit of a harder problem.
+
+00:01:03.125 --> 00:01:08.099
+What I'd encourage you to do is actually increase the depths of our convolutional layers.
+
+00:01:08.099 --> 00:01:12.464
+Something like starting with a depth of 32 for the depths, instead of 16.
+
+00:01:12.465 --> 00:01:14.900
+I'd also say that it could be useful to add
+
+00:01:14.900 --> 00:01:18.359
+one more convolutional layer to both the encoder and decoder.
+
+00:01:18.359 --> 00:01:20.959
+Basically, more and deeper layers will give
+
+00:01:20.959 --> 00:01:23.509
+you more parameters to recognize patterns with.
+
+00:01:23.510 --> 00:01:26.180
+Now, I've given you our usual training loop but I've
+
+00:01:26.180 --> 00:01:29.315
+changed some things so that I'm adding some noise to our images.
+
+00:01:29.314 --> 00:01:31.459
+In here I'm reading in our images from
+
+00:01:31.459 --> 00:01:35.399
+the training set and I'm adding some noise creating some noisy images.
+
+00:01:35.400 --> 00:01:37.370
+Then I pass these noisy images to
+
+00:01:37.370 --> 00:01:40.355
+our model as input so this is what the encoder will see.
+
+00:01:40.355 --> 00:01:42.725
+But my loss is going to be comparing
+
+00:01:42.724 --> 00:01:47.744
+our reconstructed images with our originals are target non noisy images.
+
+00:01:47.745 --> 00:01:50.775
+Then you can check out the reconstructions as well.
+
+00:01:50.775 --> 00:01:53.990
+This Denoising application is really pretty interesting,
+
+00:01:53.989 --> 00:01:57.634
+because the Autoencoder is having to learn something about the content of
+
+00:01:57.635 --> 00:02:02.140
+quite a noisy image and then it learns how to transform it into a non noisy version.
+
+00:02:02.140 --> 00:02:03.995
+Now, in this case I provided
+
+00:02:03.995 --> 00:02:06.770
+a solution notebook but I'm not going to walk you through the answer.
+
+00:02:06.769 --> 00:02:09.049
+You're encouraged to try this out and explore on
+
+00:02:09.050 --> 00:02:11.705
+your own before you look at the existing code.
+
+00:02:11.705 --> 00:02:14.405
+I'd even encourage you to try to test out the limits
+
+00:02:14.405 --> 00:02:17.159
+of just how much noise you can add to these images.
+
+00:02:17.159 --> 00:02:20.180
+You can imagine using a similar approach for doing something like
+
+00:02:20.180 --> 00:02:23.650
+Denoising audio signals and removing static from sound.
+
+00:02:23.650 --> 00:02:28.330
+Go ahead and experiment with this code and when you're ready move on to the next lesson.
+

@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.290
+To understand how a transpose convolutional layer works,
+
+00:00:04.290 --> 00:00:07.095
+let's briefly revisit the convolution operation.
+
+00:00:07.094 --> 00:00:10.585
+Imagine that we have an input image that's four by four pixels,
+
+00:00:10.585 --> 00:00:12.464
+small but good for an example.
+
+00:00:12.464 --> 00:00:15.969
+We want to produce an output filtered image that's the same size.
+
+00:00:15.970 --> 00:00:17.685
+This is our usual case,
+
+00:00:17.684 --> 00:00:18.945
+and we've seen that we can use
+
+00:00:18.945 --> 00:00:22.390
+a three-by-three kernel and a padding of one one get this result.
+
+00:00:22.390 --> 00:00:25.679
+Convolution tells us to multiply each pixel value in
+
+00:00:25.679 --> 00:00:28.710
+the input image by the weights of the overlaid kernel,
+
+00:00:28.710 --> 00:00:32.245
+and then add them all up to get the resultant output pixel value.
+
+00:00:32.244 --> 00:00:36.599
+We typically have a stride of one one do this for every pixel in the input image,
+
+00:00:36.600 --> 00:00:39.195
+but what if we had a stride of two?
+
+00:00:39.195 --> 00:00:44.359
+Well, our kernel would move to the right and down by two pixels at a time instead of one,
+
+00:00:44.359 --> 00:00:47.479
+and the output will be a two-by-two filtered image.
+
+00:00:47.479 --> 00:00:51.619
+The filter is moving two pixels for every one pixel in the output image,
+
+00:00:51.619 --> 00:00:53.719
+and it turns out that the stride value is roughly
+
+00:00:53.719 --> 00:00:56.524
+the ratio of the input to output dimensions.
+
+00:00:56.524 --> 00:01:01.284
+In this way, a convolutional operation can actually down sample an image.
+
+00:01:01.284 --> 00:01:03.949
+Now, keep this stride value of two in mind as I
+
+00:01:03.950 --> 00:01:07.019
+show you how transpose convolution reverses this process.
+
+00:01:07.019 --> 00:01:10.284
+It can take a single pixel from a two-by-two image,
+
+00:01:10.284 --> 00:01:12.609
+place a three-by-three kernel over it,
+
+00:01:12.609 --> 00:01:14.719
+then multiply that one pixel value by
+
+00:01:14.719 --> 00:01:18.465
+one kernel weights to get a resultant three-by-three pixel area.
+
+00:01:18.465 --> 00:01:20.825
+Say I do this with the first pixel,
+
+00:01:20.825 --> 00:01:23.665
+and I get a three by three output area with some center.
+
+00:01:23.665 --> 00:01:26.525
+Then, I try to do the same thing for the second pixel.
+
+00:01:26.525 --> 00:01:29.030
+I'll assume that my stride is two in the output,
+
+00:01:29.030 --> 00:01:31.460
+so the center of the generated area will be
+
+00:01:31.459 --> 00:01:34.424
+two to the right of two center of this three-by-three area.
+
+00:01:34.424 --> 00:01:38.444
+Now, transpose convolution will produce another three-by-three area,
+
+00:01:38.444 --> 00:01:40.954
+one that overlaps with the initial one.
+
+00:01:40.954 --> 00:01:42.620
+In the case of overlap,
+
+00:01:42.620 --> 00:01:44.865
+these one will just be summed together.
+
+00:01:44.864 --> 00:01:47.579
+If I do this for all four of the input pixels,
+
+00:01:47.579 --> 00:01:50.840
+it will give a five-by-five resultant area.
+
+00:01:50.840 --> 00:01:54.545
+There are some options to add or subtract padding from this output,
+
+00:01:54.545 --> 00:01:56.230
+but the most common case,
+
+00:01:56.230 --> 00:01:59.000
+it will use a two-by-two filter and a stride of
+
+00:01:59.000 --> 00:02:02.620
+two to double the x and y dimensions of two input.
+
+00:02:02.620 --> 00:02:07.010
+The weights in the kernel here are learned much like in a convolutional layer.
+
+00:02:07.010 --> 00:02:10.724
+Only this time, the purpose is to learn effective upsampling.
+
+00:02:10.724 --> 00:02:13.085
+Next, I'll show you how to define and train
+
+00:02:13.085 --> 00:02:17.659
+a convolutional auto-encoder that utilizes transpose convolutional layers.
+

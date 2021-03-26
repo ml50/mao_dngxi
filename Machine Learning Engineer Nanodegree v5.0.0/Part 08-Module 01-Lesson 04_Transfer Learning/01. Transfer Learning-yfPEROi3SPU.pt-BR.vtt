@@ -1,0 +1,126 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.012 --> 00:00:02.780
+Vimos como definir e treinar
+as CNNs
+
+00:00:02.813 --> 00:00:05.835
+com camadas especificadas
+e com hiperparâmetros.
+
+00:00:05.868 --> 00:00:09.976
+Também vimos exemplos
+de ótimas arquiteturas CNN,
+
+00:00:10.009 --> 00:00:12.152
+como a VGG e a ResNet.
+
+00:00:12.185 --> 00:00:14.579
+Este é o resultado
+de uma experimentação
+
+00:00:14.612 --> 00:00:15.945
+com miniarquiteturas
+
+00:00:15.978 --> 00:00:18.466
+e ajustes estendidos
+do hiperparâmetro.
+
+00:00:18.499 --> 00:00:21.613
+Elas foram treinadas em um banco
+de dados de imagem grande,
+
+00:00:21.646 --> 00:00:24.139
+com 1.000 classes de objeto.
+
+00:00:24.172 --> 00:00:25.859
+São tantos dados
+de treinamento
+
+00:00:25.892 --> 00:00:27.770
+e os modelos
+têm tantos parâmetros
+
+00:00:27.803 --> 00:00:30.434
+que treinar modelos assim
+leva semanas,
+
+00:00:30.467 --> 00:00:32.578
+até mesmo em várias GPUs.
+
+00:00:32.611 --> 00:00:37.299
+Seria ideal encontrar uma maneira
+de usar o que os modelos aprenderam
+
+00:00:37.332 --> 00:00:39.900
+aplicando esse conhecimento
+em uma nova tarefa.
+
+00:00:39.933 --> 00:00:45.107
+Por exemplo, imagine algumas imagens
+que desejamos classificar.
+
+00:00:45.140 --> 00:00:47.635
+Em vez de construirmos
+uma CNN do zero,
+
+00:00:47.668 --> 00:00:50.218
+podemos usar o conhecimento
+de uma CNN treinada,
+
+00:00:50.251 --> 00:00:54.225
+como a ResNet, para ajudar
+a classificar as imagens?
+
+00:00:54.258 --> 00:00:55.416
+Sim, podemos.
+
+00:00:55.449 --> 00:00:59.390
+E isso é realizado com a técnica
+de transferência de aprendizado.
+
+00:00:59.423 --> 00:01:02.526
+Ela usa uma rede treinada,
+
+00:01:02.559 --> 00:01:05.111
+aplicando-a a uma tarefa
+do seu design,
+
+00:01:05.144 --> 00:01:08.598
+transferindo o que foi aprendido
+de uma tarefa para outra.
+
+00:01:08.631 --> 00:01:10.928
+Aplicamos a transferência
+de algumas formas,
+
+00:01:10.961 --> 00:01:14.150
+e isso dependerá da semelhança
+entre o conjunto de dados
+
+00:01:14.183 --> 00:01:17.040
+e o conjunto visto
+pela rede treinada.
+
+00:01:17.073 --> 00:01:20.434
+Precisamos saber se o conhecimento
+pode ser transferido.
+
+00:01:20.467 --> 00:01:22.641
+Nesta aula,
+responderemos a esta pergunta,
+
+00:01:22.674 --> 00:01:25.286
+veremos estratégias
+para transferir o aprendizado
+
+00:01:25.319 --> 00:01:27.774
+e como implementar
+a transferência no código
+
+00:01:27.807 --> 00:01:31.135
+usando uma rede pré-treinada
+para classificar outras imagens.
+

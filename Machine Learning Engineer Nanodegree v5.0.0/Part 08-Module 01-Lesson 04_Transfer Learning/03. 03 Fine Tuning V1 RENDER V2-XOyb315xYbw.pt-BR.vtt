@@ -1,0 +1,159 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.122 --> 00:00:04.220
+Como transferir e usar o aprendizado
+se os dados forem muito grandes
+
+00:00:04.253 --> 00:00:07.574
+e diferentes dos das imagens
+do banco de dados?
+
+00:00:07.607 --> 00:00:11.810
+Um dos fundadores da Udacity,
+Sebastian Thrun,
+
+00:00:11.843 --> 00:00:13.572
+junto com uma equipe
+da Stanford,
+
+00:00:13.605 --> 00:00:16.235
+usou a transferência
+de aprendizado em uma CNN
+
+00:00:16.268 --> 00:00:18.276
+que pode diagnosticar
+o câncer de pele.
+
+00:00:18.309 --> 00:00:21.780
+A CNN classifica as lesões
+como benignas ou malignas
+
+00:00:21.813 --> 00:00:24.747
+e trabalha junto
+com os dermatologistas
+
+00:00:24.780 --> 00:00:27.521
+para diagnosticar algumas formas
+de câncer de pele.
+
+00:00:27.554 --> 00:00:30.511
+O modelo usou a abordagem
+de transferência de aprendizado
+
+00:00:30.544 --> 00:00:32.420
+com a arquitetura Inception,
+
+00:00:32.453 --> 00:00:34.740
+pré-treinada
+na rede do banco de dados.
+
+00:00:34.773 --> 00:00:38.804
+O primeiro passo foi remover
+a última camada de classificação
+
+00:00:38.837 --> 00:00:41.460
+e adicionar uma nova camada
+completamente conectada.
+
+00:00:41.493 --> 00:00:44.505
+Isso é parecido com a abordagem
+a que eu me referi antes,
+
+00:00:44.538 --> 00:00:48.299
+a de usar a camada de classificação
+com tamanho de output definido.
+
+00:00:48.332 --> 00:00:50.818
+Neste caso, esta camada
+tem um valor de output
+
+00:00:50.851 --> 00:00:52.898
+para cada tipo
+da classe da doença.
+
+00:00:52.931 --> 00:00:55.090
+Nas outras camadas da rede
+
+00:00:55.123 --> 00:00:58.412
+os parâmetros foram inicializados
+com os valores pré-treinados.
+
+00:00:58.445 --> 00:01:01.632
+Depois, durante o treinamento,
+os parâmetros foram otimizados
+
+00:01:01.665 --> 00:01:04.093
+para se adequarem aos dados
+das lesões na pele.
+
+00:01:04.126 --> 00:01:07.909
+Em vez de usar o modelo pré-treinado
+como um extrator de recursos,
+
+00:01:07.942 --> 00:01:10.517
+Sebastian e a equipe o usaram
+como ponto de partida
+
+00:01:10.550 --> 00:01:12.194
+para treinar toda a rede,
+
+00:01:12.227 --> 00:01:13.834
+modificando os pesos
+
+00:01:13.867 --> 00:01:18.073
+para que eles se adequassem
+à tarefa de classificação.
+
+00:01:18.106 --> 00:01:23.856
+Nesse caso, o modelo se beneficiou
+da rede de imagem pré-treinada,
+
+00:01:23.889 --> 00:01:26.594
+e esse é outro tipo
+de transferência de aprendizado.
+
+00:01:26.627 --> 00:01:28.481
+Essa técnica
+se chama "fine-tuning",
+
+00:01:28.514 --> 00:01:32.864
+porque exige pequenas alterações
+ou ajustes nos parâmetros existentes
+
+00:01:32.897 --> 00:01:34.442
+em uma rede pré-treinada.
+
+00:01:34.475 --> 00:01:36.268
+O fine-tuning funciona melhor
+
+00:01:36.301 --> 00:01:39.340
+se o conjunto de dados de interesse
+for bem grande.
+
+00:01:39.373 --> 00:01:41.681
+A transferência é uma técnica
+muito útil,
+
+00:01:41.714 --> 00:01:43.169
+mas deve ser aplicada
+
+00:01:43.202 --> 00:01:46.120
+a partir do tamanho
+e da semelhança entre seus dados
+
+00:01:46.153 --> 00:01:48.697
+e os do modelo pré-treinado.
+
+00:01:48.730 --> 00:01:52.409
+Como sempre, você deve
+experimentar diferentes métodos.
+
+00:01:52.442 --> 00:01:56.703
+Você encontrará mais informações
+sobre como usar a transferência
+
+00:01:56.736 --> 00:01:57.982
+no texto abaixo.
+

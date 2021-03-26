@@ -1,0 +1,215 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.367 --> 00:00:03.103
+Você aprendeu como CNNs
+pegam uma imagem de input
+
+00:00:03.136 --> 00:00:04.804
+e, por uma série de camadas,
+
+00:00:04.838 --> 00:00:07.974
+transformam este input
+num output bem menor
+
+00:00:08.008 --> 00:00:11.177
+na dimensão XY,
+mas bem maior em profundidade.
+
+00:00:11.211 --> 00:00:14.214
+Durante o caminho,
+a CNN descarta informações
+
+00:00:14.247 --> 00:00:15.348
+da imagem de input
+
+00:00:15.382 --> 00:00:19.085
+e isola informações
+de alto nível sobre seu conteúdo.
+
+00:00:19.119 --> 00:00:21.354
+A estrutura também
+pode ser pensada
+
+00:00:21.388 --> 00:00:23.356
+como compressão de dados,
+
+00:00:23.390 --> 00:00:26.793
+comprimindo uma imagem em algo
+como um vetor de características,
+
+00:00:26.826 --> 00:00:28.995
+um mapa de características
+produzido
+
+00:00:29.029 --> 00:00:31.231
+após um input ter passado
+por várias camadas
+
+00:00:31.264 --> 00:00:33.266
+e sido espremido
+na forma de um vetor.
+
+00:00:33.299 --> 00:00:37.037
+E isto é parte de algo
+chamado de "autocodificador",
+
+00:00:37.070 --> 00:00:39.372
+o objeto de estudo desta aula.
+
+00:00:39.406 --> 00:00:41.908
+Um autocodificador tem
+dois componentes principais:
+
+00:00:41.941 --> 00:00:44.744
+um codificador, que comprime
+dados de input,
+
+00:00:44.778 --> 00:00:46.913
+e um decodificador,
+que reconstrói dados
+
+00:00:46.946 --> 00:00:49.215
+da representação comprimida.
+
+00:00:49.249 --> 00:00:52.385
+Mas por que este tipo
+de estrutura é útil?
+
+00:00:52.419 --> 00:00:55.588
+Ela é bem útil
+em vários casos.
+
+00:00:55.622 --> 00:00:59.125
+Autocodificadores são usados
+na compressão de dados tradicional
+
+00:00:59.159 --> 00:01:02.429
+e podem aprender a reduzir
+a dimensionalidade de um input.
+
+00:01:02.462 --> 00:01:05.331
+Assim, podemos usar
+a representação comprimida
+
+00:01:05.365 --> 00:01:07.434
+para compartilhar,
+visualizar e tudo mais
+
+00:01:07.467 --> 00:01:09.836
+mais rápido
+do que com o input original.
+
+00:01:09.869 --> 00:01:13.506
+Pense em um arquivo jpeg
+ou mp3,
+
+00:01:13.540 --> 00:01:17.143
+que contêm regras explícitas
+para comprimir imagens e áudio.
+
+00:01:17.177 --> 00:01:19.379
+A diferença é
+que um autocodificador
+
+00:01:19.412 --> 00:01:22.449
+aprende as funções
+de compressão e descompressão,
+
+00:01:22.482 --> 00:01:25.885
+não precisam ser codificadas
+e projetadas por um humano.
+
+00:01:25.919 --> 00:01:28.588
+Autocodificadores
+são muito promissores
+
+00:01:28.621 --> 00:01:30.657
+nas técnicas de redução
+de ruídos
+
+00:01:30.690 --> 00:01:32.892
+e no preenchimento
+de dados perdidos.
+
+00:01:32.926 --> 00:01:34.828
+Você verá esta estrutura
+de novo
+
+00:01:34.861 --> 00:01:36.696
+ao aprender
+sobre modelos gerativos,
+
+00:01:36.730 --> 00:01:40.867
+que pegam uma imagem e a transformam
+em um espaço relacionado,
+
+00:01:40.900 --> 00:01:42.635
+como imagens cinza
+para coloridas
+
+00:01:42.669 --> 00:01:45.271
+ou de baixa resolução
+para de alta resolução.
+
+00:01:45.305 --> 00:01:49.776
+O codificador e o decodificador
+são construídos com redes neurais.
+
+00:01:49.809 --> 00:01:51.711
+Geralmente, toda a rede
+é treinada
+
+00:01:51.745 --> 00:01:54.881
+minimizando a diferença
+entre o input e o output.
+
+00:01:54.914 --> 00:01:56.383
+Assim, a camada do meio
+
+00:01:56.416 --> 00:01:59.185
+será uma representação
+comprimida de dados de input,
+
+00:01:59.219 --> 00:02:01.988
+da qual você pode reconstruir
+os dados originais.
+
+00:02:02.286 --> 00:02:04.357
+O aspecto chave
+do autocodificador
+
+00:02:04.391 --> 00:02:06.559
+é sua habilidade
+de comprimir uma imagem
+
+00:02:06.593 --> 00:02:09.295
+de um jeito que seu conteúdo
+seja mantido.
+
+00:02:09.329 --> 00:02:12.298
+Depois talvez você use
+esta representação comprimida
+
+00:02:12.332 --> 00:02:13.933
+para gerar outra coisa.
+
+00:02:13.967 --> 00:02:17.737
+Nesta aula, vou ensinar a construir
+autocodificadores em PyTorch.
+
+00:02:17.771 --> 00:02:19.606
+Vou começar
+com um exemplo simples,
+
+00:02:19.639 --> 00:02:21.341
+onde vamos comprimir imagens.
+
+00:02:21.374 --> 00:02:23.276
+E, como são dados de imagens,
+
+00:02:23.309 --> 00:02:25.712
+vamos melhorá-los usando
+redes convolucionais.
+

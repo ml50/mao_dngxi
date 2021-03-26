@@ -1,0 +1,456 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.133 --> 00:00:02.902
+Olá. Você aprendeu bastante
+sobre CNNs.
+
+00:00:02.936 --> 00:00:07.007
+E hoje, vou falar de um detalhe
+que acontece nos bastidores,
+
+00:00:07.040 --> 00:00:09.943
+quando criamos e treinamos
+uma rede no PyTorch:
+
+00:00:09.976 --> 00:00:11.745
+inicialização de pesos.
+
+00:00:11.778 --> 00:00:15.414
+Ela acontece quando um modelo
+é criado,
+
+00:00:15.448 --> 00:00:17.483
+antes que ele veja
+dados de treino.
+
+00:00:17.517 --> 00:00:21.051
+Geralmente só acontece uma vez
+quando o modelo é criado.
+
+00:00:21.085 --> 00:00:22.521
+Inicialização de pesos é
+
+00:00:22.555 --> 00:00:25.891
+sobre como você pode estender
+um modelo, como uma CNN,
+
+00:00:25.925 --> 00:00:27.960
+para que os pesos,
+parâmetros do modelo,
+
+00:00:27.994 --> 00:00:31.962
+comecem com os melhores
+valores iniciais para uma tarefa.
+
+00:00:31.996 --> 00:00:33.332
+Pense nela assim:
+
+00:00:33.366 --> 00:00:36.168
+cada neurônio num modelo tem
+pesos e vieses
+
+00:00:36.202 --> 00:00:38.004
+que operam em valores de input
+
+00:00:38.038 --> 00:00:40.571
+e os transformam
+em outputs desejados.
+
+00:00:40.605 --> 00:00:43.007
+É como você pode transformar
+uma imagem de input
+
+00:00:43.041 --> 00:00:44.510
+numa pontuação de classe.
+
+00:00:44.544 --> 00:00:46.646
+E o modelo tenta aprender
+os melhores pesos
+
+00:00:46.680 --> 00:00:48.247
+para mapear inputs
+para outputs
+
+00:00:48.281 --> 00:00:51.283
+e classificar com mais precisão
+alguma imagem.
+
+00:00:51.317 --> 00:00:54.286
+Com transferência de aprendizado,
+iniciamos uma rede
+
+00:00:54.320 --> 00:00:56.322
+com os melhores pesos
+pré-treinados,
+
+00:00:56.356 --> 00:00:59.492
+que sabemos que são bons valores
+para classificação de imagens.
+
+00:00:59.526 --> 00:01:01.594
+Mas, para um modelo
+não pré-treinado,
+
+00:01:01.628 --> 00:01:03.596
+como deveríamos inicializar
+os pesos?
+
+00:01:03.630 --> 00:01:07.333
+Podemos começar dizendo
+que todos os pesos serão 0.
+
+00:01:07.367 --> 00:01:10.232
+E os treinamos até irem
+para cima ou para baixo.
+
+00:01:10.265 --> 00:01:12.502
+Ou podemos começar
+com valores de peso grandes
+
+00:01:12.536 --> 00:01:15.107
+ou valores aleatórios e ver
+o que acontece.
+
+00:01:15.141 --> 00:01:18.275
+Estas são as perguntas
+que exploraremos neste notebook.
+
+00:01:18.309 --> 00:01:20.680
+Neste notebook,
+vou mostrar o efeito
+
+00:01:20.714 --> 00:01:23.182
+de diferentes estratégias
+de inicialização.
+
+00:01:23.216 --> 00:01:25.584
+Vamos discutir como decidir
+os pesos iniciais
+
+00:01:25.618 --> 00:01:28.454
+e o que é um bom
+comportamento inicial.
+
+00:01:28.488 --> 00:01:32.291
+O código será fornecido para você
+no repositório público no GitHub,
+
+00:01:32.325 --> 00:01:34.894
+para você trabalhar com ele
+e ver como funciona.
+
+00:01:34.928 --> 00:01:37.997
+O plano é definir
+um tipo de modelo,
+
+00:01:38.031 --> 00:01:39.465
+uma MLP simples,
+
+00:01:39.499 --> 00:01:42.635
+inicializar os pesos deste modelo
+com diferentes valores
+
+00:01:42.669 --> 00:01:44.937
+e comparar como as perdas
+de treino diminuem
+
+00:01:44.971 --> 00:01:47.306
+durante as primeiras epochs
+de treino.
+
+00:01:47.340 --> 00:01:49.976
+Os mesmos modelos,
+diferentes pesos iniciais.
+
+00:01:50.010 --> 00:01:53.846
+Neste exemplo, traçamos
+a perda de treino sobre 100 lotes
+
+00:01:53.880 --> 00:01:56.148
+para dois métodos
+de inicialização.
+
+00:01:56.182 --> 00:01:57.650
+Eles são só exemplos.
+
+00:01:57.684 --> 00:02:01.220
+Algumas estratégias de inicialização
+oferecem uma grande melhoria
+
+00:02:01.254 --> 00:02:02.755
+para diminuir as perdas.
+
+00:02:02.789 --> 00:02:05.124
+E outras dão
+pequenas melhorias, como aqui.
+
+00:02:05.158 --> 00:02:06.826
+É difícil ver a diferença.
+
+00:02:06.860 --> 00:02:08.027
+Grandes ou pequenas,
+
+00:02:08.061 --> 00:02:10.460
+podemos aprender
+com estas diferenças.
+
+00:02:10.494 --> 00:02:12.865
+Então vamos definir uma MLP
+
+00:02:12.899 --> 00:02:15.968
+para classificar imagens
+no FashionMNIST.
+
+00:02:16.002 --> 00:02:18.537
+Nas primeiras células,
+vou carregar estes dados
+
+00:02:18.571 --> 00:02:20.573
+com o tamanho de lote de 100.
+
+00:02:20.607 --> 00:02:22.575
+As imagens no conjunto
+FashionMNIST
+
+00:02:22.609 --> 00:02:24.610
+se encaixam em uma
+de dez classes:
+
+00:02:24.644 --> 00:02:28.447
+camisetas, camisas, tênis,
+bolsas, botas e por aí vai.
+
+00:02:28.481 --> 00:02:32.151
+E aqui estão as imagens
+com seus respectivos rótulos.
+
+00:02:32.185 --> 00:02:33.719
+Você deve ter visto
+isto antes.
+
+00:02:33.753 --> 00:02:36.956
+É um conjunto de dados
+com imagens em escala de cinza,
+
+00:02:36.990 --> 00:02:38.958
+similar ao conjunto
+de dados MNIST.
+
+00:02:38.992 --> 00:02:41.594
+Mas esta classificação
+é um pouco mais desafiadora
+
+00:02:41.628 --> 00:02:43.527
+do que dígitos escritos à mão.
+
+00:02:43.561 --> 00:02:45.264
+Um conjunto de dados como este
+
+00:02:45.298 --> 00:02:48.134
+é geralmente usado para testar
+a performance de redes,
+
+00:02:48.168 --> 00:02:50.169
+porque é simples de usar
+
+00:02:50.203 --> 00:02:52.772
+e seu comportamento de treino
+é bem compreendido.
+
+00:02:52.806 --> 00:02:57.309
+Sabemos que podemos fazer
+a perda de treino diminuir bastante.
+
+00:02:57.694 --> 00:03:00.012
+Eu carreguei e observei
+meus dados, como sempre.
+
+00:03:00.046 --> 00:03:01.847
+E chegamos na definição
+do módulo.
+
+00:03:01.881 --> 00:03:05.184
+Aqui está um diagrama da MLP
+que quero construir.
+
+00:03:05.218 --> 00:03:07.386
+Esta MLP tem
+uma camada de input,
+
+00:03:07.420 --> 00:03:09.889
+duas camadas ocultas
+com tamanhos especificados
+
+00:03:09.923 --> 00:03:12.925
+e uma camada de output final
+que faz o output de 10 classes
+
+00:03:12.959 --> 00:03:14.460
+para 10 tipos de roupa.
+
+00:03:14.494 --> 00:03:19.298
+As camadas ocultas terão
+256 e 128 nós respectivamente.
+
+00:03:19.761 --> 00:03:22.401
+Vamos deixar bem simples,
+para nos concentrarmos
+
+00:03:22.435 --> 00:03:26.138
+em como a inicialização de peso
+afeta o desempenho do modelo.
+
+00:03:26.403 --> 00:03:30.073
+Se rolar a página para baixo,
+verá como defini este modelo:
+
+00:03:30.107 --> 00:03:31.775
+passei um input achatado x
+
+00:03:31.809 --> 00:03:33.879
+para uma camada
+completamente conectada
+
+00:03:33.913 --> 00:03:35.881
+e apliquei uma função
+de ativação ReLU
+
+00:03:35.915 --> 00:03:37.416
+para as camadas ocultas.
+
+00:03:37.450 --> 00:03:39.018
+Coloquei uma camada dropout
+
+00:03:39.052 --> 00:03:43.619
+e uma completamente conectada,
+que produz 10 pontuações de classe.
+
+00:03:43.653 --> 00:03:45.424
+Para treinar este modelo,
+
+00:03:45.458 --> 00:03:47.994
+coloquei o código
+no arquivo helpers.py,
+
+00:03:48.028 --> 00:03:50.730
+que você encontra clicando
+no botão do Jupyter aqui.
+
+00:03:50.764 --> 00:03:53.466
+O propósito deste notebook
+não é treinar o modelo
+
+00:03:53.500 --> 00:03:56.168
+para ter um bom desempenho
+na classificação de imagem,
+
+00:03:56.202 --> 00:04:00.339
+só queremos como os modelos treinam
+em diferentes pesos iniciais.
+
+00:04:00.373 --> 00:04:03.109
+Vamos ver o que está
+no helpers.py.
+
+00:04:03.777 --> 00:04:06.312
+Esta é a função principal
+get_loss_acc,
+
+00:04:06.346 --> 00:04:09.749
+que contém modelo,
+o loader de treino e o de validação.
+
+00:04:09.783 --> 00:04:13.919
+Aqui eu defini 2 epochs
+como o tempo de duração do treino.
+
+00:04:13.953 --> 00:04:17.620
+Também defini uma função
+de otimização e de perda aqui.
+
+00:04:17.654 --> 00:04:21.727
+Estou usando entropia cruzada
+e um otimizador Adam,
+
+00:04:21.761 --> 00:04:24.530
+mas pode mudar para
+gradiente descendente estocástico
+
+00:04:24.564 --> 00:04:26.032
+e ver qual é o desempenho.
+
+00:04:26.066 --> 00:04:29.302
+Nesta função, vou treinar
+o modelo para duas epochs
+
+00:04:29.336 --> 00:04:31.470
+e gravar as perdas de treino
+no processo.
+
+00:04:31.504 --> 00:04:35.441
+Estas perdas serão gravadas
+numa lista chamada "loss batch".
+
+00:04:35.838 --> 00:04:38.110
+Depois do modelo treinar
+por duas epochs,
+
+00:04:38.144 --> 00:04:40.880
+vejo como ele se sai
+no conjunto de dados de validação.
+
+00:04:40.914 --> 00:04:44.717
+Comparo a classe prevista
+e a correta e vejo quais batem.
+
+00:04:44.949 --> 00:04:47.953
+Por fim, retorno a lista
+de perda de treino sobre tempo
+
+00:04:47.987 --> 00:04:49.922
+e a precisão da validação.
+
+00:04:49.956 --> 00:04:53.292
+E você verá outra função helper:
+compare_init_weights,
+
+00:04:53.326 --> 00:04:55.224
+que contém uma lista
+de modelos.
+
+00:04:55.258 --> 00:04:58.431
+Para cada modelo na lista,
+ela gravará a perda de treino
+
+00:04:58.465 --> 00:05:01.197
+e a precisão de validação
+em duas epochs.
+
+00:05:01.231 --> 00:05:05.368
+Temos o código para ver a perda
+e comparar pelo menos dois modelos.
+
+00:05:05.402 --> 00:05:09.408
+Dê uma olhada no código helper
+e entenda como tudo funciona,
+
+00:05:09.442 --> 00:05:13.312
+mas não precisa mudar nada
+no código que mostrei até agora.
+
+00:05:13.346 --> 00:05:16.615
+Agora que apresentei você
+a estes recursos e este notebook,
+
+00:05:16.649 --> 00:05:17.750
+nos próximos vídeos,
+
+00:05:17.784 --> 00:05:20.586
+vou mostrar como configurar
+pesos apropriadamente
+
+00:05:20.620 --> 00:05:22.288
+e comparar o comportamento.
+

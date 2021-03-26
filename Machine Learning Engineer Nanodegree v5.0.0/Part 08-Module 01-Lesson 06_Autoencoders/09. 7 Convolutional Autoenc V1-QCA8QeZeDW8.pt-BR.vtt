@@ -1,0 +1,307 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.335 --> 00:00:03.239
+Neste notebook, implementaremos
+um autocodificador
+
+00:00:03.272 --> 00:00:04.972
+com camadas convolucionais.
+
+00:00:05.005 --> 00:00:07.806
+As camadas convolucionais
+lidam com dados espaciais
+
+00:00:07.839 --> 00:00:08.984
+das imagens.
+
+00:00:09.017 --> 00:00:14.166
+Onde vemos borrões e ruídos
+nas reconstruções do autocodificador
+
+00:00:14.199 --> 00:00:16.799
+obteremos resultados melhores.
+
+00:00:16.832 --> 00:00:20.413
+Como da última vez, importamos
+os pacotes e módulos
+
+00:00:20.446 --> 00:00:22.743
+e os dados MNIST.
+
+00:00:22.776 --> 00:00:27.118
+Observamos os dados para ver
+se eles são o que esperamos.
+
+00:00:27.151 --> 00:00:30.783
+Agora vamos definir
+um autocodificador convolucional.
+
+00:00:30.816 --> 00:00:33.670
+Este é o diagrama da rede.
+
+00:00:33.703 --> 00:00:36.412
+Ele vai do input
+para o output.
+
+00:00:36.445 --> 00:00:39.733
+O diagrama está ao contrário
+do que vimos antes,
+
+00:00:39.766 --> 00:00:42.877
+então o input está embaixo
+e o output, em cima.
+
+00:00:42.910 --> 00:00:46.862
+As barras horizontais representam
+as camadas do autocodificador,
+
+00:00:46.895 --> 00:00:51.876
+e a largura da barra indica
+o tamanho nas dimensões X e Y.
+
+00:00:51.909 --> 00:00:56.701
+Começamos com a imagem
+original, que é de 28x28x1.
+
+00:00:56.734 --> 00:00:58.476
+Aqui está a camada de input,
+
+00:00:58.509 --> 00:01:02.797
+e temos a camada convolucional
+que aumenta a profundidade para 16.
+
+00:01:02.830 --> 00:01:08.077
+Temos uma camada convolucional
+com dimensões iguais a 28x28x16.
+
+00:01:08.110 --> 00:01:12.917
+Ela não muda a largura ou a altura,
+mas a profundidade para 16.
+
+00:01:12.950 --> 00:01:15.077
+A seguir, há uma camada
+max pooling.
+
+00:01:15.110 --> 00:01:18.628
+A camada max pooling típica,
+com stride e Kernel iguais a 2,
+
+00:01:18.661 --> 00:01:21.609
+reduz o input, para que
+as dimensões de X e Y
+
+00:01:21.642 --> 00:01:23.789
+sejam reduzidas
+para um fator de dois.
+
+00:01:23.822 --> 00:01:27.627
+Neste caso, vamos de 28x28
+para 14x14,
+
+00:01:27.660 --> 00:01:29.699
+e a profundidade
+continua igual.
+
+00:01:29.732 --> 00:01:32.492
+Acima desta linha,
+temos outra camada convolucional
+
+00:01:32.525 --> 00:01:34.788
+igual a 14x14x4.
+
+00:01:34.821 --> 00:01:38.619
+Neste caso, reduzimos a profundidade
+de 16 para 4 a fim de criar
+
+00:01:38.652 --> 00:01:40.890
+uma melhor representação
+comprimida.
+
+00:01:40.923 --> 00:01:43.075
+Por fim,
+mais uma camada max pooling,
+
+00:01:43.108 --> 00:01:47.796
+que nos levará à representação
+comprimida igual a 7x7x4.
+
+00:01:47.829 --> 00:01:51.391
+Esta representação contém
+196 valores,
+
+00:01:51.424 --> 00:01:54.735
+então é 25% menor
+do que o input inicial.
+
+00:01:54.768 --> 00:01:56.119
+É uma boa redução,
+
+00:01:56.152 --> 00:01:59.816
+mas poderíamos adicionar
+outra camada e reduzir ainda mais.
+
+00:01:59.849 --> 00:02:03.430
+Isso finaliza a codificação,
+agora vamos para o decodificador.
+
+00:02:03.463 --> 00:02:08.042
+Ele passará a representação
+de 7x7x4
+
+00:02:08.075 --> 00:02:11.423
+de volta para o tamanho
+do output reconstruído.
+
+00:02:11.456 --> 00:02:14.415
+O objetivo é deixar
+as imagens de reconstrução
+
+00:02:14.448 --> 00:02:16.262
+e a original bem próximas.
+
+00:02:16.295 --> 00:02:17.831
+Existem duas formas:
+
+00:02:17.864 --> 00:02:20.735
+usando as camadas
+convolucionais transpostas
+
+00:02:20.768 --> 00:02:23.103
+ou ampliando com algum tipo
+de escalonamento
+
+00:02:23.136 --> 00:02:24.836
+e a técnica de interpolação.
+
+00:02:24.869 --> 00:02:27.594
+Mostrarei exemplos
+das duas abordagens.
+
+00:02:27.627 --> 00:02:31.019
+Primeiro veremos as camadas
+convolucionais transpostas.
+
+00:02:31.052 --> 00:02:35.442
+Há um Kernel nesta camada
+que observa a camada anterior,
+
+00:02:35.475 --> 00:02:39.073
+usa um stride maior para multiplicar
+os valores de pixel existentes
+
+00:02:39.106 --> 00:02:42.930
+por alguns pesos e aumenta
+o tamanho espacial do output.
+
+00:02:42.963 --> 00:02:45.402
+Nesse caso, usamos
+convoluções transpostas
+
+00:02:45.435 --> 00:02:47.611
+com tamanho de Kernel
+e stride iguais a 2,
+
+00:02:47.644 --> 00:02:51.441
+para dobrar as dimensões
+de X e Y do input recebido.
+
+00:02:51.474 --> 00:02:54.396
+É como se elas fizessem tanto
+operações convolucionais
+
+00:02:54.429 --> 00:02:57.066
+quanto de unpooling
+de uma vez.
+
+00:02:57.099 --> 00:03:01.658
+Você pode ler mais sobre isso aqui.
+O PyTorch tem uma boa documentação
+
+00:03:01.691 --> 00:03:03.753
+em ConvTranspose2d.
+
+00:03:03.786 --> 00:03:06.437
+Na documentação,
+vemos que podemos definir
+
+00:03:06.470 --> 00:03:09.841
+uma camada convolucional transposta
+da mesma forma como definimos
+
+00:03:09.874 --> 00:03:11.272
+as camadas convolucionais.
+
+00:03:11.305 --> 00:03:15.014
+Ela usa uma quantia de in_channels,
+de out_channels e um kernel_size.
+
+00:03:15.047 --> 00:03:17.800
+Também deveremos definir
+a stride.
+
+00:03:17.833 --> 00:03:22.943
+Seguindo o diagrama,
+complete a classe ConvAutoencoder.
+
+00:03:22.976 --> 00:03:24.958
+Você preencherá a maior parte,
+
+00:03:24.991 --> 00:03:28.224
+mas mostrei como definir
+a camada convolucional transposta.
+
+00:03:28.257 --> 00:03:32.502
+Esta camada vê 4 inputs
+e produz 16 outputs.
+
+00:03:32.535 --> 00:03:35.183
+Ela tem Kernel igual a 2
+e stride igual a 2,
+
+00:03:35.216 --> 00:03:38.373
+então nós ampliaremos
+as dimensões espaciais
+
+00:03:38.406 --> 00:03:40.156
+pelo fator 2.
+
+00:03:40.189 --> 00:03:44.380
+No treinamento, veremos as mesmas
+funções de perda e de otimização
+
+00:03:44.413 --> 00:03:47.083
+do autocodificador simples.
+
+00:03:47.116 --> 00:03:49.007
+Este modelo possui
+mais parâmetros,
+
+00:03:49.040 --> 00:03:51.940
+então é melhor treinar
+por menos epochs primeiro,
+
+00:03:51.973 --> 00:03:55.458
+especialmente quando queremos ver
+como a perda diminui com o tempo.
+
+00:03:55.491 --> 00:04:00.333
+Quando houver um bom modelo,
+treine por 20 ou 30 epochs
+
+00:04:00.366 --> 00:04:03.540
+para poder testá-lo
+nos dados de teste.
+
+00:04:03.573 --> 00:04:05.171
+Se quiser conferir
+seu trabalho
+
+00:04:05.204 --> 00:04:07.261
+ou ver uma solução
+para esta tarefa,
+
+00:04:07.294 --> 00:04:09.067
+confira o vídeo de solução.
+

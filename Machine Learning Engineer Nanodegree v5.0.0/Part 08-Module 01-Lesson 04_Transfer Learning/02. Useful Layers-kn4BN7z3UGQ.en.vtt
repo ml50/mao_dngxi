@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.935
+Let's take our example of the VGG network.
+
+00:00:02.935 --> 00:00:06.300
+You may be wondering how can I take the CNN that's been trained to
+
+00:00:06.299 --> 00:00:10.219
+classify a thousand ImageNet images and apply this to a new problem.
+
+00:00:10.220 --> 00:00:13.394
+What if I wanted to classify images of different flower types?
+
+00:00:13.394 --> 00:00:14.949
+Like sunflowers versus daisies,
+
+00:00:14.949 --> 00:00:16.559
+roses, and so on.
+
+00:00:16.559 --> 00:00:18.929
+While VGG has learned to distinguish between
+
+00:00:18.929 --> 00:00:22.004
+the thousand different categories that are present in ImageNet,
+
+00:00:22.004 --> 00:00:24.154
+most of those categories are animals,
+
+00:00:24.155 --> 00:00:26.810
+fruits and vegetables, or everyday objects.
+
+00:00:26.809 --> 00:00:30.809
+Is VGG trained each of its convolutional layers learn to extract
+
+00:00:30.809 --> 00:00:35.185
+some information about the shapes and colors that distinguish these different objects?
+
+00:00:35.185 --> 00:00:38.160
+In fact, we know that the convolutional filters in
+
+00:00:38.159 --> 00:00:41.319
+a trained CNN are arranged in a kind of hierarchy.
+
+00:00:41.320 --> 00:00:45.859
+The filters in the first layer often detect edges or blocks of color.
+
+00:00:45.859 --> 00:00:49.594
+The second layer might detect circles, stripes, and rectangles.
+
+00:00:49.594 --> 00:00:52.280
+These are still very general features that are
+
+00:00:52.280 --> 00:00:55.564
+useful in analyzing any image in almost any dataset.
+
+00:00:55.564 --> 00:00:59.284
+The filters in the final convolutional layers are much more specific.
+
+00:00:59.284 --> 00:01:01.299
+If they were birds in the training dataset,
+
+00:01:01.299 --> 00:01:03.274
+there are filters that can detect birds.
+
+00:01:03.274 --> 00:01:05.010
+If they were cars or bicycles,
+
+00:01:05.010 --> 00:01:07.555
+there are filters to detect wheels and so on.
+
+00:01:07.555 --> 00:01:11.360
+We'll see then that it's useful to remove the final layers of the network that
+
+00:01:11.359 --> 00:01:15.424
+are very specific to the training dataset while keeping the earlier layers.
+
+00:01:15.424 --> 00:01:17.869
+In this way, you can use the convolutional
+
+00:01:17.870 --> 00:01:20.150
+and pooling layers in a pre-trained network like
+
+00:01:20.150 --> 00:01:23.180
+VGG is a feature extractor that identifies
+
+00:01:23.180 --> 00:01:26.660
+shape and color-based features in your set of flower images.
+
+00:01:26.659 --> 00:01:30.424
+Then, after an image has passed through this pre-trained feature extractor,
+
+00:01:30.424 --> 00:01:33.530
+we can add one or two more linear layers at the end,
+
+00:01:33.530 --> 00:01:35.840
+which can act as a final classifier.
+
+00:01:35.840 --> 00:01:39.650
+These last players take in the features from an image and we can train
+
+00:01:39.650 --> 00:01:43.520
+only these final layers to customize this network for a new task.
+
+00:01:43.519 --> 00:01:46.789
+So, even if the image database that you're interested in for
+
+00:01:46.790 --> 00:01:50.685
+flower images has no overlap with the ImageNet categories,
+
+00:01:50.685 --> 00:01:54.109
+it's still possible to use the knowledge from a pre-trained CNN.
+
+00:01:54.109 --> 00:01:56.349
+This is one technique for transfer learning,
+
+00:01:56.349 --> 00:01:59.959
+but your method will depend on both the size of your dataset
+
+00:01:59.959 --> 00:02:04.099
+and the level of similarity it shares with the ImageNet database.
+
+00:02:04.099 --> 00:02:05.929
+For instance, this technique of adding
+
+00:02:05.930 --> 00:02:09.200
+some final trainable classifier layers will work well if
+
+00:02:09.199 --> 00:02:11.479
+your dataset is relatively small and has
+
+00:02:11.479 --> 00:02:15.419
+distinct shape features that are similar to those found in the ImageNet database.
+
+00:02:15.419 --> 00:02:18.659
+If your dataset is very large and different than ImageNet,
+
+00:02:18.659 --> 00:02:20.284
+you may take a different approach.
+
+00:02:20.284 --> 00:02:24.159
+Let's go over one more approach to transfer learning before we implement this in code.
+

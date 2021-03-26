@@ -1,0 +1,378 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.466
+Agora você sabe
+como levar informações
+
+00:00:02.499 --> 00:00:05.766
+do back-end do aplicativo
+para o front-end do aplicativo,
+
+00:00:05.799 --> 00:00:08.899
+mas nós queremos
+passar a informação
+
+00:00:08.933 --> 00:00:12.399
+do back-end para o front-end
+com uma visualização.
+
+00:00:12.433 --> 00:00:17.166
+Eu escrevi um código que configura
+uma visualização Plotly no back-end
+
+00:00:17.199 --> 00:00:19.633
+e envia essa informação
+ao front-end.
+
+00:00:19.666 --> 00:00:22.133
+E o front-end
+traça a visualização.
+
+00:00:22.166 --> 00:00:24.033
+Eu vou guiar você
+por este código
+
+00:00:24.066 --> 00:00:27.266
+e vou fornecer código similar
+como parte de um exercício
+
+00:00:27.299 --> 00:00:29.099
+para você se familiarizar
+com ele.
+
+00:00:29.133 --> 00:00:30.399
+O que mudou?
+
+00:00:30.433 --> 00:00:33.599
+Primeiro, eu instalei o Plotly
+no meu espaço de trabalho,
+
+00:00:33.633 --> 00:00:35.499
+usando pip install plotly.
+
+00:00:35.533 --> 00:00:37.399
+Se eu fizer isso no terminal,
+
+00:00:37.433 --> 00:00:40.599
+nada vai acontecer
+porque eu já o instalei.
+
+00:00:40.633 --> 00:00:44.066
+Veja que aqui diz que os requisitos
+já foram satisfeitos.
+
+00:00:44.099 --> 00:00:47.099
+No arquivo roots.py,
+
+00:00:47.133 --> 00:00:50.099
+eu importo
+a biblioteca Plotly,
+
+00:00:50.133 --> 00:00:54.599
+a biblioteca JSON,
+e graph_objs de Plotly.
+
+00:00:54.633 --> 00:00:57.199
+Depois, eu obtenho
+os dados preparados
+
+00:00:57.233 --> 00:00:59.666
+com a função data_wrangling,
+
+00:00:59.699 --> 00:01:01.966
+e estou printando
+a primeira tupla
+
+00:01:01.999 --> 00:01:04.499
+para você ver
+como os dados ficam.
+
+00:01:04.533 --> 00:01:09.366
+Nesta visualização, vou visualizar
+a primeira tupla, por enquanto.
+
+00:01:09.399 --> 00:01:11.499
+É por isso que,
+na variável de país,
+
+00:01:11.533 --> 00:01:15.133
+eu só pego o valor de país
+da primeira tupla,
+
+00:01:15.166 --> 00:01:18.766
+e os valores X e os valores Y
+da primeira tupla.
+
+00:01:18.799 --> 00:01:21.199
+Para lembrar você
+de como são os dados,
+
+00:01:21.233 --> 00:01:24.633
+vou executar este novo aplicativo
+por um segundo,
+
+00:01:24.666 --> 00:01:28.166
+para você ver os resultados
+no terminal.
+
+00:01:29.066 --> 00:01:31.299
+Aqui está.
+
+00:01:31.333 --> 00:01:34.966
+Estados Unidos, 1990 e 2015,
+
+00:01:34.999 --> 00:01:39.399
+e os valores Y são
+24,7 e 18,383.
+
+00:01:39.433 --> 00:01:42.933
+Espero que o código que vem
+em seguida pareça familiar,
+
+00:01:42.966 --> 00:01:45.999
+porque é muito, muito similar
+ao código JavaScript
+
+00:01:46.033 --> 00:01:47.633
+para criar gráfico
+com o Plotly.
+
+00:01:47.666 --> 00:01:49.966
+Dentro da variável graph_one,
+
+00:01:49.999 --> 00:01:52.999
+estou preparando um gráfico de linha
+usando os valores X,
+
+00:01:53.033 --> 00:01:55.266
+os valores Y
+e um nome de país.
+
+00:01:55.299 --> 00:01:58.033
+A visualização tem
+que estar numa lista,
+
+00:01:58.066 --> 00:02:03.433
+e é por isso que tem chaves
+em volta da sintaxe go.scatter.
+
+00:02:03.466 --> 00:02:05.233
+Como, você pode perguntar,
+
+00:02:05.266 --> 00:02:07.699
+descobri a sintaxe
+para tudo isso?
+
+00:02:07.733 --> 00:02:11.566
+Eu li as instruções da biblioteca
+Plotly Python.
+
+00:02:11.599 --> 00:02:13.266
+Em seguida, vem o layout,
+
+00:02:13.299 --> 00:02:14.899
+que tem que estar
+num dicionário.
+
+00:02:14.933 --> 00:02:17.233
+A sintaxe pode ser
+um pouco confusa,
+
+00:02:17.266 --> 00:02:19.399
+mas é um dicionário
+de dicionários.
+
+00:02:19.433 --> 00:02:22.899
+E descobri isto lendo
+as instruções do Plotly.
+
+00:02:22.933 --> 00:02:25.699
+A próxima parte do código
+é configurar as coisas
+
+00:02:25.733 --> 00:02:28.633
+para quando há
+múltiplas visualizações.
+
+00:02:28.666 --> 00:02:31.133
+Embora, no momento,
+só haja uma visualização.
+
+00:02:31.166 --> 00:02:34.266
+Falarei de visualizações múltiplas
+um pouco depois.
+
+00:02:34.299 --> 00:02:37.233
+As variáveis de IDs serão
+uma lista,
+
+00:02:37.266 --> 00:02:39.603
+contendo IDs distintos
+para cada plot,
+
+00:02:39.636 --> 00:02:42.233
+como: figure 0, figure 1 etc.
+
+00:02:42.266 --> 00:02:46.866
+E figure JSON converte o dicionário
+que contém as visualizações
+
+00:02:46.899 --> 00:02:50.833
+numa forma que o Plotly interprete
+no JavaScript front-end.
+
+00:02:50.866 --> 00:02:55.333
+Em seguida, enviei as listas de IDs
+e as variáveis figures JSON
+
+00:02:55.366 --> 00:02:58.399
+para o front-end no método
+de template de renderização.
+
+00:02:58.433 --> 00:03:02.433
+Vamos dar uma olhada
+no arquivo index.html
+
+00:03:02.466 --> 00:03:05.099
+para o front-end.
+Coloquei um link
+
+00:03:05.133 --> 00:03:08.399
+para a biblioteca JavaScript
+na linha seis
+
+00:03:08.433 --> 00:03:11.199
+e também printei
+as variáveis de IDs
+
+00:03:11.233 --> 00:03:14.199
+e as variáveis figures JSON
+em parágrafos,
+
+00:03:14.233 --> 00:03:16.533
+para você ver
+como esses valores são.
+
+00:03:16.566 --> 00:03:18.833
+Isso vai ser printado
+ao front-end.
+
+00:03:18.866 --> 00:03:22.199
+Você lembra quando usou
+Plotly e JavaScript
+
+00:03:22.233 --> 00:03:24.633
+e criou divs para cada plot?
+
+00:03:24.666 --> 00:03:27.266
+É isto que estou fazendo aqui
+na linha 14,
+
+00:03:27.299 --> 00:03:30.966
+pegando o primeiro ID
+na lista de IDs.
+
+00:03:30.999 --> 00:03:32.766
+Se eu tivesse mais gráficos,
+
+00:03:32.799 --> 00:03:35.799
+eu precisaria fazer mais divs
+para outros IDs,
+
+00:03:35.833 --> 00:03:39.999
+como id (1), id (2) etc.
+
+00:03:40.033 --> 00:03:44.866
+Por último, o código JavaScript
+abaixo usa as variáveis figures JSON
+
+00:03:44.899 --> 00:03:46.599
+e IDs do front-end,
+
+00:03:46.633 --> 00:03:49.933
+e traça cada visualização
+uma por vez,
+
+00:03:49.966 --> 00:03:53.999
+iterando pelos IDs,
+dados e layouts.
+
+00:03:54.033 --> 00:03:56.966
+Mas, por enquanto,
+só tenho uma visualização.
+
+00:03:56.999 --> 00:04:01.099
+Esta palavra segura aqui
+é um filtro scape.
+
+00:04:01.133 --> 00:04:02.999
+Ele garante
+
+00:04:03.033 --> 00:04:07.066
+que, se variáveis figures ou de IDs
+usam caracteres especiais HTML
+
+00:04:07.099 --> 00:04:09.633
+como o sinal de maior que
+ou menor que,
+
+00:04:09.666 --> 00:04:11.366
+eles sejam
+interpretados corretamente.
+
+00:04:11.399 --> 00:04:15.533
+Eu vou dar todo o código,
+então não precisa reescrevê-lo.
+
+00:04:15.566 --> 00:04:17.966
+Você precisa fazer um div
+
+00:04:17.999 --> 00:04:21.099
+para cada visualização
+com um ID correto,
+
+00:04:21.133 --> 00:04:24.233
+e colocar o div onde você
+quer que a visualização apareça.
+
+00:04:24.266 --> 00:04:26.099
+Vamos ver
+como o front-end fica.
+
+00:04:26.133 --> 00:04:29.299
+Esta é a página index.html.
+
+00:04:29.333 --> 00:04:32.399
+Este é o ID da figura,
+
+00:04:32.433 --> 00:04:36.766
+e este é o valor
+que estava em figures JSON,
+
+00:04:36.799 --> 00:04:38.199
+e aqui está o gráfico.
+
+00:04:38.233 --> 00:04:39.934
+Então funciona.
+
+00:04:39.967 --> 00:04:41.099
+Até agora,
+
+00:04:41.133 --> 00:04:44.533
+o front-end talvez
+não esteja tão bem organizado,
+
+00:04:44.566 --> 00:04:47.499
+talvez não esteja claro
+como criar múltiplos gráficos
+
+00:04:47.533 --> 00:04:50.599
+ou traçar múltiplas retas
+em um plot,
+
+00:04:50.633 --> 00:04:52.699
+mas isto é
+o que vou mostrar em seguida.
+

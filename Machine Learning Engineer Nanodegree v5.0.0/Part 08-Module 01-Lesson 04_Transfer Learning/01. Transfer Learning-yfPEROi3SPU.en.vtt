@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.950
+You've seen how to define and train
+
+00:00:01.950 --> 00:00:05.905
+your own CNNs with a number of specified layers and hyperparameters,
+
+00:00:05.905 --> 00:00:08.370
+and you've also seen examples of some state of
+
+00:00:08.369 --> 00:00:12.179
+the art CNN architectures like VGG and ResNet.
+
+00:00:12.179 --> 00:00:14.914
+These are the result of careful experimentation with
+
+00:00:14.914 --> 00:00:18.515
+many architectures and extensive hyperparameter tuning.
+
+00:00:18.515 --> 00:00:21.630
+They've been trained on the very large ImageNet database,
+
+00:00:21.629 --> 00:00:24.160
+which has 1,000 object classes.
+
+00:00:24.160 --> 00:00:28.185
+This training data is so large and the models have so many parameters that
+
+00:00:28.184 --> 00:00:32.574
+training models like these often takes weeks even on multiple GPUs.
+
+00:00:32.575 --> 00:00:34.970
+So, it would be ideal if we could find a way
+
+00:00:34.969 --> 00:00:37.464
+to use what these models have already learned,
+
+00:00:37.465 --> 00:00:39.840
+and apply that knowledge to a new task.
+
+00:00:39.840 --> 00:00:41.490
+For example, say that you have
+
+00:00:41.490 --> 00:00:45.120
+some images you want to classify like those in the CIFAR dataset.
+
+00:00:45.119 --> 00:00:47.854
+Instead of constructing a CNN from scratch,
+
+00:00:47.854 --> 00:00:51.429
+can we instead take the knowledge from a trained CNN like ResNet,
+
+00:00:51.429 --> 00:00:54.240
+and use it to help classify the set of images.
+
+00:00:54.240 --> 00:00:59.210
+Yes, we can, and this is best accomplished through a technique called transfer learning.
+
+00:00:59.210 --> 00:01:01.594
+Transfer learning is all about how to use
+
+00:01:01.594 --> 00:01:05.480
+a pre-trained network and apply it to a task of your own design,
+
+00:01:05.480 --> 00:01:08.640
+transferring what it's learned from one task to another.
+
+00:01:08.640 --> 00:01:11.030
+There are a few ways to implement transfer learning,
+
+00:01:11.030 --> 00:01:13.790
+and your approach will depend on how similar a dataset
+
+00:01:13.790 --> 00:01:17.030
+is to the dataset that a pre-trained network has seen.
+
+00:01:17.030 --> 00:01:20.484
+In other words, how transferable can certain knowledge be?
+
+00:01:20.484 --> 00:01:23.239
+In this lesson, we'll answer this question and go
+
+00:01:23.239 --> 00:01:25.640
+over different strategies for transfer learning,
+
+00:01:25.640 --> 00:01:28.310
+and you'll learn how to implement transfer learning in code using
+
+00:01:28.310 --> 00:01:31.370
+a pre-trained network to help classify different sets of images.
+

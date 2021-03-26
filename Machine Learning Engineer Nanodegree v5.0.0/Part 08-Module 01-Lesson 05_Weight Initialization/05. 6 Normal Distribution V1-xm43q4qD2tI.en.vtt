@@ -1,0 +1,130 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.740
+Now, I'm going to go over using
+
+00:00:01.740 --> 00:00:05.134
+a normal distribution for selecting initial model weights.
+
+00:00:05.134 --> 00:00:09.644
+So again, well first visualize what this looks like using NumPy and a histogram.
+
+00:00:09.644 --> 00:00:12.834
+This time, I'm using np.random.normal.
+
+00:00:12.835 --> 00:00:15.210
+This, instead of taking in a low and
+
+00:00:15.210 --> 00:00:17.905
+a high range of values like the uniform distribution,
+
+00:00:17.905 --> 00:00:20.505
+takes in a mean and a standard deviation.
+
+00:00:20.504 --> 00:00:24.274
+If a mean and standard deviation are not specified as they weren't here,
+
+00:00:24.274 --> 00:00:27.419
+the defaults are zero and a standard deviation of one.
+
+00:00:27.420 --> 00:00:30.840
+So, I'm telling it for a mean of zero and a standard deviation of one,
+
+00:00:30.839 --> 00:00:32.695
+to create 1,000 values.
+
+00:00:32.695 --> 00:00:36.884
+Now, the mean should just be the average of all these values, the center value.
+
+00:00:36.884 --> 00:00:41.039
+The standard deviation represents the spread of values around that mean.
+
+00:00:41.039 --> 00:00:43.804
+You can see here, what a normal distribution looks like
+
+00:00:43.804 --> 00:00:46.460
+for a mean of zero and a standard deviation of one.
+
+00:00:46.460 --> 00:00:49.734
+Most of the values are concentrated in this range.
+
+00:00:49.734 --> 00:00:51.534
+Again, we're using histograms.
+
+00:00:51.534 --> 00:00:54.864
+So, we've bucketed 1,000 values into 500 buckets.
+
+00:00:54.865 --> 00:00:59.230
+In the uniform case, the values were pre-evenly distributed along the range,
+
+00:00:59.229 --> 00:01:01.679
+and they fell about two values to a bucket.
+
+00:01:01.679 --> 00:01:06.359
+Here, a normal distribution has most values collected near their mean, zero.
+
+00:01:06.359 --> 00:01:09.679
+The histogram itself looks like a curve that shows
+
+00:01:09.680 --> 00:01:12.655
+how values fall within a standard deviation of the mean.
+
+00:01:12.655 --> 00:01:17.060
+So, if we select our initial model weight values from this kind of distribution,
+
+00:01:17.060 --> 00:01:19.430
+we'll get random values that are generally closer to
+
+00:01:19.430 --> 00:01:22.505
+zero than if we selected from a uniform distribution.
+
+00:01:22.504 --> 00:01:23.979
+Picking small weight values,
+
+00:01:23.980 --> 00:01:26.640
+initially, may offer some benefits.
+
+00:01:26.640 --> 00:01:29.570
+In fact, I'm going to leave this as an exercise for you
+
+00:01:29.569 --> 00:01:32.549
+since you've seen a number of examples of weight initialization already.
+
+00:01:32.549 --> 00:01:35.929
+I want you to define an initialization function,
+
+00:01:35.930 --> 00:01:37.820
+then initialize the weights in every layer of
+
+00:01:37.819 --> 00:01:40.564
+our model by sampling from a normal distribution.
+
+00:01:40.564 --> 00:01:43.659
+The distribution should still follow our general rule;
+
+00:01:43.659 --> 00:01:46.729
+it should have a mean of zero and a standard deviation that's equal to
+
+00:01:46.730 --> 00:01:50.299
+one over the square root of n. Once you complete this function,
+
+00:01:50.299 --> 00:01:52.489
+I want you to compare a few different models.
+
+00:01:52.489 --> 00:01:57.054
+Compare weights with uniform initialization and normal initialization.
+
+00:01:57.055 --> 00:01:59.790
+Finally, I want you to create a third model,
+
+00:01:59.790 --> 00:02:02.705
+one without any explicit weight initialization.
+
+00:02:02.704 --> 00:02:05.045
+Take a look at how these three models compare,
+
+00:02:05.045 --> 00:02:07.600
+and next, I'll show you my implementation.
+

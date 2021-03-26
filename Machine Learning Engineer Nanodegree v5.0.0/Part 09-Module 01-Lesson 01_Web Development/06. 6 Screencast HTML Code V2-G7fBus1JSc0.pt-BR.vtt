@@ -1,0 +1,414 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.430 --> 00:00:02.084
+Antes de você começar
+a codificar,
+
+00:00:02.118 --> 00:00:05.528
+quero mostrar o que você vai
+construir nesta aula.
+
+00:00:05.562 --> 00:00:08.888
+Este é um app da web
+que usa dados do Banco Mundial
+
+00:00:08.922 --> 00:00:11.165
+e gera algumas visualizações.
+
+00:00:12.009 --> 00:00:13.909
+Vou mostrá-lo.
+
+00:00:14.411 --> 00:00:17.996
+Usei algumas bibliotecas
+para me ajudar a montar isto,
+
+00:00:18.030 --> 00:00:20.887
+incluindo Bootstrap
+para organizar o front-end
+
+00:00:20.921 --> 00:00:23.171
+e Plotly
+para as visualizações.
+
+00:00:23.903 --> 00:00:27.323
+Na aula, você vai construir
+isto peça por peça,
+
+00:00:27.357 --> 00:00:31.112
+e depois, poderá personalizá-lo
+para torná-lo seu.
+
+00:00:31.146 --> 00:00:35.700
+Vamos começar pela primeira peça
+para construir isto: HTML.
+
+00:00:35.734 --> 00:00:39.657
+Aqui, à esquerda,
+há um documento com código HTML,
+
+00:00:39.691 --> 00:00:43.562
+e à direita, a aparência do HTML
+ao abrir o arquivo
+
+00:00:43.596 --> 00:00:47.783
+em um navegador
+como Chrome, Firefox ou Safari.
+
+00:00:47.817 --> 00:00:50.654
+Estou usando um espaço
+de trabalho na sala de aula
+
+00:00:50.688 --> 00:00:54.532
+onde posso escrever HTML
+e, instantaneamente, ver como fica.
+
+00:00:54.566 --> 00:00:56.874
+Você vai usar
+esse mesmo espaço de trabalho
+
+00:00:56.908 --> 00:00:58.968
+para praticar escrever código.
+
+00:00:59.002 --> 00:01:01.714
+No fim deste vídeo,
+vou mostrar como abrir esse arquivo
+
+00:01:01.748 --> 00:01:04.029
+localmente no seu computador
+também.
+
+00:01:04.063 --> 00:01:06.771
+HTML é organizado em elementos
+
+00:01:06.805 --> 00:01:09.636
+que dividem o documento
+em seções.
+
+00:01:09.670 --> 00:01:11.982
+Pense em um elemento
+como uma ideia genérica,
+
+00:01:12.016 --> 00:01:14.772
+como um parágrafo,
+com todo o seu texto.
+
+00:01:14.806 --> 00:01:17.507
+Todos estes colchetes
+são chamados de "tags".
+
+00:01:17.541 --> 00:01:19.407
+Então, se eu disser
+"elemento head",
+
+00:01:19.441 --> 00:01:23.396
+estarei me referindo
+às linhas 4, 5 e 6 do código,
+
+00:01:23.430 --> 00:01:26.513
+que contêm todas as informações
+sobre head.
+
+00:01:26.547 --> 00:01:30.520
+Se eu disser "tag head", estarei
+me referindo à sintaxe HTML em si,
+
+00:01:30.554 --> 00:01:33.234
+com a palavra entre colchetes.
+
+00:01:33.268 --> 00:01:37.494
+No topo, a primeira tag
+declara o tipo de documento.
+
+00:01:37.528 --> 00:01:40.039
+Ela diz que este é
+um documento HTML.
+
+00:01:40.073 --> 00:01:44.783
+Depois, vem o elemento HTML,
+onde todo o código HTML é escrito.
+
+00:01:44.817 --> 00:01:47.964
+Observe que o elemento HTML
+tem duas partes:
+
+00:01:47.998 --> 00:01:50.491
+uma tag com um colchete
+virado para a esquerda,
+
+00:01:50.525 --> 00:01:53.715
+depois html, depois um colchete
+virado para a direita,
+
+00:01:53.749 --> 00:01:57.126
+e outra tag muito parecida,
+mas que também tem uma barra.
+
+00:01:57.160 --> 00:02:00.901
+São as tags de início e de fim,
+respectivamente.
+
+00:02:00.935 --> 00:02:03.387
+Nesse caso, a tag de início
+diz ao navegador
+
+00:02:03.421 --> 00:02:05.923
+que o código HTML vai começar,
+
+00:02:05.957 --> 00:02:10.043
+e a tag de fim diz ao navegador
+que o código HTML acabou.
+
+00:02:10.077 --> 00:02:14.246
+Tudo entre as tags HTML
+de início e de fim
+
+00:02:14.280 --> 00:02:16.051
+é código HTML.
+
+00:02:16.085 --> 00:02:21.028
+Tanto head quanto body
+têm tags de início e de fim.
+
+00:02:21.062 --> 00:02:25.078
+Tudo dentro da tag head
+pertence ao elemento head,
+
+00:02:25.112 --> 00:02:29.376
+e tudo dentro da tag body
+pertence ao elemento body.
+
+00:02:29.410 --> 00:02:33.604
+O elemento head contém um título
+com tags de início e de fim.
+
+00:02:33.638 --> 00:02:37.187
+O título da página costuma aparecer
+em uma aba do navegador,
+
+00:02:37.221 --> 00:02:40.701
+e o elemento body contém
+a maior parte do código HTML
+
+00:02:40.735 --> 00:02:43.725
+que você vê ao navegar
+em uma página da web.
+
+00:02:43.759 --> 00:02:48.045
+Você coloca o conteúdo do site
+dentro dos elementos body.
+
+00:02:48.079 --> 00:02:49.987
+Todos os tipos de elementos
+podem estar
+
+00:02:50.021 --> 00:02:52.404
+dentro do elemento body
+de um documento HTML,
+
+00:02:52.438 --> 00:02:55.062
+incluindo elementos de cabeçalho,
+elementos de link,
+
+00:02:55.096 --> 00:02:57.856
+elementos de parágrafo
+e elementos de imagem.
+
+00:02:57.890 --> 00:03:01.133
+Esses elementos definem
+o conteúdo do seu site.
+
+00:03:01.167 --> 00:03:05.178
+Neste caso, tenho um cabeçalho
+seguido por um link,
+
+00:03:05.212 --> 00:03:08.096
+depois, um parágrafo
+e, finalmente, uma imagem.
+
+00:03:08.130 --> 00:03:12.636
+Observe que todos esses elementos
+têm tags de início e de fim,
+
+00:03:12.670 --> 00:03:14.792
+exceto o elemento de imagem.
+
+00:03:14.826 --> 00:03:17.294
+Elementos de imagem
+não exigem tags de fim,
+
+00:03:17.328 --> 00:03:20.004
+logo, elementos de imagem
+são uma exceção à regra.
+
+00:03:20.038 --> 00:03:23.309
+Formatei o documento com tabulações
+para facilitar a visualização
+
+00:03:23.343 --> 00:03:26.536
+da estrutura hierárquica
+de um documento HTML,
+
+00:03:26.570 --> 00:03:28.835
+e recomendo
+que você faça o mesmo.
+
+00:03:28.869 --> 00:03:32.984
+Contudo, você não precisa
+formatar seu HTML.
+
+00:03:33.018 --> 00:03:35.001
+A estrutura de tags aninhadas
+determina
+
+00:03:35.035 --> 00:03:37.306
+como o HTML é renderizado
+no navegador,
+
+00:03:37.340 --> 00:03:40.190
+e não a formatação
+do documento HTML em si.
+
+00:03:40.224 --> 00:03:43.214
+Eu poderia remover as tabulações,
+e vou fazer isso agora,
+
+00:03:43.248 --> 00:03:46.365
+e o documento seria renderizado
+exatamente da mesma forma.
+
+00:03:46.399 --> 00:03:49.199
+Mas vou colocar de volta
+como estava.
+
+00:03:49.233 --> 00:03:53.076
+Existem mais elementos HTML
+do que os deste exemplo.
+
+00:03:53.110 --> 00:03:57.394
+Eles incluem elementos para fazer
+listas, formulários e tabelas.
+
+00:03:57.428 --> 00:04:01.502
+Vou incluir um link
+para você aprender mais.
+
+00:04:01.536 --> 00:04:04.824
+É comum pensar em HTML
+como uma estrutura de árvore.
+
+00:04:04.858 --> 00:04:07.173
+O primeiro nó é uma tag HTML,
+
+00:04:07.207 --> 00:04:10.822
+e ela se divide
+entre as tags head e body.
+
+00:04:10.856 --> 00:04:13.601
+A tag head pode conter
+uma tag de título,
+
+00:04:13.635 --> 00:04:16.845
+bem como algumas outras tags,
+como tags de meta e estilo,
+
+00:04:16.879 --> 00:04:18.891
+das quais ainda não falamos.
+
+00:04:18.925 --> 00:04:23.885
+Body conterá cabeçalhos,
+parágrafos, imagens, links etc.
+
+00:04:23.919 --> 00:04:27.283
+Dentro de algumas dessas tags,
+é possível ter outras tags.
+
+00:04:27.317 --> 00:04:29.661
+Por exemplo,
+em uma tag de parágrafo,
+
+00:04:29.695 --> 00:04:32.523
+você pode ter
+uma imagem ou um link.
+
+00:04:32.557 --> 00:04:36.862
+Agora, tire um tempo para praticar
+escrever seu próprio documento HTML.
+
+00:04:36.896 --> 00:04:39.930
+Use um espaço de trabalho
+na próxima parte da sala de aula.
+
+00:04:39.964 --> 00:04:43.130
+Ele salva automaticamente
+o seu trabalho enquanto você digita,
+
+00:04:43.164 --> 00:04:46.317
+e também atualiza
+a renderização do seu código.
+
+00:04:46.351 --> 00:04:49.642
+Vou adicionar mais um link
+para você entender.
+
+00:04:49.676 --> 00:04:52.889
+Aqui, estou adicionando um link
+para o site da Udacity,
+
+00:04:52.923 --> 00:04:55.486
+e observe que,
+do lado direito,
+
+00:04:55.520 --> 00:04:57.698
+ele é renderizado
+enquanto eu digito.
+
+00:04:57.732 --> 00:05:00.618
+Como alternativa, você pode abrir
+qualquer editor de texto
+
+00:05:00.652 --> 00:05:01.806
+para escrever o código,
+
+00:05:01.840 --> 00:05:05.554
+e salvar o documento
+com a extensão .html,
+
+00:05:05.588 --> 00:05:09.003
+assim como aqui,
+onde diz "index.html".
+
+00:05:09.037 --> 00:05:10.380
+Veja um exemplo.
+
+00:05:10.414 --> 00:05:13.211
+No meu desktop,
+tenho uma pasta.
+
+00:05:13.245 --> 00:05:14.407
+Dentro da pasta,
+
+00:05:14.441 --> 00:05:19.879
+tenho os arquivos
+index.html e photo.jpg.
+
+00:05:19.913 --> 00:05:25.124
+Se eu abrir index.html
+com o editor de texto,
+
+00:05:25.158 --> 00:05:29.050
+vejo o código HTML
+e posso modificá-lo aqui.
+
+00:05:29.084 --> 00:05:34.285
+Se eu abrir index.html
+no navegador da web Chrome,
+
+00:05:34.319 --> 00:05:36.751
+vejo o resultado renderizado.
+
+00:05:36.785 --> 00:05:39.317
+Agora é a sua vez
+de escrever código HTML.
+

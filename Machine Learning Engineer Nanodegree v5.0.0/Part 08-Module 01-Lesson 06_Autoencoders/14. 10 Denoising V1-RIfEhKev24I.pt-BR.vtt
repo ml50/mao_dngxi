@@ -1,0 +1,193 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.204 --> 00:00:03.478
+Sabendo o que você sabe sobre
+autocodificadores convolucionais,
+
+00:00:03.511 --> 00:00:06.990
+crie um autocodificador
+para eliminar ruídos.
+
+00:00:07.023 --> 00:00:10.614
+Como sabemos, os autocodificadores
+não são ótimos em compressão,
+
+00:00:10.647 --> 00:00:13.022
+mas aprendem bem
+a remover os ruídos
+
+00:00:13.055 --> 00:00:16.439
+quando recebem um conjunto
+com e outro sem ruído.
+
+00:00:16.472 --> 00:00:20.134
+A ideia é esta: dado um conjunto
+de input de dados ruidosos
+
+00:00:20.167 --> 00:00:23.381
+e um conjunto de dados-alvo
+com imagens sem ruído,
+
+00:00:23.414 --> 00:00:27.677
+o codificador destila informações
+importantes da imagem ruidosa
+
+00:00:27.710 --> 00:00:31.949
+e o decodificador aprende
+a produzir a reconstrução sem ruído.
+
+00:00:31.982 --> 00:00:33.341
+Depois do treinamento,
+
+00:00:33.374 --> 00:00:37.564
+o autocodificador poderá remover
+o ruído dos novos dados de teste.
+
+00:00:37.597 --> 00:00:39.828
+Neste notebook,
+forneci o código
+
+00:00:39.861 --> 00:00:42.852
+para carregar e visualizar
+os dados MNIST,
+
+00:00:42.885 --> 00:00:46.404
+mas depois, adicionarei
+esse tipo de ruído aos dados.
+
+00:00:46.437 --> 00:00:49.903
+Haverá um conjunto de imagens
+ruidosas para que o codificador veja
+
+00:00:49.936 --> 00:00:53.156
+e um conjunto de imagens-alvo
+sem ruído.
+
+00:00:53.189 --> 00:00:56.868
+Você definirá a arquitetura
+ConvDenoiser.
+
+00:00:56.901 --> 00:01:00.253
+Ela será bem parecida
+com as que vimos,
+
+00:01:00.286 --> 00:01:03.364
+mas a eliminação do ruído
+é um problema mais difícil.
+
+00:01:03.397 --> 00:01:05.996
+Eu aconselho aumentar
+as profundidades
+
+00:01:06.029 --> 00:01:07.812
+das camadas convolucionais.
+
+00:01:07.845 --> 00:01:12.885
+Comece com profundidade igual a 32
+em vez de 16.
+
+00:01:12.918 --> 00:01:16.171
+Pode ser útil adicionar
+mais uma camada convolucional
+
+00:01:16.204 --> 00:01:18.476
+no codificador
+e no decodificador.
+
+00:01:18.509 --> 00:01:21.718
+Mais camadas e maior profundidade
+oferecem parâmetros
+
+00:01:21.751 --> 00:01:23.726
+que poderão
+reconhecer padrões.
+
+00:01:23.759 --> 00:01:25.741
+Forneci o loop
+de treinamento normal,
+
+00:01:25.774 --> 00:01:29.486
+mas alterei algumas coisas
+para adicionar ruído às imagens.
+
+00:01:29.519 --> 00:01:32.302
+Aqui eu leio as imagens
+do conjunto de treinamento
+
+00:01:32.335 --> 00:01:35.494
+e adiciono ruído,
+criando imagens com ruído.
+
+00:01:35.527 --> 00:01:38.559
+Então passo essas imagens
+como input para o modelo -
+
+00:01:38.592 --> 00:01:40.646
+e é isso
+que o codificador verá -,
+
+00:01:40.679 --> 00:01:43.958
+mas a perda será a comparação
+das imagens reconstruídas
+
+00:01:43.991 --> 00:01:45.277
+com as originais,
+
+00:01:45.310 --> 00:01:47.965
+as imagens-alvo sem ruído.
+
+00:01:47.998 --> 00:01:50.430
+E também podemos conferir
+as reconstruções.
+
+00:01:51.271 --> 00:01:54.053
+A aplicação de remoção
+do ruído é muito interessante,
+
+00:01:54.086 --> 00:01:56.334
+porque o autocodificador
+aprende algo
+
+00:01:56.367 --> 00:01:58.950
+sobre o conteúdo
+de uma imagem com ruído
+
+00:01:58.983 --> 00:02:02.494
+e aprende a transformar isso
+em uma versão sem ruído.
+
+00:02:02.527 --> 00:02:04.901
+Neste caso, eu forneci
+um notebook de solução,
+
+00:02:04.934 --> 00:02:06.909
+mas não explicarei a resposta.
+
+00:02:06.942 --> 00:02:09.468
+Você deverá explorar sozinho
+
+00:02:09.501 --> 00:02:11.966
+antes de observar
+o código existente.
+
+00:02:11.999 --> 00:02:17.253
+Eu aconselho testar os limites
+da adição de ruídos nas imagens.
+
+00:02:17.286 --> 00:02:21.652
+Podemos fazer algo parecido
+para remover ruídos de áudio
+
+00:02:21.685 --> 00:02:23.867
+e para remover a estática
+do som.
+
+00:02:23.900 --> 00:02:26.448
+Experimente este código
+e, quando estiver pronto,
+
+00:02:26.481 --> 00:02:28.032
+siga a próxima aula.
+

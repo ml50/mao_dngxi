@@ -1,0 +1,304 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.674
+JavaScript is the language that makes websites interactive.
+
+00:00:03.674 --> 00:00:07.650
+If you've ever been on a website that automatically updates content,
+
+00:00:07.650 --> 00:00:09.300
+JavaScript was doing that.
+
+00:00:09.300 --> 00:00:11.660
+Anything like a fade-in or a popup,
+
+00:00:11.660 --> 00:00:13.265
+those are done with JavaScript.
+
+00:00:13.265 --> 00:00:15.115
+To build the data dashboard,
+
+00:00:15.115 --> 00:00:17.769
+you won't need to actually write any JavaScript,
+
+00:00:17.769 --> 00:00:21.269
+but both the Bootstrap library that you'll use for CSS and
+
+00:00:21.269 --> 00:00:25.259
+the Plotly library that you'll use for making charts used JavaScript.
+
+00:00:25.260 --> 00:00:29.175
+So, this will give you an idea of how these libraries actually work.
+
+00:00:29.175 --> 00:00:32.380
+Here's a basic toy example of JavaScript.
+
+00:00:32.380 --> 00:00:34.640
+In lines eight through 12 of the code,
+
+00:00:34.640 --> 00:00:39.134
+I've written a function that changes the header text when I click on the image.
+
+00:00:39.134 --> 00:00:40.684
+Let's see how it works.
+
+00:00:40.685 --> 00:00:42.109
+So, I go onto the page,
+
+00:00:42.109 --> 00:00:43.549
+I click the image,
+
+00:00:43.549 --> 00:00:46.945
+and you'll notice up here that the h1 tag text changed.
+
+00:00:46.945 --> 00:00:49.820
+Here are a few things of note about this code.
+
+00:00:49.820 --> 00:00:53.600
+First, the JavaScript code goes between script's tags.
+
+00:00:53.600 --> 00:00:57.020
+Notice as well that I added an on-click attribute
+
+00:00:57.020 --> 00:01:00.525
+to the image tag and specified the function in.
+
+00:01:00.524 --> 00:01:04.280
+That's down here in line 28.
+
+00:01:04.579 --> 00:01:11.299
+Also, the JavaScript syntax to me at least is a bit funny looking.
+
+00:01:11.299 --> 00:01:16.719
+JavaScript has a relatively complex syntax when it comes to making websites interactive.
+
+00:01:16.719 --> 00:01:18.250
+In this case, I'm saying,
+
+00:01:18.250 --> 00:01:20.204
+look at the HTML document,
+
+00:01:20.204 --> 00:01:22.109
+get all the h1 elements,
+
+00:01:22.109 --> 00:01:24.420
+give me the first h1 tag,
+
+00:01:24.420 --> 00:01:26.424
+and then change it to HTML.
+
+00:01:26.424 --> 00:01:31.030
+The actual on-click functionality happens because like I showed before,
+
+00:01:31.030 --> 00:01:35.234
+I put in on-click attribute in the image tag.
+
+00:01:35.234 --> 00:01:37.730
+Thankfully, there are libraries that make
+
+00:01:37.730 --> 00:01:40.799
+working with JavaScript and front end development easier.
+
+00:01:40.799 --> 00:01:46.659
+Here, I'll show you one library called jQuery that makes JavaScript much easier to use.
+
+00:01:46.659 --> 00:01:50.719
+First, you'll need to link to the jQuery library either by
+
+00:01:50.719 --> 00:01:55.700
+downloading the file or pointing to a web address containing the library.
+
+00:01:55.700 --> 00:01:57.500
+You can download the jQuery file from
+
+00:01:57.500 --> 00:02:01.944
+the jQuery website or you can use a link that contains the file.
+
+00:02:01.944 --> 00:02:04.729
+For example, Google has the jQuery library
+
+00:02:04.730 --> 00:02:07.715
+on the web that you can link to. I'm going to do that.
+
+00:02:07.715 --> 00:02:10.580
+So, I'm going to erase the JavaScript code that I've already
+
+00:02:10.580 --> 00:02:13.860
+written and I'm going to link to the jQuery library.
+
+00:02:13.860 --> 00:02:18.495
+Now, I'm going to make a new script's tag and a closing tag,
+
+00:02:18.495 --> 00:02:21.670
+and then write some jQuery code here in between.
+
+00:02:21.669 --> 00:02:25.199
+This is saying, wait for the document to get ready.
+
+00:02:25.199 --> 00:02:28.009
+In other words, waiting for the document to load,
+
+00:02:28.009 --> 00:02:31.250
+then grab the image tag,
+
+00:02:31.250 --> 00:02:33.574
+put on on-click function,
+
+00:02:33.574 --> 00:02:38.414
+and finally, change the h1 tag text.
+
+00:02:38.414 --> 00:02:43.924
+Then, I just need to close all of my brackets in parentheses and you can see it works.
+
+00:02:43.925 --> 00:02:45.460
+When I click on the image,
+
+00:02:45.460 --> 00:02:47.265
+the h1 tag changes.
+
+00:02:47.264 --> 00:02:49.454
+Also, just like CSS,
+
+00:02:49.455 --> 00:02:55.760
+I can either include the code in the HTML file using a script's tag or alternatively,
+
+00:02:55.759 --> 00:03:00.424
+I can put the JavaScript into a separate file and link to that file.
+
+00:03:00.425 --> 00:03:04.855
+I'm going to do that now. So, I'm going to just create a new file,
+
+00:03:04.854 --> 00:03:09.935
+let's call it interaction.js where JS is for JavaScript.
+
+00:03:09.935 --> 00:03:17.240
+Now, I'm going to cut this JavaScript code and put it into my interaction.js file.
+
+00:03:17.240 --> 00:03:19.890
+Then, here, in the script's tag,
+
+00:03:19.889 --> 00:03:21.529
+I need to specify the source,
+
+00:03:21.530 --> 00:03:25.800
+which in this case is just this interaction.js file,
+
+00:03:25.800 --> 00:03:28.380
+which is in the same folder as the HTML document,
+
+00:03:28.379 --> 00:03:31.159
+and notice that the jQuery code still works.
+
+00:03:31.159 --> 00:03:34.984
+So, that's essentially JavaScript and what you can do with JavaScript.
+
+00:03:34.984 --> 00:03:37.915
+Before you move on to the JavaScript exercises,
+
+00:03:37.914 --> 00:03:42.359
+I just want to give you two more examples of some jQuery code.
+
+00:03:42.360 --> 00:03:49.550
+So currently, this document has the same code as before where if you click on the image,
+
+00:03:49.550 --> 00:03:53.010
+the text in the h1 tag will change.
+
+00:03:53.009 --> 00:03:55.185
+Okay. So, what else can we add?
+
+00:03:55.185 --> 00:03:58.134
+jQuery gives you a lot of options.
+
+00:03:58.134 --> 00:04:00.319
+So, I'm going to add two things.
+
+00:04:00.319 --> 00:04:05.629
+One, I'm going to add a fade in when the page loads and just as another example,
+
+00:04:05.629 --> 00:04:11.615
+I'm going to have the image fade out when I click on the h1 tag at the top.
+
+00:04:11.615 --> 00:04:13.520
+So, let me code that for you.
+
+00:04:13.520 --> 00:04:18.905
+So, like before, you have to get the document and wait for it to be ready.
+
+00:04:18.904 --> 00:04:22.129
+Now, I want to add something to the body tag.
+
+00:04:22.129 --> 00:04:24.300
+So, I have to select the body tag.
+
+00:04:24.300 --> 00:04:26.064
+Now, I'm going to say,
+
+00:04:26.064 --> 00:04:27.569
+hide the body tag.
+
+00:04:27.569 --> 00:04:34.355
+So, it's going to hide all of the content on load and then I want to fade in slowly.
+
+00:04:34.355 --> 00:04:37.009
+Notice as well, here, I've used double quotes.
+
+00:04:37.009 --> 00:04:38.134
+Here, I've used single quotes.
+
+00:04:38.134 --> 00:04:39.324
+It actually doesn't matter,
+
+00:04:39.324 --> 00:04:43.789
+but I should be consistent about it and either do double quotes or single quotes.
+
+00:04:43.790 --> 00:04:47.500
+Now, I'm just going to close all of our brackets in parentheses.
+
+00:04:47.500 --> 00:04:49.569
+You notice now when the page loads,
+
+00:04:49.569 --> 00:04:51.610
+it has a slow fade in.
+
+00:04:51.610 --> 00:04:55.550
+Okay. Now, let's add the extra click functionality where
+
+00:04:55.550 --> 00:04:59.540
+clicking on the h1 title at the top will fade out the image at the bottom.
+
+00:04:59.540 --> 00:05:03.305
+So again, you wait for the document to load and be ready.
+
+00:05:03.305 --> 00:05:09.189
+Now, we want to add a click function to the h1 tag,
+
+00:05:09.189 --> 00:05:12.024
+and then we want to take the image,
+
+00:05:12.024 --> 00:05:15.129
+and fade it out slowly,
+
+00:05:15.129 --> 00:05:17.420
+and then we close all our brackets again,
+
+00:05:17.420 --> 00:05:19.694
+and see if it worked.
+
+00:05:19.694 --> 00:05:25.639
+There it goes. So, the jQuery documentation is pretty extensive and again,
+
+00:05:25.639 --> 00:05:29.610
+the libraries we're going to use are actually going to take care of the jQuery for you,
+
+00:05:29.610 --> 00:05:33.865
+but I at least wanted you to understand what was going on underneath the hood.
+
+00:05:33.865 --> 00:05:36.500
+So, use the information in this video to help you
+
+00:05:36.500 --> 00:05:39.800
+out with the jQuery exercise coming up next.
+

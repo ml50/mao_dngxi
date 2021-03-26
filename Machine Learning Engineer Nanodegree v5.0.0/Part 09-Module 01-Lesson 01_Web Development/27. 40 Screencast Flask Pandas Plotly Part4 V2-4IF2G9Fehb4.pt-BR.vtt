@@ -1,0 +1,548 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.166 --> 00:00:02.899
+Para a última parte,
+
+00:00:02.933 --> 00:00:05.099
+vamos deste gráfico aqui
+
+00:00:05.133 --> 00:00:09.033
+para este painel aqui.
+
+00:00:09.066 --> 00:00:13.799
+E como vamos daqui até aqui?
+
+00:00:13.833 --> 00:00:19.266
+A principal diferença é
+que fiz múltiplos gráficos aqui.
+
+00:00:19.299 --> 00:00:26.366
+São só div id 0, div id 1,
+div id 2, div id 3.
+
+00:00:26.399 --> 00:00:30.266
+E os coloco no front-end
+do Bootstrap
+
+00:00:30.299 --> 00:00:32.666
+que você criou antes.
+
+00:00:32.699 --> 00:00:35.333
+Pode parecer
+um pouco assustador,
+
+00:00:35.366 --> 00:00:40.066
+mas é só questão de juntar tudo
+que você já praticou.
+
+00:00:40.099 --> 00:00:44.666
+Aqui está meu código final.
+
+00:00:44.699 --> 00:00:47.466
+E vou guiar você por ele
+para ver o que fiz.
+
+00:00:47.499 --> 00:00:52.199
+O index.html tem todo o código
+front-end com o Bootstrap,
+
+00:00:52.233 --> 00:00:57.433
+então pode ser vagamente familiar
+porque já passamos por isso,
+
+00:00:57.466 --> 00:00:59.099
+e você praticou
+usar Bootstrap.
+
+00:00:59.133 --> 00:01:03.533
+Então isto está importando
+todos os arquivos Bootstrap.
+
+00:01:04.433 --> 00:01:08.249
+Também estou importando script
+
+00:01:08.282 --> 00:01:10.966
+para a biblioteca Plotly.
+
+00:01:10.999 --> 00:01:15.199
+E, aqui embaixo, estão
+todos os front-ends do Bootstrap
+
+00:01:15.233 --> 00:01:17.033
+com que você trabalhou antes.
+
+00:01:17.066 --> 00:01:19.099
+Esta é a barra de navegação
+aqui em cima.
+
+00:01:19.133 --> 00:01:22.166
+Todo este código
+é a barra de navegação.
+
+00:01:22.199 --> 00:01:26.199
+Aqui está dividindo tudo
+em linhas e colunas,
+
+00:01:26.233 --> 00:01:29.933
+então tem um logo do LinkedIn
+e do GitHub.
+
+00:01:29.966 --> 00:01:32.433
+Vou rolar para baixo.
+
+00:01:32.466 --> 00:01:36.066
+Aqui é onde o gráfico começa.
+
+00:01:36.099 --> 00:01:37.333
+Nada novo aqui.
+
+00:01:37.366 --> 00:01:40.366
+Esta é a tag h2,
+e esta é tag h4.
+
+00:01:40.399 --> 00:01:43.033
+Continue rolando para baixo.
+
+00:01:43.066 --> 00:01:45.999
+Isto aqui é a única coisa nova
+
+00:01:46.033 --> 00:01:49.366
+de quando olhamos
+o Bootstrap antes.
+
+00:01:49.399 --> 00:01:54.299
+Aqui eu coloco um div
+com um ID do primeiro gráfico.
+
+00:01:54.333 --> 00:01:57.433
+Aqui coloco um div
+com um ID do segundo gráfico,
+
+00:01:57.466 --> 00:02:01.033
+um div
+com um ID do terceiro gráfico
+
+00:02:01.066 --> 00:02:04.466
+e, aqui, um div
+com um ID do quarto gráfico.
+
+00:02:04.499 --> 00:02:06.033
+E, rolando para baixo,
+
+00:02:06.066 --> 00:02:10.566
+ele tem o mesmo
+código JavaScript de antes,
+
+00:02:10.599 --> 00:02:13.733
+só estamos iterando
+por estas variáveis
+
+00:02:13.766 --> 00:02:17.266
+que vieram do back-end
+para colocar tudo no front-end.
+
+00:02:17.299 --> 00:02:20.866
+A única coisa nova aqui
+é a adição destes divs
+
+00:02:20.899 --> 00:02:23.533
+com os IDs das visualizações.
+
+00:02:23.566 --> 00:02:24.799
+É só o que mudei
+
+00:02:24.833 --> 00:02:28.233
+do que estávamos trabalhando
+no front-end antes.
+
+00:02:28.933 --> 00:02:31.733
+E ele me dá isto.
+O que é muito legal, certo?
+
+00:02:31.766 --> 00:02:36.166
+A próxima coisa a se falar
+é das visualizações
+
+00:02:36.199 --> 00:02:38.999
+e como escrevi o código
+no back-end.
+
+00:02:39.033 --> 00:02:43.633
+Vamos voltar para routes.py.
+
+00:02:43.666 --> 00:02:46.566
+Eu refatorei muito do código
+
+00:02:46.599 --> 00:02:49.299
+para deixar routes.py
+bem mais simples.
+
+00:02:49.333 --> 00:02:53.966
+Aqui no método return_figures,
+
+00:02:53.999 --> 00:02:59.666
+que vem deste arquivo
+wrangling_scripts.wrangle_data.
+
+00:02:59.699 --> 00:03:04.766
+E estou fazendo
+toda a preparação de dados
+
+00:03:04.799 --> 00:03:08.099
+e deixando as figuras Plotly
+prontas,
+
+00:03:08.133 --> 00:03:11.033
+então ele nem aparece
+no arquivo routes.py.
+
+00:03:11.066 --> 00:03:13.799
+Este código é
+o mesmo de antes.
+
+00:03:13.833 --> 00:03:17.666
+Ele só itera
+por esta lista figures,
+
+00:03:17.699 --> 00:03:21.766
+cria os IDs,
+converte figures em JSON
+
+00:03:21.799 --> 00:03:24.066
+e passa as variáveis
+para o front-end.
+
+00:03:24.099 --> 00:03:28.899
+A parte assustadora
+que me custou muito tempo
+
+00:03:28.933 --> 00:03:30.666
+foi a preparação de dados.
+
+00:03:30.699 --> 00:03:34.266
+Para o melhor ou para o pior,
+
+00:03:34.299 --> 00:03:36.266
+um cientista de dados
+normalmente
+
+00:03:36.299 --> 00:03:38.766
+tem que fazer muita
+preparação de dados.
+
+00:03:39.499 --> 00:03:40.733
+Então o que fiz?
+
+00:03:40.766 --> 00:03:42.499
+Eu escrevi uma função
+
+00:03:42.533 --> 00:03:46.066
+que limpa os arquivos CSV
+de um modo genérico,
+
+00:03:46.099 --> 00:03:48.766
+porque todos os arquivos CSV
+têm o mesmo formato
+
+00:03:48.799 --> 00:03:50.233
+e vêm de worldbank.
+
+00:03:50.266 --> 00:03:54.766
+Então escrevi esta função aqui
+que limpa tudo.
+
+00:03:54.799 --> 00:03:57.366
+Vou lhe dar este código,
+e você pode dar uma olhada.
+
+00:03:57.399 --> 00:03:58.633
+Vai ser um exemplo
+
+00:03:58.666 --> 00:04:01.366
+que vem após o exercício
+que vou passar para você.
+
+00:04:01.399 --> 00:04:06.199
+Agora temos esta função
+return_figures.
+
+00:04:06.233 --> 00:04:10.599
+O que ela faz é configurar o código
+para as quatro visualizações.
+
+00:04:10.633 --> 00:04:12.066
+Tem bastante código,
+
+00:04:12.099 --> 00:04:13.966
+mas, se você olhar
+cada pedaço,
+
+00:04:13.999 --> 00:04:16.699
+acho que é relativamente
+interpretável.
+
+00:04:16.733 --> 00:04:21.799
+É similar ao que mostrei
+na última parte da aula.
+
+00:04:21.833 --> 00:04:23.766
+Aqui temos graph_one.
+
+00:04:23.799 --> 00:04:27.966
+É para cá que toda informação
+do gráfico 1 vai.
+
+00:04:27.999 --> 00:04:30.299
+Primeiro eu limpo os dados,
+
+00:04:30.333 --> 00:04:34.033
+mudo o nome das colunas
+e dou uma ordenada,
+
+00:04:34.066 --> 00:04:36.866
+para tudo aparecer
+na visualização
+
+00:04:36.899 --> 00:04:38.633
+na ordem que eu quero.
+
+00:04:38.666 --> 00:04:42.399
+E isto aqui é bem similar
+ao que fiz antes,
+
+00:04:42.433 --> 00:04:44.933
+onde estou iterando
+por cada país.
+
+00:04:44.966 --> 00:04:50.599
+E estou anexando informação
+na visualização do gráfico 1.
+
+00:04:50.633 --> 00:04:53.533
+Este é todo o código.
+
+00:04:53.566 --> 00:04:54.766
+Veja o layout.
+
+00:04:54.799 --> 00:04:59.866
+Só para esta visualização
+aqui à esquerda.
+
+00:04:59.899 --> 00:05:06.433
+Para o gráfico 2,
+eu limpo os dados.
+
+00:05:06.466 --> 00:05:10.099
+Agora só quero dados de 2015,
+
+00:05:10.133 --> 00:05:12.599
+então a preparação foi
+um pouco diferente.
+
+00:05:12.633 --> 00:05:14.499
+E vou fazer
+um gráfico de barras
+
+00:05:14.533 --> 00:05:20.866
+então, aqui no eixo X,
+eu coloquei os países
+
+00:05:20.899 --> 00:05:23.433
+e, no eixo Y,
+coloquei os valores.
+
+00:05:23.466 --> 00:05:28.466
+E estou usando Pandas e Python
+para fazer tudo isso.
+
+00:05:28.499 --> 00:05:30.699
+Aqui está o layout
+do número 2.
+
+00:05:31.833 --> 00:05:35.732
+Este é o gráfico de barras
+aqui em cima à direita.
+
+00:05:35.766 --> 00:05:37.599
+Se descermos,
+
+00:05:37.632 --> 00:05:40.032
+temos o código
+para o gráfico 3.
+
+00:05:40.066 --> 00:05:43.199
+Onde novamente estou iterando
+
+00:05:43.232 --> 00:05:46.132
+e construindo o gráfico
+país por país
+
+00:05:46.166 --> 00:05:50.466
+e colocando múltiplas retas
+em uma visualização.
+
+00:05:50.499 --> 00:05:51.999
+E tenho o layout.
+
+00:05:52.032 --> 00:05:54.266
+E vem a quarta tabela.
+
+00:05:54.299 --> 00:05:56.432
+Que é esta aqui
+no fundo à direita.
+
+00:05:56.466 --> 00:06:01.432
+E limpo os dados novamente.
+
+00:06:01.466 --> 00:06:04.432
+Tenho que unir
+dois conjuntos de dados.
+
+00:06:04.466 --> 00:06:06.232
+É o que acontece na linha 128.
+
+00:06:06.266 --> 00:06:09.479
+E itero pelos países,
+
+00:06:09.512 --> 00:06:13.332
+configurando as visualizações.
+
+00:06:13.366 --> 00:06:16.032
+Tem um pouco
+mais de preparação para se fazer,
+
+00:06:16.066 --> 00:06:19.199
+porque tenho
+múltiplos arquivos CSV.
+
+00:06:19.232 --> 00:06:22.766
+Outra coisa que tenho
+que destacar é
+
+00:06:22.799 --> 00:06:28.366
+que, se você olhar aqui
+em cada gráfico,
+
+00:06:28.399 --> 00:06:30.732
+tem name = country.
+
+00:06:30.766 --> 00:06:33.966
+Então tenho
+uma variável de país.
+
+00:06:33.999 --> 00:06:39.399
+E foi muito importante deixar
+os países na mesma ordem
+
+00:06:39.432 --> 00:06:42.832
+para eles aparecerem
+com as mesmas cores aqui.
+
+00:06:42.866 --> 00:06:47.332
+Eu usei a mesma lista de países
+na mesma ordem.
+
+00:06:47.366 --> 00:06:51.166
+Então o Plotly usaria
+automaticamente as mesmas cores
+
+00:06:51.199 --> 00:06:53.099
+em todas
+as minhas visualizações.
+
+00:06:53.132 --> 00:06:57.432
+Eu rolo para baixo.
+
+00:06:57.466 --> 00:07:00.032
+Quando tudo estiver pronto,
+
+00:07:00.066 --> 00:07:03.466
+anexo toda a visualização
+para esta lista figures
+
+00:07:03.499 --> 00:07:04.932
+e retorno figures.
+
+00:07:04.966 --> 00:07:06.732
+Voltando para routes,
+
+00:07:06.766 --> 00:07:11.866
+que está usando
+esta função return_figures,
+
+00:07:11.899 --> 00:07:15.899
+ele retorna todas as figures
+e está pronto.
+
+00:07:15.932 --> 00:07:17.366
+Foi assim que eu fiz.
+
+00:07:17.399 --> 00:07:20.999
+Levou um bom tempo
+para fazer toda a preparação
+
+00:07:21.032 --> 00:07:22.932
+para refatorar o código.
+
+00:07:22.966 --> 00:07:27.466
+Mas isto é parte de ser
+um cientista de dados.
+
+00:07:27.499 --> 00:07:33.566
+Para o exercício
+no fim da aula,
+
+00:07:33.599 --> 00:07:35.866
+em que criará
+um painel de dados,
+
+00:07:35.899 --> 00:07:38.732
+você pode reutilizar
+boa parte do meu código.
+
+00:07:38.766 --> 00:07:44.699
+Talvez você só tenha
+que mudar index.html
+
+00:07:44.732 --> 00:07:47.699
+para colocar links
+para seu repositório do GitHub,
+
+00:07:47.732 --> 00:07:51.432
+ou para sua conta no GitHub
+ou sua conta no LinkedIn.
+
+00:07:51.466 --> 00:07:56.999
+E você pode querer adicionar
+ou tirar visualizações,
+
+00:07:57.032 --> 00:07:59.799
+e, neste caso,
+você vai verificar o código
+
+00:07:59.832 --> 00:08:03.832
+e ver se tem divs o bastante
+para cada visualização
+
+00:08:03.866 --> 00:08:05.266
+que você vai criar.
+
+00:08:05.299 --> 00:08:09.999
+Em wrangling é onde você
+vai trabalhar mais.
+
+00:08:10.032 --> 00:08:13.766
+Você terá que descobrir
+como limpar seus dados
+
+00:08:13.799 --> 00:08:15.732
+e colocá-los no formato certo
+
+00:08:15.766 --> 00:08:18.332
+para ele funcionar no Plotly.
+
+00:08:18.366 --> 00:08:19.932
+E é isso.
+

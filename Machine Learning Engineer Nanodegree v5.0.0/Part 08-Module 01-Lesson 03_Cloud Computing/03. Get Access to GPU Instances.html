@@ -1,0 +1,698 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Get Access to GPU Instances
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Cloud Computing
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. AWS Overview.html">
+       01. AWS Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. AWS Setup Instructions for Regular account.html">
+       02. AWS Setup Instructions for Regular account
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Get Access to GPU Instances.html">
+       03. Get Access to GPU Instances
+      </a>
+     </li>
+     <li class="">
+      <a href="04. More Resources.html">
+       04. More Resources
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Launch an Instance.html">
+       05. Launch an Instance
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Login to the Instance.html">
+       06. Login to the Instance
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Get Access to GPU Instances
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Amazon Web Services (AWS) is an Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) provider. At this point, we may think of a "cloud" as a geographically distributed set of data centers that host different Virtual Machines (VMs) from different users. AWS has divided the entire world into several geographical regions. Each region has many availability zones, which in turn, comprises few data centers. Each data center has hundreds of servers, each of which hosts thousands of VMs dynamically.
+         </p>
+         <h2 id="a-what-is-ec2">
+          A. What is EC2?
+         </h2>
+         <p>
+          AWS Elastic Compute Cloud (EC2) is a hosted service that allows you to launch
+          <strong>
+           Virtual Machines (or an “instances”)
+          </strong>
+          , including instances with attached GPUs. You can get started by logging into the
+          <a href="https://aws.amazon.com/console/" rel="noopener noreferrer" target="_blank">
+           AWS Console
+          </a>
+          and search for the
+          <em>
+           "EC2"
+          </em>
+          service, as shown below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="AWS Console - Select an AWS Service " class="img img-fluid" src="img/screenshot-2020-04-07-at-4.08.30-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            AWS Console - Select an AWS Service
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="AWS Console - EC2 Dashboard" class="img img-fluid" src="img/screenshot-2020-04-07-at-4.41.39-pm.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            AWS Console - EC2 Dashboard
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="a1-launch-an-ec2-instance">
+          A.1. Launch an EC2 Instance
+         </h3>
+         <p>
+          You can launch an instance in 7 simple steps, as follows:
+         </p>
+         <ol>
+          <li>
+           Choose an Amazon Machine Image (AMI) - An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance.
+          </li>
+          <li>
+           Choose an Instance Type -  Instance Type offers varying combinations of CPUs, memory (GB), storage (GB), types of network performance, and availability of IPv6 support. AWS offers a variety of Instance Types, broadly categorized in 5 categories. You can choose an Instance Type that fits our use case. The specific type of GPU instance you should launch for this tutorial is called
+           <strong>
+            “p2.xlarge”
+           </strong>
+           .
+          </li>
+          <li>
+           Configure Instance Details - Provide the instance count and configuration details, such as, network, subnet, behavior, monitoring, etc.
+          </li>
+          <li>
+           Add Storage - You can choose to attach either
+           <em>
+            SSD
+           </em>
+           or
+           <em>
+            Standard Magnetic
+           </em>
+           drive to your instance.
+          </li>
+          <li>
+           Add Tags - A tag serves as a
+           <em>
+            label
+           </em>
+           that you can attach to multiple AWS resources, such as volumes, instances or both.
+          </li>
+          <li>
+           Configure Security Group - Attach a set of firewall rules to your instance(s) that controls the incoming traffic to your instance(s).
+          </li>
+          <li>
+           Review - Review your instance launch details before the launch.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="a2-what-is-an-amazon-machine-image">
+          A.2. What is an Amazon Machine Image?
+         </h3>
+         <p>
+          <strong>
+           Amazon Machine Image
+          </strong>
+          or
+          <strong>
+           AMI
+          </strong>
+          is a template for an operating system and basic services (e.g., an application server and specific applications). By running an AMI instance, the AMI will be running "as a virtual server in the cloud" (as per
+          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instances-and-amis.html" rel="noopener noreferrer" target="_blank">
+           AWS Documentation
+          </a>
+          .
+         </p>
+         <p>
+          We will use this
+          <a href="https://aws.amazon.com/marketplace/pp/B077GF11NF" rel="noopener noreferrer" target="_blank">
+           Deep Learning AMI (Amazon Linux)
+          </a>
+          to define the operating system for your instance and to make use of its pre-installed software. In order to use this AMI, you must change your AWS region to one of the following (and you are encouraged to select the region in the list that is closest to you):
+         </p>
+         <ul>
+          <li>
+           EU (Ireland)
+          </li>
+          <li>
+           Asia Pacific (Seoul)
+          </li>
+          <li>
+           Asia Pacific (Tokyo)
+          </li>
+          <li>
+           Asia Pacific (Sydney)
+          </li>
+          <li>
+           US East (N. Virginia)
+          </li>
+          <li>
+           US East (Ohio)
+          </li>
+          <li>
+           US West (Oregon)
+          </li>
+         </ul>
+         <p>
+          If you are unsure, please check the
+          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html" rel="noopener noreferrer" target="_blank">
+           AWS documentation
+          </a>
+          to confirm which region may be closest to you.
+          <br/>
+          <br>
+           After changing your AWS region, view your
+           <strong>
+            EC2 Service Limit report
+           </strong>
+           at
+           <a href="https://console.aws.amazon.com/ec2/v2/home?#Limits" rel="noopener noreferrer" target="_blank">
+            this link
+           </a>
+           , and find your "Current Limit" for the p2.xlarge instance type.
+          </br>
+         </p>
+         <h3 id="a3-instance-type---what-is-a-p2-instance">
+          A.3. Instance Type - What is a P2 instance?
+         </h3>
+         <p>
+          P2 are powerful and scalable parallel processing GPU instances. You can read more about these on
+          <a href="https://aws.amazon.com/ec2/instance-types/p2/" rel="noopener noreferrer" target="_blank">
+           AWS Documentation
+          </a>
+          .
+         </p>
+         <hr/>
+         <h2 id="font-colorred-b-shut-down-ec2-instances-if-not-in-use-font">
+          <font color="red">
+           B. Shut Down EC2 Instances, if not in use
+          </font>
+         </h2>
+         <blockquote>
+          <h4 id="spannote-font-colorredwe-recommend-you-shut-down-every-resource-eg-ec2-instances-or-any-other-hosted-service-on-the-aws-cloud-immediately-after-the-usage-otherwise-you-will-run-out-of-your-free-promo-credits-fontspan">
+           <span>
+            Note:
+            <font color="red">
+             We recommend you shut down every resource (e.g., EC2 instances, or any other hosted service) on the AWS cloud immediately after the usage, otherwise you will run out of your free promo credits.
+            </font>
+           </span>
+          </h4>
+         </blockquote>
+         <p>
+          Even if you are in the middle of the project and need to step away,
+          <strong>
+           PLEASE SHUT DOWN YOUR EC2 INSTANCE
+          </strong>
+          . You can re-instantiate later.
+          <br/>
+          We have provided adequate credits to allow you to complete your projects.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="c-aws-service-utilization-limits">
+          C. AWS Service Utilization Limits
+         </h2>
+         <p>
+          You need to understand the way AWS imposes
+          <strong>
+           <em>
+            utilization quotas
+           </em>
+          </strong>
+          (limits) on almost all of its services.
+         </p>
+         <ul>
+          <li>
+           AWS provides default quotas, formerly referred to as
+           <em>
+            limits
+           </em>
+           ,
+           <strong>
+            for each AWS service.
+           </strong>
+          </li>
+          <li>
+           Importantly,
+           <strong>
+            each quota is region-specific.
+           </strong>
+          </li>
+          <li>
+           There are three ways to check your quotas, as mentioned
+           <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html" rel="noopener noreferrer" target="_blank">
+            here
+           </a>
+           , i).  Service Endpoints and Quotas, ii). Service Quotas console, and iii). AWS CLI commands.
+           <ul>
+            <li>
+             We recommend you to check the quotas for AWS EC2 at
+             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html" rel="noopener noreferrer" target="_blank">
+              Service Endpoints and Quotas
+             </a>
+             page.
+            </li>
+            <li>
+             Alternatively, for EC2 service, you can visit
+             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html" rel="noopener noreferrer" target="_blank">
+              Amazon EC2 Service Limits
+             </a>
+             that describes how to view the current quota (limit) or request an increase in quota.
+            </li>
+           </ul>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="c1-increase-ec2-instance-limits">
+          C.1. Increase EC2 Instance Limits
+         </h3>
+         <h4 id="c11-view-your-current-limit">
+          C.1.1. View Your Current Limit
+         </h4>
+         <p>
+          After changing your AWS region, view your
+          <a href="https://console.aws.amazon.com/ec2/v2/home?#Limits" rel="noopener noreferrer" target="_blank">
+           EC2 Service Limit report at this link
+          </a>
+          , and find your "Current Limit" for the p2.xlarge instance type. By default,
+          <strong>
+           AWS sets a limit of 0 on the number of p2.xlarge instances a user can run
+          </strong>
+          , which effectively prevents you from launching this instance.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/aws-0-image1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="c12-submit-a-limit-increase-request">
+          C.1.2. Submit a Limit Increase Request
+         </h4>
+         <p>
+          If your limit of p2.xlarge instances is 0, you'll need to increase the limit before you can launch an instance.
+         </p>
+         <ol>
+          <li>
+           From the EC2 Service Limits page, CLICK TO EDIT
+           <strong>
+            Calculate vCPU limit
+           </strong>
+           on top.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/aws-1-image2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ol start="2">
+          <li>
+           The following screen pops up. In the
+           <strong>
+            Instance type
+           </strong>
+           search for p2.xlarge and the
+           <strong>
+            Instance count
+           </strong>
+           to 1, verify the
+           <strong>
+            New limit
+           </strong>
+           is showing
+           <strong>
+            4 vCPUs
+           </strong>
+           and then click on
+           <span style="color:blue;">
+            <strong>
+             Request limit increase
+            </strong>
+           </span>
+           <br/>
+           <em>
+            <strong>
+             Note:
+            </strong>
+            <font color="red">
+             You won't be charged for requesting a limit increase. AWS will only charge you once you have launched the instance.
+            </font>
+           </em>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/aws-2-image3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ol start="3">
+          <li>
+           This will open the following screen. Click on the
+           <strong>
+            Service limit increase
+           </strong>
+           if it is not already selected.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/aws-3-image4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ol start="4">
+          <li>
+           In
+           <strong>
+            Requests
+           </strong>
+           section pick your  "Primary Instance type" as "All P instances" and "1"  for "New limit value"
+           <em>
+            <strong>
+             Note:
+            </strong>
+            <font color="red">
+             If you have never launched an instance of any type on AWS, you might receive an email from AWS Support asking you to initialize your account by creating an instance before they approve the limit increase.
+            </font>
+           </em>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/aws-4-image5.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="c13-wait-for-the-approval">
+          C.1.3. Wait for the Approval
+         </h4>
+         <p>
+          You must wait for AWS to approve your Limit Increase Request. AWS typically approves these requests within 48 hours.
+         </p>
+         <blockquote>
+          <h6 id="spanimportant-notice-font-colorred-this-is-the-current-aws-ui-as-of-april-6th-2020-the-aws-ui-is-subject-to-change-on-a-regular-basis-we-advise-students-to-refer-to-aws-documentation-for-the-above-processfontspan">
+           <span>
+            IMPORTANT NOTICE:
+            <font color="red">
+             This is the current AWS UI as of April 6th, 2020. The AWS UI is subject to change on a regular basis. We advise students to refer to AWS documentation for the above process.
+            </font>
+           </span>
+          </h6>
+         </blockquote>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. More Resources.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Get Access to GPU Instances')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

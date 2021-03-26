@@ -1,0 +1,232 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.359
+Okay. So, let's implement transfer learning encode.
+
+00:00:03.359 --> 00:00:05.264
+In this notebook, I'm going to be using
+
+00:00:05.264 --> 00:00:09.330
+a pretrained VGG 16 network whose architecture is pictured here,
+
+00:00:09.330 --> 00:00:12.734
+and I'll apply what it's learned to a totally new task.
+
+00:00:12.734 --> 00:00:17.119
+So, we know that this model is made of a series of convolutional and pooling layers,
+
+00:00:17.120 --> 00:00:21.690
+and at the end it has three fully-connected layers that act as a final classifier.
+
+00:00:21.690 --> 00:00:25.589
+In this notebook, we'll be using a pretrained model that was trained for
+
+00:00:25.589 --> 00:00:30.870
+a very long time to reach a high accuracy in classifying images in the ImageNet dataset.
+
+00:00:30.870 --> 00:00:33.605
+This dataset has a thousand image classes,
+
+00:00:33.604 --> 00:00:36.954
+and so the final output layer produces a thousand class scores.
+
+00:00:36.954 --> 00:00:40.699
+But in this notebook, I'll show you how to change this last layer and tune
+
+00:00:40.700 --> 00:00:42.859
+this classification portion of the model to
+
+00:00:42.859 --> 00:00:45.560
+apply it to the task of flower classification,
+
+00:00:45.560 --> 00:00:48.130
+and I'll show you our flower dataset in a moment.
+
+00:00:48.130 --> 00:00:50.554
+It includes five different classes of flowers.
+
+00:00:50.554 --> 00:00:53.734
+Some flowers: tulips, roses, dandelions, and daisies.
+
+00:00:53.734 --> 00:00:56.490
+To customize the VGG model for this task,
+
+00:00:56.490 --> 00:01:01.020
+my plan will be to freeze or lock the weights in the convolutional and pooling layers.
+
+00:01:01.020 --> 00:01:03.050
+This portion of the network will act as
+
+00:01:03.049 --> 00:01:06.560
+a fixed feature extractor that all our training images will go through.
+
+00:01:06.560 --> 00:01:08.780
+Then I'm going to replace the final layer of
+
+00:01:08.780 --> 00:01:11.879
+the classification portion with a new fully-connected layer,
+
+00:01:11.879 --> 00:01:15.704
+one that produces 5-class scores instead of a thousand as output.
+
+00:01:15.704 --> 00:01:18.274
+After placing this last layer I'm going to allow
+
+00:01:18.275 --> 00:01:20.810
+all three of these fully connected layers to train.
+
+00:01:20.810 --> 00:01:24.365
+This means that I'll be fine tuning the weights in two of the linear layers,
+
+00:01:24.364 --> 00:01:27.049
+and newly train the weights in this last layer.
+
+00:01:27.049 --> 00:01:29.349
+So let's get started with this task.
+
+00:01:29.349 --> 00:01:34.464
+First I'm going to load in my usual libraries and check if a GPU device is available.
+
+00:01:34.465 --> 00:01:36.740
+For now since I'm going through this exercise,
+
+00:01:36.739 --> 00:01:38.599
+I'm using my laptop CPU.
+
+00:01:38.599 --> 00:01:41.449
+Then I'm going to load in my data as usual.
+
+00:01:41.450 --> 00:01:45.170
+This time my data is in training and test directories.
+
+00:01:45.170 --> 00:01:48.075
+Each sub-directory represents one particular flower class.
+
+00:01:48.075 --> 00:01:53.840
+This structure makes it easy to load in this data using pi torches image folder class.
+
+00:01:53.840 --> 00:01:57.555
+This class just assumes that images are in their correctly labeled folders.
+
+00:01:57.555 --> 00:02:01.125
+So, all sunflowers are in a sunflowers folder for example.
+
+00:02:01.125 --> 00:02:06.334
+Now, I know that VGG expects to see 224 by 224 square images as input.
+
+00:02:06.334 --> 00:02:10.620
+So, I'll resize all of my images using a data transform and load it in.
+
+00:02:10.620 --> 00:02:13.240
+I'll just load in training and test data for now.
+
+00:02:13.240 --> 00:02:16.450
+You can choose to separate out a validation set should you want to,
+
+00:02:16.449 --> 00:02:21.719
+and you can see we only have about 3,000 training images and even fewer test images.
+
+00:02:21.719 --> 00:02:25.289
+This is a lot smaller than say something like our MNIST dataset.
+
+00:02:25.289 --> 00:02:29.449
+So, it will be interesting to see how transfer learning works for such a small dataset.
+
+00:02:29.449 --> 00:02:33.709
+In here I'm using the DataLoader class to load in data in batches.
+
+00:02:33.710 --> 00:02:36.280
+Finally I'm going to visualize a batch of this data.
+
+00:02:36.280 --> 00:02:39.849
+Here I see a variety of flowers and their respective labels,
+
+00:02:39.849 --> 00:02:42.775
+and we can see actually the variety in these images.
+
+00:02:42.775 --> 00:02:46.125
+Some flowers are very close up while others are really far away.
+
+00:02:46.125 --> 00:02:48.965
+So, we can tell that this task will be more challenging
+
+00:02:48.965 --> 00:02:51.844
+than if flowers were carefully centered and preprocessed.
+
+00:02:51.844 --> 00:02:54.930
+After loading the data next comes defining the model.
+
+00:02:54.930 --> 00:02:56.849
+Now, the first step in working with
+
+00:02:56.849 --> 00:03:00.534
+a pretrained model is knowing how to look at the structure that already exists.
+
+00:03:00.534 --> 00:03:05.069
+Here I'm going to load in the VGG 16 model from pi torches model library,
+
+00:03:05.069 --> 00:03:07.525
+which contain the many commonly used models.
+
+00:03:07.525 --> 00:03:09.590
+I want this model to be pretrained and I'm
+
+00:03:09.590 --> 00:03:12.060
+calling it by name and storing it in this variable.
+
+00:03:12.060 --> 00:03:15.275
+Once it's loaded in, I'll print it out to see all the layers.
+
+00:03:15.275 --> 00:03:17.750
+Here I can see the entire VGG network.
+
+00:03:17.750 --> 00:03:21.169
+First, there's a sequence of layers that's called features,
+
+00:03:21.169 --> 00:03:24.049
+a series of convolutional and max-pooling layers.
+
+00:03:24.050 --> 00:03:27.215
+Then I have another group of layers down here called the classifier,
+
+00:03:27.215 --> 00:03:30.890
+and this is where our three fully-connected linear layers are.
+
+00:03:30.889 --> 00:03:35.019
+I can also see things like how many inputs and outputs each of these layers have.
+
+00:03:35.020 --> 00:03:37.360
+Now, I can refer to any of these layers,
+
+00:03:37.360 --> 00:03:40.140
+groups of layers, or individual layers by name.
+
+00:03:40.139 --> 00:03:45.879
+For example, I can type vgg16.features to get this whole group of layers,
+
+00:03:45.879 --> 00:03:49.159
+or to refer to this last linear layer I can refer to
+
+00:03:49.159 --> 00:03:53.389
+VGG 16 classifier section and the value six.
+
+00:03:53.389 --> 00:03:55.579
+For example here I can access
+
+00:03:55.580 --> 00:03:59.010
+that last linear layer and print out how many in features and out features it has,
+
+00:03:59.009 --> 00:04:03.250
+and we can see that these values line up with what we printed out before.
+
+00:04:03.250 --> 00:04:06.275
+Now, that you know how to read in a pretrained model,
+
+00:04:06.275 --> 00:04:10.219
+next I'm going to show you how to freeze the weights in the feature layers and replace
+
+00:04:10.219 --> 00:04:15.129
+this last layer with a new linear layer suited to our flower classification task.
+

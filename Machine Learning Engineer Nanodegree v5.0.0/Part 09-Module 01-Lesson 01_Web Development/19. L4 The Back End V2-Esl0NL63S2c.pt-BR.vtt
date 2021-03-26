@@ -1,0 +1,145 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.899 --> 00:00:06.366
+O BACK-END
+
+00:00:07.299 --> 00:00:09.166
+Finalizamos o front-end.
+
+00:00:09.199 --> 00:00:11.999
+Agora você deve ter uma webpage
+com alguns links
+
+00:00:12.033 --> 00:00:14.466
+e algumas visualizações
+de dados.
+
+00:00:14.499 --> 00:00:18.133
+Isto já é algo que você
+pode colocar no seu portfólio
+
+00:00:18.166 --> 00:00:21.199
+porque mostra suas habilidades
+em visualização de dados.
+
+00:00:21.233 --> 00:00:25.299
+Se não começou um portfólio
+com seus projetos do Nanodegree,
+
+00:00:25.333 --> 00:00:27.633
+agora é a hora perfeita.
+
+00:00:28.899 --> 00:00:31.666
+Todos os arquivos estão
+em um diretório
+
+00:00:31.699 --> 00:00:34.866
+no espaço de trabalho da aula
+ou no seu computador pessoal.
+
+00:00:34.899 --> 00:00:38.999
+Você pode abrir o arquivo HTML
+em um navegador web
+
+00:00:39.033 --> 00:00:40.399
+e ver o painel.
+
+00:00:40.433 --> 00:00:44.599
+No momento, se quiser compartilhar
+seu painel com um colega,
+
+00:00:44.633 --> 00:00:48.766
+você tem que transferir os arquivos
+para o computador do seu colega.
+
+00:00:48.799 --> 00:00:52.733
+Então esta pessoa teria que abrir
+o documento HTML localmente,
+
+00:00:52.766 --> 00:00:57.199
+o que é muito trabalho
+só para mostrar suas visualizações.
+
+00:00:57.233 --> 00:00:59.533
+Seria bem mais legal
+
+00:00:59.566 --> 00:01:01.633
+se seu aplicativo
+estivesse na internet.
+
+00:01:01.666 --> 00:01:04.999
+Então qualquer um poderia digitar
+um endereço no navegador
+
+00:01:05.033 --> 00:01:06.233
+e ver seu trabalho.
+
+00:01:06.266 --> 00:01:09.566
+Mas como colocar
+seu painel na internet?
+
+00:01:09.599 --> 00:01:12.166
+Para isto,
+você precisará de um back-end.
+
+00:01:12.199 --> 00:01:14.466
+Você vai construir
+um back-end simples
+
+00:01:14.499 --> 00:01:16.833
+usando um framework
+chamado "Flask".
+
+00:01:16.866 --> 00:01:18.666
+Para um cientista de dados,
+
+00:01:18.699 --> 00:01:21.199
+um dos maiores benefícios
+do Flask
+
+00:01:21.233 --> 00:01:24.466
+é que o framework
+está escrito em Python.
+
+00:01:24.499 --> 00:01:27.599
+O que significa
+que você pode usar scikit-learn,
+
+00:01:27.633 --> 00:01:31.166
+Pandas e NumPy
+em seu código back-end
+
+00:01:31.199 --> 00:01:33.366
+se precisar fazer
+preparação de dados
+
+00:01:33.399 --> 00:01:35.866
+ou executar algoritmos
+de aprendizado de máquina.
+
+00:01:35.899 --> 00:01:38.333
+Depois de codificar
+o back-end,
+
+00:01:38.366 --> 00:01:41.599
+estará pronto para implantar
+sua aplicação em um servidor.
+
+00:01:41.633 --> 00:01:44.233
+A implantação será
+o último passo
+
+00:01:44.266 --> 00:01:47.133
+para colocar seu aplicativo
+na internet.
+
+00:01:47.866 --> 00:01:50.299
+Vamos começar construindo
+o back-end
+
+00:01:50.333 --> 00:01:52.733
+e implantando o aplicativo
+em um servidor.
+

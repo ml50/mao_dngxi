@@ -1,0 +1,262 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.669
+Now, you know how to get information from
+
+00:00:02.669 --> 00:00:05.820
+the back end of the web app to the front end of the web app,
+
+00:00:05.820 --> 00:00:08.940
+but what we really want is to pass the information
+
+00:00:08.939 --> 00:00:12.449
+from the back end to the front end with a visualization.
+
+00:00:12.449 --> 00:00:14.714
+I've written some code that sets up
+
+00:00:14.714 --> 00:00:19.689
+a Plotly visualization on the back end and sends that information to the front end.
+
+00:00:19.690 --> 00:00:22.170
+Then the front and plots the visualization.
+
+00:00:22.170 --> 00:00:25.140
+I'm going to walk you through this code and then I'll provide
+
+00:00:25.140 --> 00:00:28.940
+similar code as part of an exercise so that you can become familiar with it.
+
+00:00:28.940 --> 00:00:30.445
+So, what has changed?
+
+00:00:30.445 --> 00:00:35.564
+First, I've pip installed Plotly into my workspace using pip install Plotly.
+
+00:00:35.564 --> 00:00:37.439
+If I do that here in the terminal,
+
+00:00:37.439 --> 00:00:40.655
+nothing's going to actually happen because I've already installed it.
+
+00:00:40.655 --> 00:00:44.109
+You see here that it says requirement already satisfied.
+
+00:00:44.109 --> 00:00:47.140
+In the roots.py file,
+
+00:00:47.140 --> 00:00:50.149
+I'm importing the Plotly library,
+
+00:00:50.149 --> 00:00:54.659
+the json library, and graph objects from Plotly.
+
+00:00:54.659 --> 00:00:59.699
+Then, I'm getting the wrangle data by calling the data wrangling function,
+
+00:00:59.700 --> 00:01:04.534
+and I'm printing out the first tuple so that you can see what the data looks like.
+
+00:01:04.534 --> 00:01:09.409
+In this visualization, I'm going to visualize the first tuple for now.
+
+00:01:09.409 --> 00:01:11.545
+That's why in the country variable,
+
+00:01:11.545 --> 00:01:15.170
+I've only grab the first tuples country value,
+
+00:01:15.170 --> 00:01:18.810
+and then the x values and the y values of the first tuple.
+
+00:01:18.810 --> 00:01:21.259
+To remind you of what the data looks like,
+
+00:01:21.259 --> 00:01:24.680
+I'm just going to run this new web app for a second,
+
+00:01:24.680 --> 00:01:28.170
+so that you can see the results in the terminal.
+
+00:01:28.909 --> 00:01:31.364
+So, here it is,
+
+00:01:31.364 --> 00:01:35.024
+United States 1990 to 2015,
+
+00:01:35.025 --> 00:01:39.450
+then the y-values are 24.7 and 18.383.
+
+00:01:39.450 --> 00:01:42.984
+Hopefully, the code that comes next looks somewhat familiar,
+
+00:01:42.984 --> 00:01:47.480
+because it's very, very similar to the JavaScript code for plotting with Plotly.
+
+00:01:47.480 --> 00:01:50.030
+Inside this graph one variable,
+
+00:01:50.030 --> 00:01:53.045
+I'm preparing a line chart using the x values,
+
+00:01:53.045 --> 00:01:55.325
+y values, and country name.
+
+00:01:55.325 --> 00:01:57.980
+The visualization has to be in a list,
+
+00:01:57.980 --> 00:02:03.484
+which is why have square brackets around this go.scatter syntax.
+
+00:02:03.484 --> 00:02:05.219
+How, you might ask,
+
+00:02:05.219 --> 00:02:07.760
+did I figure out the syntax for all of this?
+
+00:02:07.760 --> 00:02:11.605
+Well, I read through Plotly's Python library documentation.
+
+00:02:11.604 --> 00:02:13.319
+Next, comes the layout,
+
+00:02:13.319 --> 00:02:14.954
+which has to be in a dictionary.
+
+00:02:14.955 --> 00:02:19.440
+The syntax might be a little bit confusing but this is just a dictionary of dictionaries.
+
+00:02:19.439 --> 00:02:22.939
+Again, I figured this out through reading the Plotly documentation.
+
+00:02:22.939 --> 00:02:25.759
+The next part of the code is setting things up
+
+00:02:25.759 --> 00:02:28.685
+for when there are multiple visualizations.
+
+00:02:28.685 --> 00:02:31.175
+Although for now, there is only one visualization,
+
+00:02:31.175 --> 00:02:34.300
+I'll get to multiple visualizations a little later.
+
+00:02:34.300 --> 00:02:37.285
+The IDs variable will be a list,
+
+00:02:37.284 --> 00:02:40.039
+containing distinct ids for each plot like;
+
+00:02:40.039 --> 00:02:41.724
+figure zero, figure one,
+
+00:02:41.724 --> 00:02:45.889
+et cetera, and then figure Json converts the dictionary is holding
+
+00:02:45.889 --> 00:02:50.889
+the visualizations into a form that Plotly can interpret in the JavaScript front-end.
+
+00:02:50.889 --> 00:02:53.689
+Next, I send the list of IDs and
+
+00:02:53.689 --> 00:02:58.444
+the figure's Json variables to the front and in the render template method.
+
+00:02:58.444 --> 00:03:03.594
+So, let's look at the index.html file for the front end.
+
+00:03:03.594 --> 00:03:08.460
+Here, I've put a link to the JavaScript Plotly library in line six,
+
+00:03:08.460 --> 00:03:14.254
+and I've also printed out the IDs variable and figures Json variables in paragraphs,
+
+00:03:14.254 --> 00:03:16.579
+so that you can see what their values look like.
+
+00:03:16.580 --> 00:03:18.890
+That's going to be printed out to the front end.
+
+00:03:18.889 --> 00:03:21.409
+Do you remember before when you use Plotly and
+
+00:03:21.409 --> 00:03:24.669
+JavaScript and you created divs for each plot?
+
+00:03:24.669 --> 00:03:27.319
+That's what I'm doing here in line 14,
+
+00:03:27.319 --> 00:03:31.014
+by taking the first ID in the IDs list.
+
+00:03:31.014 --> 00:03:32.784
+If I had more plots,
+
+00:03:32.784 --> 00:03:35.840
+I need to make more divs for the other IDs like;
+
+00:03:35.840 --> 00:03:40.060
+id bracket one, bracket two, etcetera.
+
+00:03:40.060 --> 00:03:43.099
+Finally, the JavaScript code below uses
+
+00:03:43.099 --> 00:03:46.639
+the figures Json variables and ids from the front end,
+
+00:03:46.639 --> 00:03:49.984
+and then plots each visualization one at a time,
+
+00:03:49.985 --> 00:03:54.035
+iterating through the IDs, data, and layouts.
+
+00:03:54.034 --> 00:03:57.004
+But for now, I only have one visualization.
+
+00:03:57.004 --> 00:04:01.144
+This safe word here is an escape filter.
+
+00:04:01.145 --> 00:04:05.120
+Escaping just make sure that if the figures or ID variables use
+
+00:04:05.120 --> 00:04:09.689
+any HTML special characters like the greater than or less than brackets,
+
+00:04:09.689 --> 00:04:11.419
+these get interpreted correctly.
+
+00:04:11.419 --> 00:04:15.574
+I'm going to give you all of this code so you don't have to rewrite this.
+
+00:04:15.574 --> 00:04:21.139
+All you'll need to do is make a div for each visualization with the correct ID,
+
+00:04:21.139 --> 00:04:24.274
+and place the div where you want the visualization to appear.
+
+00:04:24.274 --> 00:04:26.000
+Let's see what the front end looks like.
+
+00:04:26.000 --> 00:04:29.355
+So, this is the index.html page,
+
+00:04:29.355 --> 00:04:32.434
+and then this is the figure ID,
+
+00:04:32.434 --> 00:04:38.260
+and then this is the value that was in figures Json, and then here's the plot.
+
+00:04:38.259 --> 00:04:41.329
+So it worked. So far,
+
+00:04:41.329 --> 00:04:44.569
+the front end maybe isn't that well organized,
+
+00:04:44.569 --> 00:04:47.555
+and maybe it's not clear how to make multiple plots,
+
+00:04:47.555 --> 00:04:52.730
+or to plot multiple lines on one plot but that's what I'm going to show you next.
+

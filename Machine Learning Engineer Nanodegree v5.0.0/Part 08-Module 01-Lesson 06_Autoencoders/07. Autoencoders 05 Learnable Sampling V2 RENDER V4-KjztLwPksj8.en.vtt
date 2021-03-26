@@ -1,0 +1,154 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.799
+Now that you've seen how to build an autoencoder out of linear layers,
+
+00:00:03.799 --> 00:00:07.049
+let's improve on this model using convolutional layers.
+
+00:00:07.049 --> 00:00:10.615
+Convolutional layers give us a way to preserve spatial information.
+
+00:00:10.615 --> 00:00:12.585
+So, generally, they're part of
+
+00:00:12.585 --> 00:00:16.730
+a better and more elegant solution for encoding and decoding images.
+
+00:00:16.730 --> 00:00:19.679
+The encoder portion of an autoencoder is
+
+00:00:19.679 --> 00:00:22.835
+something that you've seen before in our lesson on CNN's.
+
+00:00:22.835 --> 00:00:24.810
+It's typically made of a series of
+
+00:00:24.809 --> 00:00:27.059
+convolutional and maxpooling layers that
+
+00:00:27.059 --> 00:00:29.924
+downsample the spatial dimensions of an input image.
+
+00:00:29.925 --> 00:00:31.859
+So, you know roughly how to get from
+
+00:00:31.859 --> 00:00:34.924
+an input image to a compressed representation already.
+
+00:00:34.924 --> 00:00:38.019
+The decoder is something we haven't really seen before.
+
+00:00:38.020 --> 00:00:42.475
+How can we go from a compressed representation to a reconstructed image?
+
+00:00:42.475 --> 00:00:44.325
+In this simple code example,
+
+00:00:44.325 --> 00:00:47.140
+you've seen that you can just define a linear layer to
+
+00:00:47.140 --> 00:00:50.710
+transform any number of inputs into your desired output size,
+
+00:00:50.710 --> 00:00:53.804
+and so you could easily reverse the encoder steps.
+
+00:00:53.804 --> 00:00:56.564
+Here, with an input image instead of a vector,
+
+00:00:56.564 --> 00:00:58.929
+there are a couple of approaches you might take,
+
+00:00:58.929 --> 00:01:00.564
+but the end goal is the same.
+
+00:01:00.564 --> 00:01:04.640
+You want to reverse the downsampling process that happened in the encoder.
+
+00:01:04.640 --> 00:01:08.200
+You want to increase the spatial dimensions of a compressed input to
+
+00:01:08.200 --> 00:01:12.754
+produce a reconstructed image that has the same shape as the original input.
+
+00:01:12.754 --> 00:01:16.254
+So, instead of down sampling using maxpooling,
+
+00:01:16.254 --> 00:01:21.369
+you can imagine trying to upsample an image by un-pooling the pixel values in an input.
+
+00:01:21.370 --> 00:01:23.800
+You could use an interpolation technique like
+
+00:01:23.799 --> 00:01:27.384
+nearest neighbors or another kind of linear interpolation.
+
+00:01:27.385 --> 00:01:30.560
+Nearest neighbors expands a given area by copying
+
+00:01:30.560 --> 00:01:33.490
+over a single pixel value from an input image to,
+
+00:01:33.489 --> 00:01:36.454
+say, a two-by-two two in the larger output image.
+
+00:01:36.454 --> 00:01:38.179
+If you've ever tried to enlarge
+
+00:01:38.180 --> 00:01:42.185
+a low resolution image this upsampling is usually what happens.
+
+00:01:42.185 --> 00:01:45.905
+But interpolation is a fairly crude way to upsample an image.
+
+00:01:45.905 --> 00:01:47.594
+In the case of nearest neighbors,
+
+00:01:47.594 --> 00:01:49.914
+we're just copying over existing values.
+
+00:01:49.915 --> 00:01:54.495
+But a realistic larger image is likely to have more variety in pixel values,
+
+00:01:54.495 --> 00:01:57.670
+and so there may be a better way to upsample its image.
+
+00:01:57.670 --> 00:02:01.689
+So, you could also try to learn how to best upsample an image.
+
+00:02:01.689 --> 00:02:04.170
+If we want our network to learn how to upsample,
+
+00:02:04.170 --> 00:02:06.915
+we can use a transpose convolutional layer.
+
+00:02:06.915 --> 00:02:10.569
+This layer does not use a predefined interpolation method,
+
+00:02:10.569 --> 00:02:13.074
+instead it has learnable parameters.
+
+00:02:13.074 --> 00:02:15.319
+You'll sometimes hear these referred to as
+
+00:02:15.319 --> 00:02:20.150
+deconvolutional layers but it's not strictly undoing a convolution step.
+
+00:02:20.150 --> 00:02:23.270
+I find it most helpful to think of transpose convolution as a way
+
+00:02:23.270 --> 00:02:26.460
+to upsample existing input values using filter weights,
+
+00:02:26.460 --> 00:02:29.075
+in a way that's similar to traditional convolution.
+
+00:02:29.074 --> 00:02:30.979
+Before we use this in code,
+
+00:02:30.979 --> 00:02:34.179
+let's get into the math behind a transpose convolutional layer.
+

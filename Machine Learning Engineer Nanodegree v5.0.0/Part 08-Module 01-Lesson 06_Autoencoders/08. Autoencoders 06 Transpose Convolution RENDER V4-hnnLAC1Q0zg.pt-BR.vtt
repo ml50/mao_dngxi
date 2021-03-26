@@ -1,0 +1,160 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.475 --> 00:00:03.967
+Para entender como uma camada
+convolucional transposta funciona,
+
+00:00:04.000 --> 00:00:07.090
+vamos revisitar
+a operação de convolução.
+
+00:00:07.123 --> 00:00:10.516
+Imagine uma imagem
+de input de 4x4 pixels -
+
+00:00:10.549 --> 00:00:12.503
+pequena,
+mas que servirá de exemplo.
+
+00:00:12.536 --> 00:00:15.944
+Queremos uma imagem filtrada
+de output do mesmo tamanho.
+
+00:00:15.977 --> 00:00:17.678
+Esse costuma ser o caso.
+
+00:00:17.711 --> 00:00:21.072
+Podemos usar Kernel de 3x3
+e padding = 1
+
+00:00:21.105 --> 00:00:22.480
+para obter o resultado.
+
+00:00:22.513 --> 00:00:26.472
+A convolução diz para multiplicar
+cada valor de pixel do input
+
+00:00:26.505 --> 00:00:29.875
+pelos pesos do Kernel
+e para adicionar tudo
+
+00:00:29.908 --> 00:00:32.379
+para obter o valor de pixel
+resultante.
+
+00:00:32.412 --> 00:00:36.610
+Usamos stride = 1 para fazer isso
+para cada pixel do input,
+
+00:00:36.643 --> 00:00:39.531
+mas e se tivéssemos
+stride = 2?
+
+00:00:39.564 --> 00:00:44.339
+O Kernel se moveria para a direita
+e para baixo a cada dois pixels,
+
+00:00:44.372 --> 00:00:47.491
+e o output seria uma imagem
+filtrada de 2x2.
+
+00:00:47.524 --> 00:00:51.362
+O filtro se move dois pixels
+para cada pixel do output.
+
+00:00:51.395 --> 00:00:56.611
+O valor de stride é a conversão
+da dimensão de input para output.
+
+00:00:56.644 --> 00:01:01.354
+Assim, uma operação convolucional
+pode reduzir uma imagem.
+
+00:01:01.387 --> 00:01:03.558
+Mantenha stride = 2 em mente,
+
+00:01:03.591 --> 00:01:07.206
+enquanto eu mostro como a convolução
+transposta reverte o processo.
+
+00:01:07.239 --> 00:01:10.230
+Ela pega um pixel
+de uma imagem de 2x2,
+
+00:01:10.263 --> 00:01:14.343
+aplica um Kernel de 3x3
+e multiplica o valor do pixel
+
+00:01:14.376 --> 00:01:18.523
+pelos pesos do Kernel
+para obter uma área de 3x3.
+
+00:01:18.556 --> 00:01:20.895
+Imagine que eu faça isso
+com o primeiro pixel
+
+00:01:20.928 --> 00:01:23.724
+e obtenha uma área de 3x3
+com um centro.
+
+00:01:23.757 --> 00:01:26.516
+Então tento fazer o mesmo
+para o segundo pixel.
+
+00:01:26.549 --> 00:01:30.924
+Assumo stride = 2 no output,
+então o centro da área gerada
+
+00:01:30.957 --> 00:01:34.508
+será dois à direita
+do centro da área de 3x3.
+
+00:01:34.541 --> 00:01:38.388
+A convolução transposta
+produzirá outra área de 3x3,
+
+00:01:38.421 --> 00:01:41.012
+uma que se sobrepõe à inicial.
+
+00:01:41.045 --> 00:01:44.952
+No caso da sobreposição,
+os valores serão somados.
+
+00:01:44.985 --> 00:01:47.558
+Se eu fizer isso
+nos quatro pixels de input,
+
+00:01:47.591 --> 00:01:50.845
+eu obterei uma área resultante
+de 5x5.
+
+00:01:50.878 --> 00:01:54.719
+Existem opções de adicionar
+ou remover o padding do output,
+
+00:01:54.752 --> 00:01:58.181
+mas, na maioria dos casos,
+usamos um filtro de 2x2
+
+00:01:58.214 --> 00:02:02.670
+e stride = 2 para dobrar
+as dimensões X e Y do input.
+
+00:02:02.703 --> 00:02:06.974
+Os pesos do Kernel são aprendidos -
+como na camada convolucional -,
+
+00:02:07.007 --> 00:02:10.742
+mas, desta vez, o propósito
+será aprender uma ampliação eficaz.
+
+00:02:10.775 --> 00:02:14.719
+A seguir, definiremos e treinaremos
+um autocodificador convolucional,
+
+00:02:14.752 --> 00:02:17.221
+que utiliza camadas
+convolucionais transpostas.
+

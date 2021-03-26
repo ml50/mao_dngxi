@@ -1,0 +1,369 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.165 --> 00:00:03.674
+JavaScript é a linguagem
+que deixa os sites interativos.
+
+00:00:03.707 --> 00:00:07.650
+Se já visitou um site que atualiza
+o conteúdo automaticamente,
+
+00:00:07.683 --> 00:00:09.300
+quem faz isso é o JavaScript.
+
+00:00:09.333 --> 00:00:13.265
+Qualquer coisa como um fade-in
+ou um pop-up é feita com JavaScript.
+
+00:00:13.298 --> 00:00:17.769
+Para construir o painel de dados,
+não é preciso escrever JavaScript,
+
+00:00:17.802 --> 00:00:21.089
+mas tanto a biblioteca Bootstrap,
+que você vai usar para CSS,
+
+00:00:21.122 --> 00:00:24.166
+quanto a biblioteca Plotly,
+que vai usar para criar gráficos,
+
+00:00:24.199 --> 00:00:25.520
+usam JavaScript.
+
+00:00:25.553 --> 00:00:29.175
+Isso vai dar uma ideia
+de como essas bibliotecas funcionam.
+
+00:00:29.208 --> 00:00:32.380
+Aqui está um exemplo básico
+de JavaScript.
+
+00:00:32.413 --> 00:00:35.953
+Nas linhas 8 a 12 do código,
+escrevi uma função
+
+00:00:35.986 --> 00:00:39.134
+que muda o texto do cabeçalho
+quando clico na imagem.
+
+00:00:39.167 --> 00:00:40.684
+Vamos ver como funciona.
+
+00:00:40.717 --> 00:00:43.549
+Eu entro na página,
+clico na imagem,
+
+00:00:43.582 --> 00:00:46.945
+e pode ver aqui em cima
+que o texto da tag h1 mudou.
+
+00:00:46.978 --> 00:00:49.820
+Há algumas coisas importantes
+sobre esse código.
+
+00:00:49.853 --> 00:00:53.600
+Primeiro, o código JavaScript
+vai entre as tags script.
+
+00:00:53.633 --> 00:00:57.020
+Perceba que eu também adicionei
+um atributo onclick
+
+00:00:57.053 --> 00:01:00.525
+na tag de imagem
+e especifiquei a função.
+
+00:01:00.558 --> 00:01:04.280
+Isso está aqui na linha 28.
+
+00:01:05.430 --> 00:01:11.299
+Além disso, a sintaxe do JavaScript
+está me parecendo estranha.
+
+00:01:11.332 --> 00:01:14.201
+JavaScript tem uma sintaxe
+relativamente complexa
+
+00:01:14.234 --> 00:01:16.992
+para tornar os sites
+interativos.
+
+00:01:17.025 --> 00:01:20.204
+Nesse caso, estou dizendo:
+"Olhe para o documento HTML,
+
+00:01:20.237 --> 00:01:24.420
+pegue os elementos h1,
+me dê a primeira tag h1
+
+00:01:24.453 --> 00:01:26.424
+e então mude para HTML."
+
+00:01:26.457 --> 00:01:31.030
+A funcionalidade onclick acontece
+porque, como mostrei antes,
+
+00:01:31.063 --> 00:01:35.234
+eu coloquei o atributo onclick
+na tag da imagem.
+
+00:01:35.267 --> 00:01:38.894
+Por sorte, há bibliotecas que deixam
+o trabalho com JavaScript
+
+00:01:38.927 --> 00:01:40.875
+no desenvolvimento front-end
+mais fácil.
+
+00:01:40.908 --> 00:01:44.091
+Vou mostrar a biblioteca
+jQuery,
+
+00:01:44.124 --> 00:01:46.780
+que deixa o JavaScript
+muito mais fácil de usar.
+
+00:01:46.813 --> 00:01:50.351
+Primeiro, você precisa
+pôr o link da biblioteca jQuery,
+
+00:01:50.384 --> 00:01:55.995
+baixando o arquivo ou direcionando
+a um endereço web com a biblioteca.
+
+00:01:56.028 --> 00:01:59.333
+Pode baixar o arquivo
+do site da jQuery
+
+00:01:59.366 --> 00:02:02.099
+ou usar um link
+que contenha o arquivo.
+
+00:02:02.132 --> 00:02:04.729
+Por exemplo, o Google
+tem a biblioteca jQuery
+
+00:02:04.762 --> 00:02:07.715
+disponível para linkar.
+Vou fazer isso.
+
+00:02:07.748 --> 00:02:11.258
+Vou apagar o código JavaScript
+que já tinha escrito
+
+00:02:11.291 --> 00:02:13.860
+e colocar o link
+da biblioteca jQuery.
+
+00:02:13.893 --> 00:02:18.495
+Agora vou fazer uma nova tag script
+e uma tag de fim,
+
+00:02:18.528 --> 00:02:21.670
+e então inserir
+um código jQuery no meio.
+
+00:02:21.703 --> 00:02:25.199
+O código diz para esperar
+o documento ficar pronto.
+
+00:02:25.232 --> 00:02:28.009
+Em outras palavras,
+esperar o documento carregar.
+
+00:02:28.042 --> 00:02:33.574
+Então pegue a tag de imagem,
+coloque a função onclick
+
+00:02:33.607 --> 00:02:38.414
+e, finalmente,
+mude o texto da tag h1.
+
+00:02:38.447 --> 00:02:42.147
+Aí eu só preciso fechar todos
+os meus colchetes e parênteses
+
+00:02:42.707 --> 00:02:44.229
+e você pode ver que funciona.
+
+00:02:44.262 --> 00:02:47.265
+Quando clico na imagem,
+a tag h1 muda.
+
+00:02:47.298 --> 00:02:50.593
+Assim como no CSS,
+posso colocar o código
+
+00:02:50.627 --> 00:02:54.025
+no arquivo HTML
+usando a tag script
+
+00:02:54.058 --> 00:02:57.220
+ou também posso
+colocar o JavaScript
+
+00:02:57.254 --> 00:03:00.490
+num arquivo separado
+e pôr o link.
+
+00:03:00.746 --> 00:03:04.855
+Vou fazer isso agora.
+Vou criar um novo arquivo,
+
+00:03:04.888 --> 00:03:09.935
+vamos chamá-lo de "interaction.js".
+O "js" é de JavaScript.
+
+00:03:09.968 --> 00:03:13.637
+Agora,
+recorto o código JavaScript
+
+00:03:13.671 --> 00:03:17.240
+e colo no arquivo
+interaction.js.
+
+00:03:17.273 --> 00:03:21.529
+Aqui, na tag script,
+preciso especificar a fonte,
+
+00:03:21.562 --> 00:03:25.800
+que nesse caso é só
+esse arquivo interaction.js
+
+00:03:25.833 --> 00:03:28.380
+que está na mesma pasta
+do documento HTML.
+
+00:03:28.413 --> 00:03:31.159
+Perceba que o código jQuery
+ainda funciona.
+
+00:03:31.192 --> 00:03:34.984
+Isso é essencialmente JavaScript
+e o que se pode fazer com ele.
+
+00:03:35.017 --> 00:03:37.915
+Antes de seguir para
+os exercícios de JavaScript,
+
+00:03:37.948 --> 00:03:42.359
+só quero dar mais dois exemplos
+de código jQuery.
+
+00:03:42.392 --> 00:03:47.145
+No momento, esse documento tem
+o mesmo código de antes:
+
+00:03:47.178 --> 00:03:53.010
+se você clicar na imagem,
+o texto na tag h1 muda.
+
+00:03:53.299 --> 00:03:55.185
+O que mais podemos adicionar?
+
+00:03:55.218 --> 00:04:00.319
+A jQuery te dá várias opções.
+Então vou adicionar duas coisas.
+
+00:04:00.352 --> 00:04:03.397
+Primeiro, vou colocar um fade-in
+quando a página carregar
+
+00:04:03.430 --> 00:04:08.215
+e, como outro exemplo,
+vou colocar um fade-out na imagem
+
+00:04:08.248 --> 00:04:11.510
+ao clicar na tag h1 em cima.
+
+00:04:11.543 --> 00:04:13.520
+Deixe-me escrever o código.
+
+00:04:13.553 --> 00:04:18.905
+Como antes, você precisa pegar
+o documento e esperar ficar pronto.
+
+00:04:18.938 --> 00:04:24.300
+Agora quero adicionar algo
+à tag body, então vou selecioná-la.
+
+00:04:24.333 --> 00:04:27.569
+Agora vou, digamos,
+esconder a tag body.
+
+00:04:27.602 --> 00:04:31.049
+Isso vai esconder
+todo o conteúdo ao carregar,
+
+00:04:31.082 --> 00:04:34.612
+e aí eu quero
+um fade-in lento.
+
+00:04:34.645 --> 00:04:38.134
+Perceba que aqui usei aspas duplas,
+e aqui usei simples.
+
+00:04:38.167 --> 00:04:39.324
+Não importa,
+
+00:04:39.357 --> 00:04:43.789
+mas eu deveria ser consistente
+e usar ou aspas simples ou duplas.
+
+00:04:44.178 --> 00:04:47.500
+Agora vou fechar todos
+os colchetes e parênteses.
+
+00:04:47.533 --> 00:04:51.610
+Perceba que, ao carregar a página,
+há um fade-in lento.
+
+00:04:51.643 --> 00:04:55.043
+Certo. Agora vamos adicionar
+uma funcionalidade de clique extra,
+
+00:04:55.076 --> 00:04:59.540
+para que clicar no título h1 em cima
+dê um fade-out na imagem embaixo.
+
+00:04:59.573 --> 00:05:03.305
+Novamente, espere o documento
+carregar e estar pronto.
+
+00:05:03.338 --> 00:05:09.189
+Agora adicionamos uma função
+de clique à tag h1,
+
+00:05:09.222 --> 00:05:15.129
+e então pegamos a imagem
+e usamos um fade-out lento.
+
+00:05:15.162 --> 00:05:19.694
+Então fechamos os colchetes de novo.
+Vejamos se funcionou.
+
+00:05:20.384 --> 00:05:21.730
+Aí está.
+
+00:05:21.763 --> 00:05:25.639
+A documentação jQuery
+é bem extensiva e, repetindo,
+
+00:05:25.672 --> 00:05:29.610
+as bibliotecas que vamos usar
+vão resolver o jQuery para você,
+
+00:05:29.643 --> 00:05:33.865
+mas pelo menos queria que entendesse
+o que acontece por baixo dos panos.
+
+00:05:33.898 --> 00:05:36.976
+Use a informação nesse vídeo
+para ajudá-lo
+
+00:05:37.009 --> 00:05:39.800
+com o exercício de jQuery
+a seguir.
+

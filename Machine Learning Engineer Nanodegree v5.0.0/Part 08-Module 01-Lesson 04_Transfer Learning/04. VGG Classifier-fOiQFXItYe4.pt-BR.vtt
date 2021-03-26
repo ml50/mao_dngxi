@@ -1,0 +1,336 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.190 --> 00:00:03.399
+Vamos implementar a transferência
+de aprendizado no código.
+
+00:00:03.432 --> 00:00:07.427
+Neste notebook,
+usarei a rede VGG-16,
+
+00:00:07.460 --> 00:00:09.371
+cuja arquitetura está
+desenhada aqui.
+
+00:00:09.404 --> 00:00:12.970
+Aplicarei o que foi aprendido
+a uma tarefa nova.
+
+00:00:13.003 --> 00:00:17.054
+O modelo é constituído por camadas
+convolucionais e de pooling
+
+00:00:17.087 --> 00:00:19.448
+e tem três camadas
+completamente conectadas,
+
+00:00:19.481 --> 00:00:22.016
+que agem
+como classificadores finais.
+
+00:00:22.049 --> 00:00:24.680
+Neste notebook, usaremos
+um modelo pré-treinado,
+
+00:00:24.713 --> 00:00:27.847
+que foi treinado por muito tempo
+para alcançar alta precisão
+
+00:00:27.880 --> 00:00:31.038
+na classificação de imagens
+em um conjunto de dados,
+
+00:00:31.071 --> 00:00:33.418
+que é constituído
+de 1.000 classes de imagem.
+
+00:00:33.451 --> 00:00:37.136
+Então a camada de output final
+produzirá 1.000 pontuações,
+
+00:00:37.169 --> 00:00:40.229
+mas, neste notebook, mostrarei
+como alterar a última camada
+
+00:00:40.262 --> 00:00:42.548
+e ajustar a parte
+da classificação do modelo
+
+00:00:42.581 --> 00:00:45.690
+para aplicá-lo à tarefa
+de classificação de flores.
+
+00:00:45.723 --> 00:00:48.131
+Mostrarei o conjunto de dados
+em instantes.
+
+00:00:48.164 --> 00:00:50.411
+Ele inclui cinco
+classes de flores:
+
+00:00:50.444 --> 00:00:53.828
+girassóis, tulipas, rosas,
+dentes-de-leão e margaridas.
+
+00:00:53.861 --> 00:00:56.381
+Para personalizar o modelo VGG
+para esta tarefa,
+
+00:00:56.414 --> 00:00:59.692
+eu congelarei ou bloquearei os pesos
+das camadas convolucionais
+
+00:00:59.725 --> 00:01:01.002
+e de pooling.
+
+00:01:01.035 --> 00:01:04.410
+Essa parte da rede agirá
+como um extrator de recursos,
+
+00:01:04.443 --> 00:01:06.594
+pelo qual todas as imagens
+passarão.
+
+00:01:06.627 --> 00:01:09.912
+Eu substituirei a camada final
+de classificação
+
+00:01:09.945 --> 00:01:12.118
+por uma nova camada
+completamente conectada,
+
+00:01:12.151 --> 00:01:15.646
+uma que produzirá 5 pontuações
+em vez de 1.000 como output.
+
+00:01:15.679 --> 00:01:17.487
+Depois de substituir
+a última camada,
+
+00:01:17.520 --> 00:01:20.673
+treinarei as três camadas.
+
+00:01:20.706 --> 00:01:24.313
+Isso significa que eu definirei
+os pesos de duas camadas
+
+00:01:24.346 --> 00:01:26.969
+e treinarei novos pesos
+nesta última.
+
+00:01:27.002 --> 00:01:29.457
+Vamos começar com esta tarefa.
+
+00:01:29.490 --> 00:01:31.818
+Primeiro carregamos
+as bibliotecas
+
+00:01:31.851 --> 00:01:34.464
+e conferimos se há
+um dispositivo GPU disponível.
+
+00:01:34.497 --> 00:01:36.660
+Por ora, como seguirei
+com este exercício,
+
+00:01:36.693 --> 00:01:38.801
+usarei a CPU do meu laptop.
+
+00:01:38.834 --> 00:01:41.577
+Depois carregamos os dados
+como de costume.
+
+00:01:41.610 --> 00:01:45.058
+Meus dados estão nos diretórios
+de treinamento e de teste.
+
+00:01:45.091 --> 00:01:48.611
+Cada subdiretório representa
+uma classe de flor.
+
+00:01:48.644 --> 00:01:51.178
+Esta estrutura facilita
+o carregamento dos dados
+
+00:01:51.211 --> 00:01:53.769
+usando a classe PyTorch
+ImageFolder.
+
+00:01:53.802 --> 00:01:57.513
+Essa classe assume que as imagens
+estão em pastas rotuladas,
+
+00:01:57.546 --> 00:02:01.083
+então os girassóis estarão
+na pasta de girassóis, por exemplo.
+
+00:02:01.116 --> 00:02:06.380
+A VGG espera ver imagens
+de 224x224 como input,
+
+00:02:06.413 --> 00:02:10.657
+então devemos redimensionar
+as imagens usando data_transform.
+
+00:02:10.690 --> 00:02:13.290
+Eu carregarei os dados
+de treinamento e de teste.
+
+00:02:13.323 --> 00:02:16.594
+Podemos separar um conjunto
+de validação se quisermos.
+
+00:02:16.627 --> 00:02:19.634
+Existem apenas 3.000
+imagens de treinamento
+
+00:02:19.667 --> 00:02:21.682
+e bem menos imagens de teste.
+
+00:02:21.715 --> 00:02:25.353
+Isso é bem menor do que
+o conjunto de dados MNIST.
+
+00:02:25.386 --> 00:02:28.121
+Será interessante ver como
+a transferência funcionará
+
+00:02:28.154 --> 00:02:29.922
+para um conjunto de dados
+pequeno.
+
+00:02:29.955 --> 00:02:33.769
+Aqui eu uso a classe DataLoader
+para carregar os dados em lotes.
+
+00:02:33.802 --> 00:02:36.337
+Por fim, visualizarei um lote
+dos dados.
+
+00:02:36.370 --> 00:02:39.714
+Vemos uma variedade de flores
+e os respectivos rótulos.
+
+00:02:39.747 --> 00:02:42.642
+Vemos a variedade
+nas imagens:
+
+00:02:42.675 --> 00:02:46.241
+os girassóis estão em detalhe,
+enquanto as outras estão bem longe.
+
+00:02:46.274 --> 00:02:48.778
+A tarefa será mais difícil
+
+00:02:48.811 --> 00:02:51.940
+do que se as flores estivessem
+centralizadas e pré-processadas.
+
+00:02:51.973 --> 00:02:54.859
+Depois de carregar os dados,
+vamos definir o modelo.
+
+00:02:54.892 --> 00:02:57.753
+O primeiro passo para usarmos
+um modelo pré-treinado
+
+00:02:57.786 --> 00:03:00.634
+é saber como observar
+a estrutura já existente.
+
+00:03:00.667 --> 00:03:04.947
+Eu carregarei o modelo VGG-16
+da biblioteca de modelos PyTorch,
+
+00:03:04.980 --> 00:03:07.563
+que contém um modelo
+comumente usado.
+
+00:03:07.596 --> 00:03:10.266
+O modelo será treinado,
+chamado pelo nome
+
+00:03:10.299 --> 00:03:12.065
+e armazenado nesta variável.
+
+00:03:12.098 --> 00:03:15.289
+Depois de ser carregado,
+imprimiremos para ver as camadas.
+
+00:03:15.322 --> 00:03:17.776
+Aqui eu vejo toda a rede VGG.
+
+00:03:17.809 --> 00:03:20.945
+Primeiro há uma sequência
+de camadas chamadas de "features",
+
+00:03:20.978 --> 00:03:24.111
+que é uma série de camadas
+convolucionais e de max pooling.
+
+00:03:24.144 --> 00:03:27.414
+Depois há outro grupo de camadas
+chamadas de "classifier",
+
+00:03:27.447 --> 00:03:30.506
+onde as três camadas lineares
+completamente conectadas estão.
+
+00:03:30.539 --> 00:03:35.066
+Também vemos quantos inputs
+e outputs existem nas camadas.
+
+00:03:35.099 --> 00:03:37.297
+Agora posso me referir
+a uma das camadas,
+
+00:03:37.330 --> 00:03:40.349
+aos grupos de camadas
+ou às camadas individuais pelo nome.
+
+00:03:40.382 --> 00:03:43.671
+Por exemplo, posso digitar
+vgg16.features
+
+00:03:43.704 --> 00:03:45.787
+para obter todo este grupo
+de camadas.
+
+00:03:45.820 --> 00:03:48.323
+Ou, para me referir a esta última
+camada linear,
+
+00:03:48.356 --> 00:03:53.570
+posso me referir à sessão
+vgg16.classifier com o valor 6.
+
+00:03:53.603 --> 00:03:56.680
+Por exemplo, aqui eu acesso
+a última camada linear
+
+00:03:56.713 --> 00:03:59.866
+e imprimo quantas características
+ela tem.
+
+00:03:59.899 --> 00:04:03.295
+Vemos que os valores se alinham
+com o que imprimimos antes.
+
+00:04:03.328 --> 00:04:06.071
+Agora que vimos como usar
+um modelo pré-treinado,
+
+00:04:06.104 --> 00:04:09.295
+mostrarei como congelar os pesos
+nas camadas de características
+
+00:04:09.328 --> 00:04:12.279
+e substituí-las por uma nova
+camada linear
+
+00:04:12.312 --> 00:04:14.945
+adequada para a tarefa
+de classificação de flores.
+

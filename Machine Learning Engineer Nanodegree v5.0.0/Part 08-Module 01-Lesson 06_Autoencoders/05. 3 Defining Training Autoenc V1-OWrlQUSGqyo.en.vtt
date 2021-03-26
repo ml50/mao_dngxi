@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.724
+Your task here was to define the linear layers to make up a simple autoencoder.
+
+00:00:04.724 --> 00:00:07.969
+The encoder will be responsible for compressing an input image,
+
+00:00:07.969 --> 00:00:09.150
+then the last layer will use
+
+00:00:09.150 --> 00:00:12.785
+that compressed representation to produce a reconstructed output image.
+
+00:00:12.785 --> 00:00:14.880
+If you want to get more complicated with this,
+
+00:00:14.880 --> 00:00:18.560
+you could stack up more and more linear layers as many layers as you want.
+
+00:00:18.559 --> 00:00:20.129
+As long as you have a midpoint where
+
+00:00:20.129 --> 00:00:22.669
+the outputs represent your compressed representation.
+
+00:00:22.670 --> 00:00:25.145
+In this case, no matter how many layers you define,
+
+00:00:25.144 --> 00:00:29.994
+you want the output to be 784 units to match our original input image vector.
+
+00:00:29.995 --> 00:00:34.100
+This way, we can compare the reconstructed output directly with the input values.
+
+00:00:34.100 --> 00:00:35.535
+So, here's my solution.
+
+00:00:35.534 --> 00:00:37.459
+In this example, I've defined the encoder and
+
+00:00:37.460 --> 00:00:40.280
+decoder as being made of one linear layer each.
+
+00:00:40.280 --> 00:00:45.945
+The encoder sees our 784 pixel inputs and produces a specified number of outputs.
+
+00:00:45.945 --> 00:00:50.295
+This output is a compressed representation that is encoding dim units long.
+
+00:00:50.295 --> 00:00:53.094
+In this example, this value is 32.
+
+00:00:53.094 --> 00:00:57.244
+So, this layer is going from 784 inputs to 32.
+
+00:00:57.244 --> 00:01:00.684
+Then I just reverse this process in the decoder portion.
+
+00:01:00.685 --> 00:01:04.730
+Here, I've created one linear layer that sees these 32 values as input and
+
+00:01:04.730 --> 00:01:09.400
+transforms them back into the larger 784 value long image vector.
+
+00:01:09.400 --> 00:01:12.080
+In the forward function, I've applied a relu activation to
+
+00:01:12.079 --> 00:01:16.594
+the encoder layer and a sigmoid to scale the values that have been output by the decoder.
+
+00:01:16.594 --> 00:01:21.664
+The exits returned will contain 784 normalized grayscale pixel values.
+
+00:01:21.665 --> 00:01:26.835
+Here I've instantiated the model with an encoding them of 32. Next comes training.
+
+00:01:26.834 --> 00:01:30.799
+To train your network, you have to define appropriate loss and optimization functions.
+
+00:01:30.799 --> 00:01:32.234
+I'm going to help with this bit.
+
+00:01:32.234 --> 00:01:34.790
+Now, this is not our usual classification task.
+
+00:01:34.790 --> 00:01:37.280
+So we're actually going to be using a different kind of loss.
+
+00:01:37.280 --> 00:01:40.545
+We're using a mean squared error rather than cross entropy.
+
+00:01:40.545 --> 00:01:43.219
+MSE loss is a good loss to use when comparing
+
+00:01:43.219 --> 00:01:45.980
+pixel quantities rather than class probabilities.
+
+00:01:45.980 --> 00:01:49.299
+I'll also use an Adam optimizer rather than gradient descent.
+
+00:01:49.299 --> 00:01:52.694
+Simply because it's been proven to work better in these scenarios.
+
+00:01:52.694 --> 00:01:54.364
+Then in the training loop,
+
+00:01:54.364 --> 00:01:57.714
+the epochs and looping through batches of data should look pretty familiar.
+
+00:01:57.715 --> 00:02:02.109
+The main thing to note here is that we are only using the images from the train loader.
+
+00:02:02.109 --> 00:02:04.534
+We're actually not interested in any labels
+
+00:02:04.534 --> 00:02:07.039
+only in original images and the reconstructions.
+
+00:02:07.040 --> 00:02:11.235
+Here, I have to flatten these images and then pass those vectors to our model.
+
+00:02:11.235 --> 00:02:14.325
+Our model returns reconstructed image outputs.
+
+00:02:14.324 --> 00:02:18.649
+Then finally, we're comparing the input images and this output reconstructed image.
+
+00:02:18.650 --> 00:02:20.840
+So our loss is actually telling us how
+
+00:02:20.840 --> 00:02:23.634
+good of a reconstructed image our model has produced.
+
+00:02:23.634 --> 00:02:25.859
+After all of this, later down the notebook,
+
+00:02:25.860 --> 00:02:28.655
+I've also provided some code for you to test out your model by
+
+00:02:28.655 --> 00:02:31.939
+giving it some test images and visualizing the reconstructed images.
+
+00:02:31.939 --> 00:02:34.430
+All right. Next I'm going to talk about how your training loss
+
+00:02:34.430 --> 00:02:37.469
+might look overtime and show you some reconstructed images.
+

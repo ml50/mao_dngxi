@@ -1,0 +1,110 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.122 --> 00:00:04.231
+Você pôde definir e treinar
+um autocodificador,
+
+00:00:04.264 --> 00:00:07.257
+e quero mostrar como foi
+o treinamento do meu modelo.
+
+00:00:07.290 --> 00:00:09.856
+Decidi treinar
+por cerca de 20 epochs.
+
+00:00:09.889 --> 00:00:11.655
+Observei as tendências
+da perda
+
+00:00:11.688 --> 00:00:14.444
+e vi que as maiores diminuições
+aconteceram no início.
+
+00:00:14.477 --> 00:00:17.372
+As menores,
+por volta da epoch 14.
+
+00:00:17.405 --> 00:00:21.692
+Se eu treinar mais do que 20 epochs,
+não verei muita melhora.
+
+00:00:21.725 --> 00:00:25.148
+A perda é uma forma de verificar
+o desempenho do modelo.
+
+00:00:25.181 --> 00:00:29.836
+Para um modelo de classificação,
+observamos a precisão,
+
+00:00:29.869 --> 00:00:31.812
+mas esta tarefa
+é um pouco diferente.
+
+00:00:31.845 --> 00:00:35.915
+Estamos comparando as imagens
+de input com as reconstruções,
+
+00:00:35.948 --> 00:00:38.436
+portanto, para saber
+se o codificador funciona,
+
+00:00:38.469 --> 00:00:41.041
+observamos as reconstruções
+diretamente.
+
+00:00:41.074 --> 00:00:43.249
+Aqui eu carrego um lote
+de dados de teste
+
+00:00:43.282 --> 00:00:45.161
+e só me preocupo
+com as imagens.
+
+00:00:45.194 --> 00:00:47.928
+Eu achato as imagens
+e as passo para o modelo
+
+00:00:47.961 --> 00:00:49.712
+para obter as reconstruções.
+
+00:00:49.745 --> 00:00:54.769
+Por fim, redimensionamos o output
+em uma imagem de 28x28.
+
+00:00:54.802 --> 00:00:59.530
+Este código exibe as 10 imagens
+originais e as 10 reconstruções.
+
+00:00:59.563 --> 00:01:01.298
+Podemos ver o resultado.
+
+00:01:01.331 --> 00:01:03.784
+Na maioria das vezes,
+a reconstrução ficou boa,
+
+00:01:03.817 --> 00:01:06.992
+quase idêntica à original -
+em alguns casos -,
+
+00:01:07.025 --> 00:01:12.024
+mas existem alguns borrões
+em algumas bordas e curvas.
+
+00:01:12.057 --> 00:01:14.848
+Poderíamos adicionar
+mais camadas lineares ao modelo,
+
+00:01:14.881 --> 00:01:17.738
+mas, como sabemos que a maioria
+das análises de imagens
+
+00:01:17.771 --> 00:01:19.953
+são feitas
+pelas camadas convolucionais,
+
+00:01:19.986 --> 00:01:22.800
+vejamos como criar
+um autocodificador convolucional.
+

@@ -1,0 +1,542 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.132 --> 00:00:05.360
+Há várias opções ao escolhermos
+bibliotecas de gráficos JavaScript.
+
+00:00:05.393 --> 00:00:08.220
+Escolhi a Plotly para essa aula
+porque ela tem
+
+00:00:08.253 --> 00:00:12.060
+uma biblioteca JavaScript
+e também uma versão Python.
+
+00:00:12.093 --> 00:00:15.675
+Já que o back-end desse app
+vai ser em Python,
+
+00:00:15.708 --> 00:00:20.100
+você pode usar a biblioteca Plotly
+Python no seu back-end.
+
+00:00:20.133 --> 00:00:22.969
+A Plotly, só para você saber,
+é uma empresa,
+
+00:00:23.002 --> 00:00:25.929
+mas suas bibliotecas de gráficos
+são de código aberto.
+
+00:00:25.962 --> 00:00:28.164
+Já que você ainda
+não fez o back-end,
+
+00:00:28.197 --> 00:00:31.790
+nessa parte da aula,
+vou mostrar a versão JavaScript
+
+00:00:31.823 --> 00:00:33.439
+da biblioteca Plotly.
+
+00:00:33.472 --> 00:00:38.901
+A sintaxe e ideias por trás
+das versões Python e JavaScript
+
+00:00:38.934 --> 00:00:41.854
+são bem similares,
+então quando você acabar usando
+
+00:00:41.887 --> 00:00:44.247
+a biblioteca Plotly Python
+mais adiante na aula,
+
+00:00:44.280 --> 00:00:45.684
+não vai ser muito diferente.
+
+00:00:45.717 --> 00:00:49.772
+Para criar um gráfico,
+você precisa criar um elemento div
+
+00:00:49.805 --> 00:00:51.519
+com um ID específico.
+
+00:00:51.552 --> 00:00:56.024
+Como pode ver aqui,
+eu tenho um documento HTML básico.
+
+00:00:56.057 --> 00:01:00.462
+Só coloquei o link
+do arquivo-fonte do JavaScript
+
+00:01:00.496 --> 00:01:02.685
+da biblioteca Plotly.
+
+00:01:02.718 --> 00:01:07.855
+Então criei um div aqui embaixo,
+com id="plot1".
+
+00:01:07.888 --> 00:01:11.660
+E também links para
+um script chamado "plot1.js",
+
+00:01:11.693 --> 00:01:15.754
+onde escreverei o código JavaScript
+para fazer o gráfico aparecer.
+
+00:01:15.787 --> 00:01:21.549
+Vou colocar o código Plotly
+nesse arquivo plot1.js.
+
+00:01:21.582 --> 00:01:26.026
+Essencialmente,
+só o que você precisa é ter dados
+
+00:01:26.059 --> 00:01:29.430
+e então dizer à Plotly
+que tipo de gráfico quer fazer.
+
+00:01:29.463 --> 00:01:34.489
+Nesse caso, vou colocar alguns dados
+em listas de JavaScript.
+
+00:01:34.996 --> 00:01:38.099
+Esse é só um código
+JavaScript normal.
+
+00:01:38.132 --> 00:01:42.310
+Vou criar alguns dados
+que têm "year" como uma variável
+
+00:01:42.343 --> 00:01:46.329
+e "arable_land"
+como a outra variável.
+
+00:01:46.362 --> 00:01:50.625
+Esses são dados reais
+que tirei do site do Banco Mundial.
+
+00:01:50.658 --> 00:01:53.275
+Certo.
+Agora vem o código Plotly.
+
+00:01:53.308 --> 00:01:56.469
+Vou criar a variável trace,
+
+00:01:56.503 --> 00:02:00.080
+que é basicamente
+uma visualização,
+
+00:02:00.113 --> 00:02:03.351
+ou podemos pensar como uma parte
+da visualização,
+
+00:02:03.384 --> 00:02:06.409
+como uma reta simples
+ou um conjunto de pontos.
+
+00:02:06.442 --> 00:02:08.353
+Você logo vai ver
+do que estou falando.
+
+00:02:08.386 --> 00:02:12.892
+Vou definir a variável x
+como year,
+
+00:02:12.926 --> 00:02:16.134
+a variável y como arable_land,
+
+00:02:16.167 --> 00:02:21.090
+então coloco mode:'lines',
+porque quero um gráfico de retas
+
+00:02:21.123 --> 00:02:26.250
+e vou especificar o tipo
+como gráfico de dispersão.
+
+00:02:26.283 --> 00:02:30.683
+Isso é basicamente um dicionário
+que estou fazendo em JavaScript,
+
+00:02:30.716 --> 00:02:34.210
+onde especifico todas
+as partes da visualização.
+
+00:02:34.243 --> 00:02:39.115
+Vou criar outra lista para colocar
+esse trace, e a chamo de "data".
+
+00:02:39.148 --> 00:02:43.955
+Na última parte,
+só digo Plotly.newPlot.
+
+00:02:43.988 --> 00:02:47.585
+Vou chamar a biblioteca Plotly,
+método newPlot.
+
+00:02:47.618 --> 00:02:52.680
+Então coloco plot1,
+porque foi o ID que usamos no HTML,
+
+00:02:52.713 --> 00:02:55.635
+insiro os dados,
+e deve funcionar.
+
+00:02:55.668 --> 00:02:58.139
+Aí está.
+Esse foi o gráfico que fiz.
+
+00:02:58.172 --> 00:03:03.230
+O gráfico não é perfeito,
+falta o título, por exemplo,
+
+00:03:03.263 --> 00:03:07.284
+e faltam os rótulos dos eixos x e y,
+então vamos adicionar.
+
+00:03:07.317 --> 00:03:12.834
+Coloco a variável chamada "layout",
+que vai ser outro dicionário
+
+00:03:12.867 --> 00:03:15.991
+com a informação
+que eu quero colocar, como o título.
+
+00:03:16.024 --> 00:03:21.589
+Vou colocar esse br, que na verdade
+é HTML para uma quebra de linha,
+
+00:03:21.622 --> 00:03:24.532
+para o título ficar
+em duas linhas diferentes.
+
+00:03:24.914 --> 00:03:29.484
+Agora vou especificar
+algumas coisas sobre o eixo x.
+
+00:03:29.517 --> 00:03:34.550
+Isso vai ser um dicionário dentro
+de outro, porque há várias opções.
+
+00:03:34.583 --> 00:03:36.700
+Vou deixar o título
+como "year".
+
+00:03:37.501 --> 00:03:41.801
+Vou dizer, na verdade, que quero
+tick começando em 1990
+
+00:03:41.834 --> 00:03:46.150
+e quero que o delta
+entre os ticks seja 25.
+
+00:03:46.183 --> 00:03:50.226
+Agora, vou especificar
+algumas coisas sobre o eixo y,
+
+00:03:50.259 --> 00:03:54.449
+como o título.
+E vamos fechar isso.
+
+00:03:55.221 --> 00:03:59.669
+Vou colocar o layout como terceiro
+input no método newPlot.
+
+00:03:59.702 --> 00:04:04.226
+Certo. Verificamos se o eixo x
+começa em 1990
+
+00:04:04.259 --> 00:04:06.964
+e há somente 2 pontos,
+
+00:04:06.998 --> 00:04:10.944
+1990 e um delta de 25
+para 2015.
+
+00:04:10.977 --> 00:04:14.074
+Colocamos o ano
+como rótulo do eixo x,
+
+00:04:14.107 --> 00:04:17.435
+colocamos o rótulo do eixo y
+e o título.
+
+00:04:17.859 --> 00:04:19.935
+Você pode ver como
+usando Plotly
+
+00:04:19.968 --> 00:04:22.140
+podemos construir
+um gráfico aos poucos
+
+00:04:22.173 --> 00:04:23.949
+com cada vez mais recursos.
+
+00:04:23.982 --> 00:04:27.944
+Então vamos deixar a visualização
+um pouco mais complexa.
+
+00:04:27.977 --> 00:04:31.250
+Tenho o Brasil aqui,
+quero colocar a Alemanha,
+
+00:04:31.283 --> 00:04:33.860
+para que Brasil e Alemanha
+apareçam ao mesmo tempo.
+
+00:04:33.893 --> 00:04:38.280
+Então vou mudar essa variável
+e chamá-la de “arable_land1”.
+
+00:04:38.313 --> 00:04:43.549
+E vou criar a variável country1
+e chamá-la de “Brazil”.
+
+00:04:43.582 --> 00:04:48.480
+Certo, eu quero arable_land1
+como eixo y.
+
+00:04:48.513 --> 00:04:53.201
+Vou adicionar o nome aqui
+e dizer country1
+
+00:04:53.234 --> 00:04:55.459
+e isso vai ser usado
+na legenda.
+
+00:04:56.545 --> 00:05:00.840
+Agora vou adicionar informações
+sobre a Alemanha.
+
+00:05:01.454 --> 00:05:06.439
+Preciso criar outro trace, o trace2,
+para criar uma reta para a Alemanha.
+
+00:05:06.472 --> 00:05:10.412
+Vamos usar a mesma variável year,
+arable_land2,
+
+00:05:10.446 --> 00:05:14.569
+e especificar mode e type.
+
+00:05:14.602 --> 00:05:20.159
+Agora adicionamos trace2
+à lista de dados, e aí está.
+
+00:05:20.192 --> 00:05:25.055
+Só para dar outras ideias:
+você pode mudar mode, por exemplo,
+
+00:05:25.088 --> 00:05:30.791
+e mudar de retas para marcadores.
+Isso dá pontos em vez de uma reta.
+
+00:05:30.824 --> 00:05:34.570
+Ou poderia colocar
+lines+markers e ter os dois.
+
+00:05:34.929 --> 00:05:37.675
+Agora vamos colocar
+outro gráfico.
+
+00:05:37.708 --> 00:05:42.665
+Só o que preciso fazer é adicionar
+outro div e colocar outro nome.
+
+00:05:42.698 --> 00:05:46.145
+Vamos chamá-lo de "plot2".
+
+00:05:46.178 --> 00:05:49.015
+Apenas para organizar melhor,
+
+00:05:49.049 --> 00:05:52.580
+vou colocar em um
+arquivo diferente.
+
+00:05:52.613 --> 00:05:56.629
+Então vou criar esse novo arquivo
+chamado "plot2".
+
+00:05:57.131 --> 00:06:01.430
+No plot2, vou criar um gráfico
+de barras, para ficar diferente.
+
+00:06:01.463 --> 00:06:06.745
+Vou colocar os dados diretamente
+em vez de usar variáveis extras.
+
+00:06:06.778 --> 00:06:09.095
+Novamente, os dados
+são apenas uma lista,
+
+00:06:09.128 --> 00:06:11.435
+uma lista de todos os pontos
+de dados em ordem,
+
+00:06:11.468 --> 00:06:14.740
+para que x e y combinem.
+
+00:06:14.773 --> 00:06:18.680
+Type é um gráfico de barras,
+porque quero fazer algo diferente.
+
+00:06:18.713 --> 00:06:21.740
+Vamos fechar isso
+e criar um layout.
+
+00:06:21.773 --> 00:06:26.360
+Vou colocar o título:
+“Hectares de Terra Arável
+
+00:06:26.393 --> 00:06:30.285
+por Pessoa 2015”.
+
+00:06:30.318 --> 00:06:32.875
+O eixo x, vamos dar um título.
+
+00:06:32.908 --> 00:06:37.759
+Eixo y, “Hectares por Pessoa”
+como título.
+
+00:06:37.792 --> 00:06:43.089
+Então chamamos
+o método Plotly.newPlot.
+
+00:06:43.122 --> 00:06:46.441
+Verifique se especificou
+o nome certo do ID,
+
+00:06:46.474 --> 00:06:51.795
+coloque os dados, o layout
+e aqui está nosso segundo gráfico.
+
+00:06:51.828 --> 00:06:56.280
+Cabe a você decidir que tipo
+de gráfico é melhor para seus dados.
+
+00:06:56.313 --> 00:07:01.250
+É bom ir ao site da Plotly
+e ver todos os exemplos,
+
+00:07:01.283 --> 00:07:03.800
+para poder fazer
+o tipo de gráfico que quiser.
+
+00:07:03.833 --> 00:07:09.009
+Eles têm vários exemplos no site.
+De novo, você pode pegar o código,
+
+00:07:09.042 --> 00:07:13.915
+copiar o código de exemplo,
+preencher com seus próprios dados
+
+00:07:13.948 --> 00:07:16.750
+e mudar o que quiser.
+
+00:07:16.783 --> 00:07:20.244
+Certo. A última coisa
+que quero mostrar é como combinar
+
+00:07:20.277 --> 00:07:22.798
+o que você fez
+com a biblioteca Bootstrap
+
+00:07:22.831 --> 00:07:26.680
+e colocar
+nesses gráficos Plotly.
+
+00:07:27.860 --> 00:07:32.685
+Aqui eu tenho o front-end
+no qual você estava trabalhando
+
+00:07:32.718 --> 00:07:37.299
+com o Bootstrap
+e coloquei algumas coisas a mais.
+
+00:07:37.332 --> 00:07:43.145
+Lá no final adicionei
+algumas tags script a mais.
+
+00:07:43.178 --> 00:07:47.320
+Uma tem o link para
+a biblioteca Plotly JavaScript
+
+00:07:47.353 --> 00:07:51.635
+e duas outras têm links
+para o código Plotly
+
+00:07:51.668 --> 00:07:53.560
+que eu estava
+escrevendo antes.
+
+00:07:53.593 --> 00:07:57.404
+Elas têm o link para
+plot1.js e plot2.js.
+
+00:07:57.927 --> 00:08:01.263
+Agora só resta colocar os divs
+com os IDs corretos
+
+00:08:01.296 --> 00:08:04.870
+no ponto onde quero
+as visualizações.
+
+00:08:04.903 --> 00:08:07.411
+Rolando aqui para cima,
+
+00:08:07.445 --> 00:08:11.274
+tenho essa linha
+e as duas colunas.
+
+00:08:11.307 --> 00:08:13.879
+Quero que meus gráficos
+apareçam aqui.
+
+00:08:13.912 --> 00:08:15.382
+Então vou criar um novo div,
+
+00:08:15.415 --> 00:08:20.694
+colocar id="plot1" e fechá-lo.
+
+00:08:20.727 --> 00:08:23.023
+Vou criar outro div,
+
+00:08:23.056 --> 00:08:28.270
+colocar id="plot2" e fechá-lo.
+
+00:08:28.303 --> 00:08:31.074
+Vamos ver como ficou.
+
+00:08:31.107 --> 00:08:35.348
+Certo. Agora combinamos
+o Bootstrap CSS front-end
+
+00:08:35.381 --> 00:08:41.305
+com as visualizações em JavaScript
+usando a Plotly.
+
+00:08:41.908 --> 00:08:45.703
+A única parte que falta
+em termos de front-end
+
+00:08:45.736 --> 00:08:50.904
+é usar realmente dados de,
+por exemplo, um arquivo CSV
+
+00:08:50.937 --> 00:08:53.580
+ou baixar dados da internet,
+
+00:08:53.613 --> 00:08:55.982
+mas vamos chegar nisso
+mais adiante na aula.
+
+00:08:56.422 --> 00:09:01.289
+O front-end é basicamente isso.
+Há mais um exercício a fazer
+
+00:09:01.322 --> 00:09:05.954
+e então você vai começar
+a trabalhar no back-end.
+

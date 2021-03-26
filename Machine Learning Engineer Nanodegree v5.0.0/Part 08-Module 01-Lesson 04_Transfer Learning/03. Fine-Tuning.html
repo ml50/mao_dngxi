@@ -1,0 +1,690 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Fine-Tuning
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Transfer Learning
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Transfer Learning.html">
+       01. Transfer Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Useful Layers.html">
+       02. Useful Layers
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Fine-Tuning.html">
+       03. Fine-Tuning
+      </a>
+     </li>
+     <li class="">
+      <a href="04. VGG Model &amp; Classifier.html">
+       04. VGG Model &amp; Classifier
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Pre-Notebook Transfer Learning.html">
+       05. Pre-Notebook: Transfer Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Notebook Transfer Learning, Flowers.html">
+       06. Notebook: Transfer Learning, Flowers
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Freezing Weights &amp; Last Layer.html">
+       07. Freezing Weights &amp; Last Layer
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Training a Classifier.html">
+       08. Training a Classifier
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Fine-Tuning
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          03 Fine Tuning V1 RENDER V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. 03 Fine Tuning V1 RENDER V2-XOyb315xYbw.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="03. 03 Fine Tuning V1 RENDER V2-XOyb315xYbw.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="true" kind="subtitles" label="en" src="03. 03 Fine Tuning V1 RENDER V2-XOyb315xYbw.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="03. 03 Fine Tuning V1 RENDER V2-XOyb315xYbw.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="transfer-learning">
+          Transfer Learning
+         </h1>
+         <p>
+          Transfer learning involves taking a pre-trained neural network and adapting the neural network to a new, different data set.
+         </p>
+         <p>
+          Depending on both:
+         </p>
+         <ul>
+          <li>
+           The size of the new data set, and
+          </li>
+          <li>
+           The similarity of the new data set to the original data set
+          </li>
+         </ul>
+         <p>
+          The approach for using transfer learning will be different. There are four main cases:
+         </p>
+         <ol>
+          <li>
+           New data set is small, new data is similar to original training data.
+          </li>
+          <li>
+           New data set is small, new data is different from original training data.
+          </li>
+          <li>
+           New data set is large, new data is similar to original training data.
+          </li>
+          <li>
+           New data set is large, new data is different from original training data.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          A large data set might have one million images. A small data could have two-thousand images. The dividing line between a large data set and small data set is somewhat subjective. Overfitting is a concern when using transfer learning with a small data set.
+         </p>
+         <p>
+          Images of dogs and images of wolves would be considered similar; the images would share common characteristics. A data set of flower images would be different from a data set of dog images.
+         </p>
+         <p>
+          Each of the four transfer learning cases has its own approach. In the following sections, we will look at each case one by one.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The graph below displays what approach is recommended for each of the four main cases.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Four cases for using transfer learning." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.22.35-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Four cases for using transfer learning.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="demonstration-network">
+          Demonstration Network
+         </h3>
+         <p>
+          To explain how each situation works, we will start with a generic pre-trained convolutional neural network and explain how to adjust the network for each case. Our example network contains three convolutional layers and three fully connected layers:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Overview of the layers of a pre-trained CNN." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.25.41-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Overview of the layers of a pre-trained CNN.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Here is an generalized overview of what the convolutional neural network does:
+         </p>
+         <ul>
+          <li>
+           the first layer will detect edges in the image
+          </li>
+          <li>
+           the second layer will detect shapes
+          </li>
+          <li>
+           the third convolutional layer detects higher level features
+          </li>
+         </ul>
+         <p>
+          Each transfer learning case will use the pre-trained convolutional neural network in a different way.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="case-1-small-data-set-similar-data">
+          Case 1: Small Data Set, Similar Data
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Case 1: small set, similar data" class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.27.01-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Case 1: small set, similar data
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If the new data set is small and similar to the original training data:
+         </p>
+         <ul>
+          <li>
+           slice off the end of the neural network
+          </li>
+          <li>
+           add a new fully connected layer that matches the number of classes in the new data set
+          </li>
+          <li>
+           randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+          </li>
+          <li>
+           train the network to update the weights of the new fully connected layer
+          </li>
+         </ul>
+         <p>
+          To avoid overfitting on the small data set, the weights of the original network will be held constant rather than re-training the weights.
+         </p>
+         <p>
+          Since the data sets are similar, images from each data set will have similar higher level features. Therefore most or all of the pre-trained neural network layers already contain relevant information about the new data set and should be kept.
+         </p>
+         <p>
+          Here's how to visualize this approach:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Adding and training a fully-connected layer at the end of the NN." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.27.57-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Adding and training a fully-connected layer at the end of the NN.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="case-2-small-data-set-different-data">
+          Case 2: Small Data Set, Different Data
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Case 2: small set, different data" class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.29.10-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Case 2: small set, different data
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If the new data set is small and different from the original training data:
+         </p>
+         <ul>
+          <li>
+           slice off all but some of the pre-trained layers near the beginning of the network
+          </li>
+          <li>
+           add to the remaining pre-trained layers a new fully connected layer that matches the number of classes in the new data set
+          </li>
+          <li>
+           randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+          </li>
+          <li>
+           train the network to update the weights of the new fully connected layer
+          </li>
+         </ul>
+         <p>
+          Because the data set is small, overfitting is still a concern. To combat overfitting, the weights of the original neural network will be held constant, like in the first case.
+         </p>
+         <p>
+          But the original training set and the new data set do not share higher level features. In this case, the new network will only use the layers containing lower level features.
+         </p>
+         <p>
+          Here is how to visualize this approach:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Remove all but the starting layers of the model, and add and train a linear layer at the end." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.30.01-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Remove all but the starting layers of the model, and add and train a linear layer at the end.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="case-3-large-data-set-similar-data">
+          Case 3: Large Data Set, Similar Data
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Case 3: large data, similar to ImageNet or pre-trained set." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.31.03-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Case 3: large data, similar to ImageNet or pre-trained set.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If the new data set is large and similar to the original training data:
+         </p>
+         <ul>
+          <li>
+           remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+          </li>
+          <li>
+           randomly initialize the weights in the new fully connected layer
+          </li>
+          <li>
+           initialize the rest of the weights using the pre-trained weights
+          </li>
+          <li>
+           re-train the entire neural network
+          </li>
+         </ul>
+         <p>
+          Overfitting is not as much of a concern when training on a large data set; therefore, you can re-train all of the weights.
+         </p>
+         <p>
+          Because the original training set and the new data set share higher level features, the entire neural network is used as well.
+         </p>
+         <p>
+          Here is how to visualize this approach:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Utilizing pre-trained weights as a starting point!" class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.31.59-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Utilizing pre-trained weights as a starting point!
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="case-4-large-data-set-different-data">
+          Case 4: Large Data Set, Different Data
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Case 4: large data, different than original set" class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.33.11-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Case 4: large data, different than original set
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If the new data set is large and different from the original training data:
+         </p>
+         <ul>
+          <li>
+           remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+          </li>
+          <li>
+           retrain the network from scratch with randomly initialized weights
+          </li>
+          <li>
+           alternatively, you could just use the same strategy as the "large and similar" data case
+          </li>
+         </ul>
+         <p>
+          Even though the data set is different from the training data, initializing the weights from the pre-trained network might make training faster. So this case is exactly the same as the case with a large, similar data set.
+         </p>
+         <p>
+          If using the pre-trained network as a starting point does not produce a successful model, another option is to randomly initialize the convolutional neural network weights and train the network from scratch.
+         </p>
+         <p>
+          Here is how to visualize this approach:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Fine-tune or retrain entire network." class="img img-fluid" src="img/screen-shot-2018-09-25-at-9.33.58-am.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Fine-tune or retrain entire network.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="optional-resources">
+          Optional Resources
+         </h3>
+         <ul>
+          <li>
+           Check out this
+           <a href="https://arxiv.org/pdf/1411.1792.pdf" rel="noopener noreferrer" target="_blank">
+            research paper
+           </a>
+           that systematically analyzes the transferability of features learned in pre-trained CNNs.
+          </li>
+          <li>
+           Read the
+           <a href="http://www.nature.com/articles/nature21056.epdf?referrer_access_token=_snzJ5POVSgpHutcNN4lEtRgN0jAjWel9jnR3ZoTv0NXpMHRAJy8Qn10ys2O4tuP9jVts1q2g1KBbk3Pd3AelZ36FalmvJLxw1ypYW0UxU7iShiMp86DmQ5Sh3wOBhXDm9idRXzicpVoBBhnUsXHzVUdYCPiVV0Slqf-Q25Ntb1SX_HAv3aFVSRgPbogozIHYQE3zSkyIghcAppAjrIkw1HtSwMvZ1PXrt6fVYXt-dvwXKEtdCN8qEHg0vbfl4_m&amp;tracking_referrer=edition.cnn.com" rel="noopener noreferrer" target="_blank">
+            Nature publication
+           </a>
+           detailing Sebastian Thrun's cancer-detecting CNN!
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. VGG Model &amp; Classifier.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Fine-Tuning')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

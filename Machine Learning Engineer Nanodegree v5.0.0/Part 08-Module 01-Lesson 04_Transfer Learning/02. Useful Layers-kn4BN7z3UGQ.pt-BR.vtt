@@ -1,0 +1,198 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.095 --> 00:00:02.749
+Vejamos o exemplo da rede VGG.
+
+00:00:02.782 --> 00:00:05.986
+Você deve querer saber
+como pegar uma CNN treinada
+
+00:00:06.019 --> 00:00:08.239
+para classificar
+uma rede com 1.000 imagens
+
+00:00:08.272 --> 00:00:10.131
+e aplicá-la
+a um novo problema.
+
+00:00:10.164 --> 00:00:13.166
+E se classificarmos imagens
+de diferentes tipos de flores,
+
+00:00:13.199 --> 00:00:16.238
+como os girassóis, as margaridas
+e as rosas?
+
+00:00:16.271 --> 00:00:20.142
+A VGG aprendeu a distinguir
+entre as 1.000 categorias
+
+00:00:20.175 --> 00:00:21.962
+presentes na rede de imagem.
+
+00:00:21.995 --> 00:00:24.082
+A maioria das categorias
+é de animais,
+
+00:00:24.115 --> 00:00:26.629
+frutas e vegetais
+ou objetos do dia a dia.
+
+00:00:26.662 --> 00:00:29.598
+Como a VGG treinou, cada uma
+das camadas convolucionais
+
+00:00:29.631 --> 00:00:32.953
+aprenderam a extrair informações
+sobre formatos e cores
+
+00:00:32.986 --> 00:00:35.042
+que diferenciam os objetos.
+
+00:00:35.075 --> 00:00:37.776
+Na verdade, sabemos
+que os filtros convolucionais
+
+00:00:37.809 --> 00:00:39.041
+em uma CNN treinada
+
+00:00:39.074 --> 00:00:41.352
+são organizados
+de forma hierárquica.
+
+00:00:41.385 --> 00:00:45.808
+Os filtros da primeira camada
+detectam bordas e manchas de cores.
+
+00:00:45.841 --> 00:00:49.673
+E os da segunda camada,
+círculos, listras e retângulos.
+
+00:00:49.706 --> 00:00:53.776
+Esses são recursos genéricos
+úteis para analisar imagens
+
+00:00:53.809 --> 00:00:55.428
+de qualquer conjunto de dados.
+
+00:00:55.461 --> 00:00:57.725
+Os filtros nas camadas
+convolucionais finais
+
+00:00:57.758 --> 00:00:59.176
+são bem mais específicos.
+
+00:00:59.209 --> 00:01:01.161
+Se houver pássaros
+no conjunto,
+
+00:01:01.194 --> 00:01:03.161
+haverá filtros
+que os detectarão.
+
+00:01:03.194 --> 00:01:07.486
+Se houver carros ou bicicletas,
+haverá filtros para detectar rodas.
+
+00:01:07.519 --> 00:01:10.601
+Veremos que será útil
+remover as últimas camadas da rede,
+
+00:01:10.634 --> 00:01:13.447
+que são muitos específicas
+do conjunto de treinamento,
+
+00:01:13.480 --> 00:01:15.314
+e manter as primeiras camadas.
+
+00:01:15.347 --> 00:01:18.496
+Dessa forma, usamos as camadas
+convolucionais e de pooling
+
+00:01:18.529 --> 00:01:20.737
+de uma rede pré-treinada,
+como a VGG,
+
+00:01:20.770 --> 00:01:22.282
+como um extrator de recurso,
+
+00:01:22.315 --> 00:01:26.624
+que identifica formatos e cores
+no conjunto de imagens de flores.
+
+00:01:26.657 --> 00:01:30.200
+Depois de a imagem passar
+pelo extrator pré-treinado,
+
+00:01:30.233 --> 00:01:33.177
+podemos adicionar
+uma ou duas camadas lineares,
+
+00:01:33.210 --> 00:01:35.768
+que agirão
+como classificadores finais.
+
+00:01:35.801 --> 00:01:38.568
+Essas últimas camadas
+pegarão os recursos da imagem,
+
+00:01:38.601 --> 00:01:42.040
+e treinarão as últimas camadas
+para personalizar a rede
+
+00:01:42.073 --> 00:01:43.752
+para a tarefa.
+
+00:01:43.785 --> 00:01:47.552
+Mesmo que o conjunto de imagens
+de flores
+
+00:01:47.585 --> 00:01:50.432
+não tenha ligação
+com as categorias das imagens,
+
+00:01:50.465 --> 00:01:53.927
+ainda é possível usar o conhecimento
+de uma CNN pré-treinada.
+
+00:01:53.960 --> 00:01:56.192
+Esta é uma técnica
+de transferência,
+
+00:01:56.225 --> 00:01:59.774
+mas o método dependerá
+do tamanho do conjunto de dados
+
+00:01:59.807 --> 00:02:03.997
+e do nível de semelhança
+entre os conjuntos de dados.
+
+00:02:04.030 --> 00:02:07.742
+Por exemplo, a técnica de adicionar
+camadas classificatórias finais
+
+00:02:07.775 --> 00:02:10.823
+funcionará bem se o conjunto
+de dados for pequeno
+
+00:02:10.856 --> 00:02:13.482
+e se tiver formato parecido
+com os encontrados
+
+00:02:13.515 --> 00:02:15.347
+no banco de dados das imagens.
+
+00:02:15.380 --> 00:02:18.459
+Se o conjunto de dados
+for muito grande e diferente,
+
+00:02:18.492 --> 00:02:20.307
+é melhor fazer
+outra abordagem.
+
+00:02:20.340 --> 00:02:23.944
+Vejamos mais uma abordagem
+antes de implementarmos o código.
+

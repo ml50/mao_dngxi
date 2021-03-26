@@ -1,0 +1,361 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.755
+So, for this last part,
+
+00:00:02.755 --> 00:00:09.215
+we're going to go from this into this dashboard here.
+
+00:00:09.215 --> 00:00:13.570
+So, how do we go from here to here exactly?
+
+00:00:13.570 --> 00:00:19.050
+Well, the main difference is that I have made multiple charts here,
+
+00:00:19.050 --> 00:00:22.165
+so these are all just div ID-0,
+
+00:00:22.165 --> 00:00:26.245
+div ID-1, div ID-2, div ID3,
+
+00:00:26.245 --> 00:00:32.700
+and I'm just placing them into the Bootstrap front-end that you made earlier.
+
+00:00:32.700 --> 00:00:35.310
+So it might seem a little intimidating,
+
+00:00:35.310 --> 00:00:40.125
+but it's actually just putting everything together that you've already been practicing.
+
+00:00:40.125 --> 00:00:42.710
+Okay. So, here is
+
+00:00:42.710 --> 00:00:47.545
+my final code and I'm going to walk you through it so that you can see what I did.
+
+00:00:47.545 --> 00:00:52.080
+Index.html has all of the front end code with Bootstrap.
+
+00:00:52.080 --> 00:00:54.710
+So this might be vaguely familiar
+
+00:00:54.710 --> 00:00:59.135
+because we already went through this and you practiced using Bootstrap.
+
+00:00:59.135 --> 00:01:02.060
+So this is importing all of
+
+00:01:02.060 --> 00:01:09.650
+the Bootstrap files here and I'm also importing the scripts for Plotly,
+
+00:01:09.650 --> 00:01:12.605
+the plotly library and then going down here,
+
+00:01:12.605 --> 00:01:15.650
+this is just all of the Bootstrap front end that you were
+
+00:01:15.650 --> 00:01:19.470
+working with before like this is the navigation bar up here,
+
+00:01:19.470 --> 00:01:21.720
+all of this code is the navigation bar,
+
+00:01:21.720 --> 00:01:26.240
+and then here is just dividing everything up into rows and columns.
+
+00:01:26.240 --> 00:01:28.159
+So there's the Linkedin logo,
+
+00:01:28.159 --> 00:01:35.930
+there's the Git Hub logo scrolling down here is where the plots actually start.
+
+00:01:35.930 --> 00:01:37.260
+So nothing new here.
+
+00:01:37.260 --> 00:01:38.765
+This is the h2 tag,
+
+00:01:38.765 --> 00:01:42.275
+this is the h4 tag, keep going down.
+
+00:01:42.275 --> 00:01:45.620
+Okay. So this is really the only thing that's
+
+00:01:45.620 --> 00:01:49.445
+new from when we were looking at Bootstrap before.
+
+00:01:49.445 --> 00:01:53.240
+I'm just putting in here a Div with an ID of
+
+00:01:53.240 --> 00:01:57.520
+the first chart and then here I'm putting a Div with the ID of the second chart,
+
+00:01:57.520 --> 00:02:01.155
+a Div with an ID of the third chart,
+
+00:02:01.155 --> 00:02:04.475
+and here a Div with an ID of the fourth chart,
+
+00:02:04.475 --> 00:02:06.140
+and then scrolling down,
+
+00:02:06.140 --> 00:02:11.450
+this just has the same JavaScript code from before where we're
+
+00:02:11.450 --> 00:02:14.180
+just iterating through these variables that came
+
+00:02:14.180 --> 00:02:17.090
+from the backend to put everything on the front end.
+
+00:02:17.090 --> 00:02:22.250
+So the only thing that's really new here it's just adding these divs with the IDs of
+
+00:02:22.250 --> 00:02:24.980
+the visualizations in them that's all I've changed from
+
+00:02:24.980 --> 00:02:28.655
+when we were working on the front end earlier in the lesson.
+
+00:02:28.655 --> 00:02:31.490
+It gives me this which is pretty cool, right?
+
+00:02:31.490 --> 00:02:34.280
+So, the next thing to talk about is actually
+
+00:02:34.280 --> 00:02:39.185
+these visualizations themselves and how I wrote the code on the backend.
+
+00:02:39.185 --> 00:02:43.760
+Let's go back to routes.py.
+
+00:02:43.760 --> 00:02:48.950
+So, I refactored a lot of the code to make routes.py a lot simpler.
+
+00:02:48.950 --> 00:02:54.020
+So, all I'm doing here is actually in this return figures method
+
+00:02:54.020 --> 00:02:59.730
+which comes from this wrangling-scripts.wrangle-data file over here,
+
+00:02:59.730 --> 00:03:03.830
+I am actually just doing all of
+
+00:03:03.830 --> 00:03:08.180
+the data wrangling and getting all of the Plotly figures ready back there,
+
+00:03:08.180 --> 00:03:11.090
+so that it doesn't even show up in the routes.py file.
+
+00:03:11.090 --> 00:03:13.800
+This code is exactly the same as before.
+
+00:03:13.800 --> 00:03:19.160
+It just iterates through this figures list and makes the IDs,
+
+00:03:19.160 --> 00:03:24.160
+and then converts figures into Jason and then passes the variables to the front end.
+
+00:03:24.160 --> 00:03:28.835
+So, the perhaps scary part that did take me a long time
+
+00:03:28.835 --> 00:03:33.925
+is the data wrangling and for better or for worse,
+
+00:03:33.925 --> 00:03:39.125
+a data scientist usually has to do a lot of data wrangling.
+
+00:03:39.125 --> 00:03:43.310
+So what did I do? I wrote a function that cleans
+
+00:03:43.310 --> 00:03:46.580
+the CSV files in a generic way because all
+
+00:03:46.580 --> 00:03:50.060
+of the CSV files have the same format and they come from the World Bank.
+
+00:03:50.060 --> 00:03:54.900
+So I wrote this function here that just cleans everything up.
+
+00:03:54.900 --> 00:03:57.440
+Again, I'm going to give you this code and you can look through it,
+
+00:03:57.440 --> 00:04:01.570
+it's going to be an example that comes after the exercise that I'm going to give you.
+
+00:04:01.570 --> 00:04:07.970
+Now we have this return figures function and all it does is set up
+
+00:04:07.970 --> 00:04:09.350
+the code for all four of
+
+00:04:09.350 --> 00:04:14.180
+the visualizations and there's a lot of code but if you look at it little by little,
+
+00:04:14.180 --> 00:04:17.540
+I think it's relatively interpretable and it's similar
+
+00:04:17.540 --> 00:04:21.769
+to what I was showing in the last part of this screencast.
+
+00:04:21.769 --> 00:04:28.095
+So here we have graph 1 and this is where all of the graph 1 information is going to go.
+
+00:04:28.095 --> 00:04:30.115
+So first I clean the data,
+
+00:04:30.115 --> 00:04:32.170
+I'm just changing the column names,
+
+00:04:32.170 --> 00:04:35.420
+I'm doing a little bit of sorting so that everything shows up in
+
+00:04:35.420 --> 00:04:39.530
+the visualization in the order I want it to and then this
+
+00:04:39.530 --> 00:04:41.990
+is what I showed very similar to what I did
+
+00:04:41.990 --> 00:04:44.690
+before where I'm iterating through each country
+
+00:04:44.690 --> 00:04:50.465
+and then I'm appending the information to the graph 1 visualization.
+
+00:04:50.465 --> 00:04:53.405
+So this is all of the code.
+
+00:04:53.405 --> 00:05:00.115
+Here's the layout just for this visualization here on the left.
+
+00:05:00.115 --> 00:05:03.970
+Then for chart 2,
+
+00:05:03.970 --> 00:05:10.120
+I again am cleaning the data and then this time I only wanted data from 2015,
+
+00:05:10.120 --> 00:05:12.720
+so the wrangling was a little bit different.
+
+00:05:12.720 --> 00:05:14.450
+I wanted to make a bar chart,
+
+00:05:14.450 --> 00:05:21.310
+so here I put on the x-axis the countries and
+
+00:05:21.310 --> 00:05:28.610
+then on the y-axis I put the values and I'm using Pandas and Python to do all of this.
+
+00:05:28.610 --> 00:05:31.230
+Here's the layout for number two,
+
+00:05:31.230 --> 00:05:35.815
+and again, this is the bar chart here in the upper right.
+
+00:05:35.815 --> 00:05:41.690
+Moving down, we've got the code for chart 3 where again,
+
+00:05:41.690 --> 00:05:45.425
+I'm iterating through and building this up country by
+
+00:05:45.425 --> 00:05:50.565
+country and putting multiple lines on one visualization.
+
+00:05:50.565 --> 00:05:55.885
+Then I have the layout and then comes the fourth chart which is this one in the bottom
+
+00:05:55.885 --> 00:06:01.795
+right and I am just cleaning the data again,
+
+00:06:01.795 --> 00:06:07.070
+I have to merge the two datasets together that's what's happening in 128 and
+
+00:06:07.070 --> 00:06:13.445
+then iterating through the countries and setting up the visualizations.
+
+00:06:13.445 --> 00:06:19.610
+This one had a little bit more wrangling to do because I had multiple CSV files.
+
+00:06:19.610 --> 00:06:28.389
+Another thing I should point out is that actually if you look here in each graph,
+
+00:06:28.389 --> 00:06:30.750
+I have name equals country.
+
+00:06:30.750 --> 00:06:34.940
+So I have this country variable and it was
+
+00:06:34.940 --> 00:06:39.410
+really important that I left the countries in the same order,
+
+00:06:39.410 --> 00:06:42.775
+so that they kept showing up with the same colors over here.
+
+00:06:42.775 --> 00:06:47.810
+So, I was using the same list of countries in the same order every time so
+
+00:06:47.810 --> 00:06:53.440
+the Plotly would automatically use the same colors in all of my visualizations.
+
+00:06:53.440 --> 00:06:57.435
+Then, keep scrolling down.
+
+00:06:57.435 --> 00:07:00.070
+Okay, so once I have all of this ready,
+
+00:07:00.070 --> 00:07:04.985
+I'm appending each visualization to this figures lists and then returning figures.
+
+00:07:04.985 --> 00:07:12.240
+So going back to roots which is actually using this return figures function,
+
+00:07:12.240 --> 00:07:15.815
+it just returns all of the figures and it's ready to go.
+
+00:07:15.815 --> 00:07:21.455
+So that's how I did it. It did take me a good amount of time to do all the wrangling to
+
+00:07:21.455 --> 00:07:28.050
+refactor the code and again it's part of being a data scientist.
+
+00:07:28.050 --> 00:07:30.650
+The thing is is that for
+
+00:07:30.650 --> 00:07:33.020
+this exercise at the very end
+
+00:07:33.020 --> 00:07:35.690
+of this lesson where you're going to make your own data dashboard,
+
+00:07:35.690 --> 00:07:38.650
+you can reuse a lot of my code.
+
+00:07:38.650 --> 00:07:43.160
+All you're really going to have to do is change maybe
+
+00:07:43.160 --> 00:07:48.020
+index.html to put in links to your own GitHub repo or
+
+00:07:48.020 --> 00:07:52.505
+your own GitHub account into your own Linkedin account and
+
+00:07:52.505 --> 00:07:57.750
+then you might want to add or take away visualizations and in that case,
+
+00:07:57.750 --> 00:08:00.620
+you're going to want to scroll down and make sure you have
+
+00:08:00.620 --> 00:08:05.480
+enough Divs for each visualization that you're going to make.
+
+00:08:05.480 --> 00:08:09.920
+Roots wrangling is where the bulk of your work is going to go.
+
+00:08:09.920 --> 00:08:14.390
+You're going to have to figure out how to clean your data and get it in
+
+00:08:14.390 --> 00:08:20.070
+the right format so that it works in Plotly, and that's it.
+

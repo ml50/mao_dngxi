@@ -1,0 +1,322 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.680
+So, we have the general layout of our MLP,
+
+00:00:02.680 --> 00:00:04.379
+and we're training this model to classify
+
+00:00:04.379 --> 00:00:07.089
+10 types of clothing in the fashion M-ness data set.
+
+00:00:07.089 --> 00:00:08.580
+We really just want to look at
+
+00:00:08.580 --> 00:00:11.544
+how a model trains when it's given different initial weights.
+
+00:00:11.544 --> 00:00:15.089
+So, I want to start off with a simple example for initializing weights.
+
+00:00:15.089 --> 00:00:16.920
+Kind of the simplest idea for setting
+
+00:00:16.920 --> 00:00:20.070
+your model weights is to just set them as a small constant value.
+
+00:00:20.070 --> 00:00:23.125
+Say, setting them all to be zero or all to one.
+
+00:00:23.125 --> 00:00:26.699
+Consistency seems like it could be a good solution because you might think
+
+00:00:26.699 --> 00:00:30.405
+that you don't want to start out by giving more weight to one node than any other.
+
+00:00:30.405 --> 00:00:33.200
+There are a few ways to initialize the weights of the network,
+
+00:00:33.200 --> 00:00:36.875
+and in this case I'm going to actually pass in a constant weight variable.
+
+00:00:36.875 --> 00:00:41.344
+This will give me the ability to pass in a constant weight when I instantiate a model.
+
+00:00:41.344 --> 00:00:44.884
+The next thing I want to do is actually use this constant weight.
+
+00:00:44.884 --> 00:00:47.179
+Inside the init function of our model,
+
+00:00:47.179 --> 00:00:49.979
+I'm going to check if a constant weight has been passed in.
+
+00:00:49.979 --> 00:00:52.759
+Let's say I've passed in a constant way of zero,
+
+00:00:52.759 --> 00:00:54.589
+then we enter this IF statement.
+
+00:00:54.590 --> 00:00:57.810
+This looks at every module or layer in our model.
+
+00:00:57.810 --> 00:01:00.195
+Then it says, let's check the layer type.
+
+00:01:00.195 --> 00:01:01.655
+For every linear layer,
+
+00:01:01.655 --> 00:01:07.030
+I'm going to set the parameter weights to a constant value using nn.init.constant.
+
+00:01:07.030 --> 00:01:09.230
+This takes in the weights we want to set from
+
+00:01:09.230 --> 00:01:12.195
+our module and a constant weight value, which we passed in.
+
+00:01:12.194 --> 00:01:15.794
+I'm doing the exact same thing for our module bias,
+
+00:01:15.795 --> 00:01:17.614
+only I'm setting the bias to zero.
+
+00:01:17.614 --> 00:01:22.144
+So, all I had to do to set the weights is to specify how I want to initialize
+
+00:01:22.144 --> 00:01:27.209
+each linear layer and then use the nn.init library to help set those values.
+
+00:01:27.209 --> 00:01:31.704
+This library includes a lot of common initialization schemes that we'll go over.
+
+00:01:31.704 --> 00:01:34.129
+Okay. Next, I actually need to instantiate
+
+00:01:34.129 --> 00:01:37.414
+two different kinds of models with two different constant weights.
+
+00:01:37.415 --> 00:01:41.844
+Here, I'm going to create one model_0 with a constant weight of zero,
+
+00:01:41.844 --> 00:01:46.400
+and I'll create another model_1 with a constant weight of all ones.
+
+00:01:46.400 --> 00:01:47.910
+I'm going to create these models,
+
+00:01:47.909 --> 00:01:49.284
+then using my helpers functions,
+
+00:01:49.284 --> 00:01:53.224
+I'm actually going to compare these two models and how they perform over two epics.
+
+00:01:53.224 --> 00:01:54.954
+So, I'll turn these into a list,
+
+00:01:54.954 --> 00:01:56.230
+all zeros and ones,
+
+00:01:56.230 --> 00:01:57.935
+giving a title to each model,
+
+00:01:57.935 --> 00:02:01.629
+and then I'm going to compare the initial weights using the helpers function.
+
+00:02:01.629 --> 00:02:06.194
+This cell may take a few moments to run as these models go through two epics of training.
+
+00:02:06.194 --> 00:02:08.155
+Here's the resulting plot.
+
+00:02:08.155 --> 00:02:11.120
+You can see that a model that starts out with all ones as
+
+00:02:11.120 --> 00:02:14.270
+weights starts out with an extremely high initial loss.
+
+00:02:14.270 --> 00:02:16.670
+Usually for something with cross entropy loss,
+
+00:02:16.669 --> 00:02:19.389
+I'm expecting a value in the single digits.
+
+00:02:19.389 --> 00:02:22.519
+You can also see that when a model is initialized with all zeros,
+
+00:02:22.520 --> 00:02:25.870
+this line just sort of remains flat over time and doesn't change.
+
+00:02:25.870 --> 00:02:28.060
+The loss never really decreases.
+
+00:02:28.060 --> 00:02:30.115
+So, what exactly is happening here?
+
+00:02:30.115 --> 00:02:34.050
+Let's talk a bit about our model that starts out with a constant weight of zero.
+
+00:02:34.050 --> 00:02:36.620
+In this case, every single hidden node is going to
+
+00:02:36.620 --> 00:02:39.599
+respond to the inputs it sees in the exact same way.
+
+00:02:39.599 --> 00:02:41.989
+It'll multiply all of these inputs by
+
+00:02:41.990 --> 00:02:45.300
+a constant weight of zero and then add all of them up.
+
+00:02:45.300 --> 00:02:47.870
+This behavior repeats in the second layer where all the weights are
+
+00:02:47.870 --> 00:02:51.560
+zero and again in the third producing a series of class scores.
+
+00:02:51.560 --> 00:02:53.640
+Now, in any training process,
+
+00:02:53.639 --> 00:02:56.569
+these class scores will not be very accurate at first,
+
+00:02:56.569 --> 00:02:59.759
+but that's okay as long as you can learn from any mistakes.
+
+00:02:59.759 --> 00:03:02.069
+But in the case of all zero initial weights,
+
+00:03:02.069 --> 00:03:04.789
+when you go to calculate the cross entropy loss and use
+
+00:03:04.789 --> 00:03:07.819
+backpropagation to identify sources of error,
+
+00:03:07.819 --> 00:03:10.549
+it all of the sudden becomes very hard to see which weights,
+
+00:03:10.550 --> 00:03:13.640
+which nodes are responsible for making any errors.
+
+00:03:13.639 --> 00:03:16.534
+Because the weights were all zero in the hidden layers,
+
+00:03:16.534 --> 00:03:19.789
+all the gradients that tell us how the error changes with respect to
+
+00:03:19.789 --> 00:03:23.254
+each weight are also all the same and can't tell us anything.
+
+00:03:23.254 --> 00:03:28.365
+We have a really hard time finding out which weights should be updated and by how much.
+
+00:03:28.365 --> 00:03:32.730
+Something similar happens if the weights are all initialized as ones.
+
+00:03:32.729 --> 00:03:34.405
+When the weights are all ones,
+
+00:03:34.405 --> 00:03:36.754
+then again you're going to have your input pixel values
+
+00:03:36.754 --> 00:03:39.634
+multiplied by one and summed in a hidden node.
+
+00:03:39.634 --> 00:03:42.349
+Again, the hidden layer calculations are going to be the
+
+00:03:42.349 --> 00:03:45.224
+same as inputs moved forward through the MLP layers.
+
+00:03:45.224 --> 00:03:48.909
+When we try to identify sources of error, we can't really.
+
+00:03:48.909 --> 00:03:50.634
+So, after two epics,
+
+00:03:50.634 --> 00:03:54.399
+I'm also recording the validation accuracy of these two models.
+
+00:03:54.400 --> 00:03:57.564
+We can see about 9.7 and 10.2
+
+00:03:57.564 --> 00:04:01.590
+accuracy for the all zeros and all ones initialization models.
+
+00:04:01.590 --> 00:04:05.914
+That means that these networks are getting in like one 1 out of 10 classes correct.
+
+00:04:05.914 --> 00:04:07.400
+For a 10 class problem,
+
+00:04:07.400 --> 00:04:09.379
+as our fashion M-ness task is,
+
+00:04:09.379 --> 00:04:12.564
+that's the equivalent of guessing one class randomly out of 10.
+
+00:04:12.564 --> 00:04:14.280
+So, this is really bad.
+
+00:04:14.280 --> 00:04:17.399
+In fact, the zeros model is not even randomly guessing.
+
+00:04:17.399 --> 00:04:19.995
+It's just guessing that same class over and over again.
+
+00:04:19.995 --> 00:04:23.970
+I should note that initializing with all ones seems particularly bad,
+
+00:04:23.970 --> 00:04:27.530
+and this is because ones are really too high of a starting value,
+
+00:04:27.529 --> 00:04:29.269
+so the backpropagation algorithm has
+
+00:04:29.269 --> 00:04:31.310
+an especially hard time bringing those values
+
+00:04:31.310 --> 00:04:33.860
+down and getting to the minimum of the loss.
+
+00:04:33.860 --> 00:04:37.430
+So, these constant weights are basically just performing really poorly,
+
+00:04:37.430 --> 00:04:40.600
+but it's still helpful to see this behavior through a critical lens.
+
+00:04:40.600 --> 00:04:42.689
+Again, because our weights are all the same,
+
+00:04:42.689 --> 00:04:46.529
+that means the activations of all our units in the hidden layers are also all the same.
+
+00:04:46.529 --> 00:04:49.819
+So, the backprop algorithm struggles to minimize the loss.
+
+00:04:49.819 --> 00:04:52.519
+Using constant initial weights essentially sets up
+
+00:04:52.519 --> 00:04:56.685
+backpropagation to fail because it's not designed to deal with consistency.
+
+00:04:56.685 --> 00:05:01.435
+Backprop is designed to look at how different weight values affect the training loss.
+
+00:05:01.435 --> 00:05:05.389
+So, how might we change our initial weighting scheme so that we set up
+
+00:05:05.389 --> 00:05:07.819
+the backpropagation algorithm to succeed and
+
+00:05:07.819 --> 00:05:10.750
+better differentiate between the effect of different weights?
+
+00:05:10.750 --> 00:05:12.420
+I want you to think about this question,
+
+00:05:12.420 --> 00:05:16.600
+and then we'll talk about a few more effective and common initialization schemes.
+

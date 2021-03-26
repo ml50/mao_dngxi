@@ -1,0 +1,350 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.251 --> 00:00:03.792
+Neste notebook, definiremos
+e treinaremos um autocodificador.
+
+00:00:03.825 --> 00:00:07.353
+Como já falamos,
+um autocodificador é um modelo
+
+00:00:07.386 --> 00:00:09.297
+no qual passamos
+dados originais -
+
+00:00:09.330 --> 00:00:10.603
+como uma imagem -
+
+00:00:10.636 --> 00:00:13.272
+e os comprimimos
+a um tamanho menor.
+
+00:00:13.305 --> 00:00:16.667
+Esse mapeamento do original
+para a compressão é aprendido.
+
+00:00:16.700 --> 00:00:18.985
+O autocodificador
+tentará comprimir a imagem
+
+00:00:19.018 --> 00:00:22.805
+e reconstruirá a imagem a partir
+da representação comprimida.
+
+00:00:22.838 --> 00:00:25.358
+Neste exemplo,
+usaremos imagens do MNIST,
+
+00:00:25.391 --> 00:00:28.510
+e cada imagem é um array
+de 28x28x1,
+
+00:00:28.543 --> 00:00:31.536
+com 784 pixels.
+
+00:00:31.569 --> 00:00:35.112
+Usando o autocodificador,
+comprimimos em uma matriz menor
+
+00:00:35.145 --> 00:00:37.641
+ou vetor com quantidade menor
+de valores.
+
+00:00:37.674 --> 00:00:39.865
+A representação comprimida
+pode ser útil
+
+00:00:39.898 --> 00:00:42.288
+por ocupar menos espaço
+em um disco rígido
+
+00:00:42.321 --> 00:00:45.968
+ou na hora de compartilhar o arquivo
+em redes sociais ou com amigos.
+
+00:00:46.001 --> 00:00:48.752
+A compressão é mais barata
+de ser armazenada
+
+00:00:48.785 --> 00:00:51.737
+e mais rápida de ser compartilhada
+na conexão Wi-Fi.
+
+00:00:51.770 --> 00:00:54.777
+O que nos interessa
+é a representação comprimida
+
+00:00:54.810 --> 00:00:58.050
+e essa forma eficaz de armazenar
+imagens originais.
+
+00:00:58.083 --> 00:01:00.070
+A representação comprimida
+
+00:01:00.103 --> 00:01:03.461
+passa pelo decodificador
+para reconstruir a imagem original.
+
+00:01:03.494 --> 00:01:06.050
+Na prática, os autocodificadores
+não são tão bons
+
+00:01:06.083 --> 00:01:09.431
+na compressão tradicional
+se comparados a algo como JPEGs,
+
+00:01:09.464 --> 00:01:12.970
+mas a estrutura de duas partes
+de um codificador e um decodificador
+
+00:01:13.003 --> 00:01:14.311
+será muito útil.
+
+00:01:14.344 --> 00:01:17.627
+Os autocodificadores são bons
+em reduzir os ruídos das imagens,
+
+00:01:17.660 --> 00:01:19.873
+mas falaremos sobre isso
+em outro notebook.
+
+00:01:19.906 --> 00:01:23.750
+Agora implementaremos
+o autocodificador no PyTorch.
+
+00:01:23.783 --> 00:01:26.398
+Na verdade, você construirá
+esta rede.
+
+00:01:26.431 --> 00:01:30.438
+O codificador e o decodificador
+serão definidos como redes neurais,
+
+00:01:30.471 --> 00:01:34.599
+e vamos treinar o autocodificador
+passando a imagem original
+
+00:01:34.632 --> 00:01:37.582
+e obtendo como output
+uma imagem reconstruída,
+
+00:01:37.615 --> 00:01:40.829
+assim comparamos a original
+com a reconstrução.
+
+00:01:40.862 --> 00:01:44.526
+Queremos que as imagens originais
+e reconstruídas sejam bem próximas,
+
+00:01:44.559 --> 00:01:47.446
+então a perda será na comparação
+dos valores de pixels,
+
+00:01:47.479 --> 00:01:51.175
+medindo a diferença entre as imagens
+originais e reconstruídas.
+
+00:01:51.208 --> 00:01:52.655
+Depois de treinar a rede,
+
+00:01:52.688 --> 00:01:55.967
+teremos o codificador
+e o decodificador de uma rede
+
+00:01:56.000 --> 00:02:00.559
+e poderemos usar qualquer parte
+para compactar ou descompactar.
+
+00:02:00.592 --> 00:02:03.711
+Começamos importando
+as bibliotecas necessárias
+
+00:02:03.744 --> 00:02:06.593
+para trabalhar com os dados.
+
+00:02:06.626 --> 00:02:09.671
+Carregamos os dados MNIST
+de treinamento e de teste.
+
+00:02:09.704 --> 00:02:12.807
+Transformamos os dados
+no tipo tensor.
+
+00:02:12.840 --> 00:02:16.799
+Agora criamos um lote dos dados
+usando a classe PyTorch DataLoader.
+
+00:02:16.832 --> 00:02:19.688
+Só definirei os carregadores
+de treinamento e de teste,
+
+00:02:19.721 --> 00:02:24.167
+isso porque quero que a perda
+de treinamento seja bem baixa.
+
+00:02:24.200 --> 00:02:25.896
+Não estamos classificando,
+
+00:02:25.929 --> 00:02:30.378
+e os conjuntos de validação preveem
+uma quantidade, como uma classe.
+
+00:02:30.411 --> 00:02:33.177
+Agora vamos visualizar
+uma das imagens.
+
+00:02:33.210 --> 00:02:37.662
+O tensor é de 28x28x1, sendo que 1
+é a profundidade do canal de cor.
+
+00:02:37.695 --> 00:02:39.869
+Isso indica uma imagem
+em escala de cinza.
+
+00:02:39.902 --> 00:02:41.949
+Este é um exemplo
+de um dado original
+
+00:02:41.982 --> 00:02:43.595
+que passaremos pela rede,
+
+00:02:43.628 --> 00:02:46.645
+que treinará para comprimir
+e reconstruir.
+
+00:02:46.678 --> 00:02:49.244
+Queremos definir a rede
+do autocodificador,
+
+00:02:49.277 --> 00:02:51.836
+e aqui está o diagrama da rede
+que construiremos.
+
+00:02:51.869 --> 00:02:55.589
+Criaremos um autocodificador
+de camadas lineares.
+
+00:02:55.622 --> 00:02:58.962
+Antes de passarmos algo para
+o modelo, achataremos os inputs
+
+00:02:58.995 --> 00:03:02.718
+de 28x28 para 784 vetores.
+
+00:03:02.751 --> 00:03:05.382
+Passamos o input achatado
+para o codificador,
+
+00:03:05.415 --> 00:03:08.680
+que será uma camada linear
+que vê o input
+
+00:03:08.713 --> 00:03:11.101
+e produz
+uma representação comprimida.
+
+00:03:11.134 --> 00:03:14.644
+O tamanho da representação
+será o que especificarmos.
+
+00:03:14.677 --> 00:03:17.417
+Esse será um parâmetro
+que passaremos e codificaremos,
+
+00:03:17.450 --> 00:03:18.973
+chamado de "encoding_dim".
+
+00:03:19.006 --> 00:03:22.170
+Podemos especificar que queremos
+a representação comprimida
+
+00:03:22.203 --> 00:03:23.733
+com 32 valores.
+
+00:03:23.766 --> 00:03:28.044
+Depois, essa representação
+alimentará o input no decodificador,
+
+00:03:28.077 --> 00:03:31.276
+que será responsável por formar
+uma imagem reconstruída,
+
+00:03:31.309 --> 00:03:35.063
+revertendo
+a operação de codificação.
+
+00:03:35.096 --> 00:03:37.659
+O decodificador é composto
+de uma camada linear
+
+00:03:37.692 --> 00:03:41.603
+que aumentará a dimensão
+da representação comprimida.
+
+00:03:41.636 --> 00:03:45.685
+A camada fornecerá um vetor
+como output de 784 de comprimento.
+
+00:03:45.718 --> 00:03:47.698
+Depois remodelamos
+o vetor do output
+
+00:03:47.731 --> 00:03:50.268
+em uma imagem reconstruída
+de 28x28
+
+00:03:50.301 --> 00:03:52.331
+e comparamos as duas.
+
+00:03:52.364 --> 00:03:54.686
+No código,
+definimos as duas camadas
+
+00:03:54.719 --> 00:03:57.218
+produzindo um vetor
+comprimido codificado
+
+00:03:57.251 --> 00:03:58.977
+deste encoding_dim.
+
+00:03:59.010 --> 00:04:01.128
+Definimos as camadas
+na função init
+
+00:04:01.161 --> 00:04:04.734
+e as aplicamos na função forward
+do autocodificador.
+
+00:04:04.767 --> 00:04:08.664
+Na função forward, aplicamos
+uma função de ativação ReLU
+
+00:04:08.697 --> 00:04:11.607
+para toda camada oculta,
+exceto para a última,
+
+00:04:11.640 --> 00:04:14.959
+pois ela terá uma função
+de ativação sigmoide
+
+00:04:14.992 --> 00:04:17.543
+para escalonar os valores
+em escala de cinza
+
+00:04:17.576 --> 00:04:19.086
+entre zero e um.
+
+00:04:19.119 --> 00:04:23.329
+Depois de definir o modelo,
+instanciamos e treinamos a rede.
+
+00:04:23.362 --> 00:04:27.569
+Tente criar este autocodificador.
+Depois eu mostrei uma solução,
+
+00:04:27.602 --> 00:04:29.465
+para vermos
+como o modelo treinará.
+

@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.720
+How might you use transfer learning if the data you want to work with is
+
+00:00:03.720 --> 00:00:07.655
+very large and somewhat different than that found in the ImageNet database?
+
+00:00:07.655 --> 00:00:11.935
+As an example, I should mention that one of Audacity's founders, Sebastian Thrun,
+
+00:00:11.935 --> 00:00:13.644
+along with a team at Stanford,
+
+00:00:13.644 --> 00:00:18.100
+recently used transfer learning to develop a CNN to diagnose skin cancer.
+
+00:00:18.100 --> 00:00:22.650
+The CNN classifies lesions as either benign or malignant and achieves
+
+00:00:22.649 --> 00:00:27.479
+performance on par with dermatologists for diagnosing some forms of skin cancer.
+
+00:00:27.480 --> 00:00:28.830
+To construct his model,
+
+00:00:28.829 --> 00:00:32.519
+he used a transfer learning approach with the inception architecture,
+
+00:00:32.520 --> 00:00:34.660
+pre-trained on the ImageNet database.
+
+00:00:34.659 --> 00:00:36.269
+As a first step, he removed
+
+00:00:36.270 --> 00:00:41.330
+the final densely connected classification layer and added a new fully-connected layer.
+
+00:00:41.329 --> 00:00:44.539
+This is similar to the approach that I outlined before,
+
+00:00:44.539 --> 00:00:48.284
+adding a new classification layer with an output size that you define.
+
+00:00:48.284 --> 00:00:52.979
+In this case, this layer has an output value for each type of disease class.
+
+00:00:52.979 --> 00:00:55.239
+As for all the other layers in the network,
+
+00:00:55.240 --> 00:00:58.460
+their parameters were initialized with their pre-trained values.
+
+00:00:58.460 --> 00:01:01.070
+Then, during training, the parameters were further
+
+00:01:01.070 --> 00:01:03.865
+optimized to fit the database of skin lesions.
+
+00:01:03.865 --> 00:01:07.984
+So, instead of using the pre-trained model as a fixed feature extractor,
+
+00:01:07.984 --> 00:01:09.859
+Sebastian and his team used it as
+
+00:01:09.859 --> 00:01:12.620
+a starting point and then trained to the entire network,
+
+00:01:12.620 --> 00:01:14.930
+modifying all the weights such that they were
+
+00:01:14.930 --> 00:01:17.985
+tuned to the medical image classification task.
+
+00:01:17.984 --> 00:01:20.810
+In this case, the model truly benefited from
+
+00:01:20.810 --> 00:01:24.015
+the head start that it was given from pre-training on ImageNet.
+
+00:01:24.015 --> 00:01:26.629
+This is just another kind of transfer learning.
+
+00:01:26.629 --> 00:01:29.899
+This technique is called fine tuning because it requires slightly
+
+00:01:29.900 --> 00:01:34.400
+changing or tuning all the existing parameters in a pre-trained network.
+
+00:01:34.400 --> 00:01:39.305
+Fine-tuning often works best if the data set you are interested in is quite large.
+
+00:01:39.305 --> 00:01:41.810
+Transfer learning is an extremely useful technique,
+
+00:01:41.810 --> 00:01:44.719
+but you should apply it differently based on how big and how
+
+00:01:44.719 --> 00:01:48.775
+similar your data set is to the data that a pre-trained model has seen.
+
+00:01:48.775 --> 00:01:52.600
+As always, you're encouraged to experiment with different methods,
+
+00:01:52.599 --> 00:01:55.039
+and you'll find more guidance on how to use
+
+00:01:55.040 --> 00:01:58.280
+transfer learning in a variety of scenarios in the text below.
+

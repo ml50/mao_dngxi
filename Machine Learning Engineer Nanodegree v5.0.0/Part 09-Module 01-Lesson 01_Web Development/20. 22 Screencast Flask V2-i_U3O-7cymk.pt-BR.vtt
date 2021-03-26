@@ -1,0 +1,371 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:03.133
+Este é outro tipo de espaço
+de trabalho da Udacity.
+
+00:00:03.166 --> 00:00:07.766
+É um IDE ou "ambiente
+de desenvolvimento integrado",
+
+00:00:07.799 --> 00:00:10.633
+que fornece ferramentas
+para escrever software.
+
+00:00:10.666 --> 00:00:12.433
+Tem um navegador de arquivo,
+
+00:00:12.466 --> 00:00:15.066
+um terminal
+e um editor de código.
+
+00:00:15.099 --> 00:00:17.666
+Aqui, eu configurei
+um aplicativo Flask para você
+
+00:00:17.699 --> 00:00:20.233
+e vou dar um tour
+pelos diferentes arquivos.
+
+00:00:20.266 --> 00:00:24.033
+Primeiro, tem o arquivo
+worldbank.py.
+
+00:00:24.066 --> 00:00:26.333
+É o arquivo que você vai executar
+no terminal
+
+00:00:26.366 --> 00:00:27.966
+para iniciar o aplicativo web.
+
+00:00:27.999 --> 00:00:32.666
+Este arquivo importa algo chamado
+"app" da pasta worldbankapp.
+
+00:00:32.699 --> 00:00:35.399
+Você vai ver o que é
+este aplicativo num minuto.
+
+00:00:35.433 --> 00:00:39.166
+Quando o aplicativo roda,
+estará na porta 3001,
+
+00:00:39.199 --> 00:00:42.133
+como pode ver aqui
+no atributo port.
+
+00:00:42.166 --> 00:00:45.533
+O que está dentro
+desta pasta worldbankapp?
+
+00:00:45.566 --> 00:00:47.833
+Este arquivo init significa
+
+00:00:47.866 --> 00:00:50.199
+que configurei isto
+como um pacote Python.
+
+00:00:50.233 --> 00:00:53.666
+Quando o pacote é executado,
+o arquivo init é executado primeiro.
+
+00:00:53.699 --> 00:00:55.299
+Aqui está o arquivo init.
+
+00:00:55.333 --> 00:00:58.066
+Primeiro, importo
+a biblioteca Flask
+
+00:00:58.099 --> 00:01:01.099
+e crio uma variável
+chamada app,
+
+00:01:01.133 --> 00:01:03.466
+e, por último, importo
+o arquivo routes.
+
+00:01:03.499 --> 00:01:07.399
+É capcioso ver como estas linhas
+de código trabalham juntas
+
+00:01:07.433 --> 00:01:09.366
+em relação
+ao diretório do arquivo.
+
+00:01:09.399 --> 00:01:12.633
+Se estou no diretório
+de espaço de trabalho no terminal,
+
+00:01:12.666 --> 00:01:17.066
+eu inicio o aplicativo executando
+python worldbank.py.
+
+00:01:17.099 --> 00:01:23.302
+Vou abrir um terminal
+e executar python worldbank.py.
+
+00:01:23.566 --> 00:01:27.499
+O arquivo init é executado
+e importa a variável app
+
+00:01:27.533 --> 00:01:28.899
+e o arquivo routes.
+
+00:01:28.933 --> 00:01:31.333
+Se não está entendendo a lógica
+de tudo isso,
+
+00:01:31.366 --> 00:01:33.033
+não se preocupe demais.
+
+00:01:33.066 --> 00:01:36.333
+Não precisa entender tudo
+para construir o aplicativo.
+
+00:01:36.366 --> 00:01:40.766
+O código que você precisa mudar
+está em routes.py
+
+00:01:40.799 --> 00:01:42.933
+e os arquivos
+na pasta de templates.
+
+00:01:42.966 --> 00:01:47.733
+O routes.py e as pastas de templates
+estão onde a mágica acontece.
+
+00:01:47.766 --> 00:01:50.966
+São os arquivos e pastas
+com os quais você vai trabalhar.
+
+00:01:50.999 --> 00:01:55.266
+Em routes.py, vou importar
+esta variável app aqui em cima.
+
+00:01:55.299 --> 00:01:57.933
+Depois, importo o método
+de template de renderização
+
+00:01:57.966 --> 00:01:59.333
+da biblioteca Flask.
+
+00:01:59.366 --> 00:02:01.399
+Este método, como você vê,
+
+00:02:01.433 --> 00:02:05.333
+vai especificar que arquivo HTML
+deve aparecer
+
+00:02:05.366 --> 00:02:06.866
+baseado num endereço da web.
+
+00:02:06.899 --> 00:02:09.233
+Esta primeira parte
+do código diz
+
+00:02:09.267 --> 00:02:11.466
+que, se um usuário vai
+para a página inicial,
+
+00:02:11.499 --> 00:02:14.280
+como www.udacity.com
+
+00:02:14.313 --> 00:02:18.099
+ou www.udacity.com/index,
+
+00:02:18.133 --> 00:02:20.066
+ou seja lá como sua página
+é chamada,
+
+00:02:20.099 --> 00:02:23.233
+o arquivo index.html
+deve renderizar.
+
+00:02:23.266 --> 00:02:25.299
+O segundo exemplo diz
+
+00:02:25.333 --> 00:02:27.333
+que, se eu for
+a um nome de página na web
+
+00:02:27.366 --> 00:02:31.233
+e digitar /project-one,
+
+00:02:31.266 --> 00:02:35.733
+o arquivo project_one.html
+deve renderizar.
+
+00:02:35.766 --> 00:02:39.599
+Estes arquivos HTML estão
+na pasta de templates.
+
+00:02:39.633 --> 00:02:44.199
+Novamente, você especifica
+o endereço em @app.route,
+
+00:02:44.233 --> 00:02:46.966
+depois você especifica
+o arquivo HTML para servir
+
+00:02:46.999 --> 00:02:48.899
+no método
+de template de renderização.
+
+00:02:48.933 --> 00:02:54.199
+As funções do índice
+e do project_one
+
+00:02:54.233 --> 00:02:56.166
+podem ser nomeadas
+do jeito que quiser.
+
+00:02:56.199 --> 00:02:59.333
+Seu próprio computador pode criar
+um servidor back-end local
+
+00:02:59.366 --> 00:03:01.333
+enquanto você desenvolve
+um aplicativo.
+
+00:03:01.366 --> 00:03:03.499
+Do mesmo modo,
+na sala de aula,
+
+00:03:03.533 --> 00:03:07.199
+use um servidor back-end para ver
+como o aplicativo web renderiza.
+
+00:03:07.233 --> 00:03:10.599
+Você só precisa saber qual website
+colocar em seu navegador.
+
+00:03:10.633 --> 00:03:13.033
+Na verdade,
+já iniciei o aplicativo
+
+00:03:13.066 --> 00:03:15.833
+quando digitei
+python worldbank.py.
+
+00:03:15.866 --> 00:03:20.466
+Vou fechar o aplicativo primeiro
+apertando Control+C.
+
+00:03:20.499 --> 00:03:24.933
+Ok. Primeiro você precisa saber
+que website colocar no navegador
+
+00:03:24.966 --> 00:03:26.333
+para ver seu website.
+
+00:03:26.366 --> 00:03:27.599
+Para a sala de aula,
+
+00:03:27.633 --> 00:03:34.333
+você precisa digitar
+env | grep WORK.
+
+00:03:34.366 --> 00:03:38.099
+O comando env mostra
+todas as variáveis ambientais
+
+00:03:38.133 --> 00:03:39.433
+do espaço de trabalho.
+
+00:03:39.466 --> 00:03:44.499
+O comando env | grep WORK
+
+00:03:44.533 --> 00:03:46.566
+filtra as variáveis ambientais
+
+00:03:46.599 --> 00:03:49.533
+para aquelas que funcionaram
+no nome da variável.
+
+00:03:49.566 --> 00:03:53.466
+O endereço web vai ser este ID
+de espaço de trabalho
+
+00:03:53.499 --> 00:03:57.933
+seguido por —3001, um ponto
+e o domínio do espaço de trabalho.
+
+00:03:57.966 --> 00:04:00.433
+Também coloquei
+instruções abaixo do vídeo.
+
+00:04:00.466 --> 00:04:04.599
+Quando você executa
+o arquivo worldbank.py,
+
+00:04:04.633 --> 00:04:05.933
+você inicia o servidor.
+
+00:04:05.966 --> 00:04:09.033
+Depois digite
+python worldbank.py.
+
+00:04:09.066 --> 00:04:12.666
+Agora, diz que o servidor
+está rodando na porta 3001.
+
+00:04:12.699 --> 00:04:16.299
+Colocando o endereço correto
+no navegador,
+
+00:04:16.333 --> 00:04:17.633
+você vê o aplicativo.
+
+00:04:17.666 --> 00:04:21.599
+Aqui está o aplicativo.
+Esta é a página index.html.
+
+00:04:21.633 --> 00:04:25.099
+Agora se eu colocar
+em project-one,
+
+00:04:25.133 --> 00:04:28.366
+eu posso ver
+a página project_one.html.
+
+00:04:28.399 --> 00:04:30.466
+Voltando ao espaço
+de trabalho,
+
+00:04:30.499 --> 00:04:32.633
+vou abrir estes templates,
+
+00:04:32.666 --> 00:04:35.233
+e você pode ver
+que eles são só HTML,
+
+00:04:35.266 --> 00:04:37.233
+e isto foi o HTML
+sendo renderizado.
+
+00:04:37.266 --> 00:04:40.266
+Na verdade,
+você pode mudar o HTML.
+
+00:04:40.299 --> 00:04:43.466
+Tudo será salvo automaticamente
+no espaço de trabalho.
+
+00:04:43.499 --> 00:04:48.699
+Veja que se você atualizar a página
+com seu aplicativo web,
+
+00:04:48.733 --> 00:04:51.966
+o HTML é
+automaticamente atualizado.
+
+00:04:51.999 --> 00:04:55.733
+Em seguida, você fará um exercício
+para expandir este aplicativo Web
+
+00:04:55.766 --> 00:04:58.699
+e se acostumar
+com rotas e templates.
+

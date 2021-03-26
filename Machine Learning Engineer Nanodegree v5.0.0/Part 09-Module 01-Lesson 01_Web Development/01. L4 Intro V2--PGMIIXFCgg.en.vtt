@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.540 --> 00:00:09.074
+So far, in the software engineering section,
+
+00:00:09.074 --> 00:00:12.139
+you practiced writing clean and maintainable code.
+
+00:00:12.140 --> 00:00:14.455
+Then, in object oriented programming,
+
+00:00:14.455 --> 00:00:16.399
+you built a Python package.
+
+00:00:16.399 --> 00:00:18.939
+In this final software engineering lesson,
+
+00:00:18.940 --> 00:00:24.159
+you're going to use your new skills to build an actual application, a data dashboard.
+
+00:00:24.158 --> 00:00:26.469
+A data dashboard is a collection of
+
+00:00:26.469 --> 00:00:30.054
+visualizations that help you track key metrics and trends.
+
+00:00:30.054 --> 00:00:35.640
+Creating dashboards is a common task for both data analysts and data scientists.
+
+00:00:35.640 --> 00:00:39.240
+Making a Web dashboard from scratch however,
+
+00:00:39.240 --> 00:00:43.070
+requires a wide set of tools including HTML,
+
+00:00:43.070 --> 00:00:47.405
+JavaScript, CSS, Linux, some object oriented programming,
+
+00:00:47.405 --> 00:00:51.520
+and for this particular dashboard that you're going to make, Python.
+
+00:00:51.520 --> 00:00:55.160
+At Udacity, we have an entire nanodegree
+
+00:00:55.159 --> 00:00:59.179
+dedicated to learning these skills called Full-Stack Web Developer.
+
+00:00:59.179 --> 00:01:04.109
+Because making a Web app is its own career path that takes months to learn,
+
+00:01:04.109 --> 00:01:08.935
+this lesson will give a relatively quick and high level overview of Web development.
+
+00:01:08.935 --> 00:01:11.510
+We'll also provide you with a template to make
+
+00:01:11.510 --> 00:01:14.045
+building and deploying the application easier.
+
+00:01:14.045 --> 00:01:16.820
+You'll even be able to reuse this template to build
+
+00:01:16.819 --> 00:01:19.759
+your own data dashboards outside of this course.
+
+00:01:19.760 --> 00:01:21.350
+By the end of the lesson,
+
+00:01:21.349 --> 00:01:26.309
+you'll have deployed a public facing Web app accessible via the Internet.
+

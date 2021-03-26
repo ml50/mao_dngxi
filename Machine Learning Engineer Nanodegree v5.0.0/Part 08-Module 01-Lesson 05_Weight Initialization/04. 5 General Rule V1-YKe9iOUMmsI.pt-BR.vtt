@@ -1,0 +1,285 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.434 --> 00:00:04.172
+Já mencionei que o valor 1
+é alto demais
+
+00:00:04.205 --> 00:00:05.871
+para um bom peso inicial,
+
+00:00:05.904 --> 00:00:08.107
+então escolher pesos
+de um intervalo uniforme
+
+00:00:08.140 --> 00:00:12.379
+de valores entre 0 e 1
+não é a melhor opção.
+
+00:00:12.412 --> 00:00:15.315
+Então como escolher
+um melhor intervalo?
+
+00:00:15.349 --> 00:00:17.851
+Sabemos que, para camadas
+completamente conectadas,
+
+00:00:17.884 --> 00:00:22.489
+cada nó verá os valores de input,
+vai multiplicá-los pelo peso
+
+00:00:22.522 --> 00:00:24.658
+e adicionar
+os valores dos pesos.
+
+00:00:24.691 --> 00:00:26.493
+No caso do FashionMNIST,
+
+00:00:26.526 --> 00:00:30.764
+cada nó oculto na primeira camada
+tem 784 valores de input.
+
+00:00:30.797 --> 00:00:34.067
+A próxima camada tem
+256 valores de input
+
+00:00:34.101 --> 00:00:36.136
+e 128 como input.
+
+00:00:36.169 --> 00:00:40.040
+Como os pesos do modelo agem
+como multiplicadores para os inputs,
+
+00:00:40.073 --> 00:00:42.676
+faz sentido os pesos
+terem relação
+
+00:00:42.709 --> 00:00:45.579
+com o número de inputs
+que cada nó vai ver.
+
+00:00:45.876 --> 00:00:48.949
+Na verdade, a relação
+é inversa.
+
+00:00:48.982 --> 00:00:52.953
+Quanto mais inputs um nó vê,
+menor seu peso deve ser.
+
+00:00:53.283 --> 00:00:56.056
+Então que tipo de intervalo
+devemos tentar?
+
+00:00:56.320 --> 00:00:59.559
+Uma regra geral para configurar
+os pesos em uma rede neural
+
+00:00:59.593 --> 00:01:03.126
+é configurá-los próximos de 0,
+sem serem pequenos demais.
+
+00:01:03.160 --> 00:01:07.067
+Devemos começar com um peso
+e intervalo de -y a y,
+
+00:01:07.100 --> 00:01:09.903
+com y igual a 1
+dividido pela raiz quadrada de n.
+
+00:01:09.937 --> 00:01:13.073
+E n é o número de inputs
+de um neurônio dado.
+
+00:01:13.106 --> 00:01:15.341
+Esta regra diz duas coisas:
+
+00:01:15.374 --> 00:01:17.946
+os pesos devem ser centralizados
+perto de zero
+
+00:01:17.980 --> 00:01:21.114
+e o intervalo deve ser pequeno
+e inversamente relacionado
+
+00:01:21.148 --> 00:01:23.850
+ao número de nós de input
+de uma camada.
+
+00:01:23.884 --> 00:01:25.586
+Vamos ver se isto é verdade
+
+00:01:25.619 --> 00:01:28.689
+e vamos criar a linha
+de base centralizada para comparar.
+
+00:01:28.722 --> 00:01:31.224
+Vamos centralizar o intervalo
+perto de 0,
+
+00:01:31.258 --> 00:01:35.128
+mudando de 0 para 1,
+de -5 para 0,5.
+
+00:01:35.393 --> 00:01:38.469
+Aqui estou definindo
+uma nova função de inicialização:
+
+00:01:38.502 --> 00:01:40.734
+weights_init_uniform_center.
+
+00:01:40.767 --> 00:01:43.237
+E, para cada camada linear
+na nossa rede,
+
+00:01:43.270 --> 00:01:45.172
+vou inicializar os pesos
+da camada
+
+00:01:45.205 --> 00:01:50.077
+usando uma distribuição uniforme
+com o intervalo de -0,5 a 0,5.
+
+00:01:50.110 --> 00:01:52.879
+Estou criando um novo modelo,
+model_centered,
+
+00:01:52.913 --> 00:01:55.582
+e aplico os pesos centralizados
+neste modelo.
+
+00:01:55.616 --> 00:01:58.564
+E farei o mesmo
+para nossa regra geral,
+
+00:01:58.597 --> 00:02:01.756
+que usar o valor de 1
+dividido pela raiz quadrada de n.
+
+00:02:01.789 --> 00:02:04.745
+Vou referenciar o número de inputs
+de uma camada específica.
+
+00:02:04.778 --> 00:02:07.661
+Preparei uma função
+de inicialização.
+
+00:02:07.694 --> 00:02:09.730
+E estou vendo
+toda camada linear.
+
+00:02:09.763 --> 00:02:11.632
+Agora temos que definir o y.
+
+00:02:11.665 --> 00:02:14.134
+Obtenho o número
+de características do input
+
+00:02:14.167 --> 00:02:16.474
+de uma camada específica
+com m.in_features.
+
+00:02:16.507 --> 00:02:18.826
+Vou colocá-la
+como uma variável n.
+
+00:02:18.859 --> 00:02:23.277
+E vou calcular y como 1
+dividido pela raiz quadrada de n.
+
+00:02:23.310 --> 00:02:26.580
+Por último, estou inicializando
+os pesos de cada camada linear
+
+00:02:26.613 --> 00:02:30.117
+com uma distribuição uniforme
+centralizada ao redor do valor y.
+
+00:02:30.150 --> 00:02:34.388
+E vou criar outro modelo
+para aplicar este peso inicial.
+
+00:02:34.421 --> 00:02:37.424
+Vou comparar o comportamento
+destes dois modelos,
+
+00:02:37.457 --> 00:02:39.393
+model_centered e model_rule.
+
+00:02:39.426 --> 00:02:41.361
+Dei um nome descritivo a eles
+
+00:02:41.395 --> 00:02:45.365
+e usei a função compare_init_weights
+para ver o comportamento deles.
+
+00:02:45.399 --> 00:02:47.568
+Podemos ver no eixo y
+
+00:02:47.601 --> 00:02:51.772
+que os valores de perda são
+menores do que vimos antes.
+
+00:02:51.805 --> 00:02:53.713
+E este comportamento
+é promissor.
+
+00:02:53.746 --> 00:02:57.044
+Não só a perda está diminuindo
+nos dois modelos
+
+00:02:57.077 --> 00:02:58.812
+como está diminuindo
+bem rápido
+
+00:02:58.845 --> 00:03:01.548
+para pesos uniformes
+que seguem a regra geral.
+
+00:03:01.582 --> 00:03:03.016
+Após apenas duas épocas,
+
+00:03:03.050 --> 00:03:05.086
+temos uma precisão
+de validação bem alta:
+
+00:03:05.120 --> 00:03:08.155
+quase 86% por usar
+nossa regra geral.
+
+00:03:08.188 --> 00:03:12.330
+E isto deve mostrar por que
+começar com pesos iniciais corretos
+
+00:03:12.363 --> 00:03:14.861
+pode ajudar
+seu processo de treinamento.
+
+00:03:14.895 --> 00:03:17.130
+Existe mais um tipo
+de distribuição
+
+00:03:17.164 --> 00:03:19.333
+de que quero falar
+antes de terminar.
+
+00:03:19.367 --> 00:03:22.169
+Já que a distribuição uniforme
+tem a mesma chance
+
+00:03:22.202 --> 00:03:24.238
+de escolher qualquer valor
+num intervalo,
+
+00:03:24.271 --> 00:03:26.773
+e se usássemos uma distribuição
+com mais chance
+
+00:03:26.807 --> 00:03:29.009
+de escolher números
+mais próximos de 0?
+
+00:03:29.042 --> 00:03:32.212
+Esta é a distribuição normal,
+que vamos ver em seguida.
+

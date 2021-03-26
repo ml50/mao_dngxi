@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:06.410 --> 00:00:09.240
+That's it for the front-end.
+
+00:00:09.240 --> 00:00:14.519
+You should now have a webpage with a few links and a couple of data visualizations.
+
+00:00:14.519 --> 00:00:17.100
+This is already something you could put in
+
+00:00:17.100 --> 00:00:21.145
+your portfolio because it shows off your data visualization skills.
+
+00:00:21.144 --> 00:00:25.375
+If you haven't started a portfolio yet with your other Nanodegree projects,
+
+00:00:25.375 --> 00:00:28.129
+now's the perfect time.
+
+00:00:28.129 --> 00:00:31.799
+All of your files are currently in a directory in
+
+00:00:31.800 --> 00:00:34.954
+the classroom workspace or on your local computer.
+
+00:00:34.954 --> 00:00:40.474
+You should be able to open the HTML file in a local web browser and see the dashboard.
+
+00:00:40.475 --> 00:00:43.789
+Currently, if you wanted to share your dashboard with
+
+00:00:43.789 --> 00:00:48.719
+a coworker you'd have to transfer all of these files to your coworkers computer.
+
+00:00:48.719 --> 00:00:52.719
+Then hat person would have to open the HTML document locally,
+
+00:00:52.719 --> 00:00:57.304
+which is a whole lot of fuss just to show off your visualizations.
+
+00:00:57.304 --> 00:01:01.340
+It would be much nicer if your web app were on the Internet.
+
+00:01:01.340 --> 00:01:06.340
+Then, anyone could type a web address in a browser and see your work.
+
+00:01:06.340 --> 00:01:09.670
+But how do you get your dashboard onto the internet?
+
+00:01:09.670 --> 00:01:12.284
+For that, you'll need a back-end.
+
+00:01:12.284 --> 00:01:16.969
+You're going to build a simple back-end using a framework called Flask.
+
+00:01:16.969 --> 00:01:18.709
+For a data scientist,
+
+00:01:18.709 --> 00:01:24.594
+one of the biggest benefits of Flask is that the framework is written in Python.
+
+00:01:24.594 --> 00:01:27.754
+That means, you can use scikit-learn,
+
+00:01:27.754 --> 00:01:31.550
+pandas and numPy in your back-end code if you
+
+00:01:31.549 --> 00:01:36.009
+need to do any data wrangling or run machine learning algorithms.
+
+00:01:36.010 --> 00:01:38.490
+Once you've coded the back-end,
+
+00:01:38.489 --> 00:01:41.744
+you'll be ready to deploy your application to a server.
+
+00:01:41.745 --> 00:01:47.300
+Deployment will be the last step to getting your application on the internet.
+
+00:01:47.299 --> 00:01:52.879
+Let's get started with building the back-end and deploying the web app to a server.
+

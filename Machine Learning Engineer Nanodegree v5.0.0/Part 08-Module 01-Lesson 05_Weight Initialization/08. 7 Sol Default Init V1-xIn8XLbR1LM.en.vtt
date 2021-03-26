@@ -1,0 +1,199 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.064
+All right. Here's my solution.
+
+00:00:02.064 --> 00:00:04.919
+I created a function that initializes the weights of
+
+00:00:04.919 --> 00:00:08.019
+our model using values taken from a normal distribution.
+
+00:00:08.019 --> 00:00:11.689
+Again, just another function that we can apply to the module weights.
+
+00:00:11.689 --> 00:00:14.219
+Here, I'm defining a distribution with a mean of
+
+00:00:14.220 --> 00:00:17.935
+zero and a standard deviation of one over square root n,
+
+00:00:17.934 --> 00:00:20.969
+where n are the number of inputs to a given layer.
+
+00:00:20.969 --> 00:00:23.625
+So, the range that these weights cover should change
+
+00:00:23.625 --> 00:00:26.449
+based on the number of inputs to a linear layer,
+
+00:00:26.449 --> 00:00:28.699
+and as usual, I have a bias of zero.
+
+00:00:28.699 --> 00:00:31.364
+Then, I'm creating two models to compare.
+
+00:00:31.364 --> 00:00:33.399
+The first, Model Uniform Rule.
+
+00:00:33.399 --> 00:00:37.964
+I'm initializing using our function from above, weights_init_uniform_rule.
+
+00:00:37.965 --> 00:00:41.000
+Then, I'm creating another model that uses the function I
+
+00:00:41.000 --> 00:00:44.465
+defined right here with weights from a normal distribution.
+
+00:00:44.465 --> 00:00:48.040
+For me, it's easiest to create new models right before I compare them.
+
+00:00:48.039 --> 00:00:50.210
+This way I know I haven't accidentally trained
+
+00:00:50.210 --> 00:00:52.704
+one of them for a couple more epics and another one.
+
+00:00:52.704 --> 00:00:54.739
+After I've initialized my two models,
+
+00:00:54.740 --> 00:00:59.734
+I'm comparing them by creating a model list and using my compare_init_weights function.
+
+00:00:59.734 --> 00:01:02.210
+Here we can see that the model initialized with weights from
+
+00:01:02.210 --> 00:01:07.159
+a normal distribution and from a uniform distribution, both behave similarly.
+
+00:01:07.159 --> 00:01:10.359
+Please note how low the starting loss value is here.
+
+00:01:10.359 --> 00:01:14.049
+This similar behavior is likely because our network is so small.
+
+00:01:14.049 --> 00:01:18.424
+A larger neural network will pick more weight values from each of these distributions,
+
+00:01:18.424 --> 00:01:21.909
+magnifying the effect of both initialization styles.
+
+00:01:21.909 --> 00:01:25.399
+So, if the normal distribution shows a small improvement here,
+
+00:01:25.400 --> 00:01:28.835
+you can imagine that this could be magnified in a larger model.
+
+00:01:28.834 --> 00:01:32.015
+I'd also like to point out really how far we've come.
+
+00:01:32.015 --> 00:01:35.090
+If we scroll up all the way to our constant weight values,
+
+00:01:35.090 --> 00:01:37.505
+we can see that we've really improved.
+
+00:01:37.504 --> 00:01:40.444
+We've gone from pretty bad constant weights to
+
+00:01:40.444 --> 00:01:43.644
+adding some randomness using a uniform distribution.
+
+00:01:43.644 --> 00:01:48.659
+This allows our model to make more informative mistakes that it can better learn from.
+
+00:01:48.659 --> 00:01:52.670
+Finally, we went over the general rule for selecting weights from arrange,
+
+00:01:52.670 --> 00:01:55.719
+which depends on the number of inputs a layer sees.
+
+00:01:55.719 --> 00:01:58.864
+Now, we've seen that selecting weights from a uniform or
+
+00:01:58.864 --> 00:02:04.155
+a normal distribution can help us reach a high accuracy pretty quickly as we train.
+
+00:02:04.155 --> 00:02:06.965
+Now, let's test out one more model and that's one
+
+00:02:06.965 --> 00:02:10.194
+without any explicit way initialization.
+
+00:02:10.194 --> 00:02:13.430
+So, here, I'm simply instantiate in a model not
+
+00:02:13.430 --> 00:02:17.025
+passing anything and not applying any initial weights,
+
+00:02:17.025 --> 00:02:21.965
+I'm passing this model alone with a title into our comparison function.
+
+00:02:21.965 --> 00:02:26.110
+Now, you can actually see that the default behavior is quite good.
+
+00:02:26.110 --> 00:02:28.600
+In fact, it looks really similar to our model
+
+00:02:28.599 --> 00:02:31.539
+with initial weights taken from a uniform distribution,
+
+00:02:31.539 --> 00:02:34.840
+and this is because every type of pi torch layer has
+
+00:02:34.840 --> 00:02:38.245
+a default weight initialization that happens behind the scenes.
+
+00:02:38.245 --> 00:02:43.599
+In fact, we can see this default initialization by looking at the module source code.
+
+00:02:43.599 --> 00:02:47.614
+Here's the source code for a linear layer in Pi torch.
+
+00:02:47.615 --> 00:02:50.080
+Here in the reset parameters function,
+
+00:02:50.080 --> 00:02:52.300
+we can see that every linear layer is actually
+
+00:02:52.300 --> 00:02:56.285
+initialized with weights taken from a uniform distribution.
+
+00:02:56.284 --> 00:02:59.895
+In fact, even the bias has some random range.
+
+00:02:59.895 --> 00:03:03.930
+But I would caution you to be careful about this default initialization,
+
+00:03:03.930 --> 00:03:07.025
+it will often be the case that weights taken from something like
+
+00:03:07.025 --> 00:03:10.730
+a normal distribution instead can get us better results.
+
+00:03:10.729 --> 00:03:14.149
+So, it may still be useful especially if you're trying to train
+
+00:03:14.150 --> 00:03:16.460
+the best models to initialize the weights of
+
+00:03:16.460 --> 00:03:19.125
+a model according to the rules that you define,
+
+00:03:19.125 --> 00:03:21.669
+and this is not the end of your learning path here.
+
+00:03:21.669 --> 00:03:23.780
+You're encouraged to look at the different types of
+
+00:03:23.780 --> 00:03:26.985
+common initialization distributions in the documentation.
+
+00:03:26.985 --> 00:03:29.065
+As you continue to learn in the classroom,
+
+00:03:29.064 --> 00:03:33.729
+you'll also see more resources for learning about and practicing weight initialization.
+

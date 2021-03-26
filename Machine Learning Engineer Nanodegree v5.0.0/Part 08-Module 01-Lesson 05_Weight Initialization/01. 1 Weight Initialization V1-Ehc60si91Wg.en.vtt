@@ -1,0 +1,337 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.845
+Hello. So, you've learned a lot about CNNs.
+
+00:00:02.845 --> 00:00:06.240
+And in this lesson, I want to talk about a detail that's been happening behind
+
+00:00:06.240 --> 00:00:09.878
+the scenes when we build and train neural networks in PyTorch,
+
+00:00:09.878 --> 00:00:11.969
+and that's weight initialization.
+
+00:00:11.970 --> 00:00:15.330
+Weight initialization happens right when a model is created,
+
+00:00:15.330 --> 00:00:17.315
+before it sees any training data,
+
+00:00:17.315 --> 00:00:21.000
+and it generally only happens one time when a model is first created.
+
+00:00:21.000 --> 00:00:25.730
+Weight initialization is all about how you can instantiate a model, like a CNN,
+
+00:00:25.730 --> 00:00:27.910
+so that its weights, the model parameters,
+
+00:00:27.910 --> 00:00:31.829
+are starting off with the best initial values for a given task.
+
+00:00:31.829 --> 00:00:33.359
+You might think of it this way,
+
+00:00:33.359 --> 00:00:36.765
+any neuron in a model has some weights and biases that operate
+
+00:00:36.765 --> 00:00:40.590
+on some input values and transform them into desired outputs.
+
+00:00:40.590 --> 00:00:44.640
+It's how you might transform an input image into some class course.
+
+00:00:44.640 --> 00:00:48.490
+A model is trying to learn the best weights to map inputs to outputs and,
+
+00:00:48.490 --> 00:00:51.280
+say, most accurately classify some given images.
+
+00:00:51.280 --> 00:00:52.715
+When we did transfer learning,
+
+00:00:52.715 --> 00:00:56.270
+we basically initialized a network with the best pre-trained weights,
+
+00:00:56.270 --> 00:00:59.570
+weights that we know are good values for image classification.
+
+00:00:59.570 --> 00:01:01.619
+But for a non-pretrained model,
+
+00:01:01.619 --> 00:01:03.640
+how should we initialize the weights?
+
+00:01:03.640 --> 00:01:07.340
+We could start for example by saying all the weights are going to be zero,
+
+00:01:07.340 --> 00:01:10.100
+and we'll train them until they're shifted up or down,
+
+00:01:10.099 --> 00:01:12.269
+or we could start out with large weight values,
+
+00:01:12.269 --> 00:01:13.814
+or even some random values,
+
+00:01:13.814 --> 00:01:15.155
+and see what happens.
+
+00:01:15.155 --> 00:01:18.269
+These are the questions that we'll be exploring in this notebook.
+
+00:01:18.269 --> 00:01:20.299
+Now, in this notebook, I'm going to demonstrate
+
+00:01:20.299 --> 00:01:23.088
+the effect of different weight initialization strategies.
+
+00:01:23.088 --> 00:01:25.504
+We'll discuss how you might decide on initial weights
+
+00:01:25.504 --> 00:01:28.469
+and what indicates good initial behavior during training.
+
+00:01:28.469 --> 00:01:32.299
+As usual, this code will be provided for you in our public GitHub repo,
+
+00:01:32.299 --> 00:01:34.935
+so you can work through it too and see how all this works.
+
+00:01:34.935 --> 00:01:36.254
+The plan is this,
+
+00:01:36.254 --> 00:01:39.414
+we want to define one kind of model, a simple MLP,
+
+00:01:39.415 --> 00:01:42.590
+and we'll initialize the weights of this model with different values,
+
+00:01:42.590 --> 00:01:47.335
+and compare how the training losses decrease over the first epic or two of training.
+
+00:01:47.334 --> 00:01:50.104
+So, same models, different initial weights.
+
+00:01:50.105 --> 00:01:53.030
+Here's an example where we plotted the training loss over
+
+00:01:53.030 --> 00:01:56.275
+100 batches for two different initialization methods.
+
+00:01:56.275 --> 00:01:57.730
+These are just examples.
+
+00:01:57.730 --> 00:02:00.020
+Some initialization strategies may offer
+
+00:02:00.019 --> 00:02:02.625
+some really big improvements to how the loss decreases,
+
+00:02:02.625 --> 00:02:04.474
+and others may offer small improvements,
+
+00:02:04.474 --> 00:02:06.884
+such as here, it's very hard to tell the difference.
+
+00:02:06.885 --> 00:02:10.224
+But, big or small, we can learn from all of these differences.
+
+00:02:10.223 --> 00:02:13.039
+So, what we're going to do is define a simple MLP for
+
+00:02:13.039 --> 00:02:15.965
+classifying images in the Fashion-MNIST dataset.
+
+00:02:15.965 --> 00:02:20.469
+In the first couple cells, I'm going to load in this data with a batch size of 100.
+
+00:02:20.469 --> 00:02:24.495
+The images in the Fashion-MNIST dataset fall into one of 10 classes.
+
+00:02:24.495 --> 00:02:25.879
+You have T-Shirts, shirts,
+
+00:02:25.879 --> 00:02:28.419
+sneakers, bags, ankle boots, and so on.
+
+00:02:28.419 --> 00:02:32.199
+And here's what a few of those images look like with their respective labels.
+
+00:02:32.199 --> 00:02:33.949
+You may have seen this before, it's
+
+00:02:33.949 --> 00:02:36.794
+just a dataset of grey scale images of clothing types,
+
+00:02:36.794 --> 00:02:38.639
+very similar to the MNIST dataset.
+
+00:02:38.639 --> 00:02:43.314
+But this classification task is a little more challenging than just 100 in digits.
+
+00:02:43.314 --> 00:02:48.004
+A simple dataset like this one is often used to test network performance,
+
+00:02:48.004 --> 00:02:50.060
+because the dataset is simple to use
+
+00:02:50.060 --> 00:02:52.765
+and it's training behavior is fairly well understood.
+
+00:02:52.764 --> 00:02:57.323
+We know for example that we should be able to get the training loss to reliably decrease.
+
+00:02:57.324 --> 00:03:01.894
+So, I load in and look at my data as usual then we get to the model definition,
+
+00:03:01.894 --> 00:03:05.500
+and here's a little diagram of the MLP am planning to build.
+
+00:03:05.500 --> 00:03:07.330
+This MLP has an input layer,
+
+00:03:07.330 --> 00:03:09.865
+two hidden layers whose size I've specified,
+
+00:03:09.865 --> 00:03:11.330
+and a final output layer,
+
+00:03:11.330 --> 00:03:14.590
+the outputs 10 class scores for a 10 clothing types.
+
+00:03:14.590 --> 00:03:19.530
+The hidden layers will have 256 and 128 nodes respectively.
+
+00:03:19.530 --> 00:03:21.500
+Again, we just want to keep it simple,
+
+00:03:21.500 --> 00:03:22.879
+so that we can focus on how
+
+00:03:22.879 --> 00:03:26.370
+weight Initialization affects the performance of such a model.
+
+00:03:26.370 --> 00:03:30.254
+If you scroll down a bit, you can see how I've defined that model here.
+
+00:03:30.254 --> 00:03:33.949
+I have a flattened input x that I pass to a fully connected layer,
+
+00:03:33.949 --> 00:03:37.414
+and I apply a radio activation function to each of my hidden layers.
+
+00:03:37.414 --> 00:03:38.924
+I add some dropout in between,
+
+00:03:38.925 --> 00:03:40.975
+and I have my final fully-connected layer,
+
+00:03:40.974 --> 00:03:43.419
+which produces 10 class scores.
+
+00:03:43.419 --> 00:03:45.419
+Then to actually train this model,
+
+00:03:45.419 --> 00:03:47.849
+I have put that code in a helpers.py file,
+
+00:03:47.849 --> 00:03:50.650
+which you can find by clicking on this Jupyter icon here.
+
+00:03:50.650 --> 00:03:53.480
+The purpose of this notebook is not to train the model
+
+00:03:53.479 --> 00:03:56.299
+until it performs well on the classification task,
+
+00:03:56.300 --> 00:04:00.560
+but rather we just want to see how well the models train given different initial weights.
+
+00:04:00.560 --> 00:04:03.365
+So, let's see what's in the helpers.py file.
+
+00:04:03.365 --> 00:04:06.370
+Here's our main helper function get_loss_acc,
+
+00:04:06.370 --> 00:04:07.719
+which takes in a model,
+
+00:04:07.719 --> 00:04:09.784
+and the training and validation model.
+
+00:04:09.784 --> 00:04:13.919
+In here, I've defined the length of time to train a model choosing two epochs,
+
+00:04:13.919 --> 00:04:17.810
+and I have also defined a loss and optimization function in here.
+
+00:04:17.810 --> 00:04:20.740
+I'm using cross-entropy and an Adam optimizer,
+
+00:04:20.740 --> 00:04:21.855
+which is one of my gotos,
+
+00:04:21.855 --> 00:04:26.060
+but feel free to change this to stochastic gradient descent and see how it performs.
+
+00:04:26.060 --> 00:04:29.509
+Then in this function, I'm actually going to train this model for two epochs,
+
+00:04:29.509 --> 00:04:31.879
+and record the training loss as I go.
+
+00:04:31.879 --> 00:04:35.435
+This loss is going to be recorded in a list called loss_batch.
+
+00:04:35.435 --> 00:04:38.030
+After a model has trained for two epochs,
+
+00:04:38.029 --> 00:04:41.089
+I then see how it performs on our validation data set.
+
+00:04:41.089 --> 00:04:43.239
+I compare the predicted and the correct class,
+
+00:04:43.240 --> 00:04:44.910
+and see which ones match.
+
+00:04:44.910 --> 00:04:49.915
+Finally, I return the list of training loss over time and that validation accuracy.
+
+00:04:49.915 --> 00:04:53.120
+Then you'll see another helper function compare and it weights,
+
+00:04:53.120 --> 00:04:55.319
+which takes in a list of models.
+
+00:04:55.319 --> 00:04:57.110
+For each model in our list,
+
+00:04:57.110 --> 00:05:01.205
+it will record the training loss and the validation accuracy over two epochs,
+
+00:05:01.204 --> 00:05:05.314
+and there's some code to visualize this loss and compare at least two models.
+
+00:05:05.314 --> 00:05:06.920
+Okay. So, you can take a look at
+
+00:05:06.920 --> 00:05:09.560
+the helper code and understand how all these things work,
+
+00:05:09.560 --> 00:05:13.134
+but there's no need to change anything about the code that I've shown you so far.
+
+00:05:13.134 --> 00:05:16.730
+Now, that I've introduced you to these resources and this notebook,
+
+00:05:16.730 --> 00:05:17.810
+in the next few videos,
+
+00:05:17.810 --> 00:05:22.199
+I'm going to demonstrate how to set your weights appropriately and compare that behavior.
+

@@ -1,0 +1,160 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.425
+All right. In this notebook,
+
+00:00:01.425 --> 00:00:06.349
+I'm reading in my data again and I'm starting out with the same convolutional structure.
+
+00:00:06.349 --> 00:00:10.375
+The encoder is made of a series of convolutional and maxpooling layers,
+
+00:00:10.375 --> 00:00:12.654
+and our compressed representation is the same,
+
+00:00:12.654 --> 00:00:15.179
+a seven by seven by four output.
+
+00:00:15.179 --> 00:00:18.640
+What's changing is how I make this decoder portion.
+
+00:00:18.640 --> 00:00:22.219
+Instead of just including transpose convolutional layers,
+
+00:00:22.219 --> 00:00:26.714
+I'm combining nearest neighbor interpolation with normal convolutional layers.
+
+00:00:26.714 --> 00:00:28.879
+Nearest neighbor interpolation is
+
+00:00:28.879 --> 00:00:32.229
+just an upsampling method that copies over pixel values from,
+
+00:00:32.229 --> 00:00:35.339
+say, a two-by-two area to a four-by-four area.
+
+00:00:35.340 --> 00:00:40.565
+So, after the seven-by-seven-by-four compressed representation is created by the encoder,
+
+00:00:40.564 --> 00:00:45.399
+I upsample that by a factor of two to get a 14 by 14 by 4 tensor.
+
+00:00:45.399 --> 00:00:49.689
+Then, I put it through a convolutional layer to increase the depth to 16.
+
+00:00:49.689 --> 00:00:54.119
+Then one more upsample to get to the size I want, 28 by 28,
+
+00:00:54.119 --> 00:00:58.534
+and one more convolutional layer to get us to the size of the reconstructed output,
+
+00:00:58.534 --> 00:01:00.799
+28 by 28 by 1.
+
+00:01:00.799 --> 00:01:02.469
+So basically, I replaced
+
+00:01:02.469 --> 00:01:07.275
+one transpose convolutional layer with an upsample function and a convolutional layer.
+
+00:01:07.275 --> 00:01:11.840
+The convolutional layer changes the depth of an input and acts as a series of
+
+00:01:11.840 --> 00:01:13.820
+image filters that can learn to cleverly
+
+00:01:13.819 --> 00:01:16.809
+transform the layers in between upsampling functions.
+
+00:01:16.810 --> 00:01:19.530
+Okay. So, if I go down to my autoencoder code,
+
+00:01:19.530 --> 00:01:23.700
+I can see my two convolutional layers and pooling layer that defined my encoder.
+
+00:01:23.700 --> 00:01:28.254
+Then my decoder layers are just the two convolutional layers that go from 4-16,
+
+00:01:28.254 --> 00:01:30.199
+to 16-1 in depth.
+
+00:01:30.200 --> 00:01:32.510
+The biggest change is in the forward function,
+
+00:01:32.510 --> 00:01:36.290
+where I have my encoder layers and the decoder looks a little different.
+
+00:01:36.290 --> 00:01:40.115
+After the compressed representation, I call F.upsample.
+
+00:01:40.114 --> 00:01:41.674
+In some versions of PyTorch,
+
+00:01:41.674 --> 00:01:43.004
+this may be may interpellate,
+
+00:01:43.004 --> 00:01:44.280
+but it's the same function.
+
+00:01:44.280 --> 00:01:48.055
+I pass in my input X and I scale it up by a factor of two,
+
+00:01:48.055 --> 00:01:50.240
+using nearest neighbor interpolation.
+
+00:01:50.239 --> 00:01:54.125
+Then I pass this up-sampled X into a convolutional layer.
+
+00:01:54.125 --> 00:01:55.700
+Again for each hidden layer,
+
+00:01:55.700 --> 00:02:00.094
+I'm applying a relu activation function and a sigmoid to the very last output.
+
+00:02:00.094 --> 00:02:02.150
+Okay. So, I defined this model and I
+
+00:02:02.150 --> 00:02:04.665
+trained it for the exact same length as I did before.
+
+00:02:04.665 --> 00:02:07.760
+Here you can see the loss starts out a little lower at about
+
+00:02:07.760 --> 00:02:11.719
+0.32 and decreases to a lower value as well.
+
+00:02:11.719 --> 00:02:15.430
+And here are the original and then reconstructed images underneath.
+
+00:02:15.430 --> 00:02:17.504
+And I think these look really good.
+
+00:02:17.504 --> 00:02:22.204
+These images are a bit smoother and they look really close to the original version.
+
+00:02:22.205 --> 00:02:24.844
+Now both the transpose convolutional layers
+
+00:02:24.844 --> 00:02:27.259
+and this upsampling approach work for this task,
+
+00:02:27.259 --> 00:02:31.534
+and I'd like you to keep in mind that many tasks have multiple solutions.
+
+00:02:31.534 --> 00:02:34.474
+In fact, the best deep learning researchers and learners
+
+00:02:34.474 --> 00:02:37.359
+have investigated a number of options for solutions,
+
+00:02:37.360 --> 00:02:40.935
+different architectures that might offer certain benefits or trade-offs.
+
+00:02:40.935 --> 00:02:43.430
+And next, I want to give you a free form challenge
+
+00:02:43.430 --> 00:02:46.200
+for you to try out a solution of your own design.
+

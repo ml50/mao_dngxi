@@ -1,0 +1,179 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.300 --> 00:00:02.936
+Agora vou usar
+uma distribuição normal
+
+00:00:02.969 --> 00:00:05.502
+para selecionar
+pesos de modelo iniciais.
+
+00:00:05.536 --> 00:00:09.776
+Primeiro vamos ver como ela é
+usando NumPy e um histograma.
+
+00:00:09.809 --> 00:00:12.812
+Desta vez estou usando
+np.random.normal.
+
+00:00:12.846 --> 00:00:16.449
+E em vez de receber um intervalo
+de valor mais alto e um mais baixo
+
+00:00:16.483 --> 00:00:18.084
+como a distribuição uniforme,
+
+00:00:18.118 --> 00:00:20.654
+ela contém uma média e
+um desvio padrão.
+
+00:00:20.687 --> 00:00:24.591
+Se a média e o desvio padrão
+não estiverem especificados,
+
+00:00:24.624 --> 00:00:27.661
+o padrão é 0,
+e o desvio padrão é 1.
+
+00:00:27.694 --> 00:00:30.931
+Estou pedindo que, com uma média 0
+e com desvio padrão 1,
+
+00:00:30.964 --> 00:00:32.766
+ela crie 1.000 valores.
+
+00:00:32.799 --> 00:00:35.836
+A média deveria ser a média
+de todos estes valores,
+
+00:00:35.869 --> 00:00:37.003
+o valor do centro.
+
+00:00:37.037 --> 00:00:39.973
+E o desvio padrão representa
+a propagação de valores
+
+00:00:40.006 --> 00:00:41.141
+em volta da média.
+
+00:00:41.174 --> 00:00:43.944
+Você pode ver aqui
+como é uma distribuição normal
+
+00:00:43.977 --> 00:00:46.546
+para uma média 0
+e um desvio padrão de 1.
+
+00:00:46.580 --> 00:00:49.616
+A maioria dos valores
+estão concentrados neste intervalo.
+
+00:00:49.649 --> 00:00:51.785
+Novamente, estamos usando
+um histograma,
+
+00:00:51.818 --> 00:00:54.888
+então disparamos mil valores
+em 500 buckets.
+
+00:00:54.921 --> 00:00:56.223
+Na distribuição uniforme,
+
+00:00:56.256 --> 00:00:59.426
+os valores eram distribuídos
+igualmente no intervalo
+
+00:00:59.459 --> 00:01:01.828
+e caíam dois valores
+para um bucket.
+
+00:01:01.862 --> 00:01:03.597
+A distribuição normal
+
+00:01:03.630 --> 00:01:06.099
+tem a maioria dos valores
+próximos da média, 0.
+
+00:01:06.132 --> 00:01:09.836
+E o histograma parece
+uma curva que mostra
+
+00:01:09.870 --> 00:01:13.006
+como os valores caem
+em um desvio padrão da média.
+
+00:01:13.039 --> 00:01:15.609
+Se selecionarmos os valores
+de pesos iniciais
+
+00:01:15.642 --> 00:01:17.210
+deste tipo de distribuição,
+
+00:01:17.244 --> 00:01:20.113
+receberemos valores aleatórios
+mais próximos de zero
+
+00:01:20.146 --> 00:01:22.582
+do que se escolhêssemos
+da distribuição uniforme.
+
+00:01:22.616 --> 00:01:26.720
+Começar com valores de peso menores
+pode oferecer benefícios.
+
+00:01:26.753 --> 00:01:29.823
+Vou deixar isto
+como um exercício para você,
+
+00:01:29.856 --> 00:01:33.093
+já que você já viu vários
+exemplos de inicialização de pesos.
+
+00:01:33.126 --> 00:01:36.029
+Quero que você defina
+uma função de inicialização
+
+00:01:36.062 --> 00:01:38.598
+e inicialize os pesos
+em cada camada do modelo
+
+00:01:38.632 --> 00:01:40.734
+usando uma
+distribuição normal.
+
+00:01:40.767 --> 00:01:43.770
+A distribuição ainda deve seguir
+a regra geral,
+
+00:01:43.803 --> 00:01:48.742
+deve ter média 0 e desvio igual a 1
+dividido pela raiz quadrada de n.
+
+00:01:48.775 --> 00:01:52.579
+Quando completar esta função,
+compare alguns modelos.
+
+00:01:52.612 --> 00:01:55.182
+Compare pesos
+com inicialização uniforme
+
+00:01:55.215 --> 00:01:56.850
+e inicialização normal.
+
+00:01:57.551 --> 00:01:59.920
+Por fim, quero que você crie
+um terceiro modelo,
+
+00:01:59.953 --> 00:02:02.822
+um sem nenhuma
+inicialização explícita de peso.
+
+00:02:02.856 --> 00:02:05.225
+Compare os três modelos.
+
+00:02:05.258 --> 00:02:07.627
+Em seguida, vou mostrar
+a minha implementação.
+

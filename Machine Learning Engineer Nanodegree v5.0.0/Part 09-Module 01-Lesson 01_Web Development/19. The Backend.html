@@ -1,0 +1,427 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   The Backend
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Web Development
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Lesson Overview.html">
+       02. Lesson Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The Web.html">
+       03. The Web
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Components of a Web App.html">
+       04. Components of a Web App
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The Front-End.html">
+       05. The Front-End
+      </a>
+     </li>
+     <li class="">
+      <a href="06. HTML.html">
+       06. HTML
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Exercise HTML.html">
+       07. Exercise: HTML
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Div and Span.html">
+       08. Div and Span
+      </a>
+     </li>
+     <li class="">
+      <a href="09. IDs and Classes.html">
+       09. IDs and Classes
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Exercise HTML Div, Span, IDs, Classes.html">
+       10. Exercise: HTML Div, Span, IDs, Classes
+      </a>
+     </li>
+     <li class="">
+      <a href="11. CSS.html">
+       11. CSS
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Exercise CSS.html">
+       12. Exercise: CSS
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Bootstrap Library.html">
+       13. Bootstrap Library
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Exercise Bootstrap.html">
+       14. Exercise: Bootstrap
+      </a>
+     </li>
+     <li class="">
+      <a href="15. JavaScript.html">
+       15. JavaScript
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Exercise JavaScript.html">
+       16. Exercise: JavaScript
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Plotly.html">
+       17. Plotly
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Exercise Plotly.html">
+       18. Exercise: Plotly
+      </a>
+     </li>
+     <li class="">
+      <a href="19. The Backend.html">
+       19. The Backend
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Flask.html">
+       20. Flask
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Exercise Flask.html">
+       21. Exercise: Flask
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Flask + Pandas.html">
+       22. Flask + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Example Flask + Pandas.html">
+       23. Example: Flask + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Flask+Plotly+Pandas Part 1.html">
+       24. Flask+Plotly+Pandas Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Flask+Plotly+Pandas Part 2.html">
+       25. Flask+Plotly+Pandas Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Flask+Plotly+Pandas Part 3.html">
+       26. Flask+Plotly+Pandas Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Flask+Plotly+Pandas Part 4.html">
+       27. Flask+Plotly+Pandas Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="28. Example Flask + Plotly + Pandas.html">
+       28. Example: Flask + Plotly + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="29. Exercise Flask + Plotly + Pandas.html">
+       29. Exercise: Flask + Plotly + Pandas
+      </a>
+     </li>
+     <li class="">
+      <a href="30. Deployment.html">
+       30. Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Exercise Deployment.html">
+       31. Exercise: Deployment
+      </a>
+     </li>
+     <li class="">
+      <a href="32. Lesson Summary.html">
+       32. Lesson Summary
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          19. The Backend
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="the-backend">
+          The Backend
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L4 The Back End V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="19. L4 The Back End V2-Esl0NL63S2c.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="19. L4 The Back End V2-Esl0NL63S2c.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="19. L4 The Back End V2-Esl0NL63S2c.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="19. L4 The Back End V2-Esl0NL63S2c.pt-BR.vtt" srclang="pt-BR"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this next part of the lesson, you'll build a backend using Flask. Because Flask is written in Python, you can use any Python library in your backend including pandas and scikit-learn.
+         </p>
+         <p>
+          In this part of the lesson, you'll practice
+         </p>
+         <ul>
+          <li>
+           setting up the backend
+          </li>
+          <li>
+           linking the backend and the frontend together
+          </li>
+          <li>
+           deploying the app to a server so that the app is available from a web address
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="what-is-flask">
+          What is Flask?
+         </h1>
+         <p>
+          <a href="http://flask.pocoo.org/" rel="noopener noreferrer" target="_blank">
+           Flask
+          </a>
+          . A web framework takes care of all the routing needed to organize a web page so that you don't have to write the code yourself!
+         </p>
+         <p>
+          When you type "http://www.udacity.com" into a browser, your computer sends out a request to another computer (ie the server) where the Udacity website is stored. Then the Udacity server sends you the files needed to render the website in your browser. The Udacity computer is called a server because it "serves" you the files that you requested.
+         </p>
+         <p>
+          The HTTP part of the web address stands for Hypter-text Transfer Protocol. HTTP defines a standard way of sending and receiving messages over the internet.
+         </p>
+         <p>
+          When you hit enter in your browser, your computer says "get me the files for the web page at www.udacity.com": except that message is sent to the server with the syntax governed by HTTP. Then the server sends out the files via the protocol as well.
+         </p>
+         <p>
+          There needs to be some software on the server that can interpret these HTTP requests and send out the correct files. That's where a web framework like Flask comes into play. A framework abstracts the code for receiving requests as well as interpreting the requests and sending out the correct files.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="why-flask">
+          Why Flask?
+         </h1>
+         <ul>
+          <li>
+           First and foremost, you'll be working with Flask because it is written in Python. You won't need to learn a new programming language.
+          </li>
+          <li>
+           Flask is also a relatively simple framework, so it's good for making a small web app.
+          </li>
+          <li>
+           Because Flask is written in Python, you can use Flask with any other Python library including pandas, numpy and scikit-learn. In this lesson, you'll be deploying a data dashboard and pandas will help get the data ready.
+          </li>
+         </ul>
+         <p>
+          Continue on to start building the backend.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="20. Flask.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('19. The Backend')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

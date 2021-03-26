@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.065
+In this notebook, you'll be implementing an auto encoder with convolutional layers.
+
+00:00:05.065 --> 00:00:08.699
+Convolutional layers are meant to work with spatial data like images.
+
+00:00:08.699 --> 00:00:11.445
+Where we saw some blurriness and small noise
+
+00:00:11.445 --> 00:00:14.370
+in our simple auto encoder reconstructed images,
+
+00:00:14.369 --> 00:00:16.724
+I'm hoping to get a little better performance here.
+
+00:00:16.725 --> 00:00:18.450
+So, just like last time,
+
+00:00:18.449 --> 00:00:22.484
+we're just importing our packages and modules and getting the MNIST data.
+
+00:00:22.484 --> 00:00:24.449
+Right here, I'm just taking a quick look at
+
+00:00:24.449 --> 00:00:26.914
+our data to make sure it looks like what I expect.
+
+00:00:26.914 --> 00:00:30.599
+Next up, let's define a convolutional autoencoder.
+
+00:00:30.600 --> 00:00:33.480
+Here's a diagram of what our network is going to look like.
+
+00:00:33.479 --> 00:00:36.000
+This is essentially going from input to output.
+
+00:00:36.000 --> 00:00:39.630
+The diagram is really turned on its head from what you've seen before,
+
+00:00:39.630 --> 00:00:42.775
+so that the input is at the bottom and the output at the top.
+
+00:00:42.774 --> 00:00:46.960
+So, each of these horizontal bars represents a layer in this autoencoder
+
+00:00:46.960 --> 00:00:51.530
+and the width of the bar indicates how large in the x and y dimension this layer is.
+
+00:00:51.530 --> 00:00:56.685
+So, we're starting with an original image and that's just 28 by 28 by 1.
+
+00:00:56.685 --> 00:00:59.060
+So, this is our input layer and then we have
+
+00:00:59.060 --> 00:01:02.355
+a convolutional layer that increases the depth to 16.
+
+00:01:02.354 --> 00:01:07.715
+So, we're left with a convolutional layer that has dimensions 28 by 28 by 16.
+
+00:01:07.715 --> 00:01:10.174
+This layer is not changing the width or the height
+
+00:01:10.174 --> 00:01:12.769
+but we're changing the depth from one to 16.
+
+00:01:12.769 --> 00:01:14.854
+Next, there's a max pooling layer.
+
+00:01:14.855 --> 00:01:19.550
+Our typical max pooling layer with a stride and kernel size of two will down-sample
+
+00:01:19.549 --> 00:01:23.515
+the input such that the x and y dimensions are reduced by a factor of two.
+
+00:01:23.515 --> 00:01:29.495
+So, in this case, we're going from 28 by 28 to 14 by 14 and the depth stays the same.
+
+00:01:29.495 --> 00:01:30.890
+Along these same lines,
+
+00:01:30.890 --> 00:01:34.680
+we have another convolutional layer that's 14 by 14 by 4.
+
+00:01:34.680 --> 00:01:37.610
+In this case, we're reducing the depth from 16 to four
+
+00:01:37.609 --> 00:01:40.694
+in the interest of making a better compressed representation.
+
+00:01:40.694 --> 00:01:43.849
+Finally, one more max pooling layer which brings us to
+
+00:01:43.849 --> 00:01:47.599
+a compressed representation that 7 by 7 by 4 in dimension.
+
+00:01:47.599 --> 00:01:50.989
+This representation contains 196 values
+
+00:01:50.989 --> 00:01:54.694
+total which is just 25 percent the size of our initial input.
+
+00:01:54.694 --> 00:01:56.329
+A pretty good size reduction.
+
+00:01:56.329 --> 00:01:59.635
+Though you could add another layer and go even smaller if you want.
+
+00:01:59.635 --> 00:02:03.440
+So, this completes the encoder part and then we proceed to the decoder.
+
+00:02:03.439 --> 00:02:06.539
+The decoder's main job is to go from a 7 by 7 by
+
+00:02:06.540 --> 00:02:11.330
+4 compressed representation back to the size of the reconstructed output image.
+
+00:02:11.330 --> 00:02:16.070
+Our goal is to get the reconstruction and the original image as close as possible.
+
+00:02:16.069 --> 00:02:19.025
+There are basically two ways to do this using what are called
+
+00:02:19.025 --> 00:02:21.920
+transposed convolutional layers or upsampling
+
+00:02:21.919 --> 00:02:24.919
+and with some scaling and interpolation technique,
+
+00:02:24.919 --> 00:02:27.439
+and I'll show you examples of both approaches.
+
+00:02:27.439 --> 00:02:30.814
+So, first, we're going to try transposed convolutional layers.
+
+00:02:30.814 --> 00:02:32.879
+With transposed convolution, there's
+
+00:02:32.879 --> 00:02:35.299
+a kernel in this layer that's looking at the layer below.
+
+00:02:35.300 --> 00:02:37.625
+Using a larger stride to multiply
+
+00:02:37.625 --> 00:02:42.770
+existing pixel values by some weights and increase the spatial size of the output.
+
+00:02:42.770 --> 00:02:44.420
+In this case, we'll be using
+
+00:02:44.419 --> 00:02:47.750
+transpose convolutions with the kernel size and a stride of two,
+
+00:02:47.750 --> 00:02:51.324
+so that they doubled the x and y dimensions of the input that they see.
+
+00:02:51.324 --> 00:02:57.030
+You can think of them as doing both a convolution and on pooling operation at once.
+
+00:02:57.030 --> 00:02:59.919
+You can read more about this behavior here and in fact,
+
+00:02:59.919 --> 00:03:03.530
+PyTorch has some pretty good documentation on Convtransposed2D.
+
+00:03:03.530 --> 00:03:05.300
+If we look at the documentation,
+
+00:03:05.300 --> 00:03:06.605
+we can see that we can define
+
+00:03:06.604 --> 00:03:11.019
+a transpose convolutional layer in the same way that we define convolutional layers.
+
+00:03:11.020 --> 00:03:12.939
+It takes in a number of in-channels,
+
+00:03:12.939 --> 00:03:14.849
+out-channels and a kernel size.
+
+00:03:14.849 --> 00:03:17.560
+We'll also have to be careful to define the stride.
+
+00:03:17.560 --> 00:03:19.555
+Okay, so following our diagram,
+
+00:03:19.555 --> 00:03:22.780
+I want you to complete the class convautoencoder.
+
+00:03:22.780 --> 00:03:25.009
+I've left most of this for you to fill in,
+
+00:03:25.009 --> 00:03:28.114
+but I have shown you how to define a transpose convolutional layer.
+
+00:03:28.115 --> 00:03:32.540
+This particular layer sees four inputs and produces 16 outputs.
+
+00:03:32.539 --> 00:03:35.419
+It also has a kernel size of two and a stride of two,
+
+00:03:35.419 --> 00:03:40.119
+so we'll upsample the spatial dimensions of anything it sees by a factor of two.
+
+00:03:40.120 --> 00:03:41.939
+Later, when we get to training,
+
+00:03:41.939 --> 00:03:46.865
+you'll see the same loss and optimization functions as in the simple autoencoder case.
+
+00:03:46.865 --> 00:03:51.965
+Now, this model has more parameters so I'd advise training for fewer epochs at first.
+
+00:03:51.965 --> 00:03:55.245
+Especially if you're just trying to see how the loss decreases over time.
+
+00:03:55.245 --> 00:03:57.009
+Then, when you think you have a good model,
+
+00:03:57.009 --> 00:04:00.560
+you should train it for around 20 or 30 epochs at least,
+
+00:04:00.560 --> 00:04:03.235
+and then you can test it out on our usual test data.
+
+00:04:03.235 --> 00:04:07.310
+Next, if you want to check your work or see a potential solution to this task,
+
+00:04:07.310 --> 00:04:09.530
+you're welcome to check out my solution video.
+

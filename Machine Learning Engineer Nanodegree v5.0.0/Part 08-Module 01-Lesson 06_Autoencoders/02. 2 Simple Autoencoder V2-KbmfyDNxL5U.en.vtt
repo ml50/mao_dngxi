@@ -1,0 +1,271 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.410
+In this notebook, we'll be defining and training an autoencoder.
+
+00:00:03.410 --> 00:00:05.325
+So, as we talked about before,
+
+00:00:05.325 --> 00:00:09.310
+an autoencoder is basically just a model where we pass in some original data,
+
+00:00:09.310 --> 00:00:10.550
+for instance an image,
+
+00:00:10.550 --> 00:00:13.075
+and then we compress it down to a smaller size.
+
+00:00:13.074 --> 00:00:16.489
+This mapping from an original to a compressed image is learned.
+
+00:00:16.489 --> 00:00:19.229
+An autoencoder will try to compress this image and then
+
+00:00:19.230 --> 00:00:22.635
+reconstruct the original image from the compressed representation.
+
+00:00:22.635 --> 00:00:25.425
+In this example, we'll be working with MNIST images,
+
+00:00:25.425 --> 00:00:31.350
+where each image is a 28 by 28 by 1 array with a total number of 784 pixels.
+
+00:00:31.350 --> 00:00:34.289
+Using an autoencoder, we can compress this down into
+
+00:00:34.289 --> 00:00:37.604
+a smaller matrix or vector with a smaller number of values.
+
+00:00:37.604 --> 00:00:41.449
+This compressed representation could be useful if we wanted to take up less space
+
+00:00:41.450 --> 00:00:45.660
+on our hard drive or share a small data file over a social network or with a friend.
+
+00:00:45.659 --> 00:00:48.049
+Compressed data is often cheaper to store in
+
+00:00:48.049 --> 00:00:51.603
+data centers and faster to share across Wi-Fi connected devices.
+
+00:00:51.603 --> 00:00:53.479
+So, what we're really interested in here,
+
+00:00:53.479 --> 00:00:55.250
+is this compressed representation and
+
+00:00:55.250 --> 00:00:58.030
+this more efficient way of storing our original image.
+
+00:00:58.030 --> 00:01:00.094
+Once we have our compressed representation,
+
+00:01:00.094 --> 00:01:03.460
+we can pass it through a decoder to reconstruct our original image.
+
+00:01:03.460 --> 00:01:06.109
+In practice, autoencoders really aren't that good at
+
+00:01:06.109 --> 00:01:09.349
+traditional image compression when compared to something like JPEGs.
+
+00:01:09.349 --> 00:01:11.509
+But you'll find that their two-part structure of
+
+00:01:11.510 --> 00:01:14.270
+an encoder and decoder will be really useful.
+
+00:01:14.269 --> 00:01:17.599
+Autoencoders have found use in de-noising images,
+
+00:01:17.599 --> 00:01:19.369
+which we'll get into in a later notebook.
+
+00:01:19.370 --> 00:01:23.960
+So, here I'm going to get you started in implementing an autoencoder in Pytorch,
+
+00:01:23.959 --> 00:01:26.069
+and you're actually going to build the network yourself.
+
+00:01:26.069 --> 00:01:30.500
+The idea is that we define our encoder and decoder as neural networks.
+
+00:01:30.500 --> 00:01:33.560
+Then we train this complete autoencoder by passing in
+
+00:01:33.560 --> 00:01:37.549
+an original image and getting back as output a reconstructed image.
+
+00:01:37.549 --> 00:01:40.704
+We can then compare the original with the reconstruction.
+
+00:01:40.704 --> 00:01:44.609
+We want the original and reconstructed image to be as close as possible.
+
+00:01:44.609 --> 00:01:47.435
+So, our loss will actually be comparing these pixel values
+
+00:01:47.435 --> 00:01:50.960
+and measuring the difference between the original and reconstructed images.
+
+00:01:50.959 --> 00:01:52.579
+Once this whole network is trained,
+
+00:01:52.579 --> 00:01:55.799
+we should have a working encoder and decoder portion of a network,
+
+00:01:55.799 --> 00:02:00.399
+and we'll be able to use either part to either compress or decompress a certain image.
+
+00:02:00.400 --> 00:02:03.565
+So, first things first. I'm importing some of the libraries that we need.
+
+00:02:03.564 --> 00:02:06.560
+Everything we need to load in and start working with our data.
+
+00:02:06.560 --> 00:02:09.590
+Then, I'm going to load in training and test MNIST data.
+
+00:02:09.590 --> 00:02:12.715
+I'll also transform this data into a tensor datatype.
+
+00:02:12.715 --> 00:02:16.625
+Next, I'm going to batch up this data and use pytorch's data loader class.
+
+00:02:16.625 --> 00:02:19.759
+You'll notice that I'm only defining train and test loaders here,
+
+00:02:19.759 --> 00:02:21.620
+and that's because in this case I really just
+
+00:02:21.620 --> 00:02:23.895
+want to get my training loss as low as possible.
+
+00:02:23.895 --> 00:02:26.030
+This is not a typical classification task,
+
+00:02:26.030 --> 00:02:27.949
+and validation sets are really most useful
+
+00:02:27.949 --> 00:02:30.209
+when you're trying to predict a quantity like a class.
+
+00:02:30.210 --> 00:02:33.055
+Next, I'm going to visualize just one of our images.
+
+00:02:33.055 --> 00:02:35.825
+Again, this is a 28 by 28 by one tensor,
+
+00:02:35.824 --> 00:02:37.814
+where one is the depth of the color channel.
+
+00:02:37.814 --> 00:02:39.659
+This indicates a gray scale image.
+
+00:02:39.659 --> 00:02:43.639
+So, this is an example of original data that we're going to be passing through a network,
+
+00:02:43.639 --> 00:02:46.713
+and that's what we're going to be trying to compress and then reconstruct.
+
+00:02:46.713 --> 00:02:49.370
+Next, we wanted to define the autoencoder network.
+
+00:02:49.370 --> 00:02:51.655
+Here's a diagram of the network that we're going to build.
+
+00:02:51.655 --> 00:02:52.955
+In this simple example,
+
+00:02:52.955 --> 00:02:55.550
+we'll make an autoencoder out of linear layers.
+
+00:02:55.550 --> 00:02:57.410
+Before we pass anything to our model,
+
+00:02:57.409 --> 00:03:02.439
+we're going to flatten our input images from 28 by 28 into 784 long vectors.
+
+00:03:02.439 --> 00:03:05.479
+We'll pass this flattened input into our encoder.
+
+00:03:05.479 --> 00:03:08.269
+The encoder will just be one linear layer that sees
+
+00:03:08.270 --> 00:03:11.135
+our input and produces a compressed representation.
+
+00:03:11.134 --> 00:03:14.704
+The size of this representation will be a size that we specify.
+
+00:03:14.705 --> 00:03:17.219
+This will be a parameter that you pass and encode,
+
+00:03:17.219 --> 00:03:18.754
+called the encoding dim.
+
+00:03:18.754 --> 00:03:23.745
+For example, we may specify that we want to compress representation with 32 values.
+
+00:03:23.745 --> 00:03:28.009
+Then, this compressed representation will be fed as input into the decoder.
+
+00:03:28.009 --> 00:03:31.370
+The decoder is responsible for forming a reconstructed image
+
+00:03:31.370 --> 00:03:34.920
+and so its job is to essentially reverse the encoder operation.
+
+00:03:34.919 --> 00:03:38.059
+This decoder will also be made of one linear layer that will
+
+00:03:38.060 --> 00:03:41.509
+up sample or increase the dimension of the compressed representation.
+
+00:03:41.509 --> 00:03:45.479
+We want this layer to output a vector of length 784.
+
+00:03:45.479 --> 00:03:50.329
+Later, we'll reshape this vector output into a 28 by 28 reconstructed image,
+
+00:03:50.330 --> 00:03:52.469
+and then we'll be able to compare these two.
+
+00:03:52.469 --> 00:03:55.400
+So, in the code you should define these two layers making sure to
+
+00:03:55.400 --> 00:03:59.025
+produce an encoded compressed vector of this encoding dim size.
+
+00:03:59.025 --> 00:04:01.730
+You'll define these layers in the init function and apply
+
+00:04:01.729 --> 00:04:04.634
+them to an input in the forward function of this autoencoder.
+
+00:04:04.634 --> 00:04:06.310
+Now, in this forward function,
+
+00:04:06.310 --> 00:04:08.810
+you'll want to apply a ReLU activation function
+
+00:04:08.810 --> 00:04:11.740
+to every hidden layer except for the final layer.
+
+00:04:11.740 --> 00:04:15.200
+The final output layer will have a sigmoid activation function to
+
+00:04:15.199 --> 00:04:19.004
+scale its values to be grayscale pixel values between zero and one.
+
+00:04:19.004 --> 00:04:23.279
+After defining the model you can instantiate it and afterwards train the network.
+
+00:04:23.279 --> 00:04:25.689
+Try to create this autoencoder on your own,
+
+00:04:25.689 --> 00:04:29.730
+and next I'll walk you through an example solution and show you how this model trains.
+

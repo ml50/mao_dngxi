@@ -1,0 +1,209 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.219 --> 00:00:03.016
+Neste notebook, eu leio
+os dados novamente
+
+00:00:03.049 --> 00:00:06.633
+e começo com a mesma
+estrutura convolucional.
+
+00:00:06.666 --> 00:00:10.284
+O codificador é composto por camadas
+convolucionais e de max pooling
+
+00:00:10.317 --> 00:00:12.690
+e a representação comprimida
+é a mesma,
+
+00:00:12.723 --> 00:00:15.434
+um output de 7x7x4.
+
+00:00:15.467 --> 00:00:18.691
+O que muda é o decodificador.
+
+00:00:18.724 --> 00:00:22.073
+Em vez de incluir apenas
+camadas convolucionais transpostas,
+
+00:00:22.106 --> 00:00:24.505
+combino a interpolação
+do vizinho mais próximo
+
+00:00:24.538 --> 00:00:26.882
+com camadas convolucionais
+normais.
+
+00:00:26.915 --> 00:00:28.921
+A interpolação do vizinho
+mais próximo
+
+00:00:28.954 --> 00:00:31.913
+é um método de ampliação
+que copia valores de pixels
+
+00:00:31.946 --> 00:00:35.690
+de uma área de, por exemplo, 2x2
+para uma de 4x4.
+
+00:00:35.723 --> 00:00:38.834
+Depois que a representação
+comprimida de 7x7x4
+
+00:00:38.867 --> 00:00:40.608
+é criada pelo codificador,
+
+00:00:40.641 --> 00:00:45.705
+amplio com fator de 2
+para obter um tensor de 14x14x4.
+
+00:00:45.738 --> 00:00:50.022
+Uso a camada convolucional para
+aumentar a profundidade para 16.
+
+00:00:50.055 --> 00:00:54.357
+Mais uma ampliação, para chegar
+ao tamanho desejado, 28x28,
+
+00:00:54.390 --> 00:00:57.087
+e uma camada convolucional
+para chegarmos ao tamanho
+
+00:00:57.120 --> 00:01:01.031
+do output reconstruído,
+28x28x1.
+
+00:01:01.064 --> 00:01:04.072
+Basicamente, substituí uma camada
+convolucional transposta
+
+00:01:04.105 --> 00:01:07.413
+por uma função de ampliação
+e uma camada convolucional.
+
+00:01:07.446 --> 00:01:10.362
+A camada convolucional
+altera a profundidade de um input
+
+00:01:10.395 --> 00:01:12.514
+e acessa uma série
+de filtros de imagem
+
+00:01:12.547 --> 00:01:14.631
+que aprendem
+a transformar as camadas
+
+00:01:14.664 --> 00:01:16.991
+entre a função de ampliação.
+
+00:01:17.024 --> 00:01:19.522
+Se eu for até o código
+do autocodificador,
+
+00:01:19.555 --> 00:01:22.151
+vejo as duas camadas
+convolucionais e a de pooling
+
+00:01:22.184 --> 00:01:23.910
+que definem meu codificador.
+
+00:01:23.943 --> 00:01:26.754
+As camadas do decodificador
+são as duas convolucionais
+
+00:01:26.787 --> 00:01:30.280
+que passam de 4 para 16
+e de 16 para 1, na profundidade.
+
+00:01:30.313 --> 00:01:32.471
+A grande alteração
+está na função forward,
+
+00:01:32.504 --> 00:01:34.131
+na qual está a codificação,
+
+00:01:34.164 --> 00:01:36.474
+mas o decodificador
+está um pouco diferente.
+
+00:01:36.507 --> 00:01:40.003
+Depois da representação comprimida,
+chamo F.upsample.
+
+00:01:40.036 --> 00:01:44.510
+Em algumas versões do PyTorch,
+isso é chamado de "interpolate".
+
+00:01:44.543 --> 00:01:48.053
+Passo o input X e escalono
+pelo fator 2,
+
+00:01:48.086 --> 00:01:50.462
+usando a interpolação
+do vizinho mais próximo.
+
+00:01:50.495 --> 00:01:54.286
+Depois, passo o X ampliado
+para uma camada convolucional.
+
+00:01:54.319 --> 00:01:57.637
+Para cada camada oculta,
+aplico a função de ativação ReLU
+
+00:01:57.670 --> 00:02:00.198
+e uma sigmoide
+no último output.
+
+00:02:00.231 --> 00:02:04.790
+Muito bem, eu defini o modelo
+e treinei exatamente como antes.
+
+00:02:04.823 --> 00:02:09.054
+Vemos que a perda
+começa baixa, cerca de 0,32,
+
+00:02:09.087 --> 00:02:11.416
+e também diminui
+para um valor menor.
+
+00:02:11.449 --> 00:02:15.600
+Aqui estão as imagens originais
+e reconstruídas.
+
+00:02:15.633 --> 00:02:18.017
+Acho que estão muito boas.
+
+00:02:18.050 --> 00:02:22.200
+Estas imagens estão muito
+próximas das originais.
+
+00:02:22.233 --> 00:02:24.612
+Tanto as camadas convolucionais
+transpostas
+
+00:02:24.645 --> 00:02:27.594
+como esta abordagem de ampliação
+funcionam para a tarefa.
+
+00:02:27.627 --> 00:02:31.529
+Lembre-se de que muitas tarefas
+possuem várias soluções.
+
+00:02:31.562 --> 00:02:34.408
+Na verdade, os melhores
+pesquisadores
+
+00:02:34.441 --> 00:02:37.352
+investigam várias opções
+de solução
+
+00:02:37.385 --> 00:02:41.121
+e diferentes arquiteturas que podem
+oferecer benefícios ou trocas.
+
+00:02:41.154 --> 00:02:45.767
+A seguir, darei um desafio
+para você encontrar uma solução.
+
