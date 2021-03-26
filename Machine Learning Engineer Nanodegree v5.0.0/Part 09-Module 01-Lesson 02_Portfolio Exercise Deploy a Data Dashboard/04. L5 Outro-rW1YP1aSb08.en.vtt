@@ -1,0 +1,91 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.725
+It's time to celebrate.
+
+00:00:02.725 --> 00:00:05.865
+You've achieved so much in this course.
+
+00:00:05.865 --> 00:00:09.440
+You've gained experience with software engineering practices,
+
+00:00:09.439 --> 00:00:11.359
+that help you produce efficient,
+
+00:00:11.359 --> 00:00:13.719
+robust and maintainable code.
+
+00:00:13.720 --> 00:00:15.585
+I can't emphasize enough,
+
+00:00:15.585 --> 00:00:19.380
+how much these skills will make you stronger as a data scientist.
+
+00:00:19.379 --> 00:00:25.134
+So, be sure to apply them in your daily work and your professional portfolio.
+
+00:00:25.135 --> 00:00:27.179
+You've also gained experience with
+
+00:00:27.179 --> 00:00:30.780
+object-oriented programming and writing a Python package.
+
+00:00:30.780 --> 00:00:36.090
+You now have a sense for how packages like scikit-learn and pandas work under the hood.
+
+00:00:36.090 --> 00:00:41.385
+Use these skills to write your own packages and share your code with the world.
+
+00:00:41.384 --> 00:00:47.254
+Finally, you've built a web application that loads a data dashboard.
+
+00:00:47.255 --> 00:00:50.510
+We encourage you to take the template code from
+
+00:00:50.509 --> 00:00:54.589
+the web development lesson and reuse it for your own purposes.
+
+00:00:54.590 --> 00:00:59.975
+It's a great way to show off your data analysis and data storytelling skills.
+
+00:00:59.975 --> 00:01:02.719
+This course was designed to get you comfortable with
+
+00:01:02.719 --> 00:01:05.625
+writing code for real world applications.
+
+00:01:05.625 --> 00:01:07.459
+The stronger you are at coding,
+
+00:01:07.459 --> 00:01:10.629
+the more success you'll have as a data scientist.
+
+00:01:10.629 --> 00:01:14.030
+Definitely. Data science is powerful.
+
+00:01:14.030 --> 00:01:16.829
+But to bring its contributions to production,
+
+00:01:16.829 --> 00:01:19.504
+you often need software engineering.
+
+00:01:19.504 --> 00:01:23.179
+Although the amount of software engineering you need to know,
+
+00:01:23.180 --> 00:01:26.010
+will vary across teams and companies,
+
+00:01:26.010 --> 00:01:32.120
+developing these skills will really help you with implementing your data science ideas.
+
+00:01:32.120 --> 00:01:35.570
+Be sure to share what you've built on the Slack channel,
+
+00:01:35.569 --> 00:01:38.809
+on a personal blog and in a GitHub repository.
+
+00:01:38.810 --> 00:01:42.200
+We're really excited to see what you build.
+

@@ -1,0 +1,417 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.316 --> 00:00:03.204
+Quando usei arquivos CSV
+no aplicativo web,
+
+00:00:03.237 --> 00:00:05.762
+eu os baixei deste site.
+
+00:00:05.795 --> 00:00:09.067
+Basta escolher um indicador
+de interesse,
+
+00:00:09.100 --> 00:00:14.237
+clicar nele e depois ir até
+o arquivo CSV e baixa-lo.
+
+00:00:14.270 --> 00:00:18.771
+No entanto, existe outra maneira
+de acessar os dados do Banco Mundial
+
+00:00:18.804 --> 00:00:21.330
+por meio da API
+do Banco Mundial.
+
+00:00:21.363 --> 00:00:25.202
+Se formos a um mecanismo
+de busca e digitarmos
+
+00:00:25.235 --> 00:00:29.810
+"API de dados
+do Banco Mundial",
+
+00:00:29.843 --> 00:00:32.266
+veremos a documentação da API.
+
+00:00:32.299 --> 00:00:37.526
+Em geral, para encontrar uma API
+e a documentação da API,
+
+00:00:37.559 --> 00:00:39.808
+é melhor procurar na internet.
+
+00:00:39.841 --> 00:00:45.290
+Clicarei aqui onde diz
+"API: Basic Call Structure".
+
+00:00:45.323 --> 00:00:48.164
+Basicamente,
+para aprender a usar uma API,
+
+00:00:48.197 --> 00:00:50.595
+precisamos ler a documentação.
+
+00:00:50.628 --> 00:00:53.403
+Se você ainda não viu
+este termo "REST",
+
+00:00:53.436 --> 00:00:56.757
+ele faz referência a uma arquitetura
+de software para a internet
+
+00:00:56.790 --> 00:01:00.481
+chamada de "Representational
+State Transfer".
+
+00:01:00.514 --> 00:01:04.176
+Colocarei alguns links
+sobre a arquitetura REST abaixo.
+
+00:01:04.209 --> 00:01:07.738
+A maioria das APIs modernas
+usa esse tipo de arquitetura.
+
+00:01:07.771 --> 00:01:09.041
+Se descermos,
+
+00:01:09.074 --> 00:01:12.465
+veremos que há
+muitos exemplos.
+
+00:01:12.498 --> 00:01:15.136
+Colarei esses exemplos
+em um navegador web
+
+00:01:15.169 --> 00:01:17.568
+para ver o que acontece.
+
+00:01:17.601 --> 00:01:21.284
+Parece que isso retorna
+as informações de país
+
+00:01:21.317 --> 00:01:25.041
+dos países
+com nível de renda "LIC",
+
+00:01:25.074 --> 00:01:28.726
+que deve significar
+"Países de Baixa Renda", em inglês.
+
+00:01:28.759 --> 00:01:32.284
+Este é um exemplo
+de uma resposta XML.
+
+00:01:32.317 --> 00:01:37.540
+Por padrão, parece que os dados
+são retornados no formato XML.
+
+00:01:37.573 --> 00:01:40.396
+Voltando
+à documentação da API,
+
+00:01:40.429 --> 00:01:43.789
+vemos algumas
+das opções da API
+
+00:01:43.822 --> 00:01:47.485
+e como formatar esses URLs
+para realizar a consulta.
+
+00:01:47.518 --> 00:01:50.789
+Por exemplo, aqui mostra
+que podemos filtrar por data,
+
+00:01:50.822 --> 00:01:53.709
+podemos alterar o formato
+da resposta
+
+00:01:53.742 --> 00:01:56.581
+para obter JSON em vez de XML.
+
+00:01:56.614 --> 00:01:59.326
+Voltando à consulta,
+
+00:01:59.359 --> 00:02:01.381
+por exemplo, podemos digitar
+
+00:02:01.414 --> 00:02:03.926
+format=json
+
+00:02:03.959 --> 00:02:06.357
+e esta será a mesma informação
+de antes,
+
+00:02:06.390 --> 00:02:07.989
+mas em um formato diferente.
+
+00:02:08.022 --> 00:02:11.575
+Eu pessoalmente acho
+que JSON é mais fácil de navegar.
+
+00:02:11.608 --> 00:02:14.164
+Eu optaria pelo JSON
+em vez do XML.
+
+00:02:14.197 --> 00:02:18.837
+Em seguida, vamos clicar
+em "API: Indicator Queries",
+
+00:02:18.870 --> 00:02:21.382
+porque estávamos usando
+os dados do indicador
+
+00:02:21.415 --> 00:02:22.796
+para o aplicativo web.
+
+00:02:22.829 --> 00:02:26.259
+Agora, em vez de baixarmos
+arquivos CSV individuais,
+
+00:02:26.292 --> 00:02:30.037
+pegamos os dados diretamente
+da API do Banco Mundial.
+
+00:02:30.070 --> 00:02:33.475
+Vamos descer para ver
+alguns desses exemplos.
+
+00:02:33.508 --> 00:02:36.609
+Então aqui diz
+"Request Format"
+
+00:02:36.642 --> 00:02:38.889
+e dá este exemplo.
+
+00:02:38.922 --> 00:02:42.169
+Se colocarmos este URL,
+
+00:02:42.202 --> 00:02:44.074
+ele devolverá
+
+00:02:44.962 --> 00:02:47.722
+os indicadores
+do Banco Mundial,
+
+00:02:47.755 --> 00:02:50.213
+com informações
+sobre todos eles.
+
+00:02:50.246 --> 00:02:53.285
+Na verdade, mostra
+apenas 50 deles,
+
+00:02:53.318 --> 00:02:56.168
+pois sei, a partir da leitura
+da documentação da API,
+
+00:02:56.201 --> 00:02:59.244
+que ele fornece
+apenas 50 resultados por vez,
+
+00:02:59.277 --> 00:03:02.214
+como vemos aqui
+em "per page='50'".
+
+00:03:02.878 --> 00:03:06.084
+Mais para baixo,
+está um exemplo
+
+00:03:06.117 --> 00:03:11.150
+de como obter dados do PIB
+para o Brasil.
+
+00:03:11.183 --> 00:03:12.969
+Então, vou copiar isso
+
+00:03:13.661 --> 00:03:18.633
+e colar aqui para ver os resultados,
+dando enter.
+
+00:03:18.666 --> 00:03:21.156
+Isso mostra os dados
+
+00:03:21.189 --> 00:03:25.023
+sobre o PIB brasileiro
+de vários anos,
+
+00:03:25.056 --> 00:03:28.696
+desde 1968.
+
+00:03:28.729 --> 00:03:30.937
+Eu já li a documentação,
+
+00:03:30.970 --> 00:03:34.522
+e sei que podemos
+adicionar opções à consulta,
+
+00:03:34.555 --> 00:03:36.489
+como mais países,
+
+00:03:36.522 --> 00:03:40.321
+mais resultados por página
+ou filtro por ano.
+
+00:03:40.354 --> 00:03:42.385
+Vamos fazer um pouco disso.
+
+00:03:42.418 --> 00:03:45.841
+Por exemplo, podemos adicionar
+outros países à consulta,
+
+00:03:45.874 --> 00:03:49.721
+como os EUA e a China.
+
+00:03:49.754 --> 00:03:53.583
+Sei como formatar isso,
+porque li na documentação.
+
+00:03:53.616 --> 00:03:56.935
+Dou enter. Se eu descer,
+
+00:03:56.968 --> 00:04:00.903
+parece que temos o Brasil,
+mas, como eu disse antes,
+
+00:04:00.936 --> 00:04:03.633
+isso só exibirá
+50 resultados por vez.
+
+00:04:03.666 --> 00:04:05.728
+Para obtermos mais resultados,
+
+00:04:06.575 --> 00:04:09.784
+teremos que usar uma variável,
+
+00:04:09.817 --> 00:04:15.817
+digitar per page e aumentar
+a quantidade de resultados.
+
+00:04:15.850 --> 00:04:19.272
+Teremos 500 resultados por página
+em vez de 50
+
+00:04:19.305 --> 00:04:21.133
+e, se descermos,
+
+00:04:21.166 --> 00:04:25.177
+veremos que também
+temos a China
+
+00:04:25.210 --> 00:04:27.178
+e os Estados Unidos.
+
+00:04:27.211 --> 00:04:31.889
+Digamos que eu também queira
+retornar isso no formato JSON.
+
+00:04:31.922 --> 00:04:35.027
+Podemos digitar format=json.
+
+00:04:35.060 --> 00:04:38.132
+Vemos os mesmos dados,
+mas em formato diferente.
+
+00:04:38.165 --> 00:04:41.331
+Como eu disse, na minha opinião,
+é mais fácil de navegar.
+
+00:04:41.364 --> 00:04:43.358
+Podemos filtrar por data
+
+00:04:43.391 --> 00:04:47.695
+e obter dados de 1990 a 2015.
+
+00:04:47.728 --> 00:04:49.943
+Aqui estão os resultados.
+
+00:04:49.976 --> 00:04:53.193
+Pode parecer que eu magicamente
+sei como fazer tudo isso,
+
+00:04:53.226 --> 00:04:54.702
+mas, na realidade,
+
+00:04:54.735 --> 00:04:57.103
+li a documentação
+do Banco Mundial
+
+00:04:57.136 --> 00:05:00.854
+para preparar este curso
+e vi um monte de exemplos.
+
+00:05:00.887 --> 00:05:03.926
+Por exemplo, como sei
+quais são os nomes dos países?
+
+00:05:03.959 --> 00:05:06.700
+Eu vi na documentação
+que os nomes dos países
+
+00:05:06.733 --> 00:05:10.458
+usam os códigos ISO
+de dois caracteres,
+
+00:05:10.491 --> 00:05:14.643
+que é um padrão internacional
+para abreviar nomes de países.
+
+00:05:15.419 --> 00:05:18.546
+Há algumas ressalvas
+que quero mencionar.
+
+00:05:18.579 --> 00:05:23.782
+Primeiro, esta API não requer
+autenticação ou, em outras palavras,
+
+00:05:23.815 --> 00:05:29.018
+não requer um nome de usuário,
+senha ou outra identificação.
+
+00:05:29.051 --> 00:05:32.897
+Isso significa que posso colar
+diretamente um URL no navegador
+
+00:05:32.930 --> 00:05:34.650
+e obter os resultados,
+
+00:05:34.683 --> 00:05:38.466
+porém, esse não é o caso
+de todas as APIs.
+
+00:05:38.499 --> 00:05:41.602
+Muitas APIs
+exigem alguma autenticação.
+
+00:05:41.635 --> 00:05:45.186
+Precisamos enviar uma solicitação
+de API programaticamente,
+
+00:05:45.219 --> 00:05:47.555
+com o código Python,
+
+00:05:47.588 --> 00:05:50.898
+incluindo uma mensagem que inclui
+suas credenciais.
+
+00:05:50.931 --> 00:05:55.211
+A documentação de uma API
+deve informar como fazer isso.
+
+00:05:55.244 --> 00:05:59.194
+A seguir, praticaremos
+as chamadas da API do Banco Mundial
+
+00:05:59.227 --> 00:06:00.668
+usando o Python
+
+00:06:00.701 --> 00:06:04.531
+e navegaremos
+pelos resultados obtidos.
+
+00:06:04.564 --> 00:06:07.855
+Isso preparará você para usar
+uma API no seu aplicativo web.
+

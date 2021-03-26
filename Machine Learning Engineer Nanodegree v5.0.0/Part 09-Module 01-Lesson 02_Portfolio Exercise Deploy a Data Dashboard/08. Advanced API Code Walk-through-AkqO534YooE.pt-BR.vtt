@@ -1,0 +1,617 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.323 --> 00:00:04.354
+Fiz outra versão do painel de dados
+do Banco Mundial
+
+00:00:04.387 --> 00:00:09.187
+e, desta vez, usei a API
+no back-end para obter os dados.
+
+00:00:09.220 --> 00:00:12.892
+Você também notará
+que há um novo botão vermelho.
+
+00:00:12.925 --> 00:00:17.030
+Ele é um menu no qual
+criei um filtro
+
+00:00:17.063 --> 00:00:21.267
+para escolher países.
+Ao clicar em "Submit",
+
+00:00:21.300 --> 00:00:25.767
+ele filtrará apenas os países
+que você escolheu.
+
+00:00:25.800 --> 00:00:28.480
+Eu adicionei
+este recurso extra
+
+00:00:28.513 --> 00:00:32.391
+para o caso de você já saber
+um pouco sobre desenvolvimento web.
+
+00:00:32.424 --> 00:00:35.896
+Estou tentando encorajá-lo
+a adicionar recursos extras.
+
+00:00:35.929 --> 00:00:39.904
+Isso também pode ajudar
+você a entender um pouco
+
+00:00:39.937 --> 00:00:44.927
+como o código funciona
+com a API no back-end.
+
+00:00:44.960 --> 00:00:47.671
+Vou mostrar o código
+
+00:00:47.704 --> 00:00:49.872
+por trás desta versão
+do aplicativo web,
+
+00:00:49.905 --> 00:00:51.625
+assim você verá
+como ele funciona
+
+00:00:51.658 --> 00:00:54.768
+e como eu usei a API
+para obter os dados,
+
+00:00:54.801 --> 00:00:57.272
+em vez de usar um arquivo CSV.
+
+00:00:57.305 --> 00:01:01.872
+À esquerda, vemos os arquivos
+
+00:01:01.905 --> 00:01:05.056
+que compõem esta versão
+do aplicativo web.
+
+00:01:05.089 --> 00:01:08.175
+Também colocarei isso no GitHub,
+para que você possa baixar
+
+00:01:08.208 --> 00:01:09.831
+e dar uma olhada.
+
+00:01:09.864 --> 00:01:14.708
+Os únicos arquivos alterados
+foram este data.py,
+
+00:01:14.741 --> 00:01:17.116
+que está dentro de scripts -
+
+00:01:17.149 --> 00:01:19.637
+que é onde farei o wrangling
+dos dados -,
+
+00:01:19.670 --> 00:01:23.977
+o index.html,
+no qual adicionei o código
+
+00:01:24.010 --> 00:01:28.529
+que cuida do menu
+de filtro vermelho,
+
+00:01:28.562 --> 00:01:32.203
+e tive que adicionar
+um código extra
+
+00:01:32.236 --> 00:01:34.184
+no routes.py
+
+00:01:34.217 --> 00:01:39.169
+para cuidar da lógica
+da filtragem.
+
+00:01:39.202 --> 00:01:43.105
+Vamos começar com o wrangling
+de dados no data.py.
+
+00:01:44.074 --> 00:01:48.408
+Não se preocupe muito ainda sobre
+como o filtro vermelho funciona
+
+00:01:48.441 --> 00:01:49.715
+no front-end.
+
+00:01:49.748 --> 00:01:54.589
+Só mostrarei o que
+o código de wrangling da API
+
+00:01:54.623 --> 00:01:56.266
+está fazendo.
+
+00:01:56.299 --> 00:02:01.258
+Começo com este dicionário
+padrão de país,
+
+00:02:01.291 --> 00:02:06.786
+no qual tenho o nome do país
+e os códigos ISO de três caracteres.
+
+00:02:06.819 --> 00:02:08.402
+Antes, em vídeos anteriores,
+
+00:02:08.435 --> 00:02:11.275
+usamos os códigos ISO
+de dois caracteres,
+
+00:02:11.308 --> 00:02:14.890
+e, neste código, usaremos
+os códigos ISO de três caracteres,
+
+00:02:14.923 --> 00:02:17.697
+mas os dois funcionam
+com a API.
+
+00:02:17.730 --> 00:02:20.938
+Aqui está a função
+return_figures de antes.
+
+00:02:20.971 --> 00:02:26.490
+A diferença é que estou inserindo
+esta lista de países,
+
+00:02:26.523 --> 00:02:28.866
+que são os países
+que serão filtrados,
+
+00:02:28.899 --> 00:02:31.299
+e, por padrão,
+exibirei todos os países.
+
+00:02:32.547 --> 00:02:34.004
+Vamos descer.
+
+00:02:34.747 --> 00:02:37.839
+Esta lógica diz que,
+
+00:02:37.872 --> 00:02:41.256
+no caso de não haver
+a variável countries,
+
+00:02:41.289 --> 00:02:44.863
+faça do país padrão
+a variável countries.
+
+00:02:44.896 --> 00:02:49.317
+Haverá uma preparação
+na qual crio uma lista dos países
+
+00:02:49.350 --> 00:02:52.744
+com pontos e vírgulas
+entre os países,
+
+00:02:52.777 --> 00:02:57.485
+porque é isso
+que a API espera no URL.
+
+00:02:57.518 --> 00:03:01.875
+Aqui faço uma lista
+dos indicadores que eu quero,
+
+00:03:01.908 --> 00:03:04.583
+pois vou iterar através deles
+em um loop for
+
+00:03:04.616 --> 00:03:07.758
+e vou criar as visualizações
+uma de cada vez.
+
+00:03:07.791 --> 00:03:10.038
+Descendo um pouco...
+
+00:03:10.071 --> 00:03:12.453
+É aqui que iteramos
+cada indicador.
+
+00:03:12.486 --> 00:03:16.157
+O primeiro passo é preparar
+a string de URL
+
+00:03:16.190 --> 00:03:19.367
+para ser enviada
+para a API do Banco Mundial.
+
+00:03:19.400 --> 00:03:23.517
+Então eu uso a biblioteca requests
+na linha 54
+
+00:03:23.550 --> 00:03:29.419
+para obter o URL e, em seguida,
+recebo os dados em JSON.
+
+00:03:29.746 --> 00:03:31.328
+Aqui na linha 59,
+
+00:03:31.361 --> 00:03:36.319
+itero os dados que obtive
+da API do Banco Mundial
+
+00:03:36.352 --> 00:03:39.143
+e os preparo para o Plotly.
+
+00:03:39.176 --> 00:03:41.353
+Esse é o fim do loop for.
+
+00:03:41.386 --> 00:03:45.545
+Voltando para cima,
+ele vai para o próximo indicador,
+
+00:03:45.578 --> 00:03:49.750
+prepara o URL, obtém os dados,
+
+00:03:49.783 --> 00:03:53.817
+os coloca em um dataframe
+e anexa a essa variável data_frames
+
+00:03:53.850 --> 00:03:55.498
+na linha 63.
+
+00:03:55.531 --> 00:03:58.250
+Estou preparando os dados.
+
+00:03:58.881 --> 00:04:01.656
+Quando os dados
+estiverem prontos,
+
+00:04:01.689 --> 00:04:04.616
+preparamos cada gráfico,
+
+00:04:04.649 --> 00:04:06.760
+cada visualização,
+uma de cada vez,
+
+00:04:06.793 --> 00:04:09.217
+assim como
+na outra versão do código.
+
+00:04:09.250 --> 00:04:11.017
+Aqui preparamos graph_one -
+
+00:04:11.050 --> 00:04:13.803
+mas ainda precisaremos fazer
+um wrangling de dados -,
+
+00:04:14.745 --> 00:04:16.150
+fazemos uma classificação
+
+00:04:16.183 --> 00:04:19.099
+para garantir que tudo esteja
+na ordem correta desejada,
+
+00:04:19.132 --> 00:04:24.008
+obtemos a lista de países,
+como na outra versão do aplicativo,
+
+00:04:24.041 --> 00:04:27.792
+e preparamos graph_one
+para Plotly.
+
+00:04:27.825 --> 00:04:29.901
+Temos o layout aqui também.
+
+00:04:30.590 --> 00:04:35.669
+Preparamos graph_two
+com o segundo dataframe criado.
+
+00:04:35.702 --> 00:04:38.490
+Há um pouco
+de wrangling de dados.
+
+00:04:38.523 --> 00:04:41.974
+Preparamos graph_two
+e o layout dele.
+
+00:04:42.007 --> 00:04:43.447
+O graph_three...
+
+00:04:43.480 --> 00:04:46.679
+Descendo... O graph_four...
+
+00:04:47.295 --> 00:04:53.150
+Anexamos os gráficos
+e a função retorna os valores.
+
+00:04:53.183 --> 00:04:57.794
+A principal diferença
+neste arquivo data.py
+
+00:04:57.827 --> 00:05:00.755
+é que usamos a API
+para obter os dados,
+
+00:05:00.788 --> 00:05:04.082
+em vez de usar os arquivos CSV
+que carregamos
+
+00:05:04.115 --> 00:05:05.811
+como parte do aplicativo web.
+
+00:05:05.844 --> 00:05:08.988
+Em seguida,
+vejamos o index.html.
+
+00:05:09.021 --> 00:05:13.729
+O index.html está muito parecido
+com o que era antes,
+
+00:05:13.762 --> 00:05:18.619
+a única diferença é que
+adicionamos um filtro flexível,
+
+00:05:18.652 --> 00:05:22.876
+que é apenas um formulário HTML
+que podemos enviar.
+
+00:05:23.739 --> 00:05:27.071
+Não mostrei
+como fazer um formulário,
+
+00:05:27.104 --> 00:05:30.471
+como enviar um formulário
+nem como essa lógica funciona,
+
+00:05:30.504 --> 00:05:32.527
+mas vou guiar você pelo código
+
+00:05:32.560 --> 00:05:35.410
+para que tenha uma ideia
+do que está acontecendo.
+
+00:05:35.443 --> 00:05:38.670
+Isso está um pouco além
+do escopo deste curso,
+
+00:05:38.703 --> 00:05:43.016
+mas mostra que, se você realmente
+gosta de desenvolvimento web,
+
+00:05:43.049 --> 00:05:45.760
+há mais a aprender e a fazer,
+
+00:05:45.793 --> 00:05:48.289
+e você poderá sempre
+adicionar mais recursos.
+
+00:05:48.322 --> 00:05:53.561
+Descendo, temos
+o menu do filtro.
+
+00:05:53.594 --> 00:05:57.774
+Tudo isso veio de um exemplo
+
+00:05:57.807 --> 00:05:59.951
+do site do Bootstrap.
+
+00:05:59.984 --> 00:06:03.280
+Temos um botão,
+que é o botão vermelho,
+
+00:06:03.313 --> 00:06:05.457
+e um menu.
+
+00:06:06.154 --> 00:06:08.422
+Perceba que estou usando
+Jinja,
+
+00:06:08.455 --> 00:06:11.089
+e explicarei em um minuto
+o que estou fazendo.
+
+00:06:12.367 --> 00:06:17.802
+Vemos um formulário,
+que poderá ser enviado...
+
+00:06:18.957 --> 00:06:21.685
+com este botão submit
+aqui embaixo.
+
+00:06:22.678 --> 00:06:27.134
+O que esse código Jinja
+está fazendo?
+
+00:06:28.445 --> 00:06:31.588
+Basicamente,
+obtendo do front-end
+
+00:06:31.621 --> 00:06:35.467
+as variáveis que foram selecionadas
+ou submetidas
+
+00:06:35.500 --> 00:06:39.845
+e está filtrando
+
+00:06:39.878 --> 00:06:42.029
+para saber
+quais devem ser selecionadas
+
+00:06:42.062 --> 00:06:44.570
+a partir do que foi
+apresentado antes.
+
+00:06:44.603 --> 00:06:47.781
+Aqui estou preenchendo
+os nomes de todos os países.
+
+00:06:47.814 --> 00:06:51.629
+Pode ser um pouco confuso,
+se você não estiver familiarizado
+
+00:06:51.662 --> 00:06:55.548
+com JavaScript,
+com o Jinja e com o HTML,
+
+00:06:55.581 --> 00:07:00.221
+mas observe o código um pouco
+e veja se consegue entender.
+
+00:07:00.254 --> 00:07:04.535
+A outra chave para esse código
+está aqui embaixo.
+
+00:07:05.190 --> 00:07:08.331
+Há um pouco de JavaScript
+que escrevi -
+
+00:07:08.364 --> 00:07:12.975
+na verdade, é um jQuery -
+para cuidar do filtro.
+
+00:07:13.854 --> 00:07:18.741
+Então, por exemplo, vemos aqui
+que isso marca ou desmarca
+
+00:07:18.774 --> 00:07:21.973
+as caixas de filtro a partir
+da seleção de "Select All".
+
+00:07:22.006 --> 00:07:25.413
+Se voltarmos aqui
+e clicarmos em "Select All",
+
+00:07:25.446 --> 00:07:27.573
+é aqui que o código agirá.
+
+00:07:27.606 --> 00:07:30.734
+"Desmarque 'Select All' quando
+desmarcar outra caixa."
+
+00:07:30.767 --> 00:07:34.189
+É isso aqui.
+Quando clico em algo,
+
+00:07:34.222 --> 00:07:36.605
+ele desmarca
+a caixa "Select All"
+
+00:07:36.638 --> 00:07:40.109
+e marca "Select All" ao selecionar
+todas as caixas,
+
+00:07:40.142 --> 00:07:41.701
+como acabamos de ver.
+
+00:07:41.734 --> 00:07:45.189
+Quando marco tudo,
+"Select All" é escolhido.
+
+00:07:45.222 --> 00:07:49.164
+Outra parte a ser observada
+é a do routes.py,
+
+00:07:49.197 --> 00:07:51.558
+que é muito semelhante -
+
+00:07:51.591 --> 00:07:55.750
+na verdade, se observarmos
+daqui para baixo,
+
+00:07:55.783 --> 00:07:59.871
+ele será bem parecido
+com o que tínhamos antes.
+
+00:07:59.904 --> 00:08:05.239
+A diferença é que routes.py cuida
+do envio deste formulário.
+
+00:08:05.272 --> 00:08:09.206
+Quando enviamos o formulário,
+
+00:08:09.239 --> 00:08:15.192
+ele envia algo chamado
+de "solicitação de postagem".
+
+00:08:15.225 --> 00:08:19.079
+Quando enviamos
+uma solicitação de postagem,
+
+00:08:19.112 --> 00:08:21.640
+pedimos que ele
+leia o formulário
+
+00:08:21.673 --> 00:08:24.847
+e descubra quais países
+foram selecionados.
+
+00:08:24.880 --> 00:08:27.904
+Em seguida, pegue cada país
+que foi selecionado
+
+00:08:27.937 --> 00:08:31.647
+e anexe a essa lista
+countries_selected.
+
+00:08:31.680 --> 00:08:35.095
+Vemos que countries_selected
+foi enviada para o front-end
+
+00:08:35.128 --> 00:08:37.271
+no index.html,
+
+00:08:37.304 --> 00:08:42.111
+e era isso que o código Jinja
+no index.html estava fazendo,
+
+00:08:42.144 --> 00:08:46.608
+ele iterava pela variável
+countries_selected
+
+00:08:46.641 --> 00:08:49.991
+para saber quais caixas de seleção
+deviam ser marcadas
+
+00:08:50.024 --> 00:08:52.743
+e quais não deviam,
+a partir do filtro.
+
+00:08:52.776 --> 00:08:55.062
+Sei que estou passando
+por isso rapidamente,
+
+00:08:55.095 --> 00:08:57.487
+mas, se você baixar
+este código
+
+00:08:57.520 --> 00:09:01.087
+e conseguir analisá-lo,
+você descobrirá toda a lógica,
+
+00:09:01.120 --> 00:09:04.591
+e será muito útil
+ver o que você consegue fazer
+
+00:09:04.624 --> 00:09:06.607
+com um aplicativo web.
+
+00:09:06.640 --> 00:09:09.030
+Mas o principal,
+
+00:09:09.063 --> 00:09:11.717
+se estiver fazendo
+a versão avançada do projeto,
+
+00:09:11.750 --> 00:09:14.494
+será o que está acontecendo
+no data.py.
+
+00:09:14.527 --> 00:09:19.311
+O filtro aqui é algo extra
+que fiz,
+
+00:09:19.344 --> 00:09:24.601
+mas o principal
+é observar como usei a API
+
+00:09:24.634 --> 00:09:27.894
+no data.py para obter os dados
+
+00:09:27.927 --> 00:09:30.433
+e usá-los
+para criar os gráficos.
+

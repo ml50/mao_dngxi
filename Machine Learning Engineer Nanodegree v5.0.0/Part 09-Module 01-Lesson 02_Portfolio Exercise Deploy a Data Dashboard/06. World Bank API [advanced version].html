@@ -1,0 +1,295 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   World Bank API [advanced version]
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Portfolio Exercise: Deploy a Data Dashboard
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Workspace Portfolio Exercise.html">
+       02. Workspace Portfolio Exercise
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Troubleshooting Possible Errors.html">
+       03. Troubleshooting Possible Errors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Congratulations.html">
+       04. Congratulations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. APIs [advanced version].html">
+       05. APIs [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="06. World Bank API [advanced version].html">
+       06. World Bank API [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Python and APIs [advanced version].html">
+       07. Python and APIs [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="08. World Bank Data Dashboard [advanced version].html">
+       08. World Bank Data Dashboard [advanced version]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. World Bank API [advanced version]
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="the-world-bank-api">
+          The World Bank API
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          44   Accessing The API Through Web Address  SC 44  V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="06. 44   Accessing The API Through Web Address  SC 44  V2-nygWkgUQNfo.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="06. 44   Accessing The API Through Web Address  SC 44  V2-nygWkgUQNfo.pt-BR.vtt" srclang="pt-BR"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="06. 44   Accessing The API Through Web Address  SC 44  V2-nygWkgUQNfo.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="06. 44   Accessing The API Through Web Address  SC 44  V2-nygWkgUQNfo.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="rest-architecture">
+          REST Architecture
+         </h1>
+         <p>
+          REST is a software architecture for the web. You don't need to understand how REST works in order to use an API. but you will see the term used quite frequently when working with APIs. Modern web APIs are often called RESTFul to indicate that they conform to a REST Architecture.
+         </p>
+         <ul>
+          <li>
+           <a href="https://restfulapi.net/" rel="noopener noreferrer" target="_blank">
+            REST API Tutorial
+           </a>
+          </li>
+          <li>
+           <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" rel="noopener noreferrer" target="_blank">
+            Wikipedia Article on REST
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="world-bank-api">
+          World Bank API
+         </h1>
+         <p>
+          Here is the website where the csv files were downloaded for the World Bank web app:
+          <a href="https://data.worldbank.org/indicator?tab=featured" rel="noopener noreferrer" target="_blank">
+           World Bank Indicator Data
+          </a>
+         </p>
+         <p>
+          And here is the link to the World Bank API documenation:
+          <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-api-documentation" rel="noopener noreferrer" target="_blank">
+           World Bank API Documentation
+          </a>
+         </p>
+         <p>
+          One tricky aspect of working with the World Bank API is that it only gives back 50 results at a time. There is an option called per_page that allows you to return up to 1000 results. However, some queries might have more than 1000 results. That's where the
+          <code>
+           page
+          </code>
+          option comes into play. You'll notice that at the very beginning of the data, there is a variable called
+          <code>
+           page
+          </code>
+          and another one called
+          <code>
+           pages
+          </code>
+          . If page=1 and pages=4, then you'd need to write 4 queries with the option page=1, page=2, page=3 and page=4.
+         </p>
+         <p>
+          Next, you'll practice pulling data from the API using Python code.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Python and APIs [advanced version].html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. World Bank API [advanced version]')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

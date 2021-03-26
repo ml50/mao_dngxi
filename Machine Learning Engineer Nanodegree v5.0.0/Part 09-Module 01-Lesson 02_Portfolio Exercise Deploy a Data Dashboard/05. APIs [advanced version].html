@@ -1,0 +1,312 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   APIs [advanced version]
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Portfolio Exercise: Deploy a Data Dashboard
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Workspace Portfolio Exercise.html">
+       02. Workspace Portfolio Exercise
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Troubleshooting Possible Errors.html">
+       03. Troubleshooting Possible Errors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Congratulations.html">
+       04. Congratulations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. APIs [advanced version].html">
+       05. APIs [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="06. World Bank API [advanced version].html">
+       06. World Bank API [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Python and APIs [advanced version].html">
+       07. Python and APIs [advanced version]
+      </a>
+     </li>
+     <li class="">
+      <a href="08. World Bank Data Dashboard [advanced version].html">
+       08. World Bank Data Dashboard [advanced version]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. APIs [advanced version]
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="what-is-an-api">
+          What is an API?
+         </h1>
+         <p>
+          Instead of downloading World Bank data via a csv file, you're going to download the data using the World Bank API.
+         </p>
+         <p>
+          API is an acronym that stands for application programming interface. API’s provide a standardized way for two applications to talk to each other. For this project, the applications communicating with each other are the server application where World Bank stores data and your web application.
+         </p>
+         <p>
+          If you wanted to pull data directly from the World Bank’s server, you’d have to know what database system the World Bank was using. You’d also need permission to log in directly to the server, which would be a security risk for the World Bank. And if the World Bank ever migrated its data to a new system, you would have to rewrite all of your code again.
+         </p>
+         <p>
+          The API sits between your web app and the World Bank server. And the API allows you to execute code on the World Bank server without getting direct access.
+         </p>
+         <p>
+          All sorts of companies have public facing APIs including Facebook, Twitter, Google and Pinterest. You can pull data from these companies to create your own applications.
+         </p>
+         <p>
+          In the next section, you’ll get practice using Python to pull data from the World Bank API. This will set you up for creating the web app with data from the API instead of using data from a csv file.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="apis-besides-the-world-bank">
+          APIs Besides the World Bank
+         </h1>
+         <p>
+          All types of companies have APIs. Some of these APIs are only for internal company use while other APIs help the public consume data. A few examples of public APIs include the
+          <a href="https://developer.twitter.com/en/docs.html" rel="noopener noreferrer" target="_blank">
+           Twitter API
+          </a>
+          , the
+          <a href="https://cloud.google.com/maps-platform/" rel="noopener noreferrer" target="_blank">
+           Google Maps API
+          </a>
+          , the
+          <a href="https://developers.facebook.com/docs/graph-api" rel="noopener noreferrer" target="_blank">
+           Facebook Graph API
+          </a>
+          , and the
+          <a href="https://www.data.gov/developers/apis" rel="noopener noreferrer" target="_blank">
+           US Government Data APIs
+          </a>
+          .
+         </p>
+         <p>
+          In addition, oftentimes you can find open source libraries or development kits for connecting to an API. For example, here is an open source Python development kit for the
+          <a href="https://github.com/mobolic/facebook-sdk" rel="noopener noreferrer" target="_blank">
+           Facebook Graph API
+          </a>
+          .
+         </p>
+         <p>
+          Some APIs might be used for pulling data from a database. But other APIs are for adding data to a database. For example, you might make an application that automatically tweets the current weather. In that case, you would use the Twitter API to post a tweet, which in reality inserts a tweet into Twitter's database.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="using-an-api">
+          Using an API
+         </h1>
+         <p>
+          In the next few parts of the lesson, you'll see how to use the World Bank API. This API is relatively straightforward to use. Each API, however, will have a different set up and only allow you to take certain actions. In general, you send a request via a web url that specifies the information you want. You receive data back typically in
+          <a href="https://www.w3schools.com/xml/xml_whatis.asp" rel="noopener noreferrer" target="_blank">
+           XML
+          </a>
+          or
+          <a href="https://www.w3schools.com/js/js_json_intro.asp" rel="noopener noreferrer" target="_blank">
+           JSON
+          </a>
+          .
+         </p>
+         <p>
+          The XML standard was developed in the 1970s and 1980s and soon became a common way to transfer data over the web. JSON was developed in the mid 1990s. Over time,
+          <a href="https://www.programmableweb.com/news/jsons-eight-year-convergence-xml/2013/12/26" rel="noopener noreferrer" target="_blank">
+           JSON has increased in popularity relative to XML
+          </a>
+          perhaps because JSON is easier to parse.
+         </p>
+         <p>
+          Some APIs require authentication; essentially the company with the API gives you 'credentials' so that they can track how you are using the API and ensure you have the proper permissions.
+         </p>
+         <p>
+          Some APIs might let you extract data from a database. Other APIs might even let you insert data into a database depending on the use case. Most APIs include extensive documentation so that you can figure out how to use APIs.
+         </p>
+         <p>
+          If you ever can’t figure out how to use an API, search online for examples. You can search for something like, “Examples for using the World Bank API” or “Examples for using the Facebook API”.
+         </p>
+         <p>
+          Move on to the next section to see how to use the World Bank API and incorporate it into a web app.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. World Bank API [advanced version].html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. APIs [advanced version]')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>
