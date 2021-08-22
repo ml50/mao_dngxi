@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
   <title>
-   Scenario #2
+   Scenario #1
   </title>
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="../assets/css/plyr.css" rel="stylesheet"/>
@@ -133,18 +133,18 @@
       </a>
      </li>
      <li class="">
-      <a href="21. Scenario #1.html">
-       21. Scenario #1
+      <a href="21. Scenario 1.html">
+       21. Scenario 1
       </a>
      </li>
      <li class="">
-      <a href="22. Scenario #2.html">
-       22. Scenario #2
+      <a href="22. Scenario 2.html">
+       22. Scenario 2
       </a>
      </li>
      <li class="">
-      <a href="23. Scenario #3.html">
-       23. Scenario #3
+      <a href="23. Scenario 3.html">
+       23. Scenario 3
       </a>
      </li>
      <li class="">
@@ -181,7 +181,7 @@
           </div>
          </button>
          <h1 style="display: inline-block">
-          22. Scenario #2
+          21. Scenario #1
          </h1>
         </div>
        </div>
@@ -194,14 +194,14 @@
        <div class="ud-atom">
         <h3>
          <p>
-          L2 18 Version Control Git Commit Messages V1 V2
+          L2 18 Version Control Git Branches V1 V2
          </p>
         </h3>
         <video controls="">
-         <source src="22. L2 18 Version Control Git Commit Messages V1 V2-w1iHWpwOkMg.mp4" type="video/mp4"/>
-         <track default="false" kind="subtitles" label="pt-BR" src="22. L2 18 Version Control Git Commit Messages V1 V2-w1iHWpwOkMg.pt-BR.vtt" srclang="pt-BR"/>
-         <track default="true" kind="subtitles" label="en" src="22. L2 18 Version Control Git Commit Messages V1 V2-w1iHWpwOkMg.en.vtt" srclang="en"/>
-         <track default="false" kind="subtitles" label="zh-CN" src="22. L2 18 Version Control Git Commit Messages V1 V2-w1iHWpwOkMg.zh-CN.vtt" srclang="zh-CN"/>
+         <source src="21. L2 18 Version Control Git Branches V1 V2-C92YcuwjZOs.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="21. L2 18 Version Control Git Branches V1 V2-C92YcuwjZOs.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="21. L2 18 Version Control Git Branches V1 V2-C92YcuwjZOs.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="pt-BR" src="21. L2 18 Version Control Git Branches V1 V2-C92YcuwjZOs.pt-BR.vtt" srclang="pt-BR"/>
         </video>
        </div>
        <div class="divider">
@@ -210,47 +210,118 @@
         <h3>
         </h3>
         <div>
-         <h1 id="scenario-2">
-          Scenario #2
+         <h1 id="scenario-1">
+          Scenario #1
          </h1>
          <p>
           Let's walk through the git commands that go along with each step in the scenario you just observed in the video above.
          </p>
-         <h4 id="step-1-you-check-your-commit-history-seeing-messages-of-the-changes-you-made-and-how-well-it-performed">
-          Step 1: You check your commit history, seeing messages of the changes you made and how well it performed.
+         <h4 id="step-1-you-have-a-local-version-of-this-repository-on-your-laptop-and-to-get-the-latest-stable-version-you-pull-from-the-develop-branch">
+          STEP 1: You have a local version of this repository on your laptop, and to get the latest stable version, you pull from the develop branch.
          </h4>
          <blockquote>
-          <h5 id="view-log-history">
-           View log history
+          <h5 id="switch-to-the-develop-branch">
+           Switch to the develop branch
           </h5>
           <p>
            <code>
-            git log
+            git checkout develop
            </code>
           </p>
          </blockquote>
-         <h4 id="step-2-the-model-at-this-commit-seemed-to-score-the-highest-so-you-decide-to-take-a-look">
-          Step 2: The model at this commit seemed to score the highest, so you decide to take a look.
-         </h4>
          <blockquote>
-          <h5 id="checkout-a-commit">
-           Checkout a commit
+          <h5 id="pull-latest-changes-in-the-develop-branch">
+           Pull latest changes in the develop branch
           </h5>
           <p>
            <code>
-            git checkout bc90f2cbc9dc4e802b46e7a153aa106dc9a88560
+            git pull
            </code>
           </p>
          </blockquote>
-         <p>
-          After inspecting your code, you realize what modifications made this perform well, and use those for your model.
-         </p>
-         <h4 id="step-3-now-you’re-pretty-confident-merging-this-back-into-the-development-branch-and-pushing-the-updated-recommendation-engine">
-          Step 3: Now, you’re pretty confident merging this back into the development branch, and pushing the updated recommendation engine.
+         <h4 id="step-2-when-you-start-working-on-this-demographic-feature-you-create-a-new-branch-for-this-called-demographic-and-start-working-on-your-code-in-this-branch">
+          STEP 2: When you start working on this demographic feature, you create a new branch for this called demographic, and start working on your code in this branch.
          </h4>
          <blockquote>
-          <h5 id="switch-to-develop-branch">
-           Switch to develop branch
+          <h5 id="create-and-switch-to-new-branch-called-demographic-from-develop-branch">
+           Create and switch to new branch called demographic from develop branch
+          </h5>
+          <p>
+           <code>
+            git checkout -b demographic
+           </code>
+          </p>
+         </blockquote>
+         <blockquote>
+          <h5 id="work-on-this-new-feature-and-commit-as-you-go">
+           Work on this new feature and commit as you go
+          </h5>
+          <p>
+           <code>
+            git commit -m 'added gender recommendations'
+           </code>
+           <br/>
+           <code>
+            git commit -m 'added location specific recommendations'
+           </code>
+           <br/>
+           <code>
+            ...
+           </code>
+          </p>
+         </blockquote>
+         <h4 id="step-3-however-in-the-middle-of-your-work-you-need-to-work-on-another-feature-so-you-commit-your-changes-on-this-demographic-branch-and-switch-back-to-the-develop-branch">
+          STEP 3: However, in the middle of your work, you need to work on another feature. So you commit your changes on this demographic branch, and switch back to the develop branch.
+         </h4>
+         <blockquote>
+          <h5 id="commit-changes-before-switching">
+           Commit changes before switching
+          </h5>
+          <p>
+           <code>
+            git commit -m 'refactored demographic gender and location recommendations '
+           </code>
+          </p>
+         </blockquote>
+         <blockquote>
+          <h5 id="switch-to-the-develop-branch-1">
+           Switch to the develop branch
+          </h5>
+          <p>
+           <code>
+            git checkout develop
+           </code>
+          </p>
+         </blockquote>
+         <h4 id="step-4-from-this-stable-develop-branch-you-create-another-branch-for-a-new-feature-called-friend_groups">
+          STEP 4: From this stable develop branch, you create another branch for a new feature called friend_groups.
+         </h4>
+         <blockquote>
+          <h5 id="create-and-switch-to-new-branch-called-friend_groups-from-develop-branch">
+           Create and switch to new branch called friend_groups from develop branch
+          </h5>
+          <p>
+           <code>
+            git checkout -b friend_groups
+           </code>
+          </p>
+         </blockquote>
+         <h4 id="step-5-after-you-finish-your-work-on-the-friend_groups-branch-you-commit-your-changes-switch-back-to-the-development-branch-merge-it-back-to-the-develop-branch-and-push-this-to-the-remote-repository’s-develop-branch">
+          STEP 5: After you finish your work on the friend_groups branch, you commit your changes, switch back to the development branch, merge it back to the develop branch, and push this to the remote repository’s develop branch.
+         </h4>
+         <blockquote>
+          <h5 id="commit-changes-before-switching-1">
+           Commit changes before switching
+          </h5>
+          <p>
+           <code>
+            git commit -m 'finalized friend_groups recommendations '
+           </code>
+          </p>
+         </blockquote>
+         <blockquote>
+          <h5 id="switch-to-the-develop-branch-2">
+           Switch to the develop branch
           </h5>
           <p>
            <code>
@@ -264,17 +335,30 @@
           </h5>
           <p>
            <code>
-            git merge --no-ff friend_groups
+            git merge --no-ff friends_groups
            </code>
           </p>
          </blockquote>
          <blockquote>
-          <h5 id="push-changes-to-remote-repository">
-           Push changes to remote repository
+          <h5 id="push-to-remote-repository">
+           Push to remote repository
           </h5>
           <p>
            <code>
             git push origin develop
+           </code>
+          </p>
+         </blockquote>
+         <h4 id="step-6-now-you-can-switch-back-to-the-demographic-branch-to-continue-your-progress-on-that-feature">
+          STEP 6: Now, you can switch back to the demographic branch to continue your progress on that feature.
+         </h4>
+         <blockquote>
+          <h5 id="switch-to-the-demographic-branch">
+           Switch to the demographic branch
+          </h5>
+          <p>
+           <code>
+            git checkout demographic
            </code>
           </p>
          </blockquote>
@@ -285,7 +369,7 @@
       </div>
       <div class="col-12">
        <p class="text-right">
-        <a class="btn btn-outline-primary mt-4" href="23. Scenario #3.html" role="button">
+        <a class="btn btn-outline-primary mt-4" href="22. Scenario #2.html" role="button">
          Next Concept
         </a>
        </p>
@@ -369,7 +453,7 @@
       }
 
       // scroll sidebar to current concept
-      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('22. Scenario #2')" )
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('21. Scenario #1')" )
       currentInSideBar.css( "text-decoration", "underline" );
       $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
     });
